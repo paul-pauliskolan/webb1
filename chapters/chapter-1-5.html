@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 1.5: Miniuppgift där eleven bygger en enkel profilsida.">
+    <title>Kap 1.5 - Miniuppgift: profilsida</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 1</p>
+                <h1>Kap 1.5 - Miniuppgift: profilsida</h1>
+                <p class="subtitle">Du använder det du har lärt dig för att skapa en egen enkel webbsida.</p>
+            </header>
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Skapa en fungerande HTML-sida från grunden.</li>
+                    <li>Använda rubrik, text, bild, länk och listor.</li>
+                    <li>Kontrollera filvägar och validera koden.</li>
+                </ul>
+
+                <h2>Uppgift</h2>
+                <p>Skapa en profilsida i mappen <code>profil-sida</code>. Sidan ska presentera dig, ett intresse, en
+                    hobby, ett ämne eller en fiktiv person. Välj gärna något neutralt om du inte vill skriva om dig
+                    själv.</p>
+
+                <h2>Krav</h2>
+                <ul>
+                    <li>Filen ska heta <code>index.html</code>.</li>
+                    <li>Sidan ska ha korrekt grundstruktur med <code>DOCTYPE</code>, <code>html lang</code>,
+                        <code>head</code> och <code>body</code>.
+                    </li>
+                    <li>Sidan ska ha en tydlig <code>title</code>.</li>
+                    <li>Sidan ska innehålla minst en <code>h1</code> och två <code>p</code>.</li>
+                    <li>Sidan ska innehålla en bild med fungerande <code>src</code> och beskrivande <code>alt</code>.
+                    </li>
+                    <li>Sidan ska innehålla minst en extern länk.</li>
+                    <li>Sidan ska innehålla en ordnad lista och en oordnad lista.</li>
+                    <li>Sidan ska innehålla minst en HTML-kommentar.</li>
+                </ul>
+
+                <h2>Exempel på struktur</h2>
+                <pre><code>&lt;body&gt;
+    &lt;h1&gt;Min profilsida&lt;/h1&gt;
+    &lt;p&gt;Kort presentation.&lt;/p&gt;
+    &lt;img src="images/profilbild.jpg" alt="Beskrivning av bilden"&gt;
+    &lt;p&gt;Mer information om ämnet.&lt;/p&gt;
+    &lt;a href="https://example.com"&gt;En relevant länk&lt;/a&gt;
+&lt;/body&gt;</code></pre>
+
+                <h2>Kontrollera innan du går vidare</h2>
+                <ol>
+                    <li>Öppna sidan med Live Server.</li>
+                    <li>Kontrollera att bilden syns.</li>
+                    <li>Klicka på länken och se att den fungerar.</li>
+                    <li>Validera HTML-koden.</li>
+                    <li>Rätta fel innan du fortsätter till publicering.</li>
+                </ol>
+
+                <h2>Exit ticket</h2>
+                <p>Skriv två meningar: vad fungerade direkt, och vilket fel behövde du felsöka?</p>
+            </section>
+            <div id="quiz-1-5" aria-label="Quiz Kap 1.5"></div>
+            <p><a href="chapter-1.html">Tillbaka till Modul 1</a></p>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Miniuppgift</p><h2>Rätt ordning</h2><p>Bygg först. Testa sedan. Validera sist, och rätta innan du publicerar.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-1-5'), {
+                title: 'Quiz: Kap 1.5 - Miniuppgift profilsida',
+                questions: [
+                    { question: 'Vad ska startsidans fil heta i uppgiften?', options: ['profil.docx', 'index.html', 'start.py', 'bild.html'], correct: 1, feedback: 'Startsidan har ett standardnamn.', explanation: 'index.html är filen GitHub Pages och många servrar kan hitta som startsida.' },
+                    { question: 'Vad ska alt-attributet göra?', options: ['Beskriva bilden', 'Starta CSS', 'Byta filnamn', 'Skapa en lista'], correct: 0, feedback: 'Alt är textalternativ.', explanation: 'Alt-text hjälper användare och hjälpmedel förstå bildens innehåll.' },
+                    { question: 'Vad bör du göra om bilden inte syns?', options: ['Kontrollera sökväg och filnamn', 'Ta bort body', 'Byta till WordPress', 'Radera title'], correct: 0, feedback: 'Bildfel beror ofta på sökvägen.', explanation: 'Kontrollera mapp, filnamn, filändelse och stora/små bokstäver.' },
+                    { question: 'Vilket element används för en punktlista?', options: ['ol', 'ul', 'img', 'meta'], correct: 1, feedback: 'Punktlistor är oordnade listor.', explanation: 'ul används för oordnade listor.' },
+                    { question: 'Varför ska du validera sidan?', options: ['För att hitta HTML-fel', 'För att köpa domännamn', 'För att installera VS Code', 'För att skapa en video'], correct: 0, feedback: 'Validering kontrollerar koden.', explanation: 'En sida kan se okej ut i webbläsaren men ändå innehålla fel.' }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

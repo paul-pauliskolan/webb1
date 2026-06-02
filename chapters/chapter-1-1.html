@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 1.1: Vad webbutveckling är och hur webben fungerar.">
+    <title>Kap 1.1 - Vad är webbutveckling?</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 1</p>
+                <h1>Kap 1.1 - Vad är webbutveckling?</h1>
+                <p class="subtitle">Webbutveckling handlar om att skapa innehåll, struktur, utseende och funktioner som
+                    människor kan använda i en webbläsare.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förklara skillnaden mellan klient och server.</li>
+                    <li>Känna igen begrepp som URL, DNS, IP-adress, HTTP och HTTPS.</li>
+                    <li>Förstå varför standarder gör webben möjlig att använda på många enheter.</li>
+                </ul>
+
+                <h2>Startfrågor</h2>
+                <ol>
+                    <li>Vad händer när du skriver en webbadress i webbläsaren?</li>
+                    <li>Varför tror du att samma webbsida kan visas på mobil, dator och surfplatta?</li>
+                </ol>
+
+                <h2>Webben i korthet</h2>
+                <p>Webben skapades för att dokument skulle kunna länkas ihop och hämtas över internet. Tim
+                    Berners-Lee presenterade iden 1989 på CERN, och 1991 blev webben tillgänglig för fler användare.
+                    När W3C bildades 1994 började arbetet med gemensamma standarder för bland annat HTML och CSS.</p>
+                <p>Standarder är viktiga eftersom webben inte ägs av en enda webbläsare eller ett enda företag. En sida
+                    ska kunna fungera i olika webbläsare, operativsystem och skärmstorlekar.</p>
+
+                <h2>Klient, server och URL</h2>
+                <p>Din webbläsare är en klient. Den begär filer från en server. Servern svarar med HTML, CSS, bilder,
+                    JavaScript eller ett felmeddelande. Adressen du skriver kallas URL. Den pekar ut vilken server och
+                    vilken resurs du vill hämta.</p>
+                <p>En domän som <code>example.com</code> behöver översättas till en IP-adress. Det görs med DNS, som
+                    fungerar ungefär som internets adressbok.</p>
+
+                <h2>HTTP, HTTPS och statuskoder</h2>
+                <p>Webbläsaren och servern kommunicerar med protokollet HTTP. Den säkra varianten heter HTTPS. I HTTPS
+                    krypteras kommunikationen med TLS. Uttrycket SSL-certifikat används fortfarande ofta, även om modern
+                    kryptering egentligen bygger på TLS.</p>
+                <p>När servern svarar skickas en statuskod. <code>200</code> betyder normalt att begäran lyckades.
+                    <code>404</code> betyder att resursen inte hittades. Statuskoderna delas in i grupper: 100-tal för
+                    information, 200-tal för lyckade svar, 300-tal för omdirigeringar, 400-tal för klientfel och
+                    500-tal för serverfel.</p>
+
+                <h2>HTTP-metoder</h2>
+                <p>När en klient pratar med en server kan den använda olika metoder. De vanligaste i den här kursen är
+                    <code>GET</code> och <code>POST</code>. GET hämtar data. POST skickar data, till exempel från ett
+                    formulär. Det finns även metoder som PUT för uppdatering och DELETE för borttagning.
+                </p>
+
+                <h2>Bit och byte</h2>
+                <p>All digital information lagras som ettor och nollor. En bit är en etta eller nolla. Åtta bitar blir
+                    en byte. Filer på webben mäts ofta i kB, MB och GB. När du senare optimerar bilder och video kommer
+                    filstorlek att påverka hur snabbt sidan laddas.</p>
+
+                <h2>Prova själv</h2>
+                <ol>
+                    <li>Öppna en valfri webbsida.</li>
+                    <li>Högerklicka och välj <strong>Inspect</strong> eller <strong>Inspektera</strong>.</li>
+                    <li>Öppna fliken <strong>Network</strong> och ladda om sidan.</li>
+                    <li>Leta efter statuskoder som <code>200</code> eller <code>404</code>.</li>
+                </ol>
+
+                <h2>Sammanfattning</h2>
+                <ul>
+                    <li>Webbläsaren är klienten och hämtar resurser från servrar.</li>
+                    <li>DNS översätter domännamn till IP-adresser.</li>
+                    <li>HTTPS är den krypterade versionen av HTTP.</li>
+                    <li>Statuskoder berättar hur servern svarade.</li>
+                    <li>Filstorlek påverkar hur snabbt webbsidor laddas.</li>
+                </ul>
+            </section>
+
+            <div id="quiz-1-1" aria-label="Quiz Kap 1.1"></div>
+            <p><a href="chapter-1.html">Tillbaka till Modul 1</a></p>
+        </article>
+
+        <aside class="chapter-aside">
+            <section class="aside-card">
+                <p class="eyebrow">Begrepp</p>
+                <h2>Kom ihåg</h2>
+                <p>Klient, server, URL, DNS, IP, HTTP, HTTPS och statuskod är grundbegrepp du kommer möta hela kursen.
+                </p>
+            </section>
+        </aside>
+    </main>
+
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-1-1'), {
+                title: 'Quiz: Kap 1.1 - Vad är webbutveckling?',
+                questions: [
+                    { question: 'Vad är klienten i en vanlig webbsituation?', options: ['Webbläsaren som begär sidan', 'Endast databasen', 'CSS-filen', 'Statuskoden 404'], correct: 0, feedback: 'Klienten är den del som gör begäran.', explanation: 'I kursen är klienten oftast webbläsaren.' },
+                    { question: 'Vad gör DNS?', options: ['Skapar HTML automatiskt', 'Översätter domännamn till IP-adresser', 'Komprimerar bilder', 'Rättar CSS-fel'], correct: 1, feedback: 'DNS handlar om adresser.', explanation: 'DNS fungerar som en adressbok mellan domännamn och IP-adresser.' },
+                    { question: 'Vad betyder ofta statuskoden 404?', options: ['Allt gick bra', 'Sidan kräver CSS', 'Resursen hittades inte', 'Servern skickade en bild'], correct: 2, feedback: '404 är ett klientfelsvar.', explanation: '404 betyder normalt att webbläsaren bad om något som servern inte hittar.' },
+                    { question: 'Vilken metod används ofta för att hämta en sida?', options: ['DELETE', 'PUT', 'GET', 'DROP'], correct: 2, feedback: 'GET används för hämtning.', explanation: 'När webbläsaren hämtar en sida används normalt GET.' },
+                    { question: 'Varför är HTTPS viktigt?', options: ['Det gör rubriker större', 'Det krypterar kommunikationen', 'Det ersätter HTML', 'Det tar bort alla fel'], correct: 1, feedback: 'HTTPS handlar om säker kommunikation.', explanation: 'HTTPS använder TLS så att kommunikationen blir svårare att läsa eller manipulera.' }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

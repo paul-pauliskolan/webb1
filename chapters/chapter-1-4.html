@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 1.4: Länkar, bilder, textbetoning och listor i HTML.">
+    <title>Kap 1.4 - Länkar, bilder och listor</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 1</p>
+                <h1>Kap 1.4 - Länkar, bilder och listor</h1>
+                <p class="subtitle">Nu fyller du sidan med vanliga HTML-element och tränar på fungerande filvägar.</p>
+            </header>
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Skapa länkar med <code>a</code> och <code>href</code>.</li>
+                    <li>Lägga in bilder med <code>img</code>, <code>src</code> och <code>alt</code>.</li>
+                    <li>Använda listor och textbetoning på ett semantiskt sätt.</li>
+                </ul>
+
+                <h2>Länkar</h2>
+                <p>En länk skapas med <code>a</code>. Attributet <code>href</code> berättar vart länken går.</p>
+                <pre><code>&lt;a href="https://developer.mozilla.org/" target="_blank"&gt;MDN Web Docs&lt;/a&gt;</code></pre>
+                <p>Externa länkar kan öppnas i ny flik med <code>target="_blank"</code>. Använd det med omdöme.</p>
+
+                <h2>Bilder</h2>
+                <p>En bild behöver minst <code>src</code> och <code>alt</code>. <code>src</code> pekar på bildfilen.
+                    <code>alt</code> beskriver bilden för den som inte kan se den.
+                </p>
+                <pre><code>&lt;img src="images/profilbild.jpg" alt="Porträttbild av mig"&gt;</code></pre>
+                <p>Om bilden är dekorativ kan alt-texten ibland vara tom, men i kursens första uppgifter ska du skriva
+                    en tydlig alt-text så att du tränar vanan.</p>
+
+                <h2>Textbetoning</h2>
+                <p><code>strong</code> betyder att något är viktigt. <code>em</code> betyder betoning. Använd inte
+                    <code>strong</code> och <code>em</code> bara för att få fet eller kursiv stil. Utseende styrs senare
+                    med CSS.
+                </p>
+                <p><code>b</code> och <code>i</code> finns också, men de ger svagare betydelse. Använd dem sparsamt.</p>
+
+                <h2>Listor</h2>
+                <p>En ordnad lista används när ordningen spelar roll. En oordnad lista används när ordningen inte är
+                    viktig.</p>
+                <pre><code>&lt;ol&gt;
+    &lt;li&gt;Skapa projektmapp&lt;/li&gt;
+    &lt;li&gt;Skriv HTML&lt;/li&gt;
+    &lt;li&gt;Validera sidan&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+                <h2>Platshållartext och exempelnamn</h2>
+                <p><em>Lorem ipsum</em> används ibland som tillfällig text när layout testas. Orden foo, bar och baz
+                    används ofta som neutrala exempelnamn i kod. I riktiga projekt ska de ersättas med namn som
+                    beskriver innehållet.</p>
+
+                <h2>Prova själv</h2>
+                <ol>
+                    <li>Lägg till en länk till en webbplats du använder för att lära dig.</li>
+                    <li>Lägg till en bild i mappen <code>images</code> och skriv en alt-text.</li>
+                    <li>Lägg till en ordnad lista och en oordnad lista.</li>
+                    <li>Markera ett viktigt ord med <code>strong</code>.</li>
+                </ol>
+            </section>
+            <div id="quiz-1-4" aria-label="Quiz Kap 1.4"></div>
+            <p><a href="chapter-1.html">Tillbaka till Modul 1</a></p>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Tillgänglighet</p><h2>Alt-text</h2><p>Alt-text ska beskriva bildens relevanta innehåll, inte bara säga “bild”.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-1-4'), {
+                title: 'Quiz: Kap 1.4 - Länkar, bilder och listor',
+                questions: [
+                    { question: 'Vilket attribut anger vart en länk går?', options: ['src', 'href', 'alt', 'lang'], correct: 1, feedback: 'Länkar använder href.', explanation: 'href står för hypertext reference.' },
+                    { question: 'Vilka två attribut behöver en vanlig img-tagg i kursen?', options: ['href och title', 'src och alt', 'id och class', 'post och get'], correct: 1, feedback: 'Bilder behöver sökväg och textalternativ.', explanation: 'src pekar på filen och alt beskriver bilden.' },
+                    { question: 'När passar en ordnad lista bäst?', options: ['När ordningen spelar roll', 'När allt ska bli blått', 'När en bild saknas', 'När du vill länka CSS'], correct: 0, feedback: 'Ordnade listor visar ordning.', explanation: 'ol används för steg, rangordningar och andra ordnade innehåll.' },
+                    { question: 'Vad betyder strong semantiskt?', options: ['Texten ska vara oviktig', 'Texten är viktig', 'Texten är en bild', 'Texten är en länk till CSS'], correct: 1, feedback: 'strong handlar om betydelse.', explanation: 'strong markerar viktig text, inte bara visuell fetstil.' },
+                    { question: 'Vad betyder sökvägen images/profilbild.jpg?', options: ['Filen ligger i mappen images', 'Filen ligger på Google', 'Filen är en CSS-regel', 'Filen är alltid fel'], correct: 0, feedback: 'Det är en relativ sökväg.', explanation: 'Webbläsaren letar i undermappen images efter profilbild.jpg.' }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

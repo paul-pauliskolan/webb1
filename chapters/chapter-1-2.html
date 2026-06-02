@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 1.2: Kom igång med VS Code, mappar, filnamn och hjälpstrategier.">
+    <title>Kap 1.2 - Kom igång med VS Code och projektmappar</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 1</p>
+                <h1>Kap 1.2 - Kom igång med VS Code och projektmappar</h1>
+                <p class="subtitle">En bra arbetsmapp gör att webbsidan fungerar lokalt, i skolan och när den
+                    publiceras.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Skapa en tydlig projektmapp för en webbplats.</li>
+                    <li>Förstå varför filnamn, filändelser och relativa sökvägar spelar roll.</li>
+                    <li>Använda dokumentation, forum och AI på ett ansvarsfullt sätt.</li>
+                </ul>
+
+                <h2>VS Code</h2>
+                <p>Visual Studio Code är en kodredigerare. I kursen använder du den för HTML, CSS och senare
+                    JavaScript. Installera programmet från <a href="https://code.visualstudio.com/" target="_blank"
+                        rel="noopener noreferrer">code.visualstudio.com</a> om det inte redan finns på datorn.</p>
+                <p>Praktiska tillägg är Live Server, W3C Web Validator, ett tydligt färgtema, ett ikontema och gärna
+                    image preview. Emmet är inbyggt i VS Code och kan skapa grundkod snabbt. Om du skriver
+                    <code>!</code> i en HTML-fil och trycker Tab skapas en enkel HTML-mall.
+                </p>
+
+                <h2>Projektmapp</h2>
+                <p>Skapa en mapp för varje webbplats. Lägg HTML-filen i mappen och skapa undermappar för sådant som
+                    bilder och CSS när projektet växer.</p>
+                <pre><code>profil-sida/
+  index.html
+  styles.css
+  images/
+    profilbild.jpg</code></pre>
+
+                <h2>Filnamn</h2>
+                <p>Använd små bokstäver, siffror och bindestreck. Undvik å, ä, ö, mellanslag och specialtecken i fil-
+                    och mappnamn. Namn som <code>min-profil.html</code> och <code>profilbild.jpg</code> är lättare att
+                    hantera än <code>Min Profilbild 1.JPG</code>.</p>
+                <p>En startsida bör heta <code>index.html</code>. Många webbservrar letar automatiskt efter just det
+                    filnamnet.</p>
+
+                <h2>Relativa sökvägar</h2>
+                <p>En relativ sökväg utgår från filen du skriver i. Om <code>styles.css</code> ligger i samma mapp som
+                    <code>index.html</code> skriver du:
+                </p>
+                <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+                <p>Om bilden ligger i mappen <code>images</code> skriver du:</p>
+                <pre><code>&lt;img src="images/profilbild.jpg" alt="Porträttbild"&gt;</code></pre>
+
+                <h2>Engelska och hjälp</h2>
+                <p>Mycket kod, dokumentation och hjälpresurser är på engelska. Träna därför på engelska begrepp som
+                    element, attribute, browser, inspect, file, folder, error och warning.</p>
+                <p>Bra källor är MDN, W3Schools, WHATWG/W3C och Can I Use. Forum som Stack Overflow kan hjälpa dig se
+                    hur andra löst liknande problem. AI-verktyg kan ge förslag, men du behöver alltid testa, förstå och
+                    kontrollera koden själv.</p>
+
+                <h2>Prova själv</h2>
+                <ol>
+                    <li>Skapa mappen <code>profil-sida</code>.</li>
+                    <li>Öppna mappen i VS Code.</li>
+                    <li>Skapa <code>index.html</code>, <code>styles.css</code> och mappen <code>images</code>.</li>
+                    <li>Starta Live Server och kontrollera att webbläsaren öppnar rätt fil.</li>
+                </ol>
+
+                <h2>Sammanfattning</h2>
+                <ul>
+                    <li>En webbplats börjar med en tydlig projektmapp.</li>
+                    <li><code>index.html</code> är standardnamnet för startsidan.</li>
+                    <li>Relativa sökvägar kopplar ihop filer i projektet.</li>
+                    <li>Dokumentation och felmeddelanden är ofta på engelska.</li>
+                    <li>AI kan hjälpa, men du ansvarar för att koden fungerar.</li>
+                </ul>
+            </section>
+
+            <div id="quiz-1-2" aria-label="Quiz Kap 1.2"></div>
+            <p><a href="chapter-1.html">Tillbaka till Modul 1</a></p>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Tips</p><h2>Filnamn</h2><p>Skriv helst filnamn med små bokstäver och bindestreck: <code>min-bild.jpg</code>.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-1-2'), {
+                title: 'Quiz: Kap 1.2 - VS Code och projektmappar',
+                questions: [
+                    { question: 'Vilket filnamn bör startsidan ofta ha?', options: ['start.docx', 'index.html', 'home.css', 'main.jpg'], correct: 1, feedback: 'Startsidor på webben har ofta ett standardnamn.', explanation: 'Många servrar letar automatiskt efter index.html.' },
+                    { question: 'Vilket filnamn är mest lämpligt på webben?', options: ['Min Bild Äntligen.JPG', 'min bild.jpg', 'min-bild.jpg', 'bild final!!.jpg'], correct: 2, feedback: 'Undvik mellanslag, åäö och specialtecken.', explanation: 'Små bokstäver och bindestreck minskar risken för filvägsfel.' },
+                    { question: 'Vad gör Live Server i VS Code?', options: ['Startar en lokal visning av sidan', 'Byter namn på alla filer', 'Publicerar automatiskt på GitHub', 'Skriver all HTML åt dig'], correct: 0, feedback: 'Live Server används under testning.', explanation: 'Live Server öppnar projektet i webbläsaren och laddar om när du ändrar.' },
+                    { question: 'Vilken sökväg passar om bilden ligger i undermappen images?', options: ['src="profilbild.jpg"', 'src="images/profilbild.jpg"', 'src="../styles.css"', 'src="https://css"'], correct: 1, feedback: 'Sökvägen behöver gå in i bildmappen.', explanation: 'images/profilbild.jpg betyder filen profilbild.jpg i mappen images.' },
+                    { question: 'Vad bör du göra med kod från AI?', options: ['Använda utan att läsa', 'Testa och förstå den innan du lämnar in', 'Alltid klistra in direkt', 'Bara använda om den är på svenska'], correct: 1, feedback: 'AI kan ha fel.', explanation: 'Du behöver kunna förklara och kontrollera koden du använder.' }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

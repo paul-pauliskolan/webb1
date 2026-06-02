@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 1.6: Publicera profilsidan med GitHub Pages.">
+    <title>Kap 1.6 - Publicera med GitHub Pages</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 1</p>
+                <h1>Kap 1.6 - Miniuppgift: publicera med GitHub Pages</h1>
+                <p class="subtitle">Nu gör du profilsidan tillgänglig via en webbadress.</p>
+            </header>
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Skapa ett repository på GitHub.</li>
+                    <li>Ladda upp webbplatsens filer.</li>
+                    <li>Publicera sidan med GitHub Pages.</li>
+                </ul>
+
+                <h2>Filmgenomgång</h2>
+                <p>Följ gärna filmen <a href="https://www.youtube.com/watch?v=0q5jhjU4QJU" target="_blank"
+                        rel="noopener noreferrer">Hur man läger upp en webbplats på GitHub och publicerar den på
+                        internet</a>. Filmen visar arbetsflödet visuellt.</p>
+
+                <h2>Innan du publicerar</h2>
+                <ul>
+                    <li>Din startsida ska heta <code>index.html</code>.</li>
+                    <li>Alla bilder och andra filer som sidan använder måste följa med.</li>
+                    <li>Filvägarna måste fungera lokalt innan du laddar upp.</li>
+                    <li>HTML-koden bör vara validerad.</li>
+                </ul>
+
+                <h2>Enkelt sätt: dra in filerna</h2>
+                <p>I början är det oftast enklast att ladda upp filerna direkt i GitHubs webbgränssnitt genom att dra
+                    in dem.</p>
+                <ol>
+                    <li>Gå till <a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com</a>
+                        och logga in.</li>
+                    <li>Klicka på <strong>New repository</strong>.</li>
+                    <li>Ge projektet ett namn, till exempel <code>profil-sida</code>.</li>
+                    <li>Skapa repositoryt.</li>
+                    <li>Klicka på <strong>Add file</strong> och sedan <strong>Upload files</strong>.</li>
+                    <li>Dra in <code>index.html</code>, <code>styles.css</code> och eventuella mappar, till exempel
+                        <code>images</code>.
+                    </li>
+                    <li>Klicka på <strong>Commit changes</strong>.</li>
+                </ol>
+
+                <h2>Aktivera GitHub Pages</h2>
+                <ol>
+                    <li>Öppna fliken <strong>Settings</strong> i repositoryt.</li>
+                    <li>Gå till <strong>Pages</strong>.</li>
+                    <li>Välj grenen <code>main</code>.</li>
+                    <li>Välj mappen <code>/ (root)</code>.</li>
+                    <li>Spara.</li>
+                    <li>Vänta någon minut och öppna länken som GitHub visar.</li>
+                </ol>
+
+                <h2>Kontrollera publiceringen</h2>
+                <ul>
+                    <li>Öppna den publicerade länken i webbläsaren.</li>
+                    <li>Kontrollera att text, bild och länk fungerar.</li>
+                    <li>Om bilden saknas: kontrollera att bildmappen följde med och att filnamnet stämmer exakt.</li>
+                    <li>Om sidan inte öppnas: kontrollera att filen heter <code>index.html</code>.</li>
+                </ul>
+
+                <h2>Exit ticket</h2>
+                <p>Lämna in länken till din publicerade sida och skriv kort vad du behövde rätta efter publiceringen.</p>
+            </section>
+            <div id="quiz-1-6" aria-label="Quiz Kap 1.6"></div>
+            <p><a href="chapter-1.html">Tillbaka till Modul 1</a></p>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Publicering</p><h2>Vanligaste felet</h2><p>Bilder saknas ofta för att mappen inte laddades upp eller för att filnamnet inte stämmer exakt.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-1-6'), {
+                title: 'Quiz: Kap 1.6 - Publicera med GitHub Pages',
+                questions: [
+                    { question: 'Vilken fil behöver normalt finnas för att sidan ska fungera som startsida?', options: ['index.html', 'start.docx', 'github.css', 'pages.txt'], correct: 0, feedback: 'Startsidan behöver rätt filnamn.', explanation: 'GitHub Pages kan visa index.html som startsida.' },
+                    { question: 'Vad är ofta enklast för nybörjare när filerna ska upp till GitHub?', options: ['Dra in filerna i uppladdningsytan', 'Skriva om allt i terminalen', 'Radera bilderna', 'Byta HTML till PDF'], correct: 0, feedback: 'Drag and drop är enklast i början.', explanation: 'GitHubs Upload files-sida låter dig dra in filerna direkt.' },
+                    { question: 'Vad måste följa med om din HTML använder en bild i images-mappen?', options: ['Bara index.html', 'Både bilden och mappen/sökvägen som HTML pekar på', 'Endast YouTube-länken', 'Inga filer alls'], correct: 1, feedback: 'Alla använda filer måste laddas upp.', explanation: 'Annars pekar HTML på en fil som inte finns på den publicerade sidan.' },
+                    { question: 'Var aktiverar du GitHub Pages?', options: ['I Settings och Pages', 'I bildfilens alt-text', 'I validatorn', 'I VS Code-temat'], correct: 0, feedback: 'Pages finns i repositoryts inställningar.', explanation: 'Där väljer du gren och mapp som ska publiceras.' },
+                    { question: 'Vad bör du göra efter att GitHub visar publiceringslänken?', options: ['Öppna länken och testa sidan', 'Stänga datorn utan kontroll', 'Byta alla filändelser', 'Ta bort index.html'], correct: 0, feedback: 'Publicerad kod behöver testas.', explanation: 'Kontrollera att text, bilder och länkar fungerar online.' }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

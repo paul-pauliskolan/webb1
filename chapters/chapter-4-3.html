@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kap 4.3 - Egna moduler och import</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Programmering nivå 2</p>
+                <h1>Kap 4.3 – Egna moduler och import</h1>
+                <p class="subtitle">Dela upp kod i flera filer och använd moduler.</p>
+            </header>
+            <section class="content-section">
+                <h2>Mål med lektionen</h2>
+                <p>När du har arbetat klart med denna lektion ska du:</p>
+                <ul>
+                    <li>Förstå vad en modul är i Python.</li>
+                    <li>Kunna skapa egna Python-filer med funktioner och klasser.</li>
+                    <li>Kunna importera och använda moduler i olika program.</li>
+                    <li>Dela upp kod i flera filer för bättre struktur.</li>
+                </ul>
+
+                <h2>Så här lär du dig bäst</h2>
+                <p>Börja med ett litet program du redan skrivit. Flytta några funktioner till en egen .py-fil och testa
+                    att importera dem i huvudfilen. Lägg gärna till nya funktioner för att experimentera. Undvik att
+                    kopiera hela program - tänk på modulens syfte: återanvändbara delar.</p>
+
+                <h2>Centrala begrepp</h2>
+                <ul>
+                    <li><strong>modul</strong> – En fil i Python (slutar på .py) som innehåller funktioner, klasser
+                        eller variabler.</li>
+                    <li><strong>import</strong> – Används för att hämta funktionalitet från andra filer.</li>
+                    <li><strong>modulstruktur</strong> – Att dela upp ett program i flera logiska delar.</li>
+                </ul>
+
+                <h2>Innehåll och exempel</h2>
+
+                <h3>Skapa en modul: verktyg.py</h3>
+                <pre><code class="language-python">def hälsa(namn):
+    print(f"Hej, {namn}!")
+
+def kvadrat(tal):
+    return tal * tal</code></pre>
+
+                <h3>Använda modulen: main.py</h3>
+                <pre><code class="language-python">import verktyg
+
+verktyg.hälsa("Ella")
+print(verktyg.kvadrat(5))</code></pre>
+
+                <h3>Importera bara det du behöver</h3>
+                <pre><code class="language-python">from verktyg import hälsa
+
+hälsa("Leo")</code></pre>
+
+                <h3>Byta namn med alias</h3>
+                <pre><code class="language-python">import verktyg as v
+
+v.hälsa("Tove")</code></pre>
+
+                <h2>Öva – tillämpning i ett projekt</h2>
+                <p>Om du har ett projekt som innehåller både spel- och användarfunktioner:</p>
+                <ul>
+                    <li>Skapa <code>strid.py</code> för all stridslogik.</li>
+                    <li>Skapa <code>spelare.py</code> med klassen <code>Player</code>.</li>
+                    <li>Skapa <code>main.py</code> som styr spelet.</li>
+                </ul>
+                <p>Du kan då importera som:</p>
+                <pre><code class="language-python">from spelare import Player
+import strid</code></pre>
+
+                <h2>Varför moduler?</h2>
+                <ul>
+                    <li>Koden blir lättare att förstå och testa.</li>
+                    <li>Du slipper duplicera kod i flera filer.</li>
+                    <li>Du kan återanvända funktioner i flera projekt.</li>
+                </ul>
+
+                <h2>Sammanfattning</h2>
+                <ul>
+                    <li>En modul är en egen .py-fil som kan importeras till andra program.</li>
+                    <li>Du kan importera hela moduler eller specifika delar.</li>
+                    <li>Moduler hjälper dig att hålla din kod organiserad och återanvändbar.</li>
+                </ul>
+            </section>
+
+            <div id="quiz-4-3" aria-label="Quiz Kap 4.3"></div>
+
+            <p><a href="chapter-4.html">Tillbaka till Kapitel 4</a></p>
+        </article>
+    </main>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.renderQuiz) {
+                window.renderQuiz(document.getElementById('quiz-4-3'), {
+                    title: 'Quiz: Kap 4.3 - Egna moduler och import',
+                    questions: [
+                        {
+	                            question: 'Vad är en modul i Python?',
+	                            options: [
+	                                'En särskild typ av loop',
+	                                'En fil i Python som innehåller funktioner, klasser eller variabler',
+	                                'En vanlig sträng',
+	                                'Ett felmeddelande'
+	                            ],
+	                            correct: 1,
+	                            feedback: 'Rätt, en modul är en .py-fil med kod som kan återanvändas.',
+	                            explanation: 'Moduler används för att samla funktioner, klasser och variabler i egna filer.'
+	                        },
+	                        {
+	                            question: 'Hur importerar du hela modulen `verktyg`?',
+	                            options: [
+	                                'from verktyg import import',
+	                                'import verktyg',
+	                                'use verktyg',
+	                                'load verktyg'
+	                            ],
+	                            correct: 1,
+	                            feedback: 'Rätt, då kan du använda `verktyg.hälsa()` och `verktyg.kvadrat()`.',
+	                            explanation: 'Med `import verktyg` får du tillgång till hela modulen.'
+	                        },
+	                        {
+	                            question: 'Hur importerar du bara funktionen `hälsa` från `verktyg`?',
+	                            options: [
+	                                'import hälsa from verktyg',
+	                                'from hälsa import verktyg',
+	                                'from verktyg import hälsa',
+	                                'use hälsa from verktyg'
+	                            ],
+	                            correct: 2,
+	                            feedback: 'Rätt, då kan du skriva `hälsa("Leo")` direkt.',
+	                            explanation: 'Denna syntax importerar bara den funktion du behöver.'
+	                        },
+	                        {
+	                            question: 'Vad gör aliaset `as v` i `import verktyg as v`?',
+	                            options: [
+	                                'Tar bort modulens funktioner',
+	                                'Gör modulen tom',
+	                                'Ger modulen ett kortare namn',
+	                                'Skapar en ny fil'
+	                            ],
+	                            correct: 2,
+	                            feedback: 'Ja, alias gör namnet kortare och enklare att skriva.',
+	                            explanation: 'Alias är användbart om modulnamnet är långt eller om du vill skriva mindre.'
+	                        },
+	                        {
+	                            question: 'Varför är det bra att dela upp kod i moduler?',
+	                            options: [
+	                                'Programmet blir alltid långsammare',
+	                                'Man kan inte importera längre',
+	                                'All kod måste ligga i en fil',
+	                                'Koden blir lättare att förstå och testa'
+	                            ],
+	                            correct: 3,
+	                            feedback: 'Precis, moduler gör koden mer organiserad och återanvändbar.',
+	                            explanation: 'Att dela upp kod i moduler minskar duplicering och gör projekt enklare att arbeta med.'
+	                        }
+                    ]
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
