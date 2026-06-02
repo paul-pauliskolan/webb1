@@ -2,187 +2,87 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 2.2 - Listor och iteration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 2.2: Semantiska element och tydlig sidstruktur.">
+    <title>Kap 2.2 - Semantisk HTML</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 2.2: Skapa, läsa, ändra och iterera över listor i Python.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 2.2 – Listor och iteration</h1>
-                <p class="subtitle">Använd listor och loopar för att bearbeta flera värden på ett strukturerat sätt.</p>
+                <p class="eyebrow">Modul 2</p>
+                <h1>Kap 2.2 - Semantisk HTML</h1>
+                <p class="subtitle">Semantisk HTML beskriver vad innehållet betyder, inte bara hur det ska se ut.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Förklara skillnaden mellan semantiska och icke-semantiska element.</li>
+        <li>Använda vanliga sidregioner som <code>header</code>, <code>nav</code>, <code>main</code> och <code>footer</code>.</li>
+        <li>Skapa en tydligare struktur för både användare och hjälpmedel.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Förstå vad en lista är och när du använder den.</li>
-                    <li>Kunna skapa, läsa, ändra och iterera över en lista.</li>
-                    <li>Använda for-loopar för att bearbeta listor.</li>
-                    <li>Förstå hur listor kan användas för att lösa programmeringsproblem.</li>
-                </ul>
+    <h2>Vad betyder semantik?</h2>
+    <p>Semantik betyder betydelse. Ett semantiskt element berättar något om innehållets roll. <code>nav</code> betyder navigering, <code>main</code> betyder huvudinnehåll och <code>footer</code> betyder sidfot.</p>
+    <p>Ett <code>div</code>-element betyder däremot bara en generell avdelare. Det kan vara användbart, men det säger inget om innehållets funktion.</p>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Testa varje exempel i koden. Ändra värden, lägg till nya element, ta bort några och observera vad som
-                    händer. Det är så du verkligen lär dig hur listor fungerar. Kombinera sedan detta med dina kunskaper
-                    om loopar för att bearbeta innehållet.</p>
+    <h2>Vanliga semantiska element</h2>
+    <ul>
+        <li><code>header</code> - sidhuvud eller introduktion till en del.</li>
+        <li><code>nav</code> - navigationslänkar.</li>
+        <li><code>main</code> - sidans huvudinnehåll. Använd normalt bara ett per sida.</li>
+        <li><code>section</code> - en tydlig avdelning med relaterat innehåll.</li>
+        <li><code>article</code> - innehåll som kan stå mer självständigt.</li>
+        <li><code>aside</code> - kompletterande innehåll.</li>
+        <li><code>footer</code> - avslutande information.</li>
+    </ul>
 
-                <h2>Vad är en lista?</h2>
-                <p>En lista i Python är en <strong>samling av värden</strong> som hålls ihop i en och samma variabel. Den
-                    kan innehålla tal, strängar eller andra listor.</p>
-                <pre><code>fruits = ["apple", "banana", "cherry"]
-print(fruits)</code></pre>
+    <h2>Exempel</h2>
+    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Min webbplats&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;
+    &lt;a href="index.html"&gt;Start&lt;/a&gt;
+    &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Om mig&lt;/h2&gt;
+        &lt;p&gt;Text om sidan.&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+    &lt;p&gt;© 2026&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
 
-                <p>Du kan också blanda datatyper:</p>
-                <pre><code>mixed = [1, "two", 3.0]</code></pre>
+    <h2>Rubriknivåer</h2>
+    <p>Rubriker skapar struktur. <code>h1</code> är sidans huvudrubrik. Under den kan du använda <code>h2</code> och sedan <code>h3</code>. Hoppa inte rubriknivåer bara för att få en viss storlek. Storlek styrs senare med CSS.</p>
 
-                <h2>Läsa och ändra element</h2>
-                <p>Listor är <strong>indexerade</strong>. Det första elementet har index <code>0</code>.</p>
-                <pre><code>print(fruits[0])  # apple
-
-fruits[1] = "orange"
-print(fruits)  # ['apple', 'orange', 'cherry']</code></pre>
-
-                <h2>Lägga till och ta bort element</h2>
-                <pre><code>fruits.append("pear")      # Lägg till sist
-fruits.insert(1, "kiwi")  # Lägg till på plats 1
-fruits.remove("orange")   # Ta bort ett element</code></pre>
-
-                <h2>Iterera genom listor med for</h2>
-                <p>Att iterera betyder att gå igenom elementen ett i taget.</p>
-                <pre><code>for fruit in fruits:
-    print(f"I like {fruit}")</code></pre>
-
-                <p>Du kan också använda <code>range()</code> och <code>len()</code> för att gå igenom en lista med index:</p>
-                <pre><code>for i in range(len(fruits)):
-    print(fruits[i])</code></pre>
-
-                <h2>Andra användbara funktioner</h2>
-                <pre><code>numbers = [10, 20, 30]
-
-print(sum(numbers))  # 60
-print(len(numbers))  # 3
-print(max(numbers))  # 30</code></pre>
-
-                <h2>Kombinera listor och funktioner</h2>
-                <p>Du kan använda listor som argument till funktioner:</p>
-                <pre><code>def print_list(lst):
-    for item in lst:
-        print(item)
-
-print_list(["car", "bike", "bus"])</code></pre>
-
-                <p>Du kan också returnera en lista från en funktion:</p>
-                <pre><code>def even_numbers(n):
-    result = []
-
-    for i in range(n):
-        if i % 2 == 0:
-            result.append(i)
-
-    return result
-
-print(even_numbers(10))  # [0, 2, 4, 6, 8]</code></pre>
-
-                <h2>Öva själv</h2>
-                <ol>
-                    <li>Skapa en lista med fem namn och skriv ut varje namn med en hälsning.</li>
-                    <li>Skapa en funktion som tar emot en lista med tal och returnerar medelvärdet.</li>
-                    <li>Gör en meny där användaren kan lägga till ord i en lista, skriva ut den eller avsluta.</li>
-                </ol>
-
-                <h2>Reflektion</h2>
-                <ul>
-                    <li>När passar det att använda listor istället för flera separata variabler?</li>
-                    <li>Hur påverkas programmet av att du kan bearbeta en hel samling med data?</li>
-                    <li>På vilket sätt förbättrar det din kod att kombinera listor med funktioner?</li>
-                </ul>
-            </section>
+    <h2>Prova själv</h2>
+    <ol>
+        <li>Lägg till <code>header</code>, <code>main</code> och <code>footer</code> i din profilsida.</li>
+        <li>Lägg en länklista i ett <code>nav</code>-element.</li>
+        <li>Kontrollera att rubriknivåerna kommer i logisk ordning.</li>
+    </ol>
+</section>
 
             <div id="quiz-2-2" aria-label="Quiz Kap 2.2"></div>
-
-            <p><a href="chapter-2.html">Tillbaka till Kapitel 2</a></p>
+            <p><a href="chapter-2.html">Tillbaka till Modul 2</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 2</p><h2>HTML med mening</h2><p>Välj semantiskt element först. Använd div när inget mer betydelsefullt element passar.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-2-2'), {
-                    title: 'Quiz: Kap 2.2 - Listor och iteration',
-                    questions: [
-                        {
-                            question: 'Vad är en lista i Python?',
-                            options: [
-                                'En funktion som alltid skriver ut text',
-                                'En samling värden som lagras i en variabel',
-                                'Ett villkor som bara kan vara sant eller falskt',
-                                'Ett felmeddelande från programmet'
-                            ],
-                            correct: 1,
-                            feedback: 'En lista samlar flera värden i samma variabel.',
-                            explanation: 'Listor används när du behöver spara och bearbeta flera värden tillsammans.'
-                        },
-                        {
-                            question: 'Vilket index har det första elementet i en Python-lista?',
-                            options: [
-                                '1',
-                                '10',
-                                '0',
-                                '-1',
-                            ],
-                            correct: 2,
-                            feedback: 'Python-listor börjar på index 0.',
-                            explanation: 'Om listan heter names hämtas första elementet med names[0].'
-                        },
-                        {
-                            question: 'Vad betyder det att iterera över en lista?',
-                            options: [
-                                'Att ta bort hela listan',
-                                'Att byta namn på variabeln',
-                                'Att göra om listan till en kommentar',
-                                'Att gå igenom listans element ett i taget'
-                            ],
-                            correct: 3,
-                            feedback: 'Iteration innebär att gå igenom elementen i en samling.',
-                            explanation: 'En for-loop används ofta för att bearbeta varje element i en lista.'
-                        },
-                        {
-                            question: 'Vilken metod kan lägga till ett element sist i en lista?',
-                            options: [
-                                'remove()',
-                                'append()',
-                                'print()',
-                                'len()'
-                            ],
-                            correct: 1,
-                            feedback: 'append() lägger till ett nytt element i slutet av listan.',
-                            explanation: 'Exempel: fruits.append("pear") lägger till "pear" sist i listan.'
-                        },
-                        {
-                            question: 'Varför är listor användbara i programmering?',
-                            options: [
-                                'För att de gör att programmet inte behöver några loopar',
-                                'För att de bara kan innehålla ett enda värde',
-                                'För att de gör det möjligt att hantera flera relaterade värden på ett samlat sätt',
-                                'För att de automatiskt sorterar all data'
-                            ],
-                            correct: 2,
-                            feedback: 'Listor gör det lättare att lagra och bearbeta flera värden tillsammans.',
-                            explanation: 'Du kan kombinera listor med loopar, funktioner och villkor för att lösa många typer av problem.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-2-2'), {"title": "Quiz: Kap 2.2", "questions": [{"question": "Vad betyder semantisk HTML?", "options": ["HTML som beskriver innehållets betydelse", "HTML som alltid är blå", "HTML utan taggar", "HTML som bara fungerar i Chrome"], "correct": 0, "feedback": "Semantik handlar om betydelse.", "explanation": "Semantik handlar om betydelse."}, {"question": "Vilket element används för huvudinnehållet?", "options": ["footer", "main", "span", "meta"], "correct": 1, "feedback": "main markerar sidans huvudinnehåll.", "explanation": "main markerar sidans huvudinnehåll."}, {"question": "Vilket element passar bäst för navigationslänkar?", "options": ["nav", "strong", "img", "title"], "correct": 0, "feedback": "nav används för navigering.", "explanation": "nav används för navigering."}, {"question": "Varför ska du inte välja h3 bara för att texten ser lagom stor ut?", "options": ["Rubriker ska beskriva struktur, inte bara utseende", "h3 fungerar inte i HTML", "h3 får aldrig användas", "h3 publicerar sidan"], "correct": 0, "feedback": "Rubriknivåer ska följa innehållets struktur.", "explanation": "Rubriknivåer ska följa innehållets struktur."}, {"question": "Vilket element är mest generiskt och saknar egen betydelse?", "options": ["main", "article", "div", "nav"], "correct": 2, "feedback": "div är en generell avdelare utan semantisk betydelse.", "explanation": "div är en generell avdelare utan semantisk betydelse."}]});
+        });
     </script>
 </body>
 

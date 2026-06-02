@@ -2,202 +2,73 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 2.4 - Dictionaries och tuples</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 2.4: inputtyper, fieldset, legend och formulärvalidering.">
+    <title>Kap 2.4 - Tillgängliga formulär</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 2.4: Använd dictionaries och tuples för att strukturera data i Python.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 2.4 – Dictionaries och tuples</h1>
-                <p class="subtitle">Välj rätt datastruktur när värden behöver namn, ordning eller skydd mot ändring.</p>
+                <p class="eyebrow">Modul 2</p>
+                <h1>Kap 2.4 - Tillgängliga formulär</h1>
+                <p class="subtitle">Ett formulär ska vara lätt att förstå, fylla i, rätta och skicka.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Använda rätt inputtyp för rätt data.</li>
+        <li>Gruppera formulärfält med <code>fieldset</code> och <code>legend</code>.</li>
+        <li>Ge användaren tydliga krav och felmeddelanden.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Förstå vad en dictionary och en tuple är.</li>
-                    <li>Kunna skapa och använda dictionaries för att lagra nyckel-värde-par.</li>
-                    <li>Förstå tuples som fasta, ordnade samlingar av data.</li>
-                    <li>Veta när du bör använda dessa strukturer i stället för listor.</li>
-                </ul>
+    <h2>Inputtyper</h2>
+    <p>Attributet <code>type</code> påverkar hur fältet fungerar. Ett e-postfält kan kontrollera att användaren skriver något som liknar en e-postadress. Ett nummerfält kan hindra textinmatning.</p>
+    <pre><code>&lt;input type="email" name="email" required&gt;
+&lt;input type="number" name="age" min="1" max="120"&gt;
+&lt;input type="password" name="password"&gt;
+&lt;input type="date" name="birthdate"&gt;</code></pre>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Testa varje struktur med olika datatyper och i kombination med loopar och funktioner. Jämför hur det
-                    känns att använda listor, dictionaries och tuples i olika situationer. Reflektera över varför vissa
-                    datastrukturer är mer lämpliga än andra beroende på sammanhang.</p>
+    <h2>Valideringsattribut</h2>
+    <ul>
+        <li><code>required</code> gör fältet obligatoriskt.</li>
+        <li><code>minlength</code> och <code>maxlength</code> styr textlängd.</li>
+        <li><code>min</code> och <code>max</code> styr tal eller datum.</li>
+        <li><code>placeholder</code> kan ge exempel, men ska inte ersätta en label.</li>
+    </ul>
 
-                <h2>Vad är en dictionary?</h2>
-                <p>En <strong>dictionary</strong> i Python är en samling av <strong>nyckel-värde-par</strong>, där varje
-                    nyckel är unik. Den används när du vill koppla ett värde till ett specifikt namn eller en identitet.</p>
+    <h2>Fieldset och legend</h2>
+    <p>När flera fält hör ihop kan du gruppera dem. Det hjälper användaren förstå sammanhanget.</p>
+    <pre><code>&lt;fieldset&gt;
+    &lt;legend&gt;Hur vill du bli kontaktad?&lt;/legend&gt;
+    &lt;label&gt;&lt;input type="radio" name="contact" value="email"&gt; E-post&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="contact" value="phone"&gt; Telefon&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
 
-                <pre><code>person = {
-    "name": "Alice",
-    "age": 25,
-    "city": "Stockholm"
-}</code></pre>
+    <h2>Testa med httpbin</h2>
+    <p>En tjänst som httpbin kan visa vilka data som skulle skickas till en server. Det är bra när du vill förstå skillnaden mellan fältens synliga text och värdena i <code>name</code> och <code>value</code>.</p>
 
-                <h3>Åtkomst</h3>
-                <pre><code>print(person["name"])  # Alice</code></pre>
-
-                <h3>Ändra eller lägga till</h3>
-                <pre><code>person["age"] = 26
-person["email"] = "alice@example.com"</code></pre>
-
-                <h3>Ta bort</h3>
-                <pre><code>del person["city"]</code></pre>
-
-                <h3>Loopa genom en dictionary</h3>
-                <pre><code>for key, value in person.items():
-    print(f"{key}: {value}")</code></pre>
-
-                <h2>Vad är en tuple?</h2>
-                <p>En <strong>tuple</strong> är en <strong>ordnad, oföränderlig samling</strong>. Den används när du inte
-                    vill att värden ska kunna ändras.</p>
-
-                <pre><code>coordinates = (10, 20)
-print(coordinates[0])  # 10</code></pre>
-
-                <p>Tuples används ofta för att returnera flera värden från en funktion:</p>
-                <pre><code>def get_user():
-    return ("Alice", 25)
-
-name, age = get_user()</code></pre>
-
-                <h2>Skillnad mot listor</h2>
-                <ul>
-                    <li><strong>Listor:</strong> ändringsbara, alltså <em>mutable</em>.</li>
-                    <li><strong>Tuples:</strong> fasta, alltså <em>immutable</em>.</li>
-                </ul>
-
-                <h2>Jämförelse: när används vad?</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Struktur</th>
-                            <th>Egenskaper</th>
-                            <th>Använd när du vill...</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>List</td>
-                            <td>Ordnad, ändringsbar</td>
-                            <td>Lagra flera värden i en ordning</td>
-                        </tr>
-                        <tr>
-                            <td>Dictionary</td>
-                            <td>Nyckel-värde-par</td>
-                            <td>Knyta namn eller etikett till varje värde</td>
-                        </tr>
-                        <tr>
-                            <td>Tuple</td>
-                            <td>Ordnad, oföränderlig</td>
-                            <td>Lagra en fast uppsättning värden</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>Öva själv</h2>
-                <ol>
-                    <li>Skapa en dictionary för en bok med nycklarna <code>title</code>, <code>author</code> och <code>year</code>.</li>
-                    <li>Skriv en funktion som returnerar en tuple med ett namn och en ålder.</li>
-                    <li>Skapa en meny som låter användaren lägga till poster i en dictionary, till exempel användarnamn och poäng.</li>
-                    <li>Skriv ut alla nycklar och värden i en dictionary med hjälp av en for-loop.</li>
-                </ol>
-
-                <h2>Reflektion</h2>
-                <ul>
-                    <li>När känns det bäst att använda en dictionary istället för en lista?</li>
-                    <li>Hur påverkar det programlogiken att en tuple inte kan ändras?</li>
-                    <li>Vilken struktur tycker du är mest användbar i ett menybaserat program?</li>
-                </ul>
-            </section>
+    <h2>Återkoppling</h2>
+    <p>Markera obligatoriska fält tydligt och skriv felmeddelanden som förklarar vad användaren ska göra. Ett meddelande som “Fyll i e-postadress” är bättre än “Fel”.</p>
+</section>
 
             <div id="quiz-2-4" aria-label="Quiz Kap 2.4"></div>
-
-            <p><a href="chapter-2.html">Tillbaka till Kapitel 2</a></p>
+            <p><a href="chapter-2.html">Tillbaka till Modul 2</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 2</p><h2>HTML med mening</h2><p>Placeholder är ett exempel, inte en etikett. Behåll alltid tydliga labels.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-2-4'), {
-                    title: 'Quiz: Kap 2.4 - Dictionaries och tuples',
-                    questions: [
-                        {
-                            question: 'Vad kännetecknar en dictionary i Python?',
-                            options: [
-                                'Den kan bara innehålla heltal',
-                                'Den lagrar data som nyckel-värde-par',
-                                'Den är alltid sorterad alfabetiskt',
-                                'Den kan inte användas med loopar'
-                            ],
-                            correct: 1,
-                            feedback: 'En dictionary kopplar nycklar till värden.',
-                            explanation: 'Det gör den användbar när varje värde behöver ett namn eller en etikett.'
-                        },
-                        {
-                            question: 'Vad måste vara unikt i en dictionary?',
-                            options: [
-                                'Alla värden',
-                                'Alla variabelnamn i programmet',
-                                'Nycklarna',
-                                'Antalet loopar'
-                            ],
-                            correct: 2,
-                            feedback: 'Nycklarna i en dictionary ska vara unika.',
-                            explanation: 'Om samma nyckel används igen skrivs det tidigare värdet normalt över.'
-                        },
-                        {
-                            question: 'Vad betyder det att en tuple är immutable?',
-                            options: [
-                                'Att den alltid är tom',
-                                'Att den bara kan innehålla text',
-                                'Att den fungerar som en if-sats',
-                                'Att den inte kan ändras efter att den har skapats'
-                            ],
-                            correct: 3,
-                            feedback: 'Immutable betyder oföränderlig.',
-                            explanation: 'Tuples passar när en grupp värden ska behållas fast och inte ändras av misstag.'
-                        },
-                        {
-                            question: 'När passar en dictionary bättre än en lista?',
-                            options: [
-                                'När ordningen alltid är det enda viktiga',
-                                'När varje värde behöver kopplas till en tydlig nyckel eller etikett',
-                                'När du aldrig behöver hämta enskilda värden',
-                                'När programmet inte får innehålla strängar'
-                            ],
-                            correct: 1,
-                            feedback: 'Dictionaries passar när data ska kunna hämtas via nycklar.',
-                            explanation: 'Exempel är en person med nycklar som name, age och city.'
-                        },
-                        {
-                            question: 'Varför kan en funktion returnera en tuple?',
-                            options: [
-                                'För att skriva ut alla värden automatiskt',
-                                'För att stoppa alla loopar i programmet',
-                                'För att skicka tillbaka flera relaterade värden samtidigt',
-                                'För att göra en dictionary sorterad'
-                            ],
-                            correct: 2,
-                            feedback: 'En tuple kan samla flera värden som hör ihop.',
-                            explanation: 'Det gör det möjligt att exempelvis returnera både namn och ålder från samma funktion.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-2-4'), {"title": "Quiz: Kap 2.4", "questions": [{"question": "Vad gör required?", "options": ["Gör fältet obligatoriskt", "Skapar en bild", "Tar bort label", "Publicerar sidan"], "correct": 0, "feedback": "required kräver att användaren fyller i fältet.", "explanation": "required kräver att användaren fyller i fältet."}, {"question": "Vilken inputtyp passar för e-post?", "options": ["text-only", "email", "date", "checkbox"], "correct": 1, "feedback": "type=email ger e-postanpassad kontroll.", "explanation": "type=email ger e-postanpassad kontroll."}, {"question": "Vad används fieldset till?", "options": ["Gruppera relaterade formulärfält", "Byta bakgrundsfärg", "Skapa en server", "Radera formulärdata"], "correct": 0, "feedback": "fieldset grupperar fält.", "explanation": "fieldset grupperar fält."}, {"question": "Vad är legend i ett formulär?", "options": ["Rubrik/beskrivning för en fieldset-grupp", "Ett bildformat", "En statuskod", "En CSS-fil"], "correct": 0, "feedback": "legend förklarar gruppen.", "explanation": "legend förklarar gruppen."}, {"question": "Varför räcker inte placeholder som enda instruktion?", "options": ["Den kan försvinna när användaren skriver", "Den gör alltid sidan långsam", "Den går inte att använda i HTML", "Den ersätter name"], "correct": 0, "feedback": "Placeholder är inte en stabil etikett.", "explanation": "Placeholder är inte en stabil etikett."}]});
+        });
     </script>
 </body>
 

@@ -2,229 +2,96 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 3.5 - Arv och polymorfism</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 3.5: Miniuppgift där profilsidan får färg, typografi, spacing och tydligare CSS.">
+    <title>Kap 3.5 - Miniuppgift: designa om profilsidan</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 3.5: Arv, subklasser, override, polymorfism och super() i Python.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 3.5 – Arv och polymorfism</h1>
-                <p class="subtitle">Bygg vidare på klasser och låt samma metodnamn ge olika beteenden.</p>
+                <p class="eyebrow">Modul 3</p>
+                <h1>Kap 3.5 - Miniuppgift: designa om profilsidan</h1>
+                <p class="subtitle">Du använder CSS för att göra profilsidan mer läsbar, tydlig och sammanhängande.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Koppla och använda en extern CSS-fil.</li>
+        <li>Skapa ett enkelt men konsekvent visuellt uttryck.</li>
+        <li>Använda boxmodellen och selektorer på ett kontrollerat sätt.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Förstå vad arv innebär i objektorienterad programmering.</li>
-                    <li>Kunna skapa en klass som ärver från en annan klass.</li>
-                    <li>Förstå grunderna i polymorfism och hur metoder kan överskuggas, alltså override.</li>
-                </ul>
+    <h2>Uppgift</h2>
+    <p>Designa om din profilsida från modul 1. Du ska inte bygga en ny sida från början, utan förbättra den sida du redan har. Målet är att göra den mer läsbar och mer genomtänkt.</p>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Titta på hur du kan bygga vidare på en redan existerande klass. Börja med ett enkelt exempel och
-                    försök sedan skriva en egen basklass och subklass. Kör koden och se hur objekten beter sig beroende
-                    på vilken klass de tillhör. Läs gärna vidare om <code>super()</code> när du vill fördjupa dig.</p>
+    <h2>Krav</h2>
+    <ul>
+        <li>CSS ska ligga i en extern fil, till exempel <code>styles.css</code>.</li>
+        <li><code>body</code> ska ha en font stack, textfärg och bakgrundsfärg.</li>
+        <li>Sidans huvudinnehåll ska ha en maxbredd och luft runt innehållet.</li>
+        <li>Bilder ska inte kunna bli bredare än sin behållare.</li>
+        <li>Minst två klasser ska användas på ett meningsfullt sätt.</li>
+        <li>Länkar ska ha ett tydligt hover- och focus-läge.</li>
+        <li>Texten ska ha rimlig <code>line-height</code>.</li>
+        <li>HTML och CSS ska valideras eller kontrolleras så långt det går.</li>
+    </ul>
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>Arv:</strong> en klass, subklassen, kan ärva attribut och metoder från en annan klass.</li>
-                    <li><strong>Superklass eller basklass:</strong> den ursprungliga klassen vars beteenden ärvs.</li>
-                    <li><strong>Subklass:</strong> en ny klass som bygger vidare på en annan.</li>
-                    <li><strong>Override:</strong> en metod i subklassen ersätter metoden i basklassen.</li>
-                    <li><strong>Polymorfism:</strong> samma metodnamn kan användas på olika objekt och ge olika resultat.</li>
-                </ul>
+    <h2>Startförslag</h2>
+    <pre><code>* {
+    box-sizing: border-box;
+}
 
-                <h2>Arv i Python</h2>
-                <p>Python använder parenteser för att visa att en klass ärver från en annan:</p>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #f3f7f7;
+    background: #0f1417;
+}
 
-                <pre><code>class Animal:
-    def speak(self):
-        print("Djuret låter.")
+main {
+    max-width: 70ch;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-class Dog(Animal):
-    def speak(self):
-        print("Hunden säger voff.")</code></pre>
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}</code></pre>
 
-                <p>Användning:</p>
-                <pre><code>animal = Animal()
-dog = Dog()
+    <h2>Kontrollera</h2>
+    <ol>
+        <li>Kan sidan läsas utan att texten känns trång?</li>
+        <li>Syns länkar tydligt?</li>
+        <li>Fungerar sidan på en smal skärm?</li>
+        <li>Är klassnamnen begripliga?</li>
+        <li>Kan du förklara varför du valt färger och fonter?</li>
+    </ol>
 
-animal.speak()  # Djuret låter.
-dog.speak()     # Hunden säger voff.</code></pre>
-
-                <p>Här ärver <code>Dog</code> från <code>Animal</code>, men metoden <code>speak()</code> har skrivits om
-                    i subklassen. Det kallas override.</p>
-
-                <h2>Polymorfism i praktiken</h2>
-                <pre><code>animals = [Dog(), Animal()]
-
-for animal in animals:
-    animal.speak()</code></pre>
-
-                <p>Alla objekt kan hanteras med samma metodanrop, men svarar på olika sätt beroende på vilken klass de
-                    tillhör.</p>
-
-                <h2>Flera subklasser med polymorfism</h2>
-                <pre><code>class Cat(Animal):
-    def speak(self):
-        print("Katten säger mjau.")
-
-class Bird(Animal):
-    def speak(self):
-        print("Fågeln kvittrar.")
-
-animals = [Dog(), Cat(), Bird()]
-
-for animal in animals:
-    animal.speak()</code></pre>
-
-                <h2>Beräkningsexempel med olika former</h2>
-                <pre><code>class Shape:
-    def area(self):
-        return 0
-
-class Rectangle(Shape):
-    def __init__(self, w, h):
-        self.w = w
-        self.h = h
-
-    def area(self):
-        return self.w * self.h
-
-class Circle(Shape):
-    def __init__(self, r):
-        self.r = r
-
-    def area(self):
-        return 3.14 * self.r ** 2
-
-shapes = [Rectangle(4, 5), Circle(3)]
-
-for shape in shapes:
-    print("Area:", shape.area())</code></pre>
-
-                <h2>super(): utöka basklassens metod</h2>
-                <pre><code>class Person:
-    def __init__(self, name):
-        self.name = name
-
-    def introduce(self):
-        print(f"Jag heter {self.name}.")
-
-class Student(Person):
-    def __init__(self, name, school):
-        super().__init__(name)
-        self.school = school
-
-    def introduce(self):
-        super().introduce()
-        print(f"Jag går på {self.school}.")</code></pre>
-
-                <p><code>super()</code> gör det möjligt att återanvända basklassens kod och sedan lägga till mer beteende i
-                    subklassen.</p>
-
-                <h2>Öva: använd arv</h2>
-                <ol>
-                    <li>Skapa en basklass <code>Vehicle</code> med metoden <code>drive()</code>.</li>
-                    <li>Skapa två subklasser: <code>Car</code> och <code>Bike</code>, som överskuggar <code>drive()</code>.</li>
-                    <li>Skapa en lista med både bilar och cyklar och låt dem köra i en loop.</li>
-                    <li>Lägg till en metod i en subklass som använder <code>super()</code>.</li>
-                </ol>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Arv låter en klass återanvända kod från en annan.</li>
-                    <li>Subklasser kan ändra hur en metod fungerar.</li>
-                    <li>Polymorfism låter samma metodanrop bete sig olika beroende på objekt.</li>
-                    <li><code>super()</code> kan användas för att återanvända logik från basklassen.</li>
-                </ul>
-            </section>
+    <h2>Exit ticket</h2>
+    <p>Skriv kort: Vilken CSS-regel gjorde störst skillnad för sidans läsbarhet?</p>
+</section>
 
             <div id="quiz-3-5" aria-label="Quiz Kap 3.5"></div>
-
-            <p><a href="chapter-3.html">Tillbaka till Kapitel 3</a></p>
+            <p><a href="chapter-3.html">Tillbaka till Modul 3</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 3</p><h2>CSS i praktiken</h2><p>Miniuppgiften ska inte bli avancerad. Den ska visa att du har kontroll på grundläggande CSS.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-3-5'), {
-                    title: 'Quiz: Kap 3.5 - Arv och polymorfism',
-                    questions: [
-                        {
-                            question: 'Vad innebär arv i objektorienterad programmering?',
-                            options: [
-                                'Att en klass kan bygga vidare på en annan klass',
-                                'Att alla metoder tas bort från en klass',
-                                'Att objekt inte längre behöver skapas',
-                                'Att alla attribut måste vara privata'
-                            ],
-                            correct: 0,
-                            feedback: 'Arv gör att en klass kan återanvända och utöka en annan klass.',
-                            explanation: 'En subklass kan ärva metoder och attribut från en superklass.'
-                        },
-                        {
-                            question: 'Vad är en subklass?',
-                            options: [
-                                'En klass som aldrig kan skapa objekt',
-                                'En klass som bygger vidare på en annan klass',
-                                'En metod som returnerar en lista',
-                                'Ett attribut som saknar värde'
-                            ],
-                            correct: 1,
-                            feedback: 'En subklass ärver från en annan klass.',
-                            explanation: 'Exempel: Dog kan vara en subklass till Animal.'
-                        },
-                        {
-                            question: 'Vad betyder override?',
-                            options: [
-                                'Att en metod bara får användas en gång',
-                                'Att en metod i subklassen ersätter eller ändrar basklassens metod',
-                                'Att en klass inte får ha attribut',
-                                'Att en loop stoppas med break'
-                            ],
-                            correct: 1,
-                            feedback: 'Override innebär att subklassen skriver om en ärvd metod.',
-                            explanation: 'Dog kan till exempel ha en egen speak()-metod som ersätter Animal.speak().'
-                        },
-                        {
-                            question: 'Vad innebär polymorfism?',
-                            options: [
-                                'Att alla objekt alltid gör exakt samma sak',
-                                'Att programmet bara använder en klass',
-                                'Att samma metodnamn kan ge olika beteende beroende på objektets klass',
-                                'Att metoder inte kan ta parametrar'
-                            ],
-                            correct: 2,
-                            feedback: 'Polymorfism betyder att samma metodanrop kan ge olika resultat.',
-                            explanation: 'Olika objekt kan ha metoden speak(), men svara på olika sätt.'
-                        },
-                        {
-                            question: 'Vad används super() ofta till?',
-                            options: [
-                                'Att återanvända kod från basklassen i en subklass',
-                                'Att skapa en global variabel',
-                                'Att sortera objekt automatiskt',
-                                'Att stoppa arv mellan klasser'
-                            ],
-                            correct: 0,
-                            feedback: 'super() används för att anropa basklassens metoder.',
-                            explanation: 'Det är användbart när subklassen vill bygga vidare på basklassens logik.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-3-5'), {"title": "Quiz: Kap 3.5", "questions": [{"question": "Var ska CSS ligga enligt uppgiften?", "options": ["I en extern CSS-fil", "Endast i bildfilen", "I title-elementet", "I en PDF"], "correct": 0, "feedback": "Extern CSS är kravet.", "explanation": "Extern CSS är kravet."}, {"question": "Varför sätta max-width på huvudinnehållet?", "options": ["För att långa textrader ska bli mer läsbara", "För att ta bort HTML", "För att göra sidan osäker", "För att skapa en statuskod"], "correct": 0, "feedback": "Maxbredd gör text lättare att läsa.", "explanation": "Maxbredd gör text lättare att läsa."}, {"question": "Vilken regel hjälper bilder att inte bli bredare än behållaren?", "options": ["img { max-width: 100%; height: auto; }", "img { color: red; }", "body { display: none; }", "a { method: post; }"], "correct": 0, "feedback": "max-width hjälper responsiva bilder.", "explanation": "max-width hjälper responsiva bilder."}, {"question": "Varför ska länkar ha focus-läge?", "options": ["För tangentbordsnavigering och tillgänglighet", "För att dölja dem", "För att skapa fler filer", "För att validera DNS"], "correct": 0, "feedback": "Focus visar var användaren befinner sig.", "explanation": "Focus visar var användaren befinner sig."}, {"question": "Vad är ett bra klassnamn?", "options": ["red big thing maybe", "card-title", "!!!", "klass 1 med mellanslag"], "correct": 1, "feedback": "card-title är begripligt och fungerar bra som klassnamn.", "explanation": "card-title är begripligt och fungerar bra som klassnamn."}]});
+        });
     </script>
 </body>
 

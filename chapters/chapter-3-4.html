@@ -2,177 +2,98 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 3.4 - Inkapsling och attribut</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 3.4: CSS-selektorer, klasser, id, gruppering, kedjeselektorer, descendant selectors, pseudoklasser och specificitet.">
+    <title>Kap 3.4 - Klasser, id och selektorstrategi</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 3.4: Inkapsling, privata attribut, getters och setters i Python.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 3.4 – Inkapsling och attribut</h1>
-                <p class="subtitle">Skydda objektets data och styr åtkomst med metoder.</p>
+                <p class="eyebrow">Modul 3</p>
+                <h1>Kap 3.4 - Klasser, id och selektorstrategi</h1>
+                <p class="subtitle">Bra selektorer gör CSS lättare att läsa, återanvända och felsöka.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Använda typselektorer, klassselektorer och id-selektorer.</li>
+        <li>Förstå gruppering, kedjeselektorer och härstammande selektorer.</li>
+        <li>Känna till pseudoklasser, specificitet och arv.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Förstå vad inkapsling innebär och varför det är viktigt.</li>
-                    <li>Känna till hur man markerar privata attribut i Python.</li>
-                    <li>Kunna använda metoder, getters och setters, för att kontrollera åtkomst till data.</li>
-                </ul>
+    <h2>Typselektor</h2>
+    <p>En typselektor väljer alla element av en viss typ.</p>
+    <pre><code>p {
+    line-height: 1.5;
+}</code></pre>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Tänk på inkapsling som att bygga en maskin där vissa delar är synliga och andra dolda. Börja med
-                    exemplen och testa att göra attribut privata. Skapa egna metoder som kontrollerar hur data läses och
-                    skrivs. Jämför med hur du använt attribut direkt tidigare.</p>
+    <h2>Klassselektor</h2>
+    <p>Klasser kan återanvändas på många element. I CSS skrivs klasser med punkt.</p>
+    <pre><code>&lt;p class="intro-text"&gt;Text&lt;/p&gt;
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>Inkapsling:</strong> att dölja objektets inre data och endast ge åtkomst via metoder.</li>
-                    <li><strong>Publikt attribut:</strong> ett fält som kan nås direkt utifrån.</li>
-                    <li><strong>Privat attribut:</strong> ett fält som är avsett att döljas, ofta skrivet med ett inledande understreck.</li>
-                    <li><strong>Getter och setter:</strong> metoder som används för att läsa eller ändra privata fält.</li>
-                </ul>
+.intro-text {
+    font-weight: 700;
+}</code></pre>
+    <p>Använd gärna bindestreck i klassnamn. Undvik mellanslag om du menar ett enda klassnamn.</p>
 
-                <p>Inkapsling är en grundsten i OOP eftersom det skyddar objektets inre tillstånd och minskar risken för
-                    fel. Det gör också din kod tydligare och mer kontrollerad.</p>
+    <h2>ID-selektor</h2>
+    <p>Ett id ska vara unikt på sidan. Det kan användas för ankarlänkar, formulärkopplingar och JavaScript. I CSS skrivs id med <code>#</code>.</p>
+    <pre><code>#contact-form {
+    border: 1px solid #5eead4;
+}</code></pre>
+    <p>Välj klass i första hand när stilen ska kunna återanvändas.</p>
 
-                <h2>Använda inkapsling i Python</h2>
-                <p>I Python är inget egentligen helt privat, men det är praxis att markera ett attribut som privat med ett
-                    inledande understreck: <code>_</code>.</p>
+    <h2>Gruppering och DRY</h2>
+    <p>Om flera selektorer ska få samma deklarationer kan du gruppera dem med kommatecken.</p>
+    <pre><code>h1,
+h2,
+h3 {
+    line-height: 1.15;
+}</code></pre>
+    <p>Det följer DRY-principen: Don't Repeat Yourself.</p>
 
-                <pre><code>class BankAccount:
-    def __init__(self, owner, balance):
-        self.owner = owner
-        self._balance = balance  # privat attribut
+    <h2>Kedja och härstamning</h2>
+    <pre><code>.card.highlight {
+    border-color: orange;
+}
 
-    def deposit(self, amount):
-        if amount &gt; 0:
-            self._balance += amount
+article p {
+    max-width: 70ch;
+}</code></pre>
+    <p><code>.card.highlight</code> väljer element som har båda klasserna. <code>article p</code> väljer <code>p</code>-element som ligger någonstans inuti <code>article</code>.</p>
 
-    def withdraw(self, amount):
-        if 0 &lt; amount &lt;= self._balance:
-            self._balance -= amount
+    <h2>Pseudoklasser</h2>
+    <p>Pseudoklasser väljer element i ett visst tillstånd, till exempel länkar när muspekaren är över dem eller när de får tangentbordsfokus.</p>
+    <pre><code>a:hover {
+    text-decoration: underline;
+}
 
-    def get_balance(self):
-        return self._balance</code></pre>
+a:focus {
+    outline: 2px solid #5eead4;
+}</code></pre>
 
-                <p>Här används metoderna <code>deposit()</code>, <code>withdraw()</code> och
-                    <code>get_balance()</code> för att hantera saldot på ett kontrollerat sätt.</p>
-                <p>En setter är användbar när du vill kontrollera ett nytt värde innan det sparas i objektet. Du kan
-                    till exempel stoppa negativa tal, för höga betyg eller andra ogiltiga värden innan de ändrar
-                    objektets tillstånd.</p>
-
-                <pre><code>account = BankAccount("Emma", 1000)
-
-account.deposit(500)
-account.withdraw(200)
-
-print(account.get_balance())</code></pre>
-
-                <p>Detta säkerställer att inga negativa uttag kan ske och att balansen skyddas.</p>
-
-                <h2>Öva: skapa egna inkapslade attribut</h2>
-                <ol>
-                    <li>Skapa en klass <code>Student</code> med namnet publikt och betyg som ett privat attribut <code>_grade</code>.</li>
-                    <li>Skriv en metod <code>set_grade()</code> som bara godkänner betyg mellan 0 och 100.</li>
-                    <li>Skriv en metod <code>get_grade()</code> som returnerar betyget.</li>
-                    <li>Testa att skapa en elev och ändra betyg med metoden.</li>
-                </ol>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Inkapsling handlar om att skydda data och endast ge åtkomst via metoder.</li>
-                    <li>Python använder understreck <code>_</code> för att markera privata attribut.</li>
-                    <li>Metoder som <code>get_</code> och <code>set_</code> används för att hantera privata fält.</li>
-                    <li>Inkapsling förbättrar säkerhet, läsbarhet och kodens hållbarhet.</li>
-                </ul>
-            </section>
+    <h2>Specificitet</h2>
+    <p>Om flera regler påverkar samma egenskap avgör specificitet och ordning vilken som vinner. Inline-stil är stark, id är starkare än klass, och klass är starkare än typselektor. Undvik <code>!important</code> om du inte har en mycket tydlig anledning.</p>
+</section>
 
             <div id="quiz-3-4" aria-label="Quiz Kap 3.4"></div>
-
-            <p><a href="chapter-3.html">Tillbaka till Kapitel 3</a></p>
+            <p><a href="chapter-3.html">Tillbaka till Modul 3</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 3</p><h2>CSS i praktiken</h2><p>Om CSS känns svår att styra har selektorerna ofta blivit för starka eller för otydliga.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-3-4'), {
-                    title: 'Quiz: Kap 3.4 - Inkapsling och attribut',
-                    questions: [
-                        {
-                            question: 'Vad innebär inkapsling i objektorienterad programmering?',
-                            options: [
-                                'Att all kod skrivs i en enda funktion',
-                                'Att objektets interna data skyddas och nås via kontrollerade metoder',
-                                'Att programmet inte får ha några attribut',
-                                'Att alla variabler automatiskt blir globala'
-                            ],
-                            correct: 1,
-                            feedback: 'Inkapsling handlar om att skydda objektets interna data.',
-                            explanation: 'I stället för att ändra data direkt kan du styra åtkomsten genom metoder.'
-                        },
-                        {
-                            question: 'Hur markerar man ofta ett privat attribut i Python?',
-                            options: [
-                                'Med ett inledande understreck, till exempel _balance',
-                                'Med tre utropstecken före namnet',
-                                'Genom att skriva attributet med stora bokstäver',
-                                'Genom att lägga attributet i en lista'
-                            ],
-                            correct: 0,
-                            feedback: 'Ett inledande understreck används som konvention för privata attribut.',
-                            explanation: 'Python stoppar inte alltid åtkomsten, men understrecket signalerar att attributet ska behandlas som internt.'
-                        },
-                        {
-                            question: 'Vad är en getter?',
-                            options: [
-                                'En metod som alltid tar bort ett objekt',
-                                'En loop som går igenom alla attribut',
-                                'En metod som hämtar eller returnerar ett värde',
-                                'Ett felmeddelande vid privat åtkomst'
-                            ],
-                            correct: 2,
-                            feedback: 'En getter används för att läsa ett värde.',
-                            explanation: 'Exempel: get_balance() returnerar kontots saldo.'
-                        },
-                        {
-                            question: 'Varför är en setter användbar?',
-                            options: [
-                                'För att den alltid gör attribut publika',
-                                'För att den kan kontrollera om ett nytt värde är giltigt innan det sparas',
-                                'För att den ersätter behovet av klasser',
-                                'För att den körs innan __init__'
-                            ],
-                            correct: 1,
-                            feedback: 'Setters kan validera data innan den ändras.',
-                            explanation: 'En set_grade()-metod kan till exempel kontrollera att betyget ligger mellan 0 och 100.'
-                        },
-                        {
-                            question: 'Varför kan inkapsling minska risken för fel i ett program?',
-                            options: [
-                                'För att alla attribut då alltid blir globala',
-                                'För att objektets data kan ändras direkt från vilken kod som helst',
-                                'För att åtkomst till data kan styras genom metoder som kontrollerar värden',
-                                'För att programmet inte längre behöver några klasser'
-                            ],
-                            correct: 2,
-                            feedback: 'Inkapsling låter objektet kontrollera hur dess data läses och ändras.',
-                            explanation: 'När ändringar går via metoder kan programmet stoppa ogiltiga värden innan de sparas.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-3-4'), {"title": "Quiz: Kap 3.4", "questions": [{"question": "Hur skrivs en klassselektor i CSS?", "options": ["#intro", ".intro", "intro()", "<intro>"], "correct": 1, "feedback": "Klasser skrivs med punkt.", "explanation": "Klasser skrivs med punkt."}, {"question": "Hur många gånger bör samma id användas på en sida?", "options": ["Hur många som helst", "En gång", "Minst fem gånger", "Aldrig i HTML"], "correct": 1, "feedback": "Id ska vara unikt.", "explanation": "Id ska vara unikt."}, {"question": "Vad gör h1, h2, h3 { ... }?", "options": ["Grupperar flera selektorer", "Skapar tre HTML-filer", "Tar bort rubriker", "Startar JavaScript"], "correct": 0, "feedback": "Kommatecken grupperar selektorer.", "explanation": "Kommatecken grupperar selektorer."}, {"question": "Vad väljer article p?", "options": ["Alla article och alla p", "p-element inuti article", "Endast första h1", "Alla bilder"], "correct": 1, "feedback": "Det är en härstammande selektor.", "explanation": "Det är en härstammande selektor."}, {"question": "Vilken pseudoklass är viktig för tangentbordsnavigering?", "options": [":hover", ":focus", ":visited-only", ":image"], "correct": 1, "feedback": ":focus visar vilket element som har fokus.", "explanation": ":focus visar vilket element som har fokus."}]});
+        });
     </script>
 </body>
 

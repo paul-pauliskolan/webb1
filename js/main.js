@@ -179,6 +179,16 @@ const LESSON_ORDER = [
   "chapter-1-4.html",
   "chapter-1-5.html",
   "chapter-1-6.html",
+  "chapter-2-1.html",
+  "chapter-2-2.html",
+  "chapter-2-3.html",
+  "chapter-2-4.html",
+  "chapter-2-5.html",
+  "chapter-3-1.html",
+  "chapter-3-2.html",
+  "chapter-3-3.html",
+  "chapter-3-4.html",
+  "chapter-3-5.html",
 ];
 
 function insertPrevNextLinks() {

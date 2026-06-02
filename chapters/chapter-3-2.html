@@ -2,168 +2,84 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 3.2 - Skapa klasser och objekt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 3.2: Färgformat, kontrast, fonter, font stacks, line-height och textjustering.">
+    <title>Kap 3.2 - Färg, typografi och läsbarhet</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 3.2: Skapa egna klasser och objekt i Python med __init__, self, attribut och metoder.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 3.2 – Skapa klasser och objekt</h1>
-                <p class="subtitle">Definiera egna klasser och skapa objekt som har egna attribut och metoder.</p>
+                <p class="eyebrow">Modul 3</p>
+                <h1>Kap 3.2 - Färg, typografi och läsbarhet</h1>
+                <p class="subtitle">Färg och typografi ska hjälpa användaren att läsa, förstå och hitta rätt.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Använda färg på ett kontrollerat sätt i CSS.</li>
+        <li>Välja läsbara fonter och font stacks.</li>
+        <li>Förstå kontrast, line-height och textjustering.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Kunna definiera egna klasser i Python.</li>
-                    <li>Förstå hur man skapar och använder objekt från en klass.</li>
-                    <li>Kunna använda konstruktorer och skapa metoder i en klass.</li>
-                </ul>
+    <h2>Färger i CSS</h2>
+    <p>Du kan ange färger med namn, hexkod, RGB eller HSL. Namngivna färger är praktiska när du testar, men i designarbete behöver du oftast mer kontroll.</p>
+    <pre><code>body {
+    color: #172026;
+    background-color: rgb(246 248 247);
+}
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Börja med att läsa exemplen och försök förstå hur varje del fungerar. Kopiera koden och kör den själv.
-                    Gör sedan små ändringar och se vad som händer. Tänk på hur du kan använda egna klasser för att
-                    beskriva verkliga företeelser.</p>
+.warning {
+    background-color: hsl(35 90% 55%);
+}</code></pre>
+    <p>Moderna format som oklch och färgrymder som P3 finns också. I kursens början räcker det att du kan hex, RGB och HSL, men det är bra att känna till att färgsystem utvecklas.</p>
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>Klass:</strong> en mall som beskriver hur ett objekt ska fungera.</li>
-                    <li><strong>Objekt:</strong> en instans av en klass som skapas när programmet körs.</li>
-                    <li><strong><code>__init__()</code>:</strong> klassens konstruktor, som körs när objektet skapas.</li>
-                    <li><strong><code>self</code>:</strong> referens till det aktuella objektet inom klassen.</li>
-                    <li><strong>Metod:</strong> en funktion som tillhör en klass och använder <code>self</code>.</li>
-                </ul>
+    <h2>Kontrast</h2>
+    <p>Text måste ha tillräcklig kontrast mot bakgrunden. Ljusgrå text på vit bakgrund kan se diskret ut, men den blir svår att läsa. Testa färger med till exempel WebAIM Contrast Checker.</p>
 
-                <p>Du behöver förstå dessa begrepp för att kunna bygga program med flera objekt som samarbetar. De är
-                    grunden för det objektorienterade arbetssättet.</p>
+    <h2>Fonter</h2>
+    <p>En font stack ger webbläsaren flera alternativ. Om första fonten saknas används nästa.</p>
+    <pre><code>body {
+    font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+    <p>Vanliga kategorier är sans-serif, serif, monospace, handwriting/cursive och display. Brödtext bör nästan alltid vara lättläst. Dekorativa fonter passar bäst i små mängder.</p>
 
-                <h2>Skapa och använda klasser</h2>
-                <p>I Python definierar du en klass med nyckelordet <code>class</code>. Här är ett enkelt exempel på en
-                    klass som representerar en bok:</p>
+    <h2>Google Fonts och modern font stacks</h2>
+    <p>Google Fonts ger många fonter, men kan påverka laddningstid och integritet om fonten laddas från Googles servrar. Modern Font Stacks är ett alternativ där du använder fonter som ofta redan finns på användarens system.</p>
 
-                <pre><code>class Book:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
+    <h2>Line-height och text-align</h2>
+    <p><code>line-height</code> styr radavstånd. För brödtext fungerar ofta ett värde runt <code>1.5</code>.</p>
+    <pre><code>p {
+    line-height: 1.5;
+}</code></pre>
+    <p>Vänsterställd text är oftast lättast att läsa på svenska webbsidor. Centrerad text passar bäst för korta rubriker eller mycket korta texter.</p>
 
-    def print_info(self):
-        print(f"{self.title} av {self.author}")</code></pre>
-
-                <p>Här definieras två attribut, <code>title</code> och <code>author</code>, samt en metod
-                    <code>print_info()</code>. För att använda klassen skapar du ett objekt:</p>
-
-                <pre><code>book1 = Book("1984", "George Orwell")
-book1.print_info()</code></pre>
-
-                <p>Detta skapar ett nytt objekt, <code>book1</code>, av typen <code>Book</code>. När du anropar metoden
-                    <code>print_info()</code> använder objektet sina egna attribut.</p>
-
-                <h2>Öva: skapa en egen klass</h2>
-                <p>Skriv en klass som heter <code>Person</code>. Den ska ha attributen <code>name</code> och
-                    <code>age</code>, och en metod som skriver ut:</p>
-                <pre><code>Hej, jag heter [namn] och är [ålder] år.</code></pre>
-
-                <p>Tips:</p>
-                <ul>
-                    <li>Börja med att skriva <code>class Person:</code></li>
-                    <li>Lägg till en <code>__init__</code>-metod med <code>self</code>, <code>name</code> och <code>age</code>.</li>
-                    <li>Lägg till en metod <code>say_hello()</code> som skriver ut informationen.</li>
-                </ul>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>En klass i Python skapas med <code>class</code> och innehåller metoder och attribut.</li>
-                    <li><code>__init__</code> används för att sätta upp objektets startvärden.</li>
-                    <li><code>self</code> används för att referera till objektet självt.</li>
-                    <li>Du skapar ett objekt genom att anropa klassen som en funktion.</li>
-                </ul>
-            </section>
+    <h2>Prova själv</h2>
+    <ol>
+        <li>Välj två färger till profilsidan: en bakgrundsfärg och en textfärg.</li>
+        <li>Testa kontrasten.</li>
+        <li>Lägg till en font stack på <code>body</code>.</li>
+        <li>Sätt <code>line-height: 1.5</code> på stycketext.</li>
+    </ol>
+</section>
 
             <div id="quiz-3-2" aria-label="Quiz Kap 3.2"></div>
-
-            <p><a href="chapter-3.html">Tillbaka till Kapitel 3</a></p>
+            <p><a href="chapter-3.html">Tillbaka till Modul 3</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 3</p><h2>CSS i praktiken</h2><p>Designbeslut ska kunna motiveras: läsbarhet först, dekoration sedan.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-3-2'), {
-                    title: 'Quiz: Kap 3.2 - Skapa klasser och objekt',
-                    questions: [
-                        {
-                            question: 'Vilket nyckelord används för att definiera en klass i Python?',
-                            options: [
-                                'function',
-                                'class',
-                                'object',
-                                'define'
-                            ],
-                            correct: 1,
-                            feedback: 'I Python används nyckelordet class för att skapa en klass.',
-                            explanation: 'Exempel: class Book: startar definitionen av klassen Book.'
-                        },
-                        {
-                            question: 'Vad gör metoden __init__ i en klass?',
-                            options: [
-                                'Den körs när ett nytt objekt skapas och sätter ofta startvärden',
-                                'Den avslutar alltid programmet',
-                                'Den tar bort alla objekt från minnet',
-                                'Den sorterar klassens metoder alfabetiskt'
-                            ],
-                            correct: 0,
-                            feedback: '__init__ är klassens konstruktor.',
-                            explanation: 'Den används ofta för att ge objektet attribut som title, author, name eller age.'
-                        },
-                        {
-                            question: 'Vad betyder self i en metod?',
-                            options: [
-                                'En lista med alla objekt',
-                                'Namnet på Python-filen',
-                                'En referens till det aktuella objektet',
-                                'Ett kommando för att skriva ut text'
-                            ],
-                            correct: 2,
-                            feedback: 'self refererar till objektet som metoden körs på.',
-                            explanation: 'Med self.title menar du attributet title på just detta objekt.'
-                        },
-                        {
-                            question: 'Hur skapar du ett objekt från klassen Book?',
-                            options: [
-                                'Book = class("1984")',
-                                'book1 = Book("1984", "George Orwell")',
-                                'object Book("1984")',
-                                'def Book = book1'
-                            ],
-                            correct: 1,
-                            feedback: 'Du skapar ett objekt genom att anropa klassen som en funktion.',
-                            explanation: 'Argumenten skickas vidare till __init__ när objektet skapas.'
-                        },
-                        {
-                            question: 'Vad är en metod i en klass?',
-                            options: [
-                                'En funktion som tillhör klassen eller objektet',
-                                'Ett fel som uppstår i en loop',
-                                'En variabel som bara kan innehålla tal',
-                                'En kommentar som beskriver objektet'
-                            ],
-                            correct: 0,
-                            feedback: 'En metod är en funktion som ligger i en klass.',
-                            explanation: 'Metoder kan använda self för att läsa eller ändra objektets attribut.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-3-2'), {"title": "Quiz: Kap 3.2", "questions": [{"question": "Vilket CSS-attribut ändrar textfärg?", "options": ["background-color", "color", "font-family", "line-height"], "correct": 1, "feedback": "color ändrar textfärg.", "explanation": "color ändrar textfärg."}, {"question": "Varför är kontrast viktigt?", "options": ["Texten ska gå att läsa", "HTML-filen ska bli mindre", "GitHub kräver det alltid", "Bilder blir automatiskt SVG"], "correct": 0, "feedback": "Kontrast påverkar läsbarheten.", "explanation": "Kontrast påverkar läsbarheten."}, {"question": "Vad är en font stack?", "options": ["Flera fontalternativ i samma font-family", "En lista med bilder", "Ett felmeddelande", "En typ av HTTP-metod"], "correct": 0, "feedback": "Font stack ger fallback-fonter.", "explanation": "Font stack ger fallback-fonter."}, {"question": "Vilket line-height-värde är ofta rimligt för brödtext?", "options": ["0", "1.5", "100px alltid", "-2"], "correct": 1, "feedback": "1.5 ger ofta luftigare läsning.", "explanation": "1.5 ger ofta luftigare läsning."}, {"question": "När passar centrerad text bäst?", "options": ["För långa brödtexter", "För korta rubriker eller korta textblock", "För all kod", "Aldrig i HTML"], "correct": 1, "feedback": "Centrerad text blir snabbt svårläst i längre stycken.", "explanation": "Centrerad text blir snabbt svårläst i längre stycken."}]});
+        });
     </script>
 </body>
 

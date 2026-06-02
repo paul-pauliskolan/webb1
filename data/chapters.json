@@ -14,30 +14,37 @@
         "Miniuppgift: publicera med GitHub Pages"
       ],
       "summary": "Modulen leder eleven från webbens grundbegrepp till en egen publicerad profilsida.",
-      "keyTopics": ["webben", "VS Code", "HTML", "filvägar", "validering", "GitHub Pages"],
+      "keyTopics": [
+        "webben",
+        "VS Code",
+        "HTML",
+        "filvägar",
+        "validering",
+        "GitHub Pages"
+      ],
       "videoSuggestions": [],
       "resources": []
     },
     {
       "id": 2,
       "number": 2,
-      "title": "Bygg quizappen med HTML, CSS och JavaScript",
-      "description": "Bygg grunden till quizappen med rätt HTML-struktur, CSS och JavaScript-koppling.",
+      "title": "HTML som struktur och semantik",
+      "description": "Modul 2 i Webbutveckling 1: element, DOM, semantisk HTML och formulär.",
       "sections": [
-        "Vad JavaScript gör på webben",
-        "Variabler och konstanter",
-        "Hämta element och ändra text",
-        "Lyssna på klick",
-        "Sammanfattning",
-        "Quiz"
+        "HTML-element och DOM-tänk",
+        "Semantisk HTML",
+        "Formulär från grunden",
+        "Tillgängliga formulär",
+        "Miniuppgift: kontaktformulär"
       ],
-      "summary": "Kapitlet visar hur quizappen byggs med rätt HTML-struktur, tydlig CSS och JavaScript som kopplar ihop formuläret med resultatet.",
+      "summary": "Modulen fördjupar HTML genom element, attribut, DOM, sidregioner och formulär som går att förstå och använda.",
       "keyTopics": [
-        "HTML",
-        "CSS",
-        "JavaScript",
+        "HTML-element",
+        "DOM",
+        "semantik",
         "formulär",
-        "quizapp"
+        "labels",
+        "validering"
       ],
       "videoSuggestions": [],
       "resources": []
@@ -45,24 +52,23 @@
     {
       "id": 3,
       "number": 3,
-      "title": "Objektorientering och modellering",
-      "description": "Introduktion till objektorientering med fokus på analys och modellering; UML-diagram och användningsfall.",
+      "title": "CSS, visuell design och boxmodellen",
+      "description": "Modul 3 i Webbutveckling 1: externa stilmallar, färg, typografi, boxmodellen och CSS-selektorer.",
       "sections": [
-        "Grundläggande objektorientering",
-        "Klassdiagram (UML)",
-        "Användningsfall och use-cases",
-        "Sekvensdiagram och interaktion",
-        "Design och pseudokod",
-        "Övningar",
-        "Quiz"
+        "Vad CSS gör",
+        "Färg, typografi och läsbarhet",
+        "Boxmodellen i praktiken",
+        "Klasser, id och selektorstrategi",
+        "Miniuppgift: designa om profilsidan"
       ],
-      "summary": "Kapitlet visar hur problem modelleras med objektorienterade principer och modelleringsverktyg. Eleverna lär sig läsa och rita enkla UML-diagram och översätta analys till klassstruktur.",
+      "summary": "Modulen lär eleven skapa ett tydligare visuellt uttryck med CSS, samtidigt som läsbarhet och kodstruktur prioriteras.",
       "keyTopics": [
-        "objektorientering",
-        "UML",
-        "klassdiagram",
-        "användningsfall",
-        "modellering"
+        "CSS",
+        "färg",
+        "typografi",
+        "boxmodellen",
+        "selektorer",
+        "specificitet"
       ],
       "videoSuggestions": [],
       "resources": []
@@ -107,7 +113,13 @@
         "Reflektion"
       ],
       "summary": "Det här kapitlet visar hur program kan reagera olika beroende på indata och villkor. Det är ett centralt steg mot mer användbara och interaktiva JavaScript-program.",
-      "keyTopics": ["if-satser", "logik", "beslut", "grenad kod", "villkor"],
+      "keyTopics": [
+        "if-satser",
+        "logik",
+        "beslut",
+        "grenad kod",
+        "villkor"
+      ],
       "videoSuggestions": [],
       "resources": []
     },
@@ -126,7 +138,13 @@
         "Sammanfattning"
       ],
       "summary": "Här lär sig eleverna upprepning, räknare och hur samma kod kan köras många gånger på ett kontrollerat sätt. Loopar är en av de viktigaste byggstenarna i programmering.",
-      "keyTopics": ["for", "while", "upprepning", "räknare", "range"],
+      "keyTopics": [
+        "for",
+        "while",
+        "upprepning",
+        "räknare",
+        "range"
+      ],
       "videoSuggestions": [],
       "resources": []
     },
@@ -220,7 +238,13 @@
         "Reflektion"
       ],
       "summary": "Här lär sig eleverna att hantera oväntade situationer så att program inte kraschar i onödan. Det skapar stabilare och mer användarvänliga lösningar.",
-      "keyTopics": ["undantag", "try", "catch", "robusthet", "felhantering"],
+      "keyTopics": [
+        "undantag",
+        "try",
+        "catch",
+        "robusthet",
+        "felhantering"
+      ],
       "videoSuggestions": [],
       "resources": []
     },
@@ -239,7 +263,13 @@
         "Sammanfattning"
       ],
       "summary": "Kapitlet handlar om kodkvalitet, tydlighet och arbetssätt. Eleverna får verktyg för att skriva kod som är enkel att läsa, förstå och vidareutveckla.",
-      "keyTopics": ["läsbarhet", "struktur", "namn", "kommentarer", "stil"],
+      "keyTopics": [
+        "läsbarhet",
+        "struktur",
+        "namn",
+        "kommentarer",
+        "stil"
+      ],
       "videoSuggestions": [],
       "resources": []
     },
@@ -358,7 +388,13 @@
         "Övningar"
       ],
       "summary": "Kapitlet introducerar hur elever kan spara, versionera och dela sitt arbete på ett professionellt sätt. Det passar särskilt bra när flera arbetar med samma projekt.",
-      "keyTopics": ["git", "GitHub", "commit", "branch", "versionshantering"],
+      "keyTopics": [
+        "git",
+        "GitHub",
+        "commit",
+        "branch",
+        "versionshantering"
+      ],
       "videoSuggestions": [],
       "resources": []
     },
@@ -416,9 +452,21 @@
       "number": 19,
       "title": "Appendix - förslag till projekt",
       "description": "En samling projektidéer på E-, C- och A-nivå.",
-      "sections": ["E-nivå", "C-nivå", "A-nivå", "Välja projekt", "Nästa steg"],
+      "sections": [
+        "E-nivå",
+        "C-nivå",
+        "A-nivå",
+        "Välja projekt",
+        "Nästa steg"
+      ],
       "summary": "Bilagan samlar projektidéer som eleverna kan använda när de vill arbeta vidare på olika nivåer. Det gör det enklare att hitta ett projekt som passar både ambition och tid.",
-      "keyTopics": ["projektidéer", "nivåer", "fördjupning", "val", "bilaga"],
+      "keyTopics": [
+        "projektidéer",
+        "nivåer",
+        "fördjupning",
+        "val",
+        "bilaga"
+      ],
       "videoSuggestions": [],
       "resources": []
     }

@@ -2,179 +2,87 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 3.1 - Vad är OOP?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 3.1: CSS-regler, externa stilmallar, style-element, inline-CSS och kaskaden.">
+    <title>Kap 3.1 - Vad CSS gör</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 3.1: Introduktion till objektorienterad programmering, klasser, objekt, attribut och metoder.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 3.1 – Vad är OOP?</h1>
-                <p class="subtitle">Förstå hur objekt, klasser, attribut och metoder används för att strukturera program.</p>
+                <p class="eyebrow">Modul 3</p>
+                <h1>Kap 3.1 - Vad CSS gör</h1>
+                <p class="subtitle">CSS styr presentationen: färg, storlek, avstånd, layout och andra visuella egenskaper.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Förstå vad CSS används till.</li>
+        <li>Kunna koppla en extern CSS-fil till HTML.</li>
+        <li>Förstå grunderna i selektor, deklaration, egenskap och värde.</li>
+        <li>Känna till att CSS styrs av kaskad, arv och prioritet.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Känna till grunderna i objektorienterad programmering (OOP).</li>
-                    <li>Förstå varför OOP används och vad det innebär att tänka i objekt.</li>
-                    <li>Kunna skilja mellan begreppen klass, objekt, egenskap och metod.</li>
-                </ul>
+    <h2>HTML utan CSS</h2>
+    <p>Om du skriver HTML utan CSS visar webbläsaren sidan med sina standardregler. De kallas ofta user-agent stylesheet. Därför blir en <code>h1</code> stor och fet, medan ett <code>p</code>-element får marginaler före och efter.</p>
+    <p>CSS låter dig skriva dina egna regler ovanpå webbläsarens standard.</p>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Börja med att läsa igenom hela lektionen för att få en helhetsbild. Försök tänka på hur du skulle
-                    beskriva verkliga företeelser med kod: en bil, en bok eller en elev. Jämför gärna hur samma problem
-                    skulle kunna lösas med fristående funktioner respektive med objekt.</p>
+    <h2>CSS-regelns delar</h2>
+    <pre><code>h1 {
+    color: green;
+    font-size: 2rem;
+}</code></pre>
+    <ul>
+        <li><code>h1</code> är selektorn. Den väljer vilka element som påverkas.</li>
+        <li><code>color</code> och <code>font-size</code> är egenskaper.</li>
+        <li><code>green</code> och <code>2rem</code> är värden.</li>
+        <li>En egenskap och ett värde bildar en deklaration.</li>
+    </ul>
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>Objekt:</strong> ett självständigt paket av data och funktionalitet, till exempel en specifik bok.</li>
-                    <li><strong>Klass:</strong> en mall eller ritning för att skapa objekt, till exempel typen <code>Bok</code>.</li>
-                    <li><strong>Egenskap eller attribut:</strong> data som hör till ett objekt, till exempel en boks titel eller författare.</li>
-                    <li><strong>Metod:</strong> en funktion som hör till en klass eller ett objekt, till exempel <code>skriv_ut_info()</code>.</li>
-                    <li><strong>Inkapsling:</strong> att dölja interna detaljer i ett objekt och exponera en tydlig yta.</li>
-                    <li><strong>Återanvändning:</strong> att skapa kod som kan användas flera gånger genom att skapa nya objekt.</li>
-                </ul>
+    <h2>Tre sätt att lägga till CSS</h2>
+    <h3>Extern CSS-fil</h3>
+    <p>Det vanligaste och bästa arbetssättet i kursen är att lägga CSS i en egen fil.</p>
+    <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
 
-                <p>Dessa begrepp är viktiga eftersom de bygger upp strukturen i objektorienterad programmering. När du
-                    skriver program i Python eller C# kommer du att använda dem ofta.</p>
+    <h3>CSS i head</h3>
+    <p>Vid små tester kan CSS ligga i ett <code>style</code>-element i <code>head</code>.</p>
+    <pre><code>&lt;style&gt;
+    h1 { color: green; }
+&lt;/style&gt;</code></pre>
 
-                <h2>Vad är objektorienterad programmering?</h2>
-                <p>Objektorienterad programmering är ett sätt att skriva program där man utgår från
-                    <strong>objekt</strong>. Ett objekt innehåller både <strong>data</strong>, till exempel ett namn, och
-                    <strong>funktioner</strong>, till exempel en metod som skriver ut information om objektet.</p>
+    <h3>Inline-CSS</h3>
+    <p>Inline-CSS skrivs direkt i ett HTML-element. Det bör undvikas i vanliga projekt eftersom kod och utseende blandas.</p>
+    <pre><code>&lt;h1 style="color: green"&gt;Rubrik&lt;/h1&gt;</code></pre>
 
-                <p>I traditionell programmering skriver du ofta kod i fristående funktioner. I OOP organiseras programmet
-                    runt <strong>klasser</strong> som beskriver hur objekt ska fungera. En klass är som en ritning. När
-                    programmet körs skapas riktiga objekt, alltså instanser av klassen.</p>
+    <h2>Kaskad och arv</h2>
+    <p>CSS läses med regler för vilken deklaration som vinner. En regel som kommer senare kan vinna över en tidigare regel om de har samma styrka. Vissa egenskaper, till exempel textfärg och font, kan ärvas från föräldraelement till barn.</p>
 
-                <h2>Exempel: böcker</h2>
-                <p>Föreställ dig att du vill skapa ett program som hanterar böcker. Med OOP kan du skapa en klass
-                    <code>Bok</code> med egenskaper som titel och författare, och metoder som skriver ut information.</p>
-
-                <pre><code>class Bok:
-    def __init__(self, titel, forfattare):
-        self.titel = titel
-        self.forfattare = forfattare
-
-    def skriv_ut_info(self):
-        print(f"{self.titel} av {self.forfattare}")
-
-bok1 = Bok("Bröderna Lejonhjärta", "Astrid Lindgren")
-bok2 = Bok("Cirkeln", "Mats Strandberg och Sara Bergmark Elfgren")
-
-bok1.skriv_ut_info()
-bok2.skriv_ut_info()</code></pre>
-
-                <p>OOP är särskilt användbart när du bygger större program. Det gör koden mer strukturerad, lättare att
-                    felsöka och enklare att återanvända.</p>
-
-                <h2>Öva: tänk objekt</h2>
-                <p>Föreställ dig att du ska skapa ett program som hanterar elever i en skola. Fundera på:</p>
-                <ul>
-                    <li>Vilka egenskaper har en elev?</li>
-                    <li>Vilka metoder skulle en elev kunna ha?</li>
-                    <li>Hur skulle du representera detta i kod?</li>
-                </ul>
-
-                <p>Skriv ner din idé som en klassbeskrivning i pseudokod:</p>
-                <pre><code>Klass: Elev
-Egenskaper: namn, klass, ålder
-Metoder: skriv_ut_info(), byt_klass(ny_klass)</code></pre>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Objektorienterad programmering handlar om att organisera koden runt objekt.</li>
-                    <li>En klass är en ritning och ett objekt är en instans av klassen.</li>
-                    <li>OOP gör det enklare att bygga stora program genom att separera logik och data.</li>
-                    <li>Centrala begrepp är klass, objekt, egenskap, metod och inkapsling.</li>
-                </ul>
-            </section>
+    <h2>Prova själv</h2>
+    <ol>
+        <li>Skapa <code>styles.css</code> i samma mapp som <code>index.html</code>.</li>
+        <li>Koppla filen med <code>link</code> i <code>head</code>.</li>
+        <li>Skriv en regel som ändrar färgen på <code>h1</code>.</li>
+        <li>Testa att lägga samma regel längre ned med en annan färg. Vilken vinner?</li>
+    </ol>
+</section>
 
             <div id="quiz-3-1" aria-label="Quiz Kap 3.1"></div>
-
-            <p><a href="chapter-3.html">Tillbaka till Kapitel 3</a></p>
+            <p><a href="chapter-3.html">Tillbaka till Modul 3</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 3</p><h2>CSS i praktiken</h2><p>Extern CSS är huvudmetoden: en HTML-fil för struktur, en CSS-fil för utseende.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-3-1'), {
-                    title: 'Quiz: Kap 3.1 - Vad är OOP?',
-                    questions: [
-                        {
-                            question: 'Vad är en klass i objektorienterad programmering?',
-                            options: [
-                                'En färdig användare i programmet',
-                                'En mall eller ritning för att skapa objekt',
-                                'En loop som alltid körs tre gånger',
-                                'En fil som bara innehåller kommentarer'
-                            ],
-                            correct: 1,
-                            feedback: 'En klass är en mall för objekt.',
-                            explanation: 'Klassen beskriver vilka attribut och metoder objekten ska ha.'
-                        },
-                        {
-                            question: 'Vad är ett objekt?',
-                            options: [
-                                'En specifik instans av en klass',
-                                'Ett programmeringsfel',
-                                'En metod som inte returnerar något',
-                                'En lista med bara strängar'
-                            ],
-                            correct: 0,
-                            feedback: 'Ett objekt är en instans av en klass.',
-                            explanation: 'Om Bok är klassen kan bok1 vara ett konkret objekt med egen titel och författare.'
-                        },
-                        {
-                            question: 'Vad beskriver ett attribut?',
-                            options: [
-                                'En funktion som tillhör operativsystemet',
-                                'En regel för hur loopar avslutas',
-                                'Data som hör till ett objekt',
-                                'Ett kommando som installerar Python'
-                            ],
-                            correct: 2,
-                            feedback: 'Attribut är data som hör till ett objekt.',
-                            explanation: 'Exempel är titel och författare för ett Bok-objekt.'
-                        },
-                        {
-                            question: 'Vad är en metod?',
-                            options: [
-                                'En dictionary som alltid är tom',
-                                'En funktion som hör till en klass eller ett objekt',
-                                'Ett annat ord för syntaxfel',
-                                'En variabel som aldrig kan ändras'
-                            ],
-                            correct: 1,
-                            feedback: 'En metod är en funktion kopplad till en klass eller ett objekt.',
-                            explanation: 'Metoder beskriver vad objektet kan göra, till exempel skriva ut information.'
-                        },
-                        {
-                            question: 'Varför används OOP ofta i större program?',
-                            options: [
-                                'För att OOP gör att program inte behöver testas',
-                                'För att OOP bara fungerar med små engångsprogram',
-                                'För att OOP förbjuder återanvändning',
-                                'För att kod kan struktureras runt objekt med data och beteenden'
-                            ],
-                            correct: 3,
-                            feedback: 'OOP hjälper till att strukturera större program.',
-                            explanation: 'När data och beteenden samlas i objekt blir koden ofta lättare att förstå, felsöka och återanvända.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-3-1'), {"title": "Quiz: Kap 3.1", "questions": [{"question": "Vad används CSS främst till?", "options": ["Sidans presentation och utseende", "Att skapa IP-adresser", "Att ersätta HTML", "Att köpa domännamn"], "correct": 0, "feedback": "CSS styr presentationen.", "explanation": "CSS styr presentationen."}, {"question": "Vilken rad kopplar en extern CSS-fil?", "options": ["<script src=\"styles.css\">", "<link rel=\"stylesheet\" href=\"styles.css\">", "<meta css=\"styles.css\">", "<img src=\"styles.css\">"], "correct": 1, "feedback": "link rel=stylesheet kopplar CSS.", "explanation": "link rel=stylesheet kopplar CSS."}, {"question": "Vad är selektorn i regeln h1 { color: green; }?", "options": ["color", "green", "h1", "{}"], "correct": 2, "feedback": "h1 väljer elementen som påverkas.", "explanation": "h1 väljer elementen som påverkas."}, {"question": "Varför bör inline-CSS undvikas i vanliga projekt?", "options": ["Det blandar innehåll och utseende", "Det fungerar aldrig", "Det tar bort body", "Det gör HTML olagligt"], "correct": 0, "feedback": "Separata filer ger tydligare struktur.", "explanation": "Separata filer ger tydligare struktur."}, {"question": "Vad betyder arv i CSS?", "options": ["Vissa egenskaper kan föras vidare från förälder till barn", "Alla filer raderas automatiskt", "Endast bilder kan stylas", "CSS blir HTML"], "correct": 0, "feedback": "Vissa egenskaper ärvs i dokumentträdet.", "explanation": "Vissa egenskaper ärvs i dokumentträdet."}]});
+        });
     </script>
 </body>
 
