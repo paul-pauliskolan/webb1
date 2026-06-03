@@ -7,6 +7,132 @@
     <meta name="description" content="Kap 4.1: flexbox, riktning, huvudaxel, tväraxeln, gap och wrap.">
     <title>Kap 4.1 - Flexbox för rader, menyer och kort</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flex-demo-panel {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .flex-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .flex-demo-control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .flex-demo-control label,
+        .flex-demo-toggle {
+            font-weight: 700;
+        }
+
+        .flex-demo-control select,
+        .flex-demo-control input[type="range"] {
+            width: 100%;
+        }
+
+        .flex-demo-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .flex-demo-stage {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background: rgba(13, 19, 22, 0.72);
+            min-height: 19rem;
+            overflow: auto;
+        }
+
+        .flex-demo-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            min-height: 15rem;
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background:
+                linear-gradient(90deg, rgba(94, 234, 212, 0.08), transparent 45%),
+                rgba(20, 30, 34, 0.9);
+        }
+
+        .flex-demo-item {
+            flex: 0 1 10rem;
+            min-width: 4.5rem;
+            min-height: 4rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(244, 247, 251, 0.2);
+            border-radius: 0.5rem;
+            color: #081112;
+            font-weight: 800;
+        }
+
+        .flex-demo-item:nth-child(1) {
+            background: #5eead4;
+        }
+
+        .flex-demo-item:nth-child(2) {
+            background: #fbbf24;
+        }
+
+        .flex-demo-item:nth-child(3) {
+            background: #f87171;
+        }
+
+        .flex-demo-item:nth-child(4) {
+            background: #93c5fd;
+        }
+
+        .flex-demo-item:nth-child(5) {
+            background: #c4b5fd;
+        }
+
+        .flex-demo-item:nth-child(6) {
+            background: #86efac;
+        }
+
+        .flex-demo-item:nth-child(7) {
+            background: #fdba74;
+        }
+
+        .flex-demo-item:nth-child(8) {
+            background: #f0abfc;
+        }
+
+        .flex-demo-code {
+            margin-top: 1rem;
+        }
+
+        .flex-demo-code code {
+            white-space: pre-wrap;
+        }
+
+        .flex-demo-readout {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        @media (max-width: 720px) {
+            .flex-demo-stage {
+                padding: 0.75rem;
+            }
+
+            .flex-demo-container {
+                min-height: 18rem;
+            }
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -65,6 +191,91 @@
 }</code></pre>
     <p>Regeln <code>flex: 1 1 16rem</code> betyder att kortet får växa, krympa och har en ungefärlig grundbredd på 16rem.</p>
 
+    <h2>flex-grow och flex-basis</h2>
+    <p><code>flex-grow</code> styr om ett flex-item får växa och ta upp ledigt utrymme i containern. Värdet <code>0</code> betyder att itemet inte växer. Värdet <code>1</code> betyder att itemet får dela på ledigt utrymme med andra items som också får växa.</p>
+    <p><code>flex-basis</code> är itemets startstorlek längs huvudaxeln innan det eventuellt växer eller krymper. I <code>flex: 1 1 16rem</code> betyder den sista delen, <code>16rem</code>, att itemet börjar med ungefär den bredden i en radlayout.</p>
+
+    <h2>Interaktivt exempel</h2>
+    <p>Ändra värdena och se hur flex-items flyttas, växer, krymper och bryts till nya rader.</p>
+
+    <div class="flex-demo-panel">
+        <div class="flex-demo-controls" aria-label="Flexbox-kontroller">
+            <div class="flex-demo-control">
+                <label for="direction">flex-direction</label>
+                <select id="direction">
+                    <option value="row">row</option>
+                    <option value="column">column</option>
+                </select>
+            </div>
+
+            <div class="flex-demo-control">
+                <label for="justify">justify-content</label>
+                <select id="justify">
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                    <option value="space-evenly">space-evenly</option>
+                </select>
+            </div>
+
+            <div class="flex-demo-control">
+                <label for="align">align-items</label>
+                <select id="align">
+                    <option value="stretch">stretch</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                </select>
+            </div>
+
+            <div class="flex-demo-control">
+                <label for="gap">gap: <span id="gap-value">1rem</span></label>
+                <input id="gap" type="range" min="0" max="3" step="0.25" value="1">
+            </div>
+
+            <label class="flex-demo-toggle" for="wrap">
+                <input id="wrap" type="checkbox">
+                flex-wrap: wrap
+            </label>
+
+            <div class="flex-demo-control">
+                <label for="basis">flex-basis: <span id="basis-value">10rem</span></label>
+                <input id="basis" type="range" min="6" max="22" value="10">
+            </div>
+
+            <div class="flex-demo-control">
+                <label for="item-count">Antal items: <span id="item-count-value">3</span></label>
+                <input id="item-count" type="range" min="3" max="8" value="3">
+            </div>
+
+            <label class="flex-demo-toggle" for="grow">
+                <input id="grow" type="checkbox">
+                flex-grow: 1
+            </label>
+        </div>
+
+        <p class="flex-demo-readout" id="axis-text">Huvudaxeln går horisontellt. Tväraxeln går vertikalt. justify-content styr från vänster till höger och align-items styr uppifrån och ned.</p>
+
+        <div class="flex-demo-stage">
+            <div class="flex-demo-container" id="demo-container" aria-label="Flex-container">
+                <div class="flex-demo-item">1</div>
+                <div class="flex-demo-item">2</div>
+                <div class="flex-demo-item">3</div>
+                <div class="flex-demo-item">4</div>
+                <div class="flex-demo-item">5</div>
+                <div class="flex-demo-item">6</div>
+                <div class="flex-demo-item">7</div>
+                <div class="flex-demo-item">8</div>
+            </div>
+        </div>
+    </div>
+
+    <pre class="flex-demo-code"><code id="css-output">.container {
+    display: flex;
+}</code></pre>
+
     <h2>Prova själv</h2>
     <ol>
         <li>Skapa en meny med fyra länkar.</li>
@@ -83,6 +294,73 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('demo-container')
+            const direction = document.getElementById('direction')
+            const justify = document.getElementById('justify')
+            const align = document.getElementById('align')
+            const gap = document.getElementById('gap')
+            const wrap = document.getElementById('wrap')
+            const basis = document.getElementById('basis')
+            const grow = document.getElementById('grow')
+            const itemCount = document.getElementById('item-count')
+            const gapValue = document.getElementById('gap-value')
+            const basisValue = document.getElementById('basis-value')
+            const itemCountValue = document.getElementById('item-count-value')
+            const output = document.getElementById('css-output')
+            const axisText = document.getElementById('axis-text')
+            const items = Array.from(container.querySelectorAll('.flex-demo-item'))
+
+            function updateDemo() {
+                const gapRem = `${gap.value}rem`
+                const basisRem = `${basis.value}rem`
+                const wrapValue = wrap.checked ? 'wrap' : 'nowrap'
+                const growValue = grow.checked ? '1' : '0'
+                const visibleItems = parseInt(itemCount.value, 10)
+
+                container.style.flexDirection = direction.value
+                container.style.justifyContent = justify.value
+                container.style.alignItems = align.value
+                container.style.gap = gapRem
+                container.style.flexWrap = wrapValue
+
+                items.forEach((item, index) => {
+                    item.style.display = index < visibleItems ? 'grid' : 'none'
+                    item.style.flex = `${growValue} 1 ${basisRem}`
+                })
+
+                gapValue.textContent = gapRem
+                basisValue.textContent = basisRem
+                itemCountValue.textContent = String(visibleItems)
+
+                if (direction.value === 'row') {
+                    axisText.textContent = 'Huvudaxeln går horisontellt. Tväraxeln går vertikalt. justify-content styr från vänster till höger och align-items styr uppifrån och ned.'
+                } else {
+                    axisText.textContent = 'Huvudaxeln går vertikalt. Tväraxeln går horisontellt. justify-content styr uppifrån och ned och align-items styr från vänster till höger.'
+                }
+
+                output.textContent = `.container {
+    display: flex;
+    flex-direction: ${direction.value};
+    justify-content: ${justify.value};
+    align-items: ${align.value};
+    flex-wrap: ${wrapValue};
+    gap: ${gapRem};
+}
+
+.item {
+    flex: ${growValue} 1 ${basisRem};
+}`
+            }
+
+            ;[direction, justify, align, gap, wrap, basis, grow, itemCount].forEach(control => {
+                control.addEventListener('input', updateDemo)
+                control.addEventListener('change', updateDemo)
+            })
+
+            updateDemo()
+        })
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-4-1'), {"title": "Quiz: Kap 4.1", "questions": [{"question": "Vad gör `display: flex`?", "options": ["Ändrar huvudaxeln till kolumn", "Gör elementets barn till flex-items", "Skapar avstånd mellan flex-items", "Låter flex-items brytas till ny rad"], "correct": 1, "feedback": "Barnen placeras enligt flexbox-regler.", "explanation": "Barnen placeras enligt flexbox-regler."}, {"question": "Vad styr `flex-direction`?", "options": ["Avståndet mellan flex-items", "Om flex-items får brytas till ny rad", "Om huvudaxeln går som rad eller kolumn", "Placering längs tväraxeln"], "correct": 2, "feedback": "Riktningen avgör huvudaxeln.", "explanation": "Riktningen avgör huvudaxeln."}, {"question": "Vad används `gap` till?", "options": ["Riktning på huvudaxeln", "Radbrytning av flex-items", "Placering längs tväraxeln", "Avstånd mellan flex-items"], "correct": 3, "feedback": "gap ger jämnt mellanrum.", "explanation": "gap ger jämnt mellanrum."}, {"question": "Vilken egenskap låter flex-items gå till ny rad?", "options": ["flex-direction", "flex-wrap", "align-items", "justify-content"], "correct": 1, "feedback": "flex-wrap tillåter radbrytning.", "explanation": "flex-wrap tillåter radbrytning."}, {"question": "Vad styr `justify-content` oftast i en radlayout?", "options": ["Placering längs tväraxeln", "Om flex-items får växa och krympa", "Avståndet inuti varje flex-item", "Placering längs huvudaxeln"], "correct": 3, "feedback": "justify-content arbetar längs huvudaxeln.", "explanation": "justify-content arbetar längs huvudaxeln."}]});
         });
