@@ -7,6 +7,126 @@
     <meta name="description" content="Kap 4.2: grid columns, rows, gap, lines, cells, tracks, areas, repeat, fr, minmax, auto-fit och auto-fill.">
     <title>Kap 4.2 - Grid för sidlayouter</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .grid-demo-panel {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .grid-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .grid-demo-control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .grid-demo-control label {
+            font-weight: 700;
+        }
+
+        .grid-demo-control select,
+        .grid-demo-control input[type="range"] {
+            width: 100%;
+        }
+
+        .grid-demo-stage {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background: rgba(13, 19, 22, 0.72);
+            overflow: auto;
+        }
+
+        .grid-demo-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(4.5rem, auto);
+            gap: 1rem;
+            width: 100%;
+            max-width: 44rem;
+            min-height: 18rem;
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background:
+                linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+                rgba(20, 30, 34, 0.9);
+            background-size: 2rem 2rem;
+        }
+
+        .grid-demo-item {
+            min-height: 4.5rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(244, 247, 251, 0.2);
+            border-radius: 0.5rem;
+            color: #081112;
+            font-weight: 800;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .grid-demo-item:nth-child(1) {
+            background: #5eead4;
+        }
+
+        .grid-demo-item:nth-child(2) {
+            background: #fbbf24;
+        }
+
+        .grid-demo-item:nth-child(3) {
+            background: #f87171;
+        }
+
+        .grid-demo-item:nth-child(4) {
+            background: #93c5fd;
+        }
+
+        .grid-demo-item:nth-child(5) {
+            background: #c4b5fd;
+        }
+
+        .grid-demo-item:nth-child(6) {
+            background: #86efac;
+        }
+
+        .grid-demo-item:nth-child(7) {
+            background: #fdba74;
+        }
+
+        .grid-demo-item:nth-child(8) {
+            background: #f0abfc;
+        }
+
+        .grid-demo-item:nth-child(9) {
+            background: #a7f3d0;
+        }
+
+        .grid-demo-readout {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .grid-demo-code {
+            margin-top: 1rem;
+        }
+
+        .grid-demo-code code {
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 720px) {
+            .grid-demo-stage {
+                padding: 0.75rem;
+            }
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -61,6 +181,73 @@
     <h2>auto-fit och auto-fill</h2>
     <p>Både <code>auto-fit</code> och <code>auto-fill</code> skapar responsiva kolumner. I praktiska kortlayouter passar <code>auto-fit</code> ofta bäst eftersom tomma spår kollapsar och innehållet får mer plats.</p>
 
+    <h2>Interaktivt exempel</h2>
+    <p>Ändra värdena och se hur grid-container, grid-items, tracks, cells, gap och areas påverkas.</p>
+
+    <div class="grid-demo-panel">
+        <div class="grid-demo-controls" aria-label="Grid-kontroller">
+            <div class="grid-demo-control">
+                <label for="grid-mode">Layoutläge</label>
+                <select id="grid-mode">
+                    <option value="repeat">repeat med lika kolumner</option>
+                    <option value="fit">auto-fit + minmax</option>
+                    <option value="fill">auto-fill + minmax</option>
+                    <option value="areas">grid-template-areas</option>
+                </select>
+            </div>
+
+            <div class="grid-demo-control" id="grid-columns-control">
+                <label for="grid-columns">Kolumner: <span id="grid-columns-value">3</span></label>
+                <input id="grid-columns" type="range" min="1" max="5" value="3">
+            </div>
+
+            <div class="grid-demo-control">
+                <label for="grid-items">Antal items: <span id="grid-items-value">6</span></label>
+                <input id="grid-items" type="range" min="3" max="9" value="6">
+            </div>
+
+            <div class="grid-demo-control">
+                <label for="grid-gap">gap: <span id="grid-gap-value">1rem</span></label>
+                <input id="grid-gap" type="range" min="0" max="3" step="0.25" value="1">
+            </div>
+
+            <div class="grid-demo-control">
+                <label for="grid-min">minmax min: <span id="grid-min-value">10rem</span></label>
+                <input id="grid-min" type="range" min="6" max="18" value="10">
+            </div>
+
+            <div class="grid-demo-control">
+                <label for="grid-width">Grid-bredd: <span id="grid-width-value">44rem</span></label>
+                <input id="grid-width" type="range" min="18" max="60" value="44">
+            </div>
+
+            <div class="grid-demo-control">
+                <label for="grid-height">Grid-höjd: <span id="grid-height-value">18rem</span></label>
+                <input id="grid-height" type="range" min="12" max="34" value="18">
+            </div>
+        </div>
+
+        <p class="grid-demo-readout" id="grid-readout">Tre kolumnspår skapas med <code>repeat(3, 1fr)</code>. Varje ruta mellan grid lines är en cell.</p>
+
+        <div class="grid-demo-stage">
+            <div class="grid-demo-container" id="grid-demo-container" aria-label="Grid-container">
+                <div class="grid-demo-item">1</div>
+                <div class="grid-demo-item">2</div>
+                <div class="grid-demo-item">3</div>
+                <div class="grid-demo-item">4</div>
+                <div class="grid-demo-item">5</div>
+                <div class="grid-demo-item">6</div>
+                <div class="grid-demo-item">7</div>
+                <div class="grid-demo-item">8</div>
+                <div class="grid-demo-item">9</div>
+            </div>
+        </div>
+    </div>
+
+    <pre class="grid-demo-code"><code id="grid-css-output">.container {
+    display: grid;
+}</code></pre>
+
     <h2>Prova själv</h2>
     <ol>
         <li>Skapa sex artiklar med rubrik och text.</li>
@@ -79,6 +266,188 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('grid-demo-container')
+            const mode = document.getElementById('grid-mode')
+            const columnsControl = document.getElementById('grid-columns-control')
+            const columns = document.getElementById('grid-columns')
+            const itemCount = document.getElementById('grid-items')
+            const gap = document.getElementById('grid-gap')
+            const min = document.getElementById('grid-min')
+            const width = document.getElementById('grid-width')
+            const height = document.getElementById('grid-height')
+            const columnsValue = document.getElementById('grid-columns-value')
+            const itemCountValue = document.getElementById('grid-items-value')
+            const gapValue = document.getElementById('grid-gap-value')
+            const minValue = document.getElementById('grid-min-value')
+            const widthValue = document.getElementById('grid-width-value')
+            const heightValue = document.getElementById('grid-height-value')
+            const readout = document.getElementById('grid-readout')
+            const output = document.getElementById('grid-css-output')
+            const items = Array.from(container.querySelectorAll('.grid-demo-item'))
+
+            function resetAreas() {
+                items.forEach(item => {
+                    item.style.gridArea = ''
+                    item.textContent = item.dataset.number || item.textContent
+                })
+            }
+
+            items.forEach(item => {
+                item.dataset.number = item.textContent
+            })
+
+            function updateGridDemo() {
+                const modeValue = mode.value
+                const columnCount = parseInt(columns.value, 10)
+                const visibleItems = parseInt(itemCount.value, 10)
+                const gapRem = `${gap.value}rem`
+                const minRem = `${min.value}rem`
+                const widthRem = `${width.value}rem`
+                const heightRem = `${height.value}rem`
+
+                columns.disabled = modeValue !== 'repeat'
+                columnsControl.style.display = modeValue === 'repeat' ? 'grid' : 'none'
+                min.disabled = modeValue === 'repeat' || modeValue === 'areas'
+                itemCount.disabled = modeValue === 'areas'
+
+                container.style.gap = gapRem
+                container.style.gridAutoRows = 'minmax(4.5rem, auto)'
+                container.style.width = widthRem
+                container.style.minHeight = heightRem
+                container.style.gridTemplateAreas = ''
+                resetAreas()
+
+                items.forEach((item, index) => {
+                    item.style.display = index < visibleItems ? 'grid' : 'none'
+                })
+
+                let css = ''
+                let text = ''
+
+                if (modeValue === 'repeat') {
+                    container.style.gridTemplateColumns = `repeat(${columnCount}, 1fr)`
+                    text = `${columnCount} kolumnspår skapas med repeat(${columnCount}, 1fr). Varje ruta mellan grid lines är en cell.`
+                    css = `.container {
+    display: grid;
+    grid-template-columns: repeat(${columnCount}, 1fr);
+    width: ${widthRem};
+    min-height: ${heightRem};
+    gap: ${gapRem};
+}`
+                }
+
+                if (modeValue === 'fit') {
+                    container.style.gridTemplateColumns = `repeat(auto-fit, minmax(${minRem}, 1fr))`
+                    text = `auto-fit räknar kolumner automatiskt utifrån grid-bredd och minmax. Tomma spår kollapsar, så items kan få mer plats.`
+                    css = `.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(${minRem}, 1fr));
+    width: ${widthRem};
+    min-height: ${heightRem};
+    gap: ${gapRem};
+}`
+                }
+
+                if (modeValue === 'fill') {
+                    container.style.gridTemplateColumns = `repeat(auto-fill, minmax(${minRem}, 1fr))`
+                    text = `auto-fill räknar kolumner automatiskt utifrån grid-bredd och minmax, men behåller även tomma spår. Jämför med auto-fit.`
+                    css = `.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(${minRem}, 1fr));
+    width: ${widthRem};
+    min-height: ${heightRem};
+    gap: ${gapRem};
+}`
+                }
+
+                if (modeValue === 'areas') {
+                    const isNarrowGrid = parseInt(width.value, 10) < 30
+                    container.style.gridTemplateColumns = isNarrowGrid ? '1fr' : '1fr 2fr'
+                    container.style.gridTemplateAreas = isNarrowGrid
+                        ? `
+                            "header"
+                            "sidebar"
+                            "main"
+                            "footer"
+                        `
+                        : `
+                            "header header"
+                            "sidebar main"
+                            "footer footer"
+                        `
+                    items.forEach(item => {
+                        item.style.display = 'none'
+                    })
+                    items[0].style.display = 'grid'
+                    items[1].style.display = 'grid'
+                    items[2].style.display = 'grid'
+                    items[3].style.display = 'grid'
+                    items[0].style.gridArea = 'header'
+                    items[1].style.gridArea = 'sidebar'
+                    items[2].style.gridArea = 'main'
+                    items[3].style.gridArea = 'footer'
+                    items[0].textContent = 'header'
+                    items[1].textContent = 'sidebar'
+                    items[2].textContent = 'main'
+                    items[3].textContent = 'footer'
+                    text = isNarrowGrid
+                        ? `Vid smal grid-bredd staplas areas under varandra, ungefär som en mobil layout.`
+                        : `grid-template-areas ger namn åt större grid areas. Flera celler kan tillsammans bilda en area.`
+                    css = isNarrowGrid
+                        ? `.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+    width: ${widthRem};
+    min-height: ${heightRem};
+    gap: ${gapRem};
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }`
+                        : `.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    width: ${widthRem};
+    min-height: ${heightRem};
+    gap: ${gapRem};
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }`
+                }
+
+                columnsValue.textContent = String(columnCount)
+                itemCountValue.textContent = modeValue === 'areas' ? '4' : String(visibleItems)
+                gapValue.textContent = gapRem
+                minValue.textContent = minRem
+                widthValue.textContent = widthRem
+                heightValue.textContent = heightRem
+                readout.textContent = text
+                output.textContent = css
+            }
+
+            ;[mode, columns, itemCount, gap, min, width, height].forEach(control => {
+                control.addEventListener('input', updateGridDemo)
+                control.addEventListener('change', updateGridDemo)
+            })
+
+            updateGridDemo()
+        })
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-4-2'), {"title": "Quiz: Kap 4.2", "questions": [{"question": "När passar CSS Grid bäst?", "options": ["När layouten behöver rader och kolumner", "När bara textfärgen ska ändras", "När en länk ska öppnas", "När HTML ska valideras"], "correct": 0, "feedback": "Grid är tvådimensionellt.", "explanation": "Grid är tvådimensionellt."}, {"question": "Vad betyder fr i grid?", "options": ["En del av tillgängligt utrymme", "En bildtyp", "En HTML-attributtyp", "En statuskod"], "correct": 0, "feedback": "fr delar upp ledigt utrymme.", "explanation": "fr delar upp ledigt utrymme."}, {"question": "Vad gör repeat(3, 1fr)?", "options": ["Skapar tre lika breda kolumner", "Skapar tre HTML-sidor", "Tar bort tre element", "Gör texten tre gånger större"], "correct": 0, "feedback": "repeat upprepar kolumnmönstret.", "explanation": "repeat upprepar kolumnmönstret."}, {"question": "Vad anger minmax(14rem, 1fr)?", "options": ["Minsta och största storlek för ett spår", "Minsta och största filnamn", "Minsta och största statuskod", "Två olika språk"], "correct": 0, "feedback": "minmax sätter spannet för spåret.", "explanation": "minmax sätter spannet för spåret."}, {"question": "Vilket värde passar ofta för responsiva kortkolumner?", "options": ["repeat(auto-fit, minmax(...))", "font-family: serif", "method=post", "alt=grid"], "correct": 0, "feedback": "auto-fit och minmax ger flexibel grid.", "explanation": "auto-fit och minmax ger flexibel grid."}]});
         });
