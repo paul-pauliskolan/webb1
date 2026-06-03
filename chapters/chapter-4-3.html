@@ -7,6 +7,111 @@
     <meta name="description" content="Kap 4.3: CSS-enheter px, em, rem, vh, vw, procent, clamp och responsiva bilder.">
     <title>Kap 4.3 - Responsiva mått och bilder</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .responsive-demo-panel {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .responsive-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .responsive-demo-control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .responsive-demo-control label,
+        .responsive-demo-toggle {
+            font-weight: 700;
+        }
+
+        .responsive-demo-control input[type="range"],
+        .responsive-demo-control select {
+            width: 100%;
+        }
+
+        .responsive-demo-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .responsive-demo-stage {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background: rgba(13, 19, 22, 0.72);
+            overflow: auto;
+        }
+
+        .text-demo-frame,
+        .image-demo-frame {
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background: rgba(20, 30, 34, 0.9);
+        }
+
+        .text-demo-content {
+            width: min(100% - 2rem, 70ch);
+            margin-inline: auto;
+        }
+
+        .text-demo-heading {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin: 0 0 0.75rem;
+        }
+
+        .text-demo-content p {
+            margin: 0;
+        }
+
+        .image-demo-frame {
+            width: 30rem;
+            max-width: 100%;
+        }
+
+        .image-demo-box {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .image-demo-box img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-demo-box.cover-mode {
+            height: 12rem;
+        }
+
+        .image-demo-box.cover-mode img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .responsive-demo-code {
+            margin-top: 1rem;
+        }
+
+        .responsive-demo-code code {
+            white-space: pre-wrap;
+        }
+
+        .responsive-demo-readout {
+            color: var(--text-muted);
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -57,6 +162,85 @@
 }</code></pre>
     <p>Den här regeln gör att bilder kan krympa med sin container. Om en bild ska fylla en fast ruta kan <code>object-fit: cover</code> användas, men kontrollera att viktig information inte beskärs.</p>
 
+    <h2>Interaktivt exempel: clamp och radlängd</h2>
+    <p>Ändra bredden på ytan, rubrikens <code>clamp()</code>-värden och textens maxbredd. Lägg märke till hur rubriken kan vara följsam samtidigt som brödtexten hålls läsbar.</p>
+
+    <div class="responsive-demo-panel">
+        <div class="responsive-demo-controls" aria-label="Kontroller för clamp och radlängd">
+            <div class="responsive-demo-control">
+                <label for="text-demo-width">Ytans bredd: <span id="text-demo-width-value">44rem</span></label>
+                <input id="text-demo-width" type="range" min="18" max="64" value="44">
+            </div>
+
+            <div class="responsive-demo-control">
+                <label for="text-demo-max">Textens maxbredd: <span id="text-demo-max-value">70ch</span></label>
+                <input id="text-demo-max" type="range" min="35" max="90" value="70">
+            </div>
+
+            <div class="responsive-demo-control">
+                <label for="clamp-min">clamp min: <span id="clamp-min-value">2rem</span></label>
+                <input id="clamp-min" type="range" min="1" max="3" step="0.25" value="2">
+            </div>
+
+            <div class="responsive-demo-control">
+                <label for="clamp-fluid">clamp flexibel: <span id="clamp-fluid-value">5vw</span></label>
+                <input id="clamp-fluid" type="range" min="2" max="10" step="0.5" value="5">
+            </div>
+
+            <div class="responsive-demo-control">
+                <label for="clamp-max">clamp max: <span id="clamp-max-value">4rem</span></label>
+                <input id="clamp-max" type="range" min="3" max="6" step="0.25" value="4">
+            </div>
+        </div>
+
+        <p class="responsive-demo-readout">Kortare rader är ofta lättare att läsa. Rubriken kan däremot få växa mer med skärmen.</p>
+
+        <div class="responsive-demo-stage">
+            <div class="text-demo-frame" id="text-demo-frame">
+                <div class="text-demo-content" id="text-demo-content">
+                    <h3 class="text-demo-heading" id="text-demo-heading">Responsiv rubrik</h3>
+                    <p>Brödtext behöver en lagom radlängd. Om raden blir för lång måste ögat resa långt tillbaka till nästa rad, vilket gör texten jobbigare att läsa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <pre class="responsive-demo-code"><code id="text-demo-css">h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+}</code></pre>
+
+    <h2>Interaktivt exempel: responsiva bilder</h2>
+    <p>Ändra bildens containerbredd och jämför en flexibel bild med en bild som fyller en fast ruta med <code>object-fit: cover</code>.</p>
+
+    <div class="responsive-demo-panel">
+        <div class="responsive-demo-controls" aria-label="Kontroller för responsiv bild">
+            <div class="responsive-demo-control">
+                <label for="image-demo-width">Containerns bredd: <span id="image-demo-width-value">30rem</span></label>
+                <input id="image-demo-width" type="range" min="12" max="44" value="30">
+            </div>
+
+            <label class="responsive-demo-toggle" for="image-cover">
+                <input id="image-cover" type="checkbox">
+                object-fit: cover
+            </label>
+        </div>
+
+        <p class="responsive-demo-readout" id="image-demo-readout">Med <code>max-width: 100%</code> krymper bilden med sin container och behåller proportionerna.</p>
+
+        <div class="responsive-demo-stage">
+            <div class="image-demo-frame" id="image-demo-frame">
+                <div class="image-demo-box" id="image-demo-box">
+                    <img src="../assets/images/kap4-2-grid.png" alt="Exempelbild som används för att visa responsiv bildstorlek">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <pre class="responsive-demo-code"><code id="image-demo-css">img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
     <h2>Prova själv</h2>
     <ol>
         <li>Sätt <code>max-width</code> på sidans huvudinnehåll.</li>
@@ -75,6 +259,98 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const textFrame = document.getElementById('text-demo-frame')
+            const textContent = document.getElementById('text-demo-content')
+            const textHeading = document.getElementById('text-demo-heading')
+            const textWidth = document.getElementById('text-demo-width')
+            const textMax = document.getElementById('text-demo-max')
+            const clampMin = document.getElementById('clamp-min')
+            const clampFluid = document.getElementById('clamp-fluid')
+            const clampMax = document.getElementById('clamp-max')
+            const textWidthValue = document.getElementById('text-demo-width-value')
+            const textMaxValue = document.getElementById('text-demo-max-value')
+            const clampMinValue = document.getElementById('clamp-min-value')
+            const clampFluidValue = document.getElementById('clamp-fluid-value')
+            const clampMaxValue = document.getElementById('clamp-max-value')
+            const textCss = document.getElementById('text-demo-css')
+
+            function updateTextDemo() {
+                const widthRem = `${textWidth.value}rem`
+                const maxCh = `${textMax.value}ch`
+                const minRem = `${clampMin.value}rem`
+                const fluidVw = `${clampFluid.value}vw`
+                const maxRem = `${clampMax.value}rem`
+
+                textFrame.style.width = widthRem
+                textFrame.style.maxWidth = '100%'
+                textContent.style.width = `min(100% - 2rem, ${maxCh})`
+                textHeading.style.fontSize = `clamp(${minRem}, ${fluidVw}, ${maxRem})`
+
+                textWidthValue.textContent = widthRem
+                textMaxValue.textContent = maxCh
+                clampMinValue.textContent = minRem
+                clampFluidValue.textContent = fluidVw
+                clampMaxValue.textContent = maxRem
+
+                textCss.textContent = `main {
+    width: min(100% - 2rem, ${maxCh});
+    margin-inline: auto;
+}
+
+h1 {
+    font-size: clamp(${minRem}, ${fluidVw}, ${maxRem});
+}`
+            }
+
+            ;[textWidth, textMax, clampMin, clampFluid, clampMax].forEach(control => {
+                control.addEventListener('input', updateTextDemo)
+                control.addEventListener('change', updateTextDemo)
+            })
+
+            updateTextDemo()
+        })
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const frame = document.getElementById('image-demo-frame')
+            const box = document.getElementById('image-demo-box')
+            const width = document.getElementById('image-demo-width')
+            const cover = document.getElementById('image-cover')
+            const widthValue = document.getElementById('image-demo-width-value')
+            const readout = document.getElementById('image-demo-readout')
+            const css = document.getElementById('image-demo-css')
+
+            function updateImageDemo() {
+                const widthRem = `${width.value}rem`
+
+                frame.style.width = widthRem
+                widthValue.textContent = widthRem
+                box.classList.toggle('cover-mode', cover.checked)
+
+                if (cover.checked) {
+                    readout.textContent = 'Med object-fit: cover fyller bilden rutan, men delar av bilden kan beskäras.'
+                    css.textContent = `img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}`
+                } else {
+                    readout.textContent = 'Med max-width: 100% krymper bilden med sin container och behåller proportionerna.'
+                    css.textContent = `img {
+    max-width: 100%;
+    height: auto;
+}`
+                }
+            }
+
+            ;[width, cover].forEach(control => {
+                control.addEventListener('input', updateImageDemo)
+                control.addEventListener('change', updateImageDemo)
+            })
+
+            updateImageDemo()
+        })
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-4-3'), {"title": "Quiz: Kap 4.3", "questions": [{"question": "Vilken enhet utgår från rotens textstorlek?", "options": ["rem", "vh", "px", "% alltid"], "correct": 0, "feedback": "rem bygger på root-font-size.", "explanation": "rem bygger på root-font-size."}, {"question": "Vad betyder vw?", "options": ["En procentliknande del av viewportens bredd", "En bildbeskrivning", "En grid line", "Ett formulärfält"], "correct": 0, "feedback": "vw baseras på viewportens bredd.", "explanation": "vw baseras på viewportens bredd."}, {"question": "Vad gör clamp(2rem, 5vw, 4rem)?", "options": ["Sätter minsta, flexibelt och största värde", "Skapar tre kolumner", "Validerar CSS automatiskt", "Tar bort media queries"], "correct": 0, "feedback": "clamp begränsar ett följsamt värde.", "explanation": "clamp begränsar ett följsamt värde."}, {"question": "Vilken regel hjälper bilder att krympa med sin container?", "options": ["img { max-width: 100%; height: auto; }", "img { width: 5000px; }", "img { display: none; }", "img { font-size: 2rem; }"], "correct": 0, "feedback": "max-width och height auto bevarar proportioner.", "explanation": "max-width och height auto bevarar proportioner."}, {"question": "Varför används max-width ofta på textinnehåll?", "options": ["För att rader inte ska bli för långa", "För att skapa fler HTML-filer", "För att ändra HTTP-metod", "För att ta bort kontrast"], "correct": 0, "feedback": "Lagom radlängd gör text lättare att läsa.", "explanation": "Lagom radlängd gör text lättare att läsa."}]});
         });
