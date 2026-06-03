@@ -2,172 +2,82 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 4.3 - Egna moduler och import</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 4.3: CSS-enheter px, em, rem, vh, vw, procent, clamp och responsiva bilder.">
+    <title>Kap 4.3 - Responsiva mått och bilder</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 4.3 – Egna moduler och import</h1>
-                <p class="subtitle">Dela upp kod i flera filer och använd moduler.</p>
+                <p class="eyebrow">Modul 4</p>
+                <h1>Kap 4.3 - Responsiva mått och bilder</h1>
+                <p class="subtitle">Responsiv design börjar med mått som kan anpassa sig innan du skriver media queries.</p>
             </header>
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Förstå vad en modul är i Python.</li>
-                    <li>Kunna skapa egna Python-filer med funktioner och klasser.</li>
-                    <li>Kunna importera och använda moduler i olika program.</li>
-                    <li>Dela upp kod i flera filer för bättre struktur.</li>
-                </ul>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Välja mellan <code>px</code>, <code>em</code>, <code>rem</code>, <code>%</code>, <code>vh</code> och <code>vw</code>.</li>
+        <li>Använda <code>max-width</code> för läsbarhet.</li>
+        <li>Göra bilder flexibla utan att förvränga dem.</li>
+        <li>Känna till <code>min()</code>, <code>max()</code> och <code>clamp()</code>.</li>
+    </ul>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Börja med ett litet program du redan skrivit. Flytta några funktioner till en egen .py-fil och testa
-                    att importera dem i huvudfilen. Lägg gärna till nya funktioner för att experimentera. Undvik att
-                    kopiera hela program - tänk på modulens syfte: återanvändbara delar.</p>
+    <h2>Fasta och relativa mått</h2>
+    <p><code>px</code> är exakt och passar för tunna linjer eller små detaljer. För text, avstånd och layout är relativa mått ofta bättre.</p>
+    <ul>
+        <li><code>rem</code> utgår från rotens textstorlek och är bra för avstånd och fontstorlek.</li>
+        <li><code>em</code> utgår från elementets egen textstorlek.</li>
+        <li><code>%</code> utgår från förälderns storlek.</li>
+        <li><code>vh</code> och <code>vw</code> utgår från viewportens höjd och bredd.</li>
+    </ul>
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>modul</strong> – En fil i Python (slutar på .py) som innehåller funktioner, klasser
-                        eller variabler.</li>
-                    <li><strong>import</strong> – Används för att hämta funktionalitet från andra filer.</li>
-                    <li><strong>modulstruktur</strong> – Att dela upp ett program i flera logiska delar.</li>
-                </ul>
+    <h2>Läsbar radlängd</h2>
+    <pre><code>main {
+    width: min(100% - 2rem, 70ch);
+    margin-inline: auto;
+}</code></pre>
+    <p>Regeln gör att innehållet nästan fyller små skärmar men inte blir för brett på stora skärmar. <code>ch</code> hjälper när du vill tänka i ungefärlig teckenbredd.</p>
 
-                <h2>Innehåll och exempel</h2>
+    <h2>clamp</h2>
+    <pre><code>h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+}</code></pre>
+    <p><code>clamp()</code> sätter ett minsta värde, ett flexibelt värde och ett största värde. Det gör rubriker följsamma utan att bli orimligt små eller stora.</p>
 
-                <h3>Skapa en modul: verktyg.py</h3>
-                <pre><code class="language-python">def hälsa(namn):
-    print(f"Hej, {namn}!")
+    <h2>Responsiva bilder</h2>
+    <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+    <p>Den här regeln gör att bilder kan krympa med sin container. Om en bild ska fylla en fast ruta kan <code>object-fit: cover</code> användas, men kontrollera att viktig information inte beskärs.</p>
 
-def kvadrat(tal):
-    return tal * tal</code></pre>
-
-                <h3>Använda modulen: main.py</h3>
-                <pre><code class="language-python">import verktyg
-
-verktyg.hälsa("Ella")
-print(verktyg.kvadrat(5))</code></pre>
-
-                <h3>Importera bara det du behöver</h3>
-                <pre><code class="language-python">from verktyg import hälsa
-
-hälsa("Leo")</code></pre>
-
-                <h3>Byta namn med alias</h3>
-                <pre><code class="language-python">import verktyg as v
-
-v.hälsa("Tove")</code></pre>
-
-                <h2>Öva – tillämpning i ett projekt</h2>
-                <p>Om du har ett projekt som innehåller både spel- och användarfunktioner:</p>
-                <ul>
-                    <li>Skapa <code>strid.py</code> för all stridslogik.</li>
-                    <li>Skapa <code>spelare.py</code> med klassen <code>Player</code>.</li>
-                    <li>Skapa <code>main.py</code> som styr spelet.</li>
-                </ul>
-                <p>Du kan då importera som:</p>
-                <pre><code class="language-python">from spelare import Player
-import strid</code></pre>
-
-                <h2>Varför moduler?</h2>
-                <ul>
-                    <li>Koden blir lättare att förstå och testa.</li>
-                    <li>Du slipper duplicera kod i flera filer.</li>
-                    <li>Du kan återanvända funktioner i flera projekt.</li>
-                </ul>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>En modul är en egen .py-fil som kan importeras till andra program.</li>
-                    <li>Du kan importera hela moduler eller specifika delar.</li>
-                    <li>Moduler hjälper dig att hålla din kod organiserad och återanvändbar.</li>
-                </ul>
-            </section>
+    <h2>Prova själv</h2>
+    <ol>
+        <li>Sätt <code>max-width</code> på sidans huvudinnehåll.</li>
+        <li>Byt fasta marginaler i <code>px</code> mot <code>rem</code>.</li>
+        <li>Gör en bild responsiv med <code>max-width: 100%</code>.</li>
+        <li>Testa <code>clamp()</code> på en huvudrubrik.</li>
+    </ol>
+</section>
 
             <div id="quiz-4-3" aria-label="Quiz Kap 4.3"></div>
-
-            <p><a href="chapter-4.html">Tillbaka till Kapitel 4</a></p>
+            <p><a href="chapter-4.html">Tillbaka till Modul 4</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 4</p><h2>Responsiv grund</h2><p>Bra relativa mått minskar behovet av många specialregler senare.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-4-3'), {
-                    title: 'Quiz: Kap 4.3 - Egna moduler och import',
-                    questions: [
-                        {
-	                            question: 'Vad är en modul i Python?',
-	                            options: [
-	                                'En särskild typ av loop',
-	                                'En fil i Python som innehåller funktioner, klasser eller variabler',
-	                                'En vanlig sträng',
-	                                'Ett felmeddelande'
-	                            ],
-	                            correct: 1,
-	                            feedback: 'Rätt, en modul är en .py-fil med kod som kan återanvändas.',
-	                            explanation: 'Moduler används för att samla funktioner, klasser och variabler i egna filer.'
-	                        },
-	                        {
-	                            question: 'Hur importerar du hela modulen `verktyg`?',
-	                            options: [
-	                                'from verktyg import import',
-	                                'import verktyg',
-	                                'use verktyg',
-	                                'load verktyg'
-	                            ],
-	                            correct: 1,
-	                            feedback: 'Rätt, då kan du använda `verktyg.hälsa()` och `verktyg.kvadrat()`.',
-	                            explanation: 'Med `import verktyg` får du tillgång till hela modulen.'
-	                        },
-	                        {
-	                            question: 'Hur importerar du bara funktionen `hälsa` från `verktyg`?',
-	                            options: [
-	                                'import hälsa from verktyg',
-	                                'from hälsa import verktyg',
-	                                'from verktyg import hälsa',
-	                                'use hälsa from verktyg'
-	                            ],
-	                            correct: 2,
-	                            feedback: 'Rätt, då kan du skriva `hälsa("Leo")` direkt.',
-	                            explanation: 'Denna syntax importerar bara den funktion du behöver.'
-	                        },
-	                        {
-	                            question: 'Vad gör aliaset `as v` i `import verktyg as v`?',
-	                            options: [
-	                                'Tar bort modulens funktioner',
-	                                'Gör modulen tom',
-	                                'Ger modulen ett kortare namn',
-	                                'Skapar en ny fil'
-	                            ],
-	                            correct: 2,
-	                            feedback: 'Ja, alias gör namnet kortare och enklare att skriva.',
-	                            explanation: 'Alias är användbart om modulnamnet är långt eller om du vill skriva mindre.'
-	                        },
-	                        {
-	                            question: 'Varför är det bra att dela upp kod i moduler?',
-	                            options: [
-	                                'Programmet blir alltid långsammare',
-	                                'Man kan inte importera längre',
-	                                'All kod måste ligga i en fil',
-	                                'Koden blir lättare att förstå och testa'
-	                            ],
-	                            correct: 3,
-	                            feedback: 'Precis, moduler gör koden mer organiserad och återanvändbar.',
-	                            explanation: 'Att dela upp kod i moduler minskar duplicering och gör projekt enklare att arbeta med.'
-	                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-4-3'), {"title": "Quiz: Kap 4.3", "questions": [{"question": "Vilken enhet utgår från rotens textstorlek?", "options": ["rem", "vh", "px", "% alltid"], "correct": 0, "feedback": "rem bygger på root-font-size.", "explanation": "rem bygger på root-font-size."}, {"question": "Vad betyder vw?", "options": ["En procentliknande del av viewportens bredd", "En bildbeskrivning", "En grid line", "Ett formulärfält"], "correct": 0, "feedback": "vw baseras på viewportens bredd.", "explanation": "vw baseras på viewportens bredd."}, {"question": "Vad gör clamp(2rem, 5vw, 4rem)?", "options": ["Sätter minsta, flexibelt och största värde", "Skapar tre kolumner", "Validerar CSS automatiskt", "Tar bort media queries"], "correct": 0, "feedback": "clamp begränsar ett följsamt värde.", "explanation": "clamp begränsar ett följsamt värde."}, {"question": "Vilken regel hjälper bilder att krympa med sin container?", "options": ["img { max-width: 100%; height: auto; }", "img { width: 5000px; }", "img { display: none; }", "img { font-size: 2rem; }"], "correct": 0, "feedback": "max-width och height auto bevarar proportioner.", "explanation": "max-width och height auto bevarar proportioner."}, {"question": "Varför används max-width ofta på textinnehåll?", "options": ["För att rader inte ska bli för långa", "För att skapa fler HTML-filer", "För att ändra HTTP-metod", "För att ta bort kontrast"], "correct": 0, "feedback": "Lagom radlängd gör text lättare att läsa.", "explanation": "Lagom radlängd gör text lättare att läsa."}]});
+        });
     </script>
 </body>
 

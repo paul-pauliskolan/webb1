@@ -2,164 +2,85 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 4.1 - Läsa och skriva till filer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 4.1: flexbox, riktning, huvudaxel, tväraxeln, gap och wrap.">
+    <title>Kap 4.1 - Flexbox för rader, menyer och kort</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 4.1 – Läsa och skriva till filer</h1>
-                <p class="subtitle">Arbeta med filer och filformat.</p>
+                <p class="eyebrow">Modul 4</p>
+                <h1>Kap 4.1 - Flexbox för rader, menyer och kort</h1>
+                <p class="subtitle">Flexbox används när element ska placeras längs en huvudaxel: i rad eller kolumn.</p>
             </header>
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Kunna läsa och skriva data till textfiler med Python.</li>
-                    <li>Förstå skillnaden mellan att skriva över, lägga till och läsa från en fil.</li>
-                    <li>Använda filhantering för att spara programdata permanent.</li>
-                </ul>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Förstå när flexbox passar.</li>
+        <li>Kunna använda <code>display: flex</code>, <code>gap</code> och <code>flex-wrap</code>.</li>
+        <li>Förstå huvudaxel och tväraxeln.</li>
+        <li>Bygga en enkel meny eller kortlista.</li>
+    </ul>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Du lär dig bäst genom att följa konkreta exempel och själv skriva kod som öppnar, läser och sparar
-                    information. Arbeta stegvis och prova olika lägen för att se hur filinnehållet förändras. Testa
-                    gärna att koppla filhantering till ett tidigare projekt, som att spara en lista med recept eller
-                    spelresultat.</p>
+    <h2>När passar flexbox?</h2>
+    <p>Flexbox är bra när en grupp element ska ligga efter varandra: länkar i en meny, knappar i en verktygsrad eller kort i en lista. Du tänker först på en riktning: rad eller kolumn.</p>
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>filhantering</strong> - Teknik för att läsa och skriva data från filer.</li>
-                    <li><strong>open()</strong> - Funktion för att öppna en fil i olika lägen.</li>
-                    <li><strong>read() och write()</strong> - Metoder för att läsa och skriva text i filer.</li>
-                    <li><strong>fillägena r, w och a</strong> - Lägen för att läsa, skriva över eller lägga till innehåll.</li>
-                    <li><strong>with</strong> - Konstruktion för att säkert arbeta med filer.</li>
-                </ul>
+    <h2>Starta flexbox</h2>
+    <pre><code>.menu {
+    display: flex;
+    gap: 1rem;
+}</code></pre>
+    <p><code>display: flex</code> gör barnen till flex-items. <code>gap</code> skapar jämnt avstånd mellan dem utan extra marginaler på varje länk.</p>
 
-                <h2>Innehåll och exempel</h2>
+    <h2>Riktning och axlar</h2>
+    <pre><code>.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}</code></pre>
+    <p>Med <code>flex-direction: row</code> går huvudaxeln från vänster till höger. <code>justify-content</code> styr placering längs huvudaxeln. <code>align-items</code> styr placering längs tväraxeln.</p>
 
-                <h3>Skriva till fil</h3>
-                <pre><code class="language-python">with open("exempel.txt", "w") as fil:
-    fil.write("Hej filvärlden!\n")
-    fil.write("Denna text skrivs till filen.")</code></pre>
-                <p>Läget <strong>w</strong> betyder att filen skrivs över om den redan finns.</p>
+    <h2>Radbrytning med wrap</h2>
+    <p>Om korten inte får plats kan de brytas till ny rad.</p>
+    <pre><code>.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 
-                <h3>Lägga till i fil</h3>
-                <pre><code class="language-python">with open("exempel.txt", "a") as fil:
-    fil.write("\nEn ny rad läggs till.")</code></pre>
-                <p>Läget <strong>a</strong> står för <em>append</em> - lägger till utan att ta bort tidigare innehåll.
-                </p>
+.card {
+    flex: 1 1 16rem;
+}</code></pre>
+    <p>Regeln <code>flex: 1 1 16rem</code> betyder att kortet får växa, krympa och har en ungefärlig grundbredd på 16rem.</p>
 
-                <h3>Läsa från fil</h3>
-                <pre><code class="language-python">with open("exempel.txt", "r") as fil:
-    innehåll = fil.read()
-
-print(innehåll)</code></pre>
-                <p>Läget <strong>r</strong> står för <em>read</em> - läser innehållet som en hel sträng.</p>
-
-                <h2>Öva - tillämpning i ett projekt</h2>
-                <p>Koppla filhantering till något du byggt tidigare, till exempel:</p>
-                <pre><code class="language-python">def spara_recept(namn, ingredienser):
-    with open("recept.txt", "a") as fil:
-        fil.write(f"Recept: {namn}\n")
-        for ing in ingredienser:
-            fil.write(f"- {ing}\n")</code></pre>
-
-                <p>Testa sedan att läsa filen:</p>
-                <pre><code class="language-python">with open("recept.txt", "r") as fil:
-    print(fil.read())</code></pre>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Du kan nu öppna, läsa från och skriva till textfiler.</li>
-                    <li>Du förstår skillnaden mellan skrivlägen (<strong>w</strong>, <strong>a</strong>,
-                        <strong>r</strong>).</li>
-                    <li>Du kan använda filhantering för att spara programdata på ett enkelt sätt.</li>
-                </ul>
-            </section>
+    <h2>Prova själv</h2>
+    <ol>
+        <li>Skapa en meny med fyra länkar.</li>
+        <li>Gör menyn till flex-container.</li>
+        <li>Lägg till <code>gap</code> och testa olika <code>justify-content</code>.</li>
+        <li>Skapa tre kort och låt dem brytas till ny rad med <code>flex-wrap</code>.</li>
+    </ol>
+</section>
 
             <div id="quiz-4-1" aria-label="Quiz Kap 4.1"></div>
-
-            <p><a href="chapter-4.html">Tillbaka till Kapitel 4</a></p>
+            <p><a href="chapter-4.html">Tillbaka till Modul 4</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 4</p><h2>Flexbox</h2><p>Flexbox löser många endimensionella layoutproblem utan onödiga marginalhack.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-4-1'), {
-                    title: 'Quiz: Kap 4.1 - Läsa och skriva till filer',
-                    questions: [
-                        {
-                            question: 'Vilket filläge skriver över en befintlig fil?',
-                            options: [
-                                'r',
-                                'a',
-                                'w',
-                                'x'
-                            ],
-                            correct: 2,
-                            feedback: '"w" skriver över filen.',
-                            explanation: 'Använd "w" för att skriva (overwrite) en fil; befintligt innehåll ersätts.'
-                        },
-                        {
-                            question: 'Vad gör konstruktionen "with open(...) as f"?',
-                            options: [
-                                'Den läser filen tecken för tecken automatiskt',
-                                'Den säkerställer att filen stängs automatiskt efter användning',
-                                'Den kör filen som ett program',
-                                'Den konverterar filinnehållet till JSON'
-                            ],
-                            correct: 1,
-                            feedback: '"with" hanterar resursen och stänger filen automatiskt.',
-                            explanation: '"with" används för att garantera att filen stängs även om ett undantag uppstår.'
-                        },
-                        {
-                            question: 'Vilket läge använder du för att lägga till text i slutet av en fil?',
-                            options: [
-                                'w',
-                                'r',
-                                'a',
-                                'b'
-                            ],
-                            correct: 2,
-                            feedback: '"a" lägger till (append) nytt innehåll utan att radera befintligt.',
-                            explanation: 'Använd "a" när du vill skriva nya rader utan att ta bort tidigare innehåll.'
-                        },
-                        {
-                            question: 'Varför är filhantering användbart i ett program?',
-                            options: [
-                                'För att programmet ska kunna spara data även efter att det avslutas',
-                                'För att alla variabler automatiskt blir globala',
-                                'För att programmet ska kunna köras utan kod',
-                                'För att Python ska ignorera fel i programmet'
-                            ],
-                            correct: 0,
-                            feedback: 'Filhantering gör att data kan sparas permanent.',
-                            explanation: 'Utan filhantering försvinner vanligtvis programmets data när programmet avslutas.'
-                        },
-                        {
-                            question: 'Vad händer när du läser en fil med read() i lektionens exempel?',
-                            options: [
-                                'Filen raderas efter att den har lästs',
-                                'Innehållet läses in som en hel sträng',
-                                'Texten läggs automatiskt till längst ned i filen',
-                                'Filen skrivs över med en tom rad'
-                            ],
-                            correct: 1,
-                            feedback: 'read() läser filens innehåll som en sträng.',
-                            explanation: 'I exemplet sparas resultatet från read() i variabeln innehåll och skrivs sedan ut.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-4-1'), {"title": "Quiz: Kap 4.1", "questions": [{"question": "Vad gör display: flex?", "options": ["Gör elementets barn till flex-items", "Skapar en databas", "Tar bort alla länkar", "Byter HTML till JavaScript"], "correct": 0, "feedback": "Barnen placeras enligt flexbox-regler.", "explanation": "Barnen placeras enligt flexbox-regler."}, {"question": "Vad styr flex-direction?", "options": ["Om huvudaxeln går som rad eller kolumn", "Vilken bildfil som laddas", "Sidans språk", "HTTP-statuskod"], "correct": 0, "feedback": "Riktningen avgör huvudaxeln.", "explanation": "Riktningen avgör huvudaxeln."}, {"question": "Vad används gap till?", "options": ["Avstånd mellan flex-items", "Att validera formulär", "Att ändra filnamn", "Att skapa alt-text"], "correct": 0, "feedback": "gap ger jämnt mellanrum.", "explanation": "gap ger jämnt mellanrum."}, {"question": "Vilken egenskap låter flex-items gå till ny rad?", "options": ["flex-wrap", "font-stack", "object-fit", "line-height"], "correct": 0, "feedback": "flex-wrap tillåter radbrytning.", "explanation": "flex-wrap tillåter radbrytning."}, {"question": "Vad styr justify-content oftast i en radlayout?", "options": ["Placering längs huvudaxeln", "Textens språk", "Bildens filformat", "HTML-dokumentets titel"], "correct": 0, "feedback": "justify-content arbetar längs huvudaxeln.", "explanation": "justify-content arbetar längs huvudaxeln."}]});
+        });
     </script>
 </body>
 

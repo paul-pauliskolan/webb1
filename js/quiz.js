@@ -18,6 +18,10 @@
     return wrapper;
   }
 
+  function formatInlineCode(text) {
+    return escapeHtml(text).replace(/`([^`]+)`/g, "<code>$1</code>");
+  }
+
   function renderQuestion(form, qIndex, q) {
     const name = `quiz${qIndex}`;
     const container = document.createElement("div");
@@ -25,7 +29,7 @@
 
     const qEl = document.createElement("p");
     qEl.className = "quiz-qtext";
-    qEl.innerText = `${qIndex + 1}. ${q.question}`;
+    qEl.innerHTML = `${qIndex + 1}. ${formatInlineCode(q.question)}`;
     container.appendChild(qEl);
 
     q.options.forEach((opt, i) => {
@@ -46,6 +50,15 @@
       .forEach((f) => (f.innerHTML = ""));
   }
 
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function evaluate(form, quizData) {
     const results = [];
     quizData.forEach((q, i) => {
@@ -62,7 +75,7 @@
         feedbackEl.innerHTML = `<span class="quiz-correct">Rätt! ${q.explanation || ""}</span>`;
         results.push(true);
       } else {
-        const correctText = q.options[q.correct] || "rätt svar";
+        const correctText = escapeHtml(q.options[q.correct] || "rätt svar");
         feedbackEl.innerHTML = `<span class="quiz-incorrect">Fel — ${q.feedback || "Det här svaret är inte korrekt."} Rätt svar: <strong>${correctText}</strong></span>`;
         results.push(false);
       }

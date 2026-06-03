@@ -673,14 +673,6 @@ ol {
   margin-bottom: 0.35rem;
 }
 
-.video-embed {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 16px;
-  margin-top: 0.8rem;
-}
-
 .gif-embed {
   width: 100%;
   height: auto;
@@ -1230,4 +1222,23 @@ code {
 .quiz .quiz-check {
   background: var(--accent) !important;
   color: #081112 !important;
+}
+
+.important-box {
+  margin: var(--space-lg) 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  border-left: 0.35rem solid #fbbf24;
+  border-radius: var(--radius-md);
+  background: rgba(251, 191, 36, 0.12);
+  color: var(--text);
+}
+
+.important-box h3 {
+  margin: 0 0 0.5rem;
+  color: #fde68a;
+}
+
+.important-box p {
+  margin: 0.45rem 0 0;
 }

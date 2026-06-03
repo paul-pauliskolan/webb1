@@ -76,24 +76,23 @@
     {
       "id": 4,
       "number": 4,
-      "title": "Operatorer och beräkningar",
-      "description": "Räkna, jämför och uttryck logik i JavaScript.",
+      "title": "Layout med flexbox, grid och responsiv design",
+      "description": "Modul 4 i Webbutveckling 1: flexbox, CSS Grid, responsiva mått, bilder och media queries.",
       "sections": [
-        "Aritmetiska operatorer",
-        "Jämförelseoperatorer",
-        "Logiska uttryck",
-        "Prioriteringsregler",
-        "Matematiska exempel",
-        "Övningar",
-        "Sammanfattning"
+        "Flexbox för rader, menyer och kort",
+        "Grid för sidlayouter",
+        "Responsiva mått och bilder",
+        "Media queries",
+        "Miniuppgift: responsiv startsida"
       ],
-      "summary": "Eleverna lär sig hur JavaScript räknar med tal och jämför värden. Kapitlet hjälper dem förstå hur kod kan fatta enkla beslut och utföra beräkningar på rätt sätt.",
+      "summary": "Modulen lär eleven bygga layouter som fungerar på flera skärmstorlekar med flexbox, grid och genomtänkta responsiva regler.",
       "keyTopics": [
-        "operatorer",
-        "beräkningar",
-        "jämförelser",
-        "prioritet",
-        "uttryck"
+        "flexbox",
+        "grid",
+        "responsiv design",
+        "CSS-enheter",
+        "media queries",
+        "responsiva bilder"
       ],
       "videoSuggestions": [],
       "resources": []

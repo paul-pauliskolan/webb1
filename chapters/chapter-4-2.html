@@ -2,180 +2,81 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 4.2 - Try/except och felsökning</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 4.2: grid columns, rows, gap, lines, cells, tracks, areas, repeat, fr, minmax, auto-fit och auto-fill.">
+    <title>Kap 4.2 - Grid för sidlayouter</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 4.2 – Try/except och felsökning</h1>
-                <p class="subtitle">Hantera fel och hitta buggar i din kod.</p>
+                <p class="eyebrow">Modul 4</p>
+                <h1>Kap 4.2 - Grid för sidlayouter</h1>
+                <p class="subtitle">CSS Grid används när layouten behöver rader och kolumner samtidigt.</p>
             </header>
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
-                <ul>
-                    <li>Förstå varför fel uppstår i program.</li>
-                    <li>Känna till vanliga undantag i Python.</li>
-                    <li>Använda <strong>try/except</strong> för att fånga fel och fortsätta programflödet.</li>
-                    <li>Skriva tydligare och mer felsäker kod.</li>
-                </ul>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Förstå skillnaden mellan flexbox och grid.</li>
+        <li>Kunna skapa kolumner och rader med CSS Grid.</li>
+        <li>Känna igen begrepp som cell, track, line, area och item.</li>
+        <li>Använda <code>repeat</code>, <code>fr</code>, <code>minmax</code>, <code>auto-fit</code> och <code>auto-fill</code>.</li>
+    </ul>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>För att förstå <code>try/except</code> måste du testa vad som händer när något går fel. Skriv kod
-                    som kraschar och se hur Python rapporterar felet. Använd sedan <code>try/except</code> för att
-                    hantera det. Arbeta med små exempel och koppla dem till tidigare uppgifter, till exempel fel vid
-                    filhantering eller felaktig inmatning från användaren.</p>
+    <h2>Tvådimensionell layout</h2>
+    <p>Grid passar när du vill kontrollera både kolumner och rader. En grid-container innehåller grid-items. Mellan rader och kolumner finns grid lines. Ytan mellan linjerna bildar celler och större områden kan beskrivas som grid areas.</p>
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>undantag (exceptions)</strong> - Fel som uppstår när program körs, till exempel
-                        <code>ValueError</code> och <code>FileNotFoundError</code>.</li>
-                    <li><strong>try/except</strong> - Konstruktion som fångar fel utan att programmet kraschar.</li>
-                    <li><strong>felmeddelanden</strong> - Hjälper dig förstå vad som gick fel och var.</li>
-                </ul>
+    <h2>En enkel grid</h2>
+    <pre><code>.layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}</code></pre>
+    <p><code>fr</code> betyder fraction, alltså en del av det lediga utrymmet. Här får första kolumnen två delar och andra kolumnen en del.</p>
 
-                <h2>Innehåll och exempel</h2>
+    <h2>repeat och minmax</h2>
+    <pre><code>.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}</code></pre>
+    <p><code>repeat(3, 1fr)</code> skapar tre lika breda kolumner.</p>
+    <pre><code>.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+}</code></pre>
+    <p><code>minmax(14rem, 1fr)</code> säger att varje kolumn minst ska vara 14rem men får växa. <code>auto-fit</code> fyller raden med så många kolumner som får plats.</p>
 
-                <h3>Exempel: konverteringsfel</h3>
-                <pre><code class="language-python">try:
-    tal = int(input("Skriv ett heltal: "))
-    print(f"Du skrev: {tal}")
-except ValueError:
-    print("Fel: Du måste skriva ett heltal!")</code></pre>
+    <h2>auto-fit och auto-fill</h2>
+    <p>Både <code>auto-fit</code> och <code>auto-fill</code> skapar responsiva kolumner. I praktiska kortlayouter passar <code>auto-fit</code> ofta bäst eftersom tomma spår kollapsar och innehållet får mer plats.</p>
 
-                <p><code>ValueError</code> kan uppstå när programmet försöker göra om en text till ett tal, men texten
-                    inte har rätt format.</p>
-
-                <h3>Exempel: fil saknas</h3>
-                <pre><code class="language-python">try:
-    with open("saknas.txt", "r") as f:
-        innehåll = f.read()
-except FileNotFoundError:
-    print("Filen hittades inte.")</code></pre>
-
-                <p>Det här exemplet visar hur du fångar ett vanligt filfel när en fil inte finns. Då skriver programmet
-                    ut ett tydligt meddelande i stället för att krascha.</p>
-
-                <h3>Exempel: generellt fel</h3>
-                <pre><code class="language-python">try:
-    tal = int(input("Skriv ett tal att dividera 10 med: "))
-    resultat = 10 / tal
-    print(f"Resultatet blir {resultat}")
-except ZeroDivisionError:
-    print("Du kan inte dividera med noll!")</code></pre>
-
-                <p>Om användaren skriver till exempel <code>2</code> fungerar programmet och skriver ut resultatet
-                    <code>5.0</code>. Om användaren skriver <code>0</code> fångas felet av <code>except</code> och
-                    programmet visar ett tydligt felmeddelande i stället för att krascha.</p>
-
-                <h2>Felsökning</h2>
-                <p>När ett fel uppstår visar Python ett spår, en <em>traceback</em>, som berättar vilken typ av fel som
-                    inträffade, var i koden felet uppstod och vilken kodrad som orsakade felet.</p>
-
-                <pre><code class="language-python">TypeError: unsupported operand type(s) for +: 'int' and 'str'</code></pre>
-
-                <p>Det betyder att programmet försökte addera ett heltal och en text, vilket inte går.</p>
-
-                <h2>Tips för bättre felsökning</h2>
-                <ul>
-                    <li>Lägg till tydliga felmeddelanden i <code>except</code>.</li>
-                    <li>Använd <code>print()</code> för att spåra vad som händer före felet.</li>
-                    <li>Testa delar av programmet i taget.</li>
-                    <li>Kommentera kodstycken om du inte vet var felet ligger.</li>
-                </ul>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Fel är en naturlig del av programmering - det viktiga är hur du hanterar dem.</li>
-                    <li>Du kan använda <code>try/except</code> för att fånga fel och visa vänliga meddelanden.</li>
-                    <li>Felsökning handlar om att förstå vad som händer i programmet och varför.</li>
-                </ul>
-            </section>
+    <h2>Prova själv</h2>
+    <ol>
+        <li>Skapa sex artiklar med rubrik och text.</li>
+        <li>Lägg dem i en container med <code>display: grid</code>.</li>
+        <li>Testa först <code>repeat(3, 1fr)</code>.</li>
+        <li>Byt sedan till <code>repeat(auto-fit, minmax(14rem, 1fr))</code> och ändra fönsterbredden.</li>
+    </ol>
+</section>
 
             <div id="quiz-4-2" aria-label="Quiz Kap 4.2"></div>
-
-            <p><a href="chapter-4.html">Tillbaka till Kapitel 4</a></p>
+            <p><a href="chapter-4.html">Tillbaka till Modul 4</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 4</p><h2>Grid</h2><p>Grid är bäst när du behöver planera både bredd och höjd i samma layout.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-4-2'), {
-                    title: 'Quiz: Kap 4.2 - Try/except och felsökning',
-                    questions: [
-                        {
-                            question: 'Vilket nyckelord används för att fånga undantag i Python?',
-                            options: [
-                                'try',
-                                'except',
-                                'finally',
-                                'raise'
-                            ],
-                            correct: 1,
-                            feedback: 'Använd "except" för att fånga undantag som uppstår i en try-block.',
-                            explanation: 'Strukturen är "try: ... except ExceptionType: ..." där except fångar undantaget.'
-                        },
-                        {
-                            question: 'Vilket undantag fångar du när en fil inte finns?',
-                            options: [
-                                'ValueError',
-                                'FileNotFoundError',
-                                'TypeError',
-                                'IndexError'
-                            ],
-                            correct: 1,
-                            feedback: 'FileNotFoundError används när en fil saknas.',
-                            explanation: 'När open() inte hittar filen får du ett FileNotFoundError som du kan fånga med except.'
-                        },
-                        {
-                            question: 'Vilket undantag kan uppstå om du försöker göra om text till ett heltal men texten inte är ett tal?',
-                            options: [
-                                'FileNotFoundError',
-                                'ZeroDivisionError',
-                                'ValueError',
-                                'NameError'
-                            ],
-                            correct: 2,
-                            feedback: 'ValueError används när ett värde har fel format.',
-                            explanation: 'Ett vanligt exempel är int("hej"), eftersom texten inte kan tolkas som ett heltal.'
-                        },
-                        {
-                            question: 'Vad kan en traceback hjälpa dig att hitta?',
-                            options: [
-                                'Hur många gånger programmet har körts',
-                                'Vilken rad och vilken typ av fel som orsakade problemet',
-                                'Vilken färg terminalen ska ha',
-                                'Hur du automatiskt rättar all kod'
-                            ],
-                            correct: 1,
-                            feedback: 'Traceback visar var felet uppstod och vilken typ av fel det var.',
-                            explanation: 'Det gör det lättare att förstå vilken del av programmet du behöver undersöka.'
-                        },
-                        {
-                            question: 'Vilket undantag passar när programmet försöker dividera med noll?',
-                            options: [
-                                'ZeroDivisionError',
-                                'ValueError',
-                                'FileNotFoundError',
-                                'TypeError'
-                            ],
-                            correct: 0,
-                            feedback: 'ZeroDivisionError uppstår vid division med noll.',
-                            explanation: 'I kapitlets exempel fångas felet med except ZeroDivisionError.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-4-2'), {"title": "Quiz: Kap 4.2", "questions": [{"question": "När passar CSS Grid bäst?", "options": ["När layouten behöver rader och kolumner", "När bara textfärgen ska ändras", "När en länk ska öppnas", "När HTML ska valideras"], "correct": 0, "feedback": "Grid är tvådimensionellt.", "explanation": "Grid är tvådimensionellt."}, {"question": "Vad betyder fr i grid?", "options": ["En del av tillgängligt utrymme", "En bildtyp", "En HTML-attributtyp", "En statuskod"], "correct": 0, "feedback": "fr delar upp ledigt utrymme.", "explanation": "fr delar upp ledigt utrymme."}, {"question": "Vad gör repeat(3, 1fr)?", "options": ["Skapar tre lika breda kolumner", "Skapar tre HTML-sidor", "Tar bort tre element", "Gör texten tre gånger större"], "correct": 0, "feedback": "repeat upprepar kolumnmönstret.", "explanation": "repeat upprepar kolumnmönstret."}, {"question": "Vad anger minmax(14rem, 1fr)?", "options": ["Minsta och största storlek för ett spår", "Minsta och största filnamn", "Minsta och största statuskod", "Två olika språk"], "correct": 0, "feedback": "minmax sätter spannet för spåret.", "explanation": "minmax sätter spannet för spåret."}, {"question": "Vilket värde passar ofta för responsiva kortkolumner?", "options": ["repeat(auto-fit, minmax(...))", "font-family: serif", "method=post", "alt=grid"], "correct": 0, "feedback": "auto-fit och minmax ger flexibel grid.", "explanation": "auto-fit och minmax ger flexibel grid."}]});
+        });
     </script>
 </body>
 

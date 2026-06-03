@@ -2,169 +2,80 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 4.5 - Miniuppgift: filbaserat program</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 4.5: miniuppgift där eleven bygger en responsiv startsida med flexbox, grid, relativa mått och media queries.">
+    <title>Kap 4.5 - Miniuppgift: responsiv startsida</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 4.5: Miniuppgift där du bygger ett filbaserat Pythonprogram med recept, menyer och felhantering.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 4.5 – Miniuppgift: filbaserat program</h1>
-                <p class="subtitle">Bygg ett program som sparar och läser data från en textfil.</p>
+                <p class="eyebrow">Modul 4</p>
+                <h1>Kap 4.5 - Miniuppgift: responsiv startsida</h1>
+                <p class="subtitle">Du bygger en startsida som fungerar på mobil, surfplatta och dator.</p>
             </header>
+            
+<section class="content-section">
+    <h2>Mål</h2>
+    <ul>
+        <li>Planera en enkel startsida med tydliga sektioner.</li>
+        <li>Använda flexbox för navigation eller kort.</li>
+        <li>Använda grid för en responsiv kortlayout.</li>
+        <li>Testa sidan i flera bredder och förbättra den.</li>
+    </ul>
 
-            <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna uppgift ska du:</p>
-                <ul>
-                    <li>Använda filhantering för att spara och läsa data i ett Pythonprogram.</li>
-                    <li>Strukturera ett mindre program med funktioner och undantagshantering.</li>
-                    <li>Skapa användarinteraktion genom menyer och val.</li>
-                </ul>
+    <h2>Uppgift</h2>
+    <p>Bygg en responsiv startsida för ett valfritt ämne: en hobby, en kurs, ett spel, en förening eller ett eget projekt. Sidan ska kännas tydlig även innan den är avancerad.</p>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Börja med att skapa ett enkelt menysystem. Använd funktioner för varje delmoment och inkludera
-                    <code>try/except</code>-block där användaren matar in data. Planera innan du kodar: vilken
-                    information ska sparas, var lagras den och hur läser du tillbaka den?</p>
+    <h2>Krav</h2>
+    <ul>
+        <li>HTML-filen ska använda semantiska element som <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code> och <code>footer</code>.</li>
+        <li>CSS ska ligga i en extern fil.</li>
+        <li>Navigationen ska fungera på smal och bred skärm.</li>
+        <li>Minst en sektion ska använda flexbox.</li>
+        <li>Minst en sektion ska använda grid.</li>
+        <li>Bilder ska vara responsiva och ha relevant <code>alt</code>-text.</li>
+        <li>Minst en media query ska användas.</li>
+    </ul>
 
-                <h2>Uppgift: Receptsamling</h2>
-                <p>Skapa ett program som låter användaren:</p>
-                <ol>
-                    <li>Lägga till ett nytt recept med namn och ingredienser.</li>
-                    <li>Visa alla sparade recept.</li>
-                    <li>Spara recept i en textfil, till exempel <code>recept.txt</code>.</li>
-                    <li>Läsa in recept från filen vid programstart eller när användaren vill visa recepten.</li>
-                </ol>
+    <h2>Rekommenderad arbetsordning</h2>
+    <ol>
+        <li>Skissa vilka sektioner sidan ska ha.</li>
+        <li>Skriv HTML utan CSS först.</li>
+        <li>Lägg till grundstil: färg, font, radlängd och avstånd.</li>
+        <li>Bygg mobilversionen först.</li>
+        <li>Lägg till grid eller flexbox där innehållet behöver layout.</li>
+        <li>Skriv media query för större skärm.</li>
+        <li>Testa i smal, mellanbred och bred viewport.</li>
+    </ol>
 
-                <h2>Krav</h2>
-                <ul>
-                    <li>Använd en fil för lagring i textformat.</li>
-                    <li>Skapa minst tre funktioner, till exempel <code>lägga_till_recept</code>,
-                        <code>visa_recept</code> och <code>spara_recept</code>.</li>
-                    <li>Använd <code>try/except</code> vid inläsning från fil.</li>
-                    <li>Programmet ska kunna köras flera gånger utan att tidigare data försvinner.</li>
-                </ul>
+    <h2>Självkontroll</h2>
+    <ul>
+        <li>Går sidan att läsa utan horisontell scroll?</li>
+        <li>Har texten rimlig radlängd?</li>
+        <li>Fungerar menyn med mus och tangentbord?</li>
+        <li>Behåller bilderna sina proportioner?</li>
+        <li>Ser layouten planerad ut, inte bara ihoptryckt?</li>
+    </ul>
+</section>
 
-                <h2>Mallkod att utgå från</h2>
-                <pre><code class="language-python">def visa_meny():
-    print("1. Lägg till recept")
-    print("2. Visa recept")
-    print("3. Avsluta")
-
-def main():
-    while True:
-        visa_meny()
-        val = input("Välj ett alternativ: ")
-
-        if val == "1":
-            pass  # lägga till recept
-        elif val == "2":
-            pass  # visa recept
-        elif val == "3":
-            break
-        else:
-            print("Ogiltigt val!")
-
-if __name__ == "__main__":
-    main()</code></pre>
-
-                <h2>Tips</h2>
-                <ul>
-                    <li>Börja smått, exempelvis med att spara endast namnet på ett recept.</li>
-                    <li>Lägg till ingredienser som en lista eller som en rad per recept.</li>
-                    <li>Testa programmet genom att stänga och öppna det igen. Finns recepten kvar?</li>
-                </ul>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Du har tränat på filhantering, programstruktur och användarinteraktion.</li>
-                    <li>Du har använt funktioner och undantag för att skapa ett mer robust program.</li>
-                    <li>Du har tillämpat dina kunskaper i en konkret och verklighetsnära uppgift.</li>
-                </ul>
-
-                <h2>Lösningsförslag: Receptsamling</h2>
-                <pre><code class="language-python">RECEPTFIL = "recept.txt"
-
-def lägga_till_recept():
-    namn = input("Vad heter receptet? ")
-    ingredienser = input("Ange ingredienser (komma-separerade): ")
-    meddelande = f"{namn}|{ingredienser}\n"
-
-    try:
-        with open(RECEPTFIL, "a") as fil:
-            fil.write(meddelande)
-        print("Recept sparat.")
-    except Exception as e:
-        print(f"Något gick fel: {e}")
-
-def visa_recept():
-    try:
-        with open(RECEPTFIL, "r") as fil:
-            rader = fil.readlines()
-
-        if not rader:
-            print("Inga recept hittades.")
-            return
-
-        for rad in rader:
-            namn, ingredienser = rad.strip().split("|")
-            print(f"\nRecept: {namn}")
-            print("Ingredienser:")
-
-            for ing in ingredienser.split(","):
-                print(f"- {ing.strip()}")
-
-    except FileNotFoundError:
-        print("Filen med recept finns inte ännu.")
-    except Exception as e:
-        print(f"Fel vid läsning: {e}")
-
-def visa_meny():
-    print("\nMeny:")
-    print("1. Lägg till recept")
-    print("2. Visa recept")
-    print("3. Avsluta")
-
-def main():
-    while True:
-        visa_meny()
-        val = input("Välj ett alternativ: ")
-
-        if val == "1":
-            lägga_till_recept()
-        elif val == "2":
-            visa_recept()
-        elif val == "3":
-            print("Programmet avslutas.")
-            break
-        else:
-            print("Ogiltigt val, försök igen.")
-
-if __name__ == "__main__":
-    main()</code></pre>
-
-                <h2>Funktioner i lösningen</h2>
-                <ul>
-                    <li><strong>lägga_till_recept()</strong> - Sparar recept i formatet
-                        <code>Receptnamn|ing1,ing2,...</code>.</li>
-                    <li><strong>visa_recept()</strong> - Läser filen, delar upp varje rad och skriver ut innehållet.</li>
-                    <li><strong>main()</strong> - Styr menyval och programflöde.</li>
-                </ul>
-
-                <p>Lösningen är enkel men visar strukturerad kod, användning av <code>try/except</code> för felhantering
-                    och filhantering med append och <code>readlines()</code>.</p>
-            </section>
-
-            <p><a href="chapter-4.html">Tillbaka till Kapitel 4</a></p>
+            <div id="quiz-4-5" aria-label="Quiz Kap 4.5"></div>
+            <p><a href="chapter-4.html">Tillbaka till Modul 4</a></p>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 4</p><h2>Miniuppgift</h2><p>Uppgiften repeterar Modul 1-4 och gör layoutkunskapen praktisk.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-4-5'), {"title": "Quiz: Kap 4.5", "questions": [{"question": "Vilket arbetssätt passar bäst för uppgiften?", "options": ["Skriv HTML-strukturen först och CSS sedan", "Börja med tio media queries", "Lägg all CSS inline", "Undvik testning"], "correct": 0, "feedback": "Struktur före utseende ger bättre kontroll.", "explanation": "Struktur före utseende ger bättre kontroll."}, {"question": "Vilket krav finns på CSS?", "options": ["Den ska ligga i en extern fil", "Den ska bara ligga i style-attribut", "Den ska skrivas i title", "Den ska vara en bild"], "correct": 0, "feedback": "Extern CSS håller isär struktur och utseende.", "explanation": "Extern CSS håller isär struktur och utseende."}, {"question": "Vilket HTML-element passar för sidans huvudnavigation?", "options": ["nav", "span", "img", "meta"], "correct": 0, "feedback": "nav markerar navigation.", "explanation": "nav markerar navigation."}, {"question": "Vad ska bilder ha för att vara begripliga och tillgängliga?", "options": ["Relevant alt-text", "Alltid tom href", "En CSS-klass som heter bild", "Ingen filändelse"], "correct": 0, "feedback": "Alt-text beskriver bildens funktion eller innehåll.", "explanation": "Alt-text beskriver bildens funktion eller innehåll."}, {"question": "Vad är ett tecken på att layouten behöver förbättras?", "options": ["Horisontell scroll på mobil", "HTML använder main", "CSS ligger externt", "Texten har line-height"], "correct": 0, "feedback": "Horisontell scroll är ofta ett layoutproblem.", "explanation": "Horisontell scroll är ofta ett layoutproblem."}]});
+        });
+    </script>
 </body>
 
 </html>
