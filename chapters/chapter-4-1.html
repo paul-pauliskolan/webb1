@@ -30,6 +30,11 @@
 
     <h2>När passar flexbox?</h2>
     <p>Flexbox är bra när en grupp element ska ligga efter varandra: länkar i en meny, knappar i en verktygsrad eller kort i en lista. Du tänker först på en riktning: rad eller kolumn.</p>
+    <p><a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/" target="_blank" rel="noopener noreferrer">An Interactive Guide to Flexbox</a> visar flexbox med interaktiva exempel. Sidan förklarar hur <code>display: flex</code>, <code>flex-direction</code>, huvudaxel, tväraxel, <code>justify-content</code>, <code>align-items</code>, <code>gap</code>, <code>flex-grow</code>, <code>flex-shrink</code> och <code>flex-wrap</code> påverkar layouten.</p>
+
+    <figure>
+        <img src="../assets/images/kap4-1-flex.png" alt="Illustration av flexbox med en container och flera flex-items på rad">
+    </figure>
 
     <h2>Starta flexbox</h2>
     <pre><code>.menu {
@@ -79,7 +84,7 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-4-1'), {"title": "Quiz: Kap 4.1", "questions": [{"question": "Vad gör display: flex?", "options": ["Gör elementets barn till flex-items", "Skapar en databas", "Tar bort alla länkar", "Byter HTML till JavaScript"], "correct": 0, "feedback": "Barnen placeras enligt flexbox-regler.", "explanation": "Barnen placeras enligt flexbox-regler."}, {"question": "Vad styr flex-direction?", "options": ["Om huvudaxeln går som rad eller kolumn", "Vilken bildfil som laddas", "Sidans språk", "HTTP-statuskod"], "correct": 0, "feedback": "Riktningen avgör huvudaxeln.", "explanation": "Riktningen avgör huvudaxeln."}, {"question": "Vad används gap till?", "options": ["Avstånd mellan flex-items", "Att validera formulär", "Att ändra filnamn", "Att skapa alt-text"], "correct": 0, "feedback": "gap ger jämnt mellanrum.", "explanation": "gap ger jämnt mellanrum."}, {"question": "Vilken egenskap låter flex-items gå till ny rad?", "options": ["flex-wrap", "font-stack", "object-fit", "line-height"], "correct": 0, "feedback": "flex-wrap tillåter radbrytning.", "explanation": "flex-wrap tillåter radbrytning."}, {"question": "Vad styr justify-content oftast i en radlayout?", "options": ["Placering längs huvudaxeln", "Textens språk", "Bildens filformat", "HTML-dokumentets titel"], "correct": 0, "feedback": "justify-content arbetar längs huvudaxeln.", "explanation": "justify-content arbetar längs huvudaxeln."}]});
+            window.renderQuiz(document.getElementById('quiz-4-1'), {"title": "Quiz: Kap 4.1", "questions": [{"question": "Vad gör `display: flex`?", "options": ["Ändrar huvudaxeln till kolumn", "Gör elementets barn till flex-items", "Skapar avstånd mellan flex-items", "Låter flex-items brytas till ny rad"], "correct": 1, "feedback": "Barnen placeras enligt flexbox-regler.", "explanation": "Barnen placeras enligt flexbox-regler."}, {"question": "Vad styr `flex-direction`?", "options": ["Avståndet mellan flex-items", "Om flex-items får brytas till ny rad", "Om huvudaxeln går som rad eller kolumn", "Placering längs tväraxeln"], "correct": 2, "feedback": "Riktningen avgör huvudaxeln.", "explanation": "Riktningen avgör huvudaxeln."}, {"question": "Vad används `gap` till?", "options": ["Riktning på huvudaxeln", "Radbrytning av flex-items", "Placering längs tväraxeln", "Avstånd mellan flex-items"], "correct": 3, "feedback": "gap ger jämnt mellanrum.", "explanation": "gap ger jämnt mellanrum."}, {"question": "Vilken egenskap låter flex-items gå till ny rad?", "options": ["flex-direction", "flex-wrap", "align-items", "justify-content"], "correct": 1, "feedback": "flex-wrap tillåter radbrytning.", "explanation": "flex-wrap tillåter radbrytning."}, {"question": "Vad styr `justify-content` oftast i en radlayout?", "options": ["Placering längs tväraxeln", "Om flex-items får växa och krympa", "Avståndet inuti varje flex-item", "Placering längs huvudaxeln"], "correct": 3, "feedback": "justify-content arbetar längs huvudaxeln.", "explanation": "justify-content arbetar längs huvudaxeln."}]});
         });
     </script>
 </body>
