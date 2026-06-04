@@ -7,6 +7,88 @@
     <meta name="description" content="Kap 4.4: media queries, mobile first, breakpoints och testning i webbläsaren.">
     <title>Kap 4.4 - Media queries</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .mq-demo-panel {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .mq-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .mq-demo-control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .mq-demo-control label {
+            font-weight: 700;
+        }
+
+        .mq-demo-control input[type="range"],
+        .mq-demo-control select {
+            width: 100%;
+        }
+
+        .mq-demo-stage {
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background: rgba(13, 19, 22, 0.72);
+            overflow: auto;
+        }
+
+        .mq-demo-viewport {
+            width: 28rem;
+            max-width: 100%;
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            background: rgba(20, 30, 34, 0.9);
+            transition: width 160ms ease;
+        }
+
+        .mq-demo-layout {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .mq-demo-box {
+            min-height: 5rem;
+            display: grid;
+            place-items: center;
+            border-radius: 0.5rem;
+            color: #081112;
+            font-weight: 800;
+            text-align: center;
+            padding: 0.75rem;
+        }
+
+        .mq-demo-box:first-child {
+            background: #5eead4;
+        }
+
+        .mq-demo-box:last-child {
+            background: #fbbf24;
+        }
+
+        .mq-demo-readout {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .mq-demo-code {
+            margin-top: 1rem;
+        }
+
+        .mq-demo-code code {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -56,6 +138,48 @@
     <h2>Testa i webbläsaren</h2>
     <p>Öppna utvecklarverktygen och dra viewporten smalare och bredare. Leta efter överlapp, för långa rader, bilder som spräcker layouten och menyer som inte går att använda.</p>
 
+    <h2>Interaktivt exempel</h2>
+    <p>Ändra den simulerade viewport-bredden och brytpunkten. När bredden når brytpunkten aktiveras reglerna i media queryn.</p>
+
+    <div class="mq-demo-panel">
+        <div class="mq-demo-controls" aria-label="Media query-kontroller">
+            <div class="mq-demo-control">
+                <label for="mq-width">Viewport-bredd: <span id="mq-width-value">28rem</span></label>
+                <input id="mq-width" type="range" min="18" max="64" value="28">
+            </div>
+
+            <div class="mq-demo-control">
+                <label for="mq-breakpoint">Breakpoint: <span id="mq-breakpoint-value">48rem</span></label>
+                <input id="mq-breakpoint" type="range" min="28" max="56" value="48">
+            </div>
+
+            <div class="mq-demo-control">
+                <label for="mq-layout">Vad ändras?</label>
+                <select id="mq-layout">
+                    <option value="grid">Grid: en kolumn till två kolumner</option>
+                    <option value="flex">Flexbox: kolumn till rad</option>
+                    <option value="spacing">Spacing: mer luft på större yta</option>
+                </select>
+            </div>
+        </div>
+
+        <p class="mq-demo-readout" id="mq-readout">Media queryn är inte aktiv. Grundlayouten för liten skärm används.</p>
+
+        <div class="mq-demo-stage">
+            <div class="mq-demo-viewport" id="mq-viewport">
+                <div class="mq-demo-layout" id="mq-layout-preview">
+                    <div class="mq-demo-box">Huvudinnehåll</div>
+                    <div class="mq-demo-box">Sidokolumn</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <pre class="mq-demo-code"><code id="mq-css-output">.layout {
+    display: grid;
+    gap: 1rem;
+}</code></pre>
+
     <h2>Prova själv</h2>
     <ol>
         <li>Bygg en layout med en huvudkolumn och en sidokolumn.</li>
@@ -74,6 +198,95 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const viewport = document.getElementById('mq-viewport')
+            const preview = document.getElementById('mq-layout-preview')
+            const width = document.getElementById('mq-width')
+            const breakpoint = document.getElementById('mq-breakpoint')
+            const layout = document.getElementById('mq-layout')
+            const widthValue = document.getElementById('mq-width-value')
+            const breakpointValue = document.getElementById('mq-breakpoint-value')
+            const readout = document.getElementById('mq-readout')
+            const output = document.getElementById('mq-css-output')
+
+            function updateMediaQueryDemo() {
+                const widthRem = parseInt(width.value, 10)
+                const breakpointRem = parseInt(breakpoint.value, 10)
+                const isActive = widthRem >= breakpointRem
+                const widthText = `${widthRem}rem`
+                const breakpointText = `${breakpointRem}rem`
+
+                viewport.style.width = widthText
+                widthValue.textContent = widthText
+                breakpointValue.textContent = breakpointText
+
+                preview.style.display = layout.value === 'flex' ? 'flex' : 'grid'
+                preview.style.gridTemplateColumns = ''
+                preview.style.flexDirection = ''
+                preview.style.padding = ''
+
+                let css = ''
+
+                if (layout.value === 'grid') {
+                    preview.style.display = 'grid'
+                    preview.style.gridTemplateColumns = isActive ? '2fr 1fr' : '1fr'
+                    css = `.layout {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: ${breakpointText}) {
+    .layout {
+        grid-template-columns: 2fr 1fr;
+    }
+}`
+                }
+
+                if (layout.value === 'flex') {
+                    preview.style.display = 'flex'
+                    preview.style.flexDirection = isActive ? 'row' : 'column'
+                    css = `.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: ${breakpointText}) {
+    .actions {
+        flex-direction: row;
+    }
+}`
+                }
+
+                if (layout.value === 'spacing') {
+                    preview.style.display = 'grid'
+                    preview.style.gridTemplateColumns = '1fr'
+                    preview.style.padding = isActive ? '2rem' : '0'
+                    css = `.section {
+    padding: 0;
+}
+
+@media (min-width: ${breakpointText}) {
+    .section {
+        padding: 2rem;
+    }
+}`
+                }
+
+                readout.textContent = isActive
+                    ? `Media queryn är aktiv eftersom ${widthText} är minst ${breakpointText}.`
+                    : `Media queryn är inte aktiv eftersom ${widthText} är mindre än ${breakpointText}.`
+                output.textContent = css
+            }
+
+            ;[width, breakpoint, layout].forEach(control => {
+                control.addEventListener('input', updateMediaQueryDemo)
+                control.addEventListener('change', updateMediaQueryDemo)
+            })
+
+            updateMediaQueryDemo()
+        })
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-4-4'), {"title": "Quiz: Kap 4.4", "questions": [{"question": "Vad gör en media query?", "options": ["Kör CSS bara när ett villkor stämmer", "Skapar en ny HTML-fil", "Skickar formulärdata", "Byter filformat på bilder"], "correct": 0, "feedback": "Media queries villkorar CSS-regler.", "explanation": "Media queries villkorar CSS-regler."}, {"question": "Vad betyder mobile first?", "options": ["Grund-CSS fungerar på liten skärm först", "Sidan får bara visas i mobil", "Alla bilder tas bort", "CSS skrivs i HTML"], "correct": 0, "feedback": "Sedan byggs större layouter på.", "explanation": "Sedan byggs större layouter på."}, {"question": "Vilken media query passar mobile first?", "options": ["@media (min-width: 48rem)", "@html (mobile)", "@image (small)", "@form (post)"], "correct": 0, "feedback": "min-width lägger till regler från en viss bredd och uppåt.", "explanation": "min-width lägger till regler från en viss bredd och uppåt."}, {"question": "När bör en breakpoint läggas?", "options": ["När innehållet behöver en annan layout", "Alltid exakt vid 375px", "Efter varje rubrik", "Bara när HTML inte validerar"], "correct": 0, "feedback": "Innehållets behov styr brytpunkten.", "explanation": "Innehållets behov styr brytpunkten."}, {"question": "Vad bör du leta efter när du testar responsiv design?", "options": ["Överlapp, för långa rader och trasiga bilder", "Bara om filen heter style.css", "Hur många statuskoder sidan har", "Om GitHub byter färg"], "correct": 0, "feedback": "Responsiv testning handlar om användbar layout.", "explanation": "Responsiv testning handlar om användbar layout."}]});
         });
