@@ -2,225 +2,83 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 5.5 - Testning, dokumentation och reflektion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 5.5: miniuppgift där eleven bygger en interaktiv komponent med JavaScript.">
+    <title>Kap 5.5 - Miniuppgift: interaktiv komponent</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 5.5: Lär dig testa, dokumentera och reflektera över ditt programmeringsprojekt.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 5.5 – Testning, dokumentation och reflektion</h1>
-                <p class="subtitle">Kontrollera att projektet fungerar, beskriv hur det används och reflektera över arbetet.</p>
+                <p class="eyebrow">Modul 5</p>
+                <h1>Kap 5.5 - Miniuppgift: interaktiv komponent</h1>
+                <p class="subtitle">Du bygger en liten komponent där JavaScript ändrar något på sidan.</p>
             </header>
 
             <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
+                <h2>Mål</h2>
                 <ul>
-                    <li>Förstå varför testning är en viktig del av programutveckling.</li>
-                    <li>Kunna testa ditt program systematiskt med olika indata och kontrollera resultat.</li>
-                    <li>Dokumentera din kod så att andra, och du själv, förstår den.</li>
-                    <li>Reflektera över din arbetsprocess och vad du lärt dig under projektet.</li>
+                    <li>Planera en enkel interaktion innan du kodar.</li>
+                    <li>Använda extern JavaScript-fil.</li>
+                    <li>Hämta element, lyssna på event och ändra sidan.</li>
+                    <li>Testa med mus, tangentbord och webbläsarens konsol.</li>
                 </ul>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Gå tillbaka till ditt projekt och tänk som en utomstående testare: vad kan gå fel? Vad händer om
-                    användaren matar in något oväntat? Dokumentera tydligt hur programmet fungerar och skriv kommentarer
-                    som förklarar syfte och funktion i viktiga delar. Skriv sedan en kort reflektion över vad du har lärt
-                    dig, vilka utmaningar du stött på och hur du löste dem.</p>
-
-                <h2>Centrala begrepp</h2>
+                <h2>Uppgift</h2>
+                <p>Bygg en interaktiv komponent på en sida du redan har. Välj en av idéerna eller skapa en egen i samma nivå.</p>
                 <ul>
-                    <li><strong>Testfall</strong> - Specifika situationer som testas i programmet, ofta med förväntat
-                        utfall.</li>
-                    <li><strong>Felhantering</strong> - Att identifiera och hantera problem, till exempel felaktig
-                        inmatning eller trasig databasanslutning.</li>
-                    <li><strong>Kommentarer</strong> - Förklarande text i koden som inte påverkar programmets funktion.</li>
-                    <li><strong>README</strong> - En textfil som beskriver programmet, dess syfte, funktion och hur man
-                        använder det.</li>
-                    <li><strong>Reflektion</strong> - Att tänka tillbaka på hur arbetet gått och vad man lärt sig.</li>
+                    <li>En menyknapp som öppnar och stänger navigationen.</li>
+                    <li>En knapp som växlar tema eller kontrastläge.</li>
+                    <li>En FAQ där svar kan öppnas och stängas.</li>
+                    <li>Ett formulär som visar tydlig feedback utan sidomladdning.</li>
                 </ul>
 
-                <h2>1. Testa ditt program</h2>
-                <p>Kontrollera vad som händer i både vanliga och ovanliga situationer. Testa till exempel:</p>
+                <h2>Krav</h2>
                 <ul>
-                    <li>Rätt och fel inmatning.</li>
-                    <li>Tomma fält.</li>
-                    <li>Specialtecken.</li>
-                    <li>Extremt långa värden.</li>
-                    <li>Avslut och avbrott.</li>
+                    <li>JavaScript ska ligga i en extern fil.</li>
+                    <li>Minst ett element ska hämtas med <code>querySelector</code>.</li>
+                    <li>Minst ett event ska hanteras med <code>addEventListener</code>.</li>
+                    <li>Sidan ska ändras synligt, till exempel text, klass eller feedback.</li>
+                    <li>Interaktionen ska vara begriplig även om användaren testar långsamt.</li>
                 </ul>
 
-                <p>Använd gärna en checklista där du skriver vad du testar, vilken indata du använder och vad du förväntar
-                    dig att programmet ska göra.</p>
+                <h2>Startmall</h2>
+                <pre><code>const button = document.querySelector(".toggle-button");
+const panel = document.querySelector(".panel");
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Testbeskrivning</th>
-                            <th>Indata</th>
-                            <th>Förväntat resultat</th>
-                            <th>Utfört</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lägg till post</td>
-                            <td>"Testnamn"</td>
-                            <td>Posten sparas</td>
-                            <td>Ja/Nej</td>
-                        </tr>
-                        <tr>
-                            <td>Visa lista</td>
-                            <td>-</td>
-                            <td>Alla poster visas</td>
-                            <td>Ja/Nej</td>
-                        </tr>
-                        <tr>
-                            <td>Sök efter tom sträng</td>
-                            <td>""</td>
-                            <td>Felmeddelande visas</td>
-                            <td>Ja/Nej</td>
-                        </tr>
-                    </tbody>
-                </table>
+button.addEventListener("click", function () {
+    panel.classList.toggle("is-open");
+});</code></pre>
 
-                <h2>2. Dokumentera koden</h2>
-                <p>Kommentarer ska hjälpa läsaren att förstå syftet med koden. Det görs ofta på engelska i professionella
-                    projekt, men i den här kursen kan du välja svenska eller engelska.</p>
-
-                <pre><code class="language-python">def add_recipe():
-    # Hämtar input från användaren och lägger till recept i databasen
-    ...</code></pre>
-
-                <p>Skapa också en README-fil för projektet. Den bör innehålla:</p>
+                <h2>Självkontroll</h2>
                 <ul>
-                    <li>Programbeskrivning.</li>
-                    <li>Funktioner.</li>
-                    <li>Hur man kör programmet.</li>
-                    <li>Eventuella kända buggar eller begränsningar.</li>
-                </ul>
-
-                <h2>Exempel på README-struktur</h2>
-                <pre><code># Projektets namn
-
-Kort beskrivning av vad programmet gör.
-
-## Funktioner
-- Lägg till data
-- Visa data
-- Sök efter data
-
-## Så kör du programmet
-1. Öppna projektmappen.
-2. Kör main.py.
-3. Följ menyn i terminalen.
-
-## Kända begränsningar
-- Programmet hanterar ännu inte alla typer av felaktig inmatning.</code></pre>
-
-                <h2>3. Reflektera</h2>
-                <p>Svara på dessa frågor i din reflektion, muntligt eller skriftligt:</p>
-                <ul>
-                    <li>Vad fungerade bäst i projektet?</li>
-                    <li>Vad var mest utmanande?</li>
-                    <li>Hur löste du problem du stötte på?</li>
-                    <li>Vilka delar av programmering förstår du bättre nu?</li>
-                    <li>Vad vill du lära dig mer om?</li>
-                </ul>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Du har testat programmet med olika scenarier.</li>
-                    <li>Du har dokumenterat din kod och skapat en README-fil.</li>
-                    <li>Du har reflekterat över hur du arbetat och vad du lärt dig.</li>
-                    <li>Du har utvecklat både tekniska och analytiska färdigheter.</li>
+                    <li>Syns det tydligt vad som händer när användaren klickar?</li>
+                    <li>Finns det fel i konsolen?</li>
+                    <li>Fungerar komponenten efter att sidan laddats om?</li>
+                    <li>Är namn på klasser och variabler begripliga?</li>
+                    <li>Har du testat med tangentbord om komponenten använder knappar eller formulär?</li>
                 </ul>
             </section>
 
             <div id="quiz-5-5" aria-label="Quiz Kap 5.5"></div>
-
-            <p><a href="chapter-5.html">Tillbaka till Kapitel 5</a></p>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-5-4.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">5.4 Små interaktioner utan ramverk</span></span></a>
+                <a href="../index.html#modul-6" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">Modul 6: Bilder, media och prestanda</span></span></a>
+            </nav>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Miniuppgift</p><h2>Bygg litet</h2><p>En bra komponent gör en sak tydligt. Lägg till fler funktioner först när grundläget fungerar.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-5-5'), {
-                    title: 'Quiz: Kap 5.5 - Testning, dokumentation och reflektion',
-                    questions: [
-                        {
-                            question: 'Vad är ett testfall?',
-                            options: [
-                                'En specifik situation som testas med ett förväntat resultat',
-                                'En fil som alltid innehåller lösenord',
-                                'En typ av loop i Python',
-                                'Ett kommando som raderar databasen'
-                            ],
-                            correct: 0,
-                            feedback: 'Ett testfall beskriver vad som testas och vad som bör hända.',
-                            explanation: 'Testfall gör testningen mer systematisk och lättare att följa upp.'
-                        },
-                        {
-                            question: 'Varför bör man testa med felaktig eller oväntad inmatning?',
-                            options: [
-                                'För att kontrollera att programmet kan hantera problem',
-                                'För att göra koden längre',
-                                'För att hoppa över dokumentation',
-                                'För att undvika att köra programmet'
-                            ],
-                            correct: 0,
-                            feedback: 'Oväntad inmatning visar om programmet är robust.',
-                            explanation: 'Användare gör inte alltid det programmet förväntar sig, därför behöver fel hanteras.'
-                        },
-                        {
-                            question: 'Vad bör en README-fil innehålla?',
-                            options: [
-                                'Endast slumpmässiga testdata',
-                                'Programbeskrivning, funktioner och hur programmet körs',
-                                'Bara koden från main.py',
-                                'Alla privata lösenord'
-                            ],
-                            correct: 1,
-                            feedback: 'README beskriver projektet och hur det används.',
-                            explanation: 'Den hjälper både andra och dig själv att förstå projektet senare.'
-                        },
-                        {
-                            question: 'Vad är en bra kommentar i kod?',
-                            options: [
-                                'En kommentar som upprepar varje rad exakt',
-                                'En kommentar som förklarar syfte eller viktig logik',
-                                'En kommentar som gör programmet snabbare',
-                                'En kommentar som ersätter testning'
-                            ],
-                            correct: 1,
-                            feedback: 'Kommentarer bör förklara varför eller vad en viktig del ansvarar för.',
-                            explanation: 'Kommentarer ska komplettera koden, inte bara upprepa självklarheter.'
-                        },
-                        {
-                            question: 'Vad är syftet med reflektion efter ett projekt?',
-                            options: [
-                                'Att slippa visa programmet',
-                                'Att tänka igenom vad man lärt sig och hur arbetet gick',
-                                'Att ta bort alla testfall',
-                                'Att göra databasen tom'
-                            ],
-                            correct: 1,
-                            feedback: 'Reflektion hjälper dig förstå din egen utveckling.',
-                            explanation: 'Genom att reflektera kan du se vad som fungerade, vad som var svårt och vad du vill förbättra.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-5-5'), {"title": "Quiz: Kap 5.5", "questions": [{"question": "Du bygger en liten komponent som ska öppna och stänga ett panelinnehåll. Vilket JavaScript-mönster passar bäst?", "options": ["Gör panelen till en bildfil", "Hämta knapp och panel, lyssna på klick och växla en klass", "Skriv all CSS i alt-attribut", "Ta bort alla knappar från sidan"], "correct": 1, "feedback": "Det är ett vanligt komponentmönster.", "explanation": "Komponenten behöver hitta element, reagera på event och ändra ett synligt läge."}, {"question": "Varför är en extern JavaScript-fil bra i en interaktiv komponent?", "options": ["HTML-element byter namn automatiskt", "Bilder får automatiskt rätt format", "Koden hålls skild från HTML-strukturen", "CSS slutar behövas"], "correct": 2, "feedback": "Separata filer ger tydligare struktur.", "explanation": "HTML beskriver innehållet medan JavaScript beskriver beteendet."}, {"question": "Du klickar på komponenten men inget händer. Vad bör du kontrollera tidigt?", "options": ["Om sidans footer har rätt årtal", "Om bilden har exakt samma färg som texten", "Om filen är en PDF", "Om konsolen visar fel och om selektorn hittar rätt element"], "correct": 3, "feedback": "Konsolen och selektorn är bra första kontroller.", "explanation": "Ett vanligt fel är att JavaScript inte hittar elementet eller att skriptfilen inte laddas."}, {"question": "Vad är ett bra tecken på att en interaktiv komponent är begriplig?", "options": ["All text försvinner vid klick", "Användaren ser tydligt vilket läge komponenten är i", "Konsolen fylls med fel", "Knappen saknar synlig text"], "correct": 1, "feedback": "Tydligt läge är viktigt.", "explanation": "Användaren ska förstå om något är öppet, stängt, valt eller fel."}, {"question": "Varför ska du testa en knappbaserad komponent med tangentbord?", "options": ["För att ändra bildformat", "För att skapa fler HTML-filer", "För att kontrollera att den går att använda utan mus", "För att ta bort event listeners"], "correct": 2, "feedback": "Tangentbordstestning förbättrar tillgängligheten.", "explanation": "Många användare navigerar med tangentbord eller hjälpmedel."}]});
+        });
     </script>
 </body>
 

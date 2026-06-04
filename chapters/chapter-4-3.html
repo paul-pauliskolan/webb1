@@ -251,7 +251,10 @@
 </section>
 
             <div id="quiz-4-3" aria-label="Quiz Kap 4.3"></div>
-            <p><a href="chapter-4.html">Tillbaka till Modul 4</a></p>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-4-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">4.2 Grid för sidlayouter</span></span></a>
+                <a href="chapter-4-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">4.4 Media queries</span></span></a>
+            </nav>
         </article>
         <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Modul 4</p><h2>Responsiv grund</h2><p>Bra relativa mått minskar behovet av många specialregler senare.</p></section></aside>
     </main>
@@ -352,7 +355,7 @@ h1 {
         })
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-4-3'), {"title": "Quiz: Kap 4.3", "questions": [{"question": "Vilken enhet utgår från rotens textstorlek?", "options": ["rem", "vh", "px", "% alltid"], "correct": 0, "feedback": "rem bygger på root-font-size.", "explanation": "rem bygger på root-font-size."}, {"question": "Vad betyder vw?", "options": ["En procentliknande del av viewportens bredd", "En bildbeskrivning", "En grid line", "Ett formulärfält"], "correct": 0, "feedback": "vw baseras på viewportens bredd.", "explanation": "vw baseras på viewportens bredd."}, {"question": "Vad gör clamp(2rem, 5vw, 4rem)?", "options": ["Sätter minsta, flexibelt och största värde", "Skapar tre kolumner", "Validerar CSS automatiskt", "Tar bort media queries"], "correct": 0, "feedback": "clamp begränsar ett följsamt värde.", "explanation": "clamp begränsar ett följsamt värde."}, {"question": "Vilken regel hjälper bilder att krympa med sin container?", "options": ["img { max-width: 100%; height: auto; }", "img { width: 5000px; }", "img { display: none; }", "img { font-size: 2rem; }"], "correct": 0, "feedback": "max-width och height auto bevarar proportioner.", "explanation": "max-width och height auto bevarar proportioner."}, {"question": "Varför används max-width ofta på textinnehåll?", "options": ["För att rader inte ska bli för långa", "För att skapa fler HTML-filer", "För att ändra HTTP-metod", "För att ta bort kontrast"], "correct": 0, "feedback": "Lagom radlängd gör text lättare att läsa.", "explanation": "Lagom radlängd gör text lättare att läsa."}]});
+            window.renderQuiz(document.getElementById('quiz-4-3'), {"title": "Quiz: Kap 4.3", "questions": [{"question": "Vilken enhet utgår från rotens textstorlek?", "options": ["vh", "rem", "px", "% alltid"], "correct": 1, "feedback": "rem bygger på root-font-size.", "explanation": "rem bygger på root-font-size."}, {"question": "Vad betyder vw?", "options": ["En bildbeskrivning", "En grid line", "En procentliknande del av viewportens bredd", "Ett formulärfält"], "correct": 2, "feedback": "vw baseras på viewportens bredd.", "explanation": "vw baseras på viewportens bredd."}, {"question": "Vad gör clamp(2rem, 5vw, 4rem)?", "options": ["Skapar tre kolumner", "Validerar CSS automatiskt", "Tar bort media queries", "Sätter minsta, flexibelt och största värde"], "correct": 3, "feedback": "clamp begränsar ett följsamt värde.", "explanation": "clamp begränsar ett följsamt värde."}, {"question": "Vilken regel hjälper bilder att krympa med sin container?", "options": ["img { width: 5000px; }", "img { max-width: 100%; height: auto; }", "img { display: none; }", "img { font-size: 2rem; }"], "correct": 1, "feedback": "max-width och height auto bevarar proportioner.", "explanation": "max-width och height auto bevarar proportioner."}, {"question": "Varför används max-width ofta på textinnehåll?", "options": ["För att skapa fler HTML-filer", "För att ändra HTTP-metod", "För att rader inte ska bli för långa", "För att ta bort kontrast"], "correct": 2, "feedback": "Lagom radlängd gör text lättare att läsa.", "explanation": "Lagom radlängd gör text lättare att läsa."}]});
         });
     </script>
 </body>

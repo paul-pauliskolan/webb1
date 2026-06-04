@@ -2,187 +2,70 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kap 5.4 - Skapa GUI med tkinter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 5.4: små JavaScript-interaktioner utan ramverk, till exempel meny, tema och tabs.">
+    <title>Kap 5.4 - Små interaktioner utan ramverk</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Kap 5.4: Lär dig skapa grafiska användargränssnitt i Python med tkinter, widgets och eventhantering.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Programmering nivå 2</p>
-                <h1>Kap 5.4 – Skapa GUI med tkinter</h1>
-                <p class="subtitle">Bygg ett enkelt fönster med textfält, knapp och funktioner som reagerar på klick.</p>
+                <p class="eyebrow">Modul 5</p>
+                <h1>Kap 5.4 - Små interaktioner utan ramverk</h1>
+                <p class="subtitle">Du kan bygga mycket med vanlig HTML, CSS och lite JavaScript.</p>
             </header>
 
             <section class="content-section">
-                <h2>Mål med lektionen</h2>
-                <p>När du har arbetat klart med denna lektion ska du:</p>
+                <h2>Mål</h2>
                 <ul>
-                    <li>Förstå vad ett grafiskt användargränssnitt, GUI, är och varför det används.</li>
-                    <li>Känna till grunderna i biblioteket <code>tkinter</code>.</li>
-                    <li>Kunna skapa ett enkelt GUI med etiketter, textfält, knappar och funktioner.</li>
-                    <li>Kunna koppla GUI-element till funktioner i din kod.</li>
+                    <li>Bygga små interaktioner med knapp, event och klass.</li>
+                    <li>Förstå när <code>aria-expanded</code> behöver uppdateras.</li>
+                    <li>Använda JavaScript för att visa, dölja eller byta läge.</li>
                 </ul>
 
-                <h2>Så här lär du dig bäst</h2>
-                <p>Du lär dig bäst genom att först bygga ett enkelt fönster med ett fåtal komponenter: en etikett, ett
-                    textfält och en knapp. När du ser hur gränssnittet reagerar på dina klick och inmatningar kan du
-                    börja koppla det till funktioner, till exempel att spara något, visa resultat eller hämta data från
-                    en fil. Tänk på att <code>tkinter</code> arbetar med en händelsestyrd modell: programmet väntar på
-                    att användaren ska göra något.</p>
+                <h2>Visa och dölj meny</h2>
+                <p>En vanlig interaktion är en menyknapp på små skärmar. Knappen växlar en klass på menyn.</p>
+                <pre><code>const menuButton = document.querySelector(".menu-button");
+const menu = document.querySelector(".menu");
 
-                <h2>Centrala begrepp</h2>
-                <ul>
-                    <li><strong>GUI</strong> - Graphical User Interface, ett användarvänligt gränssnitt med knappar,
-                        textfält och fönster.</li>
-                    <li><strong>tkinter</strong> - Ett inbyggt Pythonbibliotek för att skapa GUI-program.</li>
-                    <li><strong>Widget</strong> - Ett grafiskt element, till exempel knapp, etikett eller textfält.</li>
-                    <li><strong>Eventhantering</strong> - Koden som reagerar när användaren klickar, skriver eller
-                        trycker.</li>
-                </ul>
+menuButton.addEventListener("click", function () {
+    menu.classList.toggle("is-open");
+});</code></pre>
 
-                <h2>Exempel: Enkel GUI-applikation</h2>
-                <pre><code class="language-python">import tkinter as tk
+                <h2>Uppdatera tillgängligt läge</h2>
+                <p>Om en knapp öppnar och stänger något bör <code>aria-expanded</code> spegla läget.</p>
+                <pre><code>const isOpen = menu.classList.toggle("is-open");
+menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
 
-def visa_meddelande():
-    namn = namn_entry.get()
-    resultat_label.config(text=f"Hej, {namn}!")
+                <h2>Tabs och aktiva lägen</h2>
+                <p>Tabs, filterknappar och temaväxling bygger ofta på samma idé: hitta element, lyssna på klick och ändra klass eller text.</p>
+                <pre><code>button.addEventListener("click", function () {
+    panel.classList.add("active");
+});</code></pre>
 
-# Skapa fönster
-rot = tk.Tk()
-rot.title("Mitt första GUI")
-
-# Skapa etikett och textfält
-tk.Label(rot, text="Vad heter du?").pack()
-namn_entry = tk.Entry(rot)
-namn_entry.pack()
-
-# Skapa knapp
-tk.Button(rot, text="Säg hej", command=visa_meddelande).pack()
-
-# Skapa resultatetikett
-resultat_label = tk.Label(rot, text="")
-resultat_label.pack()
-
-# Starta programmet
-rot.mainloop()</code></pre>
-
-                <h2>Att förstå koden</h2>
-                <ul>
-                    <li><code>tk.Tk()</code> skapar ett nytt fönster.</li>
-                    <li><code>Entry</code> används för att läsa in text från användaren.</li>
-                    <li><code>Button</code> skapar en knapp som kan kopplas till en funktion.</li>
-                    <li><code>pack()</code> används för att placera ut element i fönstret.</li>
-                    <li><code>command=visa_meddelande</code> kopplar funktionen till knapptryckningen.</li>
-                    <li><code>mainloop()</code> startar GUI-programmet och väntar på användarens händelser.</li>
-                </ul>
-
-                <h2>Så fungerar händelsestyrning</h2>
-                <p>I ett terminalprogram körs koden ofta uppifrån och ned. I ett GUI-program skapas först fönstret och
-                    dess widgets. Sedan väntar programmet på händelser, till exempel att användaren klickar på en knapp.
-                    När knappen trycks körs funktionen som är kopplad till <code>command</code>.</p>
-
-                <h2>Öva - Gör ett eget GUI-program</h2>
-                <ol>
-                    <li>Skapa ett program med ett fönster där användaren kan skriva in data, till exempel ett namn eller
-                        ett tal.</li>
-                    <li>Lägg till en knapp som kör en funktion.</li>
-                    <li>Visa ett resultat i fönstret med en <code>Label</code>.</li>
-                    <li>Lägg till fler widgets, till exempel en dropdown, checkruta eller lista.</li>
-                    <li>Testa att koppla GUI:t till funktioner du skrivit tidigare i kursen.</li>
-                </ol>
-
-                <h2>Sammanfattning</h2>
-                <ul>
-                    <li>Du har skapat ett första grafiskt gränssnitt med <code>tkinter</code>.</li>
-                    <li>Du har använt etiketter, textfält och knappar.</li>
-                    <li>Du har kopplat knapptryck till funktioner i din kod.</li>
-                    <li>Du har påbörjat en övergång från terminalbaserade program till användarvänliga GUI-lösningar.</li>
-                </ul>
+                <h2>När räcker enkel JavaScript?</h2>
+                <p>För små komponenter behöver du oftast inget ramverk. Börja enkelt och bygg bara mer avancerat när problemet kräver det.</p>
             </section>
 
             <div id="quiz-5-4" aria-label="Quiz Kap 5.4"></div>
-
-            <p><a href="chapter-5.html">Tillbaka till Kapitel 5</a></p>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-5-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">5.3 Formulär och feedback</span></span></a>
+                <a href="chapter-5-5.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">5.5 Miniuppgift: interaktiv komponent</span></span></a>
+            </nav>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Interaktion</p><h2>En idé i taget</h2><p>Många interaktioner är samma mönster: hitta element, lyssna på event, ändra något synligt.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.renderQuiz) {
-                window.renderQuiz(document.getElementById('quiz-5-4'), {
-                    title: 'Quiz: Kap 5.4 - Skapa GUI med tkinter',
-                    questions: [
-                        {
-                            question: 'Vad är ett GUI?',
-                            options: [
-                                'Ett grafiskt användargränssnitt med till exempel knappar och fönster',
-                                'En typ av databasfråga',
-                                'Ett felmeddelande i terminalen',
-                                'En funktion som bara sorterar listor'
-                            ],
-                            correct: 0,
-                            feedback: 'GUI betyder grafiskt användargränssnitt.',
-                            explanation: 'Ett GUI gör att användaren kan interagera med programmet via visuella element.'
-                        },
-                        {
-                            question: 'Vilket bibliotek används i kapitlet för att skapa GUI i Python?',
-                            options: [
-                                'sqlite3',
-                                'requests',
-                                'tkinter',
-                                'random'
-                            ],
-                            correct: 2,
-                            feedback: 'tkinter används för att skapa GUI-program.',
-                            explanation: 'tkinter är ett inbyggt Pythonbibliotek för fönster, knappar och andra widgets.'
-                        },
-                        {
-                            question: 'Vad är en widget?',
-                            options: [
-                                'Ett grafiskt element, till exempel knapp eller textfält',
-                                'Enbart en Pythonfil',
-                                'En typ av syntaxfel',
-                                'Ett kommando för att installera paket'
-                            ],
-                            correct: 0,
-                            feedback: 'En widget är ett grafiskt element i gränssnittet.',
-                            explanation: 'Exempel på widgets är Label, Entry och Button.'
-                        },
-                        {
-                            question: 'Vad gör command=visa_meddelande i en Button?',
-                            options: [
-                                'Den stänger Python automatiskt',
-                                'Den kopplar en funktion till knapptryckningen',
-                                'Den skapar en databas',
-                                'Den ändrar filnamnet'
-                            ],
-                            correct: 1,
-                            feedback: 'command kopplar knappen till en funktion.',
-                            explanation: 'När användaren klickar på knappen körs funktionen visa_meddelande.'
-                        },
-                        {
-                            question: 'Vad gör mainloop() i ett tkinter-program?',
-                            options: [
-                                'Den raderar alla widgets',
-                                'Den gör om JSON till Pythondata',
-                                'Den startar programmets händelseloop',
-                                'Den installerar tkinter'
-                            ],
-                            correct: 2,
-                            feedback: 'mainloop() startar GUI-programmets händelseloop.',
-                            explanation: 'Programmet fortsätter att vänta på användarens klick och inmatningar.'
-                        }
-                    ]
-                })
-            }
-        })
+            window.renderQuiz(document.getElementById('quiz-5-4'), {"title": "Quiz: Kap 5.4", "questions": [{"question": "Vilket mönster återkommer i många små JavaScript-interaktioner?", "options": ["Ta bort all HTML och börja om", "Spara CSS i bildfiler", "Hitta element, lyssna på event och ändra något", "Publicera sidan efter varje klick"], "correct": 2, "feedback": "Det är grundmönstret.", "explanation": "Många interaktioner börjar med att hitta ett element och reagera på en händelse."}, {"question": "Vad kan `classList.toggle(\"is-open\")` användas till?", "options": ["Byta domännamn", "Växla om en meny är öppen eller stängd", "Skapa en ny font", "Radera webbläsarens historik"], "correct": 1, "feedback": "toggle passar för öppet/stängt-lägen.", "explanation": "Klassen kan styra synlighet i CSS."}, {"question": "Varför bör `aria-expanded` uppdateras på en menyknapp?", "options": ["För att knappen ska få större font", "För att HTML-filen ska bli mindre", "För att bilden ska beskäras", "För att hjälpmedel ska kunna förstå om menyn är öppen"], "correct": 3, "feedback": "aria-expanded beskriver öppet/stängt-läge.", "explanation": "Det hjälper användare med hjälpmedel att förstå komponentens tillstånd."}, {"question": "När räcker vanlig JavaScript ofta bra?", "options": ["Bara när sidan saknar HTML", "Aldrig på webbsidor", "När interaktionen är liten och tydlig", "Endast när CSS inte finns"], "correct": 2, "feedback": "Små komponenter behöver ofta inget ramverk.", "explanation": "En meny, knapp eller enkel tab kan ofta byggas med få rader JavaScript."}, {"question": "Vad är en risk om JavaScript ändrar ett synligt läge men inte uppdaterar knappens text eller attribut?", "options": ["CSS slutar alltid fungera", "Användaren kan få otydlig feedback om vad som har hänt", "Alla länkar blir bilder", "Sidan publiceras automatiskt"], "correct": 1, "feedback": "Läget ska vara begripligt.", "explanation": "Synlig text och attribut bör stämma med komponentens faktiska tillstånd."}]});
+        });
     </script>
 </body>
 

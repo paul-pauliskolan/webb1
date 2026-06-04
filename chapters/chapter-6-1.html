@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 6.1: bildformat på webben, JPEG, PNG, SVG, WebP och AVIF.">
+    <title>Kap 6.1 - Bildformat på webben</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 6</p>
+                <h1>Kap 6.1 - Bildformat på webben</h1>
+                <p class="subtitle">Rätt bildformat gör sidan tydligare, snabbare och lättare att underhålla.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Känna igen vanliga bildformat på webben.</li>
+                    <li>Välja format efter bildens innehåll och användning.</li>
+                    <li>Förstå skillnaden mellan pixelbilder och vektorbilder.</li>
+                </ul>
+
+                <h2>Pixelbilder och vektorbilder</h2>
+                <p>JPEG, PNG, WebP och AVIF är pixelbilder. De består av många små bildpunkter. SVG är vektorbaserat och passar bra för ikoner, logotyper och enkla illustrationer som ska kunna skalas utan att bli suddiga.</p>
+
+                <h2>Vanliga format</h2>
+                <ul>
+                    <li><code>jpg</code> eller <code>jpeg</code> passar ofta för fotografier.</li>
+                    <li><code>png</code> passar när bilden behöver transparens eller skarpa detaljer.</li>
+                    <li><code>svg</code> passar för logotyper, ikoner och enkel grafik.</li>
+                    <li><code>webp</code> och <code>avif</code> kan ge mindre filstorlek med bra kvalitet.</li>
+                </ul>
+
+                <h2>Format är ett val</h2>
+                <p>Det finns inget format som alltid är bäst. En produktbild, en ikon och ett stort bakgrundsfoto har olika behov. Välj format efter kvalitet, filstorlek, transparens och hur bilden ska användas.</p>
+            </section>
+
+            <div id="quiz-6-1" aria-label="Quiz Kap 6.1"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-6.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">Modul 6: Översikt</span></span></a>
+                <a href="chapter-6-2.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">6.2 Optimera bilder</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Bildformat</p><h2>Tänk användning</h2><p>Välj format efter vad bilden ska göra på sidan, inte bara efter vad filen råkar heta.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-6-1'), {"title":"Quiz: Kap 6.1","questions":[{"question":"Vilket format passar ofta bra för fotografier?","options":["SVG","JPEG","HTML","CSS"],"correct":1,"feedback":"JPEG används ofta för fotografier.","explanation":"JPEG komprimerar fotografier effektivt, men stöder inte transparens."},{"question":"Vilket format är vektorbaserat och kan skalas utan att bli suddigt?","options":["PNG","WebP","SVG","JPEG"],"correct":2,"feedback":"SVG är vektorbaserat.","explanation":"SVG beskriver former med kod i stället för fasta pixlar."},{"question":"När är PNG ofta ett rimligt val?","options":["När bilden behöver transparens","När du skriver JavaScript","När sidan bara har text","När bilden måste vara en video"],"correct":0,"feedback":"PNG stöder transparens.","explanation":"PNG passar ofta för grafik med skarpa kanter eller transparent bakgrund."},{"question":"Vad är en fördel med WebP eller AVIF?","options":["De ersätter alt-text","De kan minska filstorleken med bra kvalitet","De gör HTML semantiskt automatiskt","De fungerar bara för ikoner"],"correct":1,"feedback":"Moderna format kan ge mindre filer.","explanation":"Mindre bildfiler kan göra sidan snabbare att ladda."},{"question":"Varför finns inget bildformat som alltid är bäst?","options":["Alla bilder måste vara SVG","Formatval beror på innehåll, kvalitet och användning","JPEG fungerar aldrig på webben","PNG får inte användas med CSS"],"correct":1,"feedback":"Formatval är situationsberoende.","explanation":"Fotografier, ikoner och transparent grafik har olika krav."}]});
+        });
+    </script>
+</body>
+
+</html>
