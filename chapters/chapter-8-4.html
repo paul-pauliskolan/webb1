@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 8.4: publicera en statisk webbplats med GitHub Pages och kontrollera resultatet.">
+    <title>Kap 8.4 - Publicera med GitHub Pages</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 8</p>
+                <h1>Kap 8.4 - Publicera med GitHub Pages</h1>
+                <p class="subtitle">Publicering gör din webbplats tillgänglig på en riktig webbadress.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förstå vad GitHub Pages används till.</li>
+                    <li>Kontrollera filnamn och startsida före publicering.</li>
+                    <li>Testa den publicerade sidan efteråt.</li>
+                </ul>
+
+                <h2>Vad GitHub Pages gör</h2>
+                <p>GitHub Pages kan publicera statiska webbsidor direkt från ett repository. Det passar för HTML, CSS, JavaScript och bilder som inte kräver serverkod.</p>
+
+                <h2>Före publicering</h2>
+                <p>Kontrollera att startsidan heter <code>index.html</code>, att länkar fungerar, att bildsökvägar stämmer och att filnamn matchar exakt med stora och små bokstäver.</p>
+
+                <h2>Efter publicering</h2>
+                <p>Öppna den publicerade adressen och testa sidan igen. Problem kan synas först när webbplatsen ligger på GitHub Pages, särskilt om sökvägar till CSS, JavaScript eller bilder är fel.</p>
+            </section>
+
+            <div id="quiz-8-4" aria-label="Quiz Kap 8.4"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-8-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.3 Testa i webbläsaren</span></span></a>
+                <a href="chapter-8-5.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.5 Slutprojekt: egen webbplats</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Publicering</p><h2>Testa den riktiga länken</h2><p>En sida kan fungera lokalt men ha fel sökvägar efter publicering.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-8-4'), {"title":"Quiz: Kap 8.4","questions":[{"question":"Vad används GitHub Pages till i kursen?","options":["Skapa bilder automatiskt","Publicera statiska webbsidor på en webbadress","Ersätta HTML med PDF","Skriva CSS åt dig"],"correct":1,"feedback":"GitHub Pages publicerar statiska webbplatser.","explanation":"Det passar bra för HTML, CSS, JavaScript och bilder."},{"question":"Vad bör startsidan normalt heta?","options":["style.css","start.docx","index.html","main.png"],"correct":2,"feedback":"index.html är standard för startsidan.","explanation":"Webbservern letar ofta efter index.html som första sida."},{"question":"Varför är stora och små bokstäver viktiga i filnamn?","options":["Publicerade miljöer kan skilja på dem i sökvägar","Rubriker blir annars mindre","CSS slutar ha färger","Quizet får färre frågor"],"correct":0,"feedback":"Sökvägar måste matcha exakt.","explanation":"En bild kan saknas om filen heter Logo.png men koden pekar på logo.png."},{"question":"Vad ska du göra efter publicering?","options":["Radera alla lokala filer direkt","Anta att allt fungerar","Ta bort alt-texter","Testa den publicerade adressen i webbläsaren"],"correct":3,"feedback":"Den publicerade sidan behöver testas.","explanation":"Vissa fel syns först på den riktiga adressen."},{"question":"Vilket problem är vanligt efter publicering?","options":["Att HTML blir för semantiskt","Fel sökväg till CSS, JavaScript eller bilder","Att rubriker blir automatiskt översatta","Att alla länkar blir formulär"],"correct":1,"feedback":"Sökvägar är ett vanligt problem.","explanation":"Kontrollera mappar, filnamn och relativa länkar."}]});
+        });
+    </script>
+</body>
+
+</html>

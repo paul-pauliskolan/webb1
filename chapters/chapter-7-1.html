@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 7.1: tillgänglighetens fyra principer och hur de påverkar webbsidor.">
+    <title>Kap 7.1 - Tillgänglighetens fyra principer</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 7</p>
+                <h1>Kap 7.1 - Tillgänglighetens fyra principer</h1>
+                <p class="subtitle">Tillgänglighet betyder att fler människor kan förstå och använda sidan.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förstå varför tillgänglighet är en del av bra webbutveckling.</li>
+                    <li>Känna igen de fyra principerna i WCAG.</li>
+                    <li>Koppla principerna till konkreta val i HTML, CSS och innehåll.</li>
+                </ul>
+
+                <h2>Fyra principer</h2>
+                <p>WCAG beskriver tillgänglighet genom fyra huvudprinciper. Innehåll ska vara möjligt att uppfatta, möjligt att hantera, begripligt och robust.</p>
+                <ul>
+                    <li><strong>Uppfattbart:</strong> användaren måste kunna ta del av innehållet, till exempel med textalternativ till bilder.</li>
+                    <li><strong>Hanterbart:</strong> sidan ska kunna användas, till exempel med tangentbord.</li>
+                    <li><strong>Begripligt:</strong> innehåll, formulär och felmeddelanden ska vara tydliga.</li>
+                    <li><strong>Robust:</strong> sidan ska vara byggd så att webbläsare och hjälpmedel kan tolka den.</li>
+                </ul>
+
+                <h2>Det börjar i grunden</h2>
+                <p>Tillgänglighet är inte ett lager man lägger på sist. Semantisk HTML, tydliga rubriker, bra länktexter, korrekt label-koppling och fungerande tangentbordsnavigering gör sidan bättre från början.</p>
+            </section>
+
+            <div id="quiz-7-1" aria-label="Quiz Kap 7.1"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-6-4.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.4 Prestanda och enkel felsökning</span></span></a>
+                <a href="chapter-7-2.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">7.2 Färg, kontrast och navigering</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Tillgänglighet</p><h2>Bygg för fler</h2><p>Bra struktur och tydliga val hjälper både hjälpmedel och vanliga användare.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-7-1'), {"title":"Quiz: Kap 7.1","questions":[{"question":"Vad betyder tillgänglighet på webben?","options":["Att sidan bara fungerar på stora skärmar","Att fler människor kan förstå och använda sidan","Att all text måste vara blå","Att JavaScript alltid är avstängt"],"correct":1,"feedback":"Tillgänglighet handlar om att fler kan använda sidan.","explanation":"En tillgänglig sida fungerar för olika användare, enheter och hjälpmedel."},{"question":"Vilket exempel hör ihop med principen uppfattbart?","options":["Textalternativ till en viktig bild","Slumpmässiga färger i varje stycke","En knapp utan text","En länk som bara heter klicka"],"correct":0,"feedback":"Textalternativ gör innehåll uppfattbart.","explanation":"Om en bild bär information behöver den kunna förstås även utan att bilden syns."},{"question":"Vad betyder hanterbart i tillgänglighet?","options":["Att sidan har många animationer","Att sidan kan användas, till exempel med tangentbord","Att alla filer ligger i samma mapp","Att rubriker väljs efter storlek"],"correct":1,"feedback":"Hanterbart handlar om användning.","explanation":"Användaren ska kunna navigera, klicka, fylla i och styra sidan."},{"question":"Varför hjälper semantisk HTML tillgänglighet?","options":["Den gör bilder mindre automatiskt","Den beskriver innehållets struktur för webbläsare och hjälpmedel","Den ersätter all CSS","Den gör formulär frivilliga"],"correct":1,"feedback":"Semantik gör struktur tydligare.","explanation":"Rätt element ger mening åt rubriker, navigation, formulär och innehåll."},{"question":"Vilket arbetssätt är bäst?","options":["Tänka på tillgänglighet från början","Lägga till tillgänglighet bara efter publicering","Ta bort alla labels","Testa bara med mus"],"correct":0,"feedback":"Tillgänglighet bör byggas in tidigt.","explanation":"Det är lättare att skapa bra struktur från början än att reparera allt i efterhand."}]});
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 8.2: skissa webbplatsen i Figma eller på papper innan du kodar.">
+    <title>Kap 8.2 - Figma eller skiss före kod</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 8</p>
+                <h1>Kap 8.2 - Figma eller skiss före kod</h1>
+                <p class="subtitle">En enkel skiss sparar tid när layout och innehåll ska bli kod.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förstå varför skisser hjälper innan kodning.</li>
+                    <li>Skissa layout för mobil och desktop.</li>
+                    <li>Översätta designbeslut till HTML och CSS.</li>
+                </ul>
+
+                <h2>Skissens uppgift</h2>
+                <p>En skiss behöver inte vara snygg. Den ska visa placering, prioritering och flöde: vad kommer först, vad hör ihop och hur användaren rör sig genom sidan?</p>
+
+                <h2>Figma eller papper</h2>
+                <p>Figma passar bra när du vill testa mått, färger och komponenter digitalt. Papper passar bra när du snabbt vill prova flera idéer utan att fastna i detaljer.</p>
+
+                <h2>Mobil först</h2>
+                <p>Skissa gärna mobilversionen först. Om innehållet fungerar i en smal vy är det ofta enklare att bygga ut layouten för större skärmar.</p>
+            </section>
+
+            <div id="quiz-8-2" aria-label="Quiz Kap 8.2"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-8-1.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.1 Planera en webbplats</span></span></a>
+                <a href="chapter-8-3.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.3 Testa i webbläsaren</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Skiss</p><h2>Snabbt före snyggt</h2><p>En grov skiss kan avslöja problem innan du har skrivit mycket kod.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-8-2'), {"title":"Quiz: Kap 8.2","questions":[{"question":"Vad är det viktigaste med en tidig skiss?","options":["Att den har exakt slutlig kod","Att den visar placering och prioritering","Att den bara görs efter publicering","Att den innehåller alla CSS-klasser"],"correct":1,"feedback":"Skissen ska visa struktur och idé.","explanation":"Den behöver inte vara perfekt för att vara användbar."},{"question":"När passar papper ofta bra?","options":["När du måste exportera CSS automatiskt","När sidan redan är publicerad","När du snabbt vill prova flera layoutidéer","När du vill undvika all planering"],"correct":2,"feedback":"Papper är snabbt för idéer.","explanation":"Du kan testa flera varianter utan att fastna i detaljer."},{"question":"Varför kan mobil först vara ett bra arbetssätt?","options":["Mobilversionen tvingar dig att prioritera innehållet","Desktop slutar fungera annars","HTML kräver mobilskiss","Bilder får automatiskt alt-text"],"correct":0,"feedback":"Mobil först hjälper prioritering.","explanation":"Smal yta gör det tydligt vad som är viktigast."},{"question":"Vad kan Figma hjälpa till med?","options":["Att skriva all HTML utan kontroll","Att ersätta webbläsartestning helt","Att göra personuppgifter anonyma","Att testa layout, färger och komponenter digitalt"],"correct":3,"feedback":"Figma är ett designverktyg.","explanation":"Det kan hjälpa dig att pröva designbeslut innan du kodar."},{"question":"Vad ska en skiss helst kopplas till?","options":["Slumpmässiga effekter","Sidans syfte och innehåll","Bara dekorativa former","En fil som inte används"],"correct":1,"feedback":"Skissen ska stödja syftet.","explanation":"Designen behöver hjälpa innehållet, inte tvärtom."}]});
+        });
+    </script>
+</body>
+
+</html>

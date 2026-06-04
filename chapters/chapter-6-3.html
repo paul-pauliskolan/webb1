@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 6.3: ljud, video, iframes, inbäddat innehåll och tillgängliga alternativ.">
+    <title>Kap 6.3 - Ljud, video och inbäddat innehåll</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 6</p>
+                <h1>Kap 6.3 - Ljud, video och inbäddat innehåll</h1>
+                <p class="subtitle">Media kan göra sidan rikare, men behöver kontroller, textalternativ och rimlig prestanda.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Använda <code>audio</code> och <code>video</code> med kontroller.</li>
+                    <li>Förstå när textning eller transkription behövs.</li>
+                    <li>Lägga in iframe-innehåll med omtanke.</li>
+                </ul>
+
+                <h2>Ljud och video</h2>
+                <p>Använd <code>controls</code> så att användaren själv kan starta, pausa och styra ljudet eller videon.</p>
+                <pre><code>&lt;video controls width="640"&gt;
+    &lt;source src="demo.mp4" type="video/mp4"&gt;
+    Din webbläsare kan inte spela videon.
+&lt;/video&gt;</code></pre>
+
+                <h2>Textalternativ</h2>
+                <p>Video med tal behöver ofta textning. Ljudinnehåll kan behöva en transkription. Det hjälper både tillgänglighet och elever som inte kan lyssna just då.</p>
+
+                <h2>Inbäddat innehåll</h2>
+                <p><code>iframe</code> kan bädda in till exempel kartor, filmer eller formulär. Kontrollera att innehållet är relevant, fungerar på mobil och inte gör sidan onödigt tung.</p>
+                <pre><code>&lt;iframe
+    src="https://example.com"
+    title="Beskrivning av inbäddat innehåll"
+    loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+            </section>
+
+            <div id="quiz-6-3" aria-label="Quiz Kap 6.3"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-6-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.2 Optimera bilder</span></span></a>
+                <a href="chapter-6-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">6.4 Prestanda och enkel felsökning</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Media</p><h2>Ge kontroll</h2><p>Media ska inte överraska användaren. Låt användaren starta och styra uppspelningen.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-6-3'), {"title":"Quiz: Kap 6.3","questions":[{"question":"Varför är `controls` viktigt på video och ljud?","options":["Filen byter format automatiskt","HTML-filen blir en bild","Användaren kan styra uppspelningen","CSS slutar gälla"],"correct":2,"feedback":"controls ger användaren kontroll.","explanation":"Användaren kan starta, pausa och justera uppspelningen."},{"question":"Vad kan talad video behöva för bättre tillgänglighet?","options":["En tom iframe","Textning eller transkription","En större border-radius","En dold title"],"correct":1,"feedback":"Textalternativ hjälper fler användare.","explanation":"Textning och transkription gör innehållet tillgängligt även utan ljud."},{"question":"Vad används `iframe` till?","options":["Att komprimera bilder automatiskt","Att skapa alt-text","Att ersätta alla länkar","Att bädda in innehåll från en annan källa"],"correct":3,"feedback":"iframe bäddar in externt innehåll.","explanation":"Det kan vara till exempel en karta, film eller ett formulär."},{"question":"Varför bör inbäddat innehåll testas på mobil?","options":["Det förvandlas alltid till SVG","Det tar bort media queries","Det kan bli för brett eller svårt att använda","Det fungerar bara i footer"],"correct":2,"feedback":"Inbäddat innehåll kan spräcka layouten.","explanation":"Iframes och video behöver fungera inom sidans responsiva layout."},{"question":"Varför kan `loading=\"lazy\"` vara relevant på en iframe?","options":["Den gör ljud högre","Den kan vänta med att ladda innehåll som inte syns direkt","Den skriver rubriker automatiskt","Den stänger av HTML"],"correct":1,"feedback":"Lazy loading kan minska tidig laddning.","explanation":"Det är särskilt användbart för tungt innehåll längre ner på sidan."}]});
+        });
+    </script>
+</body>
+
+</html>

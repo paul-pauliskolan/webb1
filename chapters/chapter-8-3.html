@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 8.3: testa webbplatsen i webbläsaren med responsivt läge, konsol, tangentbord och validering.">
+    <title>Kap 8.3 - Testa i webbläsaren</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 8</p>
+                <h1>Kap 8.3 - Testa i webbläsaren</h1>
+                <p class="subtitle">Testning gör att du hittar problem innan användaren gör det.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Testa layout i olika skärmbredder.</li>
+                    <li>Använda konsol och Network för felsökning.</li>
+                    <li>Kontrollera länkar, formulär och tangentbordsnavigering.</li>
+                </ul>
+
+                <h2>Responsivt läge</h2>
+                <p>Öppna utvecklarverktygen och testa sidan i smal, mellanbred och bred vy. Leta efter överlappande text, för breda bilder, trasiga menyer och innehåll som hamnar i fel ordning.</p>
+
+                <h2>Konsol och Network</h2>
+                <p>Konsolen visar JavaScript-fel och ibland saknade resurser. Network visar vilka filer som laddas och om någon fil ger 404.</p>
+
+                <h2>Testa användning</h2>
+                <p>Klicka igenom länkar, skicka formulär med testdata och navigera med tangentbord. Kontrollera också att fokus syns och att felmeddelanden är begripliga.</p>
+            </section>
+
+            <div id="quiz-8-3" aria-label="Quiz Kap 8.3"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-8-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.2 Figma eller skiss före kod</span></span></a>
+                <a href="chapter-8-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.4 Publicera med GitHub Pages</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Testning</p><h2>Testa som användare</h2><p>Klicka, tabba, ändra bredd och läs felmeddelanden.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-8-3'), {"title":"Quiz: Kap 8.3","questions":[{"question":"Varför testar man sidan i flera bredder?","options":["För att byta domännamn","För att se att layouten fungerar på olika skärmar","För att skapa fler HTML-filer","För att ta bort alla media queries"],"correct":1,"feedback":"Responsiv layout måste testas.","explanation":"Problem syns ofta först när viewporten ändras."},{"question":"Vad visar konsolen ofta?","options":["Bara bildens motiv","Sidans målgrupp","JavaScript-fel och varningar","Alla licenser automatiskt"],"correct":2,"feedback":"Konsolen hjälper felsökning.","explanation":"Fel i JavaScript eller saknade variabler syns ofta där."},{"question":"Vad kan Network-panelen hjälpa dig hitta?","options":["Saknade filer och långsamma resurser","Vilken färg användaren gillar","Om rubriken är poetisk","Exakt vad användaren tänker"],"correct":0,"feedback":"Network visar laddade resurser.","explanation":"404, filstorlek och laddningstid går att kontrollera där."},{"question":"Varför testa med tangentbord?","options":["För att HTML ska bli kortare","För att bilder ska bli vektorbaserade","För att CSS ska stängas av","För att kontrollera att sidan går att använda utan mus"],"correct":3,"feedback":"Tangentbordstestning är viktigt för tillgänglighet.","explanation":"Användaren ska kunna navigera och använda interaktiva delar."},{"question":"Vad är ett bra test av ett formulär?","options":["Titta bara på bakgrundsfärgen","Skicka rimlig och felaktig testdata och läsa feedbacken","Ta bort alla labels före test","Publicera utan att klicka"],"correct":1,"feedback":"Formulär behöver testas praktiskt.","explanation":"Du behöver se vad som händer vid både rätt och fel inmatning."}]});
+        });
+    </script>
+</body>
+
+</html>

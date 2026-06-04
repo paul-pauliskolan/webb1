@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 7.2: färgkontrast, tydliga länkar och navigation som fungerar för fler.">
+    <title>Kap 7.2 - Färg, kontrast och navigering</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 7</p>
+                <h1>Kap 7.2 - Färg, kontrast och navigering</h1>
+                <p class="subtitle">Text, länkar och menyer behöver vara lätta att hitta, läsa och använda.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förstå varför kontrast påverkar läsbarhet.</li>
+                    <li>Undvika att färg är den enda informationsbäraren.</li>
+                    <li>Skapa tydliga länkar, fokuslägen och navigation.</li>
+                </ul>
+
+                <h2>Kontrast och färg</h2>
+                <p>Text måste ha tillräcklig kontrast mot bakgrunden. Ljusgrå text på vit bakgrund eller mörkblå text på svart bakgrund kan bli svår att läsa, även om designen ser lugn ut.</p>
+
+                <h2>Färg räcker inte ensam</h2>
+                <p>Om ett fel bara visas med röd färg kan vissa användare missa betydelsen. Kombinera färg med text, ikon, kantlinje eller tydligt meddelande.</p>
+
+                <h2>Navigation och fokus</h2>
+                <p>Länkar ska ha tydliga namn som säger vart de leder. Den som navigerar med tangentbord behöver också se var fokus ligger. Ta därför inte bort fokusmarkering utan att ersätta den med en tydlig egen stil.</p>
+            </section>
+
+            <div id="quiz-7-2" aria-label="Quiz Kap 7.2"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-7-1.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">7.1 Tillgänglighetens fyra principer</span></span></a>
+                <a href="chapter-7-3.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">7.3 GDPR och personuppgifter på webben</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Kontrast</p><h2>Synligt är inte alltid läsbart</h2><p>Kontrollera text mot bakgrund, särskilt små texter och knappar.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-7-2'), {"title":"Quiz: Kap 7.2","questions":[{"question":"Varför är kontrast viktig?","options":["Den gör HTML-filen kortare","Den påverkar om texten går att läsa mot bakgrunden","Den tar bort behovet av rubriker","Den gör alla bilder till SVG"],"correct":1,"feedback":"Kontrast påverkar läsbarhet.","explanation":"Text som syns dåligt blir svår att läsa för många användare."},{"question":"Vad är ett problem med att bara använda färg för att visa fel?","options":["Alla användare kanske inte uppfattar eller tolkar färgen","Sidan blir automatiskt långsammare","Formulär slutar fungera i HTML","Färgen skapar en ny CSS-fil"],"correct":0,"feedback":"Färg ensam räcker inte alltid.","explanation":"Använd text eller annan visuell markering tillsammans med färg."},{"question":"Vilken länktext är tydligast?","options":["Klicka här","Läs mer","Se schemat för kursen","Mer info"],"correct":2,"feedback":"Tydlig länktext beskriver målet.","explanation":"Användaren ska förstå vart länken leder utan att gissa."},{"question":"Varför behövs synlig fokusmarkering?","options":["För att tangentbordsanvändare ska se vilket element som är aktivt","För att bilder ska komprimeras","För att byta typsnitt automatiskt","För att göra rubriker mindre"],"correct":0,"feedback":"Fokus visar var användaren är.","explanation":"När man tabbar genom sidan måste aktiv länk eller knapp vara synlig."},{"question":"Vilket är bäst vid design av navigation?","options":["Gömma alla länkar tills användaren gissar","Använda tydliga namn och konsekvent placering","Ta bort fokus för att få renare design","Låta alla länkar heta samma sak"],"correct":1,"feedback":"Tydlighet och konsekvens hjälper navigationen.","explanation":"Navigation används ofta och behöver vara förutsägbar."}]});
+        });
+    </script>
+</body>
+
+</html>

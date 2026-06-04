@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 7.3: GDPR, personuppgifter och ansvarsfull hantering av formulärdata.">
+    <title>Kap 7.3 - GDPR och personuppgifter på webben</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 7</p>
+                <h1>Kap 7.3 - GDPR och personuppgifter på webben</h1>
+                <p class="subtitle">Formulär och statistik kan hantera information som kräver ansvar.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förstå vad en personuppgift kan vara.</li>
+                    <li>Samla in så lite information som möjligt.</li>
+                    <li>Veta varför tydlig information och samtycke kan behövas.</li>
+                </ul>
+
+                <h2>Vad är en personuppgift?</h2>
+                <p>En personuppgift är information som kan kopplas till en levande person. Det kan vara namn, e-postadress, telefonnummer, bild, IP-adress eller något annat som gör personen identifierbar.</p>
+
+                <h2>Samla inte in mer än du behöver</h2>
+                <p>Om ett kontaktformulär bara behöver ett meddelande och en e-postadress ska du inte fråga efter personnummer, adress eller annan känslig information. Mindre insamling betyder mindre risk.</p>
+
+                <h2>Var tydlig</h2>
+                <p>Användaren ska förstå varför uppgifter samlas in och vad de används till. På riktiga webbplatser kan integritetspolicy, cookieinformation och rutiner för lagring behövas.</p>
+            </section>
+
+            <div id="quiz-7-3" aria-label="Quiz Kap 7.3"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-7-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">7.2 Färg, kontrast och navigering</span></span></a>
+                <a href="chapter-7-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">7.4 Upphovsrätt och Creative Commons</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Personuppgifter</p><h2>Fråga bara efter det som behövs</h2><p>Varje extra fält i ett formulär kan skapa mer ansvar.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-7-3'), {"title":"Quiz: Kap 7.3","questions":[{"question":"Vilket kan INTE vara en personuppgift?","options":["En e-postadress som kan kopplas till en person","Ett telefonnummer till en privatperson","Antalet besökare på en sida","En bild där en person kan identifieras"],"correct":2,"feedback":"Antalet besökare på en sida är inte i sig en personuppgift.","explanation":"En uppgift blir en personuppgift när den kan kopplas till en identifierad eller identifierbar person."},{"question":"Vad är ett bra grundtänk i formulär?","options":["Samla in så lite information som behövs","Samla alltid in födelsedatum","Gör alla fält obligatoriska","Spara allt för säkerhets skull"],"correct":0,"feedback":"Minimera insamlingen.","explanation":"Mindre insamling minskar risk och ansvar."},{"question":"Varför behöver användaren få tydlig information?","options":["För att förstå varför uppgifter samlas in och används","För att HTML ska validera","För att bilder ska laddas snabbare","För att rubriker ska bli större"],"correct":0,"feedback":"Tydlighet är centralt.","explanation":"Användaren ska veta vad som händer med informationen."},{"question":"Vilket fält är ofta onödigt i ett enkelt kontaktformulär?","options":["Meddelande","E-post för svar","Personnummer","Namn om det behövs"],"correct":2,"feedback":"Personnummer är normalt inte relevant här.","explanation":"Fråga inte efter känsliga eller onödiga uppgifter."},{"question":"Vad bör du tänka på innan du använder externa statistik- eller spårningstjänster?","options":["Om de samlar in uppgifter och kräver information eller samtycke","Om de byter alla färger","Om de skapar bättre rubriker automatiskt","Om de tar bort CSS"],"correct":0,"feedback":"Externa tjänster kan samla in data.","explanation":"Cookies, spårning och statistik kan påverka integritet och krav på information."}]});
+        });
+    </script>
+</body>
+
+</html>

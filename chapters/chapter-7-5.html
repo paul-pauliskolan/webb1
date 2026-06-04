@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 7.5: etiska designval, mörka mönster, tydliga val och ansvarsfull webbdesign.">
+    <title>Kap 7.5 - Etiska designval</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 7</p>
+                <h1>Kap 7.5 - Etiska designval</h1>
+                <p class="subtitle">Design påverkar vad användaren ser, förstår och väljer att göra.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Förstå hur design kan påverka användarens beslut.</li>
+                    <li>Känna igen mörka mönster i gränssnitt.</li>
+                    <li>Skapa tydliga, ärliga och användarvänliga val.</li>
+                </ul>
+
+                <h2>Design styr uppmärksamhet</h2>
+                <p>Storlek, färg, placering och text påverkar vad användaren gör. Det är normalt att guida användaren, men problem uppstår när designen lurar, pressar eller gömmer viktiga val.</p>
+
+                <h2>Mörka mönster</h2>
+                <p>Mörka mönster är designlösningar som gynnar webbplatsen på användarens bekostnad. Det kan vara svårt att avsluta ett konto, otydliga prenumerationer, förvalda samtycken eller knappar som gör ett nej-val svårt att hitta.</p>
+
+                <h2>Ansvarsfull design</h2>
+                <p>Etisk design gör viktiga val begripliga. Använd tydliga knappar, ärlig text, rimliga standardval och enkel väg tillbaka om användaren ångrar sig.</p>
+            </section>
+
+            <div id="quiz-7-5" aria-label="Quiz Kap 7.5"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-7-4.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">7.4 Upphovsrätt och Creative Commons</span></span></a>
+                <a href="chapter-8-1.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.1 Planera en webbplats</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Etik</p><h2>Gör val begripliga</h2><p>En bra sida hjälper användaren att fatta informerade beslut.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-7-5'), {"title":"Quiz: Kap 7.5","questions":[{"question":"Vad är ett mörkt mönster?","options":["En mörk bakgrundsfärg","En design som lurar eller pressar användaren till ett val","En CSS-regel med svart text","En bild som saknar skugga"],"correct":1,"feedback":"Mörka mönster handlar om vilseledande design.","explanation":"De kan göra det svårare att välja fritt och förstå vad som händer."},{"question":"Vilket exempel är mest problematiskt?","options":["En tydlig avbryt-knapp","Ett enkelt kontaktformulär","En prenumeration som är lätt att starta men svår att avsluta","En knapp med synlig fokusmarkering"],"correct":2,"feedback":"Det kan vara ett mörkt mönster.","explanation":"Användaren ska kunna ångra eller avsluta utan onödiga hinder."},{"question":"Vad är etisk design?","options":["Design som gör viktiga val tydliga och ärliga","Design som gömmer alla alternativ","Design som alltid använder små texter","Design som kräver flest klick"],"correct":0,"feedback":"Etisk design hjälper användaren.","explanation":"Den gör konsekvenser och val begripliga."},{"question":"Varför spelar knapptext roll?","options":["Texten påverkar vad användaren tror att knappen gör","Den ändrar bildformat","Den skapar automatiskt en databas","Den ersätter semantisk HTML"],"correct":0,"feedback":"Knapptext styr förståelsen.","explanation":"Otydlig eller manipulerande text kan leda användaren fel."},{"question":"Vilket standardval är mest ansvarsfullt?","options":["Förvalt samtycke till allt","Ett val där användaren själv aktivt tar ställning","Dold information bakom liten text","En nej-knapp som är nästan osynlig"],"correct":1,"feedback":"Aktivt val är tydligare.","explanation":"Användaren ska förstå och själv kunna välja, särskilt när uppgifter eller samtycke berörs."}]});
+        });
+    </script>
+</body>
+
+</html>

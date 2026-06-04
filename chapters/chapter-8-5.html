@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 8.5: slutprojekt där eleven planerar, bygger, testar och publicerar en egen webbplats.">
+    <title>Kap 8.5 - Slutprojekt: egen webbplats</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 8</p>
+                <h1>Kap 8.5 - Slutprojekt: egen webbplats</h1>
+                <p class="subtitle">Nu samlar du planering, HTML, CSS, JavaScript, testning och publicering i ett projekt.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Planera och bygga en egen mindre webbplats.</li>
+                    <li>Använda semantisk HTML, responsiv CSS och enkel JavaScript där det passar.</li>
+                    <li>Testa, förbättra och publicera projektet.</li>
+                </ul>
+
+                <h2>Projektets delar</h2>
+                <p>Välj ett ämne med tydligt syfte och målgrupp. Webbplatsen ska ha genomtänkt struktur, fungerande navigation, läsbart innehåll, responsiv layout och bilder eller media som används ansvarsfullt.</p>
+
+                <h2>Arbeta stegvis</h2>
+                <ol>
+                    <li>Planera syfte, målgrupp och innehåll.</li>
+                    <li>Skissa layout för mobil och desktop.</li>
+                    <li>Bygg HTML-strukturen.</li>
+                    <li>Styla med CSS och testa responsivitet.</li>
+                    <li>Lägg till enkel JavaScript om det förbättrar sidan.</li>
+                    <li>Testa och publicera.</li>
+                </ol>
+
+                <h2>Bedöm din egen sida</h2>
+                <p>Kontrollera om sidan är begriplig, fungerar på mobil, har tydliga länkar, rimlig kontrast, fungerande formulär eller interaktioner och inga saknade filer i Network-panelen.</p>
+            </section>
+
+            <div id="quiz-8-5" aria-label="Quiz Kap 8.5"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-8-4.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.4 Publicera med GitHub Pages</span></span></a>
+                <a href="../index.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">Till startsidan</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Slutprojekt</p><h2>Visa helheten</h2><p>Projektet ska visa att du kan planera, bygga, testa och publicera.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-8-5'), {"title":"Quiz: Kap 8.5","questions":[{"question":"Vilket arbetssätt ger oftast bäst grund för ett webbprojekt?","options":["Börja med visuell design och fylla på innehåll senare","Planera syfte, målgrupp och innehåll innan sidan byggs","Bygga alla sidor först och testa navigationen sist","Publicera tidigt och lösa strukturen efteråt"],"correct":1,"feedback":"Planeringen ger projektet riktning.","explanation":"När syfte, målgrupp och innehåll är tydliga blir det lättare att fatta bra beslut om struktur, design och funktion."},{"question":"Vad är ett rimligt krav på navigationen?","options":["Alla länkar ska heta klicka här","Menyn ska bara fungera med mus","Den ska vara tydlig och fungera på olika skärmar","Navigationen ska gömmas permanent"],"correct":2,"feedback":"Navigationen behöver vara användbar.","explanation":"Användaren ska kunna hitta runt på sidan."},{"question":"När passar JavaScript på en webbplats?","options":["När det förbättrar en funktion eller interaktion","Alltid, även om inget behöver hända","För att ersätta alla rubriker","För att dölja allt innehåll"],"correct":0,"feedback":"JavaScript ska ha ett syfte.","explanation":"Interaktion ska hjälpa sidan, inte bara finnas för sin egen skull."},{"question":"Vad bör du kontrollera innan en webbplats publiceras?","options":["Bara sidans favoritfärg","Endast om filen är stor","Att alla bilder saknar alt-text","Responsiv layout, länkar, kontrast och saknade filer"],"correct":3,"feedback":"Testa flera viktiga delar.","explanation":"En fungerande webbplats behöver både teknik, innehåll och användbarhet."},{"question":"Vad kännetecknar en välgjord webbplats?","options":["Att allt är kopierat från första sökresultatet","Att sidan är byggd, testad och publicerad med genomtänkta val","Att HTML saknar struktur","Att sidan bara fungerar på en skärmstorlek"],"correct":1,"feedback":"Helheten är viktig.","explanation":"En bra webbplats har tydligt innehåll, fungerande teknik och genomtänkta val."}]});
+        });
+    </script>
+</body>
+
+</html>

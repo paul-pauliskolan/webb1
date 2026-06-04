@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 6.4: prestanda, Network, Lighthouse, cache, filstorlek och enkel felsökning.">
+    <title>Kap 6.4 - Prestanda och enkel felsökning</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 6</p>
+                <h1>Kap 6.4 - Prestanda och enkel felsökning</h1>
+                <p class="subtitle">En snabb sida är lättare att använda, särskilt på mobil och långsamma nät.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Hitta tunga filer med Network-panelen.</li>
+                    <li>Förstå vanliga orsaker till långsam laddning.</li>
+                    <li>Använda Lighthouse som stöd, inte som facit.</li>
+                    <li>Felsöka saknade filer och fel sökväg.</li>
+                </ul>
+
+                <h2>Network-panelen</h2>
+                <p>Network-panelen visar vilka filer sidan laddar, hur stora de är och om någon fil saknas. En röd 404 betyder ofta fel sökväg eller fel filnamn.</p>
+
+                <h2>Vanliga prestandaproblem</h2>
+                <ul>
+                    <li>För stora bilder.</li>
+                    <li>För många externa inbäddningar.</li>
+                    <li>JavaScript som laddas i onödan.</li>
+                    <li>Filer som saknas och ger 404.</li>
+                </ul>
+
+                <h2>Lighthouse</h2>
+                <p>Lighthouse kan ge tips om prestanda, tillgänglighet och bästa praxis. Använd resultatet som en startpunkt för felsökning och kontrollera själv vad som faktiskt påverkar sidan.</p>
+
+                <h2>Felsök i ordning</h2>
+                <ol>
+                    <li>Kontrollera konsolen för fel.</li>
+                    <li>Kontrollera Network för saknade eller stora filer.</li>
+                    <li>Testa sidan i smal och bred viewport.</li>
+                    <li>Ändra en sak i taget och testa igen.</li>
+                </ol>
+            </section>
+
+            <div id="quiz-6-4" aria-label="Quiz Kap 6.4"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-6-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.3 Ljud, video och inbäddat innehåll</span></span></a>
+                <a href="chapter-7-1.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">7.1 Tillgänglighetens fyra principer</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Felsökning</p><h2>Börja konkret</h2><p>Felmeddelanden, statuskoder och filstorlekar säger ofta mer än gissningar.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-6-4'), {"title":"Quiz: Kap 6.4","questions":[{"question":"Vad kan Network-panelen visa?","options":["Bara sidans rubriker","Vilka filer som laddas, filstorlek och statuskoder","Endast CSS-färger","Vilken elev som skrev sidan"],"correct":1,"feedback":"Network visar nätverksladdningar.","explanation":"Där kan du se om filer är stora, långsamma eller saknas."},{"question":"Vad betyder ofta en 404 för en bildfil?","options":["Bilden är för tillgänglig","CSS är för snabb","Sökvägen eller filnamnet är fel","HTML har för många section"],"correct":2,"feedback":"404 betyder att filen inte hittas.","explanation":"Kontrollera mapp, filnamn, stora/små bokstäver och filändelse."},{"question":"Vad är ett vanligt prestandaproblem på webbsidor?","options":["För stora bilder","För tydliga rubriker","För bra alt-text","För få färger"],"correct":0,"feedback":"Stora bilder påverkar laddningstid mycket.","explanation":"Mediafiler är ofta de största resurserna på en sida."},{"question":"Hur bör Lighthouse-resultat användas?","options":["Som ersättning för all testning","För att skriva HTML automatiskt","För att ta bort Network-panelen","Som stöd för felsökning, inte som enda facit"],"correct":3,"feedback":"Lighthouse är ett stödverktyg.","explanation":"Du behöver fortfarande kontrollera sidan och avgöra vilka tips som är relevanta."},{"question":"Vilket felsökningssätt är mest kontrollerat?","options":["Ändra allt samtidigt","Ändra en sak i taget och testa igen","Ta bort alla filer först","Ignorera konsolen"],"correct":1,"feedback":"Små ändringar gör orsaken tydligare.","explanation":"Om du ändrar en sak i taget vet du vad som förbättrade eller förstörde sidan."}]});
+        });
+    </script>
+</body>
+
+</html>

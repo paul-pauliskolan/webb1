@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kap 6.2: optimera bilder med rätt storlek, komprimering, lazy loading och srcset.">
+    <title>Kap 6.2 - Optimera bilder</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 6</p>
+                <h1>Kap 6.2 - Optimera bilder</h1>
+                <p class="subtitle">En bild ska vara tillräckligt bra, men inte större än sidan behöver.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Mål</h2>
+                <ul>
+                    <li>Anpassa bildens dimensioner till användningen.</li>
+                    <li>Förstå komprimering och filstorlek.</li>
+                    <li>Använda <code>loading="lazy"</code> på bilder som inte syns direkt.</li>
+                    <li>Känna till <code>srcset</code> och <code>sizes</code>.</li>
+                </ul>
+
+                <h2>Rätt pixelstorlek</h2>
+                <p>Ladda inte upp en bild på 4000 pixlar bred om den visas som 600 pixlar bred. Webbläsaren kan skala ned bilden visuellt, men användaren måste ändå ladda den stora filen.</p>
+
+                <h2>Lazy loading</h2>
+                <p>Bilder längre ner på sidan kan ofta vänta tills användaren närmar sig dem.</p>
+                <pre><code>&lt;img src="bild.webp" alt="..." loading="lazy"&gt;</code></pre>
+
+                <h2>Responsiva bildkällor</h2>
+                <p>Med <code>srcset</code> kan webbläsaren välja en passande bildfil för skärmens bredd och pixelttäthet.</p>
+                <pre><code>&lt;img
+    src="hero-800.webp"
+    srcset="hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w"
+    sizes="(max-width: 700px) 100vw, 700px"
+    alt="Exempelbild"&gt;</code></pre>
+
+                <h2>Kontrollera resultatet</h2>
+                <p>Använd Network-panelen i utvecklarverktygen för att se vilka bildfiler som laddas och hur stora de är.</p>
+            </section>
+
+            <div id="quiz-6-2" aria-label="Quiz Kap 6.2"></div>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-6-1.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.1 Bildformat på webben</span></span></a>
+                <a href="chapter-6-3.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">6.3 Ljud, video och inbäddat innehåll</span></span></a>
+            </nav>
+        </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Optimera</p><h2>Rätt storlek</h2><p>Den snabbaste bilden är ofta den som inte är större än den behöver vara.</p></section></aside>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.renderQuiz(document.getElementById('quiz-6-2'), {"title":"Quiz: Kap 6.2","questions":[{"question":"Varför bör du inte ladda en 4000px bred bild om den visas mycket mindre?","options":["HTML slutar fungera","Användaren laddar onödigt mycket data","Bilden får ingen alt-text","CSS kan inte påverka bilden"],"correct":1,"feedback":"Stora filer kan göra sidan långsam.","explanation":"Visuell nedskalning minskar inte filen som användaren laddar."},{"question":"Vad gör `loading=\"lazy\"` på en bild?","options":["Gör bilden till SVG","Väntar med att ladda bilden tills den behövs","Tar bort bildens höjd","Skapar en ny CSS-fil"],"correct":1,"feedback":"Lazy loading skjuter upp laddning.","explanation":"Det passar ofta för bilder som ligger längre ner på sidan."},{"question":"Vad används `srcset` till?","options":["Låta webbläsaren välja mellan flera bildfiler","Skriva rubriker i bilder","Stoppa alla nätverksanrop","Ersätta `alt`"],"correct":0,"feedback":"srcset ger flera bildkällor.","explanation":"Webbläsaren kan välja en fil som passar skärm och layout."},{"question":"Vilket verktyg kan visa vilka bildfiler som laddas och hur stora de är?","options":["Elements-panelen endast","Network-panelen","Adressfältet","Sidans footer"],"correct":1,"feedback":"Network visar nätverksladdningar.","explanation":"Där kan du se filstorlek, laddningstid och vilka filer som hämtas."},{"question":"Vad betyder komprimering i bildsammanhang?","options":["Att filstorleken minskas, ibland med viss kvalitetsförlust","Att bilden alltid blir större","Att HTML blir CSS","Att bilden får en länk automatiskt"],"correct":0,"feedback":"Komprimering minskar filstorlek.","explanation":"Målet är ofta en bra balans mellan kvalitet och laddningstid."}]});
+        });
+    </script>
+</body>
+
+</html>
