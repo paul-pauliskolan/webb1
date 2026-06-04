@@ -7,6 +7,119 @@
     <meta name="description" content="Kap 3.2: Färgformat, kontrast, fonter, font stacks, line-height och textjustering.">
     <title>Kap 3.2 - Färg, typografi och läsbarhet</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .color-demo-panel {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            margin: 1.5rem 0;
+        }
+
+        .color-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .color-demo-control label {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        .color-demo-control input[type="range"] {
+            width: 100%;
+        }
+
+        .hue-wheel-control {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .hue-wheel {
+            position: relative;
+            width: min(14rem, 100%);
+            aspect-ratio: 1;
+            border: 2px solid rgba(255, 255, 255, 0.32);
+            border-radius: 50%;
+            background: conic-gradient(
+                hsl(0 100% 50%),
+                hsl(60 100% 50%),
+                hsl(120 100% 50%),
+                hsl(180 100% 50%),
+                hsl(240 100% 50%),
+                hsl(300 100% 50%),
+                hsl(360 100% 50%)
+            );
+            cursor: pointer;
+            touch-action: none;
+        }
+
+        .hue-wheel::after {
+            content: "";
+            position: absolute;
+            inset: 24%;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+        }
+
+        .hue-wheel:focus-visible {
+            outline: 3px solid var(--accent-strong);
+            outline-offset: 4px;
+        }
+
+        .hue-wheel-marker {
+            position: absolute;
+            z-index: 1;
+            width: 1rem;
+            height: 1rem;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            background: hsl(201 100% 50%);
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.45);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .hue-wheel-labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .color-demo-preview {
+            min-height: 9rem;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+            color: #111111;
+            background: rgb(64 160 220);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .color-demo-preview-values {
+            display: grid;
+            gap: 0.35rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.72);
+            color: #111111;
+        }
+
+        .color-demo-code {
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -23,6 +136,7 @@
     <h2>Mål</h2>
     <ul>
         <li>Använda färg på ett kontrollerat sätt i CSS.</li>
+        <li>Förstå min- och maxvärden i <code>rgb()</code> och <code>hsl()</code>.</li>
         <li>Välja läsbara fonter och font stacks.</li>
         <li>Förstå kontrast, line-height och textjustering.</li>
     </ul>
@@ -39,8 +153,62 @@
 }</code></pre>
     <p>Moderna format som oklch och färgrymder som P3 finns också. I kursens början räcker det att du kan hex, RGB och HSL, men det är bra att känna till att färgsystem utvecklas.</p>
 
+    <h2>RGB och HSL</h2>
+    <p><code>rgb()</code> blandar färg med rött, grönt och blått ljus. Varje kanal går från <code>0</code> till <code>255</code>. <code>0</code> betyder inget ljus i den kanalen och <code>255</code> betyder full styrka. Därför blir <code>rgb(0 0 0)</code> svart, <code>rgb(255 255 255)</code> vitt och <code>rgb(255 0 0)</code> rött.</p>
+    <p><code>hsl()</code> beskriver färg på ett annat sätt: <strong>hue</strong>, <strong>saturation</strong> och <strong>lightness</strong>. Hue är färgvinkeln på färghjulet och går från <code>0</code> till <code>360</code>. Röd ligger vid <code>0</code> och <code>360</code>, grön vid <code>120</code> och blå vid <code>240</code>. <code>270</code> ligger alltså inte på ren blå, utan mellan blå och magenta. Saturation och lightness skrivs i procent eftersom de beskriver andel: <code>0%</code> saturation är grått och <code>100%</code> är fullt mättad färg. <code>0%</code> lightness är svart, <code>50%</code> är normal ljushet och <code>100%</code> är vitt.</p>
+
+    <h2>Interaktiv färgväljare</h2>
+    <p>Ändra värdena och jämför hur samma färg kan beskrivas med både <code>rgb()</code> och <code>hsl()</code>.</p>
+    <div class="color-demo-panel">
+        <div class="color-demo-preview" id="color-preview">
+            <span class="color-demo-preview-values" id="color-preview-values">Testa färgen</span>
+        </div>
+
+        <h3>RGB</h3>
+        <div class="color-demo-controls" aria-label="RGB-kontroller">
+            <div class="color-demo-control">
+                <label for="rgb-red">Röd <span id="rgb-red-value">64</span></label>
+                <input id="rgb-red" type="range" min="0" max="255" value="64">
+            </div>
+            <div class="color-demo-control">
+                <label for="rgb-green">Grön <span id="rgb-green-value">160</span></label>
+                <input id="rgb-green" type="range" min="0" max="255" value="160">
+            </div>
+            <div class="color-demo-control">
+                <label for="rgb-blue">Blå <span id="rgb-blue-value">220</span></label>
+                <input id="rgb-blue" type="range" min="0" max="255" value="220">
+            </div>
+        </div>
+
+        <h3>HSL</h3>
+        <div class="color-demo-controls" aria-label="HSL-kontroller">
+            <div class="color-demo-control hue-wheel-control">
+                <label for="hsl-hue-wheel">Hue <span id="hsl-hue-value">201</span></label>
+                <div class="hue-wheel" id="hsl-hue-wheel" role="slider" tabindex="0" aria-label="Hue" aria-valuemin="0" aria-valuemax="360" aria-valuenow="201">
+                    <span class="hue-wheel-marker" id="hsl-hue-marker"></span>
+                </div>
+                <div class="hue-wheel-labels" aria-hidden="true">
+                    <span>Röd 0/360</span>
+                    <span>Grön 120</span>
+                    <span>Blå 240</span>
+                </div>
+            </div>
+            <div class="color-demo-control">
+                <label for="hsl-saturation">Saturation <span id="hsl-saturation-value">69%</span></label>
+                <input id="hsl-saturation" type="range" min="0" max="100" value="69">
+            </div>
+            <div class="color-demo-control">
+                <label for="hsl-lightness">Lightness <span id="hsl-lightness-value">56%</span></label>
+                <input id="hsl-lightness" type="range" min="0" max="100" value="56">
+            </div>
+        </div>
+
+        <pre class="color-demo-code"><code id="color-demo-code">background-color: rgb(64 160 220);
+background-color: hsl(201 69% 56%);</code></pre>
+    </div>
+
     <h2>Kontrast</h2>
-    <p>Text måste ha tillräcklig kontrast mot bakgrunden. Ljusgrå text på vit bakgrund kan se diskret ut, men den blir svår att läsa. Testa färger med till exempel WebAIM Contrast Checker.</p>
+    <p>Text måste ha tillräcklig kontrast mot bakgrunden. Ljusgrå text på vit bakgrund kan se diskret ut, men den blir svår att läsa. Testa färger med <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a>.</p>
 
     <h2>Fonter</h2>
     <p>En font stack ger webbläsaren flera alternativ. Om första fonten saknas används nästa.</p>
@@ -50,7 +218,7 @@
     <p>Vanliga kategorier är sans-serif, serif, monospace, handwriting/cursive och display. Brödtext bör nästan alltid vara lättläst. Dekorativa fonter passar bäst i små mängder.</p>
 
     <h2>Google Fonts och modern font stacks</h2>
-    <p>Google Fonts ger många fonter, men kan påverka laddningstid och integritet om fonten laddas från Googles servrar. Modern Font Stacks är ett alternativ där du använder fonter som ofta redan finns på användarens system.</p>
+    <p>Google Fonts ger många fonter, men kan påverka laddningstid och integritet om fonten laddas från Googles servrar. <a href="https://modernfontstacks.com/" target="_blank" rel="noopener noreferrer">Modern Font Stacks</a> är ett alternativ där du använder fonter som ofta redan finns på användarens system.</p>
 
     <h2>Line-height och text-align</h2>
     <p><code>line-height</code> styr radavstånd. För brödtext fungerar ofta ett värde runt <code>1.5</code>.</p>
@@ -62,6 +230,7 @@
     <h2>Prova själv</h2>
     <ol>
         <li>Välj två färger till profilsidan: en bakgrundsfärg och en textfärg.</li>
+        <li>Testa samma färg i färgväljaren med både <code>rgb()</code> och <code>hsl()</code>.</li>
         <li>Testa kontrasten.</li>
         <li>Lägg till en font stack på <code>body</code>.</li>
         <li>Sätt <code>line-height: 1.5</code> på stycketext.</li>
@@ -80,6 +249,177 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const preview = document.getElementById('color-preview')
+            const code = document.getElementById('color-demo-code')
+            const red = document.getElementById('rgb-red')
+            const green = document.getElementById('rgb-green')
+            const blue = document.getElementById('rgb-blue')
+            const hueWheel = document.getElementById('hsl-hue-wheel')
+            const hueMarker = document.getElementById('hsl-hue-marker')
+            const saturation = document.getElementById('hsl-saturation')
+            const lightness = document.getElementById('hsl-lightness')
+            let hueValue = 201
+            const values = {
+                red: document.getElementById('rgb-red-value'),
+                green: document.getElementById('rgb-green-value'),
+                blue: document.getElementById('rgb-blue-value'),
+                hue: document.getElementById('hsl-hue-value'),
+                saturation: document.getElementById('hsl-saturation-value'),
+                lightness: document.getElementById('hsl-lightness-value')
+            }
+
+            if (!preview || !code || !red || !green || !blue || !hueWheel || !hueMarker || !saturation || !lightness) return
+
+            function rgbToHsl(r, g, b) {
+                r /= 255
+                g /= 255
+                b /= 255
+                const max = Math.max(r, g, b)
+                const min = Math.min(r, g, b)
+                let h = 0
+                let s = 0
+                const l = (max + min) / 2
+
+                if (max !== min) {
+                    const d = max - min
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
+                    if (max === r) h = (g - b) / d + (g < b ? 6 : 0)
+                    if (max === g) h = (b - r) / d + 2
+                    if (max === b) h = (r - g) / d + 4
+                    h *= 60
+                }
+
+                return [Math.round(h), Math.round(s * 100), Math.round(l * 100)]
+            }
+
+            function hslToRgb(h, s, l) {
+                s /= 100
+                l /= 100
+                const c = (1 - Math.abs(2 * l - 1)) * s
+                const x = c * (1 - Math.abs((h / 60) % 2 - 1))
+                const m = l - c / 2
+                let r1 = 0
+                let g1 = 0
+                let b1 = 0
+
+                if (h < 60) [r1, g1, b1] = [c, x, 0]
+                else if (h < 120) [r1, g1, b1] = [x, c, 0]
+                else if (h < 180) [r1, g1, b1] = [0, c, x]
+                else if (h < 240) [r1, g1, b1] = [0, x, c]
+                else if (h < 300) [r1, g1, b1] = [x, 0, c]
+                else [r1, g1, b1] = [c, 0, x]
+
+                return [
+                    Math.round((r1 + m) * 255),
+                    Math.round((g1 + m) * 255),
+                    Math.round((b1 + m) * 255)
+                ]
+            }
+
+            function updateFromRgb() {
+                const r = Number(red.value)
+                const g = Number(green.value)
+                const b = Number(blue.value)
+                const [h, s, l] = rgbToHsl(r, g, b)
+                hueValue = h
+                saturation.value = s
+                lightness.value = l
+                updateReadout(r, g, b, h, s, l)
+            }
+
+            function updateFromHsl() {
+                const h = hueValue
+                const s = Number(saturation.value)
+                const l = Number(lightness.value)
+                const [r, g, b] = hslToRgb(h, s, l)
+                red.value = r
+                green.value = g
+                blue.value = b
+                updateReadout(r, g, b, h, s, l)
+            }
+
+            function updateReadout(r, g, b, h, s, l) {
+                const rgbValue = `rgb(${r} ${g} ${b})`
+                const hslValue = `hsl(${h} ${s}% ${l}%)`
+                const hexParts = [r, g, b].map(value => value.toString(16).padStart(2, '0').toUpperCase())
+                const hexValue = `#${hexParts.join(' ')}`
+                preview.style.backgroundColor = rgbValue
+                preview.style.color = l > 58 ? '#111111' : '#ffffff'
+                document.getElementById('color-preview-values').innerHTML = `<span>${hexValue}</span><span>${rgbValue}</span><span>${hslValue}</span>`
+                values.red.textContent = r
+                values.green.textContent = g
+                values.blue.textContent = b
+                values.hue.textContent = h
+                values.saturation.textContent = `${s}%`
+                values.lightness.textContent = `${l}%`
+                hueWheel.setAttribute('aria-valuenow', h)
+                hueMarker.style.backgroundColor = `hsl(${h} 100% 50%)`
+                positionHueMarker(h)
+                code.textContent = `background-color: ${hexValue};\nbackground-color: ${rgbValue};\nbackground-color: ${hslValue};`
+            }
+
+            function setHue(nextHue) {
+                hueValue = ((Math.round(nextHue) % 360) + 360) % 360
+                updateFromHsl()
+            }
+
+            function positionHueMarker(h) {
+                const radius = 42
+                const angle = (h - 90) * Math.PI / 180
+                const x = 50 + Math.cos(angle) * radius
+                const y = 50 + Math.sin(angle) * radius
+                hueMarker.style.left = `${x}%`
+                hueMarker.style.top = `${y}%`
+            }
+
+            function hueFromPointer(event) {
+                const rect = hueWheel.getBoundingClientRect()
+                const x = event.clientX - rect.left - rect.width / 2
+                const y = event.clientY - rect.top - rect.height / 2
+                return (Math.atan2(y, x) * 180 / Math.PI + 90 + 360) % 360
+            }
+
+            function handleHuePointer(event) {
+                event.preventDefault()
+                hueWheel.setPointerCapture(event.pointerId)
+                setHue(hueFromPointer(event))
+            }
+
+            ;[red, green, blue].forEach(control => {
+                control.addEventListener('input', updateFromRgb)
+                control.addEventListener('change', updateFromRgb)
+            })
+            ;[saturation, lightness].forEach(control => {
+                control.addEventListener('input', updateFromHsl)
+                control.addEventListener('change', updateFromHsl)
+            })
+            hueWheel.addEventListener('pointerdown', handleHuePointer)
+            hueWheel.addEventListener('pointermove', event => {
+                if (event.buttons) handleHuePointer(event)
+            })
+            hueWheel.addEventListener('keydown', event => {
+                const step = event.shiftKey ? 15 : 1
+                if (event.key === 'ArrowRight' || event.key === 'ArrowUp') {
+                    event.preventDefault()
+                    setHue(hueValue + step)
+                }
+                if (event.key === 'ArrowLeft' || event.key === 'ArrowDown') {
+                    event.preventDefault()
+                    setHue(hueValue - step)
+                }
+                if (event.key === 'Home') {
+                    event.preventDefault()
+                    setHue(0)
+                }
+                if (event.key === 'End') {
+                    event.preventDefault()
+                    setHue(359)
+                }
+            })
+            updateFromRgb()
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-3-2'), {"title": "Quiz: Kap 3.2", "questions": [{"question": "Vilket CSS-attribut ändrar textfärg?", "options": ["background-color", "color", "font-family", "line-height"], "correct": 1, "feedback": "color ändrar textfärg.", "explanation": "color ändrar textfärg."}, {"question": "Varför är kontrast viktigt?", "options": ["Texten ska gå att läsa", "HTML-filen ska bli mindre", "GitHub kräver det alltid", "Bilder blir automatiskt SVG"], "correct": 0, "feedback": "Kontrast påverkar läsbarheten.", "explanation": "Kontrast påverkar läsbarheten."}, {"question": "Vad är en font stack?", "options": ["Flera fontalternativ i samma font-family", "En lista med bilder", "Ett felmeddelande", "En typ av HTTP-metod"], "correct": 0, "feedback": "Font stack ger fallback-fonter.", "explanation": "Font stack ger fallback-fonter."}, {"question": "Vilket line-height-värde är ofta rimligt för brödtext?", "options": ["1", "1.5", "1.2", "2"], "correct": 1, "feedback": "1.5 ger ofta luftigare läsning.", "explanation": "1.5 ger ofta luftigare läsning."}, {"question": "När passar centrerad text bäst?", "options": ["För långa brödtexter", "För korta rubriker eller korta textblock", "För all kod", "Aldrig i HTML"], "correct": 1, "feedback": "Centrerad text blir snabbt svårläst i längre stycken.", "explanation": "Centrerad text blir snabbt svårläst i längre stycken."}]});
         });

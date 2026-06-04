@@ -23,6 +23,8 @@
             <section class="content-section">
                 <h2>Mål</h2>
                 <ul>
+                    <li>Installera Visual Studio Code på din dator.</li>
+                    <li>Installera tillägg som gör arbetet med HTML och CSS enklare.</li>
                     <li>Skapa en tydlig projektmapp för en webbplats.</li>
                     <li>Förstå varför filnamn, filändelser och relativa sökvägar spelar roll.</li>
                     <li>Använda dokumentation, forum och AI på ett ansvarsfullt sätt.</li>
@@ -41,6 +43,52 @@
                     <p>Innan du fortsätter kursen bör du installera VS Code och de rekommenderade tilläggen. Då blir det lättare att följa övningarna och du kan fokusera på HTML och CSS i stället för att fastna på verktygen.</p>
                     <p>Titta på YouTube-playlisten <a href="https://www.youtube.com/watch?v=BCqcBps5jOM&amp;list=PLNadygDF_9TFqwOOsb3FHVsoBQkyjw6tn" target="_blank" rel="noopener noreferrer">installera VS Code och olika tillägg</a>. Det är bättre att se filmerna direkt på YouTube, eftersom spellistan och kontrollerna fungerar tydligare där.</p>
                 </aside>
+
+                <h2>Installera VS Code</h2>
+                <ol>
+                    <li>Öppna en webbläsare och gå till <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">code.visualstudio.com</a>.</li>
+                    <li>Klicka på nedladdningsknappen. Sidan brukar känna av om du använder Windows, macOS eller Linux.</li>
+                    <li>Öppna den nedladdade filen och följ stegen för ditt operativsystem.</li>
+                    <li>Starta VS Code när installationen är klar.</li>
+                </ol>
+                <ul>
+                    <li><strong>Windows:</strong> öppna den nedladdade <code>.exe</code>-filen och följ installationsguiden.</li>
+                    <li><strong>macOS:</strong> öppna <code>.dmg</code>-filen och dra Visual Studio Code till mappen <strong>Applications</strong>.</li>
+                    <li><strong>Linux:</strong> använd installationsfilen för din distribution, till exempel en <code>.deb</code>-fil på Debian eller Ubuntu.</li>
+                </ul>
+                <p>Om en knapp, text eller dialogruta ser lite annorlunda ut än i en film eller bild är det normalt. Program och webbsidor uppdateras ofta.</p>
+
+                <h2>Installera tillägg i VS Code</h2>
+                <p>Tillägg installeras från <strong>Extensions</strong> i vänsterspalten i VS Code. Ikonen ser ut som små block. Sök efter tilläggets namn och klicka på <strong>Install</strong>.</p>
+                <ul>
+                    <li><strong>Live Server:</strong> öppnar projektet i webbläsaren och laddar om sidan när du sparar.</li>
+                    <li><strong>W3C Web Validator:</strong> hjälper dig att hitta HTML-fel och kontrollera att koden följer standarder.</li>
+                    <li><strong>Color Highlight:</strong> visar färger direkt i CSS-koden.</li>
+                    <li><strong>Image Preview:</strong> visar en liten förhandsvisning av bilder som används i koden.</li>
+                    <li><strong>Color theme:</strong> ändrar färgtema i VS Code så att editorn blir lättare att läsa.</li>
+                    <li><strong>Icon theme:</strong> ger olika filtyper tydligare ikoner i filträdet.</li>
+                </ul>
+                <p>Starta gärna om VS Code efter att du installerat flera tillägg. Det behövs inte alltid, men det kan lösa små problem om ett tillägg inte syns direkt.</p>
+
+                <h2>Kontrollera att allt fungerar</h2>
+                <p>När VS Code och tilläggen är installerade kan du göra ett snabbt test.</p>
+                <ol>
+                    <li>Skapa en ny projektmapp, till exempel <code>test-webb</code>.</li>
+                    <li>Öppna mappen i VS Code med <strong>File</strong> och <strong>Open Folder</strong>.</li>
+                    <li>Skapa filerna <code>index.html</code> och <code>styles.css</code>.</li>
+                    <li>Öppna <code>index.html</code>, skriv <code>!</code> och tryck på Tab. Då skapar Emmet en grundmall för HTML.</li>
+                    <li>Lägg till text i <code>body</code>, till exempel <code>&lt;p&gt;Hello World!&lt;/p&gt;</code>.</li>
+                    <li>Koppla CSS-filen i <code>head</code> med <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>.</li>
+                    <li>Skriv några CSS-regler i <code>styles.css</code> och spara.</li>
+                    <li>Starta Live Server och kontrollera att sidan öppnas i webbläsaren.</li>
+                </ol>
+                <pre><code>body {
+  background-color: aqua;
+}
+
+p {
+  color: darkblue;
+}</code></pre>
 
                 <h2>Projektmapp</h2>
                 <p>Skapa en mapp för varje webbplats. Lägg HTML-filen i mappen och skapa undermappar för sådant som
@@ -83,14 +131,20 @@
 
                 <h2>Prova själv</h2>
                 <ol>
+                    <li>Installera VS Code om det inte redan finns på datorn.</li>
+                    <li>Installera minst Live Server och W3C Web Validator.</li>
                     <li>Skapa mappen <code>profil-sida</code>.</li>
-                    <li>Öppna mappen i VS Code.</li>
+                    <li>Öppna mappen i VS Code med <strong>File</strong> och <strong>Open Folder</strong>.</li>
                     <li>Skapa <code>index.html</code>, <code>styles.css</code> och mappen <code>images</code>.</li>
+                    <li>Skriv <code>!</code> i <code>index.html</code> och tryck Tab för att skapa en HTML-mall.</li>
                     <li>Starta Live Server och kontrollera att webbläsaren öppnar rätt fil.</li>
                 </ol>
 
                 <h2>Sammanfattning</h2>
                 <ul>
+                    <li>VS Code installeras från <code>code.visualstudio.com</code>.</li>
+                    <li>Extensions i VS Code används för att installera tillägg.</li>
+                    <li>Live Server och W3C Web Validator är bra tillägg i början av kursen.</li>
                     <li>En webbplats börjar med en tydlig projektmapp.</li>
                     <li><code>index.html</code> är standardnamnet för startsidan.</li>
                     <li>Relativa sökvägar kopplar ihop filer i projektet.</li>
@@ -119,7 +173,7 @@
                     { question: 'Vilket filnamn är mest lämpligt på webben?', options: ['Min Bild Äntligen.JPG', 'min bild.jpg', 'min-bild.jpg', 'bild final!!.jpg'], correct: 2, feedback: 'Undvik mellanslag, åäö och specialtecken.', explanation: 'Små bokstäver och bindestreck minskar risken för filvägsfel.' },
                     { question: 'Vad gör Live Server i VS Code?', options: ['Startar en lokal visning av sidan', 'Byter namn på alla filer', 'Publicerar automatiskt på GitHub', 'Skriver all HTML åt dig'], correct: 0, feedback: 'Live Server används under testning.', explanation: 'Live Server öppnar projektet i webbläsaren och laddar om när du ändrar.' },
                     { question: 'Vilken sökväg passar om bilden ligger i undermappen images?', options: ['src="profilbild.jpg"', 'src="images/profilbild.jpg"', 'src="../styles.css"', 'src="https://css"'], correct: 1, feedback: 'Sökvägen behöver gå in i bildmappen.', explanation: 'images/profilbild.jpg betyder filen profilbild.jpg i mappen images.' },
-                    { question: 'Vad bör du göra med kod från AI?', options: ['Använda utan att läsa', 'Testa och förstå den innan du lämnar in', 'Alltid klistra in direkt', 'Bara använda om den är på svenska'], correct: 1, feedback: 'AI kan ha fel.', explanation: 'Du behöver kunna förklara och kontrollera koden du använder.' }
+                    { question: 'Var installerar du tillägg i VS Code?', options: ['I Network-fliken', 'I Extensions i vänsterspalten', 'I filen index.html', 'I webbläsarens adressfält'], correct: 1, feedback: 'Extensions används för tillägg.', explanation: 'I Extensions kan du söka efter till exempel Live Server och W3C Web Validator.' }
                 ]
             });
         });
