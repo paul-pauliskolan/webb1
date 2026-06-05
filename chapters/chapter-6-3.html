@@ -7,6 +7,37 @@
     <meta name="description" content="Kap 6.3: ljud, video, iframes, inbäddat innehåll och tillgängliga alternativ.">
     <title>Kap 6.3 - Ljud, video och inbäddat innehåll</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .media-example {
+            display: grid;
+            gap: 1rem;
+            margin: 1.25rem 0;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background: var(--surface);
+        }
+
+        .media-example audio,
+        .media-example video,
+        .media-example iframe {
+            width: 100%;
+        }
+
+        .media-example video,
+        .media-example iframe {
+            aspect-ratio: 16 / 9;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: #0f172a;
+        }
+
+        .media-note {
+            margin: 0;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -27,22 +58,92 @@
                     <li>Lägga in iframe-innehåll med omtanke.</li>
                 </ul>
 
-                <h2>Ljud och video</h2>
-                <p>Använd <code>controls</code> så att användaren själv kan starta, pausa och styra ljudet eller videon.</p>
-                <pre><code>&lt;video controls width="640"&gt;
-    &lt;source src="demo.mp4" type="video/mp4"&gt;
-    Din webbläsare kan inte spela videon.
+                <h2>Ljud med <code>audio</code></h2>
+                <p>Elementet <code>audio</code> används för ljud på en webbsida. Lägg nästan alltid till <code>controls</code>, annars får användaren inga synliga knappar för att spela, pausa eller ändra ljudnivå.</p>
+                <p>Du kan ange flera <code>source</code>-rader. Webbläsaren provar dem uppifrån och ner och spelar den första filen den klarar av.</p>
+
+                <div class="media-example">
+                    <audio controls>
+                        <source src="../assets/media/demo-audio.mp3" type="audio/mpeg">
+                        <source src="../assets/media/demo-audio.wav" type="audio/wav">
+                        Din webbläsare kan inte spela ljudfilen.
+                    </audio>
+                    <p class="media-note">Exemplet använder en kort lokal testton. MP3 ligger först eftersom det oftast är mindre än WAV.</p>
+                </div>
+
+                <pre><code>&lt;audio controls&gt;
+    &lt;source src="../assets/media/demo-audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="../assets/media/demo-audio.wav" type="audio/wav"&gt;
+    Din webbläsare kan inte spela ljudfilen.
+&lt;/audio&gt;</code></pre>
+
+                <h2>Vanliga ljudformat</h2>
+                <p><strong>MP3</strong> är vanligt för musik, tal och kortare ljud på webben. Det är komprimerat, vilket ger mindre filer.</p>
+                <p><strong>WAV</strong> kan ha mycket hög kvalitet, men filerna blir ofta stora eftersom ljudet vanligtvis är okomprimerat. Det kan fungera för mycket korta effektljud, men är sällan bäst för längre ljud på webben.</p>
+
+                <h2>Video med <code>video</code></h2>
+                <p>Elementet <code>video</code> används för videofiler som ligger på din egen webbplats eller server. Precis som med ljud bör användaren få kontroller.</p>
+                <p>Sätt inte video på autoplay med ljud. Det kan störa användaren, skapa tillgänglighetsproblem och göra sidan tyngre.</p>
+
+                <div class="media-example">
+                    <video controls preload="metadata" width="960">
+                        <source src="../assets/media/demo-video.mp4" type="video/mp4">
+                        <source src="../assets/media/demo-video.webm" type="video/webm">
+                        Din webbläsare kan inte spela videofilen.
+                    </video>
+                    <p class="media-note">Exemplet är en kort lokal MP4/WebM-video. <code>preload="metadata"</code> säger att webbläsaren kan hämta information om videon, men inte behöver ladda hela filen direkt.</p>
+                </div>
+
+                <pre><code>&lt;video controls preload="metadata" width="960"&gt;
+    &lt;source src="../assets/media/demo-video.mp4" type="video/mp4"&gt;
+    &lt;source src="../assets/media/demo-video.webm" type="video/webm"&gt;
+    Din webbläsare kan inte spela videofilen.
 &lt;/video&gt;</code></pre>
+
+                <h2>Vanliga videoformat</h2>
+                <p><strong>MP4</strong> med H.264 är ett vanligt val eftersom det fungerar i många webbläsare och på många enheter.</p>
+                <p><strong>WebM</strong> är ett öppet videoformat som ofta används på webben. Det kan vara ett bra alternativ eller komplement till MP4.</p>
+                <p>Video kan bli mycket tungt. Komprimera videon, håll den kort när det går och kontrollera filstorleken i Network-panelen.</p>
 
                 <h2>Textalternativ</h2>
                 <p>Video med tal behöver ofta textning. Ljudinnehåll kan behöva en transkription. Det hjälper både tillgänglighet och elever som inte kan lyssna just då.</p>
+                <p>Om videon visar viktig information visuellt kan innehållet också behöva beskrivas i text nära videon. Målet är att informationen inte bara ska finnas i ljud eller bild.</p>
 
                 <h2>Inbäddat innehåll</h2>
-                <p><code>iframe</code> kan bädda in till exempel kartor, filmer eller formulär. Kontrollera att innehållet är relevant, fungerar på mobil och inte gör sidan onödigt tung.</p>
+                <p><code>iframe</code> kan bädda in till exempel kartor, filmer, formulär eller interaktiva exempel från en annan källa. Kontrollera att innehållet är relevant, fungerar på mobil och inte gör sidan onödigt tung.</p>
+                <p>En <code>iframe</code> behöver en tydlig <code>title</code>, så hjälpmedel kan förstå vad ramen innehåller. Om innehållet ligger längre ner på sidan kan <code>loading="lazy"</code> användas även här.</p>
+
+                <div class="media-example">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.10918479257!2d13.007752877895683!3d55.60011340374019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a15892ec60a7%3A0x7ce10f4d52a8394f!2sPauliskolan!5e0!3m2!1ssv!2sse!4v1780648648425!5m2!1ssv!2sse"
+                        title="Karta som visar Pauliskolan"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p class="media-note">Det här exemplet bäddar in en Google Maps-karta. Lägg märke till att ramen har <code>title</code>, <code>loading="lazy"</code> och <code>referrerpolicy</code>.</p>
+                </div>
+
                 <pre><code>&lt;iframe
-    src="https://example.com"
-    title="Beskrivning av inbäddat innehåll"
-    loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+    src="https://www.google.com/maps/embed?pb=..."
+    title="Karta som visar Pauliskolan"
+    width="600"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"&gt;&lt;/iframe&gt;</code></pre>
+
+                <h2>Kontrollera media</h2>
+                <ul>
+                    <li>Finns <code>controls</code> på ljud och video?</li>
+                    <li>Är filerna rimligt små?</li>
+                    <li>Fungerar spelaren på mobil?</li>
+                    <li>Finns textning, transkription eller annan textförklaring när det behövs?</li>
+                    <li>Har varje <code>iframe</code> en tydlig <code>title</code>?</li>
+                </ul>
             </section>
 
             <div id="quiz-6-3" aria-label="Quiz Kap 6.3"></div>

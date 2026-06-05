@@ -31,6 +31,43 @@
                 <h2>Network-panelen</h2>
                 <p>Network-panelen visar vilka filer sidan laddar, hur stora de är och om någon fil saknas. En röd 404 betyder ofta fel sökväg eller fel filnamn.</p>
 
+                <h2>Öppna utvecklarverktygen</h2>
+                <p>Med <strong>utvecklarverktygen</strong> menas verktygen som öppnas när du väljer <strong>Inspektera</strong> i Chrome. De kallas också <strong>DevTools</strong>. Det är webbläsarens verktyg för att undersöka hur en sida är byggd, vilka filer som laddas och vilka fel som finns.</p>
+                <p>En enkel väg är att högerklicka på sidan och välja <strong>Inspektera</strong>. Du kan också öppna samma verktyg med <kbd>F12</kbd> eller <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>. På Mac fungerar oftast <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd>.</p>
+                <p>När verktygen öppnas ser du flera flikar. I det här kapitlet använder du framför allt <strong>Elements</strong>, <strong>Console</strong>, <strong>Network</strong>, <strong>Lighthouse</strong> och mobilvyn.</p>
+
+                <h2>Guide: hitta saknade filer med Network</h2>
+                <ol>
+                    <li>Öppna sidan i webbläsaren.</li>
+                    <li>Öppna utvecklarverktygen.</li>
+                    <li>Gå till fliken <strong>Network</strong>.</li>
+                    <li>Ladda om sidan med <kbd>Cmd</kbd> + <kbd>R</kbd> eller <kbd>Ctrl</kbd> + <kbd>R</kbd>.</li>
+                    <li>Titta i kolumnen <strong>Status</strong>. En fil med <code>404</code> hittades inte.</li>
+                    <li>Klicka på filen och kontrollera sökvägen. Jämför med mappnamn, filnamn, stora och små bokstäver och filändelse.</li>
+                </ol>
+                <p>Om bilden heter <code>bild.webp</code> men HTML-koden säger <code>Bild.webp</code> kan det fungera lokalt på vissa datorer men gå sönder på en webbserver. Var noggrann med exakt samma namn.</p>
+
+                <h2>Guide: hitta stora filer med Network</h2>
+                <ol>
+                    <li>Öppna fliken <strong>Network</strong>.</li>
+                    <li>Ladda om sidan.</li>
+                    <li>Klicka på kolumnen <strong>Size</strong> för att sortera efter filstorlek.</li>
+                    <li>Leta efter stora bilder, videor, ljudfiler eller externa inbäddningar.</li>
+                    <li>Klicka på en fil och kontrollera filtyp, storlek och laddningstid.</li>
+                </ol>
+                <p>Om en bild är mycket större än den behöver vara kan du gå tillbaka till kapitel 6.2 och ändra pixelstorlek, komprimera bilden eller välja ett bättre format.</p>
+
+                <h2>Guide: testa utan cache</h2>
+                <p>Webbläsaren sparar ofta filer i cache. Det gör sidan snabbare, men kan också göra felsökning förvirrande eftersom du ibland ser en gammal version av en fil.</p>
+                <ol>
+                    <li>Öppna utvecklarverktygen.</li>
+                    <li>Gå till <strong>Network</strong>.</li>
+                    <li>Kryssa i <strong>Disable cache</strong>.</li>
+                    <li>Låt utvecklarverktygen vara öppna.</li>
+                    <li>Ladda om sidan.</li>
+                </ol>
+                <p>Nu hämtar webbläsaren filerna på nytt medan DevTools är öppet. Det är användbart när du har ändrat CSS, bilder eller JavaScript men sidan verkar visa gammalt innehåll.</p>
+
                 <h2>Vanliga prestandaproblem</h2>
                 <ul>
                     <li>För stora bilder.</li>
@@ -42,6 +79,47 @@
                 <h2>Lighthouse</h2>
                 <p>Lighthouse kan ge tips om prestanda, tillgänglighet och bästa praxis. Använd resultatet som en startpunkt för felsökning och kontrollera själv vad som faktiskt påverkar sidan.</p>
 
+                <h2>Guide: kör Lighthouse</h2>
+                <ol>
+                    <li>Öppna utvecklarverktygen.</li>
+                    <li>Gå till fliken <strong>Lighthouse</strong>. Om du inte ser den kan den ligga bakom fler-flikar-menyn.</li>
+                    <li>Välj vilka kategorier du vill testa, till exempel <strong>Performance</strong>, <strong>Accessibility</strong> och <strong>Best Practices</strong>.</li>
+                    <li>Välj om sidan ska testas som mobil eller desktop.</li>
+                    <li>Klicka på <strong>Analyze page load</strong> eller motsvarande knapp.</li>
+                    <li>Läs rapporten, men ändra inte allt på en gång. Välj ett konkret problem och testa igen efter ändringen.</li>
+                </ol>
+                <p>Lighthouse kan ge olika resultat från gång till gång. Det beror bland annat på datorn, nätverket, cache och vilka externa tjänster sidan laddar.</p>
+
+                <h2>Guide: kontrollera Console</h2>
+                <ol>
+                    <li>Öppna utvecklarverktygen.</li>
+                    <li>Gå till fliken <strong>Console</strong>.</li>
+                    <li>Ladda om sidan.</li>
+                    <li>Leta efter röda felmeddelanden.</li>
+                    <li>Läs filnamn och radnummer om de visas.</li>
+                </ol>
+                <p>Vanliga fel i Console är att en JavaScript-fil saknas, att ett element inte hittas eller att koden körs innan sidan har laddats klart.</p>
+
+                <h2>Guide: kontrollera HTML och CSS med Elements</h2>
+                <ol>
+                    <li>Högerklicka på något på sidan och välj <strong>Inspektera</strong>.</li>
+                    <li>Fliken <strong>Elements</strong> öppnas och markerar HTML-elementet.</li>
+                    <li>Titta på HTML-strukturen till vänster.</li>
+                    <li>Titta på CSS-reglerna till höger.</li>
+                    <li>Testa att slå av och på CSS-regler för att se vad som påverkar layouten.</li>
+                </ol>
+                <p>Elements är bra när något ligger fel, har fel färg, inte får rätt bredd eller påverkas av en CSS-regel du inte väntade dig.</p>
+
+                <h2>Guide: testa mobilvy</h2>
+                <ol>
+                    <li>Öppna utvecklarverktygen.</li>
+                    <li>Klicka på ikonen för mobil/surfplatta, eller tryck <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> på Mac och <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> på Windows.</li>
+                    <li>Välj en smal bredd eller dra i sidans kanter.</li>
+                    <li>Kontrollera att text, bilder, video, navigation och formulär fortfarande fungerar.</li>
+                    <li>Testa också bred desktopvy igen efteråt.</li>
+                </ol>
+                <p>En sida kan se bra ut på din skärm men ändå vara svår att använda på mobil. Testa därför både smal och bred vy.</p>
+
                 <h2>Felsök i ordning</h2>
                 <ol>
                     <li>Kontrollera konsolen för fel.</li>
@@ -49,6 +127,27 @@
                     <li>Testa sidan i smal och bred viewport.</li>
                     <li>Ändra en sak i taget och testa igen.</li>
                 </ol>
+
+                <h2>Exempel på felsökning</h2>
+                <p>Om en bild inte visas kan du felsöka så här:</p>
+                <ol>
+                    <li>Inspektera bilden i <strong>Elements</strong> och läs vad som står i <code>src</code>.</li>
+                    <li>Öppna <strong>Network</strong> och ladda om sidan.</li>
+                    <li>Leta efter bildfilen. Om status är <code>404</code> hittas inte filen.</li>
+                    <li>Kontrollera om filen ligger i rätt mapp.</li>
+                    <li>Kontrollera om filnamnet, filändelsen och stora/små bokstäver stämmer.</li>
+                    <li>Ändra en sak, ladda om och kontrollera igen.</li>
+                </ol>
+
+                <h2>Checklista innan publicering</h2>
+                <ul>
+                    <li>Inga röda fel i Console.</li>
+                    <li>Inga saknade filer med status <code>404</code> i Network.</li>
+                    <li>Bilder och media har rimlig filstorlek.</li>
+                    <li>Sidan fungerar i mobilvy.</li>
+                    <li>Lighthouse ger inga problem du enkelt kan åtgärda.</li>
+                    <li>Du har testat efter att cache är avstängd eller efter en hård omladdning.</li>
+                </ul>
             </section>
 
             <div id="quiz-6-4" aria-label="Quiz Kap 6.4"></div>

@@ -27,13 +27,31 @@
                     <li>Koppla principerna till konkreta val i HTML, CSS och innehåll.</li>
                 </ul>
 
+                <h2>Vad betyder tillgänglighet?</h2>
+                <p>Tillgänglighet heter <em>accessibility</em> på engelska. På webben betyder det att så många som möjligt ska kunna ta del av innehållet och använda sidan, oavsett funktionsnedsättning, hjälpmedel, enhet eller situation.</p>
+                <p>Det handlar inte bara om personer som använder skärmläsare. Tillgänglighet hjälper också användare som har svårt att se låg kontrast, inte kan använda mus, sitter i starkt solljus, har långsam uppkoppling, har tillfälligt skadad hand eller behöver tydliga instruktioner.</p>
+
+                <h2>Lag, standarder och riktlinjer</h2>
+                <p>I Sverige finns <strong>lagen om tillgänglighet till digital offentlig service</strong>, ofta kallad <strong>DOS-lagen</strong>. Den gäller digital service från offentliga aktörer, till exempel myndigheter, kommuner och regioner. Företag och privatpersoner omfattas inte på samma sätt, men många försöker ändå följa riktlinjerna eftersom det gör webbplatser bättre för fler användare.</p>
+                <p>För att uppfylla kraven används den europeiska standarden <strong>EN 301 549</strong>. För webbsidor hänvisar den i stor utsträckning till <strong>WCAG 2.1</strong> på nivå A och AA. WCAG står för <em>Web Content Accessibility Guidelines</em> och är riktlinjer från W3C för att göra webbinnehåll mer tillgängligt.</p>
+                <p>Det här läromedlet kommer inte att gå igenom alla krav i detalj. Men om du bygger med semantisk HTML, tydliga rubriker, fungerande tangentbord, bra kontrast, alt-texter och tydliga formulär uppfyller du redan många viktiga grunder.</p>
+                <p>Vill du läsa mer finns <a href="https://www.digg.se/webbriktlinjer/wcag/" target="_blank" rel="noopener">Diggs översikt om EN 301 549 och WCAG</a> och <a href="https://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener">WebAIMs WCAG-checklista</a>.</p>
+
                 <h2>Fyra principer</h2>
-                <p>WCAG beskriver tillgänglighet genom fyra huvudprinciper. Innehåll ska vara möjligt att uppfatta, möjligt att hantera, begripligt och robust.</p>
+                <p>WCAG beskriver tillgänglighet genom fyra huvudprinciper. På engelska kallas de ibland <strong>POUR</strong>: <em>perceivable</em>, <em>operable</em>, <em>understandable</em> och <em>robust</em>. På svenska kan du tänka: uppfattbart, hanterbart, begripligt och robust.</p>
                 <ul>
-                    <li><strong>Uppfattbart:</strong> användaren måste kunna ta del av innehållet, till exempel med textalternativ till bilder.</li>
-                    <li><strong>Hanterbart:</strong> sidan ska kunna användas, till exempel med tangentbord.</li>
-                    <li><strong>Begripligt:</strong> innehåll, formulär och felmeddelanden ska vara tydliga.</li>
-                    <li><strong>Robust:</strong> sidan ska vara byggd så att webbläsare och hjälpmedel kan tolka den.</li>
+                    <li><strong>Uppfattbart:</strong> användaren måste kunna uppfatta informationen på något sätt. En bild som bär viktig information behöver till exempel en bra <code>alt</code>-text. Text behöver också ha tillräcklig kontrast mot bakgrunden.</li>
+                    <li><strong>Hanterbart:</strong> användaren måste kunna använda sidan. Det betyder till exempel att länkar, knappar, menyer och formulär ska gå att nå med tangentbord, inte bara med mus.</li>
+                    <li><strong>Begripligt:</strong> användaren måste förstå innehåll och gränssnitt. Ett felmeddelande som bara säger <q>Fel 113</q> hjälper inte. Skriv hellre vad som är fel och hur användaren kan rätta det.</li>
+                    <li><strong>Robust:</strong> sidan ska vara byggd så att webbläsare, hjälpmedel och framtida teknik kan tolka den. Rätt HTML-element, korrekta formulärkopplingar och giltig kod gör sidan mer robust.</li>
+                </ul>
+
+                <h2>Exempel på principerna</h2>
+                <ul>
+                    <li><strong>Uppfattbart:</strong> ljusgrå text på vit bakgrund kan vara svår att läsa. Bättre kontrast gör texten lättare att uppfatta.</li>
+                    <li><strong>Hanterbart:</strong> en meny som bara öppnas när muspekaren hovrar över den kan bli omöjlig för den som använder tangentbord.</li>
+                    <li><strong>Begripligt:</strong> ett formulär bör säga <q>E-postadressen måste innehålla @</q> istället för ett tekniskt felmeddelande.</li>
+                    <li><strong>Robust:</strong> en knapp bör vara ett riktigt <code>&lt;button&gt;</code>-element när den gör något, inte en klickbar <code>&lt;div&gt;</code> utan tydlig roll.</li>
                 </ul>
 
                 <h2>Det börjar i grunden</h2>

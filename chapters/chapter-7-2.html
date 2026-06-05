@@ -7,6 +7,88 @@
     <meta name="description" content="Kap 7.2: färgkontrast, tydliga länkar och navigation som fungerar för fler.">
     <title>Kap 7.2 - Färg, kontrast och navigering</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .accessibility-figure {
+            margin: 1.25rem 0;
+        }
+
+        .accessibility-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: #fff;
+        }
+
+        .accessibility-figure figcaption {
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .color-combo-grid {
+            display: grid;
+            gap: 0.85rem;
+            margin: 1.25rem 0;
+        }
+
+        .color-combo {
+            padding: 1.1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: clamp(1.1rem, 2vw, 1.45rem);
+            font-weight: 700;
+            line-height: 1.35;
+            text-align: center;
+        }
+
+        .color-combo code {
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: inherit;
+        }
+
+        .fg-red-bg-green {
+            color: #F00;
+            background: #0F0;
+        }
+
+        .fg-red-bg-blue {
+            color: #F00;
+            background: #00F;
+        }
+
+        .fg-green-bg-red {
+            color: #0F0;
+            background: #F00;
+        }
+
+        .fg-green-bg-blue {
+            color: #0F0;
+            background: #00F;
+        }
+
+        .fg-blue-bg-red {
+            color: #00F;
+            background: #F00;
+        }
+
+        .fg-blue-bg-green {
+            color: #00F;
+            background: #0F0;
+        }
+
+        .contrast-task {
+            margin: 1.25rem 0;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background: var(--surface);
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -29,6 +111,63 @@
 
                 <h2>Kontrast och färg</h2>
                 <p>Text måste ha tillräcklig kontrast mot bakgrunden. Ljusgrå text på vit bakgrund eller mörkblå text på svart bakgrund kan bli svår att läsa, även om designen ser lugn ut.</p>
+
+                <h2>Färgblindhet</h2>
+                <p>Färgblindhet betyder att en person har svårt att skilja vissa färger från varandra. En vanlig form är röd-grön färgblindhet. Därför ska du vara extra försiktig med att använda rött och grönt tillsammans, särskilt om färgerna ska visa viktig information.</p>
+                <p>Färg får aldrig vara den enda ledtråden. Om ett formulärfält är fel räcker det inte att bara göra texten röd. Skriv också ett tydligt felmeddelande och markera fältet med till exempel text, ikon eller kantlinje.</p>
+
+                <div class="color-combo-grid" aria-label="Exempel på svåra färgkombinationer med röd, grön och blå">
+                    <div class="color-combo fg-red-bg-green">
+                        The quick brown fox jumps over the lazy dog
+                        <code>text: #F00, bakgrund: #0F0</code>
+                    </div>
+                    <div class="color-combo fg-green-bg-red">
+                        The quick brown fox jumps over the lazy dog
+                        <code>text: #0F0, bakgrund: #F00</code>
+                    </div>
+                    <div class="color-combo fg-red-bg-blue">
+                        The quick brown fox jumps over the lazy dog
+                        <code>text: #F00, bakgrund: #00F</code>
+                    </div>
+                    <div class="color-combo fg-blue-bg-red">
+                        The quick brown fox jumps over the lazy dog
+                        <code>text: #00F, bakgrund: #F00</code>
+                    </div>
+                    <div class="color-combo fg-green-bg-blue">
+                        The quick brown fox jumps over the lazy dog
+                        <code>text: #0F0, bakgrund: #00F</code>
+                    </div>
+                    <div class="color-combo fg-blue-bg-green">
+                        The quick brown fox jumps over the lazy dog
+                        <code>text: #00F, bakgrund: #0F0</code>
+                    </div>
+                </div>
+
+                <h2>Färgkombinationer kan störa läsningen</h2>
+                <p>Vissa starka färger kan också kännas obehagliga tillsammans även för personer som inte är färgblinda. En del upplever att texten nästan vibrerar eller får ett slags djupkänsla. På engelska kallas fenomenet <em>chromostereopsis</em>. Det kan hända när starka färger med olika våglängder, till exempel rött och blått, placeras tätt tillsammans.</p>
+                <p>Därför räcker det inte att färgerna bara ser tydliga ut var för sig. De måste också fungera tillsammans när texten faktiskt ska läsas.</p>
+
+                <p>Exemplen ovan använder bara <code>#F00</code>, <code>#0F0</code> och <code>#00F</code>. Det är medvetet extrema färger, men de visar varför man inte ska välja färgkombinationer bara för att de ser starka ut.</p>
+
+                <h2>Problemet med mättad röd</h2>
+                <p>Färgen <code>#FF0000</code> är helt mättad röd. Den ser stark ut, men den är svår att använda som textfärg. Det kan vara mycket svårt, ibland praktiskt taget omöjligt, att hitta en bakgrundsfärg som både känns rimlig visuellt och klarar alla kontrastkrav för vanlig text, stor text och gränssnittskomponenter.</p>
+                <p>Det beror på att kontrast inte bara handlar om att två färger är olika. Kontrast handlar om ljushet. En stark röd färg kan fortfarande ha för låg ljushetskontrast mot många bakgrunder.</p>
+
+                <div class="contrast-task">
+                    <h2>Prova själv: röd text i Contrast Checker</h2>
+                    <ol>
+                        <li>Gå till <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM Contrast Checker</a>.</li>
+                        <li>Sätt <strong>Foreground Color</strong> till <code>#FF0000</code>.</li>
+                        <li>Ändra <strong>Background Color</strong> och försök hitta en färg som uppfyller alla kontrasttesterna.</li>
+                        <li>Jämför resultatet för normal text, stor text och gränssnittskomponenter.</li>
+                        <li>Fundera på om färgkombinationen också känns bra att läsa, inte bara om den får godkänt i verktyget.</li>
+                    </ol>
+                </div>
+
+                <figure class="accessibility-figure">
+                    <img src="../assets/images/kap7.2-webaim.png" alt="Skärmbild från WebAIM Contrast Checker som visar kontrastvärde och godkända kontrasttester." loading="lazy">
+                    <figcaption>WebAIM Contrast Checker visar kontrastvärdet och om kombinationen klarar WCAG-krav för normal text, stor text och grafiska gränssnittskomponenter.</figcaption>
+                </figure>
 
                 <h2>Färg räcker inte ensam</h2>
                 <p>Om ett fel bara visas med röd färg kan vissa användare missa betydelsen. Kombinera färg med text, ikon, kantlinje eller tydligt meddelande.</p>
