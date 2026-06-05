@@ -35,6 +35,66 @@
 
                 <h2>Ansvarsfull design</h2>
                 <p>Etisk design gör viktiga val begripliga. Använd tydliga knappar, ärlig text, rimliga standardval och enkel väg tillbaka om användaren ångrar sig.</p>
+
+                <h2>Sätt användaren först</h2>
+                <p>Etiska designval handlar inte bara om färg och knappar. Det handlar om att fundera på vilka användare som kan använda sidan, vilka som riskerar att stängas ute och vilka konsekvenser dina tekniska val kan få.</p>
+                <p>En enkel tumregel är: <strong>sätt användaren först</strong>. Fråga dig inte bara om något går att bygga, utan också om det är rimligt, begripligt och schysst mot användaren.</p>
+
+                <h2>Nya HTML- och CSS-funktioner</h2>
+                <p>När du använder nya funktioner i HTML, CSS eller nya filformat behöver du tänka på webbläsarstöd. Alla användare har inte den senaste versionen av Chrome, Firefox, Safari eller Edge.</p>
+                <p>På <a href="https://caniuse.com/" target="_blank" rel="noopener">Can I use</a> kan du kontrollera om en funktion fungerar i olika webbläsare. Ett exempel är <a href="https://caniuse.com/avif" target="_blank" rel="noopener">AVIF-formatet</a>. AVIF kan ge små bildfiler, men du bör kontrollera aktuellt stöd och erbjuda ett alternativ om formatet inte fungerar för alla användare.</p>
+                <p>När du blir bättre på webbutveckling kan du använda principen <strong>progressiv förbättring</strong>. Det betyder att sidan fungerar på en grundläggande nivå för alla, men kan få bättre bildformat, mer avancerad CSS eller extra funktioner i webbläsare som stödjer det.</p>
+                <pre><code>&lt;picture&gt;
+    &lt;source srcset="bild.avif" type="image/avif"&gt;
+    &lt;source srcset="bild.webp" type="image/webp"&gt;
+    &lt;img src="bild.jpg" alt="Beskrivning av bilden"&gt;
+&lt;/picture&gt;</code></pre>
+
+                <h2>Kan alla använda webbplatsen?</h2>
+                <p>Fundera på om webbplatsen fungerar för personer med funktionsnedsättning. Kan man navigera med bara tangentbordet? Syns fokusmarkeringen? Har bilder alt-text när de behöver det? Är kontrasten tillräcklig?</p>
+                <p>Detta hänger ihop med kapitlen om tillgänglighet, kontrast och formulär. Etisk design betyder att du inte medvetet gör sidan svår för vissa användare.</p>
+
+                <h2>Skärmstorlek och responsiv design</h2>
+                <p>Användare kan besöka sidan med mobil, surfplatta, laptop eller stor skärm. En sida som bara fungerar på din egen skärm är inte färdigtestad.</p>
+                <p>Testa därför både smal och bred vy. Kontrollera att navigation, bilder, formulär, knappar och text fortfarande fungerar. En mobilanvändare ska inte behöva zooma och flytta sidan i sidled för att läsa.</p>
+
+                <h2>Språk, termer och ton</h2>
+                <p>Använd språk som målgruppen förstår. Om webbplatsen riktar sig till nybörjare ska du undvika onödigt svåra termer eller förklara dem när de behövs.</p>
+                <p>Om du måste använda nya begrepp kan du lägga till en kort förklaring eller en ordlista. Tonen spelar också roll. En myndighetssida, en spelsida och en skoluppgift kan behöva helt olika språk.</p>
+
+                <h2>Integritet</h2>
+                <p>Om sidan har formulär som samlar in personuppgifter behöver du tänka på hur informationen hanteras. Fråga bara efter det som behövs och skriv tydligt varför du frågar.</p>
+                <p>Externa tjänster kan också påverka integriteten. Statistikverktyg, kartor, inbäddade filmer, typsnitt och formulärtjänster kan innebära att data skickas till andra företag. Se kapitlet om GDPR för mer om detta.</p>
+
+                <h2>Uppkoppling och filstorlek</h2>
+                <p>Utgå inte från att alla har snabb uppkoppling. En sida som känns snabb på skolans eller hemmets nätverk kan vara långsam på mobilnät eller äldre enheter.</p>
+                <p>Stora bilder och filmer kan göra sidan tung. Optimera därför bilder och video, använd rätt format, minska onödiga filer och testa gärna i Network-panelen. Det är ett etiskt val eftersom långsamma sidor kan stänga ute användare med sämre uppkoppling.</p>
+
+                <h2>Bildernas innehåll</h2>
+                <p>Bilder kan också skapa etiska frågor. Tänk dig att du fotograferar en person ute på stan och andra identifierbara personer syns tydligt i bakgrunden. Även om publicering ibland kan vara juridiskt möjlig, till exempel i journalistiska sammanhang, betyder det inte alltid att publiceringen är bästa valet.</p>
+                <p>Du kan välja en annan bild, beskära bilden eller göra personer i bakgrunden oidentifierbara. Som webbutvecklare behöver du alltså inte bara fråga <q>får vi?</q> utan också <q>bör vi?</q>.</p>
+
+                <h2>Automatiska funktioner kan såra</h2>
+                <p>Automatiska funktioner kan få oväntade konsekvenser. Sociala medier kan till exempel skapa automatiska årsminnen eller sammanfattningar. För vissa användare kan sådant bli roligt, men för andra kan det lyfta fram sorgliga eller känsliga händelser.</p>
+                <p>Artikeln <a href="https://www.smashingmagazine.com/2018/03/using-ethics-in-web-design/" target="_blank" rel="noopener">Using Ethics In Web Design</a> tar upp varför alla som bygger webben behöver tänka på konsekvenserna av sina val. Texten <a href="https://meyerweb.com/eric/thoughts/2014/12/24/inadvertent-algorithmic-cruelty/" target="_blank" rel="noopener">Inadvertent Algorithmic Cruelty</a> är ett känt exempel på hur en automatiserad funktion kan träffa väldigt fel.</p>
+
+                <h2>Länkar och vidare läsning</h2>
+                <ul>
+                    <li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I use: kontrollera stöd för HTML, CSS och webbformat</a></li>
+                    <li><a href="https://caniuse.com/avif" target="_blank" rel="noopener">Can I use: AVIF image format</a></li>
+                    <li><a href="https://web.dev/learn/images/avif" target="_blank" rel="noopener">web.dev: AVIF</a></li>
+                    <li><a href="https://lawline.se/answers/kan-en-tidning-publicera-en-bild-pa-mig-utan-min-tillatelse" target="_blank" rel="noopener">Lawline: Kan en tidning publicera en bild på mig utan min tillåtelse?</a></li>
+                    <li><a href="https://www.smashingmagazine.com/2018/03/using-ethics-in-web-design/" target="_blank" rel="noopener">Smashing Magazine: Using Ethics In Web Design</a></li>
+                    <li><a href="https://meyerweb.com/eric/thoughts/2014/12/24/inadvertent-algorithmic-cruelty/" target="_blank" rel="noopener">Eric Meyer: Inadvertent Algorithmic Cruelty</a></li>
+                </ul>
+
+                <h2>Fundera själv</h2>
+                <ul>
+                    <li>Varför är det bättre att ge AVIF till webbläsare som klarar det, men ha WebP eller JPG som alternativ?</li>
+                    <li>Varför bör du hålla nere filstorleken även om sidan laddar snabbt på din egen uppkoppling?</li>
+                    <li>Hur hade du gjort om du tog en bild där privatpersoner syns tydligt i bakgrunden?</li>
+                    <li>Kan du komma på en automatisk funktion på webben som kan bli olämplig eller sårande i vissa situationer?</li>
+                </ul>
             </section>
 
             <div id="quiz-7-5" aria-label="Quiz Kap 7.5"></div>

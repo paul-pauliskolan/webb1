@@ -31,11 +31,17 @@
                         rel="noopener noreferrer">Hur man läger upp en webbplats på GitHub och publicerar den på
                         internet</a>. Filmen visar arbetsflödet visuellt.</p>
 
+                <h2>Vad GitHub Pages gör</h2>
+                <p>GitHub Pages kan publicera statiska webbsidor direkt från ett repository. Det passar för webbplatser som består av <code>HTML</code>, <code>CSS</code>, <code>JavaScript</code>, bilder och andra vanliga filer.</p>
+                <p>GitHub Pages kör däremot inte egen serverkod som PHP, Python eller databaser. I den här kursen räcker det bra, eftersom profilsidan är en statisk webbplats.</p>
+
                 <h2>Innan du publicerar</h2>
                 <ul>
                     <li>Din startsida ska heta <code>index.html</code>.</li>
                     <li>Alla bilder och andra filer som sidan använder måste följa med.</li>
                     <li>Filvägarna måste fungera lokalt innan du laddar upp.</li>
+                    <li>Sökvägar till <code>CSS</code>, <code>JavaScript</code> och bilder måste stämma även efter publicering.</li>
+                    <li>Filnamn måste matcha exakt. <code>Logo.png</code> och <code>logo.png</code> kan räknas som olika filer på en publicerad webbplats.</li>
                     <li>HTML-koden bör vara validerad.</li>
                 </ul>
 
@@ -70,6 +76,8 @@
                     <li>Öppna den publicerade länken i webbläsaren.</li>
                     <li>Kontrollera att text, bild och länk fungerar.</li>
                     <li>Om bilden saknas: kontrollera att bildmappen följde med och att filnamnet stämmer exakt.</li>
+                    <li>Om designen saknas: kontrollera sökvägen till din CSS-fil.</li>
+                    <li>Om interaktioner inte fungerar: kontrollera sökvägen till din JavaScript-fil.</li>
                     <li>Om sidan inte öppnas: kontrollera att filen heter <code>index.html</code>.</li>
                 </ul>
 

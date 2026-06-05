@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kap 8.4: publicera en statisk webbplats med GitHub Pages och kontrollera resultatet.">
-    <title>Kap 8.4 - Publicera med GitHub Pages</title>
+    <meta name="description" content="Kap 8.4: bygg och publicera en fiktiv hotellwebbplats med HTML, CSS, responsiv design och enkel JavaScript.">
+    <title>Kap 8.4 - Hotellwebbplatsen</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -15,42 +15,139 @@
         <article class="chapter-main">
             <header class="chapter-hero">
                 <p class="eyebrow">Modul 8</p>
-                <h1>Kap 8.4 - Publicera med GitHub Pages</h1>
-                <p class="subtitle">Publicering gör din webbplats tillgänglig på en riktig webbadress.</p>
+                <h1>Kap 8.4 - Hotellwebbplatsen</h1>
+                <p class="subtitle">Bygg en fiktiv hotellwebbplats utifrån din planering och Figma-skiss.</p>
             </header>
 
             <section class="content-section">
-                <h2>Mål</h2>
+                <h2>Uppgift</h2>
+                <p>Du ska bygga en fiktiv hotellwebbplats. Utgå från din Figma-skiss från planeringsuppgiften och välj om du satsar på E-nivå eller C/A-nivå.</p>
+                <p>Du ska lämna in både den publicerade webbplatsen och koden på GitHub.</p>
+
+                <h2>Det du ska dela</h2>
                 <ul>
-                    <li>Förstå vad GitHub Pages används till.</li>
-                    <li>Kontrollera filnamn och startsida före publicering.</li>
-                    <li>Testa den publicerade sidan efteråt.</li>
+                    <li>Länk till GitHub-repositoryt med koden.</li>
+                    <li>Länk till den publicerade sidan på GitHub Pages.</li>
+                    <li>Eventuell kort kommentar om du har avvikit från din Figma-design.</li>
                 </ul>
 
-                <h2>Vad GitHub Pages gör</h2>
-                <p>GitHub Pages kan publicera statiska webbsidor direkt från ett repository. Det passar för HTML, CSS, JavaScript och bilder som inte kräver serverkod.</p>
+                <h2>Exempel på inlämningslänkar</h2>
+                <ul>
+                    <li>Kod: <a href="https://github.com/pauliskolantest/movie-page-1" target="_blank" rel="noopener">github.com/pauliskolantest/movie-page-1</a></li>
+                    <li>GitHub Pages: <a href="https://paul-pauliskolan.github.io/movie-page-1/" target="_blank" rel="noopener">paul-pauliskolan.github.io/movie-page-1</a></li>
+                </ul>
 
-                <h2>Före publicering</h2>
-                <p>Kontrollera att startsidan heter <code>index.html</code>, att länkar fungerar, att bildsökvägar stämmer och att filnamn matchar exakt med stora och små bokstäver.</p>
+                <h2>E-krav</h2>
+                <p>För E ska webbplatsen fungera som en enkel hotellwebbplats med tydlig struktur och gemensam design.</p>
+                <ul>
+                    <li>Webbplatsen ska handla om ett fiktivt hotell.</li>
+                    <li>Du ska ha minst två olika HTML-sidor, till exempel <code>index.html</code> och en sida som <code>boka.html</code>, <code>hitta.html</code> eller <code>kontakta.html</code>.</li>
+                    <li>Startsidan ska innehålla minst en bild som visar något om hotellet.</li>
+                    <li>Rubriker och menytext ska vara riktig text. Löptext och bildtext får vara Lorem Ipsum.</li>
+                    <li>Menyn ska ligga i början av sidan.</li>
+                    <li>Alla huvudsidor ska synas i menyn, även den sida användaren är på.</li>
+                    <li>Webbplatsen ska ha en enhetlig design.</li>
+                    <li>Alla sidor ska ha en korrekt <code>&lt;title&gt;</code> som beskriver sidan.</li>
+                    <li>Webbplatsen ska innehålla bilder och färger som du själv har valt.</li>
+                    <li>Bilderna ska ha rimlig kvalitet och inte tydliga JPG-artefakter.</li>
+                    <li>All egen CSS ska ligga i en gemensam CSS-fil.</li>
+                    <li>Du ska inte skriva CSS direkt i HTML-filerna.</li>
+                    <li>Du ska inte använda Tailwind, Bootstrap eller liknande ramverk.</li>
+                    <li>Undvik upprepad CSS-kod. Tänk på DRY-principen: skriv inte samma kod flera gånger i onödan.</li>
+                    <li>Webbplatsen behöver inte vara responsiv för E.</li>
+                    <li>Testa webbplatsen i minst en webbläsare.</li>
+                </ul>
 
-                <h2>Efter publicering</h2>
-                <p>Öppna den publicerade adressen och testa sidan igen. Problem kan synas först när webbplatsen ligger på GitHub Pages, särskilt om sökvägar till CSS, JavaScript eller bilder är fel.</p>
+                <h2>C-krav</h2>
+                <p>För C ska webbplatsen vara mer komplett, responsiv och tekniskt kontrollerad.</p>
+                <ul>
+                    <li>Du ska använda din design från Figma. Du får avvika om du kort förklarar varför i utvärderingen.</li>
+                    <li>Webbplatsen ska ha minst fyra olika HTML-sidor: <code>index.html</code>, <code>boka.html</code>, <code>hitta.html</code> och <code>kontakta.html</code>.</li>
+                    <li>Alla sidor ska länka till varandra via en horisontell meny.</li>
+                    <li>Ta inte med filer som inte används. Om de finns i projektet kan de också granskas.</li>
+                    <li>Du får inte kopiera kod, bilder, font, design eller färger rakt av från exempel eller filmer.</li>
+                    <li>Webbplatsen ska vara responsiv och mobilanpassad.</li>
+                    <li>Bilder ska inte vara större än webbplatsen kräver.</li>
+                    <li>Ingen bild får vara större än <code>1500x1200</code> pixlar. En bakgrundsbild får vara max <code>300 kB</code>.</li>
+                    <li>Bilder och karta får inte vara förvrängda. Proportionerna ska vara korrekta.</li>
+                    <li>Rubriker ska ha korrekt ordning: <code>h1</code>, sedan <code>h2</code>, sedan <code>h3</code>. Hoppa inte över nivåer och använd inte <code>h4</code>.</li>
+                    <li>Formulärfält ska ha kopplade labels med <code>for</code> och <code>id</code>.</li>
+                    <li>Bokningssidan ska ha ett riktigt <code>&lt;form&gt;</code>-element runt formulärfältet.</li>
+                    <li>Löptext på alla sidor ska vara vänsterställd.</li>
+                    <li>Fil- och mappnamn ska bara använda <code>a-z</code>, <code>0-9</code> och bindestreck. Använd inte å, ä, ö, mellanslag, stora bokstäver eller specialtecken.</li>
+                    <li>Använd inte å, ä eller ö i CSS-selektorer.</li>
+                    <li>Alla sidor ska ha en relevant <code>meta description</code>.</li>
+                    <li>Alla HTML-filer ska validera som HTML5.</li>
+                    <li>Alla CSS-filer ska validera.</li>
+                    <li>Layout och design ska styras med egen CSS-fil.</li>
+                    <li>Sidan ska fungera i de senaste versionerna av Chrome och Firefox.</li>
+                    <li>Alla sidor ska ha en footer med adressuppgifter.</li>
+                    <li>Webbplatsen ska ha ett bokningsformulär. Det behöver inte skicka något på riktigt.</li>
+                    <li>Webbplatsen ska ha JavaScript som fyller en funktion, till exempel responsiv meny eller slideshow. Tid och datum räcker inte.</li>
+                    <li>Hamburgermeny ska inte vara standard i desktopläge.</li>
+                    <li>Webbplatsen ska innehålla en inbäddad Google-karta som fungerar responsivt och klarar HTML5-validering.</li>
+                    <li>Tänk på design, layout, läsbarhet och rättstavning.</li>
+                    <li>Undvik onödiga animationer.</li>
+                    <li>Lägg inte text för nära kanter.</li>
+                </ul>
+
+                <h2>A-krav</h2>
+                <p>För A ska webbplatsen vara extra väl optimerad, tillgänglig och kontrollerad.</p>
+                <ul>
+                    <li>Hela webbplatsen, utom bilder och Google Maps, ska klara Lighthouse utan viktiga problem. Google Fonts räknas också som undantag.</li>
+                    <li>Du får gärna använda <a href="https://modernfontstacks.com/" target="_blank" rel="noopener">Modern Font Stacks</a> i stället för Google Fonts.</li>
+                    <li>Alla bilder ska vara i WebP-format.</li>
+                    <li>Använd till exempel <a href="https://squoosh.app/" target="_blank" rel="noopener">Squoosh</a> eller <a href="https://cloudconvert.com/webp-converter" target="_blank" rel="noopener">CloudConvert</a> för att konvertera bilder till WebP.</li>
+                    <li>Alla färger ska ha lämplig kontrast mellan text och bakgrund.</li>
+                    <li>Webbplatsen ska klara <a href="https://color.a11y.com/?wc3" target="_blank" rel="noopener">Color Contrast Accessibility Validator</a>.</li>
+                    <li>Alla bilder ska vara optimerade, till exempel med <a href="https://tinypng.com/" target="_blank" rel="noopener">TinyPNG</a>.</li>
+                    <li>Du ska inte använda stora bilder som bara minskas med CSS.</li>
+                    <li>Du ska inte använda små bilder som förstoras och blir suddiga.</li>
+                </ul>
+
+                <h2>Resurser</h2>
+                <ul>
+                    <li><a href="https://youtube.com/playlist?list=PLNadygDF_9TFzjxwMFZO_qdCaWp6LTeqy" target="_blank" rel="noopener">Filmserie: komplett exempel på E-webbplats</a></li>
+                    <li><a href="https://drive.google.com/drive/folders/16sZtkfxK4gojqu8IzNP9GLn0DPzrtZ-p?usp=sharing" target="_blank" rel="noopener">Ladda ner färdig E-webbplats</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=s0kEwGKibxQ&list=PLNadygDF_9THCdmNd_m3z1I_1ohdMz-68" target="_blank" rel="noopener">Filmserie: delvis klar C/A-hotellwebbplats</a></li>
+                    <li><a href="https://paubel.github.io/bright-hotell-grid/" target="_blank" rel="noopener">Exempel: hotellwebbplats i webbläsaren</a></li>
+                    <li><a href="https://paubel.github.io/hotell-web-site/index.html" target="_blank" rel="noopener">Exempel: annan hotellwebbplats</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLNadygDF_9THE8vAVU6RKSXKp93MJZ211" target="_blank" rel="noopener">Filmserie: genomgång av E-, C- och A-krav</a></li>
+                    <li><a href="https://www.w3schools.com/tags/tag_label.asp" target="_blank" rel="noopener">W3Schools: label, for och id</a></li>
+                    <li><a href="https://www.w3schools.com/howto/howto_js_topnav_responsive.asp" target="_blank" rel="noopener">Responsiv meny</a></li>
+                    <li><a href="https://www.w3schools.com/howto/howto_css_responsive_form.asp" target="_blank" rel="noopener">Responsivt formulär</a></li>
+                    <li><a href="https://www.w3schools.com/howto/howto_js_slideshow.asp" target="_blank" rel="noopener">Bildväxlare/slideshow</a></li>
+                    <li><a href="https://www.transparenttextures.com/" target="_blank" rel="noopener">Genomskinliga texturer till bakgrund</a></li>
+                    <li><a href="https://gist.github.com/jakub-g/385ee6b41085303a53ad92c7c8afd7a6" target="_blank" rel="noopener">Olika sätt att ladda JavaScript</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script" target="_blank" rel="noopener">MDN: script-elementet</a></li>
+                </ul>
+
+                <h2>Innan du lämnar in</h2>
+                <ul>
+                    <li>Öppna GitHub Pages-länken och testa den riktiga publicerade webbplatsen.</li>
+                    <li>Kontrollera att alla länkar fungerar.</li>
+                    <li>Kontrollera att bilder, CSS och JavaScript laddas utan 404-fel i Network.</li>
+                    <li>Validera HTML och CSS.</li>
+                    <li>Testa mobilvy och desktopvy.</li>
+                    <li>Testa i Chrome och Firefox om du satsar på C eller A.</li>
+                    <li>Kör Lighthouse om du satsar på A.</li>
+                </ul>
             </section>
 
             <div id="quiz-8-4" aria-label="Quiz Kap 8.4"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-8-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.3 Testa i webbläsaren</span></span></a>
-                <a href="chapter-8-5.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.5 Slutprojekt: egen webbplats</span></span></a>
+                <a href="../index.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">Till startsidan</span></span></a>
             </nav>
         </article>
-        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Publicering</p><h2>Testa den riktiga länken</h2><p>En sida kan fungera lokalt men ha fel sökvägar efter publicering.</p></section></aside>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Hotellwebbplats</p><h2>Lämna två länkar</h2><p>Du ska dela både GitHub Pages och repositoryt med koden.</p></section></aside>
     </main>
     <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-8-4'), {"title":"Quiz: Kap 8.4","questions":[{"question":"Vad används GitHub Pages till i kursen?","options":["Skapa bilder automatiskt","Publicera statiska webbsidor på en webbadress","Ersätta HTML med PDF","Skriva CSS åt dig"],"correct":1,"feedback":"GitHub Pages publicerar statiska webbplatser.","explanation":"Det passar bra för HTML, CSS, JavaScript och bilder."},{"question":"Vad bör startsidan normalt heta?","options":["style.css","start.docx","index.html","main.png"],"correct":2,"feedback":"index.html är standard för startsidan.","explanation":"Webbservern letar ofta efter index.html som första sida."},{"question":"Varför är stora och små bokstäver viktiga i filnamn?","options":["Publicerade miljöer kan skilja på dem i sökvägar","Rubriker blir annars mindre","CSS slutar ha färger","Quizet får färre frågor"],"correct":0,"feedback":"Sökvägar måste matcha exakt.","explanation":"En bild kan saknas om filen heter Logo.png men koden pekar på logo.png."},{"question":"Vad ska du göra efter publicering?","options":["Radera alla lokala filer direkt","Anta att allt fungerar","Ta bort alt-texter","Testa den publicerade adressen i webbläsaren"],"correct":3,"feedback":"Den publicerade sidan behöver testas.","explanation":"Vissa fel syns först på den riktiga adressen."},{"question":"Vilket problem är vanligt efter publicering?","options":["Att HTML blir för semantiskt","Fel sökväg till CSS, JavaScript eller bilder","Att rubriker blir automatiskt översatta","Att alla länkar blir formulär"],"correct":1,"feedback":"Sökvägar är ett vanligt problem.","explanation":"Kontrollera mappar, filnamn och relativa länkar."}]});
+            window.renderQuiz(document.getElementById('quiz-8-4'), {"title":"Quiz: Kap 8.4","questions":[{"question":"Vad ska lämnas in för hotellwebbplatsen?","options":["Bara en skärmbild","Både GitHub Pages-länk och länk till koden på GitHub","Endast CSS-filen","Bara Figma-filen"],"correct":1,"feedback":"Båda länkarna behövs.","explanation":"Läraren behöver kunna se både den publicerade sidan och koden."},{"question":"Vad krävs minst för E-nivå?","options":["Minst två HTML-sidor och en enhetlig design","Minst tio sidor och databas","Bara en PDF","Endast JavaScript utan HTML"],"correct":0,"feedback":"E-nivån kräver en enkel fungerande webbplats.","explanation":"Webbplatsen ska ha minst två sidor och gemensam design."},{"question":"Vad är ett C-krav för hotellwebbplatsen?","options":["Att alla filer heter med stora bokstäver","Att webbplatsen är responsiv och mobilanpassad","Att all CSS skrivs direkt i HTML","Att bilder får vara hur stora som helst"],"correct":1,"feedback":"Responsivitet hör till C-kraven.","explanation":"Webbplatsen ska fungera på olika skärmstorlekar."},{"question":"Vilket JavaScript räcker inte enligt kraven?","options":["En fungerande responsiv meny","En slideshow","Tid och datum utan annan funktion","En menyknapp som öppnar navigation"],"correct":2,"feedback":"Tid och datum räcker inte.","explanation":"JavaScriptet ska fylla en relevant funktion på webbplatsen."},{"question":"Vad är ett A-krav för bilder?","options":["Alla bilder ska vara WebP och optimerade","Alla bilder ska vara GIF","Bilder ska förstoras med CSS","Bilder behöver inte kontrolleras"],"correct":0,"feedback":"A-nivån kräver bättre bildoptimering.","explanation":"Bilder ska vara i WebP-format och vara optimerade."}]});
         });
     </script>
 </body>

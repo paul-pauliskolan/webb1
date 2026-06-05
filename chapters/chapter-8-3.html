@@ -30,17 +30,80 @@
                 <h2>Responsivt läge</h2>
                 <p>Öppna utvecklarverktygen och testa sidan i smal, mellanbred och bred vy. Leta efter överlappande text, för breda bilder, trasiga menyer och innehåll som hamnar i fel ordning.</p>
 
+                <h2>Öppna Inspektera i Chrome</h2>
+                <p>Med <strong>utvecklarverktygen</strong> menas Chromes verktyg som öppnas med <strong>Inspektera</strong>. De kallas också <strong>DevTools</strong>.</p>
+                <ol>
+                    <li>Öppna sidan i Chrome.</li>
+                    <li>Högerklicka någonstans på sidan.</li>
+                    <li>Välj <strong>Inspektera</strong>.</li>
+                    <li>Nu öppnas en panel med flikar som <strong>Elements</strong>, <strong>Console</strong> och <strong>Network</strong>.</li>
+                </ol>
+                <p>Du kan också öppna samma verktyg med <kbd>F12</kbd>, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> eller på Mac <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd>.</p>
+
+                <h2>Guide: testa responsivt läge</h2>
+                <ol>
+                    <li>Öppna <strong>Inspektera</strong>.</li>
+                    <li>Klicka på ikonen som ser ut som en mobil och surfplatta.</li>
+                    <li>Välj en mobilstorlek eller dra själv i sidans bredd.</li>
+                    <li>Testa smal, mellanbred och bred vy.</li>
+                    <li>Leta efter text som överlappar, bilder som blir för breda och menyer som inte går att använda.</li>
+                </ol>
+
                 <h2>Konsol och Network</h2>
                 <p>Konsolen visar JavaScript-fel och ibland saknade resurser. Network visar vilka filer som laddas och om någon fil ger 404.</p>
 
+                <h2>Guide: öppna Konsol</h2>
+                <p><strong>Console</strong>, eller Konsol, visar felmeddelanden och varningar från sidan. Det är ofta första platsen du tittar om JavaScript inte fungerar.</p>
+                <ol>
+                    <li>Öppna <strong>Inspektera</strong>.</li>
+                    <li>Klicka på fliken <strong>Console</strong>.</li>
+                    <li>Ladda om sidan.</li>
+                    <li>Leta efter röda felmeddelanden.</li>
+                    <li>Läs om felmeddelandet nämner ett filnamn eller radnummer.</li>
+                </ol>
+                <p>Vanliga fel är att en JavaScript-fil saknas, att ett element inte hittas eller att en variabel har fel namn.</p>
+
+                <h2>Guide: öppna Network</h2>
+                <p><strong>Network</strong> visar vilka filer sidan laddar: HTML, CSS, JavaScript, bilder, ljud, video och externa resurser.</p>
+                <ol>
+                    <li>Öppna <strong>Inspektera</strong>.</li>
+                    <li>Klicka på fliken <strong>Network</strong>.</li>
+                    <li>Ladda om sidan medan Network är öppet.</li>
+                    <li>Titta på kolumnen <strong>Status</strong>.</li>
+                    <li>Om du ser <code>404</code> betyder det att filen inte hittas.</li>
+                    <li>Titta på kolumnen <strong>Size</strong> för att se stora filer.</li>
+                </ol>
+                <p>Om en bild inte syns på sidan kan Network visa om sökvägen är fel. Kontrollera mapp, filnamn, stora och små bokstäver samt filändelse.</p>
+
+                <h2>Guide: testa utan cache</h2>
+                <p>Ibland visar webbläsaren en gammal version av CSS eller JavaScript. Då kan cache störa felsökningen.</p>
+                <ol>
+                    <li>Öppna <strong>Network</strong>.</li>
+                    <li>Kryssa i <strong>Disable cache</strong>.</li>
+                    <li>Låt Inspektera vara öppet.</li>
+                    <li>Ladda om sidan.</li>
+                </ol>
+                <p>Nu hämtar webbläsaren filerna på nytt medan utvecklarverktygen är öppna.</p>
+
                 <h2>Testa användning</h2>
                 <p>Klicka igenom länkar, skicka formulär med testdata och navigera med tangentbord. Kontrollera också att fokus syns och att felmeddelanden är begripliga.</p>
+
+                <h2>Snabb testchecklista</h2>
+                <ul>
+                    <li>Fungerar sidan i mobil, mellanbred och bred vy?</li>
+                    <li>Finns det röda fel i Console?</li>
+                    <li>Finns det saknade filer med <code>404</code> i Network?</li>
+                    <li>Är några bilder eller videor onödigt stora?</li>
+                    <li>Fungerar alla länkar?</li>
+                    <li>Går det att använda sidan med tangentbord?</li>
+                    <li>Syns fokusmarkeringen när du trycker <kbd>Tab</kbd>?</li>
+                </ul>
             </section>
 
             <div id="quiz-8-3" aria-label="Quiz Kap 8.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-8-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.2 Figma eller skiss före kod</span></span></a>
-                <a href="chapter-8-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.4 Publicera med GitHub Pages</span></span></a>
+                <a href="chapter-8-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.4 Hotellwebbplatsen</span></span></a>
             </nav>
         </article>
         <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Testning</p><h2>Testa som användare</h2><p>Klicka, tabba, ändra bredd och läs felmeddelanden.</p></section></aside>
