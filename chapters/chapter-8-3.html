@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kap 8.3: testa webbplatsen i webbläsaren med responsivt läge, konsol, tangentbord och validering.">
-    <title>Kap 8.3 - Testa i webbläsaren</title>
+    <meta name="description" content="Inlämning 1: skapa wireframes i Figma för hotellwebbplatsen.">
+    <title>Inlämning 1 - Figma</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -15,107 +15,128 @@
         <article class="chapter-main">
             <header class="chapter-hero">
                 <p class="eyebrow">Modul 8</p>
-                <h1>Kap 8.3 - Testa i webbläsaren</h1>
-                <p class="subtitle">Testning gör att du hittar problem innan användaren gör det.</p>
+                <h1>Inlämning 1 - Figma</h1>
+                <p class="subtitle">Planera hotellwebbplatsen som wireframes innan du börjar koda.</p>
             </header>
 
             <section class="content-section">
-                <h2>Mål</h2>
+                <h2>Uppgift</h2>
+                <p>Du ska skapa wireframes för en fiktiv hotellwebbplats i <a href="https://www.figma.com/" target="_blank" rel="noopener">Figma</a>. Wireframes är enkla skisser som visar sidans struktur: rubriker, meny, bilder, innehållsområden och footer.</p>
+                <p>Den här inlämningen hör ihop med <a href="chapter-8-4.html">Inlämning 2 - Hotellwebbplatsen</a>. Det du planerar här ska hjälpa dig när du senare bygger webbplatsen med HTML och CSS.</p>
+                <h2>Viktigt om Figma</h2>
+                <p>Alla sidor ska ligga i samma Figma-fil och på samma Figma Page. Skapa alltså inte en separat Figma-fil för varje sida. Lägg i stället alla frames bredvid varandra så det går att se hela webbplatsens planering på ett ställe.</p>
+                <p>Namnge dina frames tydligt, till exempel <strong>Desktop index</strong>, <strong>Mobil index</strong>, <strong>Desktop hitta</strong> och <strong>Mobil hitta</strong>.</p>
+
+                <h2>Det du ska lämna in</h2>
                 <ul>
-                    <li>Testa layout i olika skärmbredder.</li>
-                    <li>Använda konsol och Network för felsökning.</li>
-                    <li>Kontrollera länkar, formulär och tangentbordsnavigering.</li>
+                    <li>En delad Figma-länk.</li>
+                    <li>Wireframes som visar sidorna du ska bygga.</li>
+                    <li>Frames som är tydligt namngivna.</li>
+                    <li>En kort kommentar om du satsar på E-nivå eller C/A-nivå.</li>
                 </ul>
 
-                <h2>Responsivt läge</h2>
-                <p>Öppna utvecklarverktygen och testa sidan i smal, mellanbred och bred vy. Leta efter överlappande text, för breda bilder, trasiga menyer och innehåll som hamnar i fel ordning.</p>
+                <h2>Filmgenomgångar</h2>
+                <p><a href="https://www.youtube.com/watch?v=skDixiQdNSE&list=PLNadygDF_9TGGTEym_4upGC_F3FMEorqt" target="_blank" rel="noopener">Filmserie: så används Figma i uppgiften</a>.</p>
 
-                <h2>Öppna Inspektera i Chrome</h2>
-                <p>Med <strong>utvecklarverktygen</strong> menas Chromes verktyg som öppnas med <strong>Inspektera</strong>. De kallas också <strong>DevTools</strong>.</p>
-                <ol>
-                    <li>Öppna sidan i Chrome.</li>
-                    <li>Högerklicka någonstans på sidan.</li>
-                    <li>Välj <strong>Inspektera</strong>.</li>
-                    <li>Nu öppnas en panel med flikar som <strong>Elements</strong>, <strong>Console</strong> och <strong>Network</strong>.</li>
-                </ol>
-                <p>Du kan också öppna samma verktyg med <kbd>F12</kbd>, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> eller på Mac <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd>.</p>
-
-                <h2>Guide: testa responsivt läge</h2>
-                <ol>
-                    <li>Öppna <strong>Inspektera</strong>.</li>
-                    <li>Klicka på ikonen som ser ut som en mobil och surfplatta.</li>
-                    <li>Välj en mobilstorlek eller dra själv i sidans bredd.</li>
-                    <li>Testa smal, mellanbred och bred vy.</li>
-                    <li>Leta efter text som överlappar, bilder som blir för breda och menyer som inte går att använda.</li>
-                </ol>
-
-                <h2>Konsol och Network</h2>
-                <p>Konsolen visar JavaScript-fel och ibland saknade resurser. Network visar vilka filer som laddas och om någon fil ger 404.</p>
-
-                <h2>Guide: öppna Konsol</h2>
-                <p><strong>Console</strong>, eller Konsol, visar felmeddelanden och varningar från sidan. Det är ofta första platsen du tittar om JavaScript inte fungerar.</p>
-                <ol>
-                    <li>Öppna <strong>Inspektera</strong>.</li>
-                    <li>Klicka på fliken <strong>Console</strong>.</li>
-                    <li>Ladda om sidan.</li>
-                    <li>Leta efter röda felmeddelanden.</li>
-                    <li>Läs om felmeddelandet nämner ett filnamn eller radnummer.</li>
-                </ol>
-                <p>Vanliga fel är att en JavaScript-fil saknas, att ett element inte hittas eller att en variabel har fel namn.</p>
-
-                <h2>Guide: öppna Network</h2>
-                <p><strong>Network</strong> visar vilka filer sidan laddar: HTML, CSS, JavaScript, bilder, ljud, video och externa resurser.</p>
-                <ol>
-                    <li>Öppna <strong>Inspektera</strong>.</li>
-                    <li>Klicka på fliken <strong>Network</strong>.</li>
-                    <li>Ladda om sidan medan Network är öppet.</li>
-                    <li>Titta på kolumnen <strong>Status</strong>.</li>
-                    <li>Om du ser <code>404</code> betyder det att filen inte hittas.</li>
-                    <li>Titta på kolumnen <strong>Size</strong> för att se stora filer.</li>
-                </ol>
-                <p>Om en bild inte syns på sidan kan Network visa om sökvägen är fel. Kontrollera mapp, filnamn, stora och små bokstäver samt filändelse.</p>
-
-                <h2>Guide: testa utan cache</h2>
-                <p>Ibland visar webbläsaren en gammal version av CSS eller JavaScript. Då kan cache störa felsökningen.</p>
-                <ol>
-                    <li>Öppna <strong>Network</strong>.</li>
-                    <li>Kryssa i <strong>Disable cache</strong>.</li>
-                    <li>Låt Inspektera vara öppet.</li>
-                    <li>Ladda om sidan.</li>
-                </ol>
-                <p>Nu hämtar webbläsaren filerna på nytt medan utvecklarverktygen är öppna.</p>
-
-                <h2>Testa användning</h2>
-                <p>Klicka igenom länkar, skicka formulär med testdata och navigera med tangentbord. Kontrollera också att fokus syns och att felmeddelanden är begripliga.</p>
-
-                <h2>Snabb testchecklista</h2>
+                <h2>E-krav</h2>
+                <p>För E ska du göra två desktop-wireframes i Figma:</p>
                 <ul>
-                    <li>Fungerar sidan i mobil, mellanbred och bred vy?</li>
-                    <li>Finns det röda fel i Console?</li>
-                    <li>Finns det saknade filer med <code>404</code> i Network?</li>
-                    <li>Är några bilder eller videor onödigt stora?</li>
-                    <li>Fungerar alla länkar?</li>
-                    <li>Går det att använda sidan med tangentbord?</li>
-                    <li>Syns fokusmarkeringen när du trycker <kbd>Tab</kbd>?</li>
+                    <li><strong>Index:</strong> startsidan för hotellet.</li>
+                    <li><strong>Hitta:</strong> en sida där besökaren kan se var hotellet ligger.</li>
                 </ul>
+                <p>Dela din Figma med din lärare.</p>
+
+                <h2>Du får inte använda</h2>
+                <ul>
+                    <li>Samma bilder som i exemplet.</li>
+                    <li>Samma logotyp som i exemplet.</li>
+                    <li>Samma grå färger som i exemplet.</li>
+                </ul>
+
+                <h2>Du får använda</h2>
+                <ul>
+                    <li>Samma namn på länkarna i menyn.</li>
+                    <li>Samma grundlayout som exemplet, om du gör egna visuella val.</li>
+                </ul>
+
+                <h2>C/A-krav</h2>
+                <p>För C/A ska du planera fler sidor och visa både desktop och mobil.</p>
+                <p>Gör desktop-wireframes för fyra sidor:</p>
+                <ul>
+                    <li>Index</li>
+                    <li>Hitta</li>
+                    <li>Boka</li>
+                    <li>Kontakta eller en annan valfri sida, till exempel Sevärdheter eller Matsedel.</li>
+                </ul>
+                <p>Gör också mobil-wireframes för samma sidor. Du kan lägga desktop och mobil bredvid varandra för varje sida. Då kan fyra större grupper räcka, men varje grupp ska tydligt visa både desktop och mobil.</p>
+                <p>En tydlig struktur kan vara:</p>
+                <ol>
+                    <li>Desktop index</li>
+                    <li>Mobil index</li>
+                    <li>Desktop boka</li>
+                    <li>Mobil boka</li>
+                    <li>Desktop hitta</li>
+                    <li>Mobil hitta</li>
+                    <li>Desktop kontakta</li>
+                    <li>Mobil kontakta</li>
+                </ol>
+                <p>Dela din Figma med din lärare.</p>
+
+                <h2>Exempel på E-nivå</h2>
+                <p>Det här visar hur en enklare Figma-inlämning på E-nivå kan vara uppbyggd. Öppna exemplet i Figma: <a href="https://www.figma.com/design/6Q9Pg4GTOFyeP94jLletpQ/IN1---Figma-E?node-id=0-1&t=7vG0gzNgbRPirvuB-1" target="_blank" rel="noopener">IN1 Figma E</a>.</p>
+                <figure>
+                    <img src="../assets/images/in2-exempel-e.png" alt="Exempel på Figma-wireframes för hotellwebbplats på E-nivå" loading="lazy">
+                    <figcaption>Exempel på hur en Figma-inlämning för E-nivå kan vara uppbyggd.</figcaption>
+                </figure>
+
+                <h2>Exempel på A/C-nivå</h2>
+                <p>Det här visar hur en mer omfattande Figma-inlämning på A/C-nivå kan vara uppbyggd. Öppna exemplet i Figma: <a href="https://www.figma.com/design/oPKlxFx5mz9FN2hQyIv71g/IN1---Figma-AC?node-id=0-1&t=XnX7b8JucfASp7Kc-1" target="_blank" rel="noopener">IN1 Figma AC</a>. Använd exemplen som stöd för struktur och omfattning, men kopiera inte bilder, logotyp eller färger rakt av.</p>
+                <figure>
+                    <img src="../assets/images/in1-exempel-ac.png" alt="Exempel på Figma-wireframes för hotellwebbplats på A/C-nivå" loading="lazy">
+                    <figcaption>Exempel på hur en Figma-inlämning för A/C-nivå kan vara uppbyggd.</figcaption>
+                </figure>
+
+                <h2>Så gör du i Figma</h2>
+                <ol>
+                    <li>Skapa en ny Figma-fil.</li>
+                    <li>Skapa en Page för uppgiften, till exempel <strong>Inlämning 1 - Hotell</strong>.</li>
+                    <li>Skapa alla frames på samma Page.</li>
+                    <li>Använd rektanglar, rubriker och korta textetiketter för att visa sidornas struktur.</li>
+                    <li>Visa meny, huvudinnehåll, bildytor, formulärdelar och footer där de behövs.</li>
+                    <li>Döp varje frame så det syns vilken sida och vilken skärmstorlek den visar.</li>
+                </ol>
+
+                <h2>Kontrollera innan du lämnar in</h2>
+                <ul>
+                    <li>Alla frames ligger i samma Figma-fil.</li>
+                    <li>Alla frames ligger på samma Figma Page.</li>
+                    <li>Frames är namngivna så läraren förstår vad de visar.</li>
+                    <li>Menyn och sidans viktigaste innehåll syns i varje wireframe.</li>
+                    <li>Du har inte kopierat bilder, logotyp eller färger rakt av från exemplet.</li>
+                </ul>
+
+                <h2>Dela designen</h2>
+                <p>När du är klar ska du lämna in en länk som läraren kan öppna. Kontrollera därför delningsinställningen innan du skickar länken.</p>
+                <ol>
+                    <li>Klicka på <strong>Share</strong> uppe till höger i Figma.</li>
+                    <li>Under behörighet, välj att personer med länken kan öppna filen.</li>
+                    <li>Välj helst <strong>Can view</strong> om läraren bara ska titta på filen. Välj bara <strong>Can edit</strong> om läraren har bett om redigeringsrättighet.</li>
+                    <li>Klicka på <strong>Copy link</strong>.</li>
+                    <li>Öppna gärna länken i ett privat fönster eller en annan webbläsare och kontrollera att den fungerar.</li>
+                    <li>Lämna in länken till din lärare.</li>
+                </ol>
+
             </section>
 
-            <div id="quiz-8-3" aria-label="Quiz Kap 8.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
-                <a href="chapter-8-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.2 Figma eller skiss före kod</span></span></a>
-                <a href="chapter-8-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.4 Hotellwebbplatsen</span></span></a>
+                <a href="chapter-8-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.2 Testa i webbläsaren</span></span></a>
+                <a href="chapter-8-4.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">Inlämning 2 - Hotellwebbplatsen</span></span></a>
             </nav>
         </article>
-        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Testning</p><h2>Testa som användare</h2><p>Klicka, tabba, ändra bredd och läs felmeddelanden.</p></section></aside>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Inlämning 1</p><h2>Samma Figma Page</h2><p>Lägg alla wireframes i samma Figma-fil och på samma Page.</p></section></aside>
     </main>
     <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
-    <script src="../js/quiz.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-8-3'), {"title":"Quiz: Kap 8.3","questions":[{"question":"Varför testar man sidan i flera bredder?","options":["För att byta domännamn","För att se att layouten fungerar på olika skärmar","För att skapa fler HTML-filer","För att ta bort alla media queries"],"correct":1,"feedback":"Responsiv layout måste testas.","explanation":"Problem syns ofta först när viewporten ändras."},{"question":"Vad visar konsolen ofta?","options":["Bara bildens motiv","Sidans målgrupp","JavaScript-fel och varningar","Alla licenser automatiskt"],"correct":2,"feedback":"Konsolen hjälper felsökning.","explanation":"Fel i JavaScript eller saknade variabler syns ofta där."},{"question":"Vad kan Network-panelen hjälpa dig hitta?","options":["Saknade filer och långsamma resurser","Vilken färg användaren gillar","Om rubriken är poetisk","Exakt vad användaren tänker"],"correct":0,"feedback":"Network visar laddade resurser.","explanation":"404, filstorlek och laddningstid går att kontrollera där."},{"question":"Varför testa med tangentbord?","options":["För att HTML ska bli kortare","För att bilder ska bli vektorbaserade","För att CSS ska stängas av","För att kontrollera att sidan går att använda utan mus"],"correct":3,"feedback":"Tangentbordstestning är viktigt för tillgänglighet.","explanation":"Användaren ska kunna navigera och använda interaktiva delar."},{"question":"Vad är ett bra test av ett formulär?","options":["Titta bara på bakgrundsfärgen","Skicka rimlig och felaktig testdata och läsa feedbacken","Ta bort alla labels före test","Publicera utan att klicka"],"correct":1,"feedback":"Formulär behöver testas praktiskt.","explanation":"Du behöver se vad som händer vid både rätt och fel inmatning."}]});
-        });
-    </script>
 </body>
 
 </html>

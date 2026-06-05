@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kap 8.2: skissa webbplatsen i Figma eller på papper innan du kodar.">
-    <title>Kap 8.2 - Figma eller skiss före kod</title>
+    <meta name="description" content="Kap 8.2: testa webbplatsen i webbläsaren med responsivt läge, konsol, tangentbord och validering.">
+    <title>Kap 8.2 - Testa i webbläsaren</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -15,144 +15,105 @@
         <article class="chapter-main">
             <header class="chapter-hero">
                 <p class="eyebrow">Modul 8</p>
-                <h1>Kap 8.2 - Figma eller skiss före kod</h1>
-                <p class="subtitle">En enkel skiss sparar tid när layout och innehåll ska bli kod.</p>
+                <h1>Kap 8.2 - Testa i webbläsaren</h1>
+                <p class="subtitle">Testning gör att du hittar problem innan användaren gör det.</p>
             </header>
 
             <section class="content-section">
                 <h2>Mål</h2>
                 <ul>
-                    <li>Förstå varför skisser hjälper innan kodning.</li>
-                    <li>Skissa layout för mobil och desktop.</li>
-                    <li>Översätta designbeslut till HTML och CSS.</li>
+                    <li>Testa layout i olika skärmbredder.</li>
+                    <li>Använda konsol och Network för felsökning.</li>
+                    <li>Kontrollera länkar, formulär och tangentbordsnavigering.</li>
                 </ul>
 
-                <h2>Skissens uppgift</h2>
-                <p>En skiss behöver inte vara snygg. Den ska visa placering, prioritering och flöde: vad kommer först, vad hör ihop och hur användaren rör sig genom sidan?</p>
+                <h2>Responsivt läge</h2>
+                <p>Öppna utvecklarverktygen och testa sidan i smal, mellanbred och bred vy. Leta efter överlappande text, för breda bilder, trasiga menyer och innehåll som hamnar i fel ordning.</p>
 
-                <h2>Figma eller papper</h2>
-                <p>Figma passar bra när du vill testa mått, färger och komponenter digitalt. Papper passar bra när du snabbt vill prova flera idéer utan att fastna i detaljer.</p>
-                <p>Figma är ett designverktyg i webbläsaren. Du kan använda det för att skapa wireframes, testa layout, göra mobil- och desktopversioner och dela en länk med någon som ska ge feedback.</p>
-                <p><a href="https://www.figma.com/" target="_blank" rel="noopener">Öppna Figma</a> och skapa ett gratis konto om du vill arbeta digitalt. Du kan också göra samma planering på papper om det passar bättre.</p>
-
-                <h2>Mobil först</h2>
-                <p>Skissa gärna mobilversionen först. Om innehållet fungerar i en smal vy är det ofta enklare att bygga ut layouten för större skärmar.</p>
-
-                <h2>Kom igång med Figma</h2>
+                <h2>Öppna Inspektera i Chrome</h2>
+                <p>Med <strong>utvecklarverktygen</strong> menas Chromes verktyg som öppnas med <strong>Inspektera</strong>. De kallas också <strong>DevTools</strong>.</p>
                 <ol>
-                    <li>Gå till <a href="https://www.figma.com/" target="_blank" rel="noopener">figma.com</a>.</li>
-                    <li>Klicka på <strong>Sign up</strong> om du behöver skapa konto.</li>
-                    <li>Bekräfta kontot om Figma ber dig göra det.</li>
-                    <li>Klicka på <strong>New Design File</strong> för att skapa en ny designfil.</li>
-                    <li>Döp filen till något tydligt, till exempel <strong>Min Webbplatslayout</strong>.</li>
+                    <li>Öppna sidan i Chrome.</li>
+                    <li>Högerklicka någonstans på sidan.</li>
+                    <li>Välj <strong>Inspektera</strong>.</li>
+                    <li>Nu öppnas en panel med flikar som <strong>Elements</strong>, <strong>Console</strong> och <strong>Network</strong>.</li>
+                </ol>
+                <p>Du kan också öppna samma verktyg med <kbd>F12</kbd>, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> eller på Mac <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd>.</p>
+
+                <h2>Guide: testa responsivt läge</h2>
+                <ol>
+                    <li>Öppna <strong>Inspektera</strong>.</li>
+                    <li>Klicka på ikonen som ser ut som en mobil och surfplatta.</li>
+                    <li>Välj en mobilstorlek eller dra själv i sidans bredd.</li>
+                    <li>Testa smal, mellanbred och bred vy.</li>
+                    <li>Leta efter text som överlappar, bilder som blir för breda och menyer som inte går att använda.</li>
                 </ol>
 
-                <h2>Förstå arbetsytan</h2>
-                <p>När du öppnar Figma ser du flera delar av gränssnittet:</p>
+                <h2>Konsol och Network</h2>
+                <p>Konsolen visar JavaScript-fel och ibland saknade resurser. Network visar vilka filer som laddas och om någon fil ger 404.</p>
+
+                <h2>Guide: öppna Konsol</h2>
+                <p><strong>Console</strong>, eller Konsol, visar felmeddelanden och varningar från sidan. Det är ofta första platsen du tittar om JavaScript inte fungerar.</p>
+                <ol>
+                    <li>Öppna <strong>Inspektera</strong>.</li>
+                    <li>Klicka på fliken <strong>Console</strong>.</li>
+                    <li>Ladda om sidan.</li>
+                    <li>Leta efter röda felmeddelanden.</li>
+                    <li>Läs om felmeddelandet nämner ett filnamn eller radnummer.</li>
+                </ol>
+                <p>Vanliga fel är att en JavaScript-fil saknas, att ett element inte hittas eller att en variabel har fel namn.</p>
+
+                <h2>Guide: öppna Network</h2>
+                <p><strong>Network</strong> visar vilka filer sidan laddar: HTML, CSS, JavaScript, bilder, ljud, video och externa resurser.</p>
+                <ol>
+                    <li>Öppna <strong>Inspektera</strong>.</li>
+                    <li>Klicka på fliken <strong>Network</strong>.</li>
+                    <li>Ladda om sidan medan Network är öppet.</li>
+                    <li>Titta på kolumnen <strong>Status</strong>.</li>
+                    <li>Om du ser <code>404</code> betyder det att filen inte hittas.</li>
+                    <li>Titta på kolumnen <strong>Size</strong> för att se stora filer.</li>
+                </ol>
+                <p>Om en bild inte syns på sidan kan Network visa om sökvägen är fel. Kontrollera mapp, filnamn, stora och små bokstäver samt filändelse.</p>
+
+                <h2>Guide: testa utan cache</h2>
+                <p>Ibland visar webbläsaren en gammal version av CSS eller JavaScript. Då kan cache störa felsökningen.</p>
+                <ol>
+                    <li>Öppna <strong>Network</strong>.</li>
+                    <li>Kryssa i <strong>Disable cache</strong>.</li>
+                    <li>Låt Inspektera vara öppet.</li>
+                    <li>Ladda om sidan.</li>
+                </ol>
+                <p>Nu hämtar webbläsaren filerna på nytt medan utvecklarverktygen är öppna.</p>
+
+                <h2>Testa användning</h2>
+                <p>Klicka igenom länkar, skicka formulär med testdata och navigera med tangentbord. Kontrollera också att fokus syns och att felmeddelanden är begripliga.</p>
+
+                <h2>Snabb testchecklista</h2>
                 <ul>
-                    <li><strong>File Browser:</strong> där du hittar och öppnar dina projekt.</li>
-                    <li><strong>Canvas:</strong> den stora arbetsytan där du skapar designen.</li>
-                    <li><strong>Verktygsfältet:</strong> verktyg för att skapa text, former, ramar och andra objekt.</li>
-                    <li><strong>Layers Panel:</strong> visar alla lager och objekt i din design.</li>
-                    <li><strong>Properties Panel:</strong> där du ändrar färg, storlek, placering och textinställningar.</li>
+                    <li>Fungerar sidan i mobil, mellanbred och bred vy?</li>
+                    <li>Finns det röda fel i Console?</li>
+                    <li>Finns det saknade filer med <code>404</code> i Network?</li>
+                    <li>Är några bilder eller videor onödigt stora?</li>
+                    <li>Fungerar alla länkar?</li>
+                    <li>Går det att använda sidan med tangentbord?</li>
+                    <li>Syns fokusmarkeringen när du trycker <kbd>Tab</kbd>?</li>
                 </ul>
-
-                <h2>Skapa en frame</h2>
-                <p>En <strong>frame</strong> är som en sida eller skärm i din design. Du kan ha en frame för desktop och en annan för mobil.</p>
-                <ol>
-                    <li>Välj <strong>Frame Tool</strong> eller tryck <kbd>F</kbd>.</li>
-                    <li>Välj en förinställd storlek, till exempel <strong>Desktop</strong>.</li>
-                    <li>Dubbelklicka på namnet och döp framen till <strong>Startsida desktop</strong>.</li>
-                    <li>Skapa gärna en till frame för mobil, till exempel <strong>iPhone 14</strong> eller en bredd runt <code>390px</code>.</li>
-                </ol>
-
-                <h2>Skapa en enkel desktoplayout</h2>
-                <ol>
-                    <li>Rita en rektangel längst upp som header.</li>
-                    <li>Lägg till text för logotyp eller webbplatsnamn.</li>
-                    <li>Lägg till navigationslänkar, till exempel <strong>Hem</strong>, <strong>Om</strong> och <strong>Kontakt</strong>.</li>
-                    <li>Rita ett större område för huvudinnehållet.</li>
-                    <li>Lägg till en huvudrubrik och kort exempeltext.</li>
-                    <li>Lägg till en bildyta om sidan ska innehålla bild.</li>
-                    <li>Rita en footer längst ner med enkel kontakt- eller copyright-text.</li>
-                </ol>
-
-                <h2>Skapa en mobilversion</h2>
-                <p>Kopiera desktoplayouten och gör om den till mobil, eller skapa en ny mobilframe från början.</p>
-                <ol>
-                    <li>Kopiera layouten med <kbd>Ctrl</kbd> + <kbd>D</kbd> eller <kbd>Cmd</kbd> + <kbd>D</kbd>.</li>
-                    <li>Ändra framen till en mobilstorlek.</li>
-                    <li>Lägg innehållet i en tydlig kolumn.</li>
-                    <li>Kontrollera att texten är läsbar.</li>
-                    <li>Se till att knappar och länkar inte blir för små.</li>
-                    <li>Fundera på om navigationen behöver förenklas i mobilvy.</li>
-                </ol>
-
-                <h2>Använd Layout Grid</h2>
-                <p>Ett rutnät kan hjälpa dig att placera saker jämnt. Det är inte ett krav, men det kan göra layouten mer konsekvent.</p>
-                <ol>
-                    <li>Klicka på din frame.</li>
-                    <li>Leta upp <strong>Layout Grid</strong> i panelen till höger.</li>
-                    <li>Klicka på plusknappen för att lägga till ett grid.</li>
-                    <li>Använd rutnätet som stöd när du placerar text, bilder och knappar.</li>
-                </ol>
-
-                <h2>Justera färg och text</h2>
-                <p>När strukturen fungerar kan du börja justera visuella detaljer. Börja enkelt:</p>
-                <ul>
-                    <li>Välj en tydlig bakgrundsfärg.</li>
-                    <li>Välj textfärger med bra kontrast.</li>
-                    <li>Använd få typsnitt och konsekventa textstorlekar.</li>
-                    <li>Gör rubriker, brödtext och knapptext tydligt olika.</li>
-                    <li>Kontrollera att designen fortfarande fungerar i mobilversionen.</li>
-                </ul>
-
-                <h2>Dela designen</h2>
-                <ol>
-                    <li>Klicka på <strong>Share</strong> uppe till höger.</li>
-                    <li>Välj om andra bara ska kunna titta eller också redigera.</li>
-                    <li>Kopiera länken och dela med en klasskamrat eller lärare.</li>
-                    <li>Be testpersonen säga vad som är tydligt och vad som är svårt att förstå.</li>
-                </ol>
-
-                <h2>Exportera om du behöver lämna in</h2>
-                <p>Om du behöver lämna in din design kan du exportera en frame som PNG eller PDF.</p>
-                <ol>
-                    <li>Klicka på den frame du vill exportera.</li>
-                    <li>Gå till <strong>Export</strong> i panelen till höger.</li>
-                    <li>Välj till exempel PNG eller PDF.</li>
-                    <li>Klicka på <strong>Export</strong>.</li>
-                </ol>
-
-                <h2>Övning: skissa en startsida</h2>
-                <ol>
-                    <li>Skapa en ny Figma-fil eller ta fram papper.</li>
-                    <li>Gör en desktopskiss med header, navigation, huvudinnehåll och footer.</li>
-                    <li>Gör en mobilskiss av samma sida.</li>
-                    <li>Lägg in exempelrubrik, kort text och plats för en bild.</li>
-                    <li>Kontrollera att mobilversionen har tydlig läsordning.</li>
-                    <li>Dela skissen med någon och fråga om de förstår vad sidan handlar om.</li>
-                </ol>
-
-                <h2>Från Figma till kod</h2>
-                <p>Figma skriver inte automatiskt bra HTML och CSS åt dig. Använd designen som karta: vilka delar blir <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code> och <code>footer</code>? Vilka färger, avstånd och textstorlekar behöver du återskapa i CSS?</p>
-                <p>Det viktigaste är inte att koden blir en exakt kopia av skissen. Det viktigaste är att webbplatsen fungerar, är responsiv och följer syftet du planerade i kapitel 8.1.</p>
             </section>
 
             <div id="quiz-8-2" aria-label="Quiz Kap 8.2"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-8-1.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">8.1 Planera en webbplats</span></span></a>
-                <a href="chapter-8-3.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">8.3 Testa i webbläsaren</span></span></a>
+                <a href="chapter-8-3.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">Inlämning 1 - Figma</span></span></a>
             </nav>
         </article>
-        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Skiss</p><h2>Snabbt före snyggt</h2><p>En grov skiss kan avslöja problem innan du har skrivit mycket kod.</p></section></aside>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Testning</p><h2>Testa som användare</h2><p>Klicka, tabba, ändra bredd och läs felmeddelanden.</p></section></aside>
     </main>
     <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-8-2'), {"title":"Quiz: Kap 8.2","questions":[{"question":"Vad är det viktigaste med en tidig skiss?","options":["Att den har exakt slutlig kod","Att den visar placering och prioritering","Att den bara görs efter publicering","Att den innehåller alla CSS-klasser"],"correct":1,"feedback":"Skissen ska visa struktur och idé.","explanation":"Den behöver inte vara perfekt för att vara användbar."},{"question":"När passar papper ofta bra?","options":["När du måste exportera CSS automatiskt","När sidan redan är publicerad","När du snabbt vill prova flera layoutidéer","När du vill undvika all planering"],"correct":2,"feedback":"Papper är snabbt för idéer.","explanation":"Du kan testa flera varianter utan att fastna i detaljer."},{"question":"Varför kan mobil först vara ett bra arbetssätt?","options":["Mobilversionen tvingar dig att prioritera innehållet","Desktop slutar fungera annars","HTML kräver mobilskiss","Bilder får automatiskt alt-text"],"correct":0,"feedback":"Mobil först hjälper prioritering.","explanation":"Smal yta gör det tydligt vad som är viktigast."},{"question":"Vad kan Figma hjälpa till med?","options":["Att skriva all HTML utan kontroll","Att ersätta webbläsartestning helt","Att göra personuppgifter anonyma","Att testa layout, färger och komponenter digitalt"],"correct":3,"feedback":"Figma är ett designverktyg.","explanation":"Det kan hjälpa dig att pröva designbeslut innan du kodar."},{"question":"Vad ska en skiss helst kopplas till?","options":["Slumpmässiga effekter","Sidans syfte och innehåll","Bara dekorativa former","En fil som inte används"],"correct":1,"feedback":"Skissen ska stödja syftet.","explanation":"Designen behöver hjälpa innehållet, inte tvärtom."}]});
+            window.renderQuiz(document.getElementById('quiz-8-2'), {"title":"Quiz: Kap 8.2","questions":[{"question":"Varför testar man sidan i flera bredder?","options":["För att byta domännamn","För att se att layouten fungerar på olika skärmar","För att skapa fler HTML-filer","För att ta bort alla media queries"],"correct":1,"feedback":"Responsiv layout måste testas.","explanation":"Problem syns ofta först när viewporten ändras."},{"question":"Vad visar konsolen ofta?","options":["Bara bildens motiv","Sidans målgrupp","JavaScript-fel och varningar","Alla licenser automatiskt"],"correct":2,"feedback":"Konsolen hjälper felsökning.","explanation":"Fel i JavaScript eller saknade variabler syns ofta där."},{"question":"Vad kan Network-panelen hjälpa dig hitta?","options":["Saknade filer och långsamma resurser","Vilken färg användaren gillar","Om rubriken är poetisk","Exakt vad användaren tänker"],"correct":0,"feedback":"Network visar laddade resurser.","explanation":"404, filstorlek och laddningstid går att kontrollera där."},{"question":"Varför testa med tangentbord?","options":["För att HTML ska bli kortare","För att bilder ska bli vektorbaserade","För att CSS ska stängas av","För att kontrollera att sidan går att använda utan mus"],"correct":3,"feedback":"Tangentbordstestning är viktigt för tillgänglighet.","explanation":"Användaren ska kunna navigera och använda interaktiva delar."},{"question":"Vad är ett bra test av ett formulär?","options":["Titta bara på bakgrundsfärgen","Skicka rimlig och felaktig testdata och läsa feedbacken","Ta bort alla labels före test","Publicera utan att klicka"],"correct":1,"feedback":"Formulär behöver testas praktiskt.","explanation":"Du behöver se vad som händer vid både rätt och fel inmatning."}]});
         });
     </script>
 </body>
