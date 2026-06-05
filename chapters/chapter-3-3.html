@@ -7,6 +7,135 @@
     <meta name="description" content="Kap 3.3: margin, border, padding, width, box-sizing, block/inline och bildregler.">
     <title>Kap 3.3 - Boxmodellen i praktiken</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .box-demo-panel {
+            display: grid;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .box-demo-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .box-demo-control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .box-demo-control label,
+        .box-demo-toggle {
+            font-weight: 700;
+        }
+
+        .box-demo-control input[type="range"] {
+            width: 100%;
+        }
+
+        .box-demo-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .box-demo-switch {
+            position: relative;
+            display: inline-grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-width: 14rem;
+            padding: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .box-demo-switch input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .box-demo-switch-option {
+            position: relative;
+            z-index: 1;
+            padding: 0.45rem 0.7rem;
+            border-radius: 999px;
+            color: var(--text-muted);
+            text-align: center;
+            transition: color 160ms ease;
+        }
+
+        .box-demo-switch-thumb {
+            position: absolute;
+            inset: 0.25rem auto 0.25rem 0.25rem;
+            width: calc(50% - 0.25rem);
+            border-radius: 999px;
+            background: var(--accent-strong);
+            transition: transform 160ms ease;
+        }
+
+        .box-demo-switch input:checked ~ .box-demo-switch-thumb {
+            transform: translateX(100%);
+        }
+
+        .box-demo-switch input:not(:checked) ~ .box-demo-switch-option-content,
+        .box-demo-switch input:checked ~ .box-demo-switch-option-border {
+            color: #081112;
+        }
+
+        .box-demo-switch:focus-within {
+            outline: 3px solid var(--accent-strong);
+            outline-offset: 3px;
+        }
+
+        .box-demo-stage {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: rgba(13, 19, 22, 0.72);
+            overflow: auto;
+        }
+
+        .box-demo-margin {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.22);
+            border: 2px dashed rgba(251, 191, 36, 0.75);
+        }
+
+        .box-demo-box {
+            background: rgba(94, 234, 212, 0.22);
+            border: 8px solid #5eead4;
+            padding: 24px;
+            width: 220px;
+        }
+
+        .box-demo-content {
+            min-height: 5rem;
+            display: grid;
+            place-items: center;
+            background: #f8fafc;
+            color: #172026;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .box-demo-readout {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .box-demo-code {
+            margin-top: 0;
+        }
+
+        .box-demo-code code {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -50,6 +179,51 @@
 }</code></pre>
     <p>Med <code>border-box</code> ingår padding och border i elementets totala bredd.</p>
 
+    <h2>Interaktiv boxmodell</h2>
+    <p>Ändra värdena och se hur <code>margin</code>, <code>border</code>, <code>padding</code> och <code>width</code> påverkar elementets totala plats. Slå också av och på <code>border-box</code> för att se skillnaden mot <code>content-box</code>.</p>
+    <div class="box-demo-panel">
+        <div class="box-demo-controls" aria-label="Boxmodell-kontroller">
+            <div class="box-demo-control">
+                <label for="box-width">Width: <span id="box-width-value">220px</span></label>
+                <input id="box-width" type="range" min="120" max="360" step="10" value="220">
+            </div>
+            <div class="box-demo-control">
+                <label for="box-padding">Padding: <span id="box-padding-value">24px</span></label>
+                <input id="box-padding" type="range" min="0" max="64" step="4" value="24">
+            </div>
+            <div class="box-demo-control">
+                <label for="box-border">Border: <span id="box-border-value">8px</span></label>
+                <input id="box-border" type="range" min="0" max="28" step="2" value="8">
+            </div>
+            <div class="box-demo-control">
+                <label for="box-margin">Margin: <span id="box-margin-value">24px</span></label>
+                <input id="box-margin" type="range" min="0" max="64" step="4" value="24">
+            </div>
+            <label class="box-demo-toggle box-demo-switch" for="box-sizing-toggle" aria-label="Välj box-sizing">
+                <input id="box-sizing-toggle" type="checkbox" checked>
+                <span class="box-demo-switch-option box-demo-switch-option-content">content-box</span>
+                <span class="box-demo-switch-option box-demo-switch-option-border">border-box</span>
+                <span class="box-demo-switch-thumb" aria-hidden="true"></span>
+            </label>
+        </div>
+
+        <p class="box-demo-readout" id="box-demo-readout">Med border-box är den synliga boxens bredd 220px. Margin tar plats utanför boxen.</p>
+        <div class="box-demo-stage">
+            <div class="box-demo-margin" id="box-demo-margin">
+                <div class="box-demo-box" id="box-demo-box">
+                    <div class="box-demo-content" id="box-demo-content">Content</div>
+                </div>
+            </div>
+        </div>
+        <pre class="box-demo-code"><code id="box-demo-code">.box {
+  box-sizing: border-box;
+  width: 220px;
+  padding: 24px;
+  border: 8px solid #5eead4;
+  margin: 24px;
+}</code></pre>
+    </div>
+
     <h2>Block och inline</h2>
     <p>Blockelement börjar normalt på ny rad och tar tillgänglig bredd. Exempel: <code>p</code>, <code>h1</code>, <code>div</code>. Inline-element ligger i textflödet. Exempel: <code>a</code>, <code>span</code>, <code>strong</code>.</p>
 
@@ -86,6 +260,71 @@ img {
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const box = document.getElementById('box-demo-box')
+            const marginBox = document.getElementById('box-demo-margin')
+            const content = document.getElementById('box-demo-content')
+            const width = document.getElementById('box-width')
+            const padding = document.getElementById('box-padding')
+            const border = document.getElementById('box-border')
+            const margin = document.getElementById('box-margin')
+            const sizing = document.getElementById('box-sizing-toggle')
+            const readout = document.getElementById('box-demo-readout')
+            const code = document.getElementById('box-demo-code')
+            const values = {
+                width: document.getElementById('box-width-value'),
+                padding: document.getElementById('box-padding-value'),
+                border: document.getElementById('box-border-value'),
+                margin: document.getElementById('box-margin-value')
+            }
+
+            if (!box || !marginBox || !content || !width || !padding || !border || !margin || !sizing || !readout || !code) return
+
+            function updateBoxDemo() {
+                const widthValue = Number(width.value)
+                const paddingValue = Number(padding.value)
+                const borderValue = Number(border.value)
+                const marginValue = Number(margin.value)
+                const boxSizing = sizing.checked ? 'border-box' : 'content-box'
+                const visibleWidth = boxSizing === 'border-box'
+                    ? widthValue
+                    : widthValue + paddingValue * 2 + borderValue * 2
+                const totalWidth = visibleWidth + marginValue * 2
+
+                box.style.boxSizing = boxSizing
+                box.style.width = `${widthValue}px`
+                box.style.padding = `${paddingValue}px`
+                box.style.borderWidth = `${borderValue}px`
+                marginBox.style.padding = `${marginValue}px`
+
+                values.width.textContent = `${widthValue}px`
+                values.padding.textContent = `${paddingValue}px`
+                values.border.textContent = `${borderValue}px`
+                values.margin.textContent = `${marginValue}px`
+                content.textContent = `Content: ${widthValue}px`
+
+                if (boxSizing === 'border-box') {
+                    readout.textContent = `Med border-box är den synliga boxens bredd ${visibleWidth}px. Margin gör att elementet totalt tar ungefär ${totalWidth}px i bredd.`
+                } else {
+                    readout.textContent = `Med content-box är content ${widthValue}px, men padding och border läggs ovanpå. Den synliga boxen blir ${visibleWidth}px bred och med margin ungefär ${totalWidth}px.`
+                }
+
+                code.textContent = `.box {
+  box-sizing: ${boxSizing};
+  width: ${widthValue}px;
+  padding: ${paddingValue}px;
+  border: ${borderValue}px solid #5eead4;
+  margin: ${marginValue}px;
+}`
+            }
+
+            ;[width, padding, border, margin, sizing].forEach(control => {
+                control.addEventListener('input', updateBoxDemo)
+                control.addEventListener('change', updateBoxDemo)
+            })
+            updateBoxDemo()
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-3-3'), {"title": "Quiz: Kap 3.3", "questions": [{"question": "Vilken del är luften mellan innehåll och border?", "options": ["Margin", "Padding", "Content", "Viewport"], "correct": 1, "feedback": "Padding ligger innanför border.", "explanation": "Padding ligger innanför border."}, {"question": "Vad gör margin?", "options": ["Skapar avstånd till andra element", "Ändrar filnamn", "Skickar formulär", "Gör bilden till SVG"], "correct": 0, "feedback": "Margin är yttre avstånd.", "explanation": "Margin är yttre avstånd."}, {"question": "Varför används ofta box-sizing: border-box?", "options": ["Bredden blir lättare att kontrollera", "HTML slutar behövas", "Alla länkar öppnas i ny flik", "Texten blir automatiskt översatt"], "correct": 0, "feedback": "Border-box gör totalbredd mer förutsägbar.", "explanation": "Border-box gör totalbredd mer förutsägbar."}, {"question": "Vilket element är normalt inline?", "options": ["p", "h1", "a", "div"], "correct": 2, "feedback": "a ligger normalt i textflödet.", "explanation": "a ligger normalt i textflödet."}, {"question": "Vad gör img { max-width: 100%; height: auto; }?", "options": ["Hjälper bilder skala ned proportionellt", "Tar bort alla bilder", "Gör texten större", "Skapar ett formulär"], "correct": 0, "feedback": "Regeln hjälper bilder att inte spräcka layouten.", "explanation": "Regeln hjälper bilder att inte spräcka layouten."}]});
         });

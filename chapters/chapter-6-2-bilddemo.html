@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interaktiv demosida för lazy loading och responsiva bildkällor med srcset.">
+    <title>Bilddemo - lazy loading och srcset</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .demo-shell {
+            max-width: 1100px;
+        }
+
+        .demo-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .demo-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .responsive-frame {
+            width: min(100%, var(--demo-image-width, 720px));
+            transition: width 0.25s ease;
+        }
+
+        .demo-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: #f8fafc;
+        }
+
+        .demo-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .demo-controls label {
+            font-weight: 700;
+        }
+
+        .demo-controls input {
+            width: min(26rem, 100%);
+        }
+
+        .demo-readout {
+            display: grid;
+            gap: 0.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            color: #0f172a;
+        }
+
+        .demo-readout code {
+            overflow-wrap: anywhere;
+        }
+
+        .lazy-spacer {
+            display: grid;
+            min-height: 75vh;
+            place-items: center;
+            border: 1px dashed var(--border);
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .load-log {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .load-log li + li {
+            margin-top: 0.35rem;
+        }
+
+        @media (min-width: 820px) {
+            .demo-grid {
+                grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+                align-items: start;
+            }
+        }
+    </style>
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container chapter-shell demo-shell">
+        <article class="chapter-main">
+            <header class="chapter-hero">
+                <p class="eyebrow">Modul 6</p>
+                <h1>Bilddemo - lazy loading och <code>srcset</code></h1>
+                <p class="subtitle">En separat demosida där det syns vilken bildfil webbläsaren använder och när bilder laddas.</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Responsiva bildkällor med <code>srcset</code></h2>
+                <p>Den här bilden finns i tre versioner. De har olika färg och text: <code>400w</code>, <code>800w</code> och <code>1200w</code>. Webbläsaren väljer en av dem utifrån bildens visade bredd och skärmens pixeltäthet.</p>
+
+                <div class="demo-panel">
+                    <div class="demo-controls">
+                        <label for="image-width">Visad bildbredd:</label>
+                        <input id="image-width" type="range" min="260" max="960" value="720" step="20">
+                        <output id="image-width-output" for="image-width">720px</output>
+                    </div>
+
+                    <div class="demo-grid">
+                        <div class="responsive-frame" id="responsive-frame">
+                            <img
+                                id="responsive-image"
+                                class="demo-image"
+                                src="../assets/images/demo-srcset-800.svg"
+                                srcset="../assets/images/demo-srcset-400.svg 400w, ../assets/images/demo-srcset-800.svg 800w, ../assets/images/demo-srcset-1200.svg 1200w"
+                                sizes="720px"
+                                alt="Testbild där texten visar vilken srcset-version som laddades.">
+                        </div>
+                        <div class="demo-readout" aria-live="polite">
+                            <strong>Vald bildkälla</strong>
+                            <span>Visad bredd: <code id="shown-width">720px</code></span>
+                            <span><code>sizes</code>: <code id="sizes-value">720px</code></span>
+                            <span><code>currentSrc</code>: <code id="current-src">laddar...</code></span>
+                            <span>Skärmens pixeltäthet: <code id="pixel-ratio">laddar...</code></span>
+                        </div>
+                    </div>
+                </div>
+
+                <pre><code>&lt;img
+    src="demo-srcset-800.svg"
+    srcset="demo-srcset-400.svg 400w,
+            demo-srcset-800.svg 800w,
+            demo-srcset-1200.svg 1200w"
+    sizes="720px"
+    alt="Testbild"&gt;</code></pre>
+
+                <h2>Lazy loading</h2>
+                <p>Bilden direkt här nedanför laddas normalt direkt. Därefter kommer tio bilder under varandra med <code>loading="lazy"</code>. Öppna gärna Network-panelen i utvecklarverktygen, ladda om sidan och scrolla långsamt nedåt. Då blir det tydligt att bilder längre ner på sidan inte behöver hämtas direkt.</p>
+
+                <div class="demo-panel">
+                    <h3>Bild som laddas direkt</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-direct.svg"
+                        alt="Testbild som laddas direkt."
+                        data-demo-name="Direkt bild">
+                </div>
+
+                <div class="demo-readout">
+                    <strong>Laddningslogg</strong>
+                    <ol class="load-log" id="load-log">
+                        <li>Väntar på bildladdningar...</li>
+                    </ol>
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Scrolla vidare. Nu börjar serien med tio lazy-bilder.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 1 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-01.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 1 av 10."
+                        data-demo-name="Lazy bild 1">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 2.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 2 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-02.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 2 av 10."
+                        data-demo-name="Lazy bild 2">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 3.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 3 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-03.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 3 av 10."
+                        data-demo-name="Lazy bild 3">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 4.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 4 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-04.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 4 av 10."
+                        data-demo-name="Lazy bild 4">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 5.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 5 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-05.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 5 av 10."
+                        data-demo-name="Lazy bild 5">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 6.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 6 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-06.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 6 av 10."
+                        data-demo-name="Lazy bild 6">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 7.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 7 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-07.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 7 av 10."
+                        data-demo-name="Lazy bild 7">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 8.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 8 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-08.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 8 av 10."
+                        data-demo-name="Lazy bild 8">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 9.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 9 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-09.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 9 av 10."
+                        data-demo-name="Lazy bild 9">
+                </div>
+
+                <div class="lazy-spacer">
+                    <p>Fortsätt scrolla till bild 10.</p>
+                </div>
+
+                <div class="demo-panel">
+                    <h3>Lazy loading bild 10 av 10</h3>
+                    <img
+                        class="demo-image observed-image"
+                        src="../assets/images/demo-lazy-10.webp"
+                        loading="lazy"
+                        alt="Lazy loading bild 10 av 10."
+                        data-demo-name="Lazy bild 10">
+                </div>
+
+                <pre><code>&lt;img src="bild-direkt.svg" alt="..."&gt;
+
+&lt;img src="bild-langre-ner.webp" alt="..." loading="lazy"&gt;</code></pre>
+
+                <p><a href="chapter-6-2.html">Tillbaka till kapitel 6.2</a></p>
+            </section>
+        </article>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+    <script>
+        const widthSlider = document.querySelector('#image-width');
+        const widthOutput = document.querySelector('#image-width-output');
+        const frame = document.querySelector('#responsive-frame');
+        const responsiveImage = document.querySelector('#responsive-image');
+        const shownWidth = document.querySelector('#shown-width');
+        const sizesValue = document.querySelector('#sizes-value');
+        const currentSrc = document.querySelector('#current-src');
+        const pixelRatio = document.querySelector('#pixel-ratio');
+        const loadLog = document.querySelector('#load-log');
+
+        function shortFileName(url) {
+            return url.split('/').pop() || url;
+        }
+
+        function updateResponsiveDemo() {
+            const width = `${widthSlider.value}px`;
+            frame.style.setProperty('--demo-image-width', width);
+            responsiveImage.sizes = width;
+            widthOutput.textContent = width;
+            shownWidth.textContent = width;
+            sizesValue.textContent = width;
+            pixelRatio.textContent = `${window.devicePixelRatio}x`;
+
+            requestAnimationFrame(function () {
+                currentSrc.textContent = shortFileName(responsiveImage.currentSrc || responsiveImage.src);
+            });
+        }
+
+        function addLog(message) {
+            if (loadLog.firstElementChild && loadLog.firstElementChild.textContent === 'Väntar på bildladdningar...') {
+                loadLog.innerHTML = '';
+            }
+
+            const item = document.createElement('li');
+            item.textContent = message;
+            loadLog.append(item);
+        }
+
+        widthSlider.addEventListener('input', updateResponsiveDemo);
+        responsiveImage.addEventListener('load', updateResponsiveDemo);
+        window.addEventListener('resize', updateResponsiveDemo);
+
+        document.querySelectorAll('.observed-image').forEach(function (image) {
+            const name = image.dataset.demoName;
+
+            if (image.complete) {
+                addLog(`${name}: redan laddad när skriptet kontrollerade sidan.`);
+            } else {
+                image.addEventListener('load', function () {
+                    addLog(`${name}: load-event kördes.`);
+                });
+            }
+        });
+
+        updateResponsiveDemo();
+    </script>
+</body>
+
+</html>

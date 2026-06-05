@@ -7,6 +7,62 @@
     <meta name="description" content="Kap 5.3: formulär, submit-event, preventDefault, value och feedback.">
     <title>Kap 5.3 - Formulär och feedback</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .form-example {
+            display: grid;
+            gap: 0.8rem;
+            margin: 0.85rem 0 1.4rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .form-example label {
+            display: grid;
+            gap: 0.35rem;
+            font-weight: 700;
+        }
+
+        .form-example input,
+        .form-example textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            font: inherit;
+        }
+
+        .form-example button {
+            justify-self: start;
+            border: 0;
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+            background: var(--accent-strong);
+            color: #081112;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .form-example-feedback {
+            margin: 0;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .form-example-feedback.is-ok {
+            border-color: #5eead4;
+            background: rgba(94, 234, 212, 0.16);
+        }
+
+        .form-example-feedback.is-error {
+            border-color: #fb7185;
+            background: rgba(251, 113, 133, 0.14);
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -31,12 +87,20 @@
                 <h2>Submit-event</h2>
                 <p>Lyssna på formuläret, inte bara på knappen. Då fungerar koden även om användaren trycker Enter i ett fält.</p>
                 <pre><code>const form = document.querySelector("#contact-form");
+const nameInput = document.querySelector("#name");
 const feedback = document.querySelector("#feedback");
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    feedback.textContent = "Formuläret kontrollerades";
+    feedback.textContent = "Hej " + nameInput.value + "!";
 });</code></pre>
+                <form class="form-example" id="submit-demo-form">
+                    <label for="submit-demo-name">Namn
+                        <input id="submit-demo-name" type="text" placeholder="Skriv ditt namn">
+                    </label>
+                    <button type="submit">Visa hälsning</button>
+                    <p class="form-example-feedback" id="submit-demo-feedback">Skriv ditt namn och tryck Enter eller klicka på knappen.</p>
+                </form>
 
                 <h2>Läsa fältvärden</h2>
                 <p><code>value</code> innehåller det användaren har skrivit eller valt i ett formulärfält.</p>
@@ -45,10 +109,24 @@ form.addEventListener("submit", function (event) {
 if (email.value === "") {
     feedback.textContent = "Skriv en e-postadress.";
 }</code></pre>
+                <form class="form-example" id="value-demo-form">
+                    <label for="value-demo-email">E-post
+                        <input id="value-demo-email" type="email" placeholder="namn@example.com">
+                    </label>
+                    <button type="submit">Läs value</button>
+                    <p class="form-example-feedback" id="value-demo-feedback">Skriv en e-postadress och testa.</p>
+                </form>
 
                 <h2>Feedback ska vara tydlig</h2>
                 <p>Feedback ska berätta vad som hände och vad användaren behöver göra. Skriv hellre konkret än bara "fel".</p>
                 <pre><code>feedback.textContent = "Meddelandet måste vara minst 10 tecken.";</code></pre>
+                <form class="form-example" id="feedback-demo-form">
+                    <label for="feedback-demo-message">Meddelande
+                        <textarea id="feedback-demo-message" rows="4" placeholder="Skriv minst 10 tecken"></textarea>
+                    </label>
+                    <button type="submit">Kontrollera meddelande</button>
+                    <p class="form-example-feedback" id="feedback-demo-feedback">Feedback visas här.</p>
+                </form>
             </section>
 
             <div id="quiz-5-3" aria-label="Quiz Kap 5.3"></div>
@@ -63,6 +141,62 @@ if (email.value === "") {
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submitForm = document.querySelector('#submit-demo-form')
+            const submitName = document.querySelector('#submit-demo-name')
+            const submitFeedback = document.querySelector('#submit-demo-feedback')
+            if (submitForm && submitName && submitFeedback) {
+                submitForm.addEventListener('submit', function (event) {
+                    event.preventDefault()
+                    if (submitName.value.trim() === '') {
+                        submitFeedback.textContent = 'Skriv ett namn först.'
+                        submitFeedback.classList.add('is-error')
+                        submitFeedback.classList.remove('is-ok')
+                    } else {
+                        submitFeedback.textContent = `Hej ${submitName.value.trim()}! Formuläret fångades utan att sidan laddades om.`
+                        submitFeedback.classList.add('is-ok')
+                        submitFeedback.classList.remove('is-error')
+                    }
+                })
+            }
+
+            const valueForm = document.querySelector('#value-demo-form')
+            const valueEmail = document.querySelector('#value-demo-email')
+            const valueFeedback = document.querySelector('#value-demo-feedback')
+            if (valueForm && valueEmail && valueFeedback) {
+                valueForm.addEventListener('submit', function (event) {
+                    event.preventDefault()
+                    if (valueEmail.value === '') {
+                        valueFeedback.textContent = 'Skriv en e-postadress.'
+                        valueFeedback.classList.add('is-error')
+                        valueFeedback.classList.remove('is-ok')
+                    } else {
+                        valueFeedback.textContent = `Fältets value är: ${valueEmail.value}`
+                        valueFeedback.classList.add('is-ok')
+                        valueFeedback.classList.remove('is-error')
+                    }
+                })
+            }
+
+            const feedbackForm = document.querySelector('#feedback-demo-form')
+            const feedbackMessage = document.querySelector('#feedback-demo-message')
+            const feedbackOutput = document.querySelector('#feedback-demo-feedback')
+            if (feedbackForm && feedbackMessage && feedbackOutput) {
+                feedbackForm.addEventListener('submit', function (event) {
+                    event.preventDefault()
+                    if (feedbackMessage.value.trim().length < 10) {
+                        feedbackOutput.textContent = 'Meddelandet måste vara minst 10 tecken.'
+                        feedbackOutput.classList.add('is-error')
+                        feedbackOutput.classList.remove('is-ok')
+                    } else {
+                        feedbackOutput.textContent = 'Tack. Meddelandet är tillräckligt långt.'
+                        feedbackOutput.classList.add('is-ok')
+                        feedbackOutput.classList.remove('is-error')
+                    }
+                })
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-5-3'), {"title": "Quiz: Kap 5.3", "questions": [{"question": "Varför lyssnar man ofta på formulärets `submit`-event?", "options": ["Det ändrar automatiskt CSS-färger", "Det fångar både knappklick och Enter i fält", "Det skapar ett nytt inputfält", "Det gör labels onödiga"], "correct": 1, "feedback": "Submit är formulärets skickningshändelse.", "explanation": "Det fungerar även när användaren skickar formuläret med tangentbordet."}, {"question": "Vad gör `event.preventDefault()` i ett formulär?", "options": ["Tar bort alla inputfält", "Byter formulärets id", "Gör sidan till en bild", "Stoppar webbläsarens vanliga formulärskickning"], "correct": 3, "feedback": "preventDefault stoppar standardbeteendet.", "explanation": "Då kan JavaScript kontrollera formuläret och visa feedback utan sidomladdning."}, {"question": "Vad innehåller `email.value` om `email` är ett inputfält?", "options": ["Fältets CSS-regler", "Sidans titel", "Det användaren har skrivit i fältet", "Alla formulär på sidan"], "correct": 2, "feedback": "value är fältets aktuella värde.", "explanation": "Du använder value när du vill läsa vad användaren har skrivit eller valt."}, {"question": "Vad är bäst feedback om ett meddelande är för kort?", "options": ["Fel.", "Meddelandet måste vara minst 10 tecken.", "Dåligt.", "HTML fungerar inte."], "correct": 1, "feedback": "Konkret feedback hjälper användaren.", "explanation": "Säg vad som behöver ändras, inte bara att något är fel."}, {"question": "Var bör feedback från JavaScript ofta visas?", "options": ["Endast i filnamnet", "Som bildens filändelse", "I nav-elementets href", "I ett synligt element nära formuläret"], "correct": 3, "feedback": "Synlig feedback är lättare att förstå.", "explanation": "Ett element nära formuläret gör det tydligt vad feedbacken gäller."}]});
         });

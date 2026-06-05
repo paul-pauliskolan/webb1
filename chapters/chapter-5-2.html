@@ -7,6 +7,46 @@
     <meta name="description" content="Kap 5.2: querySelector, textContent, classList och addEventListener.">
     <title>Kap 5.2 - Hämta och ändra element</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .dom-example {
+            margin: 0.85rem 0 1.4rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .dom-example-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dom-example button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+            background: var(--accent-strong);
+            color: #081112;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .dom-example-message,
+        .dom-example-box {
+            margin: 0.5rem 0 0;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .dom-example-box.is-active,
+        body.dom-example-dark .dom-example-theme-target {
+            background: rgba(94, 234, 212, 0.18);
+            border-color: #5eead4;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -32,20 +72,40 @@
                 <p><code>querySelector</code> använder CSS-selektorer. Det betyder att du kan leta efter exempelvis en klass, ett id eller ett elementnamn.</p>
                 <pre><code>const button = document.querySelector(".theme-button");
 const message = document.querySelector("#message");</code></pre>
+                <div class="dom-example" aria-label="Exempel på querySelector">
+                    <div class="dom-example-row">
+                        <button class="theme-button" type="button">Knapp med klassen theme-button</button>
+                        <p id="message" class="dom-example-message">Det här elementet har id <code>message</code>.</p>
+                    </div>
+                    <p class="dom-example-message" id="selector-result">JavaScript kan hitta båda elementen med selektorerna i koden.</p>
+                </div>
 
                 <h2>Ändra text</h2>
                 <p><code>textContent</code> ändrar texten inuti ett element.</p>
                 <pre><code>message.textContent = "Knappen klickades";</code></pre>
+                <div class="dom-example" aria-label="Exempel på textContent">
+                    <button id="text-demo-button" type="button">Ändra text</button>
+                    <p id="text-demo-message" class="dom-example-message">Den här texten ändras när du klickar.</p>
+                </div>
 
                 <h2>Lyssna på events</h2>
                 <p><code>addEventListener</code> kopplar en funktion till något som händer, till exempel ett klick.</p>
                 <pre><code>button.addEventListener("click", function () {
     message.textContent = "Du klickade på knappen";
 });</code></pre>
+                <div class="dom-example" aria-label="Exempel på addEventListener">
+                    <button id="event-demo-button" type="button">Klicka här</button>
+                    <p id="event-demo-message" class="dom-example-message">Väntar på klick...</p>
+                </div>
 
                 <h2>Växla klass</h2>
                 <p><code>classList.toggle</code> lägger till klassen om den saknas och tar bort den om den redan finns.</p>
                 <pre><code>document.body.classList.toggle("dark-mode");</code></pre>
+                <div class="dom-example dom-example-theme-target" aria-label="Exempel på classList toggle">
+                    <button id="class-demo-button" type="button">Växla klass</button>
+                    <p id="class-demo-message" class="dom-example-message">Klassen är av.</p>
+                    <div id="class-demo-box" class="dom-example-box">Den här rutan får klassen <code>is-active</code>.</div>
+                </div>
             </section>
 
             <div id="quiz-5-2" aria-label="Quiz Kap 5.2"></div>
@@ -60,6 +120,44 @@ const message = document.querySelector("#message");</code></pre>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const foundButton = document.querySelector('.theme-button')
+            const foundMessage = document.querySelector('#message')
+            const selectorResult = document.querySelector('#selector-result')
+            if (foundButton && foundMessage && selectorResult) {
+                selectorResult.textContent = `Hittade: ${foundButton.textContent} och texten "${foundMessage.textContent}"`
+            }
+
+            const textButton = document.querySelector('#text-demo-button')
+            const textMessage = document.querySelector('#text-demo-message')
+            if (textButton && textMessage) {
+                textButton.addEventListener('click', function () {
+                    textMessage.textContent = 'Knappen klickades'
+                })
+            }
+
+            const eventButton = document.querySelector('#event-demo-button')
+            const eventMessage = document.querySelector('#event-demo-message')
+            if (eventButton && eventMessage) {
+                let clicks = 0
+                eventButton.addEventListener('click', function () {
+                    clicks += 1
+                    eventMessage.textContent = `Du klickade ${clicks} gång${clicks === 1 ? '' : 'er'} på knappen`
+                })
+            }
+
+            const classButton = document.querySelector('#class-demo-button')
+            const classBox = document.querySelector('#class-demo-box')
+            const classMessage = document.querySelector('#class-demo-message')
+            if (classButton && classBox && classMessage) {
+                classButton.addEventListener('click', function () {
+                    classBox.classList.toggle('is-active')
+                    const isActive = classBox.classList.contains('is-active')
+                    classMessage.textContent = isActive ? 'Klassen is-active är på.' : 'Klassen är av.'
+                })
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-5-2'), {"title": "Quiz: Kap 5.2", "questions": [{"question": "Vad gör `document.querySelector(\".menu\")`?", "options": ["Skapar en ny CSS-fil", "Tar bort alla menyer", "Hittar första elementet som matchar klassen menu", "Publicerar sidan"], "correct": 2, "feedback": "querySelector hittar ett matchande element.", "explanation": "Punkten betyder klass, precis som i CSS."}, {"question": "Vilken egenskap ändrar texten inuti ett element?", "options": ["src", "textContent", "href", "alt"], "correct": 1, "feedback": "textContent ändrar text.", "explanation": "textContent används när du vill läsa eller ändra textinnehåll."}, {"question": "Vad gör `addEventListener(\"click\", function () { ... })`?", "options": ["Kör CSS i en bildfil", "Byter HTML till PDF", "Tar bort webbläsarens konsol", "Kör funktionen när elementet klickas"], "correct": 3, "feedback": "addEventListener lyssnar på events.", "explanation": "click är ett event som sker när användaren klickar."}, {"question": "Vad gör `classList.toggle(\"open\")`?", "options": ["Byter elementets id till open", "Raderar alla klasser", "Växlar klassen open på eller av", "Skapar en ny HTML-fil"], "correct": 2, "feedback": "toggle växlar en klass.", "explanation": "Klassen läggs till om den saknas och tas bort om den finns."}, {"question": "Varför är det bra att spara ett hittat element i en variabel?", "options": ["Elementet blir automatiskt en bild", "Du kan använda samma element flera gånger i koden", "CSS slutar påverka elementet", "HTML-valideringen stängs av"], "correct": 1, "feedback": "Variabler gör koden tydligare.", "explanation": "En variabel som button eller message gör det tydligare vilket element koden arbetar med."}]});
         });

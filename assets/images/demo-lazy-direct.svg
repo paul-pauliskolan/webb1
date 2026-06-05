@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+    <title id="title">Bild utan lazy loading</title>
+    <desc id="desc">En testbild som används för att visa vanlig bildladdning.</desc>
+    <rect width="900" height="560" fill="#334155"/>
+    <rect x="54" y="54" width="792" height="452" rx="32" fill="#e2e8f0"/>
+    <text x="450" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#0f172a">Laddas direkt</text>
+    <text x="450" y="322" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#334155">ingen loading="lazy"</text>
+</svg>

@@ -31,6 +31,18 @@
                 <h2>Rätt pixelstorlek</h2>
                 <p>Ladda inte upp en bild på 4000 pixlar bred om den visas som 600 pixlar bred. Webbläsaren kan skala ned bilden visuellt, men användaren måste ändå ladda den stora filen.</p>
 
+                <h2>Ändra bildstorlek innan publicering</h2>
+                <p>Bildstorlek kan betyda två olika saker: bildens dimensioner i pixlar och filens storlek i kilobyte eller megabyte. Båda påverkar hur snabbt sidan laddas.</p>
+                <p>Om en bild bara ska visas i en artikel med ungefär 700 pixlars bredd behöver originalet oftast inte vara 3000-4000 pixlar brett. Då är det bättre att skapa en mindre version, till exempel 700 eller 1400 pixlar bred. En bredare variant kan behövas för skärmar med hög pixeltäthet, men bilden ska fortfarande vara anpassad till hur den faktiskt används på sidan.</p>
+
+                <h2>Komprimering</h2>
+                <p>Komprimering minskar filstorleken. I format som JPEG, WebP och AVIF kan du ofta välja kvalitet. Lägre kvalitet ger mindre fil, men om du sänker för mycket syns blockighet, suddighet eller konstiga färgkanter.</p>
+                <p>Målet är inte att bilden ska vara så liten som möjligt. Målet är att bilden ska vara tillräckligt tydlig samtidigt som filen inte är onödigt stor.</p>
+
+                <h2>Verktyg för bilder</h2>
+                <p><a href="https://squoosh.app/" target="_blank" rel="noopener">Squoosh</a> är ett webbläsarverktyg för att minska bilders filstorlek. Du kan dra in en bild, ändra format, justera kvalitet, ändra pixelstorlek och jämföra originalet med den optimerade versionen innan du sparar. Squoosh är särskilt bra när du vill testa skillnaden mellan till exempel JPEG, WebP och AVIF.</p>
+                <p><a href="https://www.photopea.com/" target="_blank" rel="noopener">Photopea</a> är en bildredigerare direkt i webbläsaren. Den kan användas för att beskära bilder, ändra bildstorlek, justera färger, arbeta med lager och exportera till webbanpassade format. Photopea passar bättre när bilden först behöver redigeras, medan Squoosh passar bättre när bilden ska optimeras inför publicering.</p>
+
                 <h2>Lazy loading</h2>
                 <p>Bilder längre ner på sidan kan ofta vänta tills användaren närmar sig dem.</p>
                 <pre><code>&lt;img src="bild.webp" alt="..." loading="lazy"&gt;</code></pre>
@@ -42,6 +54,10 @@
     srcset="hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w"
     sizes="(max-width: 700px) 100vw, 700px"
     alt="Exempelbild"&gt;</code></pre>
+
+                <h2>Demo: se hur bilder laddas</h2>
+                <p><a href="chapter-6-2-bilddemo.html">Öppna bilddemot för lazy loading och <code>srcset</code></a>. Demot visar två saker: hur webbläsaren kan välja olika bildfiler med <code>srcset</code>, och hur bilder längre ner på sidan kan vänta med att laddas med <code>loading="lazy"</code>.</p>
+                <p>Öppna gärna Network-panelen i utvecklarverktygen innan du testar. Då kan du se vilka bildfiler som laddas direkt, vilka som laddas först när du scrollar, och vilken responsiv bildkälla webbläsaren väljer.</p>
 
                 <h2>Kontrollera resultatet</h2>
                 <p>Använd Network-panelen i utvecklarverktygen för att se vilka bildfiler som laddas och hur stora de är.</p>

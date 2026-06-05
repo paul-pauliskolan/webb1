@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+    <title id="title">Lazy loading bild 3</title>
+    <desc id="desc">Testbild 3 som laddas med lazy loading.</desc>
+    <rect width="900" height="560" fill="#16a34a"/>
+    <rect x="54" y="54" width="792" height="452" rx="32" fill="#dcfce7"/>
+    <text x="450" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" font-weight="700" fill="#14532d">Lazy 3</text>
+    <text x="450" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#14532d">loading="lazy"</text>
+</svg>

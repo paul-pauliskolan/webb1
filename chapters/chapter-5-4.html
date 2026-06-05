@@ -7,6 +7,62 @@
     <meta name="description" content="Kap 5.4: små JavaScript-interaktioner utan ramverk, till exempel meny, tema och tabs.">
     <title>Kap 5.4 - Små interaktioner utan ramverk</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .interaction-example {
+            display: grid;
+            gap: 0.8rem;
+            margin: 0.85rem 0 1.4rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .interaction-example button {
+            justify-self: start;
+            border: 0;
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+            background: var(--accent-strong);
+            color: #081112;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .interaction-menu {
+            display: none;
+            gap: 0.5rem;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .interaction-menu.is-open {
+            display: grid;
+        }
+
+        .interaction-menu a {
+            color: var(--accent-strong);
+        }
+
+        .interaction-status,
+        .interaction-panel {
+            margin: 0;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .interaction-panel {
+            display: none;
+        }
+
+        .interaction-panel.active {
+            display: block;
+            border-color: #5eead4;
+            background: rgba(94, 234, 212, 0.16);
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -35,17 +91,38 @@ const menu = document.querySelector(".menu");
 menuButton.addEventListener("click", function () {
     menu.classList.toggle("is-open");
 });</code></pre>
+                <div class="interaction-example" aria-label="Exempel på meny som visas och döljs">
+                    <button class="menu-button" id="menu-demo-button" type="button">Visa meny</button>
+                    <nav class="menu interaction-menu" id="menu-demo-menu" aria-label="Exempelmeny">
+                        <a href="#quiz-5-4">Quiz</a>
+                        <a href="chapter-5-5.html">Nästa kapitel</a>
+                    </nav>
+                </div>
 
                 <h2>Uppdatera tillgängligt läge</h2>
                 <p>Om en knapp öppnar och stänger något bör <code>aria-expanded</code> spegla läget.</p>
                 <pre><code>const isOpen = menu.classList.toggle("is-open");
 menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
+                <div class="interaction-example" aria-label="Exempel på aria-expanded">
+                    <button id="aria-demo-button" type="button" aria-expanded="false" aria-controls="aria-demo-menu">Visa meny</button>
+                    <nav class="interaction-menu" id="aria-demo-menu" aria-label="Meny med aria-expanded">
+                        <a href="#quiz-5-4">Quiz</a>
+                        <a href="chapter-5-5.html">Nästa kapitel</a>
+                    </nav>
+                    <p class="interaction-status" id="aria-demo-status">aria-expanded är false.</p>
+                </div>
 
                 <h2>Tabs och aktiva lägen</h2>
                 <p>Tabs, filterknappar och temaväxling bygger ofta på samma idé: hitta element, lyssna på klick och ändra klass eller text.</p>
                 <pre><code>button.addEventListener("click", function () {
     panel.classList.add("active");
 });</code></pre>
+                <div class="interaction-example" aria-label="Exempel på aktiv panel">
+                    <button id="panel-demo-button" type="button">Visa panel</button>
+                    <div class="interaction-panel" id="panel-demo-panel">
+                        Panelen har fått klassen <code>active</code>.
+                    </div>
+                </div>
 
                 <h2>När räcker enkel JavaScript?</h2>
                 <p>För små komponenter behöver du oftast inget ramverk. Börja enkelt och bygg bara mer avancerat när problemet kräver det.</p>
@@ -63,6 +140,38 @@ menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.querySelector('#menu-demo-button')
+            const menu = document.querySelector('#menu-demo-menu')
+            if (menuButton && menu) {
+                menuButton.addEventListener('click', function () {
+                    const isOpen = menu.classList.toggle('is-open')
+                    menuButton.textContent = isOpen ? 'Dölj meny' : 'Visa meny'
+                })
+            }
+
+            const ariaButton = document.querySelector('#aria-demo-button')
+            const ariaMenu = document.querySelector('#aria-demo-menu')
+            const ariaStatus = document.querySelector('#aria-demo-status')
+            if (ariaButton && ariaMenu && ariaStatus) {
+                ariaButton.addEventListener('click', function () {
+                    const isOpen = ariaMenu.classList.toggle('is-open')
+                    ariaButton.setAttribute('aria-expanded', String(isOpen))
+                    ariaButton.textContent = isOpen ? 'Dölj meny' : 'Visa meny'
+                    ariaStatus.textContent = `aria-expanded är ${isOpen}.`
+                })
+            }
+
+            const panelButton = document.querySelector('#panel-demo-button')
+            const panel = document.querySelector('#panel-demo-panel')
+            if (panelButton && panel) {
+                panelButton.addEventListener('click', function () {
+                    panel.classList.add('active')
+                    panelButton.textContent = 'Panelen är aktiv'
+                })
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-5-4'), {"title": "Quiz: Kap 5.4", "questions": [{"question": "Vilket mönster återkommer i många små JavaScript-interaktioner?", "options": ["Ta bort all HTML och börja om", "Spara CSS i bildfiler", "Hitta element, lyssna på event och ändra något", "Publicera sidan efter varje klick"], "correct": 2, "feedback": "Det är grundmönstret.", "explanation": "Många interaktioner börjar med att hitta ett element och reagera på en händelse."}, {"question": "Vad kan `classList.toggle(\"is-open\")` användas till?", "options": ["Byta domännamn", "Växla om en meny är öppen eller stängd", "Skapa en ny font", "Radera webbläsarens historik"], "correct": 1, "feedback": "toggle passar för öppet/stängt-lägen.", "explanation": "Klassen kan styra synlighet i CSS."}, {"question": "Varför bör `aria-expanded` uppdateras på en menyknapp?", "options": ["För att knappen ska få större font", "För att HTML-filen ska bli mindre", "För att bilden ska beskäras", "För att hjälpmedel ska kunna förstå om menyn är öppen"], "correct": 3, "feedback": "aria-expanded beskriver öppet/stängt-läge.", "explanation": "Det hjälper användare med hjälpmedel att förstå komponentens tillstånd."}, {"question": "När räcker vanlig JavaScript ofta bra?", "options": ["Bara när sidan saknar HTML", "Aldrig på webbsidor", "När interaktionen är liten och tydlig", "Endast när CSS inte finns"], "correct": 2, "feedback": "Små komponenter behöver ofta inget ramverk.", "explanation": "En meny, knapp eller enkel tab kan ofta byggas med få rader JavaScript."}, {"question": "Vad är en risk om JavaScript ändrar ett synligt läge men inte uppdaterar knappens text eller attribut?", "options": ["CSS slutar alltid fungera", "Användaren kan få otydlig feedback om vad som har hänt", "Alla länkar blir bilder", "Sidan publiceras automatiskt"], "correct": 1, "feedback": "Läget ska vara begripligt.", "explanation": "Synlig text och attribut bör stämma med komponentens faktiska tillstånd."}]});
         });

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+    <title id="title">Responsiv bild 800w</title>
+    <desc id="desc">En enkel testbild som visar att 800w-versionen har laddats.</desc>
+    <rect width="800" height="520" fill="#2563eb"/>
+    <rect x="48" y="48" width="704" height="424" rx="28" fill="#dbeafe" opacity="0.92"/>
+    <text x="400" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="84" font-weight="700" fill="#1e3a8a">800w</text>
+    <text x="400" y="306" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#1e3a8a">normal yta</text>
+    <text x="400" y="382" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#1e3a8a">srcset valde mellanfil</text>
+</svg>

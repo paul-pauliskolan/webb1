@@ -7,6 +7,68 @@
     <meta name="description" content="Kap 3.4: CSS-selektorer, klasser, id, gruppering, kedjeselektorer, descendant selectors, pseudoklasser och specificitet.">
     <title>Kap 3.4 - Klasser, id och selektorstrategi</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .selector-example {
+            margin: 0.85rem 0 1.4rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .selector-example p {
+            margin: 0.35rem 0;
+        }
+
+        .selector-example-type p {
+            line-height: 1.5;
+        }
+
+        .selector-example-class .intro-text {
+            font-weight: 700;
+            color: var(--accent-strong);
+        }
+
+        .selector-example-id #contact-form-example {
+            border: 1px solid #5eead4;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .selector-example-group h3,
+        .selector-example-group h4,
+        .selector-example-group h5 {
+            line-height: 1.15;
+            margin: 0.35rem 0;
+        }
+
+        .selector-example-chain .card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.85rem;
+        }
+
+        .selector-example-chain .card.highlight {
+            border-color: orange;
+        }
+
+        .selector-example-chain article p {
+            max-width: 70ch;
+        }
+
+        .selector-example-pseudo a {
+            color: var(--accent-strong);
+        }
+
+        .selector-example-pseudo a:hover {
+            text-decoration: underline;
+        }
+
+        .selector-example-pseudo a:focus {
+            outline: 2px solid #5eead4;
+            outline-offset: 3px;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -32,6 +94,10 @@
     <pre><code>p {
     line-height: 1.5;
 }</code></pre>
+    <div class="selector-example selector-example-type" aria-label="Exempel på typselektor">
+        <p>Det här stycket påverkas eftersom regeln väljer alla <code>p</code>-element i exemplet.</p>
+        <p>Även detta stycke får samma radavstånd.</p>
+    </div>
 
     <h2>Klassselektor</h2>
     <p>Klasser kan återanvändas på många element. I CSS skrivs klasser med punkt.</p>
@@ -40,6 +106,10 @@
 .intro-text {
     font-weight: 700;
 }</code></pre>
+    <div class="selector-example selector-example-class" aria-label="Exempel på klassselektor">
+        <p class="intro-text">Det här stycket har klassen <code>intro-text</code> och blir därför fetare.</p>
+        <p>Det här stycket saknar klassen och påverkas inte av klassregeln.</p>
+    </div>
     <p>Använd gärna bindestreck i klassnamn. Undvik mellanslag om du menar ett enda klassnamn.</p>
 
     <h2>ID-selektor</h2>
@@ -47,6 +117,12 @@
     <pre><code>#contact-form {
     border: 1px solid #5eead4;
 }</code></pre>
+    <div class="selector-example selector-example-id" aria-label="Exempel på id-selektor">
+        <form id="contact-form-example">
+            <label for="selector-example-name">Namn</label>
+            <input id="selector-example-name" type="text" placeholder="Ada Lovelace">
+        </form>
+    </div>
     <p>Välj klass i första hand när stilen ska kunna återanvändas.</p>
 
     <h2>Gruppering och DRY</h2>
@@ -56,6 +132,12 @@ h2,
 h3 {
     line-height: 1.15;
 }</code></pre>
+    <div class="selector-example selector-example-group" aria-label="Exempel på grupperade selektorer">
+        <h3>Rubriknivå 3</h3>
+        <h4>Rubriknivå 4</h4>
+        <h5>Rubriknivå 5</h5>
+        <p>Rubrikerna delar samma typ av radavstånd i exemplet.</p>
+    </div>
     <p>Det följer DRY-principen: Don't Repeat Yourself.</p>
 
     <h2>Kedja och härstamning</h2>
@@ -66,6 +148,12 @@ h3 {
 article p {
     max-width: 70ch;
 }</code></pre>
+    <div class="selector-example selector-example-chain" aria-label="Exempel på kedjeselektor och härstammande selektor">
+        <div class="card highlight">Det här elementet har både <code>card</code> och <code>highlight</code>, så kantlinjen blir orange.</div>
+        <article>
+            <p>Det här stycket ligger inuti <code>article</code> och påverkas av <code>article p</code>.</p>
+        </article>
+    </div>
     <p><code>.card.highlight</code> väljer element som har båda klasserna. <code>article p</code> väljer <code>p</code>-element som ligger någonstans inuti <code>article</code>.</p>
 
     <h2>Pseudoklasser</h2>
@@ -77,6 +165,9 @@ article p {
 a:focus {
     outline: 2px solid #5eead4;
 }</code></pre>
+    <div class="selector-example selector-example-pseudo" aria-label="Exempel på pseudoklasser">
+        <p><a href="#quiz-3-4">Hovra över länken eller tabba till den</a> för att se <code>:hover</code> och <code>:focus</code>.</p>
+    </div>
 
     <h2>Specificitet</h2>
     <p>Om flera regler påverkar samma egenskap avgör specificitet och ordning vilken som vinner. Inline-stil är stark, id är starkare än klass, och klass är starkare än typselektor. Undvik <code>!important</code> om du inte har en mycket tydlig anledning.</p>

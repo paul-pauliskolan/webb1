@@ -7,6 +7,34 @@
     <meta name="description" content="Kap 6.1: bildformat på webben, JPEG, PNG, SVG, WebP och AVIF.">
     <title>Kap 6.1 - Bildformat på webben</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .image-format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 1rem;
+            margin: 1rem 0 1.4rem;
+        }
+
+        .image-format-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .image-format-card h3 {
+            margin-top: 0;
+        }
+
+        .format-table {
+            overflow-x: auto;
+            margin: 1rem 0 1.4rem;
+        }
+
+        .format-table table {
+            min-width: 44rem;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -29,6 +57,7 @@
 
                 <h2>Pixelbilder och vektorbilder</h2>
                 <p>JPEG, PNG, WebP och AVIF är pixelbilder. De består av många små bildpunkter. SVG är vektorbaserat och passar bra för ikoner, logotyper och enkla illustrationer som ska kunna skalas utan att bli suddiga.</p>
+                <p>Pixelbilder kallas också rasterbilder. De fungerar bra för fotografier, men om du zoomar in tillräckligt långt ser du pixlarna. Vektorbilder beskriver former med linjer, punkter och ytor. Därför kan en SVG-logotyp skalas upp utan att bli suddig.</p>
 
                 <h2>Vanliga format</h2>
                 <ul>
@@ -38,8 +67,96 @@
                     <li><code>webp</code> och <code>avif</code> kan ge mindre filstorlek med bra kvalitet.</li>
                 </ul>
 
+                <h2>Formatens styrkor</h2>
+                <div class="image-format-grid">
+                    <section class="image-format-card">
+                        <h3>JPEG/JPG</h3>
+                        <p>Passar fotografier och stora bilder med många färger. JPEG komprimerar ofta bra, men använder förstörande komprimering. Om du komprimerar för hårt kan bilden få synliga artefakter och detaljer kan försvinna.</p>
+                    </section>
+                    <section class="image-format-card">
+                        <h3>PNG</h3>
+                        <p>Passar grafik med skarpa kanter, skärmbilder och bilder som behöver transparens. PNG kan bli tungt för stora fotografier, särskilt jämfört med JPEG, WebP eller AVIF.</p>
+                    </section>
+                    <section class="image-format-card">
+                        <h3>WebP</h3>
+                        <p>Ett modernt format som ofta ger mindre filer än JPEG och PNG. WebP kan användas för fotografier, transparens och animationer. Det är ofta ett bra standardval när webbläsarstöd och verktyg fungerar i projektet.</p>
+                    </section>
+                    <section class="image-format-card">
+                        <h3>AVIF</h3>
+                        <p>Ett nyare format som kan ge mycket små filer med hög kvalitet, särskilt för fotografier. AVIF kan vara långsammare att skapa och alla arbetsflöden hanterar det inte lika smidigt, så testa alltid resultatet.</p>
+                    </section>
+                    <section class="image-format-card">
+                        <h3>SVG</h3>
+                        <p>Passar logotyper, ikoner, diagram och enkel grafik. SVG är vektorbaserat och kan även skrivas direkt som kod. Det passar däremot inte för vanliga fotografier.</p>
+                    </section>
+                    <section class="image-format-card">
+                        <h3>GIF</h3>
+                        <p>GIF användes tidigare mycket för enkla animationer. I nya projekt är det sällan bästa valet. WebP, video eller andra moderna format ger ofta bättre kvalitet och mindre filer.</p>
+                    </section>
+                </div>
+
+                <h2>Komprimering och transparens</h2>
+                <p>Komprimering betyder att filen görs mindre. Förstörande komprimering, till exempel i JPEG, tar bort bildinformation för att minska filstorleken. Förlustfri komprimering försöker minska filen utan att ändra bildens innehåll på samma sätt. I praktiken behöver du ofta jämföra kvalitet och filstorlek i ett verktyg.</p>
+                <p>Transparens betyder att delar av bilden kan vara genomskinliga. Det är viktigt för till exempel logotyper, ikoner och UI-grafik som ska ligga ovanpå olika bakgrunder. JPEG stöder inte transparens, men PNG, WebP, AVIF och SVG kan göra det.</p>
+
+                <h2>Jämförelse</h2>
+                <div class="format-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Format</th>
+                                <th>Typ</th>
+                                <th>Styrka</th>
+                                <th>Transparens</th>
+                                <th>Vanlig användning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JPEG/JPG</td>
+                                <td>Raster</td>
+                                <td>Bra för fotografier</td>
+                                <td>Nej</td>
+                                <td>Foton, stora bildytor</td>
+                            </tr>
+                            <tr>
+                                <td>PNG</td>
+                                <td>Raster</td>
+                                <td>Skarpa detaljer och transparens</td>
+                                <td>Ja</td>
+                                <td>Skärmbilder, enkel grafik, logotyper</td>
+                            </tr>
+                            <tr>
+                                <td>WebP</td>
+                                <td>Raster</td>
+                                <td>Små filer med bra kvalitet</td>
+                                <td>Ja</td>
+                                <td>Fotografier, grafik, animationer</td>
+                            </tr>
+                            <tr>
+                                <td>AVIF</td>
+                                <td>Raster</td>
+                                <td>Mycket effektiv komprimering</td>
+                                <td>Ja</td>
+                                <td>Fotografier där låg filstorlek är viktig</td>
+                            </tr>
+                            <tr>
+                                <td>SVG</td>
+                                <td>Vektor</td>
+                                <td>Skalbar utan pixlighet</td>
+                                <td>Ja</td>
+                                <td>Ikoner, logotyper, diagram</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Testa format själv</h2>
+                <p>För att förstå skillnaden behöver du jämföra samma bild i flera format. Använd till exempel <a href="https://squoosh.app/" target="_blank" rel="noopener noreferrer">Squoosh</a> och testa JPEG, WebP och AVIF med samma målstorlek. Titta både på filstorlek och bildkvalitet. En himmel, hudton eller jämn bakgrund kan avslöja skillnader tydligare än en mycket rörig bild.</p>
+                <p>Kontrollera också webbläsarstöd när du använder nyare format. <a href="https://caniuse.com/" target="_blank" rel="noopener noreferrer">Can I Use</a> visar vilka webbläsare som stöder olika format.</p>
+
                 <h2>Format är ett val</h2>
-                <p>Det finns inget format som alltid är bäst. En produktbild, en ikon och ett stort bakgrundsfoto har olika behov. Välj format efter kvalitet, filstorlek, transparens och hur bilden ska användas.</p>
+                <p>Det finns inget format som alltid är bäst. En produktbild, en ikon och ett stort bakgrundsfoto har olika behov. Välj format efter kvalitet, filstorlek, transparens, webbläsarstöd och hur bilden ska användas.</p>
             </section>
 
             <div id="quiz-6-1" aria-label="Quiz Kap 6.1"></div>
