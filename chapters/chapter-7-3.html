@@ -30,11 +30,90 @@
                 <h2>Vad är en personuppgift?</h2>
                 <p>En personuppgift är information som kan kopplas till en levande person. Det kan vara namn, e-postadress, telefonnummer, bild, IP-adress eller något annat som gör personen identifierbar.</p>
 
+                <p>GDPR är en förkortning av <em>General Data Protection Regulation</em>. På svenska heter den <strong>dataskyddsförordningen</strong>. Reglerna gäller i hela EU och handlar om hur personuppgifter får samlas in, användas, lagras och skyddas.</p>
+                <p>I Sverige är <strong>Integritetsskyddsmyndigheten</strong>, IMY, tillsynsmyndighet för GDPR. Det betyder att IMY informerar om reglerna och kan granska organisationer som hanterar personuppgifter.</p>
+
+                <h2>Exempel på personuppgifter</h2>
+                <ul>
+                    <li>namn</li>
+                    <li>adress</li>
+                    <li>e-postadress som kan kopplas till en person</li>
+                    <li>personnummer</li>
+                    <li>telefonnummer</li>
+                    <li>IP-adress</li>
+                    <li>foto där personen kan identifieras</li>
+                    <li>digital ljudinspelning, om den kan kopplas till en person</li>
+                </ul>
+
+                <p>En uppgift behöver alltså inte vara hemlig för att vara en personuppgift. Det viktiga är om den direkt eller indirekt kan kopplas till en levande person.</p>
+
+                <h2>Exempel som normalt inte är personuppgifter</h2>
+                <ul>
+                    <li>en allmän e-postadress som <code>info@foretag.se</code></li>
+                    <li>organisationsnummer för ett aktiebolag</li>
+                    <li>antalet besökare på en sida, om det inte går att koppla siffran till en person</li>
+                    <li>namnet på en webbplats eller en CSS-klass</li>
+                </ul>
+
+                <p>Det finns undantag. Ett organisationsnummer kan till exempel vara en personuppgift om det gäller en enskild firma, eftersom det då kan kopplas till en fysisk person.</p>
+
                 <h2>Samla inte in mer än du behöver</h2>
                 <p>Om ett kontaktformulär bara behöver ett meddelande och en e-postadress ska du inte fråga efter personnummer, adress eller annan känslig information. Mindre insamling betyder mindre risk.</p>
 
+                <h2>Grundprinciper i GDPR</h2>
+                <p>När någon behandlar personuppgifter måste det finnas ett tydligt syfte och ett lagligt stöd. För en nybörjare i webbutveckling är det viktigaste att tänka så här:</p>
+                <ul>
+                    <li>Samla bara in uppgifter för ett tydligt ändamål.</li>
+                    <li>Samla inte in fler uppgifter än du behöver.</li>
+                    <li>Berätta för användaren vad uppgifterna ska användas till.</li>
+                    <li>Se till att uppgifterna är riktiga om de sparas.</li>
+                    <li>Radera uppgifter när de inte längre behövs.</li>
+                    <li>Skydda uppgifter så att obehöriga inte kommer åt dem.</li>
+                    <li>Kunna visa hur du följer reglerna.</li>
+                </ul>
+
+                <h2>Rättslig grund</h2>
+                <p>För att få behandla personuppgifter krävs en <strong>rättslig grund</strong>. Det betyder att det måste finnas ett giltigt skäl enligt GDPR. De sex rättsliga grunderna är:</p>
+                <ul>
+                    <li><strong>Samtycke:</strong> personen har sagt ja, till exempel till ett nyhetsbrev. Personen måste också kunna säga nej eller ta tillbaka sitt samtycke.</li>
+                    <li><strong>Avtal:</strong> uppgiften behövs för ett avtal, till exempel för att kunna leverera en beställning.</li>
+                    <li><strong>Rättslig förpliktelse:</strong> en lag kräver att uppgiften behandlas, till exempel bokföringsregler.</li>
+                    <li><strong>Grundläggande intresse:</strong> uppgiften behövs för att skydda liv eller hälsa i en akut situation.</li>
+                    <li><strong>Allmänt intresse eller myndighetsutövning:</strong> uppgiften behövs för en myndighetsuppgift eller samhällsviktig uppgift.</li>
+                    <li><strong>Intresseavvägning:</strong> organisationens berättigade intresse vägs mot personens rätt till integritet.</li>
+                </ul>
+
+                <p>Samtycke är alltså bara en av flera rättsliga grunder. Man ska inte skriva <q>vi har samtycke</q> bara för att det känns enkelt. Rättslig grund måste passa det man faktiskt gör.</p>
+
                 <h2>Var tydlig</h2>
                 <p>Användaren ska förstå varför uppgifter samlas in och vad de används till. På riktiga webbplatser kan integritetspolicy, cookieinformation och rutiner för lagring behövas.</p>
+
+                <h2>Externa tjänster kan också samla in uppgifter</h2>
+                <p>Som webbutvecklare behöver du också tänka på externa tjänster. Statistikverktyg, typsnitt från externa servrar, kartor, formulärtjänster och inbäddat innehåll kan innebära att användarens webbläsare skickar uppgifter till någon annan.</p>
+                <p>Ett känt exempel är IMY:s beslut från 3 juli 2023 om Google Analytics, där fyra bolag granskades för överföring av personuppgifter till USA via statistikverktyget. Det betyder inte att du som nybörjare ska kunna alla juridiska detaljer, men du ska förstå principen: externa tjänster kan påverka integriteten.</p>
+                <p>Även externa typsnitt, till exempel Google Fonts direkt från Googles servrar, har diskuterats i GDPR-sammanhang eftersom användarens IP-adress kan skickas till en extern leverantör. Ett säkrare arbetssätt kan vara att använda systemtypsnitt eller att lagra typsnitt lokalt i projektet när det behövs.</p>
+
+                <h2>Praktiskt för dina egna webbsidor</h2>
+                <ul>
+                    <li>Lista vilka kodspråk du använder, till exempel HTML, CSS och JavaScript.</li>
+                    <li>Lista vilka verktyg du använder, till exempel VS Code, Figma, Squoosh eller Photopea.</li>
+                    <li>Var försiktig med bilder på personer. Ett foto där någon kan identifieras är en personuppgift.</li>
+                    <li>Undvik onödiga formulärfält.</li>
+                    <li>Skriv tydligt varför du frågar efter en uppgift.</li>
+                    <li>Spara inte testdata med riktiga personuppgifter i onödan.</li>
+                    <li>Kontrollera om externa tjänster skickar data till andra företag.</li>
+                </ul>
+
+                <h2>Läs mer</h2>
+                <ul>
+                    <li><a href="https://www.imy.se/privatperson/dataskydd/introduktion-till-gdpr/vad-ar-personuppgifter/" target="_blank" rel="noopener">IMY: Vad är personuppgifter?</a></li>
+                    <li><a href="https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/grundlaggande-principer/" target="_blank" rel="noopener">IMY: Grundläggande principer enligt GDPR</a></li>
+                    <li><a href="https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/rattslig-grund/" target="_blank" rel="noopener">IMY: Rättslig grund för behandling av personuppgifter</a></li>
+                    <li><a href="https://www.imy.se/nyheter/fyra-bolag-maste-sluta-anvanda-google-analytics/" target="_blank" rel="noopener">IMY: Fyra bolag måste sluta använda Google Analytics</a></li>
+                    <li><a href="https://www.smashingmagazine.com/2018/02/gdpr-for-web-developers/" target="_blank" rel="noopener">Smashing Magazine: How GDPR Will Change The Way You Develop</a></li>
+                </ul>
+
+                <p>Det här kapitlet är en introduktion för webbutveckling, inte juridisk rådgivning. På riktiga projekt behöver ansvarig person eller organisation kontrollera vilka regler som gäller.</p>
             </section>
 
             <div id="quiz-7-3" aria-label="Quiz Kap 7.3"></div>
