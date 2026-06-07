@@ -215,12 +215,12 @@
       <h2>Frågor</h2>
       <p>Välj ett alternativ på varje fråga i den här delen. Rätt svar och återkoppling visas först när du har svarat på alla 10 frågor och klickar på <strong>Visa resultat</strong>.</p>
       ${renderPageNav()}
-      <div class="practice-actions">
-        <button class="practice-submit" type="button">Visa resultat</button>
-        <p class="practice-status" aria-live="polite"></p>
-      </div>
+      <p class="practice-status" aria-live="polite"></p>
       <div class="practice-list">
         ${pageQuestions.map(renderQuestion).join("")}
+      </div>
+      <div class="practice-actions">
+        <button class="practice-submit" type="button">Visa resultat</button>
       </div>
       ${renderPageNav()}
     </section>
