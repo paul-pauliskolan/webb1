@@ -7,6 +7,70 @@
     <meta name="description" content="Kap 2.1: Element, attribut, nästling och DOM-modellen.">
     <title>Kap 2.1 - HTML-element och DOM-tänk</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .nested-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .nested-preview * {
+            color: inherit;
+        }
+
+        .nested-browser,
+        .nested-tree {
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .nested-browser h2 {
+            margin: 0 0 0.65rem;
+            color: #172026 !important;
+            font-family: "Times New Roman", Times, serif !important;
+            font-size: 1.5rem;
+        }
+
+        .nested-browser p {
+            margin: 0;
+            color: #172026 !important;
+            font-family: "Times New Roman", Times, serif !important;
+        }
+
+        .nested-browser strong {
+            color: #172026 !important;
+            font-weight: 700;
+        }
+
+        .nested-tree h3 {
+            margin: 0 0 0.65rem;
+            color: #172026 !important;
+            font-size: 1.05rem;
+        }
+
+        .nested-tree ul {
+            margin: 0;
+            color: #172026 !important;
+        }
+
+        .nested-tree li {
+            color: #172026 !important;
+        }
+
+        @media (max-width: 700px) {
+            .nested-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -42,6 +106,21 @@
     &lt;h2&gt;Rubrik&lt;/h2&gt;
     &lt;p&gt;Ett stycke med &lt;strong&gt;viktig text&lt;/strong&gt;.&lt;/p&gt;
 &lt;/article&gt;</code></pre>
+    <div class="nested-preview" aria-label="Exempel på hur nästlade HTML-element visas">
+        <div class="nested-browser">
+            <h2>Rubrik</h2>
+            <p>Ett stycke med <strong>viktig text</strong>.</p>
+        </div>
+        <div class="nested-tree">
+            <h3>Strukturen i koden</h3>
+            <ul>
+                <li><code>article</code> innehåller allt i exemplet.</li>
+                <li><code>h2</code> är rubriken.</li>
+                <li><code>p</code> är stycket.</li>
+                <li><code>strong</code> ligger inuti <code>p</code> och markerar viktig text.</li>
+            </ul>
+        </div>
+    </div>
     <p><code>article</code> är förälder till <code>h2</code> och <code>p</code>. Elementet <code>strong</code> är barn till <code>p</code>.</p>
 
     <h2>DOM-modellen</h2>

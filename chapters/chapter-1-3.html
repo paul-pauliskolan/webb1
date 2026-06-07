@@ -7,6 +7,85 @@
     <meta name="description" content="Kap 1.3: Bygg din första HTML-sida.">
     <title>Kap 1.3 - Din första HTML-sida</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .browser-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .browser-preview * {
+            color: inherit;
+        }
+
+        .browser-preview-bar {
+            display: flex;
+            align-items: end;
+            gap: 0.75rem;
+            padding: 0.65rem 0.75rem 0;
+            background: #dbe4e7;
+            border-bottom: 1px solid #b9c7cc;
+        }
+
+        .browser-preview-buttons {
+            display: flex;
+            gap: 0.35rem;
+            padding-bottom: 0.55rem;
+        }
+
+        .browser-preview-dot {
+            width: 0.72rem;
+            height: 0.72rem;
+            border-radius: 999px;
+            background: #94a3b8;
+        }
+
+        .browser-preview-tab {
+            max-width: 14rem;
+            padding: 0.55rem 1rem;
+            border: 1px solid #b9c7cc;
+            border-bottom: 0;
+            border-radius: 8px 8px 0 0;
+            background: #ffffff;
+            color: #172026;
+            font: 700 0.9rem/1 "Trebuchet MS", "Segoe UI", sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .browser-preview-address {
+            padding: 0.55rem 0.75rem;
+            background: #eef4f2;
+            border-bottom: 1px solid #d2dde0;
+            font: 0.88rem/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: #475569;
+        }
+
+        .browser-preview-page {
+            padding: 1.4rem;
+            background: #ffffff;
+        }
+
+        .browser-preview-page h1 {
+            margin: 0 0 0.75rem;
+            color: #172026 !important;
+            font-family: "Times New Roman", Times, serif !important;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        .browser-preview-page p {
+            margin: 0;
+            color: #172026 !important;
+            font-family: "Times New Roman", Times, serif !important;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -42,6 +121,23 @@
     &lt;p&gt;Här skriver jag en kort presentation av mig själv.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+                <h3>Så kan det se ut i webbläsaren</h3>
+                <div class="browser-preview" aria-label="Simulerad webbläsare som visar HTML-koden">
+                    <div class="browser-preview-bar">
+                        <div class="browser-preview-buttons" aria-hidden="true">
+                            <span class="browser-preview-dot"></span>
+                            <span class="browser-preview-dot"></span>
+                            <span class="browser-preview-dot"></span>
+                        </div>
+                        <div class="browser-preview-tab">Min profilsida</div>
+                    </div>
+                    <div class="browser-preview-address">http://127.0.0.1:5500/index.html</div>
+                    <div class="browser-preview-page">
+                        <h1>Min profilsida</h1>
+                        <p>Här skriver jag en kort presentation av mig själv.</p>
+                    </div>
+                </div>
+                <p>I adressraden står <code>http://127.0.0.1:5500/index.html</code>. Det betyder att sidan visas från din egen dator med Live Server. <code>127.0.0.1</code> betyder den här datorn, <code>5500</code> är porten Live Server använder och <code>index.html</code> är filen som webbläsaren visar.</p>
 
                 <h2>Vad delarna gör</h2>
                 <ul>

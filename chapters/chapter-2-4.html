@@ -7,6 +7,98 @@
     <meta name="description" content="Kap 2.4: inputtyper, fieldset, legend och formulärvalidering.">
     <title>Kap 2.4 - Tillgängliga formulär</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .input-type-preview {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .input-type-preview * {
+            color: inherit;
+        }
+
+        .input-type-form {
+            display: grid;
+            gap: 0.75rem;
+            max-width: 26rem;
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .input-type-form label {
+            display: grid;
+            gap: 0.35rem;
+            color: #172026 !important;
+            font-weight: 700;
+        }
+
+        .input-type-form input {
+            width: 100%;
+            min-height: 2.7rem;
+            padding: 0.65rem 0.75rem;
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #172026;
+            font: 1rem/1.3 Arial, sans-serif;
+        }
+
+        .input-type-form fieldset {
+            display: grid;
+            gap: 0.55rem;
+            margin: 0;
+            padding: 1rem;
+            border: 1px solid #94a3b8;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        .input-type-form legend {
+            padding: 0 0.35rem;
+            color: #172026 !important;
+            font-weight: 700;
+        }
+
+        .input-type-form fieldset label {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-weight: 400;
+        }
+
+        .input-type-form input[type="radio"] {
+            width: 1rem !important;
+            height: 1rem !important;
+            min-height: 0;
+            margin: 0;
+            padding: 0;
+            accent-color: #0f766e;
+        }
+
+        .input-type-preview h3 {
+            margin: 0;
+            color: #172026 !important;
+            font-size: 1.05rem;
+        }
+
+        .input-type-preview p {
+            margin: 0;
+            color: #172026 !important;
+        }
+
+        .input-type-preview code {
+            background: #e2e8f0 !important;
+            color: #172026 !important;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -33,6 +125,24 @@
 &lt;input type="number" name="age" min="1" max="120"&gt;
 &lt;input type="password" name="password"&gt;
 &lt;input type="date" name="birthdate"&gt;</code></pre>
+    <div class="input-type-preview" aria-label="Simulerat exempel på olika inputtyper">
+        <h3>Så kan inputtyper visas i webbläsaren</h3>
+        <div class="input-type-form">
+            <label>E-post
+                <input type="email" name="preview-email" required placeholder="ada@example.com">
+            </label>
+            <label>Ålder
+                <input type="number" name="preview-age" min="1" max="120" placeholder="16">
+            </label>
+            <label>Lösenord
+                <input type="password" name="preview-password" placeholder="lösenord">
+            </label>
+            <label>Födelsedatum
+                <input type="date" name="preview-birthdate">
+            </label>
+        </div>
+        <p><code>type="email"</code> kan kontrollera att texten liknar en e-postadress. <code>type="number"</code> ger ett talfält med minsta och högsta värde. <code>type="password"</code> döljer tecknen. <code>type="date"</code> ger ett datumfält.</p>
+    </div>
 
     <h2>Valideringsattribut</h2>
     <ul>
@@ -49,6 +159,18 @@
     &lt;label&gt;&lt;input type="radio" name="contact" value="email"&gt; E-post&lt;/label&gt;
     &lt;label&gt;&lt;input type="radio" name="contact" value="phone"&gt; Telefon&lt;/label&gt;
 &lt;/fieldset&gt;</code></pre>
+    <div class="input-type-preview" aria-label="Simulerat exempel på fieldset och legend">
+        <h3>Så visas fieldset och legend i webbläsaren</h3>
+        <div class="input-type-form">
+            <fieldset>
+                <legend>Hur vill du bli kontaktad?</legend>
+                <label><input type="radio" name="preview-contact" value="email"> E-post</label>
+                <label><input type="radio" name="preview-contact" value="phone"> Telefon</label>
+            </fieldset>
+        </div>
+        <p><code>fieldset</code> ramar in fält som hör ihop. <code>legend</code> blir rubriken för gruppen.</p>
+        <p>Radioknapparna har samma <code>name</code>, därför hör de ihop och användaren kan välja ett av alternativen.</p>
+    </div>
 
     <h2>Testa med httpbin</h2>
     <p>En tjänst som httpbin kan visa vilka data som skulle skickas till en server. Det är bra när du vill förstå skillnaden mellan fältens synliga text och värdena i <code>name</code> och <code>value</code>.</p>

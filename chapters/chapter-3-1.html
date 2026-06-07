@@ -7,6 +7,52 @@
     <meta name="description" content="Kap 3.1: CSS-regler, externa stilmallar, style-element, inline-CSS och kaskaden.">
     <title>Kap 3.1 - Vad CSS gör</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .css-rule-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .css-rule-preview * {
+            color: #172026;
+        }
+
+        .css-rule-preview__bar {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .css-rule-preview__dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 999px;
+            background: #cbd5e1;
+        }
+
+        .css-rule-preview__page {
+            padding: 1.25rem;
+            background: #ffffff;
+        }
+
+        .css-rule-preview__page h1 {
+            margin: 0;
+            color: green !important;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-family: "Times New Roman", Times, serif;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -37,6 +83,15 @@
     color: green;
     font-size: 2rem;
 }</code></pre>
+    <div class="css-rule-preview" aria-label="Exempel på hur CSS-regeln visas i webbläsaren">
+        <div class="css-rule-preview__bar">
+            <span class="css-rule-preview__dot" aria-hidden="true"></span>
+            Så visas regeln i webbläsaren
+        </div>
+        <div class="css-rule-preview__page">
+            <h1>Rubrik</h1>
+        </div>
+    </div>
     <ul>
         <li><code>h1</code> är selektorn. Den väljer vilka element som påverkas.</li>
         <li><code>color</code> och <code>font-size</code> är egenskaper.</li>

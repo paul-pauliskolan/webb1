@@ -7,6 +7,219 @@
     <meta name="description" content="Kap 1.4: Länkar, bilder, textbetoning och listor i HTML.">
     <title>Kap 1.4 - Länkar, bilder och listor</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .tab-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-preview * {
+            color: inherit;
+        }
+
+        .tab-preview-bar {
+            display: flex;
+            gap: 0.35rem;
+            align-items: end;
+            padding: 0.65rem 0.75rem 0;
+            background: #dbe4e7;
+            border-bottom: 1px solid #b9c7cc;
+        }
+
+        .tab-preview-tab {
+            max-width: 12rem;
+            padding: 0.55rem 0.85rem;
+            border: 1px solid #b9c7cc;
+            border-bottom: 0;
+            border-radius: 8px 8px 0 0;
+            background: #e8eef1;
+            color: #475569;
+            font: 700 0.85rem/1 "Trebuchet MS", "Segoe UI", sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tab-preview-tab[hidden],
+        .tab-preview-page[hidden],
+        .tab-preview-address[hidden] {
+            display: none;
+        }
+
+        .tab-preview-tab.active {
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .tab-preview-address {
+            padding: 0.55rem 0.75rem;
+            background: #eef4f2;
+            border-bottom: 1px solid #d2dde0;
+            font: 0.88rem/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: #475569;
+        }
+
+        .tab-preview-pages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .tab-preview-page {
+            min-height: 9rem;
+            padding: 1.2rem;
+            background: #ffffff;
+        }
+
+        .tab-preview-page + .tab-preview-page {
+            border-left: 1px solid #d2dde0;
+        }
+
+        .tab-preview-page h3 {
+            margin: 0 0 0.65rem;
+            color: #172026 !important;
+            font: 700 1rem/1.2 "Trebuchet MS", "Segoe UI", sans-serif;
+        }
+
+        .tab-preview-page p {
+            margin: 0 0 0.75rem;
+            color: #172026 !important;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .tab-preview-page a {
+            color: #0645ad !important;
+            text-decoration: underline;
+        }
+
+        .tab-preview-link {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            color: #0645ad !important;
+            font: inherit;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .image-preview {
+            display: grid;
+            grid-template-columns: minmax(9rem, 14rem) 1fr;
+            gap: 1rem;
+            align-items: start;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .image-preview * {
+            color: inherit;
+        }
+
+        .image-placeholder {
+            display: grid;
+            place-items: center;
+            aspect-ratio: 1;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            background:
+                linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(15, 118, 110, 0.02)),
+                #f8fafc;
+            font: 700 0.95rem/1.3 "Trebuchet MS", "Segoe UI", sans-serif;
+            text-align: center;
+        }
+
+        .image-preview h3 {
+            margin: 0 0 0.65rem;
+            color: #172026 !important;
+            font-size: 1.05rem;
+        }
+
+        .image-preview p {
+            margin: 0 0 0.55rem;
+            color: #172026 !important;
+        }
+
+        .image-preview code {
+            background: #e2e8f0 !important;
+            color: #172026 !important;
+        }
+
+        .list-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .list-preview * {
+            color: inherit;
+        }
+
+        .list-preview-panel {
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .list-preview h3 {
+            margin: 0 0 0.75rem;
+            color: #172026 !important;
+            font-size: 1.05rem;
+        }
+
+        .list-preview ol,
+        .list-preview ul {
+            margin: 0;
+            color: #172026 !important;
+        }
+
+        .list-preview li {
+            color: #172026 !important;
+        }
+
+        .tab-preview-note {
+            margin: 0;
+            padding: 0.75rem;
+            border-top: 1px solid #d2dde0;
+            background: #f8fafc;
+            color: #172026 !important;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 700px) {
+            .tab-preview-pages {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-preview-page + .tab-preview-page {
+                border-left: 0;
+                border-top: 1px solid #d2dde0;
+            }
+
+            .image-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .list-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -29,6 +242,29 @@
                 <h2>Länkar</h2>
                 <p>En länk skapas med <code>a</code>. Attributet <code>href</code> berättar vart länken går.</p>
                 <pre><code>&lt;a href="https://developer.mozilla.org/" target="_blank"&gt;MDN Web Docs&lt;/a&gt;</code></pre>
+                <h3>Så kan det se ut när länken öppnar en ny flik</h3>
+                <div class="tab-preview" aria-label="Simulerad webbläsare där en länk öppnas i ny flik">
+                    <div class="tab-preview-bar">
+                        <div class="tab-preview-tab active" data-tab="site">Min sida</div>
+                        <div class="tab-preview-tab" data-tab="mdn" hidden>MDN Web Docs</div>
+                    </div>
+                    <div class="tab-preview-address" data-address="site">http://127.0.0.1:5500/index.html</div>
+                    <div class="tab-preview-address" data-address="mdn" hidden>https://developer.mozilla.org/</div>
+                    <div class="tab-preview-pages">
+                        <div class="tab-preview-page" data-page="site">
+                            <h3>Flik 1: Min sida</h3>
+                            <p>På din sida syns länken:</p>
+                            <p><button class="tab-preview-link" type="button" data-open-mdn>MDN Web Docs</button></p>
+                            <p>Klicka på länken för att simulera vad <code>target="_blank"</code> gör.</p>
+                        </div>
+                        <div class="tab-preview-page" data-page="mdn" hidden>
+                            <h3>Flik 2: MDN Web Docs</h3>
+                            <p>Nu har en ny flik öppnats i simuleringen.</p>
+                            <p>Den nya fliken visar MDN Web Docs.</p>
+                        </div>
+                    </div>
+                    <p class="tab-preview-note"><code>target="_blank"</code> betyder ny flik eller nytt fönster. För externa länkar är det också bra att lägga till <code>rel="noopener noreferrer"</code>.</p>
+                </div>
                 <p>Externa länkar kan öppnas i ny flik med <code>target="_blank"</code>. Använd det med omdöme.</p>
 
                 <h2>Bilder</h2>
@@ -36,6 +272,17 @@
                     <code>alt</code> beskriver bilden för den som inte kan se den.
                 </p>
                 <pre><code>&lt;img src="images/profilbild.jpg" alt="Porträttbild av mig"&gt;</code></pre>
+                <div class="image-preview" aria-label="Simulerat exempel på en img-tagg">
+                    <div class="image-placeholder" role="img" aria-label="Porträttbild av mig">
+                        Porträttbild<br>av mig
+                    </div>
+                    <div>
+                        <h3>Så tolkar webbläsaren koden</h3>
+                        <p><code>src="images/profilbild.jpg"</code> betyder att webbläsaren ska leta efter bildfilen <code>profilbild.jpg</code> i mappen <code>images</code>.</p>
+                        <p><code>alt="Porträttbild av mig"</code> är textalternativet. Det kan användas av skärmläsare och visas också om bilden inte kan laddas.</p>
+                        <p>I ett riktigt projekt skulle rutan till vänster vara själva bilden.</p>
+                    </div>
+                </div>
                 <p>Om bilden är dekorativ kan alt-texten ibland vara tom, men i kursens första uppgifter ska du skriva
                     en tydlig alt-text så att du tränar vanan.</p>
 
@@ -60,6 +307,24 @@
     &lt;li&gt;CSS&lt;/li&gt;
     &lt;li&gt;JavaScript&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
+                <div class="list-preview" aria-label="Simulerat exempel på ordnad och oordnad lista">
+                    <div class="list-preview-panel">
+                        <h3>Ordnad lista: <code>ol</code></h3>
+                        <ol>
+                            <li>Skapa projektmapp</li>
+                            <li>Skriv HTML</li>
+                            <li>Validera sidan</li>
+                        </ol>
+                    </div>
+                    <div class="list-preview-panel">
+                        <h3>Oordnad lista: <code>ul</code></h3>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <h2>Platshållartext och exempelnamn</h2>
                 <p><em>Lorem ipsum</em> används ibland som tillfällig text när layout testas. Orden foo, bar och baz
@@ -85,6 +350,22 @@
     <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const openMdnButton = document.querySelector('[data-open-mdn]');
+            if (!openMdnButton) return;
+
+            openMdnButton.addEventListener('click', function () {
+                document.querySelector('[data-tab="site"]').classList.remove('active');
+                document.querySelector('[data-tab="mdn"]').hidden = false;
+                document.querySelector('[data-tab="mdn"]').classList.add('active');
+                document.querySelector('[data-address="site"]').hidden = true;
+                document.querySelector('[data-address="mdn"]').hidden = false;
+                document.querySelector('[data-page="site"]').hidden = true;
+                document.querySelector('[data-page="mdn"]').hidden = false;
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-1-4'), {

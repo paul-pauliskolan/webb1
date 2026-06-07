@@ -7,6 +7,67 @@
     <meta name="description" content="Kap 1.5: Miniuppgift där eleven bygger en enkel profilsida.">
     <title>Kap 1.5 - Miniuppgift: profilsida</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .profile-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-preview * {
+            color: inherit;
+        }
+
+        .profile-preview-address {
+            padding: 0.55rem 0.75rem;
+            background: #eef4f2;
+            border-bottom: 1px solid #d2dde0;
+            font: 0.88rem/1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: #475569;
+        }
+
+        .profile-preview-page {
+            padding: 1.4rem;
+            background: #ffffff;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .profile-preview-page h1 {
+            margin: 0 0 0.75rem;
+            color: #172026 !important;
+            font-family: "Times New Roman", Times, serif !important;
+            font-size: 2rem;
+            line-height: normal;
+        }
+
+        .profile-preview-page p {
+            margin: 0 0 1rem;
+            color: #172026 !important;
+        }
+
+        .profile-preview-image {
+            display: grid;
+            place-items: center;
+            width: min(100%, 18rem);
+            aspect-ratio: 4 / 3;
+            margin: 0 0 1rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            background: #f8fafc;
+            color: #172026 !important;
+            font: 700 0.95rem/1.3 "Trebuchet MS", "Segoe UI", sans-serif;
+            text-align: center;
+        }
+
+        .profile-preview-page a {
+            color: #0645ad !important;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -54,6 +115,19 @@
     &lt;p&gt;Mer information om ämnet.&lt;/p&gt;
     &lt;a href="https://example.com"&gt;En relevant länk&lt;/a&gt;
 &lt;/body&gt;</code></pre>
+                <div class="profile-preview" aria-label="Förhandsvisning av profilsidan i webbläsaren">
+                    <div class="profile-preview-address">http://127.0.0.1:5500/index.html</div>
+                    <div class="profile-preview-page">
+                        <h1>Min profilsida</h1>
+                        <p>Kort presentation.</p>
+                        <div class="profile-preview-image" role="img" aria-label="Beskrivning av bilden">
+                            profilbild.jpg<br>
+                            <small>alt: Beskrivning av bilden</small>
+                        </div>
+                        <p>Mer information om ämnet.</p>
+                        <a href="https://example.com" target="_blank" rel="noopener noreferrer">En relevant länk</a>
+                    </div>
+                </div>
 
                 <h2>Kontrollera innan du går vidare</h2>
                 <ol>

@@ -51,19 +51,26 @@
         }
 
         .flex-demo-container {
+            position: relative;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             align-items: stretch;
             flex-wrap: nowrap;
             gap: 1rem;
-            min-height: 15rem;
+            width: 100%;
+            height: 15rem;
+            min-width: 22rem;
+            max-width: 100%;
+            min-height: 9rem;
+            max-height: 32rem;
             border: 2px dashed rgba(94, 234, 212, 0.65);
             border-radius: 0.5rem;
-            padding: 1rem;
+            padding: 1rem 1rem 1.75rem;
             background:
                 linear-gradient(90deg, rgba(94, 234, 212, 0.08), transparent 45%),
                 rgba(20, 30, 34, 0.9);
+            overflow: auto;
         }
 
         .flex-demo-item {
@@ -123,13 +130,167 @@
             margin: 0;
         }
 
+        .flex-demo-resize-handle {
+            position: absolute;
+            background: rgba(94, 234, 212, 0.08);
+            color: #9ff5e8;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .flex-demo-resize-handle--bottom {
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 1.25rem;
+            display: grid;
+            place-items: center;
+            border-top: 1px solid rgba(94, 234, 212, 0.35);
+            cursor: ns-resize;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        .flex-demo-resize-handle--bottom::before {
+            content: "↕ dra i kanten";
+        }
+
+        .flex-demo-resize-handle--right {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 1.25rem;
+            border-left: 1px solid rgba(94, 234, 212, 0.35);
+            cursor: ew-resize;
+        }
+
+        .flex-demo-resize-handle--right::before {
+            content: "↔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #9ff5e8;
+            font-size: 0.8rem;
+            font-weight: 800;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .flex-demo-resize-handle--corner {
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            width: 1.75rem;
+            height: 1.75rem;
+            border-top: 1px solid rgba(94, 234, 212, 0.55);
+            border-left: 1px solid rgba(94, 234, 212, 0.55);
+            border-radius: 0.4rem 0 0.4rem 0;
+            background: rgba(94, 234, 212, 0.22);
+            cursor: nwse-resize;
+        }
+
+        .flex-demo-resize-handle--corner::before {
+            content: "↘";
+            position: absolute;
+            right: 0.35rem;
+            bottom: 0.25rem;
+            color: #9ff5e8;
+            font-size: 0.9rem;
+            font-weight: 800;
+        }
+
+        .flex-rule-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .flex-rule-preview * {
+            color: #172026;
+        }
+
+        .flex-rule-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .flex-rule-preview__page {
+            padding: 1.25rem;
+            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .flex-rule-preview__menu {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #dbeafe;
+            border-radius: 8px;
+            background: #eff6ff;
+        }
+
+        .flex-rule-preview__menu a {
+            padding: 0.45rem 0.7rem;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #1d4ed8 !important;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .flex-rule-preview__cards {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-between;
+            min-height: 9rem;
+            gap: 1rem;
+            padding: 0.75rem;
+            border: 2px dashed #0f766e;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .flex-rule-preview__card {
+            display: grid;
+            place-items: center;
+            min-width: 5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #ccfbf1;
+            color: #0f1417 !important;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .flex-rule-preview__wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem;
+            border: 2px dashed #7c3aed;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .flex-rule-preview__wrap .flex-rule-preview__card {
+            flex: 1 1 16rem;
+            background: #ede9fe;
+        }
+
         @media (max-width: 720px) {
             .flex-demo-stage {
                 padding: 0.75rem;
             }
 
             .flex-demo-container {
-                min-height: 18rem;
+                min-height: 12rem;
             }
         }
     </style>
@@ -168,6 +329,16 @@
     gap: 1rem;
 }</code></pre>
     <p><code>display: flex</code> gör barnen till flex-items. <code>gap</code> skapar jämnt avstånd mellan dem utan extra marginaler på varje länk.</p>
+    <div class="flex-rule-preview" aria-label="Exempel på display flex och gap">
+        <div class="flex-rule-preview__bar">Så visas <code>display: flex</code> och <code>gap</code></div>
+        <div class="flex-rule-preview__page">
+            <nav class="flex-rule-preview__menu" aria-label="Exempelmeny">
+                <a href="#">Start</a>
+                <a href="#">Om mig</a>
+                <a href="#">Kontakt</a>
+            </nav>
+        </div>
+    </div>
 
     <h2>Riktning och axlar</h2>
     <pre><code>.cards {
@@ -177,6 +348,16 @@
     justify-content: space-between;
 }</code></pre>
     <p>Med <code>flex-direction: row</code> går huvudaxeln från vänster till höger. <code>justify-content</code> styr placering längs huvudaxeln. <code>align-items</code> styr placering längs tväraxeln.</p>
+    <div class="flex-rule-preview" aria-label="Exempel på riktning och axlar i flexbox">
+        <div class="flex-rule-preview__bar">Så visas <code>flex-direction</code>, <code>justify-content</code> och <code>align-items</code></div>
+        <div class="flex-rule-preview__page">
+            <div class="flex-rule-preview__cards">
+                <div class="flex-rule-preview__card">Kort 1</div>
+                <div class="flex-rule-preview__card">Kort 2</div>
+                <div class="flex-rule-preview__card">Kort 3</div>
+            </div>
+        </div>
+    </div>
 
     <h2>Radbrytning med wrap</h2>
     <p>Om korten inte får plats kan de brytas till ny rad.</p>
@@ -190,6 +371,17 @@
     flex: 1 1 16rem;
 }</code></pre>
     <p>Regeln <code>flex: 1 1 16rem</code> betyder att kortet får växa, krympa och har en ungefärlig grundbredd på 16rem.</p>
+    <div class="flex-rule-preview" aria-label="Exempel på flex-wrap">
+        <div class="flex-rule-preview__bar">Så visas <code>flex-wrap: wrap</code> och <code>flex: 1 1 16rem</code></div>
+        <div class="flex-rule-preview__page">
+            <div class="flex-rule-preview__wrap">
+                <div class="flex-rule-preview__card">Kort 1</div>
+                <div class="flex-rule-preview__card">Kort 2</div>
+                <div class="flex-rule-preview__card">Kort 3</div>
+                <div class="flex-rule-preview__card">Kort 4</div>
+            </div>
+        </div>
+    </div>
 
     <h2>flex-grow och flex-basis</h2>
     <p><code>flex-grow</code> styr om ett flex-item får växa och ta upp ledigt utrymme i containern. Värdet <code>0</code> betyder att itemet inte växer. Värdet <code>1</code> betyder att itemet får dela på ledigt utrymme med andra items som också får växa.</p>
@@ -268,6 +460,9 @@
                 <div class="flex-demo-item">6</div>
                 <div class="flex-demo-item">7</div>
                 <div class="flex-demo-item">8</div>
+                <div class="flex-demo-resize-handle flex-demo-resize-handle--right" data-resize-axis="x" aria-hidden="true"></div>
+                <div class="flex-demo-resize-handle flex-demo-resize-handle--bottom" data-resize-axis="y" aria-hidden="true"></div>
+                <div class="flex-demo-resize-handle flex-demo-resize-handle--corner" data-resize-axis="xy" aria-hidden="true"></div>
             </div>
         </div>
     </div>
@@ -312,6 +507,7 @@
             const itemCountValue = document.getElementById('item-count-value')
             const output = document.getElementById('css-output')
             const axisText = document.getElementById('axis-text')
+            const resizeHandle = document.getElementById('flex-resize-handle')
             const items = Array.from(container.querySelectorAll('.flex-demo-item'))
 
             function updateDemo() {
@@ -335,6 +531,7 @@
                 gapValue.textContent = gapRem
                 basisValue.textContent = basisRem
                 itemCountValue.textContent = String(visibleItems)
+                const containerHeight = Math.round(container.getBoundingClientRect().height)
 
                 if (direction.value === 'row') {
                     axisText.textContent = 'Huvudaxeln går horisontellt ↔. Tväraxeln går vertikalt ↕. justify-content styr från vänster till höger och align-items styr uppifrån och ned.'
@@ -349,11 +546,48 @@
     align-items: ${align.value};
     flex-wrap: ${wrapValue};
     gap: ${gapRem};
+    height: ${containerHeight}px;
 }
 
 .item {
     flex: ${growValue} 1 ${basisRem};
 }`
+            }
+
+            if (resizeHandle) {
+                let startY = 0
+                let startHeight = 0
+
+                resizeHandle.addEventListener('pointerdown', function (event) {
+                    event.preventDefault()
+                    startY = event.clientY
+                    startHeight = container.getBoundingClientRect().height
+                    resizeHandle.setPointerCapture(event.pointerId)
+                })
+
+                resizeHandle.addEventListener('pointermove', function (event) {
+                    if (!resizeHandle.hasPointerCapture(event.pointerId)) {
+                        return
+                    }
+
+                    const minHeight = 144
+                    const maxHeight = 512
+                    const nextHeight = Math.min(maxHeight, Math.max(minHeight, startHeight + event.clientY - startY))
+                    container.style.height = `${nextHeight}px`
+                    updateDemo()
+                })
+
+                resizeHandle.addEventListener('pointerup', function (event) {
+                    if (resizeHandle.hasPointerCapture(event.pointerId)) {
+                        resizeHandle.releasePointerCapture(event.pointerId)
+                    }
+                })
+
+                resizeHandle.addEventListener('pointercancel', function (event) {
+                    if (resizeHandle.hasPointerCapture(event.pointerId)) {
+                        resizeHandle.releasePointerCapture(event.pointerId)
+                    }
+                })
             }
 
             ;[direction, justify, align, gap, wrap, basis, grow, itemCount].forEach(control => {

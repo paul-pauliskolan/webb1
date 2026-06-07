@@ -119,6 +119,181 @@
         .color-demo-code {
             margin-top: 1rem;
         }
+
+        .css-color-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .css-color-preview * {
+            color: #172026;
+        }
+
+        .css-color-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .css-color-preview__page {
+            padding: 1.25rem;
+            background-color: rgb(246 248 247);
+            color: #172026;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .css-color-preview__page h3 {
+            margin: 0 0 0.5rem;
+            color: #172026 !important;
+            font-size: 1.35rem;
+        }
+
+        .css-color-preview__page p {
+            margin: 0 0 1rem;
+            color: #172026 !important;
+            line-height: 1.5;
+        }
+
+        .css-color-preview__warning {
+            display: inline-block;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            background-color: hsl(35 90% 55%);
+            color: #172026 !important;
+            font-weight: 800;
+        }
+
+        .font-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .font-preview * {
+            color: #172026;
+        }
+
+        .font-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .font-preview__page {
+            display: grid;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: #ffffff;
+        }
+
+        .font-preview__sample {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .font-preview__sample h3 {
+            margin: 0 0 0.4rem;
+            color: #172026 !important;
+            font-size: 1.2rem;
+        }
+
+        .font-preview__sample p {
+            margin: 0;
+            color: #172026 !important;
+            line-height: 1.5;
+        }
+
+        .font-preview__sans {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .font-preview__modern-system {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .font-preview__modern-serif {
+            font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+        }
+
+        .font-preview__modern-mono {
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        .text-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .text-preview * {
+            color: #172026;
+        }
+
+        .text-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .text-preview__page {
+            display: grid;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .text-preview__sample {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .text-preview__sample h3 {
+            margin: 0 0 0.5rem;
+            color: #172026 !important;
+            font-size: 1.1rem;
+        }
+
+        .text-preview__sample p {
+            margin: 0;
+            color: #172026 !important;
+            line-height: 1.5;
+        }
+
+        .text-preview__left p {
+            text-align: left;
+        }
+
+        .text-preview__center p {
+            text-align: center;
+        }
+
+        .text-preview__right p {
+            text-align: right;
+        }
     </style>
 </head>
 
@@ -151,6 +326,14 @@
 .warning {
     background-color: hsl(35 90% 55%);
 }</code></pre>
+    <div class="css-color-preview" aria-label="Exempel på hur färgkoden visas i webbläsaren">
+        <div class="css-color-preview__bar">Så visas färgerna i webbläsaren</div>
+        <div class="css-color-preview__page">
+            <h3>Vanlig text på sidan</h3>
+            <p>Texten använder <code>color: #172026</code> och sidans bakgrund använder <code>rgb(246 248 247)</code>.</p>
+            <p class="css-color-preview__warning">Det här är en varningsruta med <code>hsl(35 90% 55%)</code>.</p>
+        </div>
+    </div>
     <p>Moderna format som oklch och färgrymder som P3 finns också. I kursens början räcker det att du kan hex, RGB och HSL, men det är bra att känna till att färgsystem utvecklas.</p>
 
     <h2>RGB och HSL</h2>
@@ -215,17 +398,85 @@ background-color: hsl(201 69% 56%);</code></pre>
     <pre><code>body {
     font-family: Arial, Helvetica, sans-serif;
 }</code></pre>
+    <div class="font-preview" aria-label="Exempel på font stacks">
+        <div class="font-preview__bar">Så kan font stacks se ut i webbläsaren</div>
+        <div class="font-preview__page">
+            <div class="font-preview__sample font-preview__sans">
+                <h3>Arial, Helvetica, sans-serif</h3>
+                <p>Webbläsaren testar Arial först. Om Arial saknas testas Helvetica. Om även den saknas används en vanlig sans-serif-font.</p>
+            </div>
+            <div class="font-preview__sample font-preview__modern-system">
+                <h3>Modern system stack</h3>
+                <p>Den här typen av stack använder ofta operativsystemets vanliga gränssnittsfont. Det laddar snabbt och fungerar bra för brödtext.</p>
+            </div>
+        </div>
+    </div>
     <p>Vanliga kategorier är sans-serif, serif, monospace, handwriting/cursive och display. Brödtext bör nästan alltid vara lättläst. Dekorativa fonter passar bäst i små mängder.</p>
 
     <h2>Google Fonts och modern font stacks</h2>
     <p>Google Fonts ger många fonter, men kan påverka laddningstid och integritet om fonten laddas från Googles servrar. <a href="https://modernfontstacks.com/" target="_blank" rel="noopener noreferrer">Modern Font Stacks</a> är ett alternativ där du använder fonter som ofta redan finns på användarens system.</p>
+    <p>En modern font stack är alltså inte en font du laddar ned. Det är en lista med systemfonter som redan finns på många datorer och mobiler.</p>
+    <pre><code>body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.article {
+    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+}
+
+code {
+    font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}</code></pre>
+    <div class="font-preview" aria-label="Exempel på modern font stacks">
+        <div class="font-preview__bar">Exempel på modern font stacks</div>
+        <div class="font-preview__page">
+            <div class="font-preview__sample font-preview__modern-system">
+                <h3>System UI</h3>
+                <p>Passar ofta till hela webbplatsens gränssnitt, menyer, knappar och vanlig brödtext.</p>
+            </div>
+            <div class="font-preview__sample font-preview__modern-serif">
+                <h3>Modern serif</h3>
+                <p>Kan passa till längre artiklar eller mer redaktionell text där du vill ha en tydlig serif-känsla.</p>
+            </div>
+            <div class="font-preview__sample font-preview__modern-mono">
+                <h3>Monospace</h3>
+                <p>Passar till kodexempel eftersom varje tecken får samma bredd: HTML, CSS och JavaScript.</p>
+            </div>
+        </div>
+    </div>
 
     <h2>Line-height och text-align</h2>
     <p><code>line-height</code> styr radavstånd. För brödtext fungerar ofta ett värde runt <code>1.5</code>.</p>
     <pre><code>p {
     line-height: 1.5;
+    text-align: left;
+}
+
+.intro {
+    text-align: center;
+}
+
+.meta {
+    text-align: right;
 }</code></pre>
-    <p>Vänsterställd text är oftast lättast att läsa på svenska webbsidor. Centrerad text passar bäst för korta rubriker eller mycket korta texter.</p>
+    <div class="text-preview" aria-label="Exempel på line-height och text-align">
+        <div class="text-preview__bar">Så påverkar <code>line-height</code> och <code>text-align</code> texten</div>
+        <div class="text-preview__page">
+            <div class="text-preview__sample text-preview__left">
+                <h3>text-align: left</h3>
+                <p>Vänsterställd text är oftast lättast att läsa i längre stycken eftersom varje rad börjar på samma plats.</p>
+            </div>
+            <div class="text-preview__sample text-preview__center">
+                <h3>text-align: center</h3>
+                <p>Centrerad text kan fungera för en kort introduktion, en rubrik eller en kort knapptext.</p>
+            </div>
+            <div class="text-preview__sample text-preview__right">
+                <h3>text-align: right</h3>
+                <p>Högerställd text används mer sällan, men kan passa för kort metadata, datum eller siffror.</p>
+            </div>
+        </div>
+    </div>
+    <p>Vänsterställd text är oftast lättast att läsa på svenska webbsidor. Centrerad text passar bäst för korta rubriker eller mycket korta texter. Högerställd text bör användas sparsamt eftersom längre stycken blir svårare att följa.</p>
 
     <h2>Prova själv</h2>
     <ol>

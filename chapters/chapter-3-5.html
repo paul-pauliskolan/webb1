@@ -7,6 +7,95 @@
     <meta name="description" content="Kap 3.5: Miniuppgift där profilsidan får färg, typografi, spacing och tydligare CSS.">
     <title>Kap 3.5 - Miniuppgift: designa om profilsidan</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .profile-design-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .profile-design-preview * {
+            color: inherit;
+        }
+
+        .profile-design-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            color: #172026;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .profile-design-preview__page {
+            padding: 2rem 1rem;
+            background: #0f1417;
+            color: #f3f7f7;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+
+        .profile-design-preview__main {
+            max-width: 70ch;
+            margin: 0 auto;
+            padding: 1.5rem;
+            border: 1px solid rgba(94, 234, 212, 0.4);
+            border-radius: 8px;
+            background: #172026;
+        }
+
+        .profile-design-preview__main h1 {
+            margin: 0 0 0.75rem;
+            color: #5eead4 !important;
+            font-size: 2rem;
+        }
+
+        .profile-design-preview__main p {
+            margin: 0 0 1rem;
+            color: #f3f7f7 !important;
+        }
+
+        .profile-design-preview__image {
+            display: grid;
+            place-items: center;
+            min-height: 10rem;
+            margin: 1rem 0;
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 8px;
+            background: #263238;
+            color: #d8f3ef !important;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .profile-design-preview__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .profile-design-preview__tags li {
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            background: #ccfbf1;
+            color: #0f1417 !important;
+            font-weight: 800;
+        }
+
+        .profile-design-preview__link {
+            color: #5eead4 !important;
+            font-weight: 800;
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -66,6 +155,25 @@ img {
     max-width: 100%;
     height: auto;
 }</code></pre>
+
+    <h2>Exempel på hur uppgiften kan se ut</h2>
+    <p>Det här är bara ett exempel. Din profilsida kan ha andra färger, annan text och andra klasser, men den ska visa samma CSS-kontroll: läsbar text, tydliga avstånd, responsiv bild och meningsfulla klassnamn.</p>
+    <div class="profile-design-preview" aria-label="Exempel på omdesignad profilsida">
+        <div class="profile-design-preview__bar">Exempel i webbläsaren</div>
+        <div class="profile-design-preview__page">
+            <main class="profile-design-preview__main">
+                <h1>Min profilsida</h1>
+                <p>Jag heter Ada och lär mig webbutveckling. På den här sidan samlar jag kort information om mig och mina intressen.</p>
+                <div class="profile-design-preview__image">Profilbild<br><small>max-width: 100%; height: auto;</small></div>
+                <ul class="profile-design-preview__tags">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Design</li>
+                </ul>
+                <p>Här finns en <a class="profile-design-preview__link" href="#">tydlig länk</a> med bra kontrast och synlig hover/focus-stil.</p>
+            </main>
+        </div>
+    </div>
 
     <h2>Kontrollera</h2>
     <ol>
