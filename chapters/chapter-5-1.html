@@ -7,6 +7,118 @@
     <meta name="description" content="Kap 5.1: vad JavaScript tillför, script-taggen, konsolen och små steg.">
     <title>Kap 5.1 - Vad JavaScript tillför</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .js-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .js-preview * {
+            color: #172026;
+        }
+
+        .js-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .js-preview__body {
+            padding: 1rem;
+            background: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .js-preview__files {
+            display: grid;
+            gap: 0.6rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .js-preview__files li {
+            padding: 0.7rem 0.85rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #f8fafc;
+        }
+
+        .console-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .console-preview * {
+            color: #172026;
+        }
+
+        .console-preview__tabs {
+            display: flex;
+            gap: 0.25rem;
+            padding: 0.5rem 0.75rem 0;
+            border-bottom: 1px solid #dbe4ee;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .console-preview__tab {
+            padding: 0.45rem 0.7rem;
+            border-radius: 6px 6px 0 0;
+            color: #475569 !important;
+        }
+
+        .console-preview__tab--active {
+            background: #ffffff;
+            color: #0f172a !important;
+            border: 1px solid #dbe4ee;
+            border-bottom-color: #ffffff;
+            transform: translateY(1px);
+        }
+
+        .console-preview__body {
+            padding: 0.85rem;
+            background: #ffffff;
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.95rem;
+        }
+
+        .console-preview__line {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.6rem;
+            align-items: start;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .console-preview__prompt {
+            color: #64748b !important;
+        }
+
+        .console-preview__message {
+            color: #0f172a !important;
+            font-weight: 700;
+        }
+
+        .console-preview__source {
+            color: #2563eb !important;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -32,11 +144,53 @@
 
                 <h2>Koppla en JavaScript-fil</h2>
                 <p>Lägg ofta JavaScript i en egen fil, till exempel <code>js/main.js</code>. Använd <code>defer</code> så att HTML hinner läsas in innan skriptet körs.</p>
+                <p>Skriv <code>script</code>-raden i HTML-filen, oftast i slutet av <code>head</code>. Om din HTML-fil heter <code>index.html</code> och JavaScript-filen ligger i mappen <code>js</code>, ska sökvägen vara <code>js/main.js</code>.</p>
                 <pre><code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code></pre>
+                <div class="js-preview" aria-label="Exempel på var script-raden skrivs">
+                    <div class="js-preview__bar">Filstruktur och placering</div>
+                    <div class="js-preview__body">
+                        <ul class="js-preview__files">
+                            <li><code>index.html</code>: här skriver du <code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code> i <code>head</code>.</li>
+                            <li><code>js/main.js</code>: här skriver du JavaScript-koden, till exempel <code>console.log("JavaScript fungerar");</code>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Min sida&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+    &lt;script src="js/main.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                <p><code>defer</code> betyder att webbläsaren laddar JavaScript-filen men väntar med att köra koden tills HTML-dokumentet har lästs in. Det gör att JavaScript lättare kan hitta element på sidan.</p>
 
                 <h2>Konsolen</h2>
                 <p>Konsolen i utvecklarverktygen visar fel och kan skriva ut testmeddelanden.</p>
                 <pre><code>console.log("JavaScript fungerar");</code></pre>
+                <p>Skriv raden ovan i <code>js/main.js</code>, spara filen och ladda om sidan i webbläsaren.</p>
+                <ol>
+                    <li>Öppna sidan i Chrome.</li>
+                    <li>Högerklicka på sidan och välj <strong>Inspect</strong> eller <strong>Inspektera</strong>.</li>
+                    <li>Klicka på fliken <strong>Console</strong>.</li>
+                    <li>Ladda om sidan om du inte ser meddelandet direkt.</li>
+                </ol>
+                <div class="console-preview" aria-label="Exempel på Chrome Console">
+                    <div class="console-preview__tabs">
+                        <span class="console-preview__tab">Elements</span>
+                        <span class="console-preview__tab console-preview__tab--active">Console</span>
+                        <span class="console-preview__tab">Sources</span>
+                        <span class="console-preview__tab">Network</span>
+                    </div>
+                    <div class="console-preview__body">
+                        <div class="console-preview__line">
+                            <span class="console-preview__prompt">&gt;</span>
+                            <span>
+                                <span class="console-preview__message">JavaScript fungerar</span><br>
+                                <span class="console-preview__source">main.js:1</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
                 <p>Om något inte händer på sidan: öppna konsolen först. Ett felmeddelande kan ofta peka på raden där problemet finns.</p>
 
                 <h2>Små steg</h2>

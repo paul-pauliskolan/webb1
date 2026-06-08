@@ -41,6 +41,37 @@
             gap: 0.5rem;
         }
 
+        .image-fit-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .image-fit-options legend {
+            margin-bottom: 0.35rem;
+            font-weight: 700;
+        }
+
+        .image-fit-options label {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-weight: 700;
+        }
+
+        .image-fit-options input[type="radio"] {
+            flex: 0 0 auto;
+            width: 1rem !important;
+            height: 1rem !important;
+            min-height: 0;
+            margin: 0;
+            padding: 0;
+            accent-color: #5eead4;
+        }
+
         .responsive-demo-stage {
             border: 1px solid var(--border);
             border-radius: 0.75rem;
@@ -73,8 +104,10 @@
         }
 
         .image-demo-frame {
+            position: relative;
             width: 30rem;
             max-width: 100%;
+            min-width: 12rem;
         }
 
         .image-demo-box {
@@ -89,14 +122,29 @@
             height: auto;
         }
 
-        .image-demo-box.cover-mode {
+        .image-demo-box.fit-mode {
             height: 12rem;
         }
 
-        .image-demo-box.cover-mode img {
+        .image-demo-box.fit-mode img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+        }
+
+        .image-demo-resize-handle {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            width: 1.75rem;
+            height: 1.75rem;
+            background:
+                linear-gradient(135deg, transparent 0 52%, rgba(159, 245, 232, 0.9) 52% 58%, transparent 58%),
+                linear-gradient(135deg, transparent 0 66%, rgba(159, 245, 232, 0.9) 66% 72%, transparent 72%),
+                linear-gradient(135deg, transparent 0 80%, rgba(159, 245, 232, 0.9) 80% 86%, transparent 86%);
+            cursor: nwse-resize;
+            user-select: none;
+            touch-action: none;
         }
 
         .responsive-demo-code {
@@ -108,6 +156,80 @@
         }
 
         .responsive-demo-readout {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .unit-demo-stage {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .unit-demo-parent {
+            width: 42rem;
+            max-width: 100%;
+            padding: 1rem;
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 0.5rem;
+            background: rgba(20, 30, 34, 0.9);
+            font-size: 20px;
+        }
+
+        .unit-demo-parent p {
+            margin: 0 0 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .unit-demo-bars {
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .unit-demo-row {
+            display: grid;
+            grid-template-columns: 4.5rem minmax(0, 1fr) 5rem;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .unit-demo-label {
+            font-weight: 800;
+        }
+
+        .unit-demo-bar {
+            min-width: 0.35rem;
+            height: 2rem;
+            border-radius: 0.4rem;
+            background: #5eead4;
+        }
+
+        .unit-demo-row:nth-child(2) .unit-demo-bar {
+            background: #fbbf24;
+        }
+
+        .unit-demo-row:nth-child(3) .unit-demo-bar {
+            background: #f87171;
+        }
+
+        .unit-demo-row:nth-child(4) .unit-demo-bar {
+            background: #93c5fd;
+        }
+
+        .unit-demo-row:nth-child(5) .unit-demo-bar {
+            background: #c4b5fd;
+        }
+
+        .unit-demo-row:nth-child(6) .unit-demo-bar {
+            background: #86efac;
+        }
+
+        .unit-demo-value {
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+        }
+
+        .unit-demo-note {
             color: var(--text-muted);
             margin: 0;
         }
@@ -142,6 +264,72 @@
         <li><code>vh</code> och <code>vw</code> utgår från viewportens höjd och bredd.</li>
     </ul>
 
+    <h2>Interaktivt exempel: fasta och relativa mått</h2>
+    <p>Ändra värdena och jämför vad samma typ av mått räknas från. <code>px</code> är fast, medan <code>rem</code>, <code>em</code>, <code>%</code>, <code>vw</code> och <code>vh</code> ändras när deras utgångspunkt ändras.</p>
+    <div class="responsive-demo-panel">
+        <div class="responsive-demo-controls" aria-label="Kontroller för CSS-enheter">
+            <div class="responsive-demo-control">
+                <label for="unit-parent-width">Förälderns bredd: <span id="unit-parent-width-value">42rem</span></label>
+                <input id="unit-parent-width" type="range" min="18" max="64" value="42">
+            </div>
+            <div class="responsive-demo-control">
+                <label for="unit-root-size">Root-font-size: <span id="unit-root-size-value">16px</span></label>
+                <input id="unit-root-size" type="range" min="12" max="24" value="16">
+            </div>
+            <div class="responsive-demo-control">
+                <label for="unit-parent-font">Elementets font-size: <span id="unit-parent-font-value">20px</span></label>
+                <input id="unit-parent-font" type="range" min="12" max="32" value="20">
+            </div>
+        </div>
+
+        <p class="responsive-demo-readout" id="unit-demo-readout">Jämför staplarna: bara <code>px</code> ligger helt stilla när du ändrar värdena.</p>
+
+        <div class="responsive-demo-stage">
+            <div class="unit-demo-stage">
+                <div class="unit-demo-parent" id="unit-demo-parent">
+                    <p>Förälderelementet. <code>%</code> räknas från den här bredden och <code>em</code> räknas från den här textstorleken.</p>
+                    <div class="unit-demo-bars">
+                        <div class="unit-demo-row">
+                            <span class="unit-demo-label">120px</span>
+                            <div class="unit-demo-bar" id="unit-bar-px"></div>
+                            <span class="unit-demo-value" id="unit-value-px">120px</span>
+                        </div>
+                        <div class="unit-demo-row">
+                            <span class="unit-demo-label">8rem</span>
+                            <div class="unit-demo-bar" id="unit-bar-rem"></div>
+                            <span class="unit-demo-value" id="unit-value-rem">128px</span>
+                        </div>
+                        <div class="unit-demo-row">
+                            <span class="unit-demo-label">8em</span>
+                            <div class="unit-demo-bar" id="unit-bar-em"></div>
+                            <span class="unit-demo-value" id="unit-value-em">160px</span>
+                        </div>
+                        <div class="unit-demo-row">
+                            <span class="unit-demo-label">50%</span>
+                            <div class="unit-demo-bar" id="unit-bar-percent"></div>
+                            <span class="unit-demo-value" id="unit-value-percent">336px</span>
+                        </div>
+                        <div class="unit-demo-row">
+                            <span class="unit-demo-label">20vw</span>
+                            <div class="unit-demo-bar" id="unit-bar-vw"></div>
+                            <span class="unit-demo-value" id="unit-value-vw">-</span>
+                        </div>
+                        <div class="unit-demo-row">
+                            <span class="unit-demo-label">20vh</span>
+                            <div class="unit-demo-bar" id="unit-bar-vh"></div>
+                            <span class="unit-demo-value" id="unit-value-vh">-</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="unit-demo-note">Obs: <code>vw</code> och <code>vh</code> räknas från webbläsarfönstret, inte från förälderrutan.</p>
+            </div>
+        </div>
+    </div>
+
+    <pre class="responsive-demo-code"><code id="unit-demo-css">.box {
+    width: 120px;
+}</code></pre>
+
     <h2>Läsbar radlängd</h2>
     <pre><code>main {
     width: min(100% - 2rem, 70ch);
@@ -154,13 +342,6 @@
     font-size: clamp(2rem, 5vw, 4rem);
 }</code></pre>
     <p><code>clamp()</code> sätter ett minsta värde, ett flexibelt värde och ett största värde. Det gör rubriker följsamma utan att bli orimligt små eller stora.</p>
-
-    <h2>Responsiva bilder</h2>
-    <pre><code>img {
-    max-width: 100%;
-    height: auto;
-}</code></pre>
-    <p>Den här regeln gör att bilder kan krympa med sin container. Om en bild ska fylla en fast ruta kan <code>object-fit: cover</code> användas, men kontrollera att viktig information inte beskärs.</p>
 
     <h2>Interaktivt exempel: clamp och radlängd</h2>
     <p>Ändra bredden på ytan, rubrikens <code>clamp()</code>-värden och textens maxbredd. Lägg märke till hur rubriken kan vara följsam samtidigt som brödtexten hålls läsbar.</p>
@@ -209,20 +390,34 @@
     font-size: clamp(2rem, 5vw, 4rem);
 }</code></pre>
 
+    <h2>Responsiva bilder</h2>
+    <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+    <p>Den här regeln gör att bilder kan krympa med sin container. Om en bild ska fylla en fast ruta kan <code>object-fit: cover</code> användas, men kontrollera att viktig information inte beskärs.</p>
+    <p><code>object-fit</code> används när bilden har en bestämd ruta, till exempel <code>width: 100%</code> och <code>height: 12rem</code>. Standardvärdet är <code>fill</code>. Det betyder att bilden fyller hela rutan, men den kan bli utdragen om rutans proportioner inte passar bilden. Utan en fast höjd märks <code>object-fit</code> ofta inte, eftersom bilden bara visas i sin vanliga proportion.</p>
+    <ul>
+        <li><code>fill</code>: bilden fyller rutan och kan förvrängas. Detta är standardvärdet.</li>
+        <li><code>contain</code>: hela bilden syns, men det kan bli tom yta i rutan.</li>
+        <li><code>cover</code>: rutan fylls helt, men delar av bilden kan beskäras.</li>
+        <li><code>none</code>: bilden behåller sin egen storlek och kan beskäras om rutan är mindre.</li>
+        <li><code>scale-down</code>: webbläsaren väljer det som blir minst av <code>none</code> och <code>contain</code>.</li>
+    </ul>
+
     <h2>Interaktivt exempel: responsiva bilder</h2>
-    <p>Ändra bildens containerbredd och jämför en flexibel bild med en bild som fyller en fast ruta med <code>object-fit: cover</code>.</p>
+    <p>Ändra bildens containerbredd med reglaget eller dra i nedre högra hörnet. Välj sedan olika <code>object-fit</code>-värden och jämför vad som händer.</p>
 
     <div class="responsive-demo-panel">
         <div class="responsive-demo-controls" aria-label="Kontroller för responsiv bild">
-            <div class="responsive-demo-control">
-                <label for="image-demo-width">Containerns bredd: <span id="image-demo-width-value">30rem</span></label>
-                <input id="image-demo-width" type="range" min="12" max="44" value="30">
-            </div>
-
-            <label class="responsive-demo-toggle" for="image-cover">
-                <input id="image-cover" type="checkbox">
-                object-fit: cover
-            </label>
+            <fieldset class="image-fit-options">
+                <legend>Bildläge</legend>
+                <label><input type="radio" name="image-fit" value="fill" checked> fill (standard)</label>
+                <label><input type="radio" name="image-fit" value="contain"> contain</label>
+                <label><input type="radio" name="image-fit" value="cover"> cover</label>
+                <label><input type="radio" name="image-fit" value="none"> none</label>
+                <label><input type="radio" name="image-fit" value="scale-down"> scale-down</label>
+            </fieldset>
         </div>
 
         <p class="responsive-demo-readout" id="image-demo-readout">Med <code>max-width: 100%</code> krymper bilden med sin container och behåller proportionerna.</p>
@@ -230,8 +425,9 @@
         <div class="responsive-demo-stage">
             <div class="image-demo-frame" id="image-demo-frame">
                 <div class="image-demo-box" id="image-demo-box">
-                    <img src="../assets/images/kap4-2-grid.png" alt="Exempelbild som används för att visa responsiv bildstorlek">
+                    <img src="../assets/images/dog.jpg" alt="Hundbild som används för att visa responsiv bildstorlek">
                 </div>
+                <div class="image-demo-resize-handle" id="image-demo-resize-handle" aria-hidden="true"></div>
             </div>
         </div>
     </div>
@@ -262,6 +458,93 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const parent = document.getElementById('unit-demo-parent')
+            const parentWidth = document.getElementById('unit-parent-width')
+            const rootSize = document.getElementById('unit-root-size')
+            const parentFont = document.getElementById('unit-parent-font')
+            const parentWidthValue = document.getElementById('unit-parent-width-value')
+            const rootSizeValue = document.getElementById('unit-root-size-value')
+            const parentFontValue = document.getElementById('unit-parent-font-value')
+            const readout = document.getElementById('unit-demo-readout')
+            const css = document.getElementById('unit-demo-css')
+            const bars = {
+                px: document.getElementById('unit-bar-px'),
+                rem: document.getElementById('unit-bar-rem'),
+                em: document.getElementById('unit-bar-em'),
+                percent: document.getElementById('unit-bar-percent'),
+                vw: document.getElementById('unit-bar-vw'),
+                vh: document.getElementById('unit-bar-vh')
+            }
+            const values = {
+                px: document.getElementById('unit-value-px'),
+                rem: document.getElementById('unit-value-rem'),
+                em: document.getElementById('unit-value-em'),
+                percent: document.getElementById('unit-value-percent'),
+                vw: document.getElementById('unit-value-vw'),
+                vh: document.getElementById('unit-value-vh')
+            }
+
+            function updateUnitDemo() {
+                const parentWidthRem = Number(parentWidth.value)
+                const rootPx = Number(rootSize.value)
+                const parentFontPx = Number(parentFont.value)
+                const viewportWidth = window.innerWidth
+                const viewportHeight = window.innerHeight
+                parent.style.width = `${parentWidthRem}rem`
+                parent.style.fontSize = `${parentFontPx}px`
+
+                const widths = {
+                    px: 120,
+                    rem: 8 * rootPx,
+                    em: 8 * parentFontPx,
+                    percent: parent.getBoundingClientRect().width * 0.5,
+                    vw: viewportWidth * 0.2,
+                    vh: viewportHeight * 0.2
+                }
+
+                parentWidthValue.textContent = `${parentWidthRem}rem`
+                rootSizeValue.textContent = `${rootPx}px`
+                parentFontValue.textContent = `${parentFontPx}px`
+
+                Object.entries(widths).forEach(([key, value]) => {
+                    bars[key].style.width = `${Math.round(value)}px`
+                    values[key].textContent = `${Math.round(value)}px`
+                })
+
+                readout.textContent = `px är fortfarande 120px. rem räknas från root-font-size (${rootPx}px). em räknas från elementets font-size (${parentFontPx}px). % räknas från förälderns bredd. vw och vh räknas från webbläsarfönstret.`
+                css.textContent = `.fixed {
+    width: 120px;
+}
+
+.root-relative {
+    width: 8rem; /* 8 × ${rootPx}px */
+}
+
+.element-relative {
+    width: 8em; /* 8 × ${parentFontPx}px */
+}
+
+.parent-relative {
+    width: 50%; /* hälften av förälderns bredd */
+}
+
+.viewport-relative {
+    width: 20vw;
+    height: 20vh;
+}`
+            }
+
+            if (parent && parentWidth && rootSize && parentFont) {
+                ;[parentWidth, rootSize, parentFont].forEach(control => {
+                    control.addEventListener('input', updateUnitDemo)
+                    control.addEventListener('change', updateUnitDemo)
+                })
+                window.addEventListener('resize', updateUnitDemo)
+                updateUnitDemo()
+            }
+        })
+
         document.addEventListener('DOMContentLoaded', function () {
             const textFrame = document.getElementById('text-demo-frame')
             const textContent = document.getElementById('text-demo-content')
@@ -317,39 +600,83 @@ h1 {
         document.addEventListener('DOMContentLoaded', function () {
             const frame = document.getElementById('image-demo-frame')
             const box = document.getElementById('image-demo-box')
-            const width = document.getElementById('image-demo-width')
-            const cover = document.getElementById('image-cover')
-            const widthValue = document.getElementById('image-demo-width-value')
+            const image = box.querySelector('img')
+            const fitControls = Array.from(document.querySelectorAll('input[name="image-fit"]'))
             const readout = document.getElementById('image-demo-readout')
             const css = document.getElementById('image-demo-css')
+            const resizeHandle = document.getElementById('image-demo-resize-handle')
 
             function updateImageDemo() {
-                const widthRem = `${width.value}rem`
+                const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+                const widthRem = `${Math.round(frame.getBoundingClientRect().width / rootFontSize)}rem`
+                const fitValue = fitControls.find(control => control.checked)?.value || 'fill'
 
-                frame.style.width = widthRem
-                widthValue.textContent = widthRem
-                box.classList.toggle('cover-mode', cover.checked)
+                box.classList.add('fit-mode')
+                image.style.objectFit = fitValue
 
-                if (cover.checked) {
-                    readout.textContent = 'Med object-fit: cover fyller bilden rutan, men delar av bilden kan beskäras.'
-                    css.textContent = `img {
+                const explanations = {
+                    fill: 'Med object-fit: fill fyller bilden hela rutan. Det är standardvärdet, men bilden kan förvrängas.',
+                    contain: 'Med object-fit: contain syns hela bilden, men det kan bli tom yta i rutan.',
+                    cover: 'Med object-fit: cover fyller bilden hela rutan, men delar av bilden kan beskäras.',
+                    none: 'Med object-fit: none behåller bilden sin egen storlek. Om rutan är mindre beskärs bilden.',
+                    'scale-down': 'Med object-fit: scale-down väljer webbläsaren det minsta av none och contain.'
+                }
+
+                readout.textContent = explanations[fitValue]
+                css.textContent = `.image-box {
+    width: ${widthRem};
+    height: 12rem;
+}
+
+img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${fitValue};
 }`
-                } else {
-                    readout.textContent = 'Med max-width: 100% krymper bilden med sin container och behåller proportionerna.'
-                    css.textContent = `img {
-    max-width: 100%;
-    height: auto;
-}`
-                }
             }
 
-            ;[width, cover].forEach(control => {
+            fitControls.forEach(control => {
                 control.addEventListener('input', updateImageDemo)
                 control.addEventListener('change', updateImageDemo)
             })
+
+            if (resizeHandle) {
+                let startX = 0
+                let startWidth = 0
+
+                resizeHandle.addEventListener('pointerdown', function (event) {
+                    event.preventDefault()
+                    startX = event.clientX
+                    startWidth = frame.getBoundingClientRect().width
+                    resizeHandle.setPointerCapture(event.pointerId)
+                })
+
+                resizeHandle.addEventListener('pointermove', function (event) {
+                    if (!resizeHandle.hasPointerCapture(event.pointerId)) {
+                        return
+                    }
+
+                    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+                    const stageWidth = frame.parentElement.getBoundingClientRect().width
+                    const minWidthPx = 12 * rootFontSize
+                    const maxWidthPx = Math.min(44 * rootFontSize, stageWidth)
+                    const nextWidthPx = Math.min(maxWidthPx, Math.max(minWidthPx, startWidth + event.clientX - startX))
+                    frame.style.width = `${Math.round(nextWidthPx / rootFontSize)}rem`
+                    updateImageDemo()
+                })
+
+                resizeHandle.addEventListener('pointerup', function (event) {
+                    if (resizeHandle.hasPointerCapture(event.pointerId)) {
+                        resizeHandle.releasePointerCapture(event.pointerId)
+                    }
+                })
+
+                resizeHandle.addEventListener('pointercancel', function (event) {
+                    if (resizeHandle.hasPointerCapture(event.pointerId)) {
+                        resizeHandle.releasePointerCapture(event.pointerId)
+                    }
+                })
+            }
 
             updateImageDemo()
         })

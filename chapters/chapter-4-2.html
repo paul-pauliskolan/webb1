@@ -39,25 +39,27 @@
             border-radius: 0.75rem;
             padding: 1rem;
             background: rgba(13, 19, 22, 0.72);
-            overflow: auto;
+            overflow: hidden;
         }
 
         .grid-demo-container {
+            position: relative;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: minmax(4.5rem, auto);
             gap: 1rem;
-            width: 100%;
-            max-width: 44rem;
+            width: 44rem;
+            max-width: 100%;
             min-height: 18rem;
             border: 2px dashed rgba(94, 234, 212, 0.65);
             border-radius: 0.5rem;
-            padding: 1rem;
+            padding: 1rem 1.75rem 1.75rem 1rem;
             background:
                 linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(94, 234, 212, 0.12) 1px, transparent 1px),
                 rgba(20, 30, 34, 0.9);
             background-size: 2rem 2rem;
+            overflow: hidden;
         }
 
         .grid-demo-item {
@@ -121,6 +123,220 @@
             white-space: pre-wrap;
         }
 
+        .grid-demo-resize-handle {
+            position: absolute;
+            background: transparent;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .grid-demo-resize-handle--right {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 1.25rem;
+            cursor: ew-resize;
+        }
+
+        .grid-demo-resize-handle--bottom {
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 1.25rem;
+            cursor: ns-resize;
+        }
+
+        .grid-demo-resize-handle--corner {
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            width: 1.75rem;
+            height: 1.75rem;
+            background:
+                linear-gradient(135deg, transparent 0 52%, rgba(159, 245, 232, 0.9) 52% 58%, transparent 58%),
+                linear-gradient(135deg, transparent 0 66%, rgba(159, 245, 232, 0.9) 66% 72%, transparent 72%),
+                linear-gradient(135deg, transparent 0 80%, rgba(159, 245, 232, 0.9) 80% 86%, transparent 86%);
+            cursor: nwse-resize;
+        }
+
+        .grid-rule-preview {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .grid-rule-preview * {
+            color: #172026;
+        }
+
+        .grid-rule-preview__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .grid-rule-preview__page {
+            padding: 1.25rem;
+            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .grid-rule-preview__layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .grid-rule-preview__gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .grid-rule-preview__cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+            gap: 1rem;
+        }
+
+        .grid-rule-preview__item {
+            display: grid;
+            place-items: center;
+            min-height: 5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #ccfbf1;
+            color: #0f1417 !important;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .grid-rule-preview__item:nth-child(2) {
+            background: #fef3c7;
+        }
+
+        .grid-rule-preview__item:nth-child(3) {
+            background: #fee2e2;
+        }
+
+        .grid-rule-preview__item:nth-child(4) {
+            background: #dbeafe;
+        }
+
+        .grid-rule-preview__caption {
+            margin: 0.75rem 0 0;
+            color: #334155 !important;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .auto-compare {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background: rgba(13, 19, 22, 0.72);
+        }
+
+        .auto-compare__controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .auto-compare__control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .auto-compare__control label {
+            font-weight: 700;
+        }
+
+        .auto-compare__control input {
+            width: 100%;
+        }
+
+        .auto-compare__grids {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .auto-compare__box {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .auto-compare__box h3 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .auto-compare__summary {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .auto-compare__grid {
+            display: grid;
+            gap: 1rem;
+            width: 36rem;
+            max-width: 100%;
+            min-height: 6rem;
+            padding: 1rem;
+            border: 2px dashed rgba(94, 234, 212, 0.65);
+            border-radius: 0.5rem;
+            background:
+                linear-gradient(rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(94, 234, 212, 0.12) 1px, transparent 1px),
+                rgba(20, 30, 34, 0.9);
+            background-size: 2rem 2rem;
+        }
+
+        .auto-compare__item {
+            min-height: 4.5rem;
+            display: grid;
+            place-items: center;
+            border-radius: 0.5rem;
+            color: #081112;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .auto-compare__item:nth-child(1) {
+            background: #5eead4;
+        }
+
+        .auto-compare__item:nth-child(2) {
+            background: #fbbf24;
+        }
+
+        .auto-compare__item:nth-child(3) {
+            background: #f87171;
+        }
+
+        .auto-compare__item:nth-child(4) {
+            background: #93c5fd;
+        }
+
+        .auto-compare__readout {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .auto-compare__code {
+            margin: 0;
+        }
+
         @media (max-width: 720px) {
             .grid-demo-stage {
                 padding: 0.75rem;
@@ -152,10 +368,6 @@
     <p>Grid passar när du vill kontrollera både kolumner och rader. En grid-container innehåller grid-items. Mellan rader och kolumner finns grid lines. Ytan mellan linjerna bildar celler och större områden kan beskrivas som grid areas.</p>
     <p><a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/" target="_blank" rel="noopener noreferrer">An Interactive Guide to CSS Grid</a> visar CSS Grid med interaktiva exempel. Sidan låter dig se hur kolumner, rader, <code>fr</code>, <code>gap</code>, grid lines och placering förändras när värdena ändras. Den är bra som visuell förklaring när kodexempel känns abstrakta.</p>
 
-    <figure>
-        <img src="../assets/images/kap4-2-grid.png" alt="Illustration av CSS Grid med rader, kolumner och grid-items">
-    </figure>
-
     <h2>En enkel grid</h2>
     <pre><code>.layout {
     display: grid;
@@ -163,6 +375,16 @@
     gap: 1.5rem;
 }</code></pre>
     <p><code>fr</code> betyder fraction, alltså en del av det lediga utrymmet. Här får första kolumnen två delar och andra kolumnen en del.</p>
+    <div class="grid-rule-preview" aria-label="Exempel på grid med två kolumner">
+        <div class="grid-rule-preview__bar">Så visas <code>grid-template-columns: 2fr 1fr</code></div>
+        <div class="grid-rule-preview__page">
+            <div class="grid-rule-preview__layout">
+                <div class="grid-rule-preview__item">2fr<br>huvudinnehåll</div>
+                <div class="grid-rule-preview__item">1fr<br>sidokolumn</div>
+            </div>
+            <p class="grid-rule-preview__caption">Första kolumnen får dubbelt så stor del av det lediga utrymmet som andra kolumnen.</p>
+        </div>
+    </div>
 
     <h2>repeat och minmax</h2>
     <pre><code>.gallery {
@@ -171,15 +393,85 @@
     gap: 1rem;
 }</code></pre>
     <p><code>repeat(3, 1fr)</code> skapar tre lika breda kolumner.</p>
+    <div class="grid-rule-preview" aria-label="Exempel på repeat med tre kolumner">
+        <div class="grid-rule-preview__bar">Så visas <code>repeat(3, 1fr)</code></div>
+        <div class="grid-rule-preview__page">
+            <div class="grid-rule-preview__gallery">
+                <div class="grid-rule-preview__item">1fr</div>
+                <div class="grid-rule-preview__item">1fr</div>
+                <div class="grid-rule-preview__item">1fr</div>
+            </div>
+            <p class="grid-rule-preview__caption">Alla tre kolumner delar lika på bredden.</p>
+        </div>
+    </div>
     <pre><code>.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: 1rem;
 }</code></pre>
     <p><code>minmax(14rem, 1fr)</code> säger att varje kolumn minst ska vara 14rem men får växa. <code>auto-fit</code> fyller raden med så många kolumner som får plats.</p>
+    <div class="grid-rule-preview" aria-label="Exempel på auto-fit och minmax">
+        <div class="grid-rule-preview__bar">Så visas <code>repeat(auto-fit, minmax(14rem, 1fr))</code></div>
+        <div class="grid-rule-preview__page">
+            <div class="grid-rule-preview__cards">
+                <div class="grid-rule-preview__item">Kort 1</div>
+                <div class="grid-rule-preview__item">Kort 2</div>
+                <div class="grid-rule-preview__item">Kort 3</div>
+                <div class="grid-rule-preview__item">Kort 4</div>
+            </div>
+            <p class="grid-rule-preview__caption">Korten får minst 14rem. Om det finns plats hamnar flera kort på samma rad, annars bryts de till nya rader.</p>
+        </div>
+    </div>
 
     <h2>auto-fit och auto-fill</h2>
     <p>Både <code>auto-fit</code> och <code>auto-fill</code> skapar responsiva kolumner. I praktiska kortlayouter passar <code>auto-fit</code> ofta bäst eftersom tomma spår kollapsar och innehållet får mer plats.</p>
+    <div class="auto-compare" aria-label="Interaktiv jämförelse mellan auto-fit och auto-fill">
+        <div class="auto-compare__controls">
+            <div class="auto-compare__control">
+                <label for="auto-compare-width">Grid-bredd: <span id="auto-compare-width-value">42rem</span></label>
+                <input id="auto-compare-width" type="range" min="18" max="54" value="42">
+            </div>
+            <div class="auto-compare__control">
+                <label for="auto-compare-min">Minsta kolumn: <span id="auto-compare-min-value">10rem</span></label>
+                <input id="auto-compare-min" type="range" min="6" max="16" value="10">
+            </div>
+            <div class="auto-compare__control">
+                <label for="auto-compare-items">Antal kort: <span id="auto-compare-items-value">2</span></label>
+                <input id="auto-compare-items" type="range" min="1" max="4" value="2">
+            </div>
+        </div>
+
+        <p class="auto-compare__readout" id="auto-compare-readout">Med få kort och bred container syns skillnaden tydligt: <code>auto-fit</code> låter korten växa, medan <code>auto-fill</code> behåller plats för tomma spår.</p>
+
+        <div class="auto-compare__grids">
+            <div class="auto-compare__box">
+                <h3><code>auto-fit</code></h3>
+                <p class="auto-compare__summary" id="auto-fit-summary">Tomma spår kollapsar.</p>
+                <div class="auto-compare__grid" id="auto-fit-grid" aria-label="auto-fit grid">
+                    <div class="auto-compare__item">Kort 1</div>
+                    <div class="auto-compare__item">Kort 2</div>
+                    <div class="auto-compare__item">Kort 3</div>
+                    <div class="auto-compare__item">Kort 4</div>
+                </div>
+            </div>
+
+            <div class="auto-compare__box">
+                <h3><code>auto-fill</code></h3>
+                <p class="auto-compare__summary" id="auto-fill-summary">Tomma spår behålls.</p>
+                <div class="auto-compare__grid" id="auto-fill-grid" aria-label="auto-fill grid">
+                    <div class="auto-compare__item">Kort 1</div>
+                    <div class="auto-compare__item">Kort 2</div>
+                    <div class="auto-compare__item">Kort 3</div>
+                    <div class="auto-compare__item">Kort 4</div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="auto-compare__code"><code id="auto-compare-code">.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}</code></pre>
+    </div>
 
     <h2>Interaktivt exempel</h2>
     <p>Ändra värdena och se hur grid-container, grid-items, tracks, cells, gap och areas påverkas.</p>
@@ -240,6 +532,9 @@
                 <div class="grid-demo-item">7</div>
                 <div class="grid-demo-item">8</div>
                 <div class="grid-demo-item">9</div>
+                <div class="grid-demo-resize-handle grid-demo-resize-handle--right" data-grid-resize-axis="x" aria-hidden="true"></div>
+                <div class="grid-demo-resize-handle grid-demo-resize-handle--bottom" data-grid-resize-axis="y" aria-hidden="true"></div>
+                <div class="grid-demo-resize-handle grid-demo-resize-handle--corner" data-grid-resize-axis="xy" aria-hidden="true"></div>
             </div>
         </div>
     </div>
@@ -270,6 +565,78 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const compareWidth = document.getElementById('auto-compare-width')
+            const compareMin = document.getElementById('auto-compare-min')
+            const compareItems = document.getElementById('auto-compare-items')
+            const compareWidthValue = document.getElementById('auto-compare-width-value')
+            const compareMinValue = document.getElementById('auto-compare-min-value')
+            const compareItemsValue = document.getElementById('auto-compare-items-value')
+            const fitGrid = document.getElementById('auto-fit-grid')
+            const fillGrid = document.getElementById('auto-fill-grid')
+            const fitSummary = document.getElementById('auto-fit-summary')
+            const fillSummary = document.getElementById('auto-fill-summary')
+            const compareReadout = document.getElementById('auto-compare-readout')
+            const compareCode = document.getElementById('auto-compare-code')
+
+            if (compareWidth && compareMin && compareItems && fitGrid && fillGrid) {
+                const fitItems = Array.from(fitGrid.querySelectorAll('.auto-compare__item'))
+                const fillItems = Array.from(fillGrid.querySelectorAll('.auto-compare__item'))
+
+                function updateAutoCompare() {
+                    const widthRem = `${compareWidth.value}rem`
+                    const minRem = `${compareMin.value}rem`
+                    const visibleItems = parseInt(compareItems.value, 10)
+                    const templateFit = `repeat(auto-fit, minmax(${minRem}, 1fr))`
+                    const templateFill = `repeat(auto-fill, minmax(${minRem}, 1fr))`
+                    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+
+                    fitGrid.style.width = widthRem
+                    fillGrid.style.width = widthRem
+                    fitGrid.style.gridTemplateColumns = templateFit
+                    fillGrid.style.gridTemplateColumns = templateFill
+
+                    fitItems.forEach((item, index) => {
+                        item.style.display = index < visibleItems ? 'grid' : 'none'
+                    })
+                    fillItems.forEach((item, index) => {
+                        item.style.display = index < visibleItems ? 'grid' : 'none'
+                    })
+
+                    compareWidthValue.textContent = widthRem
+                    compareMinValue.textContent = minRem
+                    compareItemsValue.textContent = String(visibleItems)
+
+                    const gapPx = rootFontSize
+                    const actualWidthPx = fillGrid.getBoundingClientRect().width
+                    const minPx = parseFloat(compareMin.value) * rootFontSize
+                    const possibleTracks = Math.max(1, Math.floor((actualWidthPx + gapPx) / (minPx + gapPx)))
+                    const usedFitTracks = Math.min(visibleItems, possibleTracks)
+                    const emptyFillTracks = Math.max(0, possibleTracks - visibleItems)
+
+                    fitSummary.textContent = `auto-fit: ${usedFitTracks} synliga spår. ${emptyFillTracks} tomma spår kollapsar och korten får mer plats.`
+                    fillSummary.textContent = `auto-fill: ${possibleTracks} spår behålls. ${emptyFillTracks} av dem är tomma när det bara finns ${visibleItems} kort.`
+                    compareReadout.textContent = `Båda exemplen har samma inställningar. Skillnaden syns när grid-containern har plats för fler kolumner än det finns kort: auto-fit kollapsar tomma spår, auto-fill behåller dem.`
+                    compareCode.textContent = `.cards-fit {
+    display: grid;
+    grid-template-columns: ${templateFit};
+}
+
+.cards-fill {
+    display: grid;
+    grid-template-columns: ${templateFill};
+}`
+                }
+
+                ;[compareWidth, compareMin, compareItems].forEach(control => {
+                    control.addEventListener('input', updateAutoCompare)
+                    control.addEventListener('change', updateAutoCompare)
+                })
+
+                updateAutoCompare()
+            }
+        })
+
+        document.addEventListener('DOMContentLoaded', function () {
             const container = document.getElementById('grid-demo-container')
             const mode = document.getElementById('grid-mode')
             const columnsControl = document.getElementById('grid-columns-control')
@@ -287,6 +654,7 @@
             const heightValue = document.getElementById('grid-height-value')
             const readout = document.getElementById('grid-readout')
             const output = document.getElementById('grid-css-output')
+            const resizeHandles = Array.from(document.querySelectorAll('[data-grid-resize-axis]'))
             const items = Array.from(container.querySelectorAll('.grid-demo-item'))
 
             function resetAreas() {
@@ -446,6 +814,60 @@
             ;[mode, columns, itemCount, gap, min, width, height].forEach(control => {
                 control.addEventListener('input', updateGridDemo)
                 control.addEventListener('change', updateGridDemo)
+            })
+
+            resizeHandles.forEach(handle => {
+                let startX = 0
+                let startY = 0
+                let startWidth = 0
+                let startHeight = 0
+                const axis = handle.dataset.gridResizeAxis || 'xy'
+
+                handle.addEventListener('pointerdown', function (event) {
+                    event.preventDefault()
+                    startX = event.clientX
+                    startY = event.clientY
+                    startWidth = container.getBoundingClientRect().width
+                    startHeight = container.getBoundingClientRect().height
+                    handle.setPointerCapture(event.pointerId)
+                })
+
+                handle.addEventListener('pointermove', function (event) {
+                    if (!handle.hasPointerCapture(event.pointerId)) {
+                        return
+                    }
+
+                    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+                    const stageWidth = container.parentElement.getBoundingClientRect().width
+                    const minWidthPx = Number(width.min) * rootFontSize
+                    const maxWidthPx = Math.min(Number(width.max) * rootFontSize, stageWidth)
+                    const minHeightPx = Number(height.min) * rootFontSize
+                    const maxHeightPx = Number(height.max) * rootFontSize
+
+                    if (axis.includes('x')) {
+                        const nextWidthPx = Math.min(maxWidthPx, Math.max(minWidthPx, startWidth + event.clientX - startX))
+                        width.value = String(Math.round(nextWidthPx / rootFontSize))
+                    }
+
+                    if (axis.includes('y')) {
+                        const nextHeightPx = Math.min(maxHeightPx, Math.max(minHeightPx, startHeight + event.clientY - startY))
+                        height.value = String(Math.round(nextHeightPx / rootFontSize))
+                    }
+
+                    updateGridDemo()
+                })
+
+                handle.addEventListener('pointerup', function (event) {
+                    if (handle.hasPointerCapture(event.pointerId)) {
+                        handle.releasePointerCapture(event.pointerId)
+                    }
+                })
+
+                handle.addEventListener('pointercancel', function (event) {
+                    if (handle.hasPointerCapture(event.pointerId)) {
+                        handle.releasePointerCapture(event.pointerId)
+                    }
+                })
             })
 
             updateGridDemo()
