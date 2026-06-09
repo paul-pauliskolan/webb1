@@ -2,98 +2,93 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Övningsuppgift 1 - Interaktivt användarprogram</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Övningsuppgift 1: skapa en enkel webbsida om en film, serie eller bok med HTML, CSS och bild.">
+    <title>Övningsuppgift 1 - Film, serie eller bok</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Övningsuppgift 1: Skapa ett interaktivt Pythonprogram med meny, funktioner, inmatning och villkor.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Övningsuppgift</p>
-                <h1>Övningsuppgift 1 – Skapa ett interaktivt användarprogram</h1>
-                <p class="subtitle">Bygg ett menyprogram med funktioner, användarinmatning och tydlig struktur.</p>
+                <p class="eyebrow">Övningsuppgift 1</p>
+                <h1>Övningsuppgift 1 - Skapa en sida om en film, serie eller bok</h1>
+                <p class="subtitle">Bygg en enkel webbsida med en HTML-fil, en extern CSS-fil och en bild.</p>
             </header>
 
             <section class="content-section">
+                <h2>Filmgenomgång</h2>
+                <p>Börja med att titta på spellistan: <a href="https://www.youtube.com/playlist?list=PLNadygDF_9TFJrNV5G4pIKiLGNWQa8T8k" target="_blank" rel="noopener">Övningsuppgift 1 på YouTube</a>.</p>
+
                 <h2>Uppgift</h2>
-                <p>Du ska skapa ett Pythonprogram som består av:</p>
+                <p>Du ska skapa en webbsida i HTML5 där du kortfattat skriver om en bra bok, film eller serie som du har sett eller läst.</p>
+                <p>Projektet ska bestå av:</p>
                 <ul>
-                    <li>En meny som visas i en loop tills användaren väljer att avsluta.</li>
-                    <li>Funktioner för varje menyval.</li>
-                    <li>Villkor, användarinmatning och utskrifter.</li>
-                    <li>Tydlig struktur med <code>main()</code> och minst två egna funktioner.</li>
+                    <li>En HTML-fil, till exempel <code>index.html</code>.</li>
+                    <li>En extern CSS-fil, till exempel <code>style.css</code>.</li>
+                    <li>En bildfil i formatet <code>jpg</code>, <code>webp</code> eller <code>png</code>.</li>
                 </ul>
 
-                <h2>Programmet ska innehålla</h2>
+                <h2>Krav på HTML</h2>
                 <ul>
-                    <li>Ett alternativ där användaren matar in sitt namn och sin ålder.</li>
-                    <li>Ett alternativ där programmet skriver ut vilket år användaren fyller 100.</li>
-                    <li>Ett avslutsalternativ.</li>
-                    <li>Felhantering vid ogiltiga menyval.</li>
+                    <li>Sidan ska vara skriven i HTML5.</li>
+                    <li>Du ska använda <code>&lt;h1&gt;</code> till sidans rubrik.</li>
+                    <li>Du ska använda <code>&lt;p&gt;</code> till löptext.</li>
+                    <li>Du ska länka till en extern CSS-fil från HTML-filen.</li>
+                    <li>Du ska ha med en bild, till exempel en poster eller omslagsbild.</li>
+                    <li>Bilden ska vara liten och får vara max en halv skärmhöjd.</li>
                 </ul>
 
-                <h2>Exempel på användning</h2>
-                <pre><code>1. Enter your name and age
-2. Show when you will turn 100
-3. Exit
-> 1
-Enter name: Sofia
-Enter age: 25
-> 2
-Sofia, you will turn 100 in the year 2099.</code></pre>
-
-                <h2>Bedömningsaspekter</h2>
+                <h2>Krav på CSS</h2>
+                <p>CSS-filen ska påverka rubriken, löptexten och sidans bakgrund.</p>
                 <ul>
-                    <li>Har du delat upp koden i funktioner på ett tydligt sätt?</li>
-                    <li>Är menyn korrekt uppbyggd med <code>while</code> och <code>if/elif</code>?</li>
-                    <li>Används <code>input()</code> och <code>print()</code> på rätt sätt?</li>
-                    <li>Är programmet körbart utan fel?</li>
+                    <li><code>h1</code> ska ha fonten Verdana, storlek <code>1.7rem</code> och valfri textfärg som inte är svart eller röd.</li>
+                    <li><code>p</code> ska ha fonten Verdana, storlek <code>1.2rem</code> och valfri textfärg som inte är svart eller röd.</li>
+                    <li>Sidan ska ha en valfri bakgrundsfärg som inte är vit eller röd.</li>
+                    <li>Färgerna ska passa ihop och texten ska vara lätt att läsa.</li>
+                </ul>
+
+                <h2>Validering</h2>
+                <p>Du ska validera både HTML5-koden och CSS-koden med W3C:s validatorer innan du lämnar in.</p>
+                <ul>
+                    <li>HTML: <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
+                    <li>CSS: <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a></li>
+                </ul>
+
+                <h2>Publicering</h2>
+                <p>Du ska lägga ut webbsidan på GitHub och publicera den med GitHub Pages. Lämna in både länken till koden på GitHub och länken till den publicerade sidan på GitHub Pages.</p>
+                <p>Exempel på hur det kan se ut:</p>
+                <ul>
+                    <li>Koden: <a href="https://github.com/pauliskolantest/movie-page-1" target="_blank" rel="noopener">https://github.com/pauliskolantest/movie-page-1</a></li>
+                    <li>GitHub Pages: <a href="https://paul-pauliskolan.github.io/movie-page-1/" target="_blank" rel="noopener">https://paul-pauliskolan.github.io/movie-page-1/</a></li>
                 </ul>
 
                 <h2>Checklista för inlämning</h2>
                 <ul>
-                    <li>Programmet är uppdelat i funktioner.</li>
-                    <li>En <code>main()</code>-funktion startar programmet.</li>
-                    <li>Programmet innehåller en meny med tre alternativ.</li>
-                    <li>Det går att mata in namn och ålder och räkna ut vilket år användaren fyller 100.</li>
-                    <li>Programmet avslutas korrekt.</li>
+                    <li>Du har en HTML-fil.</li>
+                    <li>Du har en extern CSS-fil som är länkad från HTML-filen.</li>
+                    <li>Du har en bildfil i <code>jpg</code>, <code>webp</code> eller <code>png</code>.</li>
+                    <li>Sidan handlar om en film, serie eller bok.</li>
+                    <li>Du har använt <code>&lt;h1&gt;</code> och <code>&lt;p&gt;</code>.</li>
+                    <li>CSS-kraven för <code>h1</code>, <code>p</code> och bakgrundsfärg är uppfyllda.</li>
+                    <li>Du har inte använt svart eller röd text, vit bakgrund eller röd bakgrund.</li>
+                    <li>Du har validerat HTML och CSS.</li>
+                    <li>Du har publicerat sidan med GitHub Pages.</li>
+                    <li>Du lämnar in både GitHub-länken till koden och GitHub Pages-länken.</li>
                 </ul>
-
-                <h2>Tips</h2>
-                <p>Spara namn och ålder i variabler som flera funktioner kan använda. Börja med att få menyn att fungera,
-                    och lägg sedan till beräkningen av 100-årsåret.</p>
-
-                <pre><code class="language-python">def visa_meny():
-    print("1. Enter your name and age")
-    print("2. Show when you will turn 100")
-    print("3. Exit")
-
-def main():
-    while True:
-        visa_meny()
-        val = input("> ")
-
-        if val == "1":
-            pass
-        elif val == "2":
-            pass
-        elif val == "3":
-            break
-        else:
-            print("Invalid choice")
-
-if __name__ == "__main__":
-    main()</code></pre>
             </section>
 
-            <p><a href="../index.html">Till startsidan</a></p>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-1-6.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">1.6 Miniuppgift: publicera med GitHub Pages</span></span></a>
+                <a href="chapter-2-1.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">2.1 HTML-element och DOM-tänk</span></span></a>
+            </nav>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Övningsuppgift</p><h2>Kom ihåg</h2><p>Lämna in både GitHub-repositoryt och GitHub Pages-länken.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
 </body>
 

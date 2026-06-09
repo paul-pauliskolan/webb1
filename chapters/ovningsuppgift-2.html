@@ -2,167 +2,104 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Övningsuppgift 2 - Hantera användardata</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Övningsuppgift 2: rätta HTML, skapa CSS, använd flexbox eller grid och publicera sidan med GitHub Pages.">
+    <title>Övningsuppgift 2 - Rätta HTML och skapa layout med CSS</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Övningsuppgift 2: Skapa ett Pythonprogram som hanterar användardata med listor, dictionaries, sökning och sortering.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Övningsuppgift</p>
-                <h1>Övningsuppgift 2 – Hantera användardata i ett enklare system</h1>
-                <p class="subtitle">Bygg ett menyprogram som lagrar, söker och sorterar användare.</p>
+                <p class="eyebrow">Övningsuppgift 2</p>
+                <h1>Övningsuppgift 2 - Rätta HTML och skapa layout med CSS</h1>
+                <p class="subtitle">Rätta en färdig HTML-fil, skapa en CSS-fil och publicera resultatet på GitHub Pages.</p>
             </header>
 
             <section class="content-section">
-                <h2>Vad du ska visa</h2>
-                <p>Den här uppgiften bygger på det du har lärt dig i Modul 2. Du ska visa att du kan:</p>
+                <h2>Viktigt</h2>
+                <p>Den här uppgiften måste utföras för att nå högre än E.</p>
+                <p>Du ska ha gjort Övningsuppgift 1 innan du gör denna uppgift.</p>
+
+                <h2>Filmgenomgångar</h2>
+                <p>Se filmerna om hur du ska göra uppgiften: <a href="https://www.youtube.com/watch?v=7JkKl1TV_vk&list=PLNadygDF_9THltLN22-L82rt25OXXwYkl&ab_channel=PaulB" target="_blank" rel="noopener">spellista för Övningsuppgift 2</a>.</p>
+                <p>CSS-delen börjar 11:20 in i första filmen: <a href="https://youtu.be/7JkKl1TV_vk?list=PLNadygDF_9THltLN22-L82rt25OXXwYkl&t=670" target="_blank" rel="noopener">börja vid CSS-genomgången</a>.</p>
+
+                <h2>Startfiler</h2>
+                <p>Ladda ner zip-filen och packa upp den. Filerna ska ligga i en mapp som heter <code>ovn2</code>.</p>
                 <ul>
-                    <li>Planera program med algoritmtänk.</li>
-                    <li>Använda listor, dictionaries och tuples.</li>
-                    <li>Skriva funktioner för att strukturera din kod.</li>
-                    <li>Använda loopar, villkor och användarinmatning.</li>
-                    <li>Använda sökning och sortering i listor.</li>
-                    <li>Strukturera din kod så att den är läsbar och lätt att följa.</li>
+                    <li><a href="../assets/ovn2/ovn2.zip" download>ovn2.zip</a> - innehåller <code>index.html</code>, <code>html.webp</code> och <code>css.webp</code>.</li>
                 </ul>
 
                 <h2>Uppgift</h2>
-                <p>Skapa ett program där användaren kan hantera en lista med användare. Programmet ska ge användaren
-                    möjlighet att:</p>
                 <ol>
-                    <li>Lägga till användare med namn, ålder och e-post.</li>
-                    <li>Söka efter användare via namn eller e-post.</li>
-                    <li>Visa alla användare sorterade alfabetiskt efter namn.</li>
-                    <li>Avsluta programmet.</li>
+                    <li>Rätta till eventuella fel i HTML-filen så att <code>index.html</code> klarar HTML-valideringen.</li>
+                    <li>Ändra inget annat än felen i HTML-filen. Ändra inte ens <code>&lt;link&gt;</code>-elementet.</li>
+                    <li>Skapa en CSS-fil som kopplas till <code>index.html</code> via den länk som redan finns i HTML-filen.</li>
+                    <li>Styla sidan enligt kraven nedan.</li>
+                    <li>Validera både HTML och CSS.</li>
+                    <li>Publicera koden på GitHub och sidan med GitHub Pages.</li>
                 </ol>
 
-                <p>Du ska använda funktioner för att dela upp din kod. Ditt program ska vara användarvänligt, tydligt
-                    kommenterat och skrivet med god struktur.</p>
-
-                <h2>Bedömning</h2>
+                <h2>Krav på CSS</h2>
                 <ul>
-                    <li>Användning av listor och dictionaries.</li>
-                    <li>Att programmet är uppdelat i funktioner med tydligt syfte.</li>
-                    <li>Att menyn fungerar och att programmet är logiskt uppbyggt.</li>
-                    <li>Att du använder villkor, loopar och inmatning korrekt.</li>
-                    <li>Att du visar förståelse för sortering, sökning och datastrukturer.</li>
-                    <li>Att din kod är läsbar och kommenterad.</li>
+                    <li>Ändra alla fonter till <code>Verdana, sans-serif</code>.</li>
+                    <li>Använd svart text och se till att texten syns tydligt.</li>
+                    <li>Byt bakgrundsfärg på <code>body</code> till en ljus färg som inte är vit.</li>
+                    <li>Byt bakgrundsfärg på <code>article</code> och <code>footer</code> till en annan ljus färg.</li>
+                    <li>Ändra de två länkarna, alltså <code>&lt;a&gt;</code>-elementen, till en lämplig mörkare färg än bakgrundsfärgen.</li>
+                    <li>Ta bort understrecken från länkarna.</li>
+                    <li>Se till att understrecket kommer fram när man hovrar över länkarna.</li>
+                    <li>Använd Grid eller Flexbox för att lägga <code>article</code> i två spalter.</li>
                 </ul>
 
-                <h2>Checklista före inlämning</h2>
+                <h2>Exempel</h2>
+                <p>Bilden visar ungefär hur en färdig sida kan se ut. Din sida behöver inte vara exakt likadan, men den ska följa kraven.</p>
+                <figure>
+                    <img src="../assets/images/ovn2-ex.png" alt="Exempel på färdig sida för Övningsuppgift 2" loading="lazy">
+                    <figcaption>Exempel på hur Övningsuppgift 2 kan se ut när HTML och CSS är klara.</figcaption>
+                </figure>
+
+                <h2>Validering</h2>
+                <p>Både HTML-koden och CSS-koden ska klara W3C-validering.</p>
                 <ul>
-                    <li>Jag har en fungerande meny med val 1-4.</li>
-                    <li>Jag använder en lista med dictionaries för att lagra användare.</li>
-                    <li>Jag har skapat och använt minst tre egna funktioner.</li>
-                    <li>Jag har testat mitt program så att alla val fungerar.</li>
-                    <li>Jag har kommenterat min kod där det behövs.</li>
+                    <li>HTML: <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
+                    <li>CSS: <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a></li>
                 </ul>
 
-                <h2>Mallkod att utgå ifrån</h2>
-                <pre><code class="language-python"># Funktion: Lägg till en användare
-def add_user(users):
-    # Här ska du skriva kod för att läsa in namn, ålder och e-post.
-    # Skapa en dictionary med informationen och lägg till den i listan users.
-    pass
+                <h2>Publicering</h2>
+                <p>Lägg upp koden på GitHub och publicera sidan med GitHub Pages. Lämna in både länken till koden och länken till den publicerade sidan.</p>
+                <p>Exempel på länkar:</p>
+                <ul>
+                    <li>Koden på GitHub: <a href="https://github.com/paubel/web1-02-first-web-page" target="_blank" rel="noopener">https://github.com/paubel/web1-02-first-web-page</a></li>
+                    <li>GitHub Pages: <a href="https://paubel.github.io/web1-02-first-web-page/" target="_blank" rel="noopener">https://paubel.github.io/web1-02-first-web-page/</a></li>
+                </ul>
 
-# Funktion: Sök efter en användare
-def search_user(users):
-    # Be användaren skriva in ett sökord, till exempel namn eller e-post.
-    # Sök i listan efter matchande användare och skriv ut resultat.
-    pass
-
-# Funktion: Visa alla användare
-def show_users(users):
-    # Sortera användarna efter namn.
-    # Skriv ut all information om varje användare.
-    pass
-
-# Huvudfunktion: Sköter meny och programflöde
-def main():
-    users = []  # Här lagras användarna som dictionaries
-
-    while True:
-        print("\n1. Lägg till användare\n2. Sök användare\n3. Visa alla användare\n4. Avsluta")
-        choice = input("Välj ett alternativ: ")
-
-        if choice == "1":
-            add_user(users)
-        elif choice == "2":
-            search_user(users)
-        elif choice == "3":
-            show_users(users)
-        elif choice == "4":
-            print("Programmet avslutas.")
-            break
-        else:
-            print("Ogiltigt val, försök igen.")
-
-main()</code></pre>
-
-                <h2>Lösningsförslag</h2>
-                <pre><code class="language-python">def add_user(users):
-    name = input("Ange namn: ")
-
-    try:
-        age = int(input("Ange ålder: "))
-    except ValueError:
-        print("Fel: Åldern måste vara ett heltal.")
-        return
-
-    email = input("Ange e-post: ")
-    user = {"name": name, "age": age, "email": email}
-    users.append(user)
-
-def search_user(users):
-    search_term = input("Sök namn eller e-post: ").lower()
-    found = [
-        user for user in users
-        if search_term in user["name"].lower()
-        or search_term in user["email"].lower()
-    ]
-
-    for user in found:
-        print(f"{user['name']} ({user['age']} år) - {user['email']}")
-
-    if not found:
-        print("Ingen träff.")
-
-def show_users(users):
-    sorted_users = sorted(users, key=lambda x: x["name"])
-
-    for user in sorted_users:
-        print(f"{user['name']} ({user['age']} år) - {user['email']}")
-
-def main():
-    users = []
-
-    while True:
-        print("\n1. Lägg till användare\n2. Sök användare\n3. Visa alla\n4. Avsluta")
-        choice = input("Välj ett alternativ: ")
-
-        if choice == "1":
-            add_user(users)
-        elif choice == "2":
-            search_user(users)
-        elif choice == "3":
-            show_users(users)
-        elif choice == "4":
-            print("Programmet avslutas.")
-            break
-        else:
-            print("Ogiltigt val, försök igen.")
-
-main()</code></pre>
+                <h2>Checklista för inlämning</h2>
+                <ul>
+                    <li>Du har laddat ner <code>ovn2.zip</code> och packat upp filerna i mappen <code>ovn2</code>.</li>
+                    <li>HTML-felen är rättade utan att du har ändrat annat innehåll i HTML-filen.</li>
+                    <li>Du har skapat CSS-filen som <code>index.html</code> länkar till.</li>
+                    <li>Du har använt <code>Verdana, sans-serif</code> på all text.</li>
+                    <li>Du har använt ljusa bakgrundsfärger enligt kraven.</li>
+                    <li>Länkarna har mörkare färg, saknar understreck normalt och får understreck vid hover.</li>
+                    <li><code>article</code> ligger i två spalter med Grid eller Flexbox.</li>
+                    <li>HTML och CSS är validerade.</li>
+                    <li>Du lämnar in både GitHub-länken och GitHub Pages-länken.</li>
+                </ul>
             </section>
 
-            <p><a href="../index.html">Till startsidan</a></p>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-4-5.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">4.5 Miniuppgift: responsiv startsida</span></span></a>
+                <a href="chapter-5-1.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">5.1 Vad JavaScript tillför</span></span></a>
+            </nav>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Övningsuppgift 2</p><h2>Högre än E</h2><p>Den här uppgiften måste vara gjord för att nå högre än E.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
 </body>
 

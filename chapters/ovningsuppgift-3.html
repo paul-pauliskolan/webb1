@@ -2,103 +2,148 @@
 <html lang="sv">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Övningsuppgift 3 - Objektorienterat program</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Övningsuppgift 3: bygg en responsiv webbplats med avancerad HTML- och CSS-layout, validering, tillgänglighet och GitHub Pages.">
+    <title>Övningsuppgift 3 - Avancerad layout</title>
     <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Övningsuppgift 3: Skapa ett objektorienterat Pythonprogram med egna klasser, objekt, metoder och eventuell arvstruktur.">
 </head>
 
 <body class="chapter-page">
-    <nav class="navbar"><a href="../index.html" class="logo">Programmering 2 i Python</a></nav>
+    <nav class="navbar"><a href="../index.html" class="logo">Webbutveckling 1</a></nav>
     <main class="container chapter-shell">
         <article class="chapter-main">
             <header class="chapter-hero">
-                <p class="eyebrow">Övningsuppgift</p>
-                <h1>Övningsuppgift 3 – Objektorienterat program</h1>
-                <p class="subtitle">Välj ett projekt och visa att du kan arbeta med klasser, objekt, attribut och metoder.</p>
+                <p class="eyebrow">Övningsuppgift 3</p>
+                <h1>Övningsuppgift 3 - Avancerad layout</h1>
+                <p class="subtitle">Bygg en responsiv webbplats med startsida, kontaktsida, modern CSS-layout och tydliga tillgänglighetskrav.</p>
             </header>
 
             <section class="content-section">
-                <h2>Uppgiftens syfte</h2>
-                <p>Syftet är att visa att du kan:</p>
-                <ul>
-                    <li>Skapa och använda egna klasser i Python.</li>
-                    <li>Strukturera ett objektorienterat program med flera objekt.</li>
-                    <li>Använda arv, metoder, konstruktorer och attribut.</li>
-                    <li>Testa och dokumentera din kod.</li>
-                </ul>
-
                 <h2>Instruktioner</h2>
-                <p>Välj ett av projekten nedan och genomför det i Python. Du ska:</p>
-                <ol>
-                    <li>Planera programmet med ett UML-diagram eller en tydlig beskrivning.</li>
-                    <li>Skapa klasser enligt instruktionerna.</li>
-                    <li>Skriva ett huvudprogram som demonstrerar funktionaliteten.</li>
-                    <li>Testa programmet och säkerställa att det fungerar korrekt.</li>
-                    <li>Kommentera din kod så att den är lätt att förstå.</li>
-                </ol>
+                <p>I dessa filmer förklaras den här ganska omfattande uppgiften: <a href="https://www.youtube.com/watch?v=xtAOUJdNyzo&list=PLNadygDF_9TGGWdkgGEqnmB_S0kqhDeQv&ab_channel=PaulB" target="_blank" rel="noopener">filmserie för Övningsuppgift 3</a>. Se och gör alla delarna.</p>
 
-                <h2>Välj ett av följande projekt</h2>
+                <h2>Filer</h2>
+                <p>Här är filerna du behöver: <a href="../assets/ovn3/ovn3-images/ovn3-images.zip" download>ovn3-images.zip</a>.</p>
+                <p>Zip-filen innehåller bilderna som ska användas på webbplatsen. Alla bilder som används på webbplatsen ska vara i WebP-format.</p>
 
-                <h3>Alternativ 1: Bibliotekssystem</h3>
+                <h2>Layoutbilder</h2>
+                <p>De fyra bilderna i mappen <code>ovn3-layout</code> visar hur sidorna ska se ut. Använd inte layoutbilderna i din egen webbplats. De är bara stöd för hur du ska bygga layouten.</p>
                 <ul>
-                    <li>Skapa klasserna <code>Book</code>, <code>Member</code> och <code>Library</code>.</li>
-                    <li>En medlem ska kunna låna och återlämna böcker.</li>
-                    <li>Biblioteket ska hålla reda på alla böcker och medlemmar.</li>
+                    <li>För <code>index</code> finns en desktopversion och en mobilversion.</li>
+                    <li>För <code>contact</code> finns en desktopversion och en mobilversion.</li>
+                    <li>Gör alltid mobildesignen först och ändra sedan till desktoplayout med media query.</li>
+                    <li>Tips: i stället för <code>min-width</code> och <code>max-width</code> kan du använda <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> och <code>&gt;=</code> i media queries.</li>
+                </ul>
+                <p>Exempel på en media query med den nya syntaxen:</p>
+                <pre><code>/* Mobil först */
+.page {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Desktop när skärmen är minst 800px bred */
+@media (width &gt;= 800px) {
+    .page {
+        grid-template-columns: 1fr 1fr;
+    }
+}</code></pre>
+
+                <figure>
+                    <img src="../assets/ovn3/ovn3-layout/index%20-%20mobile.png" alt="Layoutförslag för indexsidan i mobilvy" loading="lazy">
+                    <figcaption>Index - mobil.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../assets/ovn3/ovn3-layout/index%20-%20desktop.png" alt="Layoutförslag för indexsidan i desktopvy" loading="lazy">
+                    <figcaption>Index - desktop.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../assets/ovn3/ovn3-layout/contakt%20-%20mobile.png" alt="Layoutförslag för kontaktsidan i mobilvy" loading="lazy">
+                    <figcaption>Contact - mobil.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../assets/ovn3/ovn3-layout/contact%20-%20desktop.png" alt="Layoutförslag för kontaktsidan i desktopvy" loading="lazy">
+                    <figcaption>Contact - desktop.</figcaption>
+                </figure>
+
+                <h2>Krav</h2>
+                <ul>
+                    <li>Du ska bygga två sidor: <code>index.html</code> och <code>contact.html</code>.</li>
+                    <li>Både indexsidan och kontaktsidan ska ha centrerat innehåll.</li>
+                    <li>Båda sidorna ska klara validering av HTML och CSS.</li>
+                    <li>Design och layout ska följa layoutbilderna, men du väljer färger själv.</li>
+                    <li>Texten ska synas tydligt mot bakgrunden.</li>
+                    <li>De två länkarna i menyn ska se ut som länkar, men de får inte ha standardutseende. De ska ha ett knappliknande utseende.</li>
+                    <li>Webbplatsen ska klara kraven i Lighthouse, utom bildtesten och Google Fonts.</li>
+                    <li>Du ska ha en meta description på båda sidorna.</li>
+                    <li>Bakgrunds- och textfärger ska ha tillräcklig kontrast.</li>
                 </ul>
 
-                <h3>Alternativ 2: RPG-strid</h3>
+                <h2>Färg och font</h2>
                 <ul>
-                    <li>Skapa klasserna <code>Character</code>, <code>Player</code>, <code>Enemy</code> och
-                        <code>Item</code>.</li>
-                    <li>Implementera arv och föremålsanvändning.</li>
-                    <li>Skapa ett enkelt stridssystem med flera rundor.</li>
+                    <li>Välj färger från <a href="https://coolors.co/generate" target="_blank" rel="noopener">Coolors</a>. Du får inte använda mitt färgschema. Slumpa fram ett eget färgschema.</li>
+                    <li>Välj en sans-serif fontstack från <a href="https://modernfontstacks.com/" target="_blank" rel="noopener">Modern Font Stacks</a>. Det minskar laddningstiden och undviker externa fontanrop.</li>
                 </ul>
 
-                <h3>Alternativ 3: Receptplanerare</h3>
+                <h2>Testning</h2>
                 <ul>
-                    <li>Skapa klasserna <code>Ingredient</code>, <code>Recipe</code> och <code>MealPlanner</code>.</li>
-                    <li>Recept ska innehålla flera ingredienser.</li>
-                    <li><code>MealPlanner</code> ska kunna lista recept och skapa en inköpslista.</li>
+                    <li>Testa webbplatsen med Lighthouse i Chrome DevTools.</li>
+                    <li>Kontrollera särskilt felet <a href="https://developer.chrome.com/docs/lighthouse/seo/meta-description/" target="_blank" rel="noopener">Document does not have a meta description</a>.</li>
+                    <li>Kontrollera kontrast med <a href="https://color.a11y.com/?wc3" target="_blank" rel="noopener">Color Contrast Accessibility Validator</a>.</li>
+                    <li>Läs mer om kontrastproblemet här: <a href="https://themeisle.com/blog/background-and-foreground-colors-do-not-have-a-sufficient-contrast-ratio/" target="_blank" rel="noopener">Background and foreground colors have a sufficient contrast ratio</a>.</li>
+                    <li>Validera HTML med <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a>.</li>
+                    <li>Validera CSS med <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a>.</li>
                 </ul>
 
-                <h2>Bedömningskriterier</h2>
+                <h2>Bilder</h2>
+                <p>Alla bilder ska vara i WebP-format. Använd till exempel <a href="https://squoosh.app/" target="_blank" rel="noopener">Squoosh</a> eller <a href="https://cloudconvert.com/webp-converter" target="_blank" rel="noopener">CloudConvert WebP Converter</a> för att konvertera bilder.</p>
+                <p>Om du vill läsa mer om Lighthouse-varningen finns Googles guide: <a href="https://developer.chrome.com/docs/lighthouse/performance/uses-webp-images/" target="_blank" rel="noopener">Serve images in modern formats</a>.</p>
 
-                <h3>För E-nivå</h3>
+                <h2>CSS-stöd</h2>
+                <p>I uppgiften visas en CSS reset. Den tar bland annat bort marginaler som webbläsaren sätter automatiskt, så du kan börja mer kontrollerat.</p>
                 <ul>
-                    <li>Skapa ett fungerande program med minst två egna klasser.</li>
-                    <li>Använda metoder och attribut korrekt.</li>
-                    <li>Visa att du förstår syftet med objektorientering.</li>
+                    <li>Läs mer: <a href="https://piccalil.li/blog/a-modern-css-reset/" target="_blank" rel="noopener">A Modern CSS Reset</a>.</li>
+                    <li>Extern reset via unpkg: <code>&lt;link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"&gt;</code></li>
+                    <li>Extern reset via jsDelivr: <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css"&gt;</code></li>
+                    <li>Grid-lathund: <a href="https://grid.malven.co/" target="_blank" rel="noopener">CSS Grid Cheatsheet</a>.</li>
+                    <li>Viewport units: <a href="https://css-tricks.com/fun-viewport-units/" target="_blank" rel="noopener">CSS-Tricks: Fun With Viewport Units</a>.</li>
+                    <li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-items" target="_blank" rel="noopener">place-items</a>.</li>
+                    <li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content" target="_blank" rel="noopener">place-content</a>.</li>
                 </ul>
 
-                <h3>För C-nivå</h3>
+                <h2>Publicering</h2>
+                <p>Lägg upp koden på GitHub och publicera sidan med GitHub Pages. Lämna in både länken till koden och länken till den publicerade sidan.</p>
+                <p>Film om hur man gör: <a href="https://youtu.be/0q5jhjU4QJU" target="_blank" rel="noopener">publicera med GitHub Pages</a>.</p>
                 <ul>
-                    <li>Använda arv, metodöverskuggning och objektstruktur.</li>
-                    <li>Visa att du kan strukturera kod på ett tydligt sätt.</li>
-                    <li>Kommentera och testa din kod.</li>
+                    <li>Exempel på länk till koden på GitHub: <a href="https://github.com/paubel/web1-02-first-web-page" target="_blank" rel="noopener">https://github.com/paubel/web1-02-first-web-page</a></li>
+                    <li>Exempel på länk till GitHub Pages: <a href="https://paubel.github.io/web1-02-first-web-page/" target="_blank" rel="noopener">https://paubel.github.io/web1-02-first-web-page/</a></li>
                 </ul>
 
-                <h3>För A-nivå</h3>
+                <h2>Checklista för inlämning</h2>
                 <ul>
-                    <li>Använda arv, flera samverkande objekt, listor och logik.</li>
-                    <li>Göra tydlig design med UML eller annan planering.</li>
-                    <li>Visa att du kan felsöka och förbättra ditt program.</li>
-                </ul>
-
-                <h2>Checklista innan du lämnar in</h2>
-                <ul>
-                    <li>Har du minst två egna klasser?</li>
-                    <li>Använder du objekt på ett tydligt sätt?</li>
-                    <li>Har du testat alla funktioner?</li>
-                    <li>Är din kod kommenterad?</li>
-                    <li>Har du använt arv eller flera objekt om det krävs?</li>
+                    <li>Du har byggt <code>index.html</code> och <code>contact.html</code>.</li>
+                    <li>Du har utgått från mobilversionen först.</li>
+                    <li>Du har använt media query för desktoplayout.</li>
+                    <li>Båda sidorna har centrerat innehåll.</li>
+                    <li>Menylänkarna har knappliknande design.</li>
+                    <li>Du har valt eget färgschema från Coolors.</li>
+                    <li>Du har valt en sans-serif fontstack från Modern Font Stacks.</li>
+                    <li>Alla bilder som används på webbplatsen är WebP.</li>
+                    <li>HTML och CSS klarar validering.</li>
+                    <li>Sidorna klarar Lighthouse-kraven enligt uppgiften.</li>
+                    <li>Kontrasten klarar Color Contrast Accessibility Validator.</li>
+                    <li>Du lämnar in både GitHub-länken och GitHub Pages-länken.</li>
                 </ul>
             </section>
 
-            <p><a href="../index.html">Till startsidan</a></p>
+            <nav class="chapter-nav" aria-label="Kapitel navigering">
+                <a href="chapter-8-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">7.7 Testa i webbläsaren</span></span></a>
+                <a href="chapter-8-3.html" class="nav-button"><span><span class="nav-label">Nästa</span><span class="nav-title">Inlämning 1 - Figma</span></span></a>
+            </nav>
         </article>
+        <aside class="chapter-aside"><section class="aside-card"><p class="eyebrow">Övningsuppgift 3</p><h2>Avancerad layout</h2><p>Bygg mobilt först, testa kontrast och publicera både kod och GitHub Pages.</p></section></aside>
     </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
     <script src="../js/main.js"></script>
 </body>
 
