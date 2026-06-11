@@ -114,10 +114,254 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.72);
             color: #111111;
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
         }
 
         .color-demo-code {
             margin-top: 1rem;
+        }
+
+        .hex-explain {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #f8fafc;
+            color: #172026;
+        }
+
+        .hex-explain p {
+            margin: 0;
+            color: #172026 !important;
+        }
+
+        .hex-explain__code {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.15rem;
+            font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 1.6rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hex-explain__hash {
+            color: #172026 !important;
+        }
+
+        .hex-explain__red {
+            color: #7f1d1d !important;
+        }
+
+        .hex-explain__green {
+            color: #065f46 !important;
+        }
+
+        .hex-explain__blue {
+            color: #1e3a8a !important;
+        }
+
+        .hex-explain__parts {
+            display: grid;
+            gap: 0.35rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hex-explain__parts li {
+            color: #172026 !important;
+        }
+
+        .hex-explain__parts code {
+            border: 0 !important;
+            font-weight: 900;
+        }
+
+        .hex-explain__parts code.hex-explain__red {
+            background: #7f1d1d !important;
+            color: #ffffff !important;
+        }
+
+        .hex-explain__parts code.hex-explain__green {
+            background: #065f46 !important;
+            color: #ffffff !important;
+        }
+
+        .hex-explain__parts code.hex-explain__blue {
+            background: #1e3a8a !important;
+            color: #ffffff !important;
+        }
+
+        .contrast-demo {
+            margin: 1rem 0 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .contrast-demo * {
+            color: inherit;
+        }
+
+        .contrast-demo__bar {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .contrast-demo__body {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.9fr);
+            gap: 1rem;
+            padding: 1.25rem;
+        }
+
+        .contrast-demo__controls {
+            display: grid;
+            gap: 1rem;
+            align-content: start;
+        }
+
+        .contrast-demo__field {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.55rem 0.75rem;
+            align-items: center;
+        }
+
+        .contrast-demo__field label {
+            font-weight: 800;
+        }
+
+        .contrast-demo__field input[type="color"] {
+            width: 3.25rem;
+            height: 2.25rem;
+            padding: 0;
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .contrast-demo__field code {
+            grid-column: 1 / -1;
+            justify-self: start;
+            color: #172026;
+        }
+
+        .contrast-demo__sliders {
+            grid-column: 1 / -1;
+            display: grid;
+            gap: 0.45rem;
+        }
+
+        .contrast-demo__slider {
+            display: grid;
+            grid-template-columns: 3.2rem minmax(0, 1fr) 2.5rem;
+            gap: 0.55rem;
+            align-items: center;
+            font-size: 0.92rem;
+        }
+
+        .contrast-demo__slider label {
+            font-weight: 700;
+        }
+
+        .contrast-demo__slider input[type="range"] {
+            width: 100%;
+        }
+
+        .contrast-demo__slider span {
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+        }
+
+        .contrast-demo__buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contrast-demo__buttons button {
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            padding: 0.45rem 0.65rem;
+            background: #ffffff;
+            color: #172026;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .contrast-demo__buttons button:hover,
+        .contrast-demo__buttons button:focus-visible {
+            border-color: #0f766e;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
+        }
+
+        .contrast-demo__result {
+            display: grid;
+            gap: 0.4rem;
+            padding: 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+
+        .contrast-demo__ratio {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: #172026;
+        }
+
+        .contrast-demo__status {
+            font-weight: 800;
+            color: #14532d;
+        }
+
+        .contrast-demo__status[data-pass="false"] {
+            color: #991b1b;
+        }
+
+        .contrast-demo__preview {
+            display: grid;
+            align-content: center;
+            gap: 0.75rem;
+            min-height: 16rem;
+            padding: 1.25rem;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #172026;
+        }
+
+        .contrast-demo__preview h3,
+        .contrast-demo__preview p {
+            margin: 0;
+            color: inherit !important;
+        }
+
+        .contrast-demo__preview h3 {
+            font-size: 1.35rem;
+        }
+
+        .contrast-demo__preview p {
+            line-height: 1.5;
+        }
+
+        @media (max-width: 720px) {
+            .contrast-demo__body {
+                grid-template-columns: 1fr;
+            }
         }
 
         .css-color-preview {
@@ -234,6 +478,63 @@
             font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
         }
 
+        .font-stack-demo__buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 1rem 1.25rem 0;
+            background: #ffffff;
+        }
+
+        .font-stack-demo__buttons button {
+            border: 1px solid #94a3b8;
+            border-radius: 6px;
+            padding: 0.45rem 0.65rem;
+            background: #ffffff;
+            color: #172026;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .font-stack-demo__buttons button[aria-pressed="true"] {
+            border-color: #0f766e;
+            background: #ccfbf1;
+            color: #134e4a;
+        }
+
+        .font-stack-demo__buttons button:hover,
+        .font-stack-demo__buttons button:focus-visible {
+            border-color: #0f766e;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
+        }
+
+        .font-stack-demo__sample {
+            display: grid;
+            gap: 0.75rem;
+            min-height: 12rem;
+        }
+
+        .font-stack-demo__sample h3,
+        .font-stack-demo__sample p {
+            color: #172026 !important;
+        }
+
+        .font-stack-demo__sample h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .font-stack-demo__sample p {
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .font-stack-demo__code {
+            white-space: pre-wrap;
+        }
+
         .text-preview {
             margin: 1rem 0 1.5rem;
             border: 1px solid #cbd5e1;
@@ -336,6 +637,19 @@
     </div>
     <p>Moderna format som oklch och färgrymder som P3 finns också. I kursens början räcker det att du kan hex, RGB och HSL, men det är bra att känna till att färgsystem utvecklas.</p>
 
+    <div class="hex-explain" aria-label="Exempel på hur en hexkod är uppbyggd">
+        <p>En hexkod börjar med <code>#</code> och har sedan tre par tecken: rött, grönt och blått. Varje par går från <code>00</code> till <code>FF</code>, vilket motsvarar <code>0</code> till <code>255</code> i RGB.</p>
+        <div class="hex-explain__code" aria-hidden="true">
+            <span class="hex-explain__hash">#</span><span class="hex-explain__red">40</span><span class="hex-explain__green">A0</span><span class="hex-explain__blue">DC</span>
+        </div>
+        <ul class="hex-explain__parts">
+            <li><code class="hex-explain__red">40</code> är röd kanal och betyder <code>64</code>.</li>
+            <li><code class="hex-explain__green">A0</code> är grön kanal och betyder <code>160</code>.</li>
+            <li><code class="hex-explain__blue">DC</code> är blå kanal och betyder <code>220</code>.</li>
+        </ul>
+        <p>Därför är <code>#40A0DC</code> samma färg som <code>rgb(64 160 220)</code>.</p>
+    </div>
+
     <h2>RGB och HSL</h2>
     <p><code>rgb()</code> blandar färg med rött, grönt och blått ljus. Varje kanal går från <code>0</code> till <code>255</code>. <code>0</code> betyder inget ljus i den kanalen och <code>255</code> betyder full styrka. Därför blir <code>rgb(0 0 0)</code> svart, <code>rgb(255 255 255)</code> vitt och <code>rgb(255 0 0)</code> rött.</p>
     <p><code>hsl()</code> beskriver färg på ett annat sätt: <strong>hue</strong>, <strong>saturation</strong> och <strong>lightness</strong>. Hue är färgvinkeln på färghjulet och går från <code>0</code> till <code>360</code>. Röd ligger vid <code>0</code> och <code>360</code>, grön vid <code>120</code> och blå vid <code>240</code>. <code>270</code> ligger alltså inte på ren blå, utan mellan blå och magenta. Saturation och lightness skrivs i procent eftersom de beskriver andel: <code>0%</code> saturation är grått och <code>100%</code> är fullt mättad färg. <code>0%</code> lightness är svart, <code>50%</code> är normal ljushet och <code>100%</code> är vitt.</p>
@@ -391,7 +705,74 @@ background-color: hsl(201 69% 56%);</code></pre>
     </div>
 
     <h2>Kontrast</h2>
-    <p>Text måste ha tillräcklig kontrast mot bakgrunden. Ljusgrå text på vit bakgrund kan se diskret ut, men den blir svår att läsa. Testa färger med <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a>.</p>
+    <p>Text måste ha tillräcklig kontrast mot bakgrunden. I den här övningen ska färgkombinationen nå minst <strong>7:1</strong>. Ljusgrå text på vit bakgrund kan se diskret ut, men den blir svår att läsa. Ren röd färg, <code>#FF0000</code>, kan inte nå 7:1 mot någon bakgrund. Testa färger med <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a>.</p>
+    <p><strong>Varför 7:1?</strong> WCAG betyder <span lang="en">Web Content Accessibility Guidelines</span>. Det är internationella riktlinjer för att göra webbinnehåll mer tillgängligt. WCAG har nivåerna A, AA och AAA, där AAA är den striktaste nivån. För vanlig text kräver WCAG AAA minst <strong>7:1</strong> i kontrast mellan text och bakgrund. Därför använder vi 7:1 som mål här.</p>
+    <div class="contrast-demo" aria-label="Interaktiv kontrastkontroll">
+        <div class="contrast-demo__bar">Testa textfärg mot bakgrundsfärg</div>
+        <div class="contrast-demo__body">
+            <div class="contrast-demo__controls">
+                <div class="contrast-demo__field">
+                    <label for="contrast-text-color">Textfärg</label>
+                    <input id="contrast-text-color" type="color" value="#172026">
+                    <code id="contrast-text-code">#172026</code>
+                    <div class="contrast-demo__sliders" aria-label="RGB-reglage för textfärg">
+                        <div class="contrast-demo__slider">
+                            <label for="contrast-text-red">Röd</label>
+                            <input id="contrast-text-red" type="range" min="0" max="255" value="23">
+                            <span id="contrast-text-red-value">23</span>
+                        </div>
+                        <div class="contrast-demo__slider">
+                            <label for="contrast-text-green">Grön</label>
+                            <input id="contrast-text-green" type="range" min="0" max="255" value="32">
+                            <span id="contrast-text-green-value">32</span>
+                        </div>
+                        <div class="contrast-demo__slider">
+                            <label for="contrast-text-blue">Blå</label>
+                            <input id="contrast-text-blue" type="range" min="0" max="255" value="38">
+                            <span id="contrast-text-blue-value">38</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contrast-demo__field">
+                    <label for="contrast-bg-color">Bakgrundsfärg</label>
+                    <input id="contrast-bg-color" type="color" value="#ffffff">
+                    <code id="contrast-bg-code">#FFFFFF</code>
+                    <div class="contrast-demo__sliders" aria-label="RGB-reglage för bakgrundsfärg">
+                        <div class="contrast-demo__slider">
+                            <label for="contrast-bg-red">Röd</label>
+                            <input id="contrast-bg-red" type="range" min="0" max="255" value="255">
+                            <span id="contrast-bg-red-value">255</span>
+                        </div>
+                        <div class="contrast-demo__slider">
+                            <label for="contrast-bg-green">Grön</label>
+                            <input id="contrast-bg-green" type="range" min="0" max="255" value="255">
+                            <span id="contrast-bg-green-value">255</span>
+                        </div>
+                        <div class="contrast-demo__slider">
+                            <label for="contrast-bg-blue">Blå</label>
+                            <input id="contrast-bg-blue" type="range" min="0" max="255" value="255">
+                            <span id="contrast-bg-blue-value">255</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contrast-demo__buttons" aria-label="Förvalda färgkombinationer">
+                    <button type="button" data-text="#777777" data-bg="#ffffff">Ljusgrå på vit</button>
+                    <button type="button" data-text="#ff0000" data-bg="#ffffff">Röd på vit</button>
+                    <button type="button" data-text="#ffffff" data-bg="#cc0000">Vit på röd</button>
+                    <button type="button" data-text="#172026" data-bg="#f6f8f7">Mörk på ljus</button>
+                </div>
+                <div class="contrast-demo__result" aria-live="polite">
+                    <span class="contrast-demo__ratio" id="contrast-ratio">21.00:1</span>
+                    <span class="contrast-demo__status" id="contrast-status">Klarar kravet 7:1.</span>
+                    <span id="contrast-note">Testa flera kombinationer. Ren röd klarar inte 7:1, men mörkare röd kan fungera.</span>
+                </div>
+            </div>
+            <div class="contrast-demo__preview" id="contrast-preview">
+                <h3>Exempeltext på en webbsida</h3>
+                <p>Byt färger och kontrollera om texten fortfarande går att läsa utan ansträngning.</p>
+            </div>
+        </div>
+    </div>
 
     <h2>Fonter</h2>
     <p>En font stack ger webbläsaren flera alternativ. Om första fonten saknas används nästa.</p>
@@ -417,7 +798,7 @@ background-color: hsl(201 69% 56%);</code></pre>
     <p>Google Fonts ger många fonter, men kan påverka laddningstid och integritet om fonten laddas från Googles servrar. <a href="https://modernfontstacks.com/" target="_blank" rel="noopener noreferrer">Modern Font Stacks</a> är ett alternativ där du använder fonter som ofta redan finns på användarens system.</p>
     <p>En modern font stack är alltså inte en font du laddar ned. Det är en lista med systemfonter som redan finns på många datorer och mobiler.</p>
     <pre><code>body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: system-ui, sans-serif;
 }
 
 .article {
@@ -425,23 +806,34 @@ background-color: hsl(201 69% 56%);</code></pre>
 }
 
 code {
-    font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
 }</code></pre>
-    <div class="font-preview" aria-label="Exempel på modern font stacks">
-        <div class="font-preview__bar">Exempel på modern font stacks</div>
+    <div class="font-preview font-stack-demo" aria-label="Interaktivt exempel på modern font stacks">
+        <div class="font-preview__bar">Testa Modern Font Stacks</div>
+        <div class="font-stack-demo__buttons" aria-label="Välj font stack">
+            <button type="button" data-font-stack="system" aria-pressed="true">System UI</button>
+            <button type="button" data-font-stack="transitional" aria-pressed="false">Transitional</button>
+            <button type="button" data-font-stack="old-style" aria-pressed="false">Old Style</button>
+            <button type="button" data-font-stack="humanist" aria-pressed="false">Humanist</button>
+            <button type="button" data-font-stack="geometric-humanist" aria-pressed="false">Geometric Humanist</button>
+            <button type="button" data-font-stack="classical-humanist" aria-pressed="false">Classical Humanist</button>
+            <button type="button" data-font-stack="neo-grotesque" aria-pressed="false">Neo-Grotesque</button>
+            <button type="button" data-font-stack="monospace-slab-serif" aria-pressed="false">Monospace Slab Serif</button>
+            <button type="button" data-font-stack="monospace-code" aria-pressed="false">Monospace Code</button>
+            <button type="button" data-font-stack="industrial" aria-pressed="false">Industrial</button>
+            <button type="button" data-font-stack="rounded-sans" aria-pressed="false">Rounded Sans</button>
+            <button type="button" data-font-stack="slab" aria-pressed="false">Slab serif</button>
+            <button type="button" data-font-stack="antique" aria-pressed="false">Antique</button>
+            <button type="button" data-font-stack="didone" aria-pressed="false">Didone</button>
+            <button type="button" data-font-stack="handwritten" aria-pressed="false">Handwritten</button>
+        </div>
         <div class="font-preview__page">
-            <div class="font-preview__sample font-preview__modern-system">
-                <h3>System UI</h3>
-                <p>Passar ofta till hela webbplatsens gränssnitt, menyer, knappar och vanlig brödtext.</p>
+            <div class="font-preview__sample font-stack-demo__sample" id="font-stack-sample">
+                <h3 id="font-stack-title">System UI</h3>
+                <p id="font-stack-description">Passar ofta till hela webbplatsens gränssnitt, menyer, knappar och vanlig brödtext.</p>
+                <p>Webbutveckling handlar inte bara om kod. Val av font påverkar läsbarhet, känsla och hur professionell sidan upplevs.</p>
             </div>
-            <div class="font-preview__sample font-preview__modern-serif">
-                <h3>Modern serif</h3>
-                <p>Kan passa till längre artiklar eller mer redaktionell text där du vill ha en tydlig serif-känsla.</p>
-            </div>
-            <div class="font-preview__sample font-preview__modern-mono">
-                <h3>Monospace</h3>
-                <p>Passar till kodexempel eftersom varje tecken får samma bredd: HTML, CSS och JavaScript.</p>
-            </div>
+            <pre class="font-stack-demo__code"><code id="font-stack-code">font-family: system-ui, sans-serif;</code></pre>
         </div>
     </div>
 
@@ -594,7 +986,7 @@ code {
                 const rgbValue = `rgb(${r} ${g} ${b})`
                 const hslValue = `hsl(${h} ${s}% ${l}%)`
                 const hexParts = [r, g, b].map(value => value.toString(16).padStart(2, '0').toUpperCase())
-                const hexValue = `#${hexParts.join(' ')}`
+                const hexValue = `#${hexParts.join('')}`
                 preview.style.backgroundColor = rgbValue
                 preview.style.color = l > 58 ? '#111111' : '#ffffff'
                 document.getElementById('color-preview-values').innerHTML = `<span>${hexValue}</span><span>${rgbValue}</span><span>${hslValue}</span>`
@@ -669,6 +1061,274 @@ code {
                 }
             })
             updateFromRgb()
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const textColor = document.getElementById('contrast-text-color')
+            const bgColor = document.getElementById('contrast-bg-color')
+            const textCode = document.getElementById('contrast-text-code')
+            const bgCode = document.getElementById('contrast-bg-code')
+            const ratio = document.getElementById('contrast-ratio')
+            const status = document.getElementById('contrast-status')
+            const note = document.getElementById('contrast-note')
+            const preview = document.getElementById('contrast-preview')
+            const presetButtons = document.querySelectorAll('.contrast-demo__buttons button')
+            const sliders = {
+                text: {
+                    red: document.getElementById('contrast-text-red'),
+                    green: document.getElementById('contrast-text-green'),
+                    blue: document.getElementById('contrast-text-blue')
+                },
+                bg: {
+                    red: document.getElementById('contrast-bg-red'),
+                    green: document.getElementById('contrast-bg-green'),
+                    blue: document.getElementById('contrast-bg-blue')
+                }
+            }
+            const sliderValues = {
+                text: {
+                    red: document.getElementById('contrast-text-red-value'),
+                    green: document.getElementById('contrast-text-green-value'),
+                    blue: document.getElementById('contrast-text-blue-value')
+                },
+                bg: {
+                    red: document.getElementById('contrast-bg-red-value'),
+                    green: document.getElementById('contrast-bg-green-value'),
+                    blue: document.getElementById('contrast-bg-blue-value')
+                }
+            }
+
+            if (
+                !textColor || !bgColor || !textCode || !bgCode || !ratio || !status || !note || !preview ||
+                !sliders.text.red || !sliders.text.green || !sliders.text.blue ||
+                !sliders.bg.red || !sliders.bg.green || !sliders.bg.blue ||
+                !sliderValues.text.red || !sliderValues.text.green || !sliderValues.text.blue ||
+                !sliderValues.bg.red || !sliderValues.bg.green || !sliderValues.bg.blue
+            ) return
+
+            function hexToRgb(hex) {
+                const value = hex.replace('#', '')
+                return [
+                    parseInt(value.slice(0, 2), 16),
+                    parseInt(value.slice(2, 4), 16),
+                    parseInt(value.slice(4, 6), 16)
+                ]
+            }
+
+            function rgbToHex(r, g, b) {
+                return `#${[r, g, b].map(value => Number(value).toString(16).padStart(2, '0')).join('')}`
+            }
+
+            function setSlidersFromHex(groupName, hex) {
+                const [r, g, b] = hexToRgb(hex)
+                sliders[groupName].red.value = r
+                sliders[groupName].green.value = g
+                sliders[groupName].blue.value = b
+                sliderValues[groupName].red.textContent = r
+                sliderValues[groupName].green.textContent = g
+                sliderValues[groupName].blue.textContent = b
+            }
+
+            function hexFromSliders(groupName) {
+                const r = sliders[groupName].red.value
+                const g = sliders[groupName].green.value
+                const b = sliders[groupName].blue.value
+                sliderValues[groupName].red.textContent = r
+                sliderValues[groupName].green.textContent = g
+                sliderValues[groupName].blue.textContent = b
+                return rgbToHex(r, g, b)
+            }
+
+            function relativeLuminance(hex) {
+                const channels = hexToRgb(hex).map(channel => {
+                    const value = channel / 255
+                    return value <= 0.03928 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4)
+                })
+
+                return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722
+            }
+
+            function contrastRatio(firstHex, secondHex) {
+                const first = relativeLuminance(firstHex)
+                const second = relativeLuminance(secondHex)
+                const light = Math.max(first, second)
+                const dark = Math.min(first, second)
+                return (light + 0.05) / (dark + 0.05)
+            }
+
+            function updateContrast() {
+                const textValue = textColor.value.toUpperCase()
+                const bgValue = bgColor.value.toUpperCase()
+                const currentRatio = contrastRatio(textValue, bgValue)
+                const passesRequiredContrast = currentRatio >= 7
+                const passesLowerContrast = currentRatio >= 4.5
+                const usesPureRed = textValue === '#FF0000' || bgValue === '#FF0000'
+
+                textCode.textContent = textValue
+                bgCode.textContent = bgValue
+                ratio.textContent = `${currentRatio.toFixed(2)}:1`
+                preview.style.color = textValue
+                preview.style.backgroundColor = bgValue
+                status.dataset.pass = String(passesRequiredContrast)
+
+                if (passesRequiredContrast) {
+                    status.textContent = 'Klarar kravet 7:1.'
+                    note.textContent = 'Den här kombinationen har mycket god kontrast och fungerar bra för brödtext i övningen.'
+                } else if (passesLowerContrast) {
+                    status.textContent = 'För låg kontrast för den här övningen.'
+                    note.textContent = 'Kombinationen kan se okej ut, men den når inte 7:1. Gör texten mörkare eller bakgrunden ljusare.'
+                } else {
+                    status.textContent = 'För låg kontrast.'
+                    note.textContent = usesPureRed
+                        ? 'Ren röd #FF0000 kan inte nå 7:1 mot någon bakgrund. Välj en mörkare röd färg eller en annan färg.'
+                        : 'Byt till mörkare text, ljusare bakgrund eller större skillnad mellan färgerna tills värdet är minst 7:1.'
+                }
+            }
+
+            ;[textColor, bgColor].forEach(control => {
+                control.addEventListener('input', function () {
+                    setSlidersFromHex(control === textColor ? 'text' : 'bg', control.value)
+                    updateContrast()
+                })
+                control.addEventListener('change', function () {
+                    setSlidersFromHex(control === textColor ? 'text' : 'bg', control.value)
+                    updateContrast()
+                })
+            })
+
+            ;['text', 'bg'].forEach(groupName => {
+                Object.values(sliders[groupName]).forEach(slider => {
+                    slider.addEventListener('input', function () {
+                        const hex = hexFromSliders(groupName)
+                        if (groupName === 'text') textColor.value = hex
+                        else bgColor.value = hex
+                        updateContrast()
+                    })
+                })
+            })
+
+            presetButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    textColor.value = button.dataset.text
+                    bgColor.value = button.dataset.bg
+                    setSlidersFromHex('text', textColor.value)
+                    setSlidersFromHex('bg', bgColor.value)
+                    updateContrast()
+                })
+            })
+
+            setSlidersFromHex('text', textColor.value)
+            setSlidersFromHex('bg', bgColor.value)
+            updateContrast()
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sample = document.getElementById('font-stack-sample')
+            const title = document.getElementById('font-stack-title')
+            const description = document.getElementById('font-stack-description')
+            const code = document.getElementById('font-stack-code')
+            const buttons = document.querySelectorAll('[data-font-stack]')
+            const stacks = {
+                system: {
+                    title: 'System UI',
+                    description: 'Systemets standardfont. Passar ofta till gränssnitt, menyer, knappar och vanlig brödtext.',
+                    css: 'system-ui, sans-serif'
+                },
+                transitional: {
+                    title: 'Transitional',
+                    description: 'En serif-stack som kan passa till artiklar och längre redaktionell text.',
+                    css: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif'
+                },
+                'old-style': {
+                    title: 'Old Style',
+                    description: 'En klassisk serif-känsla för längre text och mer bokliknande uttryck.',
+                    css: '"Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif'
+                },
+                humanist: {
+                    title: 'Humanist',
+                    description: 'En sans-serif-stack med mjukare och mer humanistiska former.',
+                    css: 'Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif'
+                },
+                'geometric-humanist': {
+                    title: 'Geometric Humanist',
+                    description: 'En sans-serif-stack med mer geometrisk känsla.',
+                    css: 'Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif'
+                },
+                'classical-humanist': {
+                    title: 'Classical Humanist',
+                    description: 'En sans-serif-stack med klassisk, lugn och läsbar känsla.',
+                    css: 'Optima, Candara, "Noto Sans", source-sans-pro, sans-serif'
+                },
+                'neo-grotesque': {
+                    title: 'Neo-Grotesque',
+                    description: 'En neutral sans-serif-stack som ofta känns modern och gränssnittsnära.',
+                    css: 'Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif'
+                },
+                'monospace-slab-serif': {
+                    title: 'Monospace Slab Serif',
+                    description: 'En monospace-stack med slab serif-känsla.',
+                    css: '"Nimbus Mono PS", "Courier New", monospace'
+                },
+                'monospace-code': {
+                    title: 'Monospace Code',
+                    description: 'En monospace-stack som passar bra till kodexempel.',
+                    css: 'ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace'
+                },
+                industrial: {
+                    title: 'Industrial',
+                    description: 'En display-stack med smalare, industriell känsla.',
+                    css: 'Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow", sans-serif-condensed, sans-serif'
+                },
+                'rounded-sans': {
+                    title: 'Rounded Sans',
+                    description: 'En rundad sans-serif-stack för ett mjukare uttryck.',
+                    css: 'ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri, source-sans-pro, sans-serif'
+                },
+                slab: {
+                    title: 'Slab Serif',
+                    description: 'En kraftigare serif-stack som ofta passar bäst till rubriker och kortare text.',
+                    css: 'Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif", "Sitka Small", serif'
+                },
+                antique: {
+                    title: 'Antique',
+                    description: 'En display-serif med äldre och mer dekorativ känsla.',
+                    css: 'Superclarendon, "Bookman Old Style", "URW Bookman", "URW Bookman L", "Georgia Pro", Georgia, serif'
+                },
+                didone: {
+                    title: 'Didone',
+                    description: 'En kontraststark serif-stack med elegant display-känsla.',
+                    css: 'Didot, "Bodoni MT", "Noto Serif Display", "URW Palladio L", P052, Sylfaen, serif'
+                },
+                handwritten: {
+                    title: 'Handwritten',
+                    description: 'En handskriftsliknande display-stack som bör användas sparsamt.',
+                    css: '"Segoe Print", "Bradley Hand", Chilanka, TSCu_Comic, casual, cursive'
+                }
+            }
+
+            if (!sample || !title || !description || !code || !buttons.length) return
+
+            function setFontStack(key) {
+                const stack = stacks[key]
+                if (!stack) return
+
+                sample.style.fontFamily = stack.css
+                title.textContent = stack.title
+                description.textContent = stack.description
+                code.textContent = `font-family: ${stack.css};`
+
+                buttons.forEach(button => {
+                    button.setAttribute('aria-pressed', String(button.dataset.fontStack === key))
+                })
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    setFontStack(button.dataset.fontStack)
+                })
+            })
+
+            setFontStack('system')
         });
 
         document.addEventListener('DOMContentLoaded', function () {
