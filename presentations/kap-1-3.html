@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 1.3: Din första HTML-sida.">
+  <title>Kap 1.3 – Din första HTML-sida</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 1 · Kapitel 1.3</p>
+        <h1>Din första HTML-sida</h1>
+        <p class="fragment">HTML beskriver sidans innehåll och struktur.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">skapa ett komplett HTML-dokument</li>
+          <li class="fragment">förklara vad <code>head</code> och <code>body</code> används till</li>
+          <li class="fragment">skriva en HTML-kommentar</li>
+          <li class="fragment">validera enkel HTML och rätta vanliga fel</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTML</p><h2>Taggar ger innehållet betydelse</h2>
+        <p class="fragment">En HTML-fil består av text och taggar.</p>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;h1&gt;Min profilsida&lt;/h1&gt;</code></pre><p>Taggen <code>h1</code> betyder att texten är sidans huvudrubrik.</p></div>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;p&gt;Det här är ett stycke.&lt;/p&gt;</code></pre><p>Taggen <code>p</code> betyder textstycke.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela dokumentet</p><h2>Grundstruktur – del 1 av 2</h2>
+        <pre class="code-block compact-code fragment"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="sv"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Min profilsida&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela dokumentet</p><h2>Grundstruktur – del 2 av 2</h2>
+        <pre class="code-block compact-code fragment"><code>&lt;body&gt;
+    &lt;h1&gt;Min profilsida&lt;/h1&gt;
+    &lt;p&gt;Här skriver jag en kort presentation av mig själv.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p class="fragment">Skriv hela dokumentet i filen <code>index.html</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Resultat</p><h2>Webbläsaren tolkar koden</h2>
+        <div class="prompt-card fragment">
+          <p><strong>Min profilsida</strong></p>
+          <p>Här skriver jag en kort presentation av mig själv.</p>
+        </div>
+        <p class="fragment"><code>title</code> visas i fliken. <code>h1</code> och <code>p</code> visas på själva sidan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Dokumentets ram</p><h2>Tre viktiga rader</h2>
+        <ul>
+          <li class="fragment"><code>&lt;!DOCTYPE html&gt;</code> anger modern HTML.</li>
+          <li class="fragment"><code>&lt;html lang="sv"&gt;</code> startar dokumentet och anger svenska som huvudspråk.</li>
+          <li class="fragment"><code>&lt;/html&gt;</code> avslutar dokumentet.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Head</p><h2>Information om sidan</h2>
+        <p class="fragment"><code>head</code> innehåller information som hjälper webbläsaren.</p>
+        <ul>
+          <li class="fragment"><code>charset="UTF-8"</code> gör att å, ä och ö fungerar.</li>
+          <li class="fragment"><code>viewport</code> hjälper sidan fungera på mobilskärmar.</li>
+          <li class="fragment"><code>title</code> bestämmer texten i webbläsarens flik.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Body</p><h2>Det synliga innehållet</h2>
+        <pre class="code-block fragment"><code>&lt;body&gt;
+    &lt;h1&gt;Min profilsida&lt;/h1&gt;
+    &lt;p&gt;Här skriver jag om mig själv.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+        <p class="fragment">Rubriker, text, bilder och länkar som ska synas placeras i <code>body</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Head eller body?</p><h2>Två olika uppgifter</h2>
+        <table class="comparison"><thead><tr><th><code>head</code></th><th><code>body</code></th></tr></thead><tbody>
+          <tr><td class="fragment">Information om dokumentet.</td><td class="fragment">Sidans synliga innehåll.</td></tr>
+          <tr><td class="fragment"><code>meta</code> och <code>title</code>.</td><td class="fragment"><code>h1</code>, <code>p</code>, bilder och länkar.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Live Server</p><h2>Adressen visar en lokal sida</h2>
+        <pre class="code-block fragment"><code>http://127.0.0.1:5500/index.html</code></pre>
+        <ul>
+          <li class="fragment"><code>127.0.0.1</code> är din egen dator.</li>
+          <li class="fragment"><code>5500</code> är porten som Live Server använder.</li>
+          <li class="fragment"><code>index.html</code> är filen som visas.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kommentarer</p><h2>Anteckningar som inte visas</h2>
+        <pre class="code-block fragment"><code>&lt;!-- Här börjar sidans huvudinnehåll --&gt;</code></pre>
+        <p class="fragment">Kommentaren syns i koden men inte på webbsidan.</p>
+        <p class="fragment">Använd kommentarer för att förklara varför något finns – inte för att upprepa självklar kod.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Validering</p><h2>Webbläsaren kan dölja fel</h2>
+        <p class="fragment">En webbläsare försöker ofta visa sidan även när HTML-koden är felaktig.</p>
+        <ol>
+          <li class="fragment">Kör W3C Web Validator eller W3C:s webbaserade validator.</li>
+          <li class="fragment">Rätta röda fel.</li>
+          <li class="fragment">Läs och bedöm gula varningar.</li>
+          <li class="fragment">Validera igen.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Vanligt fel</p><h2>En sluttagg saknas</h2>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;p&gt;Det här stycket saknar sluttagg</code></pre><p>Fel: elementet avslutas inte.</p></div>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;p&gt;Det här stycket är komplett.&lt;/p&gt;</code></pre><p>Rätt: <code>&lt;/p&gt;</code> avslutar stycket.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Var ska rubriken ligga?</h2>
+        <p class="fragment">Ska en synlig <code>h1</code>-rubrik ligga i <code>head</code> eller <code>body</code>?</p>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> i <code>body</code>, eftersom rubriken ska synas på sidan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Ändra, testa och rätta</h2>
+        <ol>
+          <li class="fragment">Byt texten i rubriken och stycket.</li>
+          <li class="fragment">Lägg till en HTML-kommentar.</li>
+          <li class="fragment">Ta bort en sluttagg med flit.</li>
+          <li class="fragment">Kontrollera om validatorn hittar felet.</li>
+          <li class="fragment">Rätta felet och validera igen.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Arbetssätt</p><h2>Testa små steg</h2>
+        <div class="flow"><span class="fragment">Skriv lite kod</span><b class="fragment">→</b><span class="fragment">Spara</span><b class="fragment">→</b><span class="fragment">Ladda om</span><b class="fragment">→</b><span class="fragment">Kontrollera</span></div>
+        <p class="fragment">Små förändringar gör fel lättare att hitta.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">HTML ger sidans innehåll struktur och betydelse.</li>
+          <li class="fragment"><code>head</code> innehåller information om sidan.</li>
+          <li class="fragment"><code>body</code> innehåller det som syns.</li>
+          <li class="fragment">Kommentarer syns i koden men inte på sidan.</li>
+          <li class="fragment">Validering hittar fel som webbläsaren kan dölja.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

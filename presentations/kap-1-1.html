@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 1.1: Vad är webbutveckling?">
+  <title>Kap 1.1 – Vad är webbutveckling?</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 1 · Kapitel 1.1</p>
+        <h1>Vad är webbutveckling?</h1>
+        <p class="fragment">Så hittar webbläsaren en server och hämtar en webbsida.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p>
+        <h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">förklara skillnaden mellan klient och server</li>
+          <li class="fragment">beskriva vad URL, DNS och IP-adress gör</li>
+          <li class="fragment">förklara HTTP, HTTPS och vanliga statuskoder</li>
+          <li class="fragment">förstå varför webbstandarder behövs</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Startfråga</p>
+        <h2>Vad händer när du skriver en webbadress?</h2>
+        <p class="fragment">Webbläsaren måste hitta rätt dator.</p>
+        <p class="fragment">Den måste begära rätt resurs.</p>
+        <p class="fragment">Servern måste skicka tillbaka ett svar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Webben i korthet</p>
+        <h2>Dokument som länkas ihop</h2>
+        <ul>
+          <li class="fragment">1989 presenterade Tim Berners-Lee idén på CERN.</li>
+          <li class="fragment">1991 blev webben tillgänglig för fler användare.</li>
+          <li class="fragment">1994 bildades W3C för arbetet med gemensamma standarder.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Standarder</p>
+        <h2>Samma webb på olika enheter</h2>
+        <p class="fragment">HTML och CSS följer gemensamma regler.</p>
+        <p class="fragment">Därför kan samma sida fungera i olika webbläsare, operativsystem och skärmstorlekar.</p>
+        <p class="fragment">Webben ägs inte av en enda webbläsare eller ett enda företag.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Klient och server</p>
+        <h2>En begäran och ett svar</h2>
+        <div class="flow">
+          <span class="fragment">Webbläsare<br>klient</span>
+          <b class="fragment">→ begäran →</b>
+          <span class="fragment">Webbserver</span>
+          <b class="fragment">→ svar →</b>
+          <span class="fragment">HTML, CSS, bilder</span>
+        </div>
+        <p class="fragment">Klienten begär. Servern svarar med en resurs eller ett felmeddelande.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">URL</p>
+        <h2>Adressen till en resurs</h2>
+        <pre class="code-block fragment"><code>https://example.com/bilder/logo.png</code></pre>
+        <ul>
+          <li class="fragment"><code>https</code> anger protokollet.</li>
+          <li class="fragment"><code>example.com</code> anger domänen.</li>
+          <li class="fragment"><code>/bilder/logo.png</code> anger resursens sökväg.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">DNS och IP-adress</p>
+        <h2>Internets adressbok</h2>
+        <div class="flow">
+          <span class="fragment">example.com</span>
+          <b class="fragment">→ DNS →</b>
+          <span class="fragment">IP-adress</span>
+          <b class="fragment">→</b>
+          <span class="fragment">Rätt server</span>
+        </div>
+        <p class="fragment">DNS översätter ett läsbart domännamn till serverns IP-adress.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTTP och HTTPS</p>
+        <h2>Regler för kommunikationen</h2>
+        <table class="comparison">
+          <thead><tr><th>HTTP</th><th>HTTPS</th></tr></thead>
+          <tbody><tr><td class="fragment">Klient och server utbyter meddelanden.</td><td class="fragment">Kommunikationen krypteras med TLS.</td></tr></tbody>
+        </table>
+        <p class="fragment">Uttrycket SSL-certifikat används ofta, men modern kryptering bygger på TLS.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Statuskoder</p>
+        <h2>Servern berättar hur det gick</h2>
+        <table class="comparison">
+          <thead><tr><th>Kodgrupp</th><th>Betydelse</th></tr></thead>
+          <tbody>
+            <tr class="fragment"><td><code>200</code></td><td>Begäran lyckades.</td></tr>
+            <tr class="fragment"><td><code>300</code></td><td>Resursen omdirigeras.</td></tr>
+            <tr class="fragment"><td><code>400</code></td><td>Klientfel, till exempel <code>404</code>.</td></tr>
+            <tr class="fragment"><td><code>500</code></td><td>Fel på servern.</td></tr>
+          </tbody>
+        </table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p>
+        <h2>Vad betyder 404?</h2>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> servern hittar inte resursen som klienten begärde.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTTP-metoder</p>
+        <h2>Vad vill klienten göra?</h2>
+        <table class="comparison">
+          <thead><tr><th>Metod</th><th>Uppgift</th></tr></thead>
+          <tbody>
+            <tr class="fragment"><td><code>GET</code></td><td>Hämta data eller en sida.</td></tr>
+            <tr class="fragment"><td><code>POST</code></td><td>Skicka data, till exempel ett formulär.</td></tr>
+            <tr class="fragment"><td><code>PUT</code></td><td>Uppdatera data.</td></tr>
+            <tr class="fragment"><td><code>DELETE</code></td><td>Ta bort data.</td></tr>
+          </tbody>
+        </table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Bit och byte</p>
+        <h2>Allt blir ettor och nollor</h2>
+        <p class="fragment">En bit är en <code>0</code> eller <code>1</code>.</p>
+        <p class="fragment">Åtta bitar bildar en byte.</p>
+        <p class="fragment">Webbfiler mäts ofta i kB, MB och GB.</p>
+        <p class="fragment">Mindre filer går normalt snabbare att överföra.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela flödet</p>
+        <h2>Från URL till webbsida</h2>
+        <ol>
+          <li class="fragment">Webbläsaren läser URL:en.</li>
+          <li class="fragment">DNS hittar serverns IP-adress.</li>
+          <li class="fragment">Klienten skickar en HTTP-begäran.</li>
+          <li class="fragment">Servern svarar med statuskod och filer.</li>
+          <li class="fragment">Webbläsaren visar sidan.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p>
+        <h2>Se trafiken i Network</h2>
+        <div class="two-column diagram-emphasis">
+          <ol>
+            <li class="fragment">Öppna en webbsida.</li>
+            <li class="fragment">Välj Inspect eller Inspektera.</li>
+            <li class="fragment">Öppna fliken Network.</li>
+            <li class="fragment">Ladda om och leta efter <code>200</code> eller <code>404</code>.</li>
+          </ol>
+          <figure class="slide-figure fragment">
+            <img src="../assets/images/kap1-network.png" alt="Network-fliken med laddade filer och statuskoder">
+            <figcaption>Varje rad visar en begäran och serverns svar.</figcaption>
+          </figure>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Om Inspect är avstängt</p>
+        <h2>Prova en gästprofil</h2>
+        <figure class="slide-figure fragment">
+          <img src="../assets/images/kap1-profile.webp" alt="Chrome-menyn där en gästprofil kan öppnas">
+          <figcaption>Skolans vanliga Chrome-profil kan ha begränsningar.</figcaption>
+        </figure>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p>
+        <h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">Webbläsaren är klienten och hämtar resurser från servrar.</li>
+          <li class="fragment">DNS översätter domännamn till IP-adresser.</li>
+          <li class="fragment">HTTPS krypterar HTTP-kommunikationen med TLS.</li>
+          <li class="fragment">Statuskoder berättar hur servern svarade.</li>
+          <li class="fragment">Filstorleken påverkar hur snabbt sidan laddas.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

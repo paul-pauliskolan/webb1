@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 1.2: VS Code och projektmappar.">
+  <title>Kap 1.2 – VS Code och projektmappar</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 1 · Kapitel 1.2</p>
+        <h1>VS Code och projektmappar</h1>
+        <p class="fragment">Bygg en arbetsmiljö där webbplatsens filer är enkla att hitta och koppla ihop.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">installera VS Code, Chrome och användbara tillägg</li>
+          <li class="fragment">skapa och öppna en tydlig projektmapp</li>
+          <li class="fragment">använda lämpliga filnamn och filändelser</li>
+          <li class="fragment">koppla ihop filer med relativa sökvägar</li>
+          <li class="fragment">söka hjälp och kontrollera förslag ansvarsfullt</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Verktyg</p><h2>Vad behöver du?</h2>
+        <div class="two-column">
+          <div><p class="fragment"><strong>VS Code</strong></p><p class="fragment">Kodredigeraren där du skriver HTML, CSS och JavaScript.</p></div>
+          <div><p class="fragment"><strong>Google Chrome</strong></p><p class="fragment">Webbläsaren där du testar och felsöker med Inspektera.</p></div>
+        </div>
+        <p class="fragment">Använd den senaste versionen av Chrome.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Installation</p><h2>Installera VS Code</h2>
+        <ol>
+          <li class="fragment">Gå till <code>code.visualstudio.com</code>.</li>
+          <li class="fragment">Ladda ner versionen för ditt operativsystem.</li>
+          <li class="fragment">Öppna installationsfilen och följ stegen.</li>
+          <li class="fragment">Starta VS Code.</li>
+        </ol>
+        <p class="fragment">Utseendet kan skilja sig lite från äldre filmer och bilder.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Operativsystem</p><h2>Installationsfilen skiljer sig</h2>
+        <table class="comparison"><thead><tr><th>System</th><th>Gör så här</th></tr></thead><tbody>
+          <tr class="fragment"><td>Windows</td><td>Öppna <code>.exe</code>-filen.</td></tr>
+          <tr class="fragment"><td>macOS</td><td>Öppna <code>.dmg</code> och dra VS Code till Applications.</td></tr>
+          <tr class="fragment"><td>Linux</td><td>Använd paketet för din distribution, exempelvis <code>.deb</code>.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Extensions</p><h2>Tillägg hjälper dig arbeta</h2>
+        <p class="fragment">Öppna Extensions i vänsterspalten, sök efter namnet och välj Install.</p>
+        <ul>
+          <li class="fragment"><strong>Live Server:</strong> visar projektet lokalt och laddar om när du sparar.</li>
+          <li class="fragment"><strong>W3C Web Validator:</strong> hjälper dig hitta HTML-fel.</li>
+          <li class="fragment"><strong>Color Highlight:</strong> visar CSS-färger i koden.</li>
+          <li class="fragment"><strong>Image Preview:</strong> förhandsvisar bilder.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Emmet</p><h2>Skapa grundkoden snabbt</h2>
+        <div class="flow"><span class="fragment">Ny HTML-fil</span><b class="fragment">→</b><span class="fragment">Skriv <code>!</code></span><b class="fragment">→</b><span class="fragment">Tryck Tab</span><b class="fragment">→</b><span class="fragment">HTML-mall</span></div>
+        <p class="fragment">Emmet är redan inbyggt i VS Code.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Snabbtest · del 1</p><h2>Skapa projektet</h2>
+        <ol>
+          <li class="fragment">Skapa mappen <code>test-webb</code>.</li>
+          <li class="fragment">Dra mappen till VS Code eller välj File → Open Folder.</li>
+          <li class="fragment">Skapa <code>index.html</code> och <code>styles.css</code>.</li>
+          <li class="fragment">Skriv <code>!</code> i HTML-filen och tryck Tab.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Snabbtest · del 2</p><h2>Koppla ihop filerna</h2>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre><p>Länken i <code>head</code> hämtar CSS-filen.</p></div>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;p&gt;Hello World!&lt;/p&gt;</code></pre><p>Texten placeras i <code>body</code>.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Snabbtest · del 3</p><h2>Ändra sidans utseende</h2>
+        <pre class="code-block fragment"><code>body {
+  background-color: aqua;
+}
+
+p {
+  color: darkblue;
+}</code></pre>
+        <p class="fragment">Spara filerna och starta Live Server.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Lokal webbserver</p><h2>Vad betyder adressen?</h2>
+        <pre class="code-block fragment"><code>http://127.0.0.1:5500/index.html</code></pre>
+        <ul>
+          <li class="fragment"><code>127.0.0.1</code> betyder din egen dator.</li>
+          <li class="fragment"><code>5500</code> är porten som Live Server använder.</li>
+          <li class="fragment"><code>index.html</code> är filen som visas.</li>
+        </ul>
+        <p class="fragment">En port är som en numrerad ingång till ett program eller en tjänst på datorn.</p>
+        <p class="fragment"><code>localhost:5500</code> betyder i praktiken samma sak.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Projektmapp</p><h2>En webbplats samlar sina filer</h2>
+        <pre class="code-block fragment"><code>profil-sida/
+  index.html
+  styles.css
+  images/
+    profilbild.jpg</code></pre>
+        <p class="fragment">Öppna hela projektmappen i VS Code – inte bara en enskild fil.</p>
+        <p class="fragment">Arbeta med en projektmapp i taget i VS Code.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Ordning</p><h2>Samla kursens projekt</h2>
+        <div class="two-column diagram-emphasis">
+          <div><p class="fragment">Skapa en gemensam mapp, exempelvis <code>Dokument/webbutveckling</code>.</p><p class="fragment">Ge sedan varje uppgift en egen projektmapp.</p></div>
+          <figure class="slide-figure fragment"><img src="../assets/images/kap1-folders.png" alt="Webbutvecklingsmapp med flera projektmappar"><figcaption>En tydlig struktur gör rätt projekt lätt att hitta.</figcaption></figure>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Filnamn</p><h2>Namn som fungerar på webben</h2>
+        <table class="comparison"><thead><tr><th>Bra</th><th>Undvik</th></tr></thead><tbody>
+          <tr><td class="fragment"><code>min-profil.html</code></td><td class="fragment"><code>Min Profil.html</code></td></tr>
+          <tr><td class="fragment"><code>profilbild.jpg</code></td><td class="fragment"><code>Profilbild Äntligen!!.JPG</code></td></tr>
+        </tbody></table>
+        <p class="fragment">Använd små bokstäver, siffror och bindestreck. Undvik mellanslag, å, ä, ö och specialtecken.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Startsidan</p><h2>Varför heter den index.html?</h2>
+        <p class="fragment">Många webbservrar letar automatiskt efter filen <code>index.html</code>.</p>
+        <div class="flow"><span class="fragment">Besök projektets adress</span><b class="fragment">→</b><span class="fragment">Servern hittar <code>index.html</code></span><b class="fragment">→</b><span class="fragment">Startsidan visas</span></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Relativa sökvägar</p><h2>Utgå från filens plats</h2>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre><p>CSS-filen ligger i samma mapp som HTML-filen.</p></div>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;img src="images/profilbild.jpg" alt="Porträttbild"&gt;</code></pre><p>Bilden ligger i undermappen <code>images</code>.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vilken sökväg är rätt?</h2>
+        <p class="fragment">HTML-filen ligger bredvid mappen <code>images</code>. Bilden heter <code>logo.png</code>.</p>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> <code>images/logo.png</code></p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hitta hjälp</p><h2>Engelska är en del av arbetet</h2>
+        <p class="fragment">Lär dig ord som <em>element</em>, <em>attribute</em>, <em>browser</em>, <em>inspect</em>, <em>error</em> och <em>warning</em>.</p>
+        <ul>
+          <li class="fragment">Läs dokumentation hos MDN och WHATWG/W3C.</li>
+          <li class="fragment">Kontrollera webbläsarstöd med Can I Use.</li>
+          <li class="fragment">Jämför lösningar från forum med dokumentationen.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">AI som hjälpmedel</p><h2>Du ansvarar för koden</h2>
+        <ol>
+          <li class="fragment">Be om en förklaring eller ett förslag.</li>
+          <li class="fragment">Läs och förstå koden.</li>
+          <li class="fragment">Testa den i ditt eget projekt.</li>
+          <li class="fragment">Kontrollera resultat och felmeddelanden.</li>
+        </ol>
+        <p class="fragment">Ett svar är inte korrekt förrän du har kontrollerat att det fungerar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Förbered ditt första projekt</h2>
+        <ol>
+          <li class="fragment">Installera VS Code, Chrome, Live Server och W3C Web Validator.</li>
+          <li class="fragment">Skapa och öppna mappen <code>profil-sida</code>.</li>
+          <li class="fragment">Skapa <code>index.html</code>, <code>styles.css</code> och <code>images</code>.</li>
+          <li class="fragment">Skapa HTML-mallen med <code>!</code> och Tab.</li>
+          <li class="fragment">Starta Live Server och kontrollera rätt fil.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">VS Code är kodredigeraren och Chrome används för testning.</li>
+          <li class="fragment">Tillägg som Live Server och W3C Web Validator förenklar arbetet.</li>
+          <li class="fragment">Varje webbplats ska ha en tydlig projektmapp.</li>
+          <li class="fragment"><code>index.html</code> är standardnamnet för startsidan.</li>
+          <li class="fragment">Relativa sökvägar kopplar ihop projektets filer.</li>
+          <li class="fragment">Testa och förstå alltid kod du får från andra eller från AI.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

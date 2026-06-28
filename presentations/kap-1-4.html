@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 1.4: Länkar, bilder och listor.">
+  <title>Kap 1.4 – Länkar, bilder och listor</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 1 · Kapitel 1.4</p>
+        <h1>Länkar, bilder och listor</h1>
+        <p class="fragment">Fyll webbsidan med innehåll och träna på fungerande filvägar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">skapa länkar med <code>a</code> och <code>href</code></li>
+          <li class="fragment">lägga in bilder med <code>img</code>, <code>src</code> och <code>alt</code></li>
+          <li class="fragment">välja mellan ordnade och oordnade listor</li>
+          <li class="fragment">använda textbetoning på ett semantiskt sätt</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Länkar</p><h2>Från en sida till en annan</h2>
+        <pre class="code-block fragment"><code>&lt;a href="https://developer.mozilla.org/"&gt;MDN Web Docs&lt;/a&gt;</code></pre>
+        <ul>
+          <li class="fragment"><code>a</code> skapar länken.</li>
+          <li class="fragment"><code>href</code> anger adressen.</li>
+          <li class="fragment">Texten mellan taggarna blir klickbar.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Ny flik</p><h2>target="_blank"</h2>
+        <pre class="code-block compact-code fragment"><code>&lt;a href="https://developer.mozilla.org/"
+   target="_blank"
+   rel="noopener noreferrer"&gt;MDN Web Docs&lt;/a&gt;</code></pre>
+        <p class="fragment"><code>target="_blank"</code> öppnar länken i en ny flik eller ett nytt fönster.</p>
+        <p class="fragment">Använd det med omdöme och lägg till <code>rel="noopener noreferrer"</code> för externa länkar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Testa beteendet</p><h2>Simulera en ny flik</h2>
+        <div class="decision-simulator fragment">
+          <div class="decision-controls">
+            <p><strong>Flik 1: Min sida</strong></p>
+            <button type="button" data-open-tab>Öppna MDN Web Docs</button>
+          </div>
+          <div class="decision-output">
+            <p data-tab-output>En flik är öppen.</p>
+            <pre data-tab-address>http://127.0.0.1:5500/index.html</pre>
+          </div>
+        </div>
+        <p class="fragment">Knappen visar vad <code>target="_blank"</code> gör utan att lämna presentationen.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Bilder</p><h2>Bildfil och textalternativ</h2>
+        <div class="two-column diagram-emphasis">
+          <div>
+            <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;img
+  src="images/dog.jpg"
+  alt="Brun hund mot mörk bakgrund"&gt;</code></pre>
+            <p class="fragment"><code>src</code> pekar på bildfilen.</p>
+            <p class="fragment"><code>alt</code> beskriver bilden för den som inte kan se den.</p>
+          </div>
+          <figure class="slide-figure fragment">
+            <img src="../assets/images/dog.jpg" alt="Brun hund mot mörk bakgrund">
+            <figcaption>Simulerat resultat i webbläsaren.</figcaption>
+          </figure>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Relativ sökväg</p><h2>Var letar webbläsaren?</h2>
+        <pre class="code-block fragment"><code>profil-sida/
+  index.html
+  images/
+    profilbild.jpg</code></pre>
+        <div class="flow"><span class="fragment"><code>index.html</code></span><b class="fragment">→</b><span class="fragment"><code>images/</code></span><b class="fragment">→</b><span class="fragment"><code>profilbild.jpg</code></span></div>
+        <p class="fragment">Därför blir sökvägen <code>images/profilbild.jpg</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Alt-text</p><h2>Beskriv det som är relevant</h2>
+        <table class="comparison"><thead><tr><th>Tydligare</th><th>För otydligt</th></tr></thead><tbody>
+          <tr><td class="fragment"><code>alt="Porträttbild av mig"</code></td><td class="fragment"><code>alt="Bild"</code></td></tr>
+        </tbody></table>
+        <p class="fragment">Alt-text kan läsas av skärmläsare och visas om bilden inte laddas.</p>
+        <p class="fragment">Dekorativa bilder kan ibland ha tom alt-text: <code>alt=""</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vad saknas?</h2>
+        <pre class="code-block fragment"><code>&lt;img src="images/hund.jpg"&gt;</code></pre>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> attributet <code>alt</code> med en relevant bildbeskrivning.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Textbetoning</p><h2>Betydelse – inte bara utseende</h2>
+        <div class="code-step fragment"><pre class="code-block"><code>&lt;strong&gt;Viktigt!&lt;/strong&gt;</code></pre><p><code>strong</code> markerar att innehållet är viktigt.</p></div>
+        <div class="code-step fragment"><pre class="code-block"><code>Det här är &lt;em&gt;verkligen&lt;/em&gt; viktigt.</code></pre><p><code>em</code> ger språklig betoning.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Semantik</p><h2>Välj element efter betydelse</h2>
+        <p class="fragment">Använd inte <code>strong</code> bara för att få fet text.</p>
+        <p class="fragment">Använd inte <code>em</code> bara för att få kursiv text.</p>
+        <p class="fragment">Utseendet styrs senare med CSS.</p>
+        <p class="fragment"><code>b</code> och <code>i</code> finns också, men ger svagare betydelse och används sparsamt.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Ordnad lista</p><h2>När ordningen spelar roll</h2>
+        <div class="two-column">
+          <pre class="code-block compact-code fragment"><code>&lt;ol&gt;
+  &lt;li&gt;Skapa projektmapp&lt;/li&gt;
+  &lt;li&gt;Skriv HTML&lt;/li&gt;
+  &lt;li&gt;Validera sidan&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          <ol class="fragment"><li>Skapa projektmapp</li><li>Skriv HTML</li><li>Validera sidan</li></ol>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Oordnad lista</p><h2>När ordningen inte är viktig</h2>
+        <div class="two-column">
+          <pre class="code-block compact-code fragment"><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <ul class="fragment"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Listornas delar</p><h2>ol, ul och li</h2>
+        <table class="comparison"><thead><tr><th>Element</th><th>Betydelse</th></tr></thead><tbody>
+          <tr class="fragment"><td><code>ol</code></td><td>Ordnad, numrerad lista.</td></tr>
+          <tr class="fragment"><td><code>ul</code></td><td>Oordnad punktlista.</td></tr>
+          <tr class="fragment"><td><code>li</code></td><td>En punkt i listan.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Exempeltext</p><h2>Tillfälliga namn ska bytas ut</h2>
+        <p class="fragment"><em>Lorem ipsum</em> används ibland som platshållartext när en layout testas.</p>
+        <p class="fragment"><code>foo</code>, <code>bar</code> och <code>baz</code> används som neutrala exempelnamn i kod.</p>
+        <p class="fragment">I riktiga projekt ska de ersättas med namn som beskriver innehållet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Bygg ut din sida</h2>
+        <ol>
+          <li class="fragment">Lägg till en länk till en webbplats där du lär dig.</li>
+          <li class="fragment">Lägg en bild i <code>images</code> och skriv en tydlig alt-text.</li>
+          <li class="fragment">Skapa en ordnad och en oordnad lista.</li>
+          <li class="fragment">Markera ett viktigt ord med <code>strong</code>.</li>
+          <li class="fragment">Spara, ladda om och validera sidan.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment"><code>href</code> anger vart en länk går.</li>
+          <li class="fragment"><code>src</code> anger bildens sökväg och <code>alt</code> beskriver bilden.</li>
+          <li class="fragment"><code>strong</code> och <code>em</code> uttrycker betydelse.</li>
+          <li class="fragment"><code>ol</code> används när ordningen spelar roll, annars <code>ul</code>.</li>
+          <li class="fragment">Tydliga filvägar och namn hjälper webbläsaren hitta resurserna.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.querySelector("[data-open-tab]");
+      const output = document.querySelector("[data-tab-output]");
+      const address = document.querySelector("[data-tab-address]");
+      if (!button || !output || !address) return;
+
+      button.addEventListener("click", function () {
+        output.textContent = "Två flikar är öppna. Den nya fliken är aktiv.";
+        address.textContent = "https://developer.mozilla.org/";
+        button.textContent = "MDN öppnad i ny flik";
+        button.disabled = true;
+      });
+    });
+  </script>
+</body>
+</html>
