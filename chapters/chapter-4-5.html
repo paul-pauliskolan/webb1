@@ -7,6 +7,171 @@
     <meta name="description" content="Kap 4.5: miniuppgift där eleven bygger en responsiv startsida med flexbox, grid, relativa mått och media queries.">
     <title>Kap 4.5 - Miniuppgift: responsiv startsida</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .homepage-simulation {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background: rgba(13, 19, 22, 0.72);
+        }
+
+        .homepage-simulation__controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 0.9rem;
+        }
+
+        .homepage-simulation__control {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .homepage-simulation__control label {
+            font-weight: 700;
+        }
+
+        .homepage-simulation__control input {
+            width: 100%;
+        }
+
+        .homepage-simulation__readout {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        .homepage-simulation__stage {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background: rgba(20, 30, 34, 0.9);
+            overflow: auto;
+        }
+
+        .homepage-simulation__viewport {
+            width: 480px;
+            max-width: 100%;
+            border: 2px dashed #0f766e;
+            background: #ffffff;
+            color: #172026;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: width 160ms ease;
+        }
+
+        .homepage-simulation__header {
+            padding: 0.8rem 1rem;
+            background: #123c3a;
+            color: #ffffff;
+        }
+
+        .homepage-simulation__title {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .homepage-simulation__nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-top: 0.6rem;
+        }
+
+        .homepage-simulation__nav a {
+            padding: 0.4rem 0.5rem;
+            border-radius: 0.3rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .homepage-simulation__hero {
+            display: grid;
+            gap: 1rem;
+            padding: 1rem;
+            background: #ccfbf1;
+        }
+
+        .homepage-simulation__hero h3,
+        .homepage-simulation__hero p {
+            color: #172026;
+        }
+
+        .homepage-simulation__hero h3 {
+            margin: 0 0 0.5rem;
+        }
+
+        .homepage-simulation__hero p {
+            margin: 0;
+        }
+
+        .homepage-simulation__hero img {
+            display: block;
+            width: 100%;
+            max-height: 13rem;
+            border-radius: 0.5rem;
+            object-fit: cover;
+        }
+
+        .homepage-simulation__cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            padding: 1rem;
+        }
+
+        .homepage-simulation__card {
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            background: #f8fafc;
+        }
+
+        .homepage-simulation__card h4 {
+            margin: 0 0 0.35rem;
+            color: #075aa8;
+        }
+
+        .homepage-simulation__card p {
+            margin: 0;
+            color: #172026;
+        }
+
+        .homepage-simulation__footer {
+            padding: 0.75rem 1rem;
+            background: #123c3a;
+            color: #ffffff;
+        }
+
+        .homepage-simulation__viewport.is-wide .homepage-simulation__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .homepage-simulation__viewport.is-wide .homepage-simulation__nav {
+            flex-direction: row;
+            margin-top: 0;
+        }
+
+        .homepage-simulation__viewport.is-wide .homepage-simulation__hero {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .homepage-simulation__viewport.is-wide .homepage-simulation__cards {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .homepage-simulation__code {
+            margin: 0;
+        }
+
+        .homepage-simulation__code code {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -53,6 +218,56 @@
         <li>Testa i smal, mellanbred och bred viewport.</li>
     </ol>
 
+    <h2>Simulerat exempel</h2>
+    <p>Exemplet nedan visar en möjlig startsida om en hundklubb. Ändra den simulerade viewportens bredd och brytpunkten. När viewporten når brytpunkten byter navigationen riktning, hero-sektionen får två kolumner och korten läggs i tre kolumner.</p>
+
+    <div class="homepage-simulation" aria-label="Interaktiv simulering av en responsiv startsida">
+        <div class="homepage-simulation__controls">
+            <div class="homepage-simulation__control">
+                <label for="homepage-simulation-width">Simulerad viewport: <span id="homepage-simulation-width-value">480px</span></label>
+                <input id="homepage-simulation-width" type="range" min="320" max="900" step="20" value="480">
+            </div>
+            <div class="homepage-simulation__control">
+                <label for="homepage-simulation-breakpoint">Brytpunkt: <span id="homepage-simulation-breakpoint-value">704px</span></label>
+                <input id="homepage-simulation-breakpoint" type="range" min="560" max="800" step="16" value="704">
+            </div>
+        </div>
+
+        <p class="homepage-simulation__readout" id="homepage-simulation-readout">Mobile first-läget används: innehållet ligger i en kolumn.</p>
+
+        <div class="homepage-simulation__stage">
+            <div class="homepage-simulation__viewport" id="homepage-simulation-viewport">
+                <header class="homepage-simulation__header">
+                    <span class="homepage-simulation__title">Hundklubben</span>
+                    <nav class="homepage-simulation__nav" aria-label="Exempelnavigation">
+                        <a href="#homepage-simulation-hero">Start</a>
+                        <a href="#homepage-simulation-cards">Aktiviteter</a>
+                        <a href="#homepage-simulation-footer">Kontakt</a>
+                    </nav>
+                </header>
+                <div class="homepage-simulation__main" aria-label="Simulerat huvudinnehåll">
+                    <section class="homepage-simulation__hero" id="homepage-simulation-hero">
+                        <div>
+                            <h3>Träna tillsammans</h3>
+                            <p>Kurser och aktiviteter för hundar och människor.</p>
+                        </div>
+                        <img src="../assets/images/dog.jpg" alt="Hund som springer utomhus">
+                    </section>
+                    <section class="homepage-simulation__cards" id="homepage-simulation-cards" aria-label="Aktiviteter">
+                        <article class="homepage-simulation__card"><h4>Valpkurs</h4><p>En trygg start med enkla övningar.</p></article>
+                        <article class="homepage-simulation__card"><h4>Agility</h4><p>Träna samarbete, fart och precision.</p></article>
+                        <article class="homepage-simulation__card"><h4>Promenader</h4><p>Gemensamma turer varje helg.</p></article>
+                    </section>
+                </div>
+                <footer class="homepage-simulation__footer" id="homepage-simulation-footer">Hundklubben · Kontakt</footer>
+            </div>
+        </div>
+
+        <pre class="homepage-simulation__code"><code id="homepage-simulation-code">@media (min-width: 44rem) {
+    /* större layout */
+}</code></pre>
+    </div>
+
     <h2>Självkontroll</h2>
     <ul>
         <li>Går sidan att läsa utan horisontell scroll?</li>
@@ -75,6 +290,41 @@
     <script src="../js/main.js"></script>
     <script src="../js/quiz.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const width = document.getElementById('homepage-simulation-width')
+            const breakpoint = document.getElementById('homepage-simulation-breakpoint')
+            const viewport = document.getElementById('homepage-simulation-viewport')
+            const widthValue = document.getElementById('homepage-simulation-width-value')
+            const breakpointValue = document.getElementById('homepage-simulation-breakpoint-value')
+            const readout = document.getElementById('homepage-simulation-readout')
+            const code = document.getElementById('homepage-simulation-code')
+
+            function updateHomepageSimulation() {
+                const widthPixels = Number(width.value)
+                const breakpointPixels = Number(breakpoint.value)
+                const isWide = widthPixels >= breakpointPixels
+
+                viewport.style.width = `${widthPixels}px`
+                viewport.classList.toggle('is-wide', isWide)
+                widthValue.textContent = `${widthPixels}px`
+                breakpointValue.textContent = `${breakpointPixels}px`
+                code.textContent = `@media (min-width: ${breakpointPixels / 16}rem) {
+    .site-header { display: flex; }
+    .site-nav { flex-direction: row; }
+    .hero { grid-template-columns: 1fr 1fr; }
+    .cards { grid-template-columns: repeat(3, 1fr); }
+}`
+                readout.textContent = isWide
+                    ? 'Media queryn är aktiv: navigation, hero och kort använder den breda layouten.'
+                    : 'Mobile first-läget används: innehållet ligger i en kolumn.'
+            }
+
+            if (width && breakpoint && viewport) {
+                ;[width, breakpoint].forEach(control => control.addEventListener('input', updateHomepageSimulation))
+                updateHomepageSimulation()
+            }
+        })
+
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-4-5'), {"title": "Quiz: Kap 4.5", "questions": [{"question": "Du bygger en responsiv startsida med flera tydliga delar. Vilken HTML-struktur passar bäst som grund?", "options": ["header, nav, main, section och footer", "bara div-element utan rubriker", "en enda img som visar hela sidan", "style, script, meta och title i body"], "correct": 0, "feedback": "Semantiska element gör sidans delar tydliga.", "explanation": "En startsida blir lättare att förstå, styla och testa när de stora delarna har semantiska element."}, {"question": "Du har en meny med flera länkar som ska fungera både smalt och brett. Vilken CSS-teknik passar ofta bra?", "options": ["CSS Grid med grid-template-areas för hela sidan", "Flexbox med gap och vid behov ändrad riktning", "En fast width i px på varje länk", "En bild av menyn i stället för riktiga länkar"], "correct": 1, "feedback": "Flexbox passar ofta bra för navigation.", "explanation": "Flexbox är användbart när länkar ska ligga i rad, kolumn eller byta riktning mellan skärmstorlekar."}, {"question": "Du ska visa flera kort på en startsida och vill att antalet kolumner ska anpassas efter bredden. Vilken grid-regel passar bäst?", "options": ["grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));", "grid-template-columns: 500px 500px 500px;", "flex-direction: column;", "line-height: 1.5;"], "correct": 0, "feedback": "auto-fit och minmax ger responsiva kortkolumner.", "explanation": "Regeln skapar så många kolumner som får plats och låter korten brytas om när ytan blir smalare."}, {"question": "En bild på startsidan blir bredare än sin container på mobil. Vilken CSS-regel hjälper bilden att krympa utan att förvrängas?", "options": ["max-width: 100%; height: auto;", "width: 5000px; height: 5000px;", "display: grid; grid-area: alt;", "position: fixed; overflow: hidden;"], "correct": 0, "feedback": "max-width och height auto hjälper bilden att behålla proportioner.", "explanation": "Regeln gör att bilden kan krympa med sin container utan att förvrängas."}, {"question": "Du testar startsidan i smal, mellanbred och bred viewport. Vilket problem visar tydligast att layouten behöver justeras?", "options": ["Sidan använder header och main", "CSS ligger i en extern fil", "Texten har rimlig line-height", "Innehåll skapar horisontell scroll på smal skärm"], "correct": 3, "feedback": "Horisontell scroll är ofta ett layoutproblem.", "explanation": "Sidscroll i sidled betyder ofta att något är för brett, har fast storlek eller inte anpassar sig till viewporten."}]});
         });

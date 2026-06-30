@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 4.5: Miniuppgift – responsiv startsida.">
+  <title>Kap 4.5 – Miniuppgift: responsiv startsida</title>
+  <link rel="stylesheet" href="presentation.css?v=13">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 4 · Kapitel 4.5</p><h1>Miniuppgift: responsiv startsida</h1><p class="fragment">Bygg en startsida som fungerar på mobil, surfplatta och dator.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Du ska visa att du kan...</h2><ul><li class="fragment">planera tydliga sektioner</li><li class="fragment">använda Flexbox och Grid</li><li class="fragment">bygga mobile first</li><li class="fragment">testa och förbättra flera bredder</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppgift</p><h2>Välj ett ämne</h2><p class="fragment">Bygg en startsida om exempelvis:</p><ul><li class="fragment">en hobby</li><li class="fragment">en kurs eller förening</li><li class="fragment">ett spel</li><li class="fragment">ett eget projekt</li></ul><p class="fragment">Ämnet är valfritt. Kraven på struktur och responsivitet är inte valfria.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 1</p><h2>Semantisk HTML</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section&gt;...&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre><p class="fragment">Sidans stora delar ska vara tydliga även utan CSS.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 2</p><h2>CSS i en extern fil</h2><pre class="code-block no-scroll-code fragment"><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre><div class="flow"><span class="fragment"><code>index.html</code><br>innehåll</span><span class="fragment"><code>style.css</code><br>utseende och layout</span></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 3</p><h2>Navigation i smal och bred layout</h2><pre class="code-block compact-code no-scroll-code fragment"><code>nav { flex-direction: column; }
+@media (min-width: 44rem) {
+  nav { flex-direction: row; }
+}</code></pre><p class="fragment">Länkarna ska fortfarande vara läsbara och möjliga att använda.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 4</p><h2>Använd Flexbox</h2><p class="fragment">Flexbox passar exempelvis för:</p><ul><li class="fragment">navigationen</li><li class="fragment">en rad med knappar</li><li class="fragment">innehåll som byter mellan kolumn och rad</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 5</p><h2>Använd Grid</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(14rem, 1fr));
+}</code></pre><p class="fragment">Ett kortgalleri är ett tydligt användningsområde.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 6</p><h2>Responsiva bilder</h2><pre class="code-block no-scroll-code fragment"><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre><p class="fragment">Varje innehållsbärande bild ska också ha en relevant <code>alt</code>-text.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 7</p><h2>Minst en media query</h2><pre class="code-block no-scroll-code fragment"><code>@media (min-width: 44rem) {
+  /* regler för större layout */
+}</code></pre><p class="fragment">Brytpunkten ska lösa ett problem i innehållet.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 1</p><h2>Skissa sektionerna</h2><div class="requirement-check"><div class="fragment"><strong>Header</strong>Namn eller logotyp</div><div class="fragment"><strong>Navigation</strong>Länkar till sidans delar</div><div class="fragment"><strong>Hero</strong>Rubrik, introduktion och bild</div><div class="fragment"><strong>Kortsektion</strong>Minst tre innehållskort</div><div class="fragment"><strong>Footer</strong>Avslutande information</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 2</p><h2>Skriv HTML utan CSS</h2><ol><li class="fragment">Skapa alla semantiska delar.</li><li class="fragment">Lägg in rubriker och riktig text.</li><li class="fragment">Lägg in länkar och bilder.</li><li class="fragment">Kontrollera att ordningen är logisk.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 3</p><h2>Lägg till grundstilen</h2><ul><li class="fragment">Font och läsbara textfärger</li><li class="fragment">Bakgrundsfärger</li><li class="fragment">Radlängd och line-height</li><li class="fragment">Avstånd med <code>rem</code></li></ul><p class="fragment">Gör inte layouten avancerad ännu.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 4</p><h2>Bygg mobilversionen först</h2><ul><li class="fragment">En kolumn är grundläget.</li><li class="fragment">Menyn kan ligga i kolumn.</li><li class="fragment">Bilder får inte bli bredare än sidan.</li><li class="fragment">Ingen horisontell scroll ska behövas.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 5</p><h2>Lägg till layouttekniker</h2><div class="two-column"><div class="prompt-card fragment"><h3>Flexbox</h3><p>Navigation eller hero-innehåll.</p></div><div class="prompt-card fragment"><h3>Grid</h3><p>Kortsektion med responsiva kolumner.</p></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 6</p><h2>Lägg till större layout</h2><pre class="code-block compact-code no-scroll-code fragment"><code>@media (min-width: 44rem) {
+  header { display: flex; }
+  nav { flex-direction: row; }
+  .hero { grid-template-columns: 1fr 1fr; }
+}</code></pre><p class="fragment">Ändra bara det som behöver en annan form.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Simulerat exempel</p><h2>Startsidan i olika bredder</h2><div class="homepage-demo" data-homepage-demo><div class="homepage-controls"><label>Viewport: <span data-homepage-width-value>480px</span><input type="range" min="320" max="900" step="20" value="480" data-homepage-width></label><label>Brytpunkt: <span data-homepage-break-value>704px</span><input type="range" min="560" max="800" step="16" value="704" data-homepage-break></label><code data-homepage-code></code><p data-homepage-readout></p></div><div class="homepage-stage"><div class="homepage-viewport" data-homepage-viewport><header class="homepage-header"><strong>Hundklubben</strong><nav class="homepage-nav"><a href="#">Start</a><a href="#">Aktiviteter</a><a href="#">Kontakt</a></nav></header><main><section class="homepage-hero"><div><h3>Träna tillsammans</h3><p>Kurser och aktiviteter för hundar och människor.</p></div><img src="../assets/images/dog.jpg" alt="Hund som springer utomhus"></section><section class="homepage-cards"><article class="homepage-card"><h4>Valpkurs</h4><p>En trygg start med enkla övningar.</p></article><article class="homepage-card"><h4>Agility</h4><p>Träna samarbete, fart och precision.</p></article><article class="homepage-card"><h4>Promenader</h4><p>Gemensamma turer varje helg.</p></article></section></main><footer class="homepage-footer">Hundklubben · Kontakt</footer></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Vad exemplet visar</p><h2>Koppla krav till lösning</h2><div class="requirement-check"><div class="fragment"><strong>Semantik</strong>header, nav, main, section, article, footer</div><div class="fragment"><strong>Flexbox</strong>Navigationen byter riktning</div><div class="fragment"><strong>Grid</strong>Hero och kort använder kolumner</div><div class="fragment"><strong>Bild</strong>max-width och relevant alt-text</div><div class="fragment"><strong>Media query</strong>Större layout från brytpunkten</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Testa tre bredder</p><h2>Smalt, mellanbrett och brett</h2><table class="comparison"><thead><tr><th>Bredd</th><th>Kontrollera</th></tr></thead><tbody><tr><td class="fragment">Smalt</td><td class="fragment">Ingen horisontell scroll</td></tr><tr><td class="fragment">Mellan</td><td class="fragment">Inget trångt mellanläge</td></tr><tr><td class="fragment">Brett</td><td class="fragment">Rimlig radlängd och balanserad layout</td></tr></tbody></table></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Självkontroll</p><h2>Innan du lämnar in</h2><ul><li class="fragment">Går sidan att läsa utan horisontell scroll?</li><li class="fragment">Fungerar menyn med mus och tangentbord?</li><li class="fragment">Behåller bilderna sina proportioner?</li><li class="fragment">Har texten rimlig radlängd?</li><li class="fragment">Ser layouten planerad ut i alla bredder?</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Vanliga problem</p><h2>Om något går sönder</h2><ul><li class="fragment">Leta efter fasta bredder i <code>px</code>.</li><li class="fragment">Kontrollera bilders <code>max-width</code>.</li><li class="fragment">Tillåt Grid- eller Flex-items att brytas.</li><li class="fragment">Flytta brytpunkten dit innehållet faktiskt behöver den.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Starta nu</p><h2>Första konkreta steget</h2><ol><li class="fragment">Skapa en ny projektmapp.</li><li class="fragment">Öppna bara den mappen i VS Code.</li><li class="fragment">Skapa <code>index.html</code> och <code>style.css</code>.</li><li class="fragment">Välj ämne och skriv sidans fem huvuddelar.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Uppgiften kombinerar Modul 1–4</h2><ul><li class="fragment">Semantisk HTML ger struktur.</li><li class="fragment">Extern CSS ger utseende.</li><li class="fragment">Flexbox och Grid skapar layout.</li><li class="fragment">Responsiva bilder skyddar sidan.</li><li class="fragment">Media queries ändrar layout när innehållet behöver det.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll("[data-homepage-demo]").forEach(function(d){const width=d.querySelector("[data-homepage-width]"),breakpoint=d.querySelector("[data-homepage-break]"),viewport=d.querySelector("[data-homepage-viewport]"),widthValue=d.querySelector("[data-homepage-width-value]"),breakValue=d.querySelector("[data-homepage-break-value]"),code=d.querySelector("[data-homepage-code]"),readout=d.querySelector("[data-homepage-readout]");function u(){const w=Number(width.value),b=Number(breakpoint.value),wide=w>=b;viewport.style.width=w+"px";viewport.classList.toggle("is-wide",wide);widthValue.textContent=w+"px";breakValue.textContent=b+"px";code.textContent="@media (min-width: "+(b/16)+"rem) {\n  /* större layout */\n}";readout.textContent=wide?"Media queryn är aktiv: meny, hero och kort använder den breda layouten.":"Mobile first-läget används: innehållet ligger i en kolumn.";}[width,breakpoint].forEach(e=>e.addEventListener("input",u));u();});
+  });
+  </script>
+</body>
+</html>
