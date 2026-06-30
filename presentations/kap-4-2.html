@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 4.2: Grid för sidlayouter.">
+  <title>Kap 4.2 – Grid för sidlayouter</title>
+  <link rel="stylesheet" href="presentation.css?v=10">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 4 · Kapitel 4.2</p><h1>Grid för sidlayouter</h1><p class="fragment">Styr kolumner och rader samtidigt.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara skillnaden mellan Flexbox och Grid</li><li class="fragment">skapa kolumner och rader</li><li class="fragment">känna igen Grid-begreppen</li><li class="fragment">använda <code>repeat</code>, <code>fr</code>, <code>minmax</code>, <code>auto-fit</code> och <code>auto-fill</code></li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Flexbox eller Grid?</p><h2>En eller två dimensioner</h2><table class="comparison"><thead><tr><th>Flexbox</th><th>Grid</th></tr></thead><tbody><tr><td class="fragment">En huvudriktning</td><td class="fragment">Kolumner och rader</td></tr><tr><td class="fragment">Meny eller kortrad</td><td class="fragment">Galleri eller sidlayout</td></tr></tbody></table><p class="fragment">De kan användas tillsammans.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Starta Grid</p><h2>Föräldern blir grid-container</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
+  display: grid;
+}</code></pre><div class="grid-concept fragment" style="grid-template-columns:1fr"><div>Grid-item 1</div><div>Grid-item 2</div><div>Grid-item 3</div></div><p class="fragment">Enbart <code>display: grid</code> skapar inga synliga kolumner. Elementen ligger fortfarande under varandra.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Container och items</p><h2>Föräldern styr barnen</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;div class="cards"&gt;
+  &lt;article&gt;Kort 1&lt;/article&gt;
+  &lt;article&gt;Kort 2&lt;/article&gt;
+&lt;/div&gt;</code></pre><ul><li class="fragment"><code>.cards</code> är grid-container.</li><li class="fragment"><code>article</code>-elementen är grid-items.</li><li class="fragment">Vi tar de övriga Grid-begreppen när de behövs.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kolumner</p><h2>grid-template-columns</h2><pre class="code-block no-scroll-code fragment"><code>.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}</code></pre><ul><li class="fragment"><code>grid-template-columns</code> bestämmer hur många kolumner som finns och hur breda de är.</li><li class="fragment">Två värden skapar två kolumner. En kolumn kallas också ett <strong>kolumnspår</strong>.</li><li class="fragment"><code>fr</code> betyder en del av det lediga utrymmet.</li></ul><div class="grid-concept fragment" style="grid-template-columns:2fr 1fr"><div>2fr</div><div>1fr</div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv fr</p><h2>Ändra kolumnernas fördelning</h2><div class="grid-interactive" data-fr-demo><div class="grid-interactive-controls"><label>Första kolumnen: <span data-fr-value>2fr</span><input type="range" min="1" max="5" value="2" data-fr-control></label><code data-fr-code>grid-template-columns: 2fr 1fr;</code></div><div class="grid-interactive-stage"><div class="grid-stage" data-fr-stage><div class="grid-item">2fr</div><div class="grid-item">1fr</div></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">repeat</p><h2>Upprepa samma kolumn</h2><pre class="code-block no-scroll-code fragment"><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}</code></pre><p class="fragment"><code>repeat(3, 1fr)</code> betyder tre lika breda kolumner.</p><p class="fragment">En ruta där en rad och en kolumn möts kallas en <strong>grid-cell</strong>.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv repeat</p><h2>Ändra antal kolumner</h2><div class="grid-interactive" data-repeat-demo><div class="grid-interactive-controls"><label>Kolumner: <span data-repeat-value>3</span><input type="range" min="1" max="6" value="3" data-repeat-control></label><code data-repeat-code>repeat(3, 1fr)</code></div><div class="grid-interactive-stage"><div class="grid-stage" data-repeat-stage><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div></div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">gap</p><h2>Avstånd mellan Grid-items</h2><div class="grid-interactive" data-gap-demo><div class="grid-interactive-controls"><label>gap: <span data-gap-value>1rem</span><input type="range" min="0" max="3" step=".25" value="1" data-gap-control></label><code data-gap-code>gap: 1rem;</code></div><div class="grid-interactive-stage"><div class="grid-stage" data-gap-stage><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div></div></div><p class="fragment"><code>gap</code> skapar mellanrum mellan spåren, inte runt containern. Gränserna mellan spåren kallas <strong>grid lines</strong>.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">minmax</p><h2>Ge en kolumn två gränser</h2><pre class="code-block no-scroll-code fragment"><code>grid-template-columns: minmax(10rem, 1fr);</code></pre><ul><li class="fragment"><code>minmax(min, max)</code> anger minsta och största tillåtna storlek.</li><li class="fragment"><code>10rem</code>: kolumnen får inte bli smalare än 10rem.</li><li class="fragment"><code>1fr</code>: kolumnen får växa och använda ledigt utrymme.</li></ul><p class="fragment">Här finns bara <strong>en</strong> kolumn. <code>minmax</code> skapar inte fler kolumner.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv minmax</p><h2>Ändra kolumnernas minsta bredd</h2><div class="grid-interactive" data-minmax-demo><div class="grid-interactive-controls"><label>Minsta bredd: <span data-min-value>8rem</span><input type="range" min="4" max="14" value="8" data-min-control></label><label>Rutans bredd: <span data-min-width-value>42rem</span><input type="range" min="18" max="50" value="42" data-min-width></label><code data-min-code>repeat(3, minmax(8rem, 1fr))</code><p>Tre kolumner finns hela tiden. Om rutan blir smalare än kolumnernas minimibredd får innehållet inte plats.</p></div><div class="grid-interactive-stage"><div class="grid-stage" data-min-stage><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">auto-fit</p><h2>Låt bredden bestämma antalet</h2><pre class="code-block no-scroll-code fragment"><code>grid-template-columns:
+  repeat(auto-fit, 10rem);</code></pre><ul><li class="fragment"><code>auto-fit</code> ersätter ett bestämt antal som <code>3</code>.</li><li class="fragment">Grid skapar så många 10rem-kolumner som får plats.</li><li class="fragment">När rutan blir smalare minskar antalet kolumner.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tillsammans</p><h2>auto-fit + minmax</h2><pre class="code-block no-scroll-code fragment"><code>grid-template-columns:
+  repeat(auto-fit, minmax(14rem, 1fr));</code></pre><ol><li class="fragment"><code>auto-fit</code> bestämmer hur många kolumner som får plats.</li><li class="fragment"><code>minmax</code> gör varje kolumn minst 14rem.</li><li class="fragment"><code>1fr</code> låter kolumnerna växa och fylla raden.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">auto-fill</p><h2>Fyll raden och behåll tomma spår</h2><pre class="code-block no-scroll-code fragment"><code>grid-template-columns:
+  repeat(auto-fill, minmax(14rem, 1fr));</code></pre><p class="fragment">Tomma spår behålls. Därför kan synliga kort bli smalare än med <code>auto-fit</code>.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Jämför</p><h2>auto-fit och auto-fill</h2><div class="grid-interactive" data-compare-demo><div class="grid-interactive-controls"><label>Rutans bredd: <span data-compare-width-value>42rem</span><input type="range" min="20" max="52" value="42" data-compare-width></label><label>Antal kort: <span data-compare-count-value>2</span><input type="range" min="1" max="4" value="2" data-compare-count></label><p>Skillnaden syns när det finns plats för fler spår än kort.</p></div><div class="grid-interactive-stage grid-compare"><div class="grid-compare-row"><strong>auto-fit</strong><div class="grid-compare-stage" data-fit-stage></div></div><div class="grid-compare-row"><strong>auto-fill</strong><div class="grid-compare-stage" data-fill-stage></div></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">grid-template-areas</p><h2>Namnge delarna i layouten</h2><pre class="code-block compact-code no-scroll-code fragment"><code>.page {
+  grid-template-areas:
+    "header header"
+    "aside  main"
+    "footer footer";
+}</code></pre><p class="fragment">Ett namngivet område av en eller flera celler kallas en <strong>grid-area</strong>.</p><p class="fragment">Namnen gör sidans struktur lättare att se i CSS-koden.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiva områden</p><h2>Bred eller smal layout</h2><div class="grid-interactive" data-areas-demo><div class="grid-interactive-controls"><label>Rutans bredd: <span data-area-width-value>42rem</span><input type="range" min="18" max="50" value="42" data-area-width></label><code data-area-code>"header header" "aside main" "footer footer"</code></div><div class="grid-interactive-stage"><div class="grid-stage areas-stage" data-areas-stage><div class="grid-item area-header">header</div><div class="grid-item area-aside">aside</div><div class="grid-item area-main">main</div><div class="grid-item area-footer">footer</div></div></div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Grid-laboration</p><h2>Kombinera egenskaperna</h2><div class="grid-interactive" data-grid-lab><div class="grid-interactive-controls"><label>Layout<select data-lab-mode><option value="repeat">repeat</option><option value="fit">auto-fit</option><option value="fill">auto-fill</option></select></label><label>Kolumner/min: <span data-lab-size-value>3</span><input type="range" min="1" max="6" value="3" data-lab-size></label><label>gap: <span data-lab-gap-value>1rem</span><input type="range" min="0" max="3" step=".25" value="1" data-lab-gap></label><label>Rutans bredd: <span data-lab-width-value>42rem</span><input type="range" min="18" max="52" value="42" data-lab-width></label><code data-lab-code></code></div><div class="grid-interactive-stage"><div class="grid-stage" data-lab-stage><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollfråga</p><h2>Vad betyder 2fr 1fr?</h2><p class="fragment">Två kolumner som delar på ledigt utrymme.</p><p class="fragment"><strong>Svar:</strong> första kolumnen får två delar och den andra en del.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prova själv</p><h2>Bygg ett responsivt kortgalleri</h2><ol><li class="fragment">Skapa sex artiklar.</li><li class="fragment">Lägg dem i en grid-container.</li><li class="fragment">Testa <code>repeat(3, 1fr)</code>.</li><li class="fragment">Byt till <code>repeat(auto-fit, minmax(14rem, 1fr))</code>.</li><li class="fragment">Ändra webbläsarens bredd.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Grid styr rader och kolumner samtidigt.</li><li class="fragment"><code>fr</code> delar ledigt utrymme.</li><li class="fragment"><code>repeat</code> upprepar spår.</li><li class="fragment"><code>minmax</code> sätter gränser.</li><li class="fragment"><code>auto-fit</code> kollapsar tomma spår, <code>auto-fill</code> behåller dem.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function items(target, count) { target.innerHTML = ""; for (let i=1;i<=count;i++){const el=document.createElement("div");el.className="grid-item";el.textContent=i;target.appendChild(el);} }
+    document.querySelectorAll("[data-fr-demo]").forEach(function(d){const c=d.querySelector("[data-fr-control]"),s=d.querySelector("[data-fr-stage]"),v=d.querySelector("[data-fr-value]"),o=d.querySelector("[data-fr-code]");function u(){s.style.gridTemplateColumns=c.value+"fr 1fr";s.children[0].textContent=c.value+"fr";v.textContent=c.value+"fr";o.textContent="grid-template-columns: "+c.value+"fr 1fr;";}c.addEventListener("input",u);u();});
+    document.querySelectorAll("[data-repeat-demo]").forEach(function(d){const c=d.querySelector("[data-repeat-control]"),s=d.querySelector("[data-repeat-stage]"),v=d.querySelector("[data-repeat-value]"),o=d.querySelector("[data-repeat-code]");function u(){s.style.gridTemplateColumns="repeat("+c.value+", 1fr)";v.textContent=c.value;o.textContent="repeat("+c.value+", 1fr)";}c.addEventListener("input",u);u();});
+    document.querySelectorAll("[data-gap-demo]").forEach(function(d){const c=d.querySelector("[data-gap-control]"),s=d.querySelector("[data-gap-stage]"),v=d.querySelector("[data-gap-value]"),o=d.querySelector("[data-gap-code]");function u(){const x=c.value+"rem";s.style.gap=x;v.textContent=x;o.textContent="gap: "+x+";";}c.addEventListener("input",u);u();});
+    document.querySelectorAll("[data-minmax-demo]").forEach(function(d){const m=d.querySelector("[data-min-control]"),w=d.querySelector("[data-min-width]"),s=d.querySelector("[data-min-stage]"),mv=d.querySelector("[data-min-value]"),wv=d.querySelector("[data-min-width-value]"),o=d.querySelector("[data-min-code]");function u(){const x=m.value+"rem";s.style.width=w.value+"rem";s.style.maxWidth="100%";s.style.gridTemplateColumns="repeat(3, minmax("+x+", 1fr))";mv.textContent=x;wv.textContent=w.value+"rem";o.textContent="repeat(3, minmax("+x+", 1fr))";}[m,w].forEach(e=>e.addEventListener("input",u));u();});
+    document.querySelectorAll("[data-compare-demo]").forEach(function(d){const w=d.querySelector("[data-compare-width]"),c=d.querySelector("[data-compare-count]"),fit=d.querySelector("[data-fit-stage]"),fill=d.querySelector("[data-fill-stage]"),wv=d.querySelector("[data-compare-width-value]"),cv=d.querySelector("[data-compare-count-value]");function u(){[fit,fill].forEach(s=>{s.style.width=w.value+"rem";s.style.maxWidth="100%";});fit.style.gridTemplateColumns="repeat(auto-fit, minmax(8rem, 1fr))";fill.style.gridTemplateColumns="repeat(auto-fill, minmax(8rem, 1fr))";items(fit,+c.value);items(fill,+c.value);wv.textContent=w.value+"rem";cv.textContent=c.value;}[w,c].forEach(e=>e.addEventListener("input",u));u();});
+    document.querySelectorAll("[data-areas-demo]").forEach(function(d){const w=d.querySelector("[data-area-width]"),s=d.querySelector("[data-areas-stage]"),v=d.querySelector("[data-area-width-value]"),o=d.querySelector("[data-area-code]");function u(){const narrow=+w.value<28;s.style.width=w.value+"rem";s.style.maxWidth="100%";s.style.gridTemplateColumns=narrow?"1fr":"12rem 1fr";s.style.gridTemplateAreas=narrow?'"header" "main" "aside" "footer"':'"header header" "aside main" "footer footer"';v.textContent=w.value+"rem";o.textContent=narrow?'"header" "main" "aside" "footer"':'"header header" "aside main" "footer footer"';}w.addEventListener("input",u);u();});
+    document.querySelectorAll("[data-grid-lab]").forEach(function(d){const mode=d.querySelector("[data-lab-mode]"),size=d.querySelector("[data-lab-size]"),gap=d.querySelector("[data-lab-gap]"),width=d.querySelector("[data-lab-width]"),s=d.querySelector("[data-lab-stage]"),sv=d.querySelector("[data-lab-size-value]"),gv=d.querySelector("[data-lab-gap-value]"),wv=d.querySelector("[data-lab-width-value]"),o=d.querySelector("[data-lab-code]");function u(){const g=gap.value+"rem",wd=width.value+"rem";let rule;if(mode.value==="repeat"){rule="repeat("+size.value+", 1fr)";sv.textContent=size.value;}else{const min=(+size.value+5)+"rem";rule="repeat(auto-"+(mode.value==="fit"?"fit":"fill")+", minmax("+min+", 1fr))";sv.textContent=min;}s.style.gridTemplateColumns=rule;s.style.gap=g;s.style.width=wd;s.style.maxWidth="100%";gv.textContent=g;wv.textContent=wd;o.textContent="grid-template-columns: "+rule+";\ngap: "+g+";";}[mode,size,gap,width].forEach(e=>{e.addEventListener("input",u);e.addEventListener("change",u);});u();});
+  });
+  </script>
+</body>
+</html>

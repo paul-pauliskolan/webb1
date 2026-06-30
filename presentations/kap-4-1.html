@@ -27,40 +27,38 @@
   &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
 &lt;/nav&gt;</code></pre><ul><li class="fragment"><code>nav.menu</code> är flex-container.</li><li class="fragment">Länkarna blir flex-items.</li></ul></div></section>
 
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">gap</p><h2>Jämnt avstånd mellan items</h2><pre class="code-block no-scroll-code fragment"><code>.menu {
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">gap</p><h2>Ändra avståndet mellan items</h2><pre class="code-block no-scroll-code fragment"><code>.menu {
   display: flex;
   gap: 1rem;
-}</code></pre><p class="fragment"><code>gap</code> skapar mellanrum utan separata marginaler på varje item.</p></div></section>
+}</code></pre><div class="single-flex-demo fragment" data-single-flex><div class="single-flex-control"><label for="single-gap">gap: <span data-single-value>1rem</span><input id="single-gap" type="range" min="0" max="4" step="0.25" value="1" data-single-control data-property="gap" data-unit="rem"></label><code data-single-code>gap: 1rem;</code></div><div class="single-flex-stage" data-single-stage><span class="single-flex-item">1</span><span class="single-flex-item">2</span><span class="single-flex-item">3</span></div></div><p class="fragment"><code>gap</code> skapar mellanrum utan separata marginaler.</p></div></section>
 
       <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-direction</p><h2>Rad eller kolumn</h2><table class="comparison"><thead><tr><th><code>row</code></th><th><code>column</code></th></tr></thead><tbody><tr><td class="fragment">Huvudaxeln går horisontellt.</td><td class="fragment">Huvudaxeln går vertikalt.</td></tr><tr><td class="fragment">Items ligger sida vid sida.</td><td class="fragment">Items ligger under varandra.</td></tr></tbody></table></div></section>
 
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">Axlar</p><h2>Huvudaxel och tväraxel</h2><ul><li class="fragment"><code>flex-direction</code> bestämmer huvudaxeln.</li><li class="fragment"><code>justify-content</code> placerar items längs huvudaxeln.</li><li class="fragment"><code>align-items</code> placerar items längs tväraxeln.</li></ul><p class="fragment">När riktningen ändras byter axlarna också riktning.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Interaktiv flex-direction</p><h2>Bestäm huvudaxeln</h2><div class="single-flex-demo fragment" data-single-flex><div class="single-flex-control"><label for="single-direction">flex-direction<select id="single-direction" data-single-control data-property="flexDirection"><option value="row">row</option><option value="column">column</option></select></label><code data-single-code>flex-direction: row;</code><p>Byt riktning och se hur huvudaxeln ändras.</p></div><div class="single-flex-stage" data-single-stage><span class="single-flex-item">1</span><span class="single-flex-item">2</span><span class="single-flex-item">3</span></div></div></div></section>
 
       <section class="slide"><div class="slide-content"><p class="slide-kicker">justify-content</p><h2>Placering längs huvudaxeln</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
   display: flex;
   justify-content: space-between;
 }</code></pre><div class="flex-preview fragment"><div class="flex-preview-row" style="justify-content:space-between;"><span class="flex-preview-item" style="flex:0 1 7rem;">1</span><span class="flex-preview-item" style="flex:0 1 7rem;">2</span><span class="flex-preview-item" style="flex:0 1 7rem;">3</span></div></div></div></section>
 
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Interaktiv justify-content</p><h2>Flytta längs huvudaxeln</h2><div class="single-flex-demo fragment" data-single-flex><div class="single-flex-control"><label for="single-justify">justify-content<select id="single-justify" data-single-control data-property="justifyContent"><option value="flex-start">flex-start</option><option value="center">center</option><option value="flex-end">flex-end</option><option value="space-between">space-between</option><option value="space-around">space-around</option><option value="space-evenly">space-evenly</option></select></label><code data-single-code>justify-content: flex-start;</code></div><div class="single-flex-stage" data-single-stage><span class="single-flex-item">1</span><span class="single-flex-item">2</span><span class="single-flex-item">3</span></div></div></div></section>
+
       <section class="slide"><div class="slide-content"><p class="slide-kicker">align-items</p><h2>Placering längs tväraxeln</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
   display: flex;
   align-items: stretch;
 }</code></pre><p class="fragment"><code>stretch</code> är standard och kan göra items lika höga längs tväraxeln.</p></div></section>
 
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Interaktiv align-items</p><h2>Flytta längs tväraxeln</h2><div class="single-flex-demo fragment" data-single-flex><div class="single-flex-control"><label for="single-align">align-items<select id="single-align" data-single-control data-property="alignItems"><option value="stretch">stretch</option><option value="flex-start">flex-start</option><option value="center">center</option><option value="flex-end">flex-end</option></select></label><code data-single-code>align-items: stretch;</code></div><div class="single-flex-stage" data-single-stage><span class="single-flex-item">1</span><span class="single-flex-item">2</span><span class="single-flex-item">3</span></div></div></div></section>
+
       <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-wrap</p><h2>Bryt till en ny rad</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}</code></pre><div class="flex-preview fragment"><div class="flex-preview-row is-wrap"><span class="flex-preview-item">Kort 1</span><span class="flex-preview-item">Kort 2</span><span class="flex-preview-item">Kort 3</span><span class="flex-preview-item">Kort 4</span></div></div></div></section>
+}</code></pre><div class="flex-preview fragment"><label class="wrap-resize-control" for="wrap-size">Rutans bredd: <span data-wrap-size-value>36rem</span><input id="wrap-size" type="range" min="16" max="60" value="36" data-wrap-size></label><div class="flex-preview-row is-wrap flex-preview-resizable" data-wrap-stage><span class="flex-preview-item">Kort 1</span><span class="flex-preview-item">Kort 2</span><span class="flex-preview-item">Kort 3</span><span class="flex-preview-item">Kort 4</span></div></div></div></section>
 
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-förkortning</p><h2>Tre värden i en regel</h2><pre class="code-block no-scroll-code fragment"><code>.card {
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">flex-förkortning</p><h2>Tre värden i en regel</h2><pre class="code-block no-scroll-code fragment"><code>.card {
   flex: 1 1 16rem;
-}</code></pre><div class="flow"><span class="fragment"><code>1</code><br>grow</span><span class="fragment"><code>1</code><br>shrink</span><span class="fragment"><code>16rem</code><br>basis</span></div></div></section>
-
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-grow</p><h2>Får itemet växa?</h2><table class="comparison"><thead><tr><th><code>0</code></th><th><code>1</code></th></tr></thead><tbody><tr><td class="fragment">Itemet tar inte extra ledigt utrymme.</td><td class="fragment">Itemet delar ledigt utrymme med andra som får växa.</td></tr></tbody></table></div></section>
-
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-basis</p><h2>Startstorlek längs huvudaxeln</h2><p class="fragment">I en radlayout fungerar <code>16rem</code> som ungefärlig startbredd.</p><pre class="code-block no-scroll-code fragment"><code>.card {
-  flex-basis: 16rem;
-}</code></pre><p class="fragment">Itemet kan sedan växa eller krympa beroende på övriga flex-regler.</p></div></section>
+}</code></pre><div class="flow"><span class="fragment"><code>grow</code><br>tar ledigt utrymme</span><span class="fragment"><code>shrink</code><br>tillåter krympning</span><span class="fragment"><code>basis</code><br>anger startstorlek</span></div><div class="item-flex-demo fragment" data-item-flex-demo><div class="item-flex-controls"><label>grow<select data-item-grow><option value="0">0</option><option value="1" selected>1</option></select></label><label>shrink<select data-item-shrink><option value="0">0</option><option value="1" selected>1</option></select></label><label>basis: <span data-item-basis-value>8rem</span><input type="range" min="3" max="14" value="8" data-item-basis></label><label>rutans bredd: <span data-item-width-value>36rem</span><input type="range" min="16" max="50" value="36" data-item-width></label><code data-item-flex-code>flex: 1 1 8rem;</code></div><div class="item-flex-stage" data-item-flex-stage data-item-stage-resizable><span class="item-flex-box">1</span><span class="item-flex-box">2</span><span class="item-flex-box">3</span></div></div></div></section>
 
       <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv flexbox</p><h2>Ändra alla viktiga värden</h2><div class="flex-demo-panel fragment"><div class="flex-demo-controls">
         <div class="flex-demo-control"><label for="direction">flex-direction</label><select id="direction"><option value="row">row</option><option value="column">column</option></select></div>
@@ -69,6 +67,7 @@
         <div class="flex-demo-control"><label for="gap">gap: <span id="gap-value">1rem</span></label><input id="gap" type="range" min="0" max="3" step="0.25" value="1"></div>
         <label class="flex-demo-toggle" for="wrap"><input id="wrap" type="checkbox"> flex-wrap: wrap</label>
         <div class="flex-demo-control"><label for="basis">flex-basis: <span id="basis-value">7rem</span></label><input id="basis" type="range" min="4" max="14" value="7"></div>
+        <div class="flex-demo-control"><label for="shrink">flex-shrink</label><select id="shrink"><option value="0">0</option><option value="1" selected>1</option></select></div>
         <div class="flex-demo-control"><label for="item-count">Antal: <span id="item-count-value">3</span></label><input id="item-count" type="range" min="3" max="8" value="3"></div>
         <div class="flex-demo-control"><label for="container-height">Höjd: <span id="container-height-value">13rem</span></label><input id="container-height" type="range" min="8" max="24" value="13"></div>
         <label class="flex-demo-toggle" for="grow"><input id="grow" type="checkbox"> flex-grow: 1</label>
@@ -98,11 +97,68 @@
   <script src="presentation.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const container=document.getElementById("demo-container"),direction=document.getElementById("direction"),justify=document.getElementById("justify"),align=document.getElementById("align"),gap=document.getElementById("gap"),wrap=document.getElementById("wrap"),basis=document.getElementById("basis"),grow=document.getElementById("grow"),count=document.getElementById("item-count"),height=document.getElementById("container-height"),output=document.getElementById("css-output"),axis=document.getElementById("axis-text");
-      if(!container||!direction||!justify||!align||!gap||!wrap||!basis||!grow||!count||!height||!output||!axis)return;
+      const wrapSize = document.querySelector("[data-wrap-size]");
+      const wrapStage = document.querySelector("[data-wrap-stage]");
+      const wrapSizeValue = document.querySelector("[data-wrap-size-value]");
+      if (wrapSize) wrapSize.addEventListener("input", function () {
+        const value = wrapSize.value + "rem";
+        if (wrapStage) wrapStage.style.width = value;
+        if (wrapSizeValue) wrapSizeValue.textContent = value;
+      });
+
+      document.querySelectorAll("[data-item-flex-demo]").forEach(function (demo) {
+        const growControl = demo.querySelector("[data-item-grow]");
+        const shrinkControl = demo.querySelector("[data-item-shrink]");
+        const basisControl = demo.querySelector("[data-item-basis]");
+        const basisValue = demo.querySelector("[data-item-basis-value]");
+        const widthControl = demo.querySelector("[data-item-width]");
+        const widthValue = demo.querySelector("[data-item-width-value]");
+        const code = demo.querySelector("[data-item-flex-code]");
+        const stage = demo.querySelector("[data-item-flex-stage]");
+        const items = demo.querySelectorAll(".item-flex-box");
+        if (!growControl || !shrinkControl || !basisControl) return;
+        function updateItemFlex() {
+          const basis = basisControl.value + "rem";
+          const shorthand = growControl.value + " " + shrinkControl.value + " " + basis;
+          items.forEach(function (item) { item.style.flex = shorthand; });
+          if (basisValue) basisValue.textContent = basis;
+          if (widthControl && stage) {
+            const width = widthControl.value + "rem";
+            stage.style.width = width;
+            if (widthValue) widthValue.textContent = width;
+          }
+          if (code) code.textContent = "flex: " + shorthand + ";";
+        }
+        [growControl, shrinkControl, basisControl, widthControl].filter(Boolean).forEach(function (control) { control.addEventListener("input", updateItemFlex); control.addEventListener("change", updateItemFlex); });
+        updateItemFlex();
+      });
+
+      document.querySelectorAll("[data-single-flex]").forEach(function (demo) {
+        const control = demo.querySelector("[data-single-control]");
+        const stage = demo.querySelector("[data-single-stage]");
+        const value = demo.querySelector("[data-single-value]");
+        const code = demo.querySelector("[data-single-code]");
+        if (!control || !stage) return;
+        function updateSingleDemo() {
+          const unit = control.dataset.unit || "";
+          const next = control.value + unit;
+          stage.style[control.dataset.property] = next;
+          if (value) value.textContent = next;
+          if (code) {
+            const property = control.dataset.property.replace(/[A-Z]/g, function (letter) { return "-" + letter.toLowerCase(); });
+            code.textContent = property + ": " + next + ";";
+          }
+        }
+        control.addEventListener("input", updateSingleDemo);
+        control.addEventListener("change", updateSingleDemo);
+        updateSingleDemo();
+      });
+
+      const container=document.getElementById("demo-container"),direction=document.getElementById("direction"),justify=document.getElementById("justify"),align=document.getElementById("align"),gap=document.getElementById("gap"),wrap=document.getElementById("wrap"),basis=document.getElementById("basis"),grow=document.getElementById("grow"),shrink=document.getElementById("shrink"),count=document.getElementById("item-count"),height=document.getElementById("container-height"),output=document.getElementById("css-output"),axis=document.getElementById("axis-text");
+      if(!container||!direction||!justify||!align||!gap||!wrap||!basis||!grow||!shrink||!count||!height||!output||!axis)return;
       const items=Array.from(container.querySelectorAll(".flex-demo-item"));
-      function update(){const gapValue=gap.value+"rem",basisValue=basis.value+"rem",heightValue=height.value+"rem",wrapValue=wrap.checked?"wrap":"nowrap",growValue=grow.checked?"1":"0",visible=Number(count.value);container.style.flexDirection=direction.value;container.style.justifyContent=justify.value;container.style.alignItems=align.value;container.style.gap=gapValue;container.style.flexWrap=wrapValue;container.style.height=heightValue;items.forEach(function(item,index){item.style.display=index<visible?"grid":"none";item.style.flex=growValue+" 1 "+basisValue;});document.getElementById("gap-value").textContent=gapValue;document.getElementById("basis-value").textContent=basisValue;document.getElementById("item-count-value").textContent=visible;document.getElementById("container-height-value").textContent=heightValue;axis.textContent=direction.value==="row"?"Huvudaxeln är horisontell. justify-content styr vågrätt och align-items lodrätt.":"Huvudaxeln är vertikal. justify-content styr lodrätt och align-items vågrätt.";output.textContent=".container {\n  display: flex;\n  flex-direction: "+direction.value+";\n  justify-content: "+justify.value+";\n  align-items: "+align.value+";\n  flex-wrap: "+wrapValue+";\n  gap: "+gapValue+";\n  height: "+heightValue+";\n}\n.item { flex: "+growValue+" 1 "+basisValue+"; }";}
-      [direction,justify,align,gap,wrap,basis,grow,count,height].forEach(function(control){control.addEventListener("input",update);control.addEventListener("change",update);});update();
+      function update(){const gapValue=gap.value+"rem",basisValue=basis.value+"rem",heightValue=height.value+"rem",wrapValue=wrap.checked?"wrap":"nowrap",growValue=grow.checked?"1":"0",shrinkValue=shrink.value,visible=Number(count.value);container.style.flexDirection=direction.value;container.style.justifyContent=justify.value;container.style.alignItems=align.value;container.style.gap=gapValue;container.style.flexWrap=wrapValue;container.style.height=heightValue;items.forEach(function(item,index){item.style.display=index<visible?"grid":"none";item.style.flex=growValue+" "+shrinkValue+" "+basisValue;});document.getElementById("gap-value").textContent=gapValue;document.getElementById("basis-value").textContent=basisValue;document.getElementById("item-count-value").textContent=visible;document.getElementById("container-height-value").textContent=heightValue;axis.textContent=direction.value==="row"?"Huvudaxeln är horisontell. justify-content styr vågrätt och align-items lodrätt.":"Huvudaxeln är vertikal. justify-content styr lodrätt och align-items vågrätt.";output.textContent=".container {\n  display: flex;\n  flex-direction: "+direction.value+";\n  justify-content: "+justify.value+";\n  align-items: "+align.value+";\n  flex-wrap: "+wrapValue+";\n  gap: "+gapValue+";\n  height: "+heightValue+";\n}\n.item { flex: "+growValue+" "+shrinkValue+" "+basisValue+"; }";}
+      [direction,justify,align,gap,wrap,basis,grow,shrink,count,height].forEach(function(control){control.addEventListener("input",update);control.addEventListener("change",update);});update();
     });
   </script>
 </body>
