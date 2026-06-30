@@ -52,6 +52,8 @@
   }
 
   document.addEventListener("keydown", (event) => {
+    const target = event.target;
+    if (target instanceof Element && target.closest("input, textarea, select, button, [role='slider']")) return;
     if (["ArrowRight", "PageDown", " "].includes(event.key)) {
       event.preventDefault();
       nextStep();
@@ -63,7 +65,8 @@
 
   document.addEventListener("click", (event) => {
     const target = event.target;
-    if (target instanceof Element && target.closest("a, button, input, textarea, select")) return;
+    if (target instanceof Element && target.closest("a, button, input, textarea, select, label, form, fieldset")) return;
+    if (slides[slideIndex].hasAttribute("data-disable-click-navigation")) return;
     if (event.button === 0) nextStep();
   });
 

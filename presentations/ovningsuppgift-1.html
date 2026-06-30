@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till Övningsuppgift 1: Film, serie eller bok.">
+  <title>Övningsuppgift 1 – Film, serie eller bok</title>
+  <link rel="stylesheet" href="presentation.css?v=2">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Övningsuppgift 1</p>
+        <h1>Film, serie eller bok</h1>
+        <p class="fragment">Skapa en webbsida med HTML, extern CSS och en bild.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Börja här</p><h2>Se filmgenomgången</h2>
+        <p class="fragment">Titta först på spellistan <strong>Övningsuppgift 1</strong> på YouTube.</p>
+        <p class="fragment"><a href="https://www.youtube.com/playlist?list=PLNadygDF_9TFJrNV5G4pIKiLGNWQa8T8k" target="_blank" rel="noopener noreferrer">Öppna spellistan</a></p>
+        <p class="fragment">Ha gärna presentationen och uppgiftssidan öppna medan du arbetar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Uppgift</p><h2>Vad ska du skapa?</h2>
+        <p class="fragment">Bygg en enkel HTML5-sida om en bra film, serie eller bok som du har sett eller läst.</p>
+        <p class="fragment">Skriv kortfattat och välj en bild, exempelvis en poster eller omslagsbild.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Projektfiler</p><h2>Tre delar behövs</h2>
+        <pre class="code-block no-scroll-code fragment"><code>film-sida/
+  index.html
+  style.css
+  poster.webp</code></pre>
+        <ul>
+          <li class="fragment">En HTML-fil.</li>
+          <li class="fragment">En extern CSS-fil.</li>
+          <li class="fragment">En bild i formatet <code>jpg</code>, <code>webp</code> eller <code>png</code>.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTML-krav</p><h2>Sidans innehåll</h2>
+        <ul>
+          <li class="fragment">Skriv sidan i HTML5.</li>
+          <li class="fragment">Använd <code>h1</code> till huvudrubriken.</li>
+          <li class="fragment">Använd <code>p</code> till löptexten.</li>
+          <li class="fragment">Länka en extern CSS-fil.</li>
+          <li class="fragment">Lägg in en poster eller omslagsbild.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTML · head</p><h2>Koppla den externa CSS-filen</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="sv"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Min favoritfilm&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+        <p class="fragment"><code>link</code> gör att webbläsaren läser reglerna i <code>style.css</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTML · body</p><h2>Lägg in text och bild</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;body&gt;
+  &lt;h1&gt;Min favoritfilm&lt;/h1&gt;
+  &lt;p&gt;Här skriver jag kort om filmen.&lt;/p&gt;
+  &lt;img src="poster.webp"
+       alt="Poster till min favoritfilm"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p class="fragment">Skriv en alt-text som beskriver bilden.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Bildkrav</p><h2>Bilden får inte dominera sidan</h2>
+        <p class="fragment">Använd en fil i formatet <code>jpg</code>, <code>webp</code> eller <code>png</code>.</p>
+        <p class="fragment">Bilden får vara högst en halv skärmhöjd.</p>
+        <pre class="code-block no-scroll-code fragment"><code>img {
+  max-height: 50vh;
+}</code></pre>
+        <p class="fragment"><code>50vh</code> betyder 50 procent av webbläsarfönstrets höjd.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">CSS-krav · rubrik</p><h2>Utforma h1</h2>
+        <pre class="code-block no-scroll-code fragment"><code>h1 {
+  font-family: Verdana, sans-serif;
+  font-size: 1.7rem;
+  color: darkblue;
+}</code></pre>
+        <ul>
+          <li class="fragment">Fonten ska vara Verdana.</li>
+          <li class="fragment">Storleken ska vara <code>1.7rem</code>.</li>
+          <li class="fragment">Textfärgen får inte vara svart eller röd.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">CSS-krav · löptext</p><h2>Utforma p</h2>
+        <pre class="code-block no-scroll-code fragment"><code>p {
+  font-family: Verdana, sans-serif;
+  font-size: 1.2rem;
+  color: #243b53;
+}</code></pre>
+        <ul>
+          <li class="fragment">Fonten ska vara Verdana.</li>
+          <li class="fragment">Storleken ska vara <code>1.2rem</code>.</li>
+          <li class="fragment">Textfärgen får inte vara svart eller röd.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">CSS-krav · bakgrund</p><h2>Välj läsbara färger</h2>
+        <pre class="code-block no-scroll-code fragment"><code>body {
+  background-color: lightblue;
+}</code></pre>
+        <p class="fragment">Bakgrunden får inte vara vit eller röd.</p>
+        <p class="fragment">Färgerna ska passa ihop och texten ska vara lätt att läsa.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Uppfyller denna CSS kraven?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>h1 {
+  font-family: Arial;
+  font-size: 1.7rem;
+  color: red;
+}</code></pre>
+        <p class="fragment"><strong>Nej.</strong> Fonten ska vara Verdana och textfärgen får inte vara röd.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Validering</p><h2>Kontrollera båda filerna</h2>
+        <div class="two-column">
+          <div class="prompt-card fragment"><p><strong>HTML</strong></p><p><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">W3C Markup Validation Service</a></p></div>
+          <div class="prompt-card fragment"><p><strong>CSS</strong></p><p><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener noreferrer">W3C CSS Validation Service</a></p></div>
+        </div>
+        <p class="fragment">Rätta felen innan du lämnar in.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Publicering</p><h2>GitHub och GitHub Pages</h2>
+        <ol>
+          <li class="fragment">Lägg projektets kod i ett repository på GitHub.</li>
+          <li class="fragment">Publicera sidan med GitHub Pages.</li>
+          <li class="fragment">Kontrollera den publicerade sidan.</li>
+        </ol>
+        <p class="fragment">GitHub visar koden. GitHub Pages visar den färdiga webbsidan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Inlämning</p><h2>Två länkar ska lämnas in</h2>
+        <div class="two-column">
+          <div class="prompt-card fragment"><p><strong>1. Koden</strong></p><p><code>github.com/ditt-namn/ditt-projekt</code></p></div>
+          <div class="prompt-card fragment"><p><strong>2. Webbsidan</strong></p><p><code>ditt-namn.github.io/ditt-projekt/</code></p></div>
+        </div>
+        <p class="fragment">Testa båda länkarna innan du lämnar in.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Arbetsordning</p><h2>Från idé till inlämning</h2>
+        <ol>
+          <li class="fragment">Välj film, serie eller bok.</li>
+          <li class="fragment">Skapa projektmappen och filerna.</li>
+          <li class="fragment">Skriv HTML och lägg in bilden.</li>
+          <li class="fragment">Skriv CSS enligt kraven.</li>
+          <li class="fragment">Testa och validera HTML och CSS.</li>
+          <li class="fragment">Publicera och kontrollera länkarna.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Checklista</p><h2>Kontrollera innehållet</h2>
+        <ul>
+          <li class="fragment">HTML-fil, extern CSS-fil och bildfil finns.</li>
+          <li class="fragment">Sidan handlar om en film, serie eller bok.</li>
+          <li class="fragment"><code>h1</code>, <code>p</code> och bilden visas.</li>
+          <li class="fragment">Bilden är högst en halv skärmhöjd.</li>
+          <li class="fragment">CSS påverkar rubrik, text och bakgrund.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Checklista</p><h2>Kontrollera kvalitet och inlämning</h2>
+        <ul>
+          <li class="fragment">Färgkraven är uppfyllda och texten är läsbar.</li>
+          <li class="fragment">HTML och CSS är validerade.</li>
+          <li class="fragment">Sidan är publicerad med GitHub Pages.</li>
+          <li class="fragment">GitHub-länken fungerar.</li>
+          <li class="fragment">GitHub Pages-länken fungerar.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Klart</p><h2>Det här lämnar du in</h2>
+        <p class="fragment">En fungerande och validerad webbsida om en film, serie eller bok.</p>
+        <p class="fragment"><strong>Lämna in:</strong> länken till koden på GitHub och länken till sidan på GitHub Pages.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Simulerat exempel</p><h2>Så kan den färdiga sidan se ut</h2>
+        <div class="exercise-preview fragment">
+          <div class="exercise-preview-bar">https://ditt-namn.github.io/film-sida/</div>
+          <div class="exercise-preview-page">
+            <img class="exercise-preview-poster" src="../assets/images/project-hail-mary-poster.jpg" alt="Filmposter för Project Hail Mary med Ryan Gosling i en rymdfarkost">
+            <div class="exercise-preview-copy">
+              <h3>Project Hail Mary</h3>
+              <p>Project Hail Mary är en science fiction-film baserad på Andy Weirs bok.</p>
+              <p>Sidan använder Verdana, läsbara textfärger och en ljusblå bakgrund.</p>
+            </div>
+          </div>
+        </div>
+        <p class="fragment">Exemplet uppfyller kraven för rubrik, löptext, bildstorlek och bakgrundsfärg.</p>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

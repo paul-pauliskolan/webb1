@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 2.1: HTML-element och DOM-tänk.">
+  <title>Kap 2.1 – HTML-element och DOM-tänk</title>
+  <link rel="stylesheet" href="presentation.css?v=2">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 2 · Kapitel 2.1</p>
+        <h1>HTML-element och DOM-tänk</h1>
+        <p class="fragment">Webbläsaren gör om HTML-koden till ett dokumentträd.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">förklara vad ett HTML-element är</li>
+          <li class="fragment">skilja mellan element, tagg, attribut och innehåll</li>
+          <li class="fragment">beskriva relationer mellan nästlade element</li>
+          <li class="fragment">förstå DOM som ett träd av noder</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTML-element</p><h2>Ett komplett byggblock</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;p&gt;Det här är ett stycke.&lt;/p&gt;</code></pre>
+        <div class="flow">
+          <span class="fragment">Starttagg<br><code>&lt;p&gt;</code></span>
+          <b class="fragment">+</b>
+          <span class="fragment">Innehåll<br>Det här är ett stycke.</span>
+          <b class="fragment">+</b>
+          <span class="fragment">Sluttagg<br><code>&lt;/p&gt;</code></span>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Tagg eller element?</p><h2>Orden betyder olika saker</h2>
+        <table class="comparison"><thead><tr><th>Tagg</th><th>Element</th></tr></thead><tbody>
+          <tr><td class="fragment"><code>&lt;p&gt;</code> eller <code>&lt;/p&gt;</code></td><td class="fragment"><code>&lt;p&gt;Text&lt;/p&gt;</code></td></tr>
+          <tr><td class="fragment">Markerar början eller slutet.</td><td class="fragment">Hela byggblocket med taggar och innehåll.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Attribut</p><h2>Extra information i starttaggen</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;p class="intro"&gt;Det här är ett stycke.&lt;/p&gt;</code></pre>
+        <ul>
+          <li class="fragment"><code>p</code> är elementets namn.</li>
+          <li class="fragment"><code>class</code> är attributets namn.</li>
+          <li class="fragment"><code>intro</code> är attributets värde.</li>
+          <li class="fragment">Texten är elementets innehåll.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Attributets delar</p><h2>Namn och värde hör ihop</h2>
+        <div class="flow">
+          <span class="fragment"><code>class</code><br>attributnamn</span>
+          <b class="fragment">=</b>
+          <span class="fragment"><code>"intro"</code><br>attributvärde</span>
+        </div>
+        <p class="fragment">Attribut skrivs i starttaggen.</p>
+        <p class="fragment">Citattecknen omger värdet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Element utan sluttagg</p><h2>img innehåller ingen text</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;img src="images/bild.jpg"
+     alt="Beskrivning av bilden"&gt;</code></pre>
+        <ul>
+          <li class="fragment"><code>img</code> har ingen separat sluttagg.</li>
+          <li class="fragment"><code>src</code> anger bildens sökväg.</li>
+          <li class="fragment"><code>alt</code> är bildens textalternativ.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Nästling</p><h2>Element kan ligga inuti varandra</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;article&gt;
+  &lt;h2&gt;Rubrik&lt;/h2&gt;
+  &lt;p&gt;Ett stycke med
+    &lt;strong&gt;viktig text&lt;/strong&gt;.
+  &lt;/p&gt;
+&lt;/article&gt;</code></pre>
+        <p class="fragment">Indraget gör strukturen lättare att se.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Resultat</p><h2>Så tolkar webbläsaren innehållet</h2>
+        <div class="prompt-card fragment">
+          <p><strong>Rubrik</strong></p>
+          <p>Ett stycke med <strong>viktig text</strong>.</p>
+        </div>
+        <p class="fragment">HTML-strukturen bestämmer vad varje del betyder.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Förälder och barn</p><h2>Relationer i strukturen</h2>
+        <div class="flow">
+          <span class="fragment"><code>article</code><br>förälder</span>
+          <b class="fragment">→</b>
+          <span class="fragment"><code>h2</code><br>barn</span>
+          <span class="fragment"><code>p</code><br>barn</span>
+        </div>
+        <div class="flow">
+          <span class="fragment"><code>p</code><br>förälder</span>
+          <b class="fragment">→</b>
+          <span class="fragment"><code>strong</code><br>barn</span>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">DOM</p><h2>Document Object Model</h2>
+        <p class="fragment">När webbläsaren läser HTML-koden skapar den DOM.</p>
+        <p class="fragment">Varje element blir en nod i en trädstruktur.</p>
+        <p class="fragment">Trädet visar vilka element som ligger inuti andra element.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">DOM-träd</p><h2>Samma kod som en modell</h2>
+        <div class="flow">
+          <span class="fragment"><code>document</code></span><b class="fragment">→</b><span class="fragment"><code>html</code></span><b class="fragment">→</b><span class="fragment"><code>body</code></span><b class="fragment">→</b><span class="fragment"><code>article</code></span>
+        </div>
+        <div class="flow">
+          <span class="fragment"><code>article</code></span><b class="fragment">→</b><span class="fragment"><code>h2</code></span>
+          <span class="fragment"><code>p</code></span><b class="fragment">→</b><span class="fragment"><code>strong</code></span>
+        </div>
+        <p class="fragment">Grenarna visar relationerna mellan noderna.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Varför DOM behövs</p><h2>Flera tekniker använder trädet</h2>
+        <ul>
+          <li class="fragment"><strong>Webbläsaren</strong> bygger upp sidan från DOM.</li>
+          <li class="fragment"><strong>CSS</strong> använder strukturen för att välja element.</li>
+          <li class="fragment"><strong>JavaScript</strong> kan senare hitta och ändra noder.</li>
+        </ul>
+        <p class="fragment">Därför är en tydlig HTML-struktur viktig.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vilket element är förälder?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;article&gt;
+  &lt;p&gt;Text&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> <code>article</code> är förälder eftersom <code>p</code> ligger inuti det.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Vanligt fel</p><h2>Nästlingen måste avslutas rätt</h2>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;p&gt;&lt;strong&gt;Viktig text&lt;/p&gt;&lt;/strong&gt;</code></pre><p>Fel: elementen korsar varandra.</p></div>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;p&gt;&lt;strong&gt;Viktig text&lt;/strong&gt;&lt;/p&gt;</code></pre><p>Rätt: det innersta elementet avslutas först.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Undersök DOM i webbläsaren</h2>
+        <ol>
+          <li class="fragment">Öppna din profilsida i Chrome.</li>
+          <li class="fragment">Högerklicka på en rubrik och välj Inspect.</li>
+          <li class="fragment">Leta upp samma element i Elements-panelen.</li>
+          <li class="fragment">Fäll ut och ihop element.</li>
+          <li class="fragment">Identifiera en förälder och ett barn.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">Element är byggblocken i HTML.</li>
+          <li class="fragment">Taggar markerar elementets början och slut.</li>
+          <li class="fragment">Attribut ger extra information i starttaggen.</li>
+          <li class="fragment">Nästling skapar relationer mellan föräldrar och barn.</li>
+          <li class="fragment">DOM är webbläsarens trädmodell av HTML-dokumentet.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

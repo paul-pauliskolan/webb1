@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 1.5: Miniuppgift profilsida.">
+  <title>Kap 1.5 – Miniuppgift: profilsida</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 1 · Kapitel 1.5</p>
+        <h1>Miniuppgift: profilsida</h1>
+        <p class="fragment">Använd det du har lärt dig för att skapa en egen enkel webbsida.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter uppgiften ska du kunna...</h2>
+        <ul>
+          <li class="fragment">skapa en fungerande HTML-sida från grunden</li>
+          <li class="fragment">använda rubrik, text, bild, länk och listor</li>
+          <li class="fragment">kontrollera filnamn och relativa sökvägar</li>
+          <li class="fragment">testa sidan och validera HTML-koden</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Uppgift</p><h2>Vad ska sidan presentera?</h2>
+        <p class="fragment">Skapa en profilsida i mappen <code>profil-sida</code>.</p>
+        <p class="fragment">Sidan kan handla om dig, ett intresse, en hobby, ett ämne eller en fiktiv person.</p>
+        <p class="fragment">Välj något neutralt om du inte vill skriva om dig själv.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Krav · struktur</p><h2>Dokumentet måste vara komplett</h2>
+        <ul>
+          <li class="fragment">Startsidan heter <code>index.html</code>.</li>
+          <li class="fragment">Dokumentet har <code>DOCTYPE</code> och <code>html lang="sv"</code>.</li>
+          <li class="fragment"><code>head</code> innehåller en tydlig <code>title</code>.</li>
+          <li class="fragment"><code>body</code> innehåller sidans synliga innehåll.</li>
+          <li class="fragment">Koden innehåller minst en HTML-kommentar.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Krav · innehåll</p><h2>Det här ska finnas på sidan</h2>
+        <ul>
+          <li class="fragment">minst en <code>h1</code> och två <code>p</code></li>
+          <li class="fragment">en bild med fungerande <code>src</code> och beskrivande <code>alt</code></li>
+          <li class="fragment">minst en extern länk</li>
+          <li class="fragment">en ordnad lista och en oordnad lista</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 1 av 3</p><h2>Dokumentets head</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="sv"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Min profilsida&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 2 av 3</p><h2>Rubrik, text, bild och länk</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;body&gt;
+  &lt;!-- Presentation av mitt hundintresse --&gt;
+  &lt;h1&gt;Mitt hundintresse&lt;/h1&gt;
+  &lt;p&gt;Jag tycker om att lära mig om hundar.&lt;/p&gt;
+  &lt;img src="images/dog.jpg"
+       alt="Brun hund mot mörk bakgrund"&gt;
+  &lt;p&gt;Här samlar jag fakta och tips.&lt;/p&gt;
+  &lt;a href="https://example.com"&gt;Läs mer&lt;/a&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 3 av 3</p><h2>Två sorters listor</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>  &lt;h2&gt;Träning i rätt ordning&lt;/h2&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Välj en övning&lt;/li&gt;
+    &lt;li&gt;Träna en kort stund&lt;/li&gt;
+    &lt;li&gt;Ta en paus&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;h2&gt;Bra saker att ha&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Godis&lt;/li&gt;
+    &lt;li&gt;Leksak&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Förhandsvisning</p><h2>Så kan sidan se ut</h2>
+        <div class="two-column diagram-emphasis">
+          <div>
+            <p class="fragment"><strong>Mitt hundintresse</strong></p>
+            <p class="fragment">Jag tycker om att lära mig om hundar.</p>
+            <p class="fragment"><a href="https://example.com">Läs mer</a></p>
+          </div>
+          <figure class="slide-figure fragment">
+            <img src="../assets/images/dog.jpg" alt="Brun hund mot mörk bakgrund">
+            <figcaption>Bildens alt-text: Brun hund mot mörk bakgrund.</figcaption>
+          </figure>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Projektmapp</p><h2>Filerna måste ligga rätt</h2>
+        <pre class="code-block no-scroll-code fragment"><code>profil-sida/
+  index.html
+  images/
+    dog.jpg</code></pre>
+        <p class="fragment">Öppna hela mappen <code>profil-sida</code> i VS Code.</p>
+        <p class="fragment">Arbeta med en projektmapp i taget.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Om bilden inte syns</p><h2>Kontrollera sökvägen steg för steg</h2>
+        <ol>
+          <li class="fragment">Finns bilden i mappen <code>images</code>?</li>
+          <li class="fragment">Är filnamnet exakt <code>dog.jpg</code>?</li>
+          <li class="fragment">Är filändelsen rätt?</li>
+          <li class="fragment">Stämmer stora och små bokstäver?</li>
+          <li class="fragment">Är <code>src="images/dog.jpg"</code> korrekt?</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Uppfyller bilden kravet?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;img src="images/dog.jpg" alt="Bild"&gt;</code></pre>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Inte helt.</strong> Sökvägen kan fungera, men alt-texten ska beskriva bildens relevanta innehåll.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Arbetsordning</p><h2>Bygg, testa och rätta</h2>
+        <div class="flow"><span class="fragment">Bygg sidan</span><b class="fragment">→</b><span class="fragment">Testa med Live Server</span><b class="fragment">→</b><span class="fragment">Validera</span><b class="fragment">→</b><span class="fragment">Rätta fel</span></div>
+        <p class="fragment">Publicera inte förrän sidan fungerar och HTML-felen är rättade.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Slutkontroll</p><h2>Innan du går vidare</h2>
+        <ol>
+          <li class="fragment">Öppna sidan med Live Server.</li>
+          <li class="fragment">Kontrollera att bilden syns.</li>
+          <li class="fragment">Klicka på länken.</li>
+          <li class="fragment">Kontrollera båda listorna.</li>
+          <li class="fragment">Validera HTML-koden.</li>
+          <li class="fragment">Rätta alla fel.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Exit ticket</p><h2>Vad lärde du dig?</h2>
+        <p class="fragment">Skriv två meningar:</p>
+        <ol>
+          <li class="fragment">Vad fungerade direkt?</li>
+          <li class="fragment">Vilket fel behövde du felsöka?</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Klart när allt fungerar</h2>
+        <ul>
+          <li class="fragment">Sidan har korrekt HTML-grundstruktur.</li>
+          <li class="fragment">Rubrik, text, bild, länk och båda listtyperna finns med.</li>
+          <li class="fragment">Filvägar och filnamn fungerar.</li>
+          <li class="fragment">Sidan är testad med Live Server.</li>
+          <li class="fragment">HTML-koden är validerad och felen är rättade.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

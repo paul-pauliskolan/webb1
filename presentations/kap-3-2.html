@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 3.2: Färg, typografi och läsbarhet.">
+  <title>Kap 3.2 – Färg, typografi och läsbarhet</title>
+  <link rel="stylesheet" href="presentation.css?v=5">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 3 · Kapitel 3.2</p>
+        <h1>Färg, typografi och läsbarhet</h1>
+        <p class="fragment">Design ska hjälpa användaren att läsa, förstå och hitta rätt.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">ange färger med namn, hex, RGB och HSL</li>
+          <li class="fragment">förstå värdeområdena i RGB och HSL</li>
+          <li class="fragment">kontrollera kontrast mellan text och bakgrund</li>
+          <li class="fragment">välja läsbara fonter och font stacks</li>
+          <li class="fragment">använda line-height och text-align med omdöme</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Färgformat</p><h2>Fyra sätt att ange färg</h2>
+        <table class="comparison"><thead><tr><th>Format</th><th>Exempel</th></tr></thead><tbody>
+          <tr class="fragment"><td>Namn</td><td><code>green</code></td></tr>
+          <tr class="fragment"><td>Hex</td><td><code>#40A0DC</code></td></tr>
+          <tr class="fragment"><td>RGB</td><td><code>rgb(64 160 220)</code></td></tr>
+          <tr class="fragment"><td>HSL</td><td><code>hsl(201 69% 56%)</code></td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Färg i CSS</p><h2>Text, bakgrund och varning</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>body {
+  color: #172026;
+  background-color: rgb(246 248 247);
+}
+
+.warning {
+  background-color: hsl(35 90% 55%);
+}</code></pre>
+        <div class="course-color-preview fragment">
+          <div class="course-color-preview-bar">Så visas färgerna i webbläsaren</div>
+          <div class="course-color-preview-page">
+            <h3>Vanlig text på sidan</h3>
+            <p>Texten använder <code>color: #172026</code> och sidans bakgrund använder <code>rgb(246 248 247)</code>.</p>
+            <p class="course-color-warning">Det här är en varningsruta med <code>hsl(35 90% 55%)</code>.</p>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hexkod</p><h2>Tre par beskriver RGB</h2>
+        <div class="course-hex-explain fragment">
+          <p>En hexkod börjar med <code>#</code> och har tre par tecken: rött, grönt och blått. Varje par går från <code>00</code> till <code>FF</code>, vilket motsvarar <code>0</code> till <code>255</code> i RGB.</p>
+          <div class="course-hex-code">#<span class="hex-red">40</span><span class="hex-green">A0</span><span class="hex-blue">DC</span></div>
+          <ul class="course-hex-parts">
+            <li><code class="hex-red">40</code> är röd kanal och betyder <code>64</code>.</li>
+            <li><code class="hex-green">A0</code> är grön kanal och betyder <code>160</code>.</li>
+            <li><code class="hex-blue">DC</code> är blå kanal och betyder <code>220</code>.</li>
+          </ul>
+          <p>Därför är <code>#40A0DC</code> samma färg som <code>rgb(64 160 220)</code>.</p>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">RGB</p><h2>Rött, grönt och blått ljus</h2>
+        <ul>
+          <li class="fragment">Varje kanal går från <code>0</code> till <code>255</code>.</li>
+          <li class="fragment"><code>rgb(0 0 0)</code> är svart.</li>
+          <li class="fragment"><code>rgb(255 255 255)</code> är vitt.</li>
+          <li class="fragment"><code>rgb(255 0 0)</code> är rött.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HSL</p><h2>Färgton, mättnad och ljushet</h2>
+        <table class="comparison"><thead><tr><th>Del</th><th>Värde</th></tr></thead><tbody>
+          <tr class="fragment"><td>Hue</td><td><code>0–360</code>: röd 0, grön 120, blå 240</td></tr>
+          <tr class="fragment"><td>Saturation</td><td><code>0–100%</code>: grått till fullt mättad</td></tr>
+          <tr class="fragment"><td>Lightness</td><td><code>0–100%</code>: svart till vitt</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content">
+        <p class="slide-kicker">Interaktiv färgväljare</p><h2>Jämför RGB och HSL</h2>
+        <div class="color-demo-panel fragment">
+          <div class="color-demo-preview" id="color-preview"><span class="color-demo-preview-values" id="color-preview-values">Testa färgen</span></div>
+          <div class="color-picker-grid">
+            <div>
+              <strong>RGB</strong>
+              <div class="color-demo-controls">
+                <div class="color-demo-control"><label for="rgb-red">Röd <span id="rgb-red-value">64</span></label><input id="rgb-red" type="range" min="0" max="255" value="64"></div>
+                <div class="color-demo-control"><label for="rgb-green">Grön <span id="rgb-green-value">160</span></label><input id="rgb-green" type="range" min="0" max="255" value="160"></div>
+                <div class="color-demo-control"><label for="rgb-blue">Blå <span id="rgb-blue-value">220</span></label><input id="rgb-blue" type="range" min="0" max="255" value="220"></div>
+              </div>
+            </div>
+            <div>
+              <strong>HSL</strong>
+              <div class="color-demo-controls">
+                <div class="color-demo-control hue-wheel-control"><label for="hsl-hue-wheel">Hue <span id="hsl-hue-value">201</span></label><div class="hue-wheel" id="hsl-hue-wheel" role="slider" tabindex="0" aria-label="Hue" aria-valuemin="0" aria-valuemax="360" aria-valuenow="201"><span class="hue-wheel-marker" id="hsl-hue-marker"></span></div><div class="hue-wheel-labels"><span>Röd 0/360</span><span>Grön 120</span><span>Blå 240</span></div></div>
+                <div class="color-demo-control"><label for="hsl-saturation">Saturation <span id="hsl-saturation-value">69%</span></label><input id="hsl-saturation" type="range" min="0" max="100" value="69"></div>
+                <div class="color-demo-control"><label for="hsl-lightness">Lightness <span id="hsl-lightness-value">56%</span></label><input id="hsl-lightness" type="range" min="0" max="100" value="56"></div>
+              </div>
+            </div>
+          </div>
+          <pre class="color-demo-code"><code id="color-demo-code">background-color: #40A0DC;
+background-color: rgb(64 160 220);
+background-color: hsl(201 69% 56%);</code></pre>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrast</p><h2>Texten måste gå att läsa</h2>
+        <div class="two-column">
+          <div class="prompt-card fragment" style="background:#fff;color:#aaa;"><p>Ljusgrå text på vit bakgrund är svårläst.</p></div>
+          <div class="prompt-card fragment" style="background:#fff;color:#172026;"><p>Mörk text på vit bakgrund är tydligare.</p></div>
+        </div>
+        <p class="fragment">I övningen är målet minst <strong>7:1</strong>, vilket motsvarar WCAG AAA för vanlig text.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Interaktiv kontrast</p><h2>Testa två färger</h2>
+        <div class="design-demo fragment">
+          <div class="design-demo-controls">
+            <label for="contrast-text">Textfärg<input type="color" id="contrast-text" value="#172026" data-contrast-text></label>
+            <label for="contrast-bg">Bakgrund<input type="color" id="contrast-bg" value="#ffffff" data-contrast-bg></label>
+            <div class="design-demo-readout contrast-result-status" data-contrast-result data-pass="true">GODKÄNT · 15.98:1 · klarar 7:1</div>
+          </div>
+          <div class="design-demo-preview" data-contrast-preview style="background:#fff;color:#172026;"><h3>Exempeltext</h3><p>Byt färger och kontrollera läsbarheten.</p></div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Fonter</p><h2>Olika kategorier har olika uttryck</h2>
+        <div class="font-category-grid">
+          <div class="font-category-card fragment">
+            <h3>Sans-serif</h3>
+            <p class="font-sample" style="font-family:Arial,sans-serif;">Webbutveckling <small>Arial</small></p>
+            <p class="font-sample" style="font-family:Helvetica,sans-serif;">Webbutveckling <small>Helvetica</small></p>
+            <p class="font-sample" style="font-family:Verdana,sans-serif;">Webbutveckling <small>Verdana</small></p>
+          </div>
+          <div class="font-category-card fragment">
+            <h3>Serif</h3>
+            <p class="font-sample" style="font-family:Georgia,serif;">Webbutveckling <small>Georgia</small></p>
+            <p class="font-sample" style="font-family:'Times New Roman',serif;">Webbutveckling <small>Times New Roman</small></p>
+            <p class="font-sample" style="font-family:Cambria,serif;">Webbutveckling <small>Cambria</small></p>
+          </div>
+          <div class="font-category-card fragment">
+            <h3>Monospace</h3>
+            <p class="font-sample" style="font-family:Consolas,monospace;">Webbutveckling <small>Consolas</small></p>
+            <p class="font-sample" style="font-family:'Courier New',monospace;">Webbutveckling <small>Courier New</small></p>
+            <p class="font-sample" style="font-family:Menlo,monospace;">Webbutveckling <small>Menlo</small></p>
+          </div>
+          <div class="font-category-card fragment">
+            <h3>Cursive och display</h3>
+            <p class="font-sample" style="font-family:'Brush Script MT',cursive;">Webbutveckling <small>Brush Script MT</small></p>
+            <p class="font-sample" style="font-family:Copperplate,fantasy;">Webbutveckling <small>Copperplate</small></p>
+            <p class="font-sample" style="font-family:Impact,fantasy;">Webbutveckling <small>Impact</small></p>
+          </div>
+        </div>
+        <p class="fragment">Brödtext bör vara lättläst. Dekorativa fonter används bäst i små mängder.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Font stack</p><h2>Ge webbläsaren alternativ</h2>
+        <pre class="code-block no-scroll-code fragment"><code>body {
+  font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+        <ol>
+          <li class="fragment">Försök använda Arial.</li>
+          <li class="fragment">Om den saknas: använd Helvetica.</li>
+          <li class="fragment">Annars: använd en tillgänglig sans-serif-font.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Interaktiv font stack</p><h2>Jämför textens uttryck</h2>
+        <div class="design-demo fragment">
+          <div class="design-demo-controls font-choice-buttons">
+            <button type="button" data-font="system-ui, sans-serif" aria-pressed="true">System UI</button>
+            <button type="button" data-font="Charter, Cambria, serif" aria-pressed="false">Serif</button>
+            <button type="button" data-font="ui-monospace, Consolas, monospace" aria-pressed="false">Monospace</button>
+          </div>
+          <div class="design-demo-preview" data-font-preview style="font-family:system-ui,sans-serif;"><h3>Läsbar rubrik</h3><p>Webbutveckling handlar om både kod och tydlig kommunikation.</p><code data-font-code>font-family: system-ui, sans-serif;</code></div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Systemfont eller webfont?</p><h2>Prestanda och integritet</h2>
+        <table class="comparison"><thead><tr><th>Systemfont</th><th>Google Fonts</th></tr></thead><tbody>
+          <tr><td class="fragment">Finns ofta redan på enheten.</td><td class="fragment">Kan behöva laddas från en extern server.</td></tr>
+          <tr><td class="fragment">Snabb och enkel.</td><td class="fragment">Ger fler val men kan påverka laddning och integritet.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Radavstånd</p><h2>line-height</h2>
+        <pre class="code-block no-scroll-code fragment"><code>p {
+  line-height: 1.5;
+}</code></pre>
+        <p class="fragment">För brödtext fungerar ofta ett värde runt <code>1.5</code>.</p>
+        <p class="fragment">För litet radavstånd gör raderna svårare att följa.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Textjustering</p><h2>Vänster är oftast lättast att läsa</h2>
+        <table class="comparison"><thead><tr><th>Värde</th><th>Passar för</th></tr></thead><tbody>
+          <tr class="fragment"><td><code>left</code></td><td>Längre stycken och vanlig brödtext.</td></tr>
+          <tr class="fragment"><td><code>center</code></td><td>Korta rubriker eller kort introduktion.</td></tr>
+          <tr class="fragment"><td><code>right</code></td><td>Kort metadata, datum eller siffror.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Interaktiv text</p><h2>Ändra radavstånd och justering</h2>
+        <div class="design-demo fragment">
+          <div class="design-demo-controls">
+            <label>line-height <span data-line-value>1.5</span><input type="range" min="10" max="22" value="15" data-line-height></label>
+            <div class="font-choice-buttons"><button type="button" data-align="left" aria-pressed="true">Vänster</button><button type="button" data-align="center" aria-pressed="false">Centrerad</button><button type="button" data-align="right" aria-pressed="false">Höger</button></div>
+          </div>
+          <div class="design-demo-preview"><p data-text-preview style="line-height:1.5;text-align:left;">Det här är ett längre textstycke. Ändra inställningarna och jämför hur lätt eller svårt det blir att följa raderna.</p></div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vilket val är bäst för brödtext?</h2>
+        <p class="fragment">Ett långt stycke är centrerat och har <code>line-height: 1</code>.</p>
+        <p class="fragment">Vad bör ändras?</p>
+        <p class="fragment"><strong>Svar:</strong> vänsterställ texten och öka radavståndet till ungefär <code>1.5</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Förbättra profilsidan</h2>
+        <ol>
+          <li class="fragment">Välj text- och bakgrundsfärg.</li>
+          <li class="fragment">Beskriv samma färg med RGB och HSL.</li>
+          <li class="fragment">Kontrollera att kontrasten når 7:1.</li>
+          <li class="fragment">Lägg en font stack på <code>body</code>.</li>
+          <li class="fragment">Sätt <code>line-height: 1.5</code> på stycketext.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">Hex, RGB och HSL kan beskriva samma färg.</li>
+          <li class="fragment">Kontrast är viktigare än diskreta färgskillnader.</li>
+          <li class="fragment">Font stacks ger webbläsaren flera alternativ.</li>
+          <li class="fragment">Systemfonter är snabba och finns ofta redan på enheten.</li>
+          <li class="fragment">Vänsterställd text med line-height runt 1.5 är ofta lättläst.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const red = document.getElementById("rgb-red");
+      const green = document.getElementById("rgb-green");
+      const blue = document.getElementById("rgb-blue");
+      const colorPreview = document.getElementById("color-preview");
+      const colorValues = document.getElementById("color-preview-values");
+      const colorCode = document.getElementById("color-demo-code");
+      const hueWheel = document.getElementById("hsl-hue-wheel");
+      const hueMarker = document.getElementById("hsl-hue-marker");
+      const saturation = document.getElementById("hsl-saturation");
+      const lightness = document.getElementById("hsl-lightness");
+      let hueValue = 201;
+
+      function rgbToHsl(r, g, b) {
+        r /= 255; g /= 255; b /= 255;
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h = 0;
+        let s = 0;
+        const l = (max + min) / 2;
+        if (max !== min) {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+          if (max === g) h = (b - r) / d + 2;
+          if (max === b) h = (r - g) / d + 4;
+          h *= 60;
+        }
+        return [Math.round(h), Math.round(s * 100), Math.round(l * 100)];
+      }
+
+      function hslToRgb(h, s, l) {
+        s /= 100; l /= 100;
+        const c = (1 - Math.abs(2 * l - 1)) * s;
+        const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+        const m = l - c / 2;
+        let r = 0, g = 0, b = 0;
+        if (h < 60) [r, g, b] = [c, x, 0];
+        else if (h < 120) [r, g, b] = [x, c, 0];
+        else if (h < 180) [r, g, b] = [0, c, x];
+        else if (h < 240) [r, g, b] = [0, x, c];
+        else if (h < 300) [r, g, b] = [x, 0, c];
+        else [r, g, b] = [c, 0, x];
+        return [Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255)];
+      }
+
+      function positionHueMarker(h) {
+        if (!hueMarker) return;
+        const angle = (h - 90) * Math.PI / 180;
+        hueMarker.style.left = 50 + Math.cos(angle) * 42 + "%";
+        hueMarker.style.top = 50 + Math.sin(angle) * 42 + "%";
+      }
+
+      function updateColorReadout(r, g, b, h, s, l) {
+        if (!colorPreview || !colorValues || !colorCode) return;
+        const rgb = "rgb(" + r + " " + g + " " + b + ")";
+        const hsl = "hsl(" + h + " " + s + "% " + l + "%)";
+        const hex = "#" + [r, g, b].map(function (value) { return value.toString(16).padStart(2, "0").toUpperCase(); }).join("");
+        colorPreview.style.backgroundColor = rgb;
+        colorPreview.style.color = l > 58 ? "#111" : "#fff";
+        colorValues.innerHTML = "<span>" + hex + "</span><span>" + rgb + "</span><span>" + hsl + "</span>";
+        colorCode.textContent = "background-color: " + hex + ";\nbackground-color: " + rgb + ";\nbackground-color: " + hsl + ";";
+        document.getElementById("rgb-red-value").textContent = r;
+        document.getElementById("rgb-green-value").textContent = g;
+        document.getElementById("rgb-blue-value").textContent = b;
+        document.getElementById("hsl-hue-value").textContent = h;
+        document.getElementById("hsl-saturation-value").textContent = s + "%";
+        document.getElementById("hsl-lightness-value").textContent = l + "%";
+        if (hueWheel) hueWheel.setAttribute("aria-valuenow", h);
+        if (hueMarker) hueMarker.style.backgroundColor = "hsl(" + h + " 100% 50%)";
+        positionHueMarker(h);
+      }
+
+      function updateFromRgb() {
+        if (!red || !green || !blue || !saturation || !lightness) return;
+        const r = Number(red.value), g = Number(green.value), b = Number(blue.value);
+        const hsl = rgbToHsl(r, g, b);
+        hueValue = hsl[0]; saturation.value = hsl[1]; lightness.value = hsl[2];
+        updateColorReadout(r, g, b, hsl[0], hsl[1], hsl[2]);
+      }
+
+      function updateFromHsl() {
+        if (!red || !green || !blue || !saturation || !lightness) return;
+        const s = Number(saturation.value), l = Number(lightness.value);
+        const rgb = hslToRgb(hueValue, s, l);
+        red.value = rgb[0]; green.value = rgb[1]; blue.value = rgb[2];
+        updateColorReadout(rgb[0], rgb[1], rgb[2], hueValue, s, l);
+      }
+
+      function setHue(value) {
+        hueValue = ((Math.round(value) % 360) + 360) % 360;
+        updateFromHsl();
+      }
+
+      [red, green, blue].forEach(function (input) { if (input) input.addEventListener("input", updateFromRgb); });
+      [saturation, lightness].forEach(function (input) { if (input) input.addEventListener("input", updateFromHsl); });
+      if (hueWheel) {
+        function hueFromPointer(event) {
+          const rect = hueWheel.getBoundingClientRect();
+          const x = event.clientX - rect.left - rect.width / 2;
+          const y = event.clientY - rect.top - rect.height / 2;
+          return (Math.atan2(y, x) * 180 / Math.PI + 90 + 360) % 360;
+        }
+        hueWheel.addEventListener("pointerdown", function (event) { event.preventDefault(); hueWheel.setPointerCapture(event.pointerId); setHue(hueFromPointer(event)); });
+        hueWheel.addEventListener("pointermove", function (event) { if (event.buttons) setHue(hueFromPointer(event)); });
+        hueWheel.addEventListener("keydown", function (event) {
+          const step = event.shiftKey ? 15 : 1;
+          if (["ArrowRight", "ArrowUp"].includes(event.key)) { event.preventDefault(); setHue(hueValue + step); }
+          if (["ArrowLeft", "ArrowDown"].includes(event.key)) { event.preventDefault(); setHue(hueValue - step); }
+          if (event.key === "Home") { event.preventDefault(); setHue(0); }
+          if (event.key === "End") { event.preventDefault(); setHue(359); }
+        });
+      }
+      updateFromRgb();
+
+      function luminance(hex) {
+        const channels = [1, 3, 5].map(function (start) { return parseInt(hex.slice(start, start + 2), 16) / 255; });
+        const linear = channels.map(function (value) { return value <= 0.04045 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4); });
+        return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+      }
+
+      const textColor = document.querySelector("[data-contrast-text]");
+      const bgColor = document.querySelector("[data-contrast-bg]");
+      const contrastPreview = document.querySelector("[data-contrast-preview]");
+      const contrastResult = document.querySelector("[data-contrast-result]");
+      function updateContrast() {
+        if (!textColor || !bgColor || !contrastPreview || !contrastResult) return;
+        const first = luminance(textColor.value);
+        const second = luminance(bgColor.value);
+        const ratio = (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
+        contrastPreview.style.color = textColor.value;
+        contrastPreview.style.backgroundColor = bgColor.value;
+        const passes = ratio >= 7;
+        contrastResult.dataset.pass = String(passes);
+        contrastResult.textContent = passes
+          ? "GODKÄNT · " + ratio.toFixed(2) + ":1 · klarar 7:1"
+          : "UNDERKÄNT · " + ratio.toFixed(2) + ":1 · klarar INTE 7:1";
+      }
+      [textColor, bgColor].forEach(function (input) { if (input) input.addEventListener("input", updateContrast); });
+      updateContrast();
+
+      const fontPreview = document.querySelector("[data-font-preview]");
+      const fontCode = document.querySelector("[data-font-code]");
+      document.querySelectorAll("[data-font]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll("[data-font]").forEach(function (item) { item.setAttribute("aria-pressed", "false"); });
+          button.setAttribute("aria-pressed", "true");
+          if (fontPreview) fontPreview.style.fontFamily = button.dataset.font;
+          if (fontCode) fontCode.textContent = "font-family: " + button.dataset.font + ";";
+        });
+      });
+
+      const lineHeight = document.querySelector("[data-line-height]");
+      const lineValue = document.querySelector("[data-line-value]");
+      const textPreview = document.querySelector("[data-text-preview]");
+      if (lineHeight) lineHeight.addEventListener("input", function () {
+        const value = (Number(lineHeight.value) / 10).toFixed(1);
+        if (lineValue) lineValue.textContent = value;
+        if (textPreview) textPreview.style.lineHeight = value;
+      });
+      document.querySelectorAll("[data-align]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll("[data-align]").forEach(function (item) { item.setAttribute("aria-pressed", "false"); });
+          button.setAttribute("aria-pressed", "true");
+          if (textPreview) textPreview.style.textAlign = button.dataset.align;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

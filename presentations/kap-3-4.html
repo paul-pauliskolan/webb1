@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 3.4: Klasser, id och selektorstrategi.">
+  <title>Kap 3.4 – Klasser, id och selektorstrategi</title>
+  <link rel="stylesheet" href="presentation.css?v=7">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 3 · Kapitel 3.4</p><h1>Klasser, id och selektorstrategi</h1><p class="fragment">Bra selektorer gör CSS lättare att läsa, återanvända och felsöka.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">använda typ-, klass- och id-selektorer</li><li class="fragment">gruppera och kedja selektorer</li><li class="fragment">använda härstammande selektorer</li><li class="fragment">förstå pseudoklasser och specificitet</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Typselektor</p><h2>Välj alla element av en typ</h2><pre class="code-block no-scroll-code fragment"><code>p {
+  line-height: 1.5;
+}</code></pre><div class="selector-demo fragment"><p>Det här stycket påverkas.</p><p>Även detta stycke påverkas.</p></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Klassselektor</p><h2>Återanvänd samma stil</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;p class="intro-text"&gt;Text&lt;/p&gt;
+
+.intro-text {
+  font-weight: 700;
+}</code></pre><div class="selector-demo fragment"><p class="intro-text">Detta stycke har klassen intro-text.</p><p>Detta stycke saknar klassen.</p></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Klassnamn</p><h2>Punkt i CSS – inte i HTML</h2><table class="comparison"><thead><tr><th>HTML</th><th>CSS</th></tr></thead><tbody><tr><td class="fragment"><code>class="intro-text"</code></td><td class="fragment"><code>.intro-text</code></td></tr></tbody></table><p class="fragment">Använd gärna bindestreck i klassnamn.</p><p class="fragment">Ett mellanslag betyder två separata klasser, inte ett långt klassnamn.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">ID-selektor</p><h2>Ett unikt element</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;form id="contact-form"&gt;...&lt;/form&gt;
+
+#contact-form {
+  border: 1px solid #5eead4;
+}</code></pre><p class="fragment">Ett id ska normalt bara användas en gång per sida.</p><p class="fragment">Välj klass när stilen ska återanvändas.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Var används id?</p><h2>Mer än CSS</h2><ul><li class="fragment">Ankarlänkar kan länka till ett id.</li><li class="fragment"><code>label for</code> kopplas till ett fälts id.</li><li class="fragment">JavaScript kan hitta ett element via id.</li><li class="fragment">CSS kan välja id med <code>#</code>.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Gruppering</p><h2>Samma regler för flera selektorer</h2><pre class="code-block no-scroll-code fragment"><code>h1,
+h2,
+h3 {
+  line-height: 1.15;
+}</code></pre><p class="fragment">Kommatecknen betyder att alla tre selektorer får deklarationen.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">DRY</p><h2>Don't Repeat Yourself</h2><div class="two-column"><div><pre class="code-block compact-code no-scroll-code fragment"><code>h1 { line-height: 1.15; }
+h2 { line-height: 1.15; }
+h3 { line-height: 1.15; }</code></pre></div><div><pre class="code-block compact-code no-scroll-code fragment"><code>h1, h2, h3 {
+  line-height: 1.15;
+}</code></pre></div></div><p class="fragment">Gruppering minskar upprepning.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kedjeselektor</p><h2>Elementet måste ha båda klasserna</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;div class="card highlight"&gt;...&lt;/div&gt;
+
+.card.highlight {
+  border-color: orange;
+}</code></pre><div class="selector-demo fragment"><div class="demo-card highlight">Detta element har både card och highlight.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Härstammande selektor</p><h2>Välj element inuti ett annat</h2><pre class="code-block no-scroll-code fragment"><code>article p {
+  max-width: 70ch;
+}</code></pre><p class="fragment">Mellanslaget betyder: välj <code>p</code>-element som ligger någonstans inuti <code>article</code>.</p><p class="fragment"><code>70ch</code> är en bredd på ungefär 70 nolltecken i den aktuella fonten.</p><div class="ch-demo fragment"><div class="ch-demo-controls"><label for="ch-width">max-width: <span data-ch-value>70ch</span><input id="ch-width" type="range" min="20" max="80" value="70" data-ch-range></label></div><div class="ch-demo-preview"><p data-ch-preview>Ändra reglaget och se hur ch begränsar radens bredd. Ett lägre värde gör textkolumnen smalare och texten bryts över fler rader.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Skillnaden</p><h2>Kedja eller härstamning?</h2><table class="comparison"><thead><tr><th><code>.card.highlight</code></th><th><code>article p</code></th></tr></thead><tbody><tr><td class="fragment">Samma element har två klasser.</td><td class="fragment"><code>p</code> ligger inuti <code>article</code>.</td></tr><tr><td class="fragment">Inget mellanslag.</td><td class="fragment">Mellanslag mellan selektorerna.</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Pseudoklass</p><h2>Välj ett tillstånd</h2><pre class="code-block no-scroll-code fragment"><code>a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid #5eead4;
+}</code></pre><p class="fragment"><code>:hover</code> reagerar på muspekaren. <code>:focus</code> visar tangentbordsfokus.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Interaktiv pseudoklass</p><h2>Hovra eller tabba</h2><div class="selector-demo fragment"><p><a href="#selector-demo-target">Hovra över länken eller använd Tab för att ge den fokus</a>.</p></div><p class="fragment">En tydlig fokusmarkering är viktig för tangentbordsnavigering.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Specificitet</p><h2>Starkare selektor kan vinna</h2><div class="specificity-scale"><div class="specificity-item fragment"><strong>Typ</strong><code>p</code><span>lägst</span></div><div class="specificity-item fragment"><strong>Klass</strong><code>.intro</code></div><div class="specificity-item fragment"><strong>ID</strong><code>#intro</code></div><div class="specificity-item fragment"><strong>Inline</strong><code>style="..."</code><span>stark</span></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Specificitet och ordning</p><h2>Två frågor avgör</h2><ol><li class="fragment">Vilken selektor är mest specifik?</li><li class="fragment">Om styrkan är lika: vilken regel står sist?</li></ol><pre class="code-block no-scroll-code fragment"><code>p { color: red !important; }</code></pre><p class="fragment"><code>!important</code> gör deklarationen starkare än vanliga deklarationer. Undvik det eftersom kaskaden blir svårare att förstå och senare regler ofta måste göras ännu starkare.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv selektor</p><h2>Se vad selektorn väljer</h2><div class="selector-playground fragment"><div class="selector-playground-controls"><pre class="selector-playground-code"><code>&lt;p class="intro"&gt;Introtext&lt;/p&gt;
+&lt;article&gt;
+  &lt;p id="special"&gt;Första stycket&lt;/p&gt;
+  &lt;p&gt;Andra stycket&lt;/p&gt;
+&lt;/article&gt;
+&lt;p&gt;Vanligt stycke&lt;/p&gt;</code></pre><button type="button" data-selector="p">p</button><button type="button" data-selector=".intro">.intro</button><button type="button" data-selector="#special">#special</button><button type="button" data-selector="article p">article p</button><code data-selector-label>Välj en selektor</code></div><div class="selector-playground-page" data-selector-page><h3>Rubrik</h3><p class="intro">Introtext</p><article><p id="special">Första stycket i article</p><p>Andra stycket i article</p></article><p>Vanligt stycke</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Strategi</p><h2>Håll selektorerna enkla</h2><ul><li class="fragment">Använd typselektor för bred grundstil.</li><li class="fragment">Använd klass för återanvändbara komponenter.</li><li class="fragment">Använd id sparsamt och främst för unika kopplingar.</li><li class="fragment">Undvik onödigt långa och starka selektorer.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollfråga</p><h2>Vad väljer article p?</h2><p class="fragment">Alla <code>article</code> och alla <code>p</code> – eller bara <code>p</code> inuti <code>article</code>?</p><p class="fragment"><strong>Svar:</strong> endast <code>p</code>-element som ligger inuti <code>article</code>.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Typselektorer väljer elementtyp.</li><li class="fragment">Klasser återanvänds; id ska vara unikt.</li><li class="fragment">Kommatecken grupperar selektorer.</li><li class="fragment">Kedjor och härstamning betyder olika saker.</li><li class="fragment">Pseudoklasser väljer tillstånd.</li><li class="fragment">Specificitet och ordning avgör vilken regel som vinner.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const chRange = document.querySelector("[data-ch-range]");
+      const chValue = document.querySelector("[data-ch-value]");
+      const chPreview = document.querySelector("[data-ch-preview]");
+      if (chRange) chRange.addEventListener("input", function () {
+        const value = chRange.value + "ch";
+        if (chValue) chValue.textContent = value;
+        if (chPreview) chPreview.style.width = value;
+      });
+
+      const page = document.querySelector("[data-selector-page]");
+      const label = document.querySelector("[data-selector-label]");
+      document.querySelectorAll("[data-selector]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (!page) return;
+          page.querySelectorAll("*").forEach(function (element) { element.classList.remove("selector-match"); });
+          page.querySelectorAll(button.dataset.selector).forEach(function (element) { element.classList.add("selector-match"); });
+          if (label) label.textContent = button.dataset.selector + " väljer " + page.querySelectorAll(button.dataset.selector).length + " element";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

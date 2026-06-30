@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 3.5: Miniuppgift designa om profilsidan.">
+  <title>Kap 3.5 – Miniuppgift: designa om profilsidan</title>
+  <link rel="stylesheet" href="presentation.css?v=8">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 3 · Kapitel 3.5</p><h1>Miniuppgift: designa om profilsidan</h1><p class="fragment">Använd CSS för att göra den mer läsbar, tydlig och sammanhängande.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter uppgiften ska du kunna...</h2><ul><li class="fragment">koppla och använda en extern CSS-fil</li><li class="fragment">skapa ett enkelt, konsekvent visuellt uttryck</li><li class="fragment">använda boxmodellen och selektorer kontrollerat</li><li class="fragment">motivera val av färg, font och avstånd</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppgift</p><h2>Förbättra sidan du redan har</h2><p class="fragment">Utgå från profilsidan från modul 1.</p><p class="fragment">Bygg inte en ny sida från början.</p><p class="fragment">Målet är bättre läsbarhet och ett mer genomtänkt utseende.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Extern CSS</p><h2>Struktur och utseende i olika filer</h2><pre class="code-block no-scroll-code fragment"><code>profil-sida/
+  index.html
+  styles.css
+  images/</code></pre><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav · grundstil</p><h2>body ska styra helheten</h2><ul><li class="fragment">Font stack</li><li class="fragment">Rimlig <code>line-height</code></li><li class="fragment">Läsbar textfärg</li><li class="fragment">Bakgrundsfärg med tydlig kontrast</li><li class="fragment">Borttagen standardmarginal</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav · innehåll</p><h2>Kontrollera bredd och luft</h2><ul><li class="fragment">Huvudinnehållet har en maxbredd.</li><li class="fragment">Innehållet centreras med automatisk sidmarginal.</li><li class="fragment">Padding skapar luft inuti huvudytan.</li><li class="fragment">Texten får inte kännas trång eller få för långa rader.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav · detaljer</p><h2>Bilder, klasser och länkar</h2><ul><li class="fragment">Bilder blir aldrig bredare än sin behållare.</li><li class="fragment">Minst två meningsfulla klasser används.</li><li class="fragment">Länkar har ett tydligt hover-läge.</li><li class="fragment">Länkar har en synlig fokusmarkering.</li><li class="fragment">HTML och CSS valideras.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startkod · del 1 av 3</p><h2>Boxmodell och body</h2><pre class="code-block compact-code no-scroll-code fragment"><code>* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #f3f7f7;
+  background: #0f1417;
+}</code></pre></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startkod · del 2 av 3</p><h2>Huvudinnehållet</h2><pre class="code-block no-scroll-code fragment"><code>main {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 2rem;
+}</code></pre><ul><li class="fragment"><code>max-width</code> begränsar radlängden.</li><li class="fragment"><code>margin: 0 auto</code> centrerar ytan.</li><li class="fragment"><code>padding</code> skapar inre luft.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startkod · del 3 av 3</p><h2>Responsiva bilder</h2><pre class="code-block no-scroll-code fragment"><code>img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}</code></pre><p class="fragment">Bilden kan skalas ned till behållarens bredd och behåller sina proportioner.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Meningsfulla klasser</p><h2>Beskriv roll – inte utseende</h2><table class="comparison"><thead><tr><th>Tydligare</th><th>Undvik</th></tr></thead><tbody><tr><td class="fragment"><code>.profile-image</code></td><td class="fragment"><code>.big-picture</code></td></tr><tr><td class="fragment"><code>.interest-list</code></td><td class="fragment"><code>.green-list</code></td></tr></tbody></table><p class="fragment">Namnet ska fortfarande passa om designen ändras.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Hover och focus</p><h2>Länken ska ge återkoppling</h2><pre class="code-block compact-code no-scroll-code fragment"><code>a:hover {
+  text-decoration-thickness: 3px;
+}
+
+a:focus {
+  outline: 3px solid #5eead4;
+  outline-offset: 3px;
+}</code></pre><div class="selector-demo fragment"><p><a href="#profile-link-demo">Hovra över länken eller använd Tab</a>.</p></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktivt exempel</p><h2>Jämför före och efter</h2><div class="fragment"><div class="profile-redesign-controls"><button type="button" data-profile-view="before" aria-pressed="true">Före CSS</button><button type="button" data-profile-view="after" aria-pressed="false">Efter CSS</button></div><div class="profile-redesign-browser"><div class="profile-redesign-bar">Exempel i webbläsaren</div><div class="profile-redesign-page" data-profile-page><main class="profile-redesign-main"><h3>Min profilsida</h3><p>Jag heter Ada och lär mig webbutveckling. Här samlar jag information om mina intressen.</p><div class="profile-redesign-image">Profilbild</div><ul class="profile-redesign-tags"><li>HTML</li><li>CSS</li><li>Design</li></ul><p>Här finns en <a href="#profile-demo">tydlig länk</a>.</p></main></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Vad förändrades?</p><h2>CSS-valen har ett syfte</h2><ul><li class="fragment">Maxbredd ger kortare textrader.</li><li class="fragment">Line-height ger luft mellan raderna.</li><li class="fragment">Kontrast gör text och länkar tydliga.</li><li class="fragment">Padding skiljer innehållet från kanterna.</li><li class="fragment">Klasser skapar återanvändbara detaljer.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera · läsbarhet</p><h2>Testa som användare</h2><ol><li class="fragment">Kan sidan läsas utan att texten känns trång?</li><li class="fragment">Syns länkar tydligt?</li><li class="fragment">Syns fokus när du använder Tab?</li><li class="fragment">Kan du förklara färg- och fontvalen?</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera · teknik</p><h2>Testa sidan</h2><ol><li class="fragment">Gör webbläsarfönstret smalt.</li><li class="fragment">Kontrollera att bilden inte spräcker layouten.</li><li class="fragment">Kontrollera att klassnamnen är begripliga.</li><li class="fragment">Validera HTML.</li><li class="fragment">Validera eller kontrollera CSS.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exit ticket</p><h2>Vilken regel gjorde störst skillnad?</h2><p class="fragment">Välj en CSS-regel som förbättrade sidans läsbarhet.</p><p class="fragment">Skriv vad regeln gör och varför resultatet blev bättre.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Klart när designen går att förklara</h2><ul><li class="fragment">CSS ligger i en extern fil.</li><li class="fragment">Text, färger och avstånd är läsbara.</li><li class="fragment">Huvudinnehållet har kontrollerad bredd.</li><li class="fragment">Bilder anpassar sig till behållaren.</li><li class="fragment">Klasser, hover och focus används meningsfullt.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const page = document.querySelector("[data-profile-page]");
+      document.querySelectorAll("[data-profile-view]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll("[data-profile-view]").forEach(function (item) { item.setAttribute("aria-pressed", "false"); });
+          button.setAttribute("aria-pressed", "true");
+          if (page) page.classList.toggle("is-designed", button.dataset.profileView === "after");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

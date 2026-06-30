@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 3.1: Vad CSS gör.">
+  <title>Kap 3.1 – Vad CSS gör</title>
+  <link rel="stylesheet" href="presentation.css?v=4">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 3 · Kapitel 3.1</p>
+        <h1>Vad CSS gör</h1>
+        <p class="fragment">CSS styr färg, storlek, avstånd, layout och andra visuella egenskaper.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">förklara vad CSS används till</li>
+          <li class="fragment">koppla en extern CSS-fil till HTML</li>
+          <li class="fragment">identifiera selektor, egenskap, värde och deklaration</li>
+          <li class="fragment">beskriva grunderna i kaskad och arv</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">HTML utan CSS</p><h2>Webbläsaren har standardregler</h2>
+        <div class="prompt-card fragment">
+          <h2 style="font-family: Times New Roman, serif; font-size: 2rem;">En vanlig rubrik</h2>
+          <p style="font-family: Times New Roman, serif; font-size: 1.2rem;">Ett vanligt textstycke i webbläsarens standardstil.</p>
+        </div>
+        <p class="fragment">Reglerna kallas ofta <em>user-agent stylesheet</em>.</p>
+        <p class="fragment">CSS låter dig skriva egna regler ovanpå standarden.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Ansvar</p><h2>HTML och CSS har olika uppgifter</h2>
+        <table class="comparison"><thead><tr><th>HTML</th><th>CSS</th></tr></thead><tbody>
+          <tr><td class="fragment">Innehåll och struktur</td><td class="fragment">Presentation och utseende</td></tr>
+          <tr><td class="fragment"><code>h1</code>, <code>p</code>, <code>nav</code></td><td class="fragment">Färg, storlek, avstånd och layout</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">CSS-regel</p><h2>Regelns grundstruktur</h2>
+        <pre class="code-block no-scroll-code fragment"><code>h1 {
+  color: green;
+  font-size: 2rem;
+}</code></pre>
+        <p class="fragment">Regeln väljer alla <code>h1</code>-element och ändrar två egenskaper.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Selektor</p><h2>Vilka element påverkas?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>h1 {
+  color: green;
+}</code></pre>
+        <p class="fragment"><code>h1</code> är selektorn.</p>
+        <p class="fragment">Den väljer sidans alla <code>h1</code>-element.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Deklaration</p><h2>Egenskap och värde</h2>
+        <div class="flow"><span class="fragment"><code>color</code><br>egenskap</span><span class="fragment"><code>green</code><br>värde</span></div>
+        <pre class="code-block no-scroll-code fragment"><code>color: green;</code></pre>
+        <p class="fragment">Egenskapen och värdet bildar tillsammans en deklaration.</p>
+        <p class="fragment">Kolon skiljer dem åt och semikolon avslutar deklarationen.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Interaktiv CSS</p><h2>Ändra regeln och se resultatet</h2>
+        <div class="css-simulator fragment">
+          <div class="css-simulator-controls">
+            <label for="css-color">color<select id="css-color" data-css-color><option value="green">green</option><option value="blue">blue</option><option value="purple">purple</option></select></label>
+            <label for="css-size">font-size<select id="css-size" data-css-size><option value="2rem">2rem</option><option value="3rem">3rem</option><option value="4rem">4rem</option></select></label>
+          </div>
+          <div class="css-simulator-preview"><h3 data-css-preview>Rubrik</h3><code data-css-code>h1 { color: green; font-size: 2rem; }</code></div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Extern CSS</p><h2>Kursens huvudmetod</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+        <p class="fragment">Raden placeras i HTML-dokumentets <code>head</code>.</p>
+        <p class="fragment">HTML innehåller strukturen och <code>styles.css</code> innehåller utseendet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Projektfiler</p><h2>Filerna ligger i samma mapp</h2>
+        <pre class="code-block no-scroll-code fragment"><code>min-webbplats/
+  index.html
+  styles.css</code></pre>
+        <p class="fragment">Därför räcker den relativa sökvägen <code>href="styles.css"</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">CSS i head</p><h2>style passar små tester</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;head&gt;
+  &lt;style&gt;
+    h1 { color: green; }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+        <p class="fragment">Regeln påverkar bara HTML-sidan där <code>style</code>-elementet finns.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Inline-CSS</p><h2>Stil direkt på elementet</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;h1 style="color: green"&gt;Rubrik&lt;/h1&gt;</code></pre>
+        <p class="fragment">Inline-CSS blandar HTML-struktur och utseende.</p>
+        <p class="fragment">Undvik det i vanliga projekt eftersom koden blir svårare att underhålla.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Tre metoder</p><h2>Vilken ska du välja?</h2>
+        <table class="comparison"><thead><tr><th>Metod</th><th>Användning</th></tr></thead><tbody>
+          <tr class="fragment"><td>Extern fil</td><td>Vanliga projekt och flera sidor.</td></tr>
+          <tr class="fragment"><td><code>style</code> i head</td><td>Små tester på en sida.</td></tr>
+          <tr class="fragment"><td>Inline-CSS</td><td>Bör normalt undvikas.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kaskaden</p><h2>En senare regel kan vinna</h2>
+        <pre class="code-block no-scroll-code fragment"><code>h1 { color: green; }
+
+h1 { color: blue; }</code></pre>
+        <p class="fragment">Reglerna har samma selektor och samma styrka.</p>
+        <p class="fragment">Den senare deklarationen gör därför rubriken blå.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Testa kaskaden</p><h2>Byt ordning på reglerna</h2>
+        <div class="cascade-demo fragment">
+          <div class="cascade-demo-buttons"><button type="button" data-cascade="green-blue">Grön först, blå sist</button><button type="button" data-cascade="blue-green">Blå först, grön sist</button></div>
+          <pre class="code-block compact-code no-scroll-code" data-cascade-code>h1 { color: green; }
+h1 { color: blue; }</pre>
+          <div class="cascade-demo-result" data-cascade-result style="color: blue;">Rubriken blir blå.</div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Arv</p><h2>Barn kan ärva från en förälder</h2>
+        <pre class="code-block no-scroll-code fragment"><code>body {
+  color: purple;
+  font-family: Verdana, sans-serif;
+}</code></pre>
+        <div class="prompt-card fragment" style="color: purple; font-family: Verdana, sans-serif;"><p>Texten i stycket ärver färg och font från <code>body</code>.</p></div>
+        <p class="fragment">Alla CSS-egenskaper ärvs inte, men textfärg och font är vanliga exempel.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vilken färg vinner?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>p { color: orange; }
+p { color: navy; }</code></pre>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> <code>navy</code>, eftersom den regeln står senare och reglerna har samma styrka.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Skapa din första stilmall</h2>
+        <ol>
+          <li class="fragment">Skapa <code>styles.css</code> bredvid <code>index.html</code>.</li>
+          <li class="fragment">Koppla filen med <code>link</code> i <code>head</code>.</li>
+          <li class="fragment">Ändra färgen på <code>h1</code>.</li>
+          <li class="fragment">Lägg samma regel längre ned med en annan färg.</li>
+          <li class="fragment">Spara och kontrollera vilken regel som vinner.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">CSS styr sidans presentation och utseende.</li>
+          <li class="fragment">Selektorn väljer element; deklarationen innehåller egenskap och värde.</li>
+          <li class="fragment">Extern CSS är huvudmetoden i kursen.</li>
+          <li class="fragment">Kaskaden avgör vilken regel som vinner.</li>
+          <li class="fragment">Vissa egenskaper kan ärvas från förälder till barn.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const color = document.querySelector("[data-css-color]");
+      const size = document.querySelector("[data-css-size]");
+      const preview = document.querySelector("[data-css-preview]");
+      const code = document.querySelector("[data-css-code]");
+
+      function updateCssPreview() {
+        if (!color || !size || !preview || !code) return;
+        preview.style.color = color.value;
+        preview.style.fontSize = size.value;
+        code.textContent = "h1 { color: " + color.value + "; font-size: " + size.value + "; }";
+      }
+
+      if (color) color.addEventListener("change", updateCssPreview);
+      if (size) size.addEventListener("change", updateCssPreview);
+
+      const cascadeCode = document.querySelector("[data-cascade-code]");
+      const cascadeResult = document.querySelector("[data-cascade-result]");
+      document.querySelectorAll("[data-cascade]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (!cascadeCode || !cascadeResult) return;
+          const greenLast = button.dataset.cascade === "blue-green";
+          cascadeCode.textContent = greenLast
+            ? "h1 { color: blue; }\nh1 { color: green; }"
+            : "h1 { color: green; }\nh1 { color: blue; }";
+          cascadeResult.style.color = greenLast ? "green" : "blue";
+          cascadeResult.textContent = greenLast ? "Rubriken blir grön." : "Rubriken blir blå.";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

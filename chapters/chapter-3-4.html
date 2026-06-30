@@ -171,6 +171,7 @@ a:focus {
 
     <h2>Specificitet</h2>
     <p>Om flera regler påverkar samma egenskap avgör specificitet och ordning vilken som vinner. Inline-stil är stark, id är starkare än klass, och klass är starkare än typselektor. Undvik <code>!important</code> om du inte har en mycket tydlig anledning.</p>
+    <p><code>!important</code> gör en enskild deklaration starkare än vanliga deklarationer. Exempel: <code>color: red !important;</code>. Det kan verka som en snabb lösning, men gör kaskaden svårare att förstå och tvingar ofta fram ännu fler starka regler senare. Lös i första hand problemet med tydliga selektorer, rätt ordning och rimlig specificitet.</p>
 </section>
 
             <div id="quiz-3-4" aria-label="Quiz Kap 3.4"></div>

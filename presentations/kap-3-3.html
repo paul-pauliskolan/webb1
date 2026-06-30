@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 3.3: Boxmodellen i praktiken.">
+  <title>Kap 3.3 – Boxmodellen i praktiken</title>
+  <link rel="stylesheet" href="presentation.css?v=6">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 3 · Kapitel 3.3</p><h1>Boxmodellen i praktiken</h1>
+        <p class="fragment">Varje synligt element tar plats. Boxmodellen visar hur platsen räknas.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul><li class="fragment">förklara content, padding, border och margin</li><li class="fragment">jämföra content-box och border-box</li><li class="fragment">skilja mellan block och inline</li><li class="fragment">använda grundregler för bilder</li></ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Boxmodellen</p><h2>Fyra lager</h2>
+        <div class="box-demo-stage fragment"><div class="box-demo-margin" style="padding:24px;"><div class="box-demo-box" style="box-sizing:border-box;"><div class="box-demo-content">Content</div></div></div></div>
+        <div class="flow"><span class="fragment">Content<br>innehåll</span><span class="fragment">Padding<br>inre luft</span><span class="fragment">Border<br>kantlinje</span><span class="fragment">Margin<br>yttre avstånd</span></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Content</p><h2>Själva innehållet</h2>
+        <p class="fragment">Content kan vara text, en bild eller andra element.</p>
+        <pre class="code-block no-scroll-code fragment"><code>.card {
+  width: 220px;
+}</code></pre>
+        <p class="fragment">Hur bredden räknas beror på elementets <code>box-sizing</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Padding</p><h2>Luft innanför kanten</h2>
+        <pre class="code-block no-scroll-code fragment"><code>.card {
+  padding: 1rem;
+}</code></pre>
+        <p class="fragment">Padding skapar avstånd mellan innehållet och elementets border.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Border</p><h2>Kantlinjen runt elementet</h2>
+        <pre class="code-block no-scroll-code fragment"><code>.card {
+  border: 1px solid #5eead4;
+}</code></pre>
+        <p class="fragment">Värdena anger tjocklek, linjetyp och färg.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Margin</p><h2>Avstånd till andra element</h2>
+        <pre class="code-block no-scroll-code fragment"><code>.card {
+  margin-bottom: 1rem;
+}</code></pre>
+        <p class="fragment">Margin ligger utanför border och skapar yttre avstånd.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">content-box</p><h2>Padding och border läggs ovanpå</h2>
+        <pre class="code-block no-scroll-code fragment"><code>.box {
+  box-sizing: content-box;
+  width: 220px;
+  padding: 24px;
+  border: 8px solid;
+}</code></pre>
+        <p class="fragment">Synlig bredd: <code>220 + 48 + 16 = 284px</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">border-box</p><h2>Padding och border ingår</h2>
+        <pre class="code-block no-scroll-code fragment"><code>.box {
+  box-sizing: border-box;
+  width: 220px;
+  padding: 24px;
+  border: 8px solid;
+}</code></pre>
+        <p class="fragment">Den synliga boxens bredd stannar på <code>220px</code>.</p>
+      </div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content">
+        <p class="slide-kicker">Interaktiv boxmodell</p><h2>Ändra alla delar</h2>
+        <div class="box-demo-panel fragment">
+          <div class="box-demo-controls">
+            <div class="box-demo-control"><label for="box-width">Width: <span id="box-width-value">220px</span></label><input id="box-width" type="range" min="120" max="360" step="10" value="220"></div>
+            <div class="box-demo-control"><label for="box-padding">Padding: <span id="box-padding-value">24px</span></label><input id="box-padding" type="range" min="0" max="64" step="4" value="24"></div>
+            <div class="box-demo-control"><label for="box-border">Border: <span id="box-border-value">8px</span></label><input id="box-border" type="range" min="0" max="28" step="2" value="8"></div>
+            <div class="box-demo-control"><label for="box-margin">Margin: <span id="box-margin-value">24px</span></label><input id="box-margin" type="range" min="0" max="64" step="4" value="24"></div>
+          </div>
+          <label class="box-demo-toggle box-demo-switch" for="box-sizing-toggle"><input id="box-sizing-toggle" type="checkbox" checked><span class="box-demo-switch-option">content-box</span><span class="box-demo-switch-option">border-box</span><span class="box-demo-switch-thumb"></span></label>
+          <p class="box-demo-readout" id="box-demo-readout"></p>
+          <div class="box-demo-stage"><div class="box-demo-margin" id="box-demo-margin"><div class="box-demo-box" id="box-demo-box"><div class="box-demo-content" id="box-demo-content">Content</div></div></div></div>
+          <pre class="box-demo-code"><code id="box-demo-code"></code></pre>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Global regel</p><h2>Använd border-box överallt</h2>
+        <pre class="code-block no-scroll-code fragment"><code>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</code></pre>
+        <p class="fragment">Det gör elementens totalbredd mer förutsägbar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Block och inline</p><h2>Två olika beteenden</h2>
+        <table class="comparison"><thead><tr><th>Block</th><th>Inline</th></tr></thead><tbody><tr><td class="fragment">Börjar normalt på ny rad.</td><td class="fragment">Ligger kvar i textflödet.</td></tr><tr><td class="fragment"><code>p</code>, <code>h1</code>, <code>div</code></td><td class="fragment"><code>a</code>, <code>span</code>, <code>strong</code></td></tr></tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Webbläsarexempel</p><h2>Block och inline i praktiken</h2>
+        <div class="display-demo fragment">
+          <div class="display-demo-bar">Så visas block och inline i webbläsaren</div>
+          <div class="display-demo-page">
+            <div class="display-demo-group"><p class="display-demo-label">Blockelement</p><div class="display-demo-block">&lt;h1&gt; tar en egen rad</div><div class="display-demo-block">&lt;p&gt; börjar också på ny rad</div><div class="display-demo-block">&lt;div&gt; tar normalt hela tillgängliga bredden</div></div>
+            <div class="display-demo-group"><p class="display-demo-label">Inline-element</p><p class="display-demo-inline-text">I en mening kan en <span class="display-demo-inline">&lt;span&gt;</span>, en <strong class="display-demo-inline">&lt;strong&gt;</strong> och en <a class="display-demo-inline" href="#">länk</a> ligga kvar i samma textflöde.</p></div>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">div och span</p><h2>Generella behållare</h2>
+        <div class="two-column"><div><p class="fragment"><code>div</code></p><p class="fragment">Generell blockbehållare.</p></div><div><p class="fragment"><code>span</code></p><p class="fragment">Generell inline-behållare.</p></div></div>
+        <p class="fragment">Välj ett semantiskt element när ett sådant passar bättre.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">CSS reset</p><h2>Ta kontroll över standardbeteenden</h2>
+        <pre class="code-block no-scroll-code fragment"><code>* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Responsiva bilder</p><h2>Förhindra att bilden spräcker layouten</h2>
+        <pre class="code-block no-scroll-code fragment"><code>img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+        <p class="fragment">Bilden kan skalas ned men behåller sina proportioner.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Var finns padding?</h2>
+        <p class="fragment">Ligger padding innanför eller utanför border?</p><p class="fragment"><strong>Svar:</strong> innanför. Padding skapar luft mellan content och border.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul><li class="fragment">Content omges av padding, border och margin.</li><li class="fragment">Border-box gör totalbredden lättare att kontrollera.</li><li class="fragment">Block börjar normalt på ny rad; inline ligger i textflödet.</li><li class="fragment"><code>div</code> och <code>span</code> är generella behållare.</li><li class="fragment">Responsiva bildregler skyddar layouten.</li></ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const box = document.getElementById("box-demo-box");
+      const marginBox = document.getElementById("box-demo-margin");
+      const content = document.getElementById("box-demo-content");
+      const width = document.getElementById("box-width");
+      const padding = document.getElementById("box-padding");
+      const border = document.getElementById("box-border");
+      const margin = document.getElementById("box-margin");
+      const sizing = document.getElementById("box-sizing-toggle");
+      const readout = document.getElementById("box-demo-readout");
+      const code = document.getElementById("box-demo-code");
+      const values = { width: document.getElementById("box-width-value"), padding: document.getElementById("box-padding-value"), border: document.getElementById("box-border-value"), margin: document.getElementById("box-margin-value") };
+      if (!box || !marginBox || !content || !width || !padding || !border || !margin || !sizing || !readout || !code) return;
+
+      function updateBoxDemo() {
+        const w = Number(width.value), p = Number(padding.value), b = Number(border.value), m = Number(margin.value);
+        const boxSizing = sizing.checked ? "border-box" : "content-box";
+        const visible = boxSizing === "border-box" ? w : w + p * 2 + b * 2;
+        const total = visible + m * 2;
+        box.style.boxSizing = boxSizing; box.style.width = w + "px"; box.style.padding = p + "px"; box.style.borderWidth = b + "px"; marginBox.style.padding = m + "px";
+        values.width.textContent = w + "px"; values.padding.textContent = p + "px"; values.border.textContent = b + "px"; values.margin.textContent = m + "px";
+        content.textContent = "Content";
+        readout.textContent = boxSizing === "border-box" ? "Border-box: synlig bredd " + visible + "px; med margin cirka " + total + "px." : "Content-box: synlig bredd " + visible + "px; med margin cirka " + total + "px.";
+        code.textContent = ".box {\n  box-sizing: " + boxSizing + ";\n  width: " + w + "px;\n  padding: " + p + "px;\n  border: " + b + "px solid #5eead4;\n  margin: " + m + "px;\n}";
+      }
+      [width, padding, border, margin, sizing].forEach(function (control) { control.addEventListener("input", updateBoxDemo); control.addEventListener("change", updateBoxDemo); });
+      updateBoxDemo();
+    });
+  </script>
+</body>
+</html>

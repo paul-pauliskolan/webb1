@@ -42,6 +42,51 @@
         <li><code>footer</code> - avslutande information.</li>
     </ul>
 
+    <h2>Olika sätt att strukturera en sida</h2>
+    <p>De semantiska elementen kan kombineras på olika sätt beroende på sidans innehåll. Diagrammen visar tre exempel. Rutorna beskriver innehållets roll, inte hur sidan måste se ut.</p>
+    <div class="semantic-diagrams">
+        <figure class="semantic-diagram">
+            <figcaption>Exempel 1: enkel informationssida</figcaption>
+            <div class="semantic-layout semantic-layout-simple" aria-label="Enkel sidstruktur med header, nav, main med section och footer">
+                <div class="semantic-region semantic-region-header"><code>&lt;header&gt;</code></div>
+                <div class="semantic-region semantic-region-nav"><code>&lt;nav&gt;</code></div>
+                <div class="semantic-region semantic-region-main">
+                    <span><code>&lt;main&gt;</code></span>
+                    <div class="semantic-region semantic-region-inner"><code>&lt;section&gt;</code></div>
+                </div>
+                <div class="semantic-region semantic-region-footer"><code>&lt;footer&gt;</code></div>
+            </div>
+        </figure>
+        <figure class="semantic-diagram">
+            <figcaption>Exempel 2: artikel med kompletterande innehåll</figcaption>
+            <div class="semantic-layout" aria-label="Sidstruktur med header, nav, main med article, aside och footer">
+                <div class="semantic-region semantic-region-header"><code>&lt;header&gt;</code></div>
+                <div class="semantic-region semantic-region-nav"><code>&lt;nav&gt;</code></div>
+                <div class="semantic-region semantic-region-main">
+                    <span><code>&lt;main&gt;</code></span>
+                    <div class="semantic-region semantic-region-inner"><code>&lt;article&gt;</code></div>
+                </div>
+                <div class="semantic-region semantic-region-aside"><code>&lt;aside&gt;</code></div>
+                <div class="semantic-region semantic-region-footer"><code>&lt;footer&gt;</code></div>
+            </div>
+        </figure>
+        <figure class="semantic-diagram">
+            <figcaption>Exempel 3: huvudinnehåll med flera avdelningar</figcaption>
+            <div class="semantic-layout" aria-label="Sidstruktur med header, nav, main med två section-element, aside och footer">
+                <div class="semantic-region semantic-region-header"><code>&lt;header&gt;</code></div>
+                <div class="semantic-region semantic-region-nav"><code>&lt;nav&gt;</code></div>
+                <div class="semantic-region semantic-region-main">
+                    <span><code>&lt;main&gt;</code></span>
+                    <div class="semantic-region semantic-region-inner"><code>&lt;section&gt;</code></div>
+                    <div class="semantic-region semantic-region-inner"><code>&lt;section&gt;</code></div>
+                </div>
+                <div class="semantic-region semantic-region-aside"><code>&lt;aside&gt;</code></div>
+                <div class="semantic-region semantic-region-footer"><code>&lt;footer&gt;</code></div>
+            </div>
+        </figure>
+    </div>
+    <p><code>main</code> omsluter sidans huvudinnehåll i alla tre exemplen. <code>section</code> och <code>article</code> ligger inuti den större <code>main</code>-regionen.</p>
+
     <h2>Exempel</h2>
     <pre><code>&lt;header&gt;
     &lt;h1&gt;Min webbplats&lt;/h1&gt;

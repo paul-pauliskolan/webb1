@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 2.5: Miniuppgift kontaktformulär.">
+  <title>Kap 2.5 – Miniuppgift: kontaktformulär</title>
+  <link rel="stylesheet" href="presentation.css?v=3">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 2 · Kapitel 2.5</p>
+        <h1>Miniuppgift: kontaktformulär</h1>
+        <p class="fragment">Bygg en kontaktsida med semantisk struktur, labels och validering.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter uppgiften ska du kunna...</h2>
+        <ul>
+          <li class="fragment">skapa en ny sida med ett kontaktformulär</li>
+          <li class="fragment">använda labels, name-attribut och rätt inputtyper</li>
+          <li class="fragment">gruppera relaterade val</li>
+          <li class="fragment">validera fält och testa felaktiga värden</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Uppgift</p><h2>Skapa en ny kontaktsida</h2>
+        <pre class="code-block no-scroll-code fragment"><code>profil-sida/
+  index.html
+  kontakt.html
+  images/</code></pre>
+        <p class="fragment">Filen ska heta <code>kontakt.html</code> och ligga i samma projekt som profilsidan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Navigering</p><h2>Länka åt båda hållen</h2>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</code></pre><p>På <code>index.html</code>.</p></div>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;a href="index.html"&gt;Start&lt;/a&gt;</code></pre><p>På <code>kontakt.html</code>.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Semantisk struktur</p><h2>Kontaktsidans regioner</h2>
+        <div class="semantic-slide-layout is-simple fragment">
+          <div class="semantic-slide-region semantic-slide-header">&lt;header&gt;</div>
+          <div class="semantic-slide-region semantic-slide-nav">&lt;nav&gt;</div>
+          <div class="semantic-slide-region semantic-slide-main"><span>&lt;main&gt;</span><div class="semantic-slide-region semantic-slide-inner">&lt;form&gt;</div></div>
+          <div class="semantic-slide-region semantic-slide-footer">&lt;footer&gt;</div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Krav · formuläret</p><h2>Så ska data skickas</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;form action="https://httpbin.org/post"
+      method="post"&gt;
+  ...
+&lt;/form&gt;</code></pre>
+        <p class="fragment"><code>action</code> pekar på testtjänsten httpbin.</p>
+        <p class="fragment"><code>method="post"</code> skickar formulärdata i en POST-förfrågan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Krav · fälten</p><h2>Det här ska finnas</h2>
+        <ul>
+          <li class="fragment">Namn med textfält.</li>
+          <li class="fragment">Obligatorisk e-post med <code>type="email"</code>.</li>
+          <li class="fragment">Obligatoriskt meddelande i <code>textarea</code>.</li>
+          <li class="fragment">En grupp med radio eller checkbox.</li>
+          <li class="fragment">En skicka-knapp.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela sidan · del 1 av 4</p><h2>Sidhuvud och navigering</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="sv"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Kontakt&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;h1&gt;Kontakta mig&lt;/h1&gt;&lt;/header&gt;
+  &lt;nav&gt;&lt;a href="index.html"&gt;Start&lt;/a&gt;&lt;/nav&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela sidan · del 2 av 4</p><h2>Namn och e-post</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>  &lt;main&gt;
+    &lt;form action="https://httpbin.org/post" method="post"&gt;
+      &lt;label for="name"&gt;Namn:&lt;/label&gt;
+      &lt;input type="text" id="name" name="name" required&gt;
+
+      &lt;label for="email"&gt;E-post:&lt;/label&gt;
+      &lt;input type="email" id="email"
+             name="email" required&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela sidan · del 3 av 4</p><h2>Meddelande och kontaktmetod</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>      &lt;label for="message"&gt;Meddelande:&lt;/label&gt;
+      &lt;textarea id="message" name="message"
+        minlength="10" maxlength="500"
+        required&gt;&lt;/textarea&gt;
+
+      &lt;fieldset&gt;
+        &lt;legend&gt;Hur vill du få svar?&lt;/legend&gt;
+        &lt;label&gt;&lt;input type="radio" name="reply"
+          value="email"&gt; E-post&lt;/label&gt;
+        &lt;label&gt;&lt;input type="radio" name="reply"
+          value="none"&gt; Inget svar behövs&lt;/label&gt;
+      &lt;/fieldset&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela sidan · del 4 av 4</p><h2>Knapp och avslutning</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>      &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;p&gt;© 2026 Mitt namn&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kopplade labels</p><h2>for och id måste matcha</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="email"&gt;E-post:&lt;/label&gt;
+&lt;input type="email" id="email" name="email" required&gt;</code></pre>
+        <div class="inline-form-demo fragment"><label for="contact-email-demo">E-post:<input type="email" id="contact-email-demo" placeholder="ada@example.com"></label></div>
+        <p class="fragment">Klicka på labeln och kontrollera att rätt fält aktiveras.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Meddelandets längd</p><h2>Mellan 10 och 500 tecken</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;textarea minlength="10"
+          maxlength="500"
+          required&gt;&lt;/textarea&gt;</code></pre>
+        <p class="fragment">Minimilängden hindrar mycket korta meddelanden. Maxlängden begränsar mängden text.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Radio eller checkbox</p><h2>Gruppera valen</h2>
+        <div class="inline-form-demo fragment">
+          <fieldset><legend>Hur vill du få svar?</legend><label class="form-choice"><input type="radio" name="contact-reply-demo" value="email"> E-post</label><label class="form-choice"><input type="radio" name="contact-reply-demo" value="none"> Inget svar behövs</label></fieldset>
+        </div>
+        <p class="fragment"><code>fieldset</code> samlar alternativen och <code>legend</code> ställer den gemensamma frågan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Interaktiv förhandsvisning</p><h2>Testa kontaktformuläret</h2>
+        <div class="form-simulator fragment">
+          <form data-contact-form>
+            <label for="contact-name">Namn:</label>
+            <input type="text" id="contact-name" name="name" required>
+            <label for="contact-email">E-post:</label>
+            <input type="email" id="contact-email" name="email" required>
+            <label for="contact-message">Meddelande:</label>
+            <textarea id="contact-message" name="message" minlength="10" maxlength="500" required></textarea>
+            <fieldset><legend>Hur vill du få svar?</legend><label class="form-choice"><input type="radio" name="reply" value="email"> E-post</label><label class="form-choice"><input type="radio" name="reply" value="none"> Inget svar behövs</label></fieldset>
+            <button type="submit">Skicka</button>
+          </form>
+          <div class="form-simulator-output"><strong>Data till httpbin</strong><pre data-contact-output>Testa tom e-post, felaktig e-post och ett för kort meddelande.</pre></div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Testa fel</p><h2>Kontrollera valideringen</h2>
+        <ol>
+          <li class="fragment">Försök skicka utan e-postadress.</li>
+          <li class="fragment">Skriv en felaktig e-postadress.</li>
+          <li class="fragment">Skriv ett meddelande med färre än 10 tecken.</li>
+          <li class="fragment">Rätta värdena och skicka igen.</li>
+          <li class="fragment">Kontrollera vilka <code>name</code> och värden som visas.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Personuppgifter</p><h2>Samla bara in det som behövs</h2>
+        <p class="fragment">Namn, e-postadress och meddelande kan vara personuppgifter.</p>
+        <p class="fragment">Fråga varför varje uppgift behövs.</p>
+        <p class="fragment">Ta bort fält som inte behövs för att kunna svara på meddelandet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Slutkontroll</p><h2>Innan uppgiften är klar</h2>
+        <ul>
+          <li class="fragment">Länkarna mellan Start och Kontakt fungerar.</li>
+          <li class="fragment">Alla labels är kopplade till rätt fält.</li>
+          <li class="fragment">Alla fält har <code>name</code>.</li>
+          <li class="fragment">E-post och meddelande valideras.</li>
+          <li class="fragment">Radio eller checkbox är grupperade.</li>
+          <li class="fragment">HTML-koden är validerad.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Klart när allt fungerar</h2>
+        <ul>
+          <li class="fragment"><code>kontakt.html</code> har semantisk struktur.</li>
+          <li class="fragment">Formuläret använder POST till httpbin.</li>
+          <li class="fragment">Fälten är tydliga, kopplade och validerade.</li>
+          <li class="fragment">Felaktiga värden har testats.</li>
+          <li class="fragment">Endast nödvändiga personuppgifter samlas in.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("[data-contact-form]");
+      const output = document.querySelector("[data-contact-output]");
+      if (!form || !output) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const lines = Array.from(data.entries()).map(function (entry) {
+          return entry[0] + " = " + entry[1];
+        });
+        output.textContent = "Formuläret är giltigt.\n\n" + lines.join("\n");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 2.4: Tillgängliga formulär.">
+  <title>Kap 2.4 – Tillgängliga formulär</title>
+  <link rel="stylesheet" href="presentation.css?v=3">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 2 · Kapitel 2.4</p>
+        <h1>Tillgängliga formulär</h1>
+        <p class="fragment">Ett formulär ska vara lätt att förstå, fylla i, rätta och skicka.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">välja rätt inputtyp för rätt data</li>
+          <li class="fragment">använda vanliga valideringsattribut</li>
+          <li class="fragment">gruppera fält med <code>fieldset</code> och <code>legend</code></li>
+          <li class="fragment">ge användaren tydliga krav och felmeddelanden</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Varför?</p><h2>Användaren ska lyckas</h2>
+        <ul>
+          <li class="fragment">Fältets label förklarar vad som efterfrågas.</li>
+          <li class="fragment">Rätt inputtyp hjälper användaren skriva rätt data.</li>
+          <li class="fragment">Tydliga krav minskar onödiga fel.</li>
+          <li class="fragment">Bra felmeddelanden förklarar hur felet rättas.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Inputtyper</p><h2>type påverkar fältets funktion</h2>
+        <table class="comparison"><thead><tr><th>Typ</th><th>Data</th></tr></thead><tbody>
+          <tr class="fragment"><td><code>email</code></td><td>E-postadress</td></tr>
+          <tr class="fragment"><td><code>number</code></td><td>Tal</td></tr>
+          <tr class="fragment"><td><code>password</code></td><td>Lösenord med dolda tecken</td></tr>
+          <tr class="fragment"><td><code>date</code></td><td>Datum</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">E-post</p><h2>type="email"</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="email"&gt;E-post:&lt;/label&gt;
+&lt;input type="email"
+       id="email"
+       name="email"
+       required&gt;</code></pre>
+        <p class="fragment">Webbläsaren kan kontrollera att texten liknar en e-postadress.</p>
+        <form class="inline-form-demo fragment" data-mini-form><label for="try-email">E-post:<input type="email" id="try-email" required></label><button type="submit">Kontrollera</button><span class="inline-demo-output" data-mini-output></span></form>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Tal</p><h2>type="number"</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="age"&gt;Ålder:&lt;/label&gt;
+&lt;input type="number"
+       id="age"
+       name="age"
+       min="1"
+       max="120"&gt;</code></pre>
+        <p class="fragment">Fältet tar emot tal mellan 1 och 120.</p>
+        <form class="inline-form-demo fragment" data-mini-form><label for="try-age">Ålder:<input type="number" id="try-age" min="1" max="120"></label><button type="submit">Kontrollera</button><span class="inline-demo-output" data-mini-output></span></form>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Lösenord och datum</p><h2>Två anpassade fält</h2>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;input type="password" name="password"&gt;</code></pre><p>Döljer tecknen som användaren skriver.</p></div>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;input type="date" name="birthdate"&gt;</code></pre><p>Ger ett fält anpassat för datum.</p></div>
+        <div class="inline-form-demo fragment"><label for="try-password">Lösenord:<input type="password" id="try-password"></label><label for="try-date">Datum:<input type="date" id="try-date"></label></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Obligatoriskt fält</p><h2>required</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;input type="email" name="email" required&gt;</code></pre>
+        <p class="fragment"><code>required</code> gör att formuläret inte kan skickas med ett tomt fält.</p>
+        <p class="fragment">Berätta också synligt för användaren att fältet är obligatoriskt.</p>
+        <form class="inline-form-demo fragment" data-mini-form><label for="try-required">Namn (obligatoriskt):<input type="text" id="try-required" required></label><button type="submit">Kontrollera</button><span class="inline-demo-output" data-mini-output></span></form>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Textlängd</p><h2>minlength och maxlength</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="username"&gt;Användarnamn:&lt;/label&gt;
+&lt;input type="text"
+       id="username"
+       name="username"
+       minlength="3"
+       maxlength="20"&gt;</code></pre>
+        <p class="fragment">Texten måste innehålla minst 3 och högst 20 tecken.</p>
+        <form class="inline-form-demo fragment" data-mini-form><label for="try-username">Användarnamn:<input type="text" id="try-username" minlength="3" maxlength="20" required></label><button type="submit">Kontrollera</button><span class="inline-demo-output" data-mini-output></span></form>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Gränser</p><h2>min och max</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;input type="number" min="1" max="120"&gt;</code></pre>
+        <p class="fragment"><code>min</code> och <code>max</code> styr tillåtna tal eller datum.</p>
+        <p class="fragment">De beskriver värdet – inte hur många tecken som får skrivas.</p>
+        <form class="inline-form-demo fragment" data-mini-form><label for="try-range">Tal 1–120:<input type="number" id="try-range" min="1" max="120" required></label><button type="submit">Kontrollera</button><span class="inline-demo-output" data-mini-output></span></form>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Placeholder</p><h2>Ett exempel ersätter inte label</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="email"&gt;E-post:&lt;/label&gt;
+&lt;input type="email"
+       id="email"
+       name="email"
+       placeholder="ada@example.com"&gt;</code></pre>
+        <p class="fragment">Placeholder-texten kan försvinna när användaren skriver.</p>
+        <p class="fragment">Behåll därför alltid en tydlig label.</p>
+        <div class="inline-form-demo fragment"><label for="try-email-placeholder">E-post:<input type="email" id="try-email-placeholder" placeholder="ada@example.com"></label></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Gruppera fält</p><h2>fieldset och legend</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;fieldset&gt;
+  &lt;legend&gt;Hur vill du bli kontaktad?&lt;/legend&gt;
+  ...
+&lt;/fieldset&gt;</code></pre>
+        <ul>
+          <li class="fragment"><code>fieldset</code> samlar relaterade fält.</li>
+          <li class="fragment"><code>legend</code> beskriver hela gruppen.</li>
+        </ul>
+        <div class="inline-form-demo fragment"><fieldset><legend>Hur vill du bli kontaktad?</legend><label class="form-choice"><input type="radio" name="try-contact-a"> E-post</label><label class="form-choice"><input type="radio" name="try-contact-a"> Telefon</label></fieldset></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Radiogrupp</p><h2>Ett val med gemensam fråga</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;fieldset&gt;
+  &lt;legend&gt;Hur vill du bli kontaktad?&lt;/legend&gt;
+  &lt;label&gt;
+    &lt;input type="radio" name="contact" value="email"&gt;
+    E-post
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type="radio" name="contact" value="phone"&gt;
+    Telefon
+  &lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+        <p class="fragment">Samma <code>name</code> gör alternativen till en grupp.</p>
+        <div class="inline-form-demo fragment"><fieldset><legend>Hur vill du bli kontaktad?</legend><label class="form-choice"><input type="radio" name="try-contact-b" value="email"> E-post</label><label class="form-choice"><input type="radio" name="try-contact-b" value="phone"> Telefon</label></fieldset></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Synligt och skickat</p><h2>label, name och value har olika roller</h2>
+        <table class="comparison"><thead><tr><th>Del</th><th>Uppgift</th></tr></thead><tbody>
+          <tr class="fragment"><td>Texten E-post</td><td>Syns för användaren.</td></tr>
+          <tr class="fragment"><td><code>name="contact"</code></td><td>Namnet på data som skickas.</td></tr>
+          <tr class="fragment"><td><code>value="email"</code></td><td>Värdet som skickas.</td></tr>
+        </tbody></table>
+        <p class="fragment">Httpbin kan visa resultatet: <code>contact=email</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Återkoppling</p><h2>Skriv vad användaren ska göra</h2>
+        <table class="comparison"><thead><tr><th>Otydligt</th><th>Tydligt</th></tr></thead><tbody>
+          <tr><td class="fragment">Fel</td><td class="fragment">Fyll i en e-postadress.</td></tr>
+          <tr><td class="fragment">Ogiltigt värde</td><td class="fragment">Åldern måste vara mellan 1 och 120.</td></tr>
+        </tbody></table>
+        <p class="fragment">Ett bra felmeddelande förklarar både problemet och hur det rättas.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 1 av 2</p><h2>Kontaktuppgifter</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;form action="https://httpbin.org/post" method="post"&gt;
+  &lt;label for="email"&gt;E-post (obligatorisk):&lt;/label&gt;
+  &lt;input type="email"
+         id="email"
+         name="email"
+         required&gt;
+
+  &lt;label for="age"&gt;Ålder:&lt;/label&gt;
+  &lt;input type="number" id="age" name="age"
+         min="1" max="120"&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 2 av 2</p><h2>Kontaktmetod och knapp</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>  &lt;fieldset&gt;
+    &lt;legend&gt;Hur vill du bli kontaktad?&lt;/legend&gt;
+    &lt;label&gt;&lt;input type="radio" name="contact"
+      value="email"&gt; E-post&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="contact"
+      value="phone"&gt; Telefon&lt;/label&gt;
+  &lt;/fieldset&gt;
+  &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova valideringen</p><h2>Fyll i och skicka</h2>
+        <div class="form-simulator fragment">
+          <form data-access-form>
+            <label for="access-email">E-post (obligatorisk):</label>
+            <input type="email" id="access-email" name="email" required placeholder="ada@example.com">
+            <label for="access-age">Ålder:</label>
+            <input type="number" id="access-age" name="age" min="1" max="120">
+            <fieldset>
+              <legend>Hur vill du bli kontaktad?</legend>
+              <label class="form-choice"><input type="radio" name="contact" value="email"> E-post</label>
+              <label class="form-choice"><input type="radio" name="contact" value="phone"> Telefon</label>
+            </fieldset>
+            <button type="submit">Skicka</button>
+          </form>
+          <div class="form-simulator-output">
+            <strong>Resultat</strong>
+            <pre data-access-output>Prova först ett tomt fält eller en felaktig e-postadress.</pre>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vad saknas?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;input type="email" placeholder="ada@example.com"&gt;</code></pre>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> en synlig <code>label</code>. Placeholder är bara ett exempel.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">Rätt inputtyp hjälper användaren skriva rätt data.</li>
+          <li class="fragment"><code>required</code>, längd och gränser kan validera värden.</li>
+          <li class="fragment"><code>fieldset</code> och <code>legend</code> beskriver grupper av fält.</li>
+          <li class="fragment">Placeholder ersätter aldrig en label.</li>
+          <li class="fragment">Felmeddelanden ska förklara hur felet rättas.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-mini-form]").forEach(function (miniForm) {
+        miniForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const miniOutput = miniForm.querySelector("[data-mini-output]");
+          if (miniOutput) miniOutput.textContent = "Giltigt värde.";
+        });
+      });
+
+      const form = document.querySelector("[data-access-form]");
+      const output = document.querySelector("[data-access-output]");
+      if (!form || !output) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const lines = Array.from(data.entries()).map(function (entry) {
+          return entry[0] + " = " + entry[1];
+        });
+        output.textContent = "Formuläret är giltigt.\n\n" + lines.join("\n");
+      });
+    });
+  </script>
+</body>
+</html>

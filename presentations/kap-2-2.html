@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 2.2: Semantisk HTML.">
+  <title>Kap 2.2 – Semantisk HTML</title>
+  <link rel="stylesheet" href="presentation.css?v=2">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 2 · Kapitel 2.2</p>
+        <h1>Semantisk HTML</h1>
+        <p class="fragment">Beskriv vad innehållet betyder – inte hur det ska se ut.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">förklara skillnaden mellan semantiska och generella element</li>
+          <li class="fragment">använda <code>header</code>, <code>nav</code>, <code>main</code> och <code>footer</code></li>
+          <li class="fragment">välja mellan <code>section</code>, <code>article</code> och <code>aside</code></li>
+          <li class="fragment">skapa en logisk rubrikstruktur</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Semantik</p><h2>Elementets namn beskriver rollen</h2>
+        <div class="two-column">
+          <div class="prompt-card fragment"><p><code>&lt;nav&gt;</code></p><p>Innehåller navigering.</p></div>
+          <div class="prompt-card fragment"><p><code>&lt;footer&gt;</code></p><p>Innehåller avslutande information.</p></div>
+        </div>
+        <p class="fragment">Du kan förstå innehållets funktion genom att läsa elementnamnet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Semantiskt eller generellt?</p><h2>nav berättar mer än div</h2>
+        <table class="comparison"><thead><tr><th>Semantiskt</th><th>Generellt</th></tr></thead><tbody>
+          <tr><td class="fragment"><code>&lt;nav&gt;...&lt;/nav&gt;</code></td><td class="fragment"><code>&lt;div&gt;...&lt;/div&gt;</code></td></tr>
+          <tr><td class="fragment">Berättar att innehållet är navigering.</td><td class="fragment">Berättar bara att innehållet är grupperat.</td></tr>
+        </tbody></table>
+        <p class="fragment"><code>div</code> är användbart när inget mer betydelsefullt element passar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sidans början</p><h2>header och nav</h2>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;header&gt;
+  &lt;h1&gt;Min webbplats&lt;/h1&gt;
+&lt;/header&gt;</code></pre><p><code>header</code> är ett sidhuvud eller en introduktion.</p></div>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;nav&gt;
+  &lt;a href="index.html"&gt;Start&lt;/a&gt;
+&lt;/nav&gt;</code></pre><p><code>nav</code> samlar navigationslänkar.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Huvudinnehåll</p><h2>main</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;main&gt;
+  &lt;h2&gt;Om webbplatsen&lt;/h2&gt;
+  &lt;p&gt;Sidans viktigaste innehåll.&lt;/p&gt;
+&lt;/main&gt;</code></pre>
+        <p class="fragment"><code>main</code> innehåller sidans huvudinnehåll.</p>
+        <p class="fragment">Använd normalt bara ett <code>main</code>-element per sida.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Avdelning</p><h2>section</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;section&gt;
+  &lt;h2&gt;Mina intressen&lt;/h2&gt;
+  &lt;p&gt;Här beskriver jag mina intressen.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+        <p class="fragment"><code>section</code> samlar relaterat innehåll i en tydlig avdelning.</p>
+        <p class="fragment">En section har normalt en egen rubrik.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Självständigt innehåll</p><h2>article</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;article&gt;
+  &lt;h2&gt;Om mig&lt;/h2&gt;
+  &lt;p&gt;Text som kan förstås som en egen del.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+        <p class="fragment"><code>article</code> passar innehåll som kan stå mer självständigt.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kompletterande innehåll</p><h2>aside</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;aside&gt;
+  &lt;h2&gt;Tips&lt;/h2&gt;
+  &lt;p&gt;Validera alltid HTML-koden.&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+        <p class="fragment"><code>aside</code> innehåller information som kompletterar huvudinnehållet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sidans slut</p><h2>footer</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;footer&gt;
+  &lt;p&gt;© 2026 Mitt namn&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+        <p class="fragment"><code>footer</code> innehåller avslutande information.</p>
+        <p class="fragment">Det kan exempelvis vara upphovsperson, kontaktuppgifter eller länkar.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 1 av 2</p><h2>Sidhuvud och navigering</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;header&gt;
+  &lt;h1&gt;Min webbplats&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;
+  &lt;a href="index.html"&gt;Start&lt;/a&gt;
+  &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela exemplet · del 2 av 2</p><h2>Huvudinnehåll och sidfot</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Om mig&lt;/h2&gt;
+    &lt;p&gt;Text om sidan.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+  &lt;p&gt;© 2026&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sidstruktur</p><h2>Elementen har tydliga roller</h2>
+        <div class="flow"><span class="fragment"><code>header</code><br>introduktion</span><span class="fragment"><code>nav</code><br>länkar</span><span class="fragment"><code>main</code><br>huvudinnehåll</span><span class="fragment"><code>footer</code><br>avslutning</span></div>
+        <p class="fragment">Strukturen hjälper användare, hjälpmedel och utvecklare att förstå sidan.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Strukturexempel</p><h2>Enkel sida eller artikel</h2>
+        <div class="semantic-slide-grid">
+          <figure class="semantic-slide-diagram fragment">
+            <figcaption>Enkel informationssida</figcaption>
+            <div class="semantic-slide-layout is-simple">
+              <div class="semantic-slide-region semantic-slide-header">&lt;header&gt;</div>
+              <div class="semantic-slide-region semantic-slide-nav">&lt;nav&gt;</div>
+              <div class="semantic-slide-region semantic-slide-main"><span>&lt;main&gt;</span><div class="semantic-slide-region semantic-slide-inner">&lt;section&gt;</div></div>
+              <div class="semantic-slide-region semantic-slide-footer">&lt;footer&gt;</div>
+            </div>
+          </figure>
+          <figure class="semantic-slide-diagram fragment">
+            <figcaption>Artikel med sidoinnehåll</figcaption>
+            <div class="semantic-slide-layout">
+              <div class="semantic-slide-region semantic-slide-header">&lt;header&gt;</div>
+              <div class="semantic-slide-region semantic-slide-nav">&lt;nav&gt;</div>
+              <div class="semantic-slide-region semantic-slide-main"><span>&lt;main&gt;</span><div class="semantic-slide-region semantic-slide-inner">&lt;article&gt;</div></div>
+              <div class="semantic-slide-region semantic-slide-aside">&lt;aside&gt;</div>
+              <div class="semantic-slide-region semantic-slide-footer">&lt;footer&gt;</div>
+            </div>
+          </figure>
+        </div>
+        <p class="fragment">Den stora innehållsytan runt <code>section</code> eller <code>article</code> är <code>main</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Strukturexempel</p><h2>Flera avdelningar i main</h2>
+        <div class="semantic-slide-grid">
+          <figure class="semantic-slide-diagram fragment">
+            <figcaption>Webbplats med två avdelningar</figcaption>
+            <div class="semantic-slide-layout">
+              <div class="semantic-slide-region semantic-slide-header">&lt;header&gt;</div>
+              <div class="semantic-slide-region semantic-slide-nav">&lt;nav&gt;</div>
+              <div class="semantic-slide-region semantic-slide-main">
+                <span>&lt;main&gt;</span>
+                <div class="semantic-slide-region semantic-slide-inner">&lt;section&gt;</div>
+                <div class="semantic-slide-region semantic-slide-inner">&lt;section&gt;</div>
+              </div>
+              <div class="semantic-slide-region semantic-slide-aside">&lt;aside&gt;</div>
+              <div class="semantic-slide-region semantic-slide-footer">&lt;footer&gt;</div>
+            </div>
+          </figure>
+          <div>
+            <p class="fragment"><code>header</code> introducerar sidan.</p>
+            <p class="fragment"><code>nav</code> samlar navigationslänkar.</p>
+            <p class="fragment"><code>main</code> innehåller två relaterade avdelningar.</p>
+            <p class="fragment"><code>aside</code> kompletterar huvudinnehållet.</p>
+            <p class="fragment"><code>footer</code> avslutar sidan.</p>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Rubriknivåer</p><h2>Rubriker visar hierarkin</h2>
+        <div class="flow"><span class="fragment"><code>h1</code><br>sidans huvudrubrik</span><b class="fragment">→</b><span class="fragment"><code>h2</code><br>huvudavdelning</span><b class="fragment">→</b><span class="fragment"><code>h3</code><br>underavdelning</span></div>
+        <p class="fragment">Hoppa inte över nivåer bara för att få en viss textstorlek.</p>
+        <p class="fragment">Utseendet styrs med CSS – rubriknivån beskriver strukturen.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vilket element passar bäst?</h2>
+        <p class="fragment">Du ska samla länkarna Start, Om oss och Kontakt.</p>
+        <p class="fragment">Väljer du <code>nav</code> eller <code>div</code>?</p>
+        <p class="fragment"><strong>Svar:</strong> <code>nav</code>, eftersom länkarna används för navigering.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Vanligt misstag</p><h2>Välj inte rubrik efter storlek</h2>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;h1&gt;Min sida&lt;/h1&gt;
+&lt;h3&gt;Om mig&lt;/h3&gt;</code></pre><p>Otydligt: nivån <code>h2</code> hoppas över.</p></div>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;h1&gt;Min sida&lt;/h1&gt;
+&lt;h2&gt;Om mig&lt;/h2&gt;</code></pre><p>Tydligt: rubrikerna följer en logisk ordning.</p></div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Prova själv</p><h2>Gör profilsidan semantisk</h2>
+        <ol>
+          <li class="fragment">Lägg till <code>header</code>, <code>main</code> och <code>footer</code>.</li>
+          <li class="fragment">Lägg navigationslänkarna i ett <code>nav</code>.</li>
+          <li class="fragment">Kontrollera att sidan bara har ett <code>main</code>.</li>
+          <li class="fragment">Kontrollera rubriknivåernas ordning.</li>
+          <li class="fragment">Validera HTML-koden.</li>
+        </ol>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment">Semantiska element beskriver innehållets betydelse.</li>
+          <li class="fragment"><code>header</code>, <code>nav</code>, <code>main</code> och <code>footer</code> markerar sidregioner.</li>
+          <li class="fragment"><code>section</code>, <code>article</code> och <code>aside</code> har olika roller.</li>
+          <li class="fragment"><code>div</code> används när inget mer betydelsefullt element passar.</li>
+          <li class="fragment">Rubriknivåer ska följa innehållets hierarki.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

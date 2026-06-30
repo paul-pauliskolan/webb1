@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 2.3: Formulär från grunden.">
+  <title>Kap 2.3 – Formulär från grunden</title>
+  <link rel="stylesheet" href="presentation.css?v=3">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar">
+      <a href="index.html">Presentationer</a>
+      <span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span>
+    </header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content">
+        <p class="slide-kicker">Modul 2 · Kapitel 2.3</p>
+        <h1>Formulär från grunden</h1>
+        <p class="fragment">Låt användaren skriva, välja och skicka information.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2>
+        <ul>
+          <li class="fragment">bygga ett formulär med <code>form</code>, <code>label</code> och <code>input</code></li>
+          <li class="fragment">förklara <code>action</code>, <code>method</code>, <code>id</code>, <code>for</code> och <code>name</code></li>
+          <li class="fragment">använda textarea, select, radio och checkbox</li>
+          <li class="fragment">skicka formuläret med en submit-knapp</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Formulärets ram</p><h2>form samlar fälten</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;form action="https://httpbin.org/post"
+      method="post"&gt;
+  ...
+&lt;/form&gt;</code></pre>
+        <ul>
+          <li class="fragment"><code>form</code> omsluter fält som hör ihop.</li>
+          <li class="fragment"><code>action</code> anger vart informationen skickas.</li>
+          <li class="fragment"><code>method</code> anger hur informationen skickas.</li>
+        </ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Testtjänst</p><h2>Vad är httpbin?</h2>
+        <p class="fragment"><code>httpbin.org/post</code> tar emot en testförfrågan.</p>
+        <p class="fragment">Tjänsten visar tillbaka vilka formulärfält och värden som skickades.</p>
+        <p class="fragment">Du kan därför öva utan att först bygga en egen server.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">GET och POST</p><h2>Två vanliga metoder</h2>
+        <table class="comparison"><thead><tr><th>GET</th><th>POST</th></tr></thead><tbody>
+          <tr><td class="fragment">Används ofta för att hämta eller söka.</td><td class="fragment">Används ofta för att skicka formulärdata.</td></tr>
+          <tr><td class="fragment">Data kan synas i adressen.</td><td class="fragment">Data skickas i förfrågans innehåll.</td></tr>
+        </tbody></table>
+        <p class="fragment">Kapitlets exempel använder <code>method="post"</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Label och input</p><h2>Beskriv fältet tydligt</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="first-name"&gt;Förnamn:&lt;/label&gt;
+&lt;input type="text"
+       id="first-name"
+       name="first-name"
+       placeholder="Ada"&gt;</code></pre>
+        <p class="fragment"><code>label</code> berättar för användaren vad som ska skrivas.</p>
+        <div class="inline-form-demo fragment">
+          <label for="try-first-name">Förnamn:<input type="text" id="try-first-name" placeholder="Ada"></label>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kopplingen</p><h2>for måste matcha id</h2>
+        <div class="flow"><span class="fragment"><code>for="first-name"</code><br>på label</span><span class="fragment"><code>id="first-name"</code><br>på input</span></div>
+        <p class="fragment">Samma värde kopplar etiketten till rätt fält.</p>
+        <p class="fragment">När användaren klickar på etiketten aktiveras fältet.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">name</p><h2>Namnet på data som skickas</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;input type="text" name="first-name" value="Ada"&gt;</code></pre>
+        <div class="flow"><span class="fragment">Namn<br><code>first-name</code></span><span class="fragment">Värde<br><code>Ada</code></span></div>
+        <p class="fragment">Mottagaren får paret <code>first-name=Ada</code>.</p>
+        <p class="fragment">Utan <code>name</code> skickas fältets värde normalt inte med.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">placeholder</p><h2>Ett exempel – inte en label</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;input type="text" placeholder="Ada"&gt;</code></pre>
+        <p class="fragment"><code>placeholder</code> visas i fältet innan användaren skriver.</p>
+        <p class="fragment">Texten försvinner när användaren börjar skriva.</p>
+        <p class="fragment">Använd fortfarande en synlig <code>label</code>.</p>
+        <div class="inline-form-demo fragment">
+          <label for="try-placeholder">Förnamn:<input type="text" id="try-placeholder" placeholder="Ada"></label>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Textarea</p><h2>Text på flera rader</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="message"&gt;Meddelande:&lt;/label&gt;
+&lt;textarea id="message"
+          name="message"
+          rows="5"&gt;&lt;/textarea&gt;</code></pre>
+        <p class="fragment"><code>textarea</code> passar längre svar och meddelanden.</p>
+        <div class="inline-form-demo fragment">
+          <label for="try-message">Meddelande:<textarea id="try-message" rows="3"></textarea></label>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Select</p><h2>Välj ett alternativ i en meny</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label for="topic"&gt;Ämne:&lt;/label&gt;
+&lt;select id="topic" name="topic"&gt;
+  &lt;option value="html"&gt;HTML&lt;/option&gt;
+  &lt;option value="css"&gt;CSS&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+        <p class="fragment"><code>select</code> skapar menyn. Varje <code>option</code> är ett val.</p>
+        <div class="inline-form-demo fragment">
+          <label for="try-topic">Ämne:<select id="try-topic"><option>HTML</option><option>CSS</option></select></label>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Radio</p><h2>Välj exakt ett alternativ</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label&gt;
+  &lt;input type="radio" name="level" value="beginner"&gt;
+  Nybörjare
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="radio" name="level" value="advanced"&gt;
+  Van
+&lt;/label&gt;</code></pre>
+        <p class="fragment">Samma <code>name</code> gör att radioknapparna tillhör samma grupp.</p>
+        <div class="inline-form-demo fragment">
+          <fieldset><legend>Nivå</legend><label class="form-choice"><input type="radio" name="try-level" value="beginner"> Nybörjare</label><label class="form-choice"><input type="radio" name="try-level" value="advanced"> Van</label></fieldset>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Checkbox</p><h2>Ett oberoende val</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;label&gt;
+  &lt;input type="checkbox"
+         name="html"
+         value="yes"&gt;
+  Jag vill lära mig HTML
+&lt;/label&gt;</code></pre>
+        <p class="fragment">En kryssruta kan vara av eller på oberoende av andra val.</p>
+        <div class="inline-form-demo fragment">
+          <label class="form-choice"><input type="checkbox"> Jag vill lära mig HTML</label>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Radio eller checkbox?</p><h2>Välj rätt kontroll</h2>
+        <table class="comparison"><thead><tr><th>Radio</th><th>Checkbox</th></tr></thead><tbody>
+          <tr><td class="fragment">Ett val ur en grupp.</td><td class="fragment">Ett eller flera oberoende val.</td></tr>
+          <tr><td class="fragment">Exempel: nybörjare eller van.</td><td class="fragment">Exempel: HTML och CSS.</td></tr>
+        </tbody></table>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Knappar</p><h2>submit skickar formuläret</h2>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;button type="submit"&gt;Skicka&lt;/button&gt;</code></pre><p>Försöker skicka formuläret.</p></div>
+        <div class="code-step fragment"><pre class="code-block no-scroll-code"><code>&lt;button type="button"&gt;Visa hjälp&lt;/button&gt;</code></pre><p>Skickar inte formuläret och kan senare kopplas till JavaScript.</p></div>
+        <form class="inline-form-demo fragment" data-button-demo>
+          <button type="submit">Skicka</button><button type="button" data-help-button>Visa hjälp</button><span class="inline-demo-output" data-button-output>Testa knapparna.</span>
+        </form>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela formuläret · del 1 av 2</p><h2>Textfält och meny</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;form action="https://httpbin.org/post" method="post"&gt;
+  &lt;label for="name"&gt;Namn:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;
+
+  &lt;label for="topic"&gt;Ämne:&lt;/label&gt;
+  &lt;select id="topic" name="topic"&gt;
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+  &lt;/select&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Hela formuläret · del 2 av 2</p><h2>Meddelande och knapp</h2>
+        <pre class="code-block compact-code no-scroll-code fragment"><code>  &lt;label for="message"&gt;Meddelande:&lt;/label&gt;
+  &lt;textarea id="message"
+            name="message"&gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Interaktivt exempel</p><h2>Se vilken data som skickas</h2>
+        <div class="form-simulator fragment">
+          <form data-demo-form>
+            <label for="demo-name">Namn:</label>
+            <input type="text" id="demo-name" name="name" placeholder="Ada">
+            <label for="demo-topic">Ämne:</label>
+            <select id="demo-topic" name="topic"><option value="html">HTML</option><option value="css">CSS</option></select>
+            <label class="form-choice"><input type="checkbox" name="newsletter" value="yes"> Skicka nyheter</label>
+            <button type="submit">Skicka</button>
+          </form>
+          <div class="form-simulator-output">
+            <strong>Formulärdata</strong>
+            <pre data-form-output>Fyll i formuläret och välj Skicka.</pre>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Kontrollfråga</p><h2>Vad skickas inte med?</h2>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;input type="text" id="email" value="ada@example.com"&gt;</code></pre>
+        <p class="fragment">Tänk efter innan du går vidare.</p>
+        <p class="fragment"><strong>Svar:</strong> värdet skickas normalt inte, eftersom fältet saknar <code>name</code>.</p>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2>
+        <ul>
+          <li class="fragment"><code>form</code> samlar fälten; <code>action</code> och <code>method</code> styr skickandet.</li>
+          <li class="fragment"><code>for</code> och <code>id</code> kopplar label till rätt fält.</li>
+          <li class="fragment"><code>name</code> anger namnet på data som skickas.</li>
+          <li class="fragment">Radio används för ett val; checkbox för oberoende val.</li>
+          <li class="fragment"><code>button type="submit"</code> skickar formuläret.</li>
+        </ul>
+      </div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttonDemo = document.querySelector("[data-button-demo]");
+      const helpButton = document.querySelector("[data-help-button]");
+      const buttonOutput = document.querySelector("[data-button-output]");
+
+      if (buttonDemo && buttonOutput) {
+        buttonDemo.addEventListener("submit", function (event) {
+          event.preventDefault();
+          buttonOutput.textContent = "Submit försökte skicka formuläret.";
+        });
+      }
+
+      if (helpButton && buttonOutput) {
+        helpButton.addEventListener("click", function () {
+          buttonOutput.textContent = "Button utförde en handling utan att skicka.";
+        });
+      }
+
+      const form = document.querySelector("[data-demo-form]");
+      const output = document.querySelector("[data-form-output]");
+      if (!form || !output) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const lines = Array.from(data.entries()).map(function (entry) {
+          return entry[0] + " = " + entry[1];
+        });
+        output.textContent = lines.length ? lines.join("\n") : "Ingen data skickades.";
+      });
+    });
+  </script>
+</body>
+</html>

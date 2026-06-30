@@ -1242,3 +1242,70 @@ code {
 .important-box p {
   margin: 0.45rem 0 0;
 }
+
+.semantic-diagrams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.semantic-diagram {
+  margin: 0;
+}
+
+.semantic-diagram figcaption {
+  margin-bottom: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.semantic-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(7rem, 1fr);
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "main aside"
+    "footer footer";
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 2px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.semantic-region {
+  display: grid;
+  place-items: center;
+  min-height: 3rem;
+  padding: 0.65rem;
+  border: 2px solid var(--accent-strong);
+  background: rgba(45, 212, 191, 0.08);
+  color: var(--text);
+  font: 700 1rem/1.2 "SFMono-Regular", "Menlo", monospace;
+  text-align: center;
+}
+
+.semantic-region code {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.semantic-region-header { grid-area: header; }
+.semantic-region-nav { grid-area: nav; }
+.semantic-region-main { grid-area: main; display: grid; gap: 0.35rem; align-content: stretch; }
+.semantic-region-aside { grid-area: aside; }
+.semantic-region-footer { grid-area: footer; }
+.semantic-region-inner { width: 100%; min-height: 3.5rem; border-color: rgba(251, 191, 36, 0.8); background: rgba(251, 191, 36, 0.08); }
+
+.semantic-layout-simple {
+  grid-template-columns: 1fr;
+  grid-template-areas: "header" "nav" "main" "footer";
+}
+
+@media (max-width: 600px) {
+  .semantic-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "nav" "main" "aside" "footer";
+  }
+}

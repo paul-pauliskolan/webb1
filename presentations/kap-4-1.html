@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 4.1: Flexbox för rader, menyer och kort.">
+  <title>Kap 4.1 – Flexbox för rader, menyer och kort</title>
+  <link rel="stylesheet" href="presentation.css?v=9">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 4 · Kapitel 4.1</p><h1>Flexbox för rader, menyer och kort</h1><p class="fragment">Placera element längs en huvudaxel: i rad eller kolumn.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara när flexbox passar</li><li class="fragment">använda <code>display: flex</code>, <code>gap</code> och <code>flex-wrap</code></li><li class="fragment">förstå huvudaxeln och tväraxeln</li><li class="fragment">bygga en meny eller kortlista</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">När passar flexbox?</p><h2>En grupp längs en riktning</h2><ul><li class="fragment">Länkar i en meny</li><li class="fragment">Knappar i en verktygsrad</li><li class="fragment">Kort i en lista</li><li class="fragment">Element i en kolumn</li></ul><p class="fragment">Börja med frågan: ska elementen ligga i rad eller kolumn?</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Starta flexbox</p><h2>display: flex</h2><pre class="code-block no-scroll-code fragment"><code>.menu {
+  display: flex;
+  gap: 1rem;
+}</code></pre><div class="flex-preview fragment"><nav class="flex-preview-row"><a class="flex-preview-item" href="#">Start</a><a class="flex-preview-item" href="#">Om mig</a><a class="flex-preview-item" href="#">Kontakt</a></nav></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Container och items</p><h2>Föräldern styr barnen</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;nav class="menu"&gt;
+  &lt;a href="index.html"&gt;Start&lt;/a&gt;
+  &lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre><ul><li class="fragment"><code>nav.menu</code> är flex-container.</li><li class="fragment">Länkarna blir flex-items.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">gap</p><h2>Jämnt avstånd mellan items</h2><pre class="code-block no-scroll-code fragment"><code>.menu {
+  display: flex;
+  gap: 1rem;
+}</code></pre><p class="fragment"><code>gap</code> skapar mellanrum utan separata marginaler på varje item.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-direction</p><h2>Rad eller kolumn</h2><table class="comparison"><thead><tr><th><code>row</code></th><th><code>column</code></th></tr></thead><tbody><tr><td class="fragment">Huvudaxeln går horisontellt.</td><td class="fragment">Huvudaxeln går vertikalt.</td></tr><tr><td class="fragment">Items ligger sida vid sida.</td><td class="fragment">Items ligger under varandra.</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Axlar</p><h2>Huvudaxel och tväraxel</h2><ul><li class="fragment"><code>flex-direction</code> bestämmer huvudaxeln.</li><li class="fragment"><code>justify-content</code> placerar items längs huvudaxeln.</li><li class="fragment"><code>align-items</code> placerar items längs tväraxeln.</li></ul><p class="fragment">När riktningen ändras byter axlarna också riktning.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">justify-content</p><h2>Placering längs huvudaxeln</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
+  display: flex;
+  justify-content: space-between;
+}</code></pre><div class="flex-preview fragment"><div class="flex-preview-row" style="justify-content:space-between;"><span class="flex-preview-item" style="flex:0 1 7rem;">1</span><span class="flex-preview-item" style="flex:0 1 7rem;">2</span><span class="flex-preview-item" style="flex:0 1 7rem;">3</span></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">align-items</p><h2>Placering längs tväraxeln</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
+  display: flex;
+  align-items: stretch;
+}</code></pre><p class="fragment"><code>stretch</code> är standard och kan göra items lika höga längs tväraxeln.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-wrap</p><h2>Bryt till en ny rad</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}</code></pre><div class="flex-preview fragment"><div class="flex-preview-row is-wrap"><span class="flex-preview-item">Kort 1</span><span class="flex-preview-item">Kort 2</span><span class="flex-preview-item">Kort 3</span><span class="flex-preview-item">Kort 4</span></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-förkortning</p><h2>Tre värden i en regel</h2><pre class="code-block no-scroll-code fragment"><code>.card {
+  flex: 1 1 16rem;
+}</code></pre><div class="flow"><span class="fragment"><code>1</code><br>grow</span><span class="fragment"><code>1</code><br>shrink</span><span class="fragment"><code>16rem</code><br>basis</span></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-grow</p><h2>Får itemet växa?</h2><table class="comparison"><thead><tr><th><code>0</code></th><th><code>1</code></th></tr></thead><tbody><tr><td class="fragment">Itemet tar inte extra ledigt utrymme.</td><td class="fragment">Itemet delar ledigt utrymme med andra som får växa.</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-basis</p><h2>Startstorlek längs huvudaxeln</h2><p class="fragment">I en radlayout fungerar <code>16rem</code> som ungefärlig startbredd.</p><pre class="code-block no-scroll-code fragment"><code>.card {
+  flex-basis: 16rem;
+}</code></pre><p class="fragment">Itemet kan sedan växa eller krympa beroende på övriga flex-regler.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv flexbox</p><h2>Ändra alla viktiga värden</h2><div class="flex-demo-panel fragment"><div class="flex-demo-controls">
+        <div class="flex-demo-control"><label for="direction">flex-direction</label><select id="direction"><option value="row">row</option><option value="column">column</option></select></div>
+        <div class="flex-demo-control"><label for="justify">justify-content</label><select id="justify"><option>flex-start</option><option>center</option><option>flex-end</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></div>
+        <div class="flex-demo-control"><label for="align">align-items</label><select id="align"><option>stretch</option><option>flex-start</option><option>center</option><option>flex-end</option></select></div>
+        <div class="flex-demo-control"><label for="gap">gap: <span id="gap-value">1rem</span></label><input id="gap" type="range" min="0" max="3" step="0.25" value="1"></div>
+        <label class="flex-demo-toggle" for="wrap"><input id="wrap" type="checkbox"> flex-wrap: wrap</label>
+        <div class="flex-demo-control"><label for="basis">flex-basis: <span id="basis-value">7rem</span></label><input id="basis" type="range" min="4" max="14" value="7"></div>
+        <div class="flex-demo-control"><label for="item-count">Antal: <span id="item-count-value">3</span></label><input id="item-count" type="range" min="3" max="8" value="3"></div>
+        <label class="flex-demo-toggle" for="grow"><input id="grow" type="checkbox"> flex-grow: 1</label>
+      </div><p class="flex-demo-readout" id="axis-text"></p><div class="flex-demo-stage"><div class="flex-demo-container" id="demo-container"><div class="flex-demo-item">1</div><div class="flex-demo-item">2</div><div class="flex-demo-item">3</div><div class="flex-demo-item">4</div><div class="flex-demo-item">5</div><div class="flex-demo-item">6</div><div class="flex-demo-item">7</div><div class="flex-demo-item">8</div></div></div><pre class="flex-demo-code"><code id="css-output"></code></pre></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Meny</p><h2>Ett vanligt användningsområde</h2><pre class="code-block no-scroll-code fragment"><code>.menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}</code></pre><p class="fragment">Länkarna ligger i rad och får jämnt avstånd.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kortlista</p><h2>Flexibel och radbrytande</h2><pre class="code-block no-scroll-code fragment"><code>.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card { flex: 1 1 16rem; }</code></pre></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollfråga</p><h2>Vilken axel styr justify-content?</h2><p class="fragment">Huvudaxeln eller tväraxeln?</p><p class="fragment"><strong>Svar:</strong> huvudaxeln. Dess riktning bestäms av <code>flex-direction</code>.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prova själv</p><h2>Bygg två flexlayouter</h2><ol><li class="fragment">Skapa en meny med fyra länkar.</li><li class="fragment">Gör menyn till flex-container.</li><li class="fragment">Lägg till gap och testa justify-content.</li><li class="fragment">Skapa tre kort.</li><li class="fragment">Tillåt ny rad med flex-wrap.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment"><code>display: flex</code> gör barnen till flex-items.</li><li class="fragment">Flex-direction bestämmer huvudaxeln.</li><li class="fragment">Justify-content arbetar längs huvudaxeln.</li><li class="fragment">Align-items arbetar längs tväraxeln.</li><li class="fragment">Gap skapar avstånd och wrap tillåter nya rader.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container=document.getElementById("demo-container"),direction=document.getElementById("direction"),justify=document.getElementById("justify"),align=document.getElementById("align"),gap=document.getElementById("gap"),wrap=document.getElementById("wrap"),basis=document.getElementById("basis"),grow=document.getElementById("grow"),count=document.getElementById("item-count"),output=document.getElementById("css-output"),axis=document.getElementById("axis-text");
+      if(!container||!direction||!justify||!align||!gap||!wrap||!basis||!grow||!count||!output||!axis)return;
+      const items=Array.from(container.querySelectorAll(".flex-demo-item"));
+      function update(){const gapValue=gap.value+"rem",basisValue=basis.value+"rem",wrapValue=wrap.checked?"wrap":"nowrap",growValue=grow.checked?"1":"0",visible=Number(count.value);container.style.flexDirection=direction.value;container.style.justifyContent=justify.value;container.style.alignItems=align.value;container.style.gap=gapValue;container.style.flexWrap=wrapValue;items.forEach(function(item,index){item.style.display=index<visible?"grid":"none";item.style.flex=growValue+" 1 "+basisValue;});document.getElementById("gap-value").textContent=gapValue;document.getElementById("basis-value").textContent=basisValue;document.getElementById("item-count-value").textContent=visible;axis.textContent=direction.value==="row"?"Huvudaxeln är horisontell. justify-content styr vågrätt och align-items lodrätt.":"Huvudaxeln är vertikal. justify-content styr lodrätt och align-items vågrätt.";output.textContent=".container {\n  display: flex;\n  flex-direction: "+direction.value+";\n  justify-content: "+justify.value+";\n  align-items: "+align.value+";\n  flex-wrap: "+wrapValue+";\n  gap: "+gapValue+";\n}\n.item { flex: "+growValue+" 1 "+basisValue+"; }";}
+      [direction,justify,align,gap,wrap,basis,grow,count].forEach(function(control){control.addEventListener("input",update);control.addEventListener("change",update);});update();
+    });
+  </script>
+</body>
+</html>
