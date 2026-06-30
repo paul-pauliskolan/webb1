@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till Övningsuppgift 2: rätta HTML och skapa layout med CSS.">
+  <title>Övningsuppgift 2 – Rätta HTML och skapa CSS-layout</title>
+  <link rel="stylesheet" href="presentation.css?v=14">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Övningsuppgift 2</p><h1>Rätta HTML och skapa layout med CSS</h1><p class="fragment">Validera, designa och publicera en färdig startsida.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Viktigt</p><h2>Uppgiften krävs för högre än E</h2><ul><li class="fragment">Övningsuppgift 1 ska vara gjord först.</li><li class="fragment">Följ instruktionerna – ändra inte innehåll som inte ska ändras.</li><li class="fragment">Både kod och publicerad sida ska lämnas in.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Översikt</p><h2>Uppgiften har fyra delar</h2><div class="flow"><span class="fragment">1<br>Rätta HTML</span><span class="fragment">2<br>Skapa CSS</span><span class="fragment">3<br>Validera</span><span class="fragment">4<br>Publicera</span></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startfiler</p><h2>Ladda ner och packa upp</h2><ol><li class="fragment">Ladda ner <code>ovn2.zip</code>.</li><li class="fragment">Packa upp zip-filen.</li><li class="fragment">Kontrollera att mappen heter <code>ovn2</code>.</li><li class="fragment">Öppna bara mappen <code>ovn2</code> i VS Code.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Filer</p><h2>Det här finns i mappen</h2><pre class="code-block no-scroll-code fragment"><code>ovn2/
+├── index.html
+├── html.webp
+└── css.webp</code></pre><p class="fragment">CSS-filen finns inte ännu. Du ska skapa den med det namn som står i HTML-filens befintliga <code>&lt;link&gt;</code>.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Viktig regel</p><h2>Ändra inte link-elementet</h2><pre class="code-block no-scroll-code fragment"><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre><p class="fragment">Skapa därför filen <code>styles.css</code>.</p><p class="fragment">Ändra inte länken så att den passar ett annat filnamn.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">HTML-rättning</p><h2>Rätta bara felen</h2><ul><li class="fragment">Kör <code>index.html</code> genom HTML-validatorn.</li><li class="fragment">Läs ett fel i taget.</li><li class="fragment">Rätta felet i VS Code.</li><li class="fragment">Validera igen.</li></ul><p class="fragment">Ändra inte texter eller struktur bara för att du själv hade skrivit dem annorlunda.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera bilder</p><h2>Filnamnet måste stämma exakt</h2><pre class="code-block no-scroll-code fragment"><code>&lt;img src="css.webp" alt="CSS-logotyp"&gt;
+&lt;img src="html.webp" alt="HTML-logotyp"&gt;</code></pre><ul><li class="fragment">Filändelsen ska matcha filen i mappen.</li><li class="fragment">Varje innehållsbärande bild behöver relevant <code>alt</code>-text.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Valideringsarbete</p><h2>Arbeta i en kort loop</h2><div class="validation-flow"><div class="validation-step fragment"><strong>1. Validera</strong>Hitta första felet</div><div class="validation-step fragment"><strong>2. Rätta</strong>Ändra minsta möjliga</div><div class="validation-step fragment"><strong>3. Testa igen</strong>Kontrollera nästa fel</div></div><p class="fragment">Ett tidigt HTML-fel kan skapa flera följdfel. Börja alltid uppifrån.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-krav 1</p><h2>Font och text</h2><pre class="code-block no-scroll-code fragment"><code>body {
+  font-family: Verdana, sans-serif;
+  color: #000;
+}</code></pre><p class="fragment">All text ska använda Verdana med <code>sans-serif</code> som reserv.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-krav 2</p><h2>Två ljusa bakgrunder</h2><pre class="code-block no-scroll-code fragment"><code>body { background-color: #f3f0dc; }
+article,
+footer { background-color: #d7edf1; }</code></pre><ul><li class="fragment"><code>body</code> ska vara ljus men inte vit.</li><li class="fragment"><code>article</code> och <code>footer</code> ska ha en annan ljus färg.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-krav 3</p><h2>Länkarnas två lägen</h2><pre class="code-block no-scroll-code fragment"><code>a {
+  color: #075985;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}</code></pre><p class="fragment">Länken ska vara mörkare än bakgrunden och få understreck vid hover.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-krav 4</p><h2>Två spalter med Grid</h2><pre class="code-block no-scroll-code fragment"><code>section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}</code></pre><p class="fragment">De två <code>article</code>-elementen blir Grid-items.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Alternativ</p><h2>Två spalter med Flexbox</h2><pre class="code-block no-scroll-code fragment"><code>section {
+  display: flex;
+  gap: 1rem;
+}
+article { flex: 1; }</code></pre><p class="fragment">Välj Grid eller Flexbox. Du behöver inte använda båda för spaltkravet.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Simulerat exempel</p><h2>Före och efter CSS</h2><div class="ovn2-demo" data-ovn2-demo><div class="ovn2-controls"><button type="button" data-ovn2-before aria-pressed="true">Före CSS</button><button type="button" data-ovn2-after aria-pressed="false">Efter CSS</button><code data-ovn2-code>Ingen egen CSS används ännu.</code><p data-ovn2-readout>Artiklarna ligger under varandra och webbläsarens standardstil används.</p></div><div class="ovn2-stage"><div class="ovn2-page" data-ovn2-page><h3>Grunder layout</h3><div class="ovn2-articles"><article class="ovn2-article"><h4>Grunderna i CSS</h4><img src="../assets/ovn2/css.webp" alt="CSS-logotyp"><p>CSS styr färg, typografi och layout på webbsidan.</p><p>Här är ett <a href="#">YouTube-klipp</a> om CSS.</p></article><article class="ovn2-article"><h4>Grunderna i HTML</h4><img src="../assets/ovn2/html.webp" alt="HTML-logotyp"><p>HTML beskriver sidans innehåll och struktur.</p><p>Här är en <a href="#">artikel</a> om HTML.</p></article></div><footer>Skrivet av mig</footer></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exempelbild</p><h2>Ett möjligt resultat</h2><img src="../assets/images/ovn2-ex.png" alt="Exempel på färdig sida för Övningsuppgift 2" style="display:block;max-width:100%;max-height:62vh;margin:0 auto;border:1px solid #cbd5e1"><p class="fragment">Din sida behöver inte ha exakt samma färger, men den ska följa alla krav.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Validera HTML</p><h2>W3C Markup Validation Service</h2><ol><li class="fragment">Öppna HTML-validatorn.</li><li class="fragment">Ladda upp eller klistra in <code>index.html</code>.</li><li class="fragment">Rätta fel – inte bara varningar du inte förstår.</li><li class="fragment">Kör kontrollen igen tills HTML-koden klarar valideringen.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Validera CSS</p><h2>W3C CSS Validation Service</h2><ol><li class="fragment">Öppna CSS-validatorn.</li><li class="fragment">Ladda upp eller klistra in <code>styles.css</code>.</li><li class="fragment">Rätta syntaxfel.</li><li class="fragment">Kör kontrollen igen tills CSS-koden klarar valideringen.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Publicera kod</p><h2>GitHub-repository</h2><ul><li class="fragment">Lägg filerna i ett repository.</li><li class="fragment">Kontrollera att <code>index.html</code>, <code>styles.css</code> och bilderna finns där.</li><li class="fragment">Öppna filerna på GitHub och kontrollera senaste versionen.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Publicera sida</p><h2>GitHub Pages</h2><ol><li class="fragment">Öppna repositoryts Settings.</li><li class="fragment">Välj Pages.</li><li class="fragment">Publicera från rätt branch och mapp.</li><li class="fragment">Öppna den publicerade adressen och testa sidan.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Lämna in två länkar</p><h2>Kod och publicerad sida</h2><div class="two-column"><div class="prompt-card fragment"><h3>GitHub</h3><p>Länk till repositoryt där läraren kan läsa koden.</p></div><div class="prompt-card fragment"><h3>GitHub Pages</h3><p>Länk till webbsidan som körs i webbläsaren.</p></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Slutkontroll</p><h2>Kontrollera kraven</h2><ul><li class="fragment">Verdana och svart text</li><li class="fragment">Två olika ljusa bakgrunder</li><li class="fragment">Mörka länkar utan understreck – understreck vid hover</li><li class="fragment">Två spalter med Grid eller Flexbox</li><li class="fragment">HTML och CSS validerade</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Inlämningschecklista</p><h2>Allt ska vara klart</h2><ul><li class="fragment">Mappen heter <code>ovn2</code>.</li><li class="fragment">HTML-felen är rättade utan onödiga ändringar.</li><li class="fragment"><code>styles.css</code> är skapad.</li><li class="fragment">Bilder och länkar fungerar.</li><li class="fragment">GitHub- och GitHub Pages-länkarna är testade.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning</p><h2>Gör en sak i taget</h2><ol><li class="fragment">Packa upp och öppna mappen.</li><li class="fragment">Rätta och validera HTML.</li><li class="fragment">Skapa CSS och uppfyll kraven.</li><li class="fragment">Validera CSS.</li><li class="fragment">Publicera och testa båda länkarna.</li></ol></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll("[data-ovn2-demo]").forEach(function(d){const before=d.querySelector("[data-ovn2-before]"),after=d.querySelector("[data-ovn2-after]"),page=d.querySelector("[data-ovn2-page]"),code=d.querySelector("[data-ovn2-code]"),readout=d.querySelector("[data-ovn2-readout]");function setAfter(isAfter){page.classList.toggle("is-after",isAfter);before.setAttribute("aria-pressed",String(!isAfter));after.setAttribute("aria-pressed",String(isAfter));code.textContent=isAfter?'body { font-family: Verdana, sans-serif; }\nsection { display: grid; grid-template-columns: 1fr 1fr; }':'Ingen egen CSS används ännu.';readout.textContent=isAfter?'Kraven på font, färger, länkar och två spalter visas samtidigt.':'Artiklarna ligger under varandra och webbläsarens standardstil används.';}before.addEventListener("click",()=>setAfter(false));after.addEventListener("click",()=>setAfter(true));setAfter(false);});
+  });
+  </script>
+</body>
+</html>

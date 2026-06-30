@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 5.1: Vad JavaScript tillför.">
+  <title>Kap 5.1 – Vad JavaScript tillför</title>
+  <link rel="stylesheet" href="presentation.css?v=15">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 5 · Kapitel 5.1</p><h1>Vad JavaScript tillför</h1><p class="fragment">JavaScript kan ge webbsidan beteende och interaktion.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara vad JavaScript används till</li><li class="fragment">koppla en extern JavaScript-fil</li><li class="fragment">förklara vad <code>defer</code> gör</li><li class="fragment">använda konsolen för testning och felsökning</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tre språk</p><h2>Olika ansvar på samma webbsida</h2><div class="web-role-grid"><div class="web-role fragment"><strong>HTML</strong><span>Innehåll och struktur</span></div><div class="web-role fragment"><strong>CSS</strong><span>Utseende och layout</span></div><div class="web-role fragment"><strong>JavaScript</strong><span>Beteende och interaktion</span></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">HTML</p><h2>Vad finns på sidan?</h2><pre class="code-block no-scroll-code fragment"><code>&lt;button&gt;Öppna meny&lt;/button&gt;</code></pre><p class="fragment">HTML skapar knappen och beskriver dess innehåll.</p><p class="fragment">HTML bestämmer inte automatiskt vad som händer när knappen används.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS</p><h2>Hur ser sidan ut?</h2><pre class="code-block no-scroll-code fragment"><code>button {
+  background: teal;
+  color: white;
+}</code></pre><p class="fragment">CSS kan ändra knappens färg, storlek och placering.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">JavaScript</p><h2>Vad händer på sidan?</h2><ul><li class="fragment">En knapp öppnar en meny.</li><li class="fragment">Ett formulär visar feedback.</li><li class="fragment">Text ändras utan att sidan laddas om.</li><li class="fragment">Innehåll visas eller döljs efter en händelse.</li></ul></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktivt exempel</p><h2>En knapp ändrar sidan</h2><div class="js-interactive" data-message-demo><div class="js-controls"><button type="button" data-message-trigger>Ändra texten</button><code>Knappen utlöser en händelse.
+JavaScript reagerar och ändrar texten.</code><p data-message-count>Antal klick: 0</p></div><div class="js-stage"><div class="js-sample-page"><h3>Min webbsida</h3><p data-message-text>Texten har inte ändrats ännu.</p><button type="button" data-message-page-trigger>Ändra texten</button></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Extern fil</p><h2>Separera JavaScript från HTML</h2><pre class="code-block no-scroll-code fragment"><code>min-sida/
+├── index.html
+├── css/
+│   └── style.css
+└── js/
+    └── main.js</code></pre><p class="fragment">JavaScript-koden skrivs i <code>js/main.js</code>.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Koppla filen</p><h2>script-elementet</h2><pre class="code-block no-scroll-code fragment"><code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code></pre><ul><li class="fragment"><code>src</code> anger sökvägen till filen.</li><li class="fragment"><code>defer</code> styr när koden körs.</li><li class="fragment"><code>&lt;/script&gt;</code> behövs – elementet är inte självstängande.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Placering</p><h2>script-raden i head</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+        content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Min sida&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;script src="js/main.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">defer</p><h2>Vänta tills HTML är läst</h2><div class="flow"><span class="fragment">1<br>HTML börjar läsas</span><span class="fragment">2<br>JavaScript-filen laddas</span><span class="fragment">3<br>HTML läses klart</span><span class="fragment">4<br>Koden körs</span></div><p class="fragment">Då kan JavaScript lättare hitta elementen som redan finns i HTML.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Första testet</p><h2>Skriv till konsolen</h2><pre class="code-block no-scroll-code fragment"><code>console.log("JavaScript fungerar");</code></pre><p class="fragment">Raden ändrar inget på själva webbsidan.</p><p class="fragment">Meddelandet visas i webbläsarens Console.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Öppna konsolen</p><h2>Chrome DevTools</h2><ol><li class="fragment">Öppna sidan i Chrome.</li><li class="fragment">Högerklicka och välj Inspektera.</li><li class="fragment">Öppna fliken Console.</li><li class="fragment">Ladda om sidan.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Console</p><h2>Så kan testmeddelandet se ut</h2><div class="console-demo fragment"><div class="console-tabs"><span class="console-tab">Elements</span><span class="console-tab is-active">Console</span><span class="console-tab">Sources</span><span class="console-tab">Network</span></div><div class="console-body"><div class="console-line">&gt; JavaScript fungerar <small>main.js:1</small></div></div></div><p class="fragment"><code>main.js:1</code> betyder att meddelandet kommer från rad 1 i filen.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv konsol</p><h2>Testmeddelande eller fel</h2><div class="js-interactive" data-console-demo><div class="js-controls"><button type="button" data-console-success>Kör fungerande kod</button><button type="button" data-console-error>Simulera ett fel</button><button type="button" data-console-clear>Rensa Console</button><p>Läs meddelandet och filens radnummer.</p></div><div class="js-stage"><div class="console-demo"><div class="console-tabs"><span class="console-tab">Elements</span><span class="console-tab is-active">Console</span><span class="console-tab">Sources</span></div><div class="console-body" data-console-body></div></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Felmeddelanden</p><h2>Läs från vänster till höger</h2><pre class="code-block no-scroll-code fragment"><code>Uncaught ReferenceError: message is not defined
+    at main.js:4</code></pre><ul><li class="fragment"><strong>Typ:</strong> ReferenceError</li><li class="fragment"><strong>Problem:</strong> namnet <code>message</code> är inte definierat</li><li class="fragment"><strong>Plats:</strong> <code>main.js</code>, rad 4</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Små steg</p><h2>Testa en sak i taget</h2><div class="validation-flow"><div class="validation-step fragment"><strong>1. Koppla</strong>Ser du console.log?</div><div class="validation-step fragment"><strong>2. Hitta</strong>Kan koden hitta elementet?</div><div class="validation-step fragment"><strong>3. Ändra</strong>Händer rätt sak på sidan?</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">När inget händer</p><h2>Kontrollera i denna ordning</h2><ol><li class="fragment">Är filnamnet och sökvägen rätt?</li><li class="fragment">Har du sparat filerna?</li><li class="fragment">Har sidan laddats om?</li><li class="fragment">Finns ett fel i Console?</li><li class="fragment">Pekar felet på en viss rad?</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prova själv</p><h2>Koppla din första JavaScript-fil</h2><ol><li class="fragment">Skapa mappen <code>js</code>.</li><li class="fragment">Skapa <code>js/main.js</code>.</li><li class="fragment">Koppla filen med <code>script</code> och <code>defer</code>.</li><li class="fragment">Skriv ett <code>console.log()</code>-meddelande.</li><li class="fragment">Öppna Console och kontrollera resultatet.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">JavaScript ger sidan beteende.</li><li class="fragment">Extern kod kan ligga i <code>js/main.js</code>.</li><li class="fragment"><code>script src</code> kopplar filen.</li><li class="fragment"><code>defer</code> väntar tills HTML har lästs.</li><li class="fragment">Console visar testmeddelanden och fel.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll("[data-message-demo]").forEach(function(d){const triggers=[d.querySelector("[data-message-trigger]"),d.querySelector("[data-message-page-trigger]")],text=d.querySelector("[data-message-text]"),countText=d.querySelector("[data-message-count]");let count=0;function change(){count+=1;text.textContent=count%2?"JavaScript har ändrat texten!":"Texten är tillbaka i sitt första läge.";countText.textContent="Antal klick: "+count;}triggers.forEach(e=>e.addEventListener("click",change));});
+    document.querySelectorAll("[data-console-demo]").forEach(function(d){const body=d.querySelector("[data-console-body]");function line(text,error){const el=document.createElement("div");el.className="console-line"+(error?" is-error":"");el.textContent=text;body.appendChild(el);}[d.querySelector("[data-console-success]")].forEach(e=>e.addEventListener("click",()=>line("JavaScript fungerar    main.js:1",false)));d.querySelector("[data-console-error]").addEventListener("click",()=>line("Uncaught ReferenceError: message is not defined    main.js:4",true));d.querySelector("[data-console-clear]").addEventListener("click",()=>{body.innerHTML="";});});
+  });
+  </script>
+</body>
+</html>
