@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 5.3: Formulär och feedback.">
+  <title>Kap 5.3 – Formulär och feedback</title>
+  <link rel="stylesheet" href="presentation.css?v=17">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 5 · Kapitel 5.3</p><h1>Formulär och feedback</h1><p class="fragment">JavaScript kan läsa fält och ge användaren direkt återkoppling.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">lyssna på formulärets <code>submit</code>-event</li><li class="fragment">stoppa vanlig skickning med <code>preventDefault()</code></li><li class="fragment">läsa ett fält med <code>value</code></li><li class="fragment">visa tydlig feedback i sidan</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Formulärets händelse</p><h2>Lyssna på submit</h2><pre class="code-block no-scroll-code fragment"><code>form.addEventListener("submit", function (event) {
+  // Koden körs när formuläret skickas
+});</code></pre><p class="fragment"><code>submit</code> tillhör formuläret, inte bara knappen.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Varför submit?</p><h2>Två sätt att skicka formuläret</h2><div class="submit-compare"><div class="submit-choice fragment"><strong>Mus eller touch</strong>Klick på submit-knappen</div><div class="submit-choice fragment"><strong>Tangentbord</strong>Enter i ett formulärfält</div></div><p class="fragment">Båda sätten utlöser formulärets <code>submit</code>-event.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv submit</p><h2>Klicka eller tryck Enter</h2><div class="form-lab" data-submit-demo><div class="form-lab-info"><code>form.addEventListener("submit", function (event) {
+  ...
+});</code><p data-submit-count>Antal submit-events: 0</p><p>Placera markören i fältet och tryck Enter. Testa sedan knappen.</p></div><div class="form-lab-stage"><form class="form-lab-form" data-submit-form><label>Namn<input type="text" placeholder="Skriv ett namn"></label><button type="submit">Skicka</button><p class="form-feedback" data-submit-feedback>Väntar på submit...</p></form></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">event</p><h2>Information om händelsen</h2><pre class="code-block no-scroll-code fragment"><code>form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});</code></pre><p class="fragment">Parametern <code>event</code> representerar den submit-händelse som just inträffade.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Standardbeteende</p><h2>Vad gör webbläsaren normalt?</h2><p class="fragment">När ett formulär skickas försöker webbläsaren följa formulärets <code>action</code>.</p><p class="fragment">Det kan ladda en ny sida eller ladda om den nuvarande sidan.</p><p class="fragment">Då försvinner JavaScripts tillfälliga feedback om vi inte stoppar beteendet.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">preventDefault</p><h2>Stoppa den vanliga skickningen</h2><pre class="code-block no-scroll-code fragment"><code>event.preventDefault();</code></pre><ul><li class="fragment">Webbläsarens standardbeteende stoppas.</li><li class="fragment">JavaScript kan kontrollera värdena.</li><li class="fragment">Feedback kan visas utan sidomladdning.</li></ul></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv preventDefault</p><h2>Feedbacken stannar kvar</h2><div class="form-lab" data-prevent-demo><div class="form-lab-info"><code>event.preventDefault();</code><p data-prevent-readout>Formuläret har inte skickats ännu.</p></div><div class="form-lab-stage"><form class="form-lab-form" data-prevent-form><label>Testfält<input type="text" value="Test"></label><button type="submit">Skicka utan omladdning</button><p class="form-feedback" data-prevent-feedback>Feedback visas här.</p></form></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">value</p><h2>Läs vad användaren har skrivit</h2><pre class="code-block no-scroll-code fragment"><code>const nameInput = document.querySelector("#name");
+
+nameInput.value</code></pre><p class="fragment"><code>value</code> innehåller fältets aktuella värde.</p><p class="fragment">När användaren skriver ändras värdet.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv value</p><h2>Se värdet medan du skriver</h2><div class="form-lab" data-value-demo><div class="form-lab-info"><code>nameInput.value</code><p data-value-code>Aktuellt value: ""</p></div><div class="form-lab-stage"><form class="form-lab-form" onsubmit="return false"><label>Namn<input type="text" data-value-input placeholder="Skriv här"></label><p class="form-feedback" data-value-output>Fältet är tomt.</p></form></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tomt värde</p><h2>Kontrollera med ett villkor</h2><pre class="code-block no-scroll-code fragment"><code>if (email.value === "") {
+  feedback.textContent = "Skriv en e-postadress.";
+}</code></pre><p class="fragment"><code>=== ""</code> betyder att värdet är en tom textsträng.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">trim()</p><h2>Mellanslag räknas inte som innehåll</h2><pre class="code-block no-scroll-code fragment"><code>if (nameInput.value.trim() === "") {
+  feedback.textContent = "Skriv ett namn först.";
+}</code></pre><p class="fragment"><code>trim()</code> tar bort mellanslag i början och slutet innan värdet kontrolleras.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kombinera text</p><h2>Använd fältets värde i feedbacken</h2><pre class="code-block no-scroll-code fragment"><code>feedback.textContent =
+  "Hej " + nameInput.value + "!";</code></pre><p class="fragment"><code>+</code> sätter ihop textsträngarna och värdet.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv hälsning</p><h2>Läs value och visa feedback</h2><div class="form-lab" data-greeting-demo><div class="form-lab-info"><code>feedback.textContent =
+  "Hej " + nameInput.value + "!";</code><p>Tomt namn ger ett konkret felmeddelande.</p></div><div class="form-lab-stage"><form class="form-lab-form" data-greeting-form><label>Namn<input type="text" data-greeting-name placeholder="Skriv ditt namn"></label><button type="submit">Visa hälsning</button><p class="form-feedback" data-greeting-feedback>Skriv ett namn och skicka.</p></form></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tydlig feedback</p><h2>Säg vad användaren behöver göra</h2><table class="comparison"><thead><tr><th>Otydligt</th><th>Tydligt</th></tr></thead><tbody><tr><td class="fragment">Fel.</td><td class="fragment">Skriv en e-postadress.</td></tr><tr><td class="fragment">Ogiltigt.</td><td class="fragment">Meddelandet måste vara minst 10 tecken.</td></tr></tbody></table></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Placering</p><h2>Visa feedback nära formuläret</h2><pre class="code-block no-scroll-code fragment"><code>&lt;form id="contact-form"&gt;
+  ...
+  &lt;p id="feedback"&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre><p class="fragment">Användaren ska snabbt förstå vilket formulär eller fält meddelandet gäller.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Längd</p><h2>Kontrollera antal tecken</h2><pre class="code-block no-scroll-code fragment"><code>if (message.value.trim().length &lt; 10) {
+  feedback.textContent =
+    "Meddelandet måste vara minst 10 tecken.";
+}</code></pre><p class="fragment"><code>length</code> ger antalet tecken i texten.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv längdkontroll</p><h2>Minst 10 tecken</h2><div class="form-lab" data-length-demo><div class="form-lab-info"><code>message.value.trim().length &lt; 10</code><p data-length-count>0 av minst 10 tecken</p></div><div class="form-lab-stage"><form class="form-lab-form" data-length-form><label>Meddelande<textarea rows="3" data-length-message placeholder="Skriv minst 10 tecken"></textarea></label><button type="submit">Kontrollera</button><p class="form-feedback" data-length-feedback>Feedback visas här.</p></form></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Feedbackens utseende</p><h2>Växla CSS-klasser</h2><pre class="code-block compact-code no-scroll-code fragment"><code>feedback.classList.add("is-error");
+feedback.classList.remove("is-ok");</code></pre><p class="fragment">JavaScript väljer tillståndet. CSS visar färg, kant och bakgrund.</p><p class="fragment">Texten måste fortfarande förklara resultatet – färg ensam räcker inte.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Komplett exempel</p><h2>Formulär med direkt feedback</h2><div class="form-lab" data-complete-form-demo><div class="form-lab-info"><code>form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  // kontrollera och visa feedback
+});</code></div><div class="form-lab-stage"><form class="form-lab-form" data-complete-form><label>Namn<input type="text" data-complete-name></label><label>E-post<input type="email" data-complete-email></label><button type="submit">Kontrollera</button><p class="form-feedback" data-complete-feedback>Fyll i båda fälten.</p></form></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prova själv</p><h2>Bygg formulärfeedback</h2><ol><li class="fragment">Hämta formuläret, fältet och feedbackelementet.</li><li class="fragment">Lyssna på <code>submit</code>.</li><li class="fragment">Använd <code>preventDefault()</code>.</li><li class="fragment">Läs fältets <code>value</code>.</li><li class="fragment">Visa ett konkret fel eller ett tydligt godkänt meddelande.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Lyssna på formulärets <code>submit</code>.</li><li class="fragment"><code>preventDefault()</code> stoppar vanlig skickning.</li><li class="fragment"><code>value</code> innehåller fältets aktuella värde.</li><li class="fragment"><code>trim()</code> tar bort omgivande mellanslag.</li><li class="fragment">Feedback ska vara synlig, konkret och placerad nära formuläret.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    function state(element,type,text){element.classList.remove("is-ok","is-error");if(type)element.classList.add(type);element.textContent=text;}
+    document.querySelectorAll("[data-submit-demo]").forEach(function(d){const form=d.querySelector("[data-submit-form]"),feedback=d.querySelector("[data-submit-feedback]"),countText=d.querySelector("[data-submit-count]");let count=0;form.addEventListener("submit",function(event){event.preventDefault();count+=1;countText.textContent="Antal submit-events: "+count;state(feedback,"is-ok","Submit fångades utan sidomladdning.");});});
+    document.querySelectorAll("[data-prevent-demo]").forEach(function(d){const form=d.querySelector("[data-prevent-form]"),feedback=d.querySelector("[data-prevent-feedback]"),readout=d.querySelector("[data-prevent-readout]");form.addEventListener("submit",function(event){event.preventDefault();state(feedback,"is-ok","Standardbeteendet stoppades. Den här texten stannar kvar.");readout.textContent="preventDefault() kördes.";});});
+    document.querySelectorAll("[data-value-demo]").forEach(function(d){const input=d.querySelector("[data-value-input]"),output=d.querySelector("[data-value-output]"),code=d.querySelector("[data-value-code]");input.addEventListener("input",function(){const value=input.value;output.textContent=value===""?"Fältet är tomt.":value;code.textContent='Aktuellt value: "'+value+'"';});});
+    document.querySelectorAll("[data-greeting-demo]").forEach(function(d){const form=d.querySelector("[data-greeting-form]"),input=d.querySelector("[data-greeting-name]"),feedback=d.querySelector("[data-greeting-feedback]");form.addEventListener("submit",function(event){event.preventDefault();const name=input.value.trim();if(name==="")state(feedback,"is-error","Skriv ett namn först.");else state(feedback,"is-ok","Hej "+name+"! Formuläret fångades utan omladdning.");});});
+    document.querySelectorAll("[data-length-demo]").forEach(function(d){const form=d.querySelector("[data-length-form]"),message=d.querySelector("[data-length-message]"),feedback=d.querySelector("[data-length-feedback]"),count=d.querySelector("[data-length-count]");function update(){count.textContent=message.value.trim().length+" av minst 10 tecken";}message.addEventListener("input",update);form.addEventListener("submit",function(event){event.preventDefault();if(message.value.trim().length<10)state(feedback,"is-error","Meddelandet måste vara minst 10 tecken.");else state(feedback,"is-ok","Tack. Meddelandet är tillräckligt långt.");});update();});
+    document.querySelectorAll("[data-complete-form-demo]").forEach(function(d){const form=d.querySelector("[data-complete-form]"),name=d.querySelector("[data-complete-name]"),email=d.querySelector("[data-complete-email]"),feedback=d.querySelector("[data-complete-feedback]");form.addEventListener("submit",function(event){event.preventDefault();if(name.value.trim()==="")state(feedback,"is-error","Skriv ditt namn.");else if(email.value.trim()==="")state(feedback,"is-error","Skriv din e-postadress.");else state(feedback,"is-ok","Tack "+name.value.trim()+"! Båda fälten är ifyllda.");});});
+  });
+  </script>
+</body>
+</html>
