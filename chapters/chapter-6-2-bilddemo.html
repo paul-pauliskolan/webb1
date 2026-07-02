@@ -91,6 +91,12 @@
             margin-top: 0.35rem;
         }
 
+        .image-credit {
+            margin: 0.75rem 0 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         @media (min-width: 820px) {
             .demo-grid {
                 grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
@@ -150,7 +156,7 @@
     alt="Testbild"&gt;</code></pre>
 
                 <h2>Lazy loading</h2>
-                <p>Bilden direkt här nedanför laddas normalt direkt. Därefter kommer tio bilder under varandra med <code>loading="lazy"</code>. Öppna gärna Network-panelen i utvecklarverktygen, ladda om sidan och scrolla långsamt nedåt. Då blir det tydligt att bilder längre ner på sidan inte behöver hämtas direkt. Om du har snabb uppkoppling kan bilderna ändå laddas så snabbt att du knappt hinner se det, men Network-panelen visar fortfarande när varje bild hämtas.</p>
+                <p>Bilden direkt här nedanför laddas normalt direkt. Därefter kommer tio stora astronomibilder under varandra med <code>loading="lazy"</code>. Bildfilerna är sammanlagt cirka 93 MB och används här medvetet för att göra laddningen synlig. Öppna Network-panelen i utvecklarverktygen, markera <em>Disable cache</em>, ladda om sidan och scrolla långsamt nedåt.</p>
 
                 <div class="demo-panel">
                     <h3>Bild som laddas direkt</h3>
@@ -173,13 +179,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 1 av 10</h3>
+                    <h3>1. Hubble Extreme Deep Field</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-01.webp"
+                        src="../assets/images/astronomy-lazy/01-hubble-extreme-deep-field.png"
                         loading="lazy"
-                        alt="Lazy loading bild 1 av 10."
-                        data-demo-name="Lazy bild 1">
+                        alt="Tusentals avlägsna galaxer i Hubble Extreme Deep Field."
+                        data-demo-name="Hubble Extreme Deep Field">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Hubble_Extreme_Deep_Field_(full_resolution).png">NASA/ESA via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -187,13 +194,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 2 av 10</h3>
+                    <h3>2. Webb's First Deep Field</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-02.webp"
+                        src="../assets/images/astronomy-lazy/02-webb-first-deep-field.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 2 av 10."
-                        data-demo-name="Lazy bild 2">
+                        alt="Galaxhopen SMACS 0723 fotograferad av James Webb-teleskopet."
+                        data-demo-name="Webb's First Deep Field">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Webb%27s_First_Deep_Field_(adjusted).jpg">NASA, ESA, CSA och STScI via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -201,13 +209,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 3 av 10</h3>
+                    <h3>3. Hubble Ultra Deep Field</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-03.webp"
+                        src="../assets/images/astronomy-lazy/03-hubble-ultra-deep-field.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 3 av 10."
-                        data-demo-name="Lazy bild 3">
+                        alt="Ett djuprymdsfält fyllt med avlägsna galaxer."
+                        data-demo-name="Hubble Ultra Deep Field">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Hubble_ultra_deep_field.jpg">NASA/ESA via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -215,13 +224,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 4 av 10</h3>
+                    <h3>4. Krabbnebulosan</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-04.webp"
+                        src="../assets/images/astronomy-lazy/04-crab-nebula.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 4 av 10."
-                        data-demo-name="Lazy bild 4">
+                        alt="Krabbnebulosans färgrika gasmoln och filament."
+                        data-demo-name="Krabbnebulosan">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Crab_Nebula.jpg">NASA, ESA och Hubble via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -229,13 +239,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 5 av 10</h3>
+                    <h3>5. Södra ringnebulosan</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-05.webp"
+                        src="../assets/images/astronomy-lazy/05-southern-ring-nebula.png"
                         loading="lazy"
-                        alt="Lazy loading bild 5 av 10."
-                        data-demo-name="Lazy bild 5">
+                        alt="Södra ringnebulosan fotograferad av James Webb-teleskopet."
+                        data-demo-name="Södra ringnebulosan">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:JWST_SouthernRingNebula.png">NASA, ESA, CSA och STScI via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -243,13 +254,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 6 av 10</h3>
+                    <h3>6. Tarantelnebulosan – närbild</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-06.webp"
+                        src="../assets/images/astronomy-lazy/06-close-up-tarantula-nebula.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 6 av 10."
-                        data-demo-name="Lazy bild 6">
+                        alt="Närbild av stjärnor och gas i Tarantelnebulosan."
+                        data-demo-name="Tarantelnebulosan, närbild">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Close-up_Tarantula_Nebula.jpg">NASA/ESA via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -257,13 +269,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 7 av 10</h3>
+                    <h3>7. Tarantelnebulosan i flera våglängder</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-07.webp"
+                        src="../assets/images/astronomy-lazy/07-new-view-tarantula-nebula.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 7 av 10."
-                        data-demo-name="Lazy bild 7">
+                        alt="Tarantelnebulosan sammansatt av observationer i flera våglängder."
+                        data-demo-name="Tarantelnebulosan i flera våglängder">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:A_New_View_of_the_Tarantula_Nebula.jpg">NASA/CXC/SAO, ESA och JPL-Caltech via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -271,13 +284,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 8 av 10</h3>
+                    <h3>8. Andromedagalaxen</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-08.webp"
+                        src="../assets/images/astronomy-lazy/08-andromeda-galaxy.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 8 av 10."
-                        data-demo-name="Lazy bild 8">
+                        alt="Andromedagalaxens spiralform och ljusa kärna."
+                        data-demo-name="Andromedagalaxen">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Andromeda_galaxy.jpg">NASA via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -285,13 +299,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 9 av 10</h3>
+                    <h3>9. Cosmic Cliffs</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-09.webp"
+                        src="../assets/images/astronomy-lazy/09-cosmic-cliffs.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 9 av 10."
-                        data-demo-name="Lazy bild 9">
+                        alt="Cosmic Cliffs i Carinanebulosan med stjärnor och moln av gas och stoft."
+                        data-demo-name="Cosmic Cliffs">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:%E2%80%9CCosmic_Cliffs%E2%80%9D_in_the_Carina_Nebula_(NIRCam_and_MIRI_Composite_Image)_(weic2205b).jpg">NASA, ESA, CSA och STScI via Wikimedia Commons</a>.</p>
                 </div>
 
                 <div class="lazy-spacer">
@@ -299,13 +314,14 @@
                 </div>
 
                 <div class="demo-panel">
-                    <h3>Lazy loading bild 10 av 10</h3>
+                    <h3>10. Skapelsens pelare</h3>
                     <img
                         class="demo-image observed-image"
-                        src="../assets/images/demo-lazy-10.webp"
+                        src="../assets/images/astronomy-lazy/10-pillars-of-creation.jpg"
                         loading="lazy"
-                        alt="Lazy loading bild 10 av 10."
-                        data-demo-name="Lazy bild 10">
+                        alt="Skapelsens pelare fotograferade av James Webb-teleskopet."
+                        data-demo-name="Skapelsens pelare">
+                    <p class="image-credit">Källa och licens: <a href="https://commons.wikimedia.org/wiki/File:Pillars_of_Creation_(NIRCam_Image).jpg">NASA, ESA, CSA och STScI via Wikimedia Commons</a>.</p>
                 </div>
 
                 <pre><code>&lt;img src="bild-direkt.svg" alt="..."&gt;

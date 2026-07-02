@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">SVG-testbild för kraftig zoom</title>
+  <desc id="desc">Geometriska former, tunna linjer, kurvor och text som behåller skarpa kanter vid inzoomning.</desc>
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  <g stroke="#cbd5e1" stroke-width="2">
+    <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200M0 700H1200"/>
+    <path d="M100 0V800M200 0V800M300 0V800M400 0V800M500 0V800M600 0V800M700 0V800M800 0V800M900 0V800M1000 0V800M1100 0V800"/>
+  </g>
+  <g transform="translate(600 400)">
+    <circle r="290" fill="#dbeafe" stroke="#1d4ed8" stroke-width="10"/>
+    <circle r="220" fill="#ffffff" stroke="#0f766e" stroke-width="7"/>
+    <circle r="145" fill="#ccfbf1" stroke="#be123c" stroke-width="4"/>
+    <path d="M-260 0H260M0-260V260M-185-185L185 185M185-185L-185 185" fill="none" stroke="#172026" stroke-width="3"/>
+    <path d="M-210 115C-120-190 120 190 210-115" fill="none" stroke="#7c3aed" stroke-width="8"/>
+    <path d="M-210-115C-120 190 120-190 210 115" fill="none" stroke="#e67e00" stroke-width="5"/>
+    <polygon points="0,-120 28,-38 114,-37 45,14 70,96 0,48 -70,96 -45,14 -114,-37 -28,-38" fill="#fbbf24" stroke="#172026" stroke-width="4"/>
+    <text x="0" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="800" fill="#075985">SVG</text>
+    <text x="0" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#172026">linjer · kurvor · text</text>
+  </g>
+</svg>

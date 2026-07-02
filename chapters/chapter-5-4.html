@@ -99,8 +99,17 @@ menuButton.addEventListener("click", function () {
                     </nav>
                 </div>
 
+                <h2>Vad är ARIA?</h2>
+                <p>ARIA står för <em>Accessible Rich Internet Applications</em>. ARIA-attribut ger hjälpmedel, till exempel skärmläsare, extra information om en interaktiv komponents funktion och aktuella läge.</p>
+                <p>ARIA skapar inte själva funktionen. JavaScript öppnar och stänger fortfarande menyn, medan ARIA beskriver för hjälpmedel vad knappen styr och om menyn är öppen.</p>
+                <ul>
+                    <li><code>aria-controls="aria-demo-menu"</code> kopplar knappen till elementet med <code>id="aria-demo-menu"</code>.</li>
+                    <li><code>aria-expanded="false"</code> betyder att det styrda innehållet är stängt.</li>
+                    <li><code>aria-expanded="true"</code> betyder att det styrda innehållet är öppet.</li>
+                </ul>
+
                 <h2>Uppdatera tillgängligt läge</h2>
-                <p>Om en knapp öppnar och stänger något bör <code>aria-expanded</code> spegla läget.</p>
+                <p>Om en knapp öppnar och stänger något bör <code>aria-expanded</code> alltid spegla det verkliga läget. Annars kan det som hjälpmedlet meddelar motsäga det som syns på skärmen.</p>
                 <pre><code>const isOpen = menu.classList.toggle("is-open");
 menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
                 <div class="interaction-example" aria-label="Exempel på aria-expanded">
@@ -126,6 +135,10 @@ menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
 
                 <h2>När räcker enkel JavaScript?</h2>
                 <p>För små komponenter behöver du oftast inget ramverk. Börja enkelt och bygg bara mer avancerat när problemet kräver det.</p>
+
+                <h2>Lösningsförslag</h2>
+                <p>När du har provat själv kan du ladda ner ett kommenterat exempel med HTML, CSS och JavaScript.</p>
+                <p><a href="../assets/solutions/kap-5-4-losningsforslag.zip" download>Ladda ner lösningsförslag för kapitel 5.4</a></p>
             </section>
 
             <div id="quiz-5-4" aria-label="Quiz Kap 5.4"></div>

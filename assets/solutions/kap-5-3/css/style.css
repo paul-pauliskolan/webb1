@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background: #e8f3f1;
+  color: #172026;
+  font-family: Verdana, sans-serif;
+}
+
+.card {
+  width: min(100%, 42rem);
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+form { display: grid; gap: 0.6rem; }
+label { font-weight: 700; }
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.1rem solid #94a3b8;
+  border-radius: 0.4rem;
+  font: inherit;
+}
+
+button {
+  justify-self: start;
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: #075985;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.feedback {
+  padding: 0.8rem;
+  border: 0.15rem solid #94a3b8;
+  border-radius: 0.4rem;
+}
+
+/* JavaScript väljer mellan fel- och godkänt-läge. */
+.feedback.is-error { border-color: #be123c; background: #ffe4e6; }
+.feedback.is-ok { border-color: #0f766e; background: #ccfbf1; }

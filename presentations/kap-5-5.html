@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 5.5: Miniuppgift – interaktiv komponent.">
+  <title>Kap 5.5 – Miniuppgift: interaktiv komponent</title>
+  <link rel="stylesheet" href="presentation.css?v=19">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 5 · Kapitel 5.5</p><h1>Miniuppgift: interaktiv komponent</h1><p class="fragment">Bygg en liten komponent där JavaScript ändrar något synligt på sidan.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Du ska visa att du kan...</h2><ul><li class="fragment">planera en enkel interaktion</li><li class="fragment">använda en extern JavaScript-fil</li><li class="fragment">hämta element och lyssna på event</li><li class="fragment">ändra sidan synligt</li><li class="fragment">testa med mus, tangentbord och Console</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppgift</p><h2>Bygg en komponent på en befintlig sida</h2><p class="fragment">Komponenten ska göra en tydlig sak.</p><p class="fragment">Välj en av idéerna i kapitlet eller skapa en egen på samma nivå.</p><p class="fragment">Börja inte med flera funktioner samtidigt.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Välj komponent</p><h2>Fyra idéer</h2><div class="component-choice-grid"><div class="component-choice fragment"><strong>Menyknapp</strong>Öppnar och stänger navigationen</div><div class="component-choice fragment"><strong>Tema</strong>Växlar tema eller kontrastläge</div><div class="component-choice fragment"><strong>FAQ</strong>Öppnar och stänger svar</div><div class="component-choice fragment"><strong>Formulär</strong>Visar feedback utan omladdning</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Planera först</p><h2>Beskriv interaktionen i tre steg</h2><div class="component-plan"><div class="component-plan-step fragment"><strong>Startläge</strong>Vad ser användaren först?</div><div class="component-plan-step fragment"><strong>Händelse</strong>Vad gör användaren?</div><div class="component-plan-step fragment"><strong>Nytt läge</strong>Vad förändras synligt?</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exempelplan</p><h2>En panel som öppnas</h2><table class="comparison"><thead><tr><th>Del</th><th>Plan</th></tr></thead><tbody><tr><td class="fragment">Startläge</td><td class="fragment">Panelen är dold.</td></tr><tr><td class="fragment">Händelse</td><td class="fragment">Användaren klickar på knappen.</td></tr><tr><td class="fragment">Nytt läge</td><td class="fragment">Panelen visas med klassen <code>is-open</code>.</td></tr></tbody></table></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 1</p><h2>Extern JavaScript-fil</h2><pre class="code-block no-scroll-code fragment"><code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code></pre><p class="fragment">Beteendet ska ligga i JavaScript-filen, inte direkt i HTML-elementen.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 2</p><h2>Hämta minst ett element</h2><pre class="code-block no-scroll-code fragment"><code>const button =
+  document.querySelector(".toggle-button");</code></pre><p class="fragment">Selektorn ska matcha elementet i din HTML.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 3</p><h2>Hantera minst ett event</h2><pre class="code-block no-scroll-code fragment"><code>button.addEventListener("click", function () {
+  // Ändringen sker här
+});</code></pre><p class="fragment">En riktig <code>button</code> fungerar med både mus och tangentbord.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 4</p><h2>Sidan ska ändras synligt</h2><ul><li class="fragment">En klass växlas.</li><li class="fragment">En text ändras.</li><li class="fragment">En panel visas eller döljs.</li><li class="fragment">Feedback visas nära ett formulär.</li></ul><p class="fragment">Användaren ska förstå att något hände.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 5</p><h2>Läget ska vara begripligt</h2><table class="comparison"><thead><tr><th>Otydligt</th><th>Tydligt</th></tr></thead><tbody><tr><td class="fragment">Knappen säger alltid ”Klicka”.</td><td class="fragment">Knappen säger ”Visa” eller ”Dölj”.</td></tr><tr><td class="fragment">Ingen synlig reaktion.</td><td class="fragment">Panel, text eller feedback ändras.</td></tr></tbody></table></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startmall 1</p><h2>Hämta elementen</h2><pre class="code-block no-scroll-code fragment"><code>const button =
+  document.querySelector(".toggle-button");
+
+const panel =
+  document.querySelector(".panel");</code></pre><p class="fragment">Börja med att kontrollera att selektorerna stämmer.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startmall 2</p><h2>Lyssna och växla klass</h2><pre class="code-block no-scroll-code fragment"><code>button.addEventListener("click", function () {
+  panel.classList.toggle("is-open");
+});</code></pre><p class="fragment">CSS-klassen bestämmer hur panelens öppna läge ser ut.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS</p><h2>Definiera båda lägena</h2><pre class="code-block no-scroll-code fragment"><code>.panel {
+  display: none;
+}
+
+.panel.is-open {
+  display: block;
+}</code></pre></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Simulerat exempel</p><h2>Interaktiv panel</h2><div class="interaction-lab" data-component-demo><div class="interaction-info"><code>panel.classList.toggle("is-open");</code><p data-component-status>Startläge: panelen är stängd.</p></div><div class="interaction-stage"><div class="interaction-page"><button class="toggle-button" type="button" data-component-button>Visa panel</button><div class="component-demo-panel" data-component-panel><h3>Panelens innehåll</h3><p>JavaScript har växlat klassen <code>is-open</code>.</p></div></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Test 1</p><h2>Mus och tangentbord</h2><ol><li class="fragment">Klicka på knappen med musen.</li><li class="fragment">Tryck Tab tills knappen får fokus.</li><li class="fragment">Aktivera knappen med Enter.</li><li class="fragment">Aktivera knappen med mellanslag.</li></ol><p class="fragment">Komponenten ska fungera utan mus.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Test 2</p><h2>Kontrollera Console</h2><ul><li class="fragment">Ladda om sidan.</li><li class="fragment">Öppna Console.</li><li class="fragment">Testa komponenten flera gånger.</li><li class="fragment">Rätta alla felmeddelanden.</li></ul><p class="fragment">Kontrollera särskilt att JavaScript hittar rätt element.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Test 3</p><h2>Ladda om sidan</h2><p class="fragment">Komponenten ska fungera även efter en omladdning.</p><p class="fragment">Om den bara fungerar efter andra klick eller manuella ändringar finns ett fel i startläget.</p><p class="fragment">HTML, CSS och JavaScript ska börja i samma läge.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Självkontroll</p><h2>Innan du är klar</h2><ul><li class="fragment">Syns det tydligt vad som händer?</li><li class="fragment">Är Console fri från fel?</li><li class="fragment">Fungerar komponenten efter omladdning?</li><li class="fragment">Är klass- och variabelnamn begripliga?</li><li class="fragment">Fungerar knappen med tangentbord?</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning</p><h2>Bygg i små steg</h2><ol><li class="fragment">Skapa fungerande HTML.</li><li class="fragment">Skapa stängt och öppet läge i CSS.</li><li class="fragment">Koppla den externa JavaScript-filen.</li><li class="fragment">Hämta elementen.</li><li class="fragment">Lägg till eventet och klassväxlingen.</li><li class="fragment">Testa innan du bygger mer.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>En bra liten komponent</h2><ul><li class="fragment">gör en sak tydligt</li><li class="fragment">har JavaScript i en extern fil</li><li class="fragment">hämtar element och lyssnar på ett event</li><li class="fragment">ändrar sidan synligt</li><li class="fragment">fungerar med mus och tangentbord utan fel i Console</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll("[data-component-demo]").forEach(function(d){const button=d.querySelector("[data-component-button]"),panel=d.querySelector("[data-component-panel]"),status=d.querySelector("[data-component-status]");button.addEventListener("click",function(){const isOpen=panel.classList.toggle("is-open");button.textContent=isOpen?"Dölj panel":"Visa panel";status.textContent=isOpen?"Nytt läge: panelen är öppen.":"Startläge: panelen är stängd.";});});
+  });
+  </script>
+</body>
+</html>

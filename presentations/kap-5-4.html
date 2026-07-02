@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 5.4: Små interaktioner utan ramverk.">
+  <title>Kap 5.4 – Små interaktioner utan ramverk</title>
+  <link rel="stylesheet" href="presentation.css?v=18">
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 5 · Kapitel 5.4</p><h1>Små interaktioner utan ramverk</h1><p class="fragment">Vanlig HTML, CSS och lite JavaScript räcker långt.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">bygga en liten interaktion med knapp, event och klass</li><li class="fragment">uppdatera <code>aria-expanded</code></li><li class="fragment">visa, dölja eller byta ett synligt läge</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Grundmönster</p><h2>Tre steg återkommer</h2><div class="event-flow"><div class="event-step fragment"><strong>1. Hitta</strong>querySelector</div><div class="event-step fragment"><strong>2. Lyssna</strong>addEventListener</div><div class="event-step fragment"><strong>3. Ändra</strong>klass, attribut eller text</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Meny</p><h2>Hitta knappen och menyn</h2><pre class="code-block no-scroll-code fragment"><code>const menuButton =
+  document.querySelector(".menu-button");
+
+const menu =
+  document.querySelector(".menu");</code></pre><p class="fragment">Variablerna pekar på de två HTML-element som ska samarbeta.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Klick</p><h2>Lyssna på menyknappen</h2><pre class="code-block no-scroll-code fragment"><code>menuButton.addEventListener("click", function () {
+  menu.classList.toggle("is-open");
+});</code></pre><p class="fragment">Varje klick växlar klassen <code>is-open</code>.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS</p><h2>Klassen styr synligheten</h2><pre class="code-block no-scroll-code fragment"><code>.menu {
+  display: none;
+}
+
+.menu.is-open {
+  display: grid;
+}</code></pre><p class="fragment">JavaScript växlar klassen. CSS visar eller döljer menyn.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv meny</p><h2>Visa och dölj</h2><div class="interaction-lab" data-menu-demo><div class="interaction-info"><code>menu.classList.toggle("is-open");</code><p data-menu-status>Klassen is-open saknas. Menyn är dold.</p></div><div class="interaction-stage"><div class="interaction-page"><button type="button" data-menu-button>Visa meny</button><nav class="demo-menu" data-menu aria-label="Simulerad meny"><a href="#">Start</a><a href="#">Om sidan</a><a href="#">Kontakt</a></nav></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">ARIA</p><h2>Extra information för hjälpmedel</h2><ul><li class="fragment">ARIA står för <em>Accessible Rich Internet Applications</em>.</li><li class="fragment">ARIA-attribut hjälper exempelvis skärmläsare att förstå en komponents funktion och läge.</li><li class="fragment">ARIA skapar inte funktionen. JavaScript öppnar och stänger fortfarande menyn.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">aria-controls</p><h2>Vad styr knappen?</h2><pre class="code-block no-scroll-code fragment"><code>&lt;button aria-controls="main-menu"&gt;
+  Visa meny
+&lt;/button&gt;
+
+&lt;nav id="main-menu"&gt;...&lt;/nav&gt;</code></pre><p class="fragment"><code>aria-controls</code> kopplar knappen till elementet vars <code>id</code> har samma värde.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tillgängligt läge</p><h2>aria-expanded beskriver läget</h2><pre class="code-block no-scroll-code fragment"><code>&lt;button aria-expanded="false"&gt;
+  Visa meny
+&lt;/button&gt;</code></pre><ul><li class="fragment"><code>false</code>: det styrda innehållet är stängt.</li><li class="fragment"><code>true</code>: det styrda innehållet är öppet.</li></ul></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Spara läget</p><h2>toggle returnerar true eller false</h2><pre class="code-block no-scroll-code fragment"><code>const isOpen =
+  menu.classList.toggle("is-open");</code></pre><p class="fragment"><code>isOpen</code> blir <code>true</code> när klassen finns efter växlingen.</p><p class="fragment"><code>isOpen</code> blir <code>false</code> när klassen saknas.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppdatera attributet</p><h2>setAttribute</h2><pre class="code-block no-scroll-code fragment"><code>menuButton.setAttribute(
+  "aria-expanded",
+  String(isOpen)
+);</code></pre><p class="fragment">Attributet får textvärdet <code>"true"</code> eller <code>"false"</code>.</p></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv aria-expanded</p><h2>Synligt läge och attribut följs åt</h2><div class="interaction-lab" data-aria-menu-demo><div class="interaction-info"><code>const isOpen = menu.classList.toggle("is-open");
+button.setAttribute("aria-expanded", String(isOpen));</code><div class="aria-state" data-aria-state>aria-expanded="false"</div></div><div class="interaction-stage"><div class="interaction-page"><button type="button" data-aria-button aria-expanded="false" aria-controls="presentation-demo-menu">Visa meny</button><nav class="demo-menu" id="presentation-demo-menu" data-aria-menu aria-label="Meny med aria-expanded"><a href="#">Start</a><a href="#">Kontakt</a></nav></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Begripligt läge</p><h2>Ändra även knappens text</h2><table class="comparison"><thead><tr><th>Stängd meny</th><th>Öppen meny</th></tr></thead><tbody><tr><td class="fragment">Visa meny</td><td class="fragment">Dölj meny</td></tr><tr><td class="fragment"><code>aria-expanded="false"</code></td><td class="fragment"><code>aria-expanded="true"</code></td></tr></tbody></table><p class="fragment">Text, attribut och verkligt läge ska säga samma sak.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Aktiv panel</p><h2>Lägg till en klass</h2><pre class="code-block no-scroll-code fragment"><code>button.addEventListener("click", function () {
+  panel.classList.add("active");
+});</code></pre><p class="fragment">Till skillnad från <code>toggle()</code> lägger <code>add()</code> bara till klassen.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-panel</p><h2>Dold tills active finns</h2><pre class="code-block no-scroll-code fragment"><code>.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}</code></pre></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv panel</p><h2>Visa ett aktivt läge</h2><div class="interaction-lab" data-panel-demo><div class="interaction-info"><code>panel.classList.add("active");</code><p data-panel-status>Panelen saknar klassen active.</p></div><div class="interaction-stage"><div class="interaction-page"><button type="button" data-panel-button>Visa panel</button><div class="interaction-panel-demo" data-panel>Panelen har fått klassen <code>active</code>.</div></div></div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Samma idé</p><h2>Flera små komponenter</h2><ul><li class="fragment">En meny visas eller döljs.</li><li class="fragment">En tab-panel får ett aktivt läge.</li><li class="fragment">Ett filter eller tema byter klass.</li></ul><p class="fragment">Mönstret är fortfarande: hitta, lyssna och ändra.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Utan ramverk</p><h2>När räcker vanlig JavaScript?</h2><ul><li class="fragment">Interaktionen är liten.</li><li class="fragment">Komponenten har ett tydligt ansvar.</li><li class="fragment">Några få element ändrar läge.</li></ul><p class="fragment">Börja enkelt och bygg mer avancerat först när problemet kräver det.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prova själv</p><h2>Bygg en menykomponent</h2><ol><li class="fragment">Skapa en knapp och en meny.</li><li class="fragment">Dölj menyn i CSS.</li><li class="fragment">Hämta elementen med <code>querySelector</code>.</li><li class="fragment">Växla <code>is-open</code> vid klick.</li><li class="fragment">Uppdatera knapptext och <code>aria-expanded</code>.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Små interaktioner följer samma grundmönster.</li><li class="fragment"><code>toggle()</code> växlar en klass.</li><li class="fragment"><code>add()</code> lägger till en klass.</li><li class="fragment"><code>aria-expanded</code> ska spegla öppet eller stängt läge.</li><li class="fragment">Knappens text ska vara begriplig i båda lägena.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll("[data-menu-demo]").forEach(function(d){const button=d.querySelector("[data-menu-button]"),menu=d.querySelector("[data-menu]"),status=d.querySelector("[data-menu-status]");button.addEventListener("click",function(){const isOpen=menu.classList.toggle("is-open");button.textContent=isOpen?"Dölj meny":"Visa meny";status.textContent=isOpen?"Klassen is-open finns. Menyn visas.":"Klassen is-open saknas. Menyn är dold.";});});
+    document.querySelectorAll("[data-aria-menu-demo]").forEach(function(d){const button=d.querySelector("[data-aria-button]"),menu=d.querySelector("[data-aria-menu]"),state=d.querySelector("[data-aria-state]");button.addEventListener("click",function(){const isOpen=menu.classList.toggle("is-open");button.setAttribute("aria-expanded",String(isOpen));button.textContent=isOpen?"Dölj meny":"Visa meny";state.textContent='aria-expanded="'+String(isOpen)+'"';});});
+    document.querySelectorAll("[data-panel-demo]").forEach(function(d){const button=d.querySelector("[data-panel-button]"),panel=d.querySelector("[data-panel]"),status=d.querySelector("[data-panel-status]");button.addEventListener("click",function(){panel.classList.add("active");button.textContent="Panelen är aktiv";status.textContent="Panelen har klassen active.";});});
+  });
+  </script>
+</body>
+</html>

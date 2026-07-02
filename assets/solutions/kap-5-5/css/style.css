@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background: #e8f3f1;
+  color: #172026;
+  font-family: Verdana, sans-serif;
+}
+
+.faq {
+  width: min(100%, 48rem);
+  margin: 2rem auto;
+}
+
+.faq-item {
+  margin-bottom: 0.75rem;
+  border: 0.1rem solid #94a3b8;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.faq-item h2 { margin: 0; }
+
+.faq-button {
+  width: 100%;
+  padding: 1rem;
+  border: 0;
+  background: #ffffff;
+  color: #172026;
+  font: inherit;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-button:hover,
+.faq-button:focus-visible { background: #ccfbf1; }
+
+/* Svaren är dolda tills JavaScript lägger till is-open. */
+.faq-answer { display: none; padding: 0 1rem 1rem; }
+.faq-answer.is-open { display: block; }
+.faq-answer p { margin: 0; }

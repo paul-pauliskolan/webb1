@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lösningsförslag 5.4</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#main-content">Min webbplats</a>
+    <!-- aria-controls pekar ut elementet som knappen styr. -->
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-menu">Visa meny</button>
+    <nav class="menu" id="main-menu" aria-label="Huvudmeny">
+      <a href="#start">Start</a>
+      <a href="#about">Om sidan</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h1>En liten menykomponent</h1>
+    <p>Ändra webbläsarens bredd och testa knappen med mus och tangentbord.</p>
+  </main>
+</body>
+</html>

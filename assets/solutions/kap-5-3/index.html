@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lösningsförslag 5.3</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <h1>Kontaktformulär</h1>
+    <!-- novalidate gör att lösningsförslagets JavaScript visar feedbacken. -->
+    <form id="contact-form" novalidate>
+      <label for="name">Namn</label>
+      <input id="name" name="name" type="text">
+
+      <label for="email">E-post</label>
+      <input id="email" name="email" type="email">
+
+      <label for="message">Meddelande</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <button type="submit">Kontrollera formuläret</button>
+      <!-- aria-live gör att ändrad feedback kan meddelas av hjälpmedel. -->
+      <p id="feedback" class="feedback" aria-live="polite">Fyll i alla fält.</p>
+    </form>
+  </main>
+</body>
+</html>

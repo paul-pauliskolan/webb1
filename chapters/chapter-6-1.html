@@ -34,6 +34,87 @@
         .format-table table {
             min-width: 44rem;
         }
+
+        .format-zoom-demo {
+            display: grid;
+            grid-template-columns: minmax(13rem, 0.4fr) minmax(0, 1.6fr);
+            gap: 1rem;
+            margin: 1rem 0 1.4rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .format-zoom-controls {
+            display: grid;
+            gap: 0.7rem;
+            align-content: start;
+        }
+
+        .format-zoom-controls label {
+            display: grid;
+            gap: 0.35rem;
+            font-weight: 700;
+        }
+
+        .format-zoom-controls input {
+            width: 100%;
+        }
+
+        .format-zoom-controls button {
+            justify-self: start;
+            border: 0;
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+            background: var(--accent-strong);
+            color: #081112;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .format-zoom-stage {
+            min-width: 0;
+            height: 22rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #172026;
+            overflow: hidden;
+        }
+
+        .format-zoom-stage img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+            transition: transform 100ms linear;
+        }
+
+        .format-zoom-stage img.is-dragging {
+            cursor: grabbing;
+            transition: none;
+        }
+
+        .format-zoom-stage--raster img {
+            object-fit: cover;
+            transform-origin: 44% 27%;
+            image-rendering: pixelated;
+        }
+
+        .format-zoom-stage--svg {
+            background: #ffffff;
+        }
+
+        @media (max-width: 760px) {
+            .format-zoom-demo {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -58,6 +139,34 @@
                 <h2>Pixelbilder och vektorbilder</h2>
                 <p>JPEG, PNG, WebP och AVIF är pixelbilder. De består av många små bildpunkter. SVG är vektorbaserat och passar bra för ikoner, logotyper och enkla illustrationer som ska kunna skalas utan att bli suddiga.</p>
                 <p>Pixelbilder kallas också rasterbilder. De fungerar bra för fotografier, men om du zoomar in tillräckligt långt ser du pixlarna. Vektorbilder beskriver former med linjer, punkter och ytor. Därför kan en SVG-logotyp skalas upp utan att bli suddig.</p>
+
+                <h2>Zooma i en pixelbild</h2>
+                <div class="format-zoom-demo" data-format-zoom data-raster-zoom>
+                    <div class="format-zoom-controls">
+                        <label for="raster-zoom">Zoom: <span data-format-zoom-value>1×</span>
+                            <input id="raster-zoom" type="range" min="1" max="24" step="1" value="1" data-format-zoom-control>
+                        </label>
+                        <button type="button" data-format-zoom-reset>Återställ position</button>
+                        <p>Zooma med reglaget och dra sedan bilden med mus eller touch. Vid hög förstoring syns de enskilda pixlarna.</p>
+                    </div>
+                    <div class="format-zoom-stage format-zoom-stage--raster">
+                        <img src="../assets/images/dog.jpg" alt="Inzoomning mot hundens vänstra öga" data-format-zoom-image draggable="false">
+                    </div>
+                </div>
+
+                <h2>Zooma i en vektorbild</h2>
+                <div class="format-zoom-demo" data-format-zoom data-svg-zoom>
+                    <div class="format-zoom-controls">
+                        <label for="svg-zoom">Zoom: <span data-format-zoom-value>1×</span>
+                            <input id="svg-zoom" type="range" min="1" max="40" step="1" value="1" data-format-zoom-control>
+                        </label>
+                        <button type="button" data-format-zoom-reset>Återställ position</button>
+                        <p>Zooma med reglaget och dra sedan bilden till en tunn linje, kurva eller bokstav. Kanterna fortsätter i princip att vara skarpa.</p>
+                    </div>
+                    <div class="format-zoom-stage format-zoom-stage--svg">
+                        <img src="../assets/images/svg-zoom-demo.svg" alt="SVG-testbild med tunna linjer, cirklar, kurvor, stjärna och text" data-format-zoom-image draggable="false">
+                    </div>
+                </div>
 
                 <h2>Vanliga format</h2>
                 <ul>
@@ -95,8 +204,13 @@
                     </section>
                 </div>
 
+                <h2>WebP eller AVIF idag?</h2>
+                <p>För rasterbilder som publiceras på webben är WebP och AVIF normalt att föredra framför äldre format när kvaliteten blir bra och projektets verktyg stöder formatet. AVIF kan ofta ge mindre filer vid jämförbar kvalitet, medan WebP har ett moget och smidigt stöd i många arbetsflöden.</p>
+                <p><strong>I den här kursen använder vi WebP som standard för rasterbilder.</strong> Det ger en tydlig gemensam arbetsgång. I mer avancerade projekt kan AVIF användas när du har jämfört kvalitet, filstorlek, kodningstid och önskat webbläsarstöd.</p>
+                <p>Läs mer: <a href="https://crystallize.com/blog/avif-vs-webp" target="_blank" rel="noopener noreferrer">Crystallize: AVIF vs. WebP</a> och <a href="https://elementor.com/blog/webp-vs-avif/" target="_blank" rel="noopener noreferrer">Elementor: WebP vs. AVIF</a>.</p>
+
                 <h2>Komprimering och transparens</h2>
-                <p>Komprimering betyder att filen görs mindre. Förstörande komprimering, till exempel i JPEG, tar bort bildinformation för att minska filstorleken. Förlustfri komprimering försöker minska filen utan att ändra bildens innehåll på samma sätt. I praktiken behöver du ofta jämföra kvalitet och filstorlek i ett verktyg.</p>
+                <p>Komprimering betyder att filen görs mindre. Förstörande komprimering (<em>lossy</em>), till exempel i JPEG, tar bort bildinformation för att minska filstorleken. Förlustfri komprimering (<em>lossless</em>) försöker minska filen utan att kasta bort bildinformation på samma sätt. I praktiken behöver du ofta jämföra kvalitet och filstorlek i ett verktyg.</p>
                 <p>Transparens betyder att delar av bilden kan vara genomskinliga. Det är viktigt för till exempel logotyper, ikoner och UI-grafik som ska ligga ovanpå olika bakgrunder. JPEG stöder inte transparens, men PNG, WebP, AVIF och SVG kan göra det.</p>
 
                 <h2>Jämförelse</h2>
@@ -172,6 +286,61 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('[data-format-zoom]').forEach(function (demo) {
+                const control = demo.querySelector('[data-format-zoom-control]')
+                const value = demo.querySelector('[data-format-zoom-value]')
+                const image = demo.querySelector('[data-format-zoom-image]')
+                const reset = demo.querySelector('[data-format-zoom-reset]')
+                const startX = demo.hasAttribute('data-raster-zoom') ? 20 : 0
+                const startY = demo.hasAttribute('data-raster-zoom') ? 18 : -20
+                let x = startX
+                let y = startY
+                let pointerX = 0
+                let pointerY = 0
+                let dragStartX = 0
+                let dragStartY = 0
+
+                function updateZoom() {
+                    image.style.transform = `translate(${x}px, ${y}px) scale(${control.value})`
+                    value.textContent = `${control.value}×`
+                }
+
+                control.addEventListener('input', updateZoom)
+                reset.addEventListener('click', function () {
+                    x = startX
+                    y = startY
+                    updateZoom()
+                })
+
+                image.addEventListener('pointerdown', function (event) {
+                    event.preventDefault()
+                    pointerX = event.clientX
+                    pointerY = event.clientY
+                    dragStartX = x
+                    dragStartY = y
+                    image.classList.add('is-dragging')
+                    image.setPointerCapture(event.pointerId)
+                })
+
+                image.addEventListener('pointermove', function (event) {
+                    if (!image.hasPointerCapture(event.pointerId)) return
+                    x = dragStartX + event.clientX - pointerX
+                    y = dragStartY + event.clientY - pointerY
+                    updateZoom()
+                })
+
+                function stopDragging(event) {
+                    if (image.hasPointerCapture(event.pointerId)) {
+                        image.releasePointerCapture(event.pointerId)
+                    }
+                    image.classList.remove('is-dragging')
+                }
+
+                image.addEventListener('pointerup', stopDragging)
+                image.addEventListener('pointercancel', stopDragging)
+                updateZoom()
+            })
+
             window.renderQuiz(document.getElementById('quiz-6-1'), {"title":"Quiz: Kap 6.1","questions":[{"question":"Vilket format passar ofta bra för fotografier?","options":["SVG","JPEG","HTML","CSS"],"correct":1,"feedback":"JPEG används ofta för fotografier.","explanation":"JPEG komprimerar fotografier effektivt, men stöder inte transparens."},{"question":"Vilket format är vektorbaserat och kan skalas utan att bli suddigt?","options":["PNG","WebP","SVG","JPEG"],"correct":2,"feedback":"SVG är vektorbaserat.","explanation":"SVG beskriver former med kod i stället för fasta pixlar."},{"question":"När är PNG ofta ett rimligt val?","options":["När bilden behöver transparens","När du skriver JavaScript","När sidan bara har text","När bilden måste vara en video"],"correct":0,"feedback":"PNG stöder transparens.","explanation":"PNG passar ofta för grafik med skarpa kanter eller transparent bakgrund."},{"question":"Vad är en fördel med WebP eller AVIF?","options":["De ersätter alt-text","De kan minska filstorleken med bra kvalitet","De gör HTML semantiskt automatiskt","De fungerar bara för ikoner"],"correct":1,"feedback":"Moderna format kan ge mindre filer.","explanation":"Mindre bildfiler kan göra sidan snabbare att ladda."},{"question":"Varför finns inget bildformat som alltid är bäst?","options":["Alla bilder måste vara SVG","Formatval beror på innehåll, kvalitet och användning","JPEG fungerar aldrig på webben","PNG får inte användas med CSS"],"correct":1,"feedback":"Formatval är situationsberoende.","explanation":"Fotografier, ikoner och transparent grafik har olika krav."}]});
         });
     </script>
