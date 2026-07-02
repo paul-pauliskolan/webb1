@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.6: Planera en webbplats.">
+  <title>Kap 7.6 – Planera en webbplats</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .question-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.3rem; }
+    .question-card { padding:1.1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; font-size:clamp(1.15rem,2vw,1.7rem); font-weight:850; }
+    .site-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.75rem; margin-top:1.2rem; }
+    .site-card { padding:.9rem; border:2px solid var(--slide-accent); border-radius:9px; background:#fff; font-size:clamp(1rem,1.5vw,1.3rem); font-weight:800; text-align:center; }
+    .planner-demo { display:grid; grid-template-columns:minmax(16rem,.7fr) minmax(0,1.3fr); gap:1rem; margin-top:1.2rem; }
+    .planner-controls,.planner-result { display:grid; gap:.65rem; padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .planner-controls label { display:grid; gap:.3rem; font-size:.9rem; font-weight:800; }
+    .planner-controls select { width:100%; padding:.6rem; border:1px solid #94a3b8; border-radius:5px; font:inherit; }
+    .planner-result strong { color:var(--slide-accent); font-size:1.4rem; }
+    .planner-result p,.planner-result ul { margin:0; color:#172026; font-size:1rem; }
+    .planner-result ul { display:grid; gap:.35rem; padding-left:1.2rem; }
+    .sitemap { display:grid; justify-items:center; gap:.7rem; margin-top:1.3rem; }
+    .sitemap-level { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; }
+    .sitemap-node { min-width:9rem; padding:.65rem .8rem; border:2px solid var(--slide-accent); border-radius:7px; background:#fff; color:#172026; font-weight:900; text-align:center; }
+    .sitemap-line { width:3px; height:1.2rem; background:#172026; }
+    .sitemap-projects { display:grid; justify-items:center; gap:.45rem; }
+    .wireframe-pair { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(12rem,.6fr); gap:1rem; margin-top:1.2rem; align-items:start; }
+    .wireframe { display:grid; gap:.35rem; padding:.45rem; border:3px solid #172026; background:#fff; }
+    .wireframe-region { display:grid; place-items:center; min-height:2.7rem; padding:.45rem; border:2px solid #64748b; background:#f1f5f9; color:#172026; font-size:.85rem; font-weight:800; text-align:center; }
+    .wireframe-main { display:grid; grid-template-columns:2fr 1fr; gap:.35rem; }
+    .wireframe-mobile .wireframe-main { grid-template-columns:1fr; }
+    .process-row { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; margin-top:1.3rem; }
+    .process-step { padding:.7rem .9rem; border:2px solid #172026; border-radius:8px; background:#fff; font-size:clamp(.95rem,1.4vw,1.2rem); font-weight:850; }
+    @media(max-width:760px){.question-grid,.planner-demo,.wireframe-pair{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.6</p><h1>Planera en webbplats</h1><p class="fragment">En tydlig plan gör det lättare att bygga rätt sida från början.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">formulera webbplatsens syfte och målgrupp</li><li class="fragment">välja vilket innehåll som behövs</li><li class="fragment">göra en enkel sitemap</li><li class="fragment">skissa struktur före kodningen</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Börja med varför</p><h2>Planen styr bygget</h2><div class="process-row"><span class="process-step fragment">Syfte</span><span class="fragment">→</span><span class="process-step fragment">Målgrupp</span><span class="fragment">→</span><span class="process-step fragment">Innehåll</span><span class="fragment">→</span><span class="process-step fragment">Struktur</span><span class="fragment">→</span><span class="process-step fragment">Kod</span></div><p class="fragment">Börja inte med färger och effekter innan du förstår uppgiften.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Två grundfrågor</p><h2>Syfte och målgrupp</h2><div class="question-grid"><div class="question-card fragment">Varför ska webbplatsen finnas?</div><div class="question-card fragment">Vem ska använda den?</div></div><p class="fragment">Svaren påverkar innehåll, språk, funktioner och layout.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Återkoppling</p><h2>Kontrollera planen tidigt</h2><p class="fragment">I ett riktigt projekt behöver du ofta stämma av med en kund eller beställare.</p><p class="fragment">I ett skolarbete gör du samma sak genom att kontrollera att syfte, innehåll och struktur passar uppgiften.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Typ av webbplats</p><h2>Olika mål kräver olika innehåll</h2><div class="site-grid"><div class="site-card fragment">Portfolio</div><div class="site-card fragment">Blogg</div><div class="site-card fragment">Föreningssida</div><div class="site-card fragment">Webbshop</div><div class="site-card fragment">Informationssida</div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv planering</p><h2>Byt webbplatstyp</h2><div class="planner-demo" data-planner-demo><div class="planner-controls"><label>Typ av webbplats<select data-site-type><option value="portfolio">Portfolio</option><option value="shop">Webbshop</option><option value="association">Föreningssida</option><option value="information">Informationssida</option></select></label><label>Målgrupp<select data-audience><option value="new">Nya besökare</option><option value="members">Medlemmar eller återkommande användare</option></select></label></div><div class="planner-result" aria-live="polite"><strong data-plan-title>Portfolio för nya besökare</strong><p data-plan-purpose>Syfte: visa vem du är och vad du kan.</p><ul data-plan-content><li>Projekt</li><li>Kort presentation</li><li>Kontaktväg</li></ul></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Definiera webbplatsen</p><h2>Frågor före kod</h2><ul><li class="fragment">Vad ska besökaren kunna göra?</li><li class="fragment">Behövs kommentarer, kontakt eller konto?</li><li class="fragment">Blir innehållet främst text, bilder, video eller formulär?</li><li class="fragment">Vilken information måste hittas snabbt?</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Två exempel</p><h2>Strukturen följer syftet</h2><table class="comparison"><thead><tr><th>Webbshop</th><th>Portfolio</th></tr></thead><tbody><tr><td class="fragment">Produktlistor</td><td class="fragment">Projekt</td></tr><tr><td class="fragment">Varukorg</td><td class="fragment">Presentation</td></tr><tr><td class="fragment">Köpflöde</td><td class="fragment">Kontaktväg</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Innehåll först</p><h2>Lista vad sidan faktiskt behöver</h2><div class="site-grid"><div class="site-card fragment">Rubriker</div><div class="site-card fragment">Texter</div><div class="site-card fragment">Bilder</div><div class="site-card fragment">Länkar</div><div class="site-card fragment">Formulär</div><div class="site-card fragment">Kontaktinformation</div></div><p class="fragment">När innehållet är tydligt blir layouten lättare att välja.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Riktigt innehåll</p><h2>Låtsastext kan dölja problem</h2><table class="comparison"><thead><tr><th>Tomma rutor och kort låtsastext</th><th>Riktiga rubriker och textmängder</th></tr></thead><tbody><tr><td class="fragment">Layouten ser enkel ut.</td><td class="fragment">Visar hur sidan faktiskt behöver fungera.</td></tr><tr><td class="fragment">Problem upptäcks sent.</td><td class="fragment">Problem upptäcks under planeringen.</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sitemap</p><h2>En karta över webbplatsen</h2><p class="fragment">En sitemap visar vilka sidor eller sektioner som ingår och hur de hänger ihop.</p><p class="fragment">Den hjälper dig att planera navigationen innan du bygger den.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exempel på sitemap</p><h2>En liten portfoliosida</h2><div class="sitemap"><div class="sitemap-node fragment">Startsida</div><div class="sitemap-line fragment"></div><div class="sitemap-level"><div class="sitemap-node fragment">Om</div><div class="sitemap-projects fragment"><div class="sitemap-node">Projekt</div><div class="sitemap-level"><div class="sitemap-node">Projekt 1</div><div class="sitemap-node">Projekt 2</div></div></div><div class="sitemap-node fragment">Kontakt</div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Verktyg</p><h2>En sitemap behöver inte vara avancerad</h2><div class="site-grid"><div class="site-card fragment">Papper</div><div class="site-card fragment">Figma</div><div class="site-card fragment">diagrams.net</div><div class="site-card fragment">Google Teckningar</div></div><p class="fragment">Det viktiga är att relationerna mellan sidorna syns.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Wireframe</p><h2>En enkel skiss av layouten</h2><ul><li class="fragment">Visar placering av header och navigation.</li><li class="fragment">Visar innehåll, bilder och knappar.</li><li class="fragment">Visar footer och sidans viktigaste områden.</li><li class="fragment">Behöver inte ha färdiga färger eller detaljer.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Två wireframes</p><h2>Desktop och mobil</h2><div class="wireframe-pair"><div><strong>Desktop</strong><div class="wireframe"><div class="wireframe-region">Header</div><div class="wireframe-region">Navigation</div><div class="wireframe-main"><div class="wireframe-region" style="min-height:8rem">Huvudinnehåll</div><div class="wireframe-region">Bild / extra innehåll</div></div><div class="wireframe-region">Footer</div></div></div><div><strong>Mobil</strong><div class="wireframe wireframe-mobile"><div class="wireframe-region">Header</div><div class="wireframe-region">Navigation</div><div class="wireframe-main"><div class="wireframe-region" style="min-height:5rem">Huvudinnehåll</div><div class="wireframe-region">Bild</div></div><div class="wireframe-region">Footer</div></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prioritet</p><h2>Mobilen tvingar fram en ordning</h2><ul><li class="fragment">Vad ska användaren se först?</li><li class="fragment">Vilket innehåll kan komma längre ner?</li><li class="fragment">Hur fungerar navigationen i en smal kolumn?</li><li class="fragment">Syns det viktigaste utan onödigt letande?</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Bygg startsidan först</p><h2>Från struktur till färdig grund</h2><ol><li class="fragment">Skapa HTML-strukturen.</li><li class="fragment">Lägg in navigation och testa länkar.</li><li class="fragment">Skriv riktig rubrik och riktigt innehåll.</li><li class="fragment">Lägg till CSS för layout och typografi.</li><li class="fragment">Testa smal och bred viewport.</li><li class="fragment">Validera och felsök.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Övriga sidor</p><h2>Konsekvens skapar igenkänning</h2><ul><li class="fragment">Samma navigation</li><li class="fragment">Samma typ av footer</li><li class="fragment">Konsekventa rubriknivåer</li><li class="fragment">Liknande avstånd och visuella mönster</li></ul><p class="fragment">Sidorna behöver inte vara identiska, men användaren ska känna igen sig.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Media</p><h2>Lägg in bilder och video när strukturen fungerar</h2><ul><li class="fragment">Välj rätt format.</li><li class="fragment">Minska onödigt stora filer.</li><li class="fragment">Skriv alt-text när den behövs.</li><li class="fragment">Kontrollera mobilvyn.</li></ul><p class="fragment">Media ska stödja innehållet, inte göra sidan tung och rörig.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Användartest</p><h2>Låt någon annan prova</h2><p class="fragment">Du känner redan till sidan och vet var allt finns. En testperson gör inte det.</p><p class="fragment">Titta på vad personen faktiskt gör – förklara inte vägen i förväg.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Testuppgifter</p><h2>Ge konkreta uppdrag</h2><ul><li class="fragment">Hitta kontaktinformationen.</li><li class="fragment">Hitta ett visst projekt.</li><li class="fragment">Öppna sidan på mobil och läs första avsnittet.</li><li class="fragment">Använd navigationen utan hjälp.</li></ul><p class="fragment">Om testpersonen inte hittar något behöver sidan ofta bli tydligare.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Planeringschecklista</p><h2>Innan kodningen fortsätter</h2><ul><li class="fragment">Syfte och målgrupp är tydliga.</li><li class="fragment">Innehållet är listat.</li><li class="fragment">Sitemap är skapad.</li><li class="fragment">Desktop och mobil är skissade.</li><li class="fragment">Tillgänglighet, filstorlek och integritet är genomtänkta.</li><li class="fragment">Det finns en plan för testning.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Börja med syfte och målgrupp.</li><li class="fragment">Planera riktigt innehåll före detaljerad layout.</li><li class="fragment">En sitemap visar webbplatsens struktur.</li><li class="fragment">Wireframes visar layout för desktop och mobil.</li><li class="fragment">Bygg startsidan och återanvänd en konsekvent grund.</li><li class="fragment">Testa med andra innan publicering.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      const plans={
+        portfolio:{title:"Portfolio",purpose:"visa vem du är och vad du kan",content:["Projekt","Kort presentation","Kontaktväg"]},
+        shop:{title:"Webbshop",purpose:"hjälpa besökaren att hitta och köpa produkter",content:["Produktlistor","Produktinformation","Varukorg och köpflöde"]},
+        association:{title:"Föreningssida",purpose:"informera medlemmar och locka nya",content:["Aktuellt och aktiviteter","Om föreningen","Kontakt eller medlemsinformation"]},
+        information:{title:"Informationssida",purpose:"göra viktig information lätt att hitta och förstå",content:["Tydliga ämnesområden","Sökvägar till viktig information","Kontakt eller vidare läsning"]}
+      };
+      document.querySelectorAll("[data-planner-demo]").forEach(function(demo){
+        const type=demo.querySelector("[data-site-type]"),audience=demo.querySelector("[data-audience]"),title=demo.querySelector("[data-plan-title]"),purpose=demo.querySelector("[data-plan-purpose]"),content=demo.querySelector("[data-plan-content]");
+        function update(){const plan=plans[type.value],audienceText=audience.value==="new"?"nya besökare":"medlemmar eller återkommande användare";title.textContent=plan.title+" för "+audienceText;purpose.textContent="Syfte: "+plan.purpose+".";content.innerHTML="";plan.content.forEach(function(value){const item=document.createElement("li");item.textContent=value;content.append(item);});}
+        [type,audience].forEach(function(select){select.addEventListener("change",update);});update();
+      });
+    });
+  </script>
+</body>
+</html>

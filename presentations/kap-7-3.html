@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.3: GDPR och personuppgifter på webben.">
+  <title>Kap 7.3 – GDPR och personuppgifter på webben</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .data-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:.8rem; margin-top:1.3rem; }
+    .data-card { padding:.85rem; border:2px solid var(--slide-accent); border-radius:9px; background:#fff; font-size:clamp(1rem,1.45vw,1.25rem); font-weight:800; }
+    .data-card.is-not { border-color:#64748b; background:#f8fafc; }
+    .basis-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin-top:1.2rem; }
+    .basis-card { padding:.8rem; border-left:5px solid var(--slide-accent); border-radius:7px; background:#fff; font-size:clamp(.95rem,1.35vw,1.2rem); }
+    .basis-card strong { display:block; color:var(--slide-accent); }
+    .basis-card span { display:block; margin-top:.4rem; color:#475569; font-size:.82em; }
+    .minimize-demo { display:grid; grid-template-columns:minmax(17rem,.8fr) minmax(0,1.2fr); gap:1rem; margin-top:1.2rem; }
+    .minimize-form,.minimize-result { display:grid; gap:.55rem; padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .minimize-form label { display:flex; gap:.5rem; align-items:center; font-size:1rem; font-weight:700; }
+    .minimize-form button { justify-self:start; padding:.6rem .8rem; border:0; border-radius:6px; background:var(--slide-accent); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
+    .minimize-result strong { color:var(--slide-accent); font-size:1.2rem; }
+    .minimize-result p,.minimize-result ul { margin:0; color:#172026; font-size:1rem; }
+    .minimize-result ul { display:grid; gap:.3rem; padding-left:1.2rem; }
+    .service-flow { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; margin-top:1.5rem; }
+    .service-flow span { padding:.8rem 1rem; border:2px solid #172026; border-radius:9px; background:#fff; font-size:clamp(1rem,1.5vw,1.3rem); font-weight:800; }
+    .service-flow b { color:var(--slide-accent); font-size:1.5rem; }
+    @media(max-width:760px){.basis-grid,.minimize-demo{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.3</p><h1>GDPR och personuppgifter på webben</h1><p class="fragment">Formulär och externa tjänster kan hantera information som kräver ansvar.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara vad en personuppgift kan vara</li><li class="fragment">samla in så lite information som möjligt</li><li class="fragment">förstå varför tydlig information behövs</li><li class="fragment">veta att samtycke bara är en möjlig rättslig grund</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Definition</p><h2>Vad är en personuppgift?</h2><p class="fragment">Information som direkt eller indirekt kan kopplas till en identifierad eller identifierbar <strong>levande person</strong>.</p><p class="fragment">Flera uppgifter kan tillsammans göra en person identifierbar.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exempel</p><h2>Det här kan vara personuppgifter</h2><div class="data-grid"><div class="data-card fragment">Namn</div><div class="data-card fragment">Adress</div><div class="data-card fragment">Personnummer</div><div class="data-card fragment">Telefonnummer</div><div class="data-card fragment">Personlig e-postadress</div><div class="data-card fragment">IP-adress</div><div class="data-card fragment">Identifierbart foto</div><div class="data-card fragment">Identifierbar ljudinspelning</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Viktigt</p><h2>Även offentlig information kan vara en personuppgift</h2><p class="fragment">Det avgörande är om informationen direkt eller indirekt kan kopplas till en levande person.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Normalt inte personuppgifter</p><h2>När ingen person kan identifieras</h2><div class="data-grid"><div class="data-card is-not fragment"><code>info@foretag.se</code></div><div class="data-card is-not fragment">Organisationsnummer för aktiebolag</div><div class="data-card is-not fragment">Totalt antal besökare utan personkoppling</div><div class="data-card is-not fragment">Namn på webbplats eller CSS-klass</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Undantag</p><h2>Sammanhanget avgör</h2><p class="fragment">Ett organisationsnummer kan vara en personuppgift om det gäller en enskild firma och därmed kan kopplas till en fysisk person.</p><p class="fragment">Bedöm alltid om uppgiften kan identifiera någon – ensam eller tillsammans med annat.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">GDPR</p><h2>Dataskyddsförordningen</h2><ul><li class="fragment">Gäller i hela EU.</li><li class="fragment">Styr hur personuppgifter samlas in, används, lagras och skyddas.</li><li class="fragment">IMY är svensk tillsynsmyndighet.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppgiftsminimering</p><h2>Fråga bara efter det som behövs</h2><div class="two-column"><div class="fragment"><h3>Kontaktformulärets syfte</h3><p>Ta emot ett meddelande och kunna svara.</p></div><div class="fragment"><h3>Rimliga uppgifter</h3><p>E-postadress och meddelande.</p></div></div><p class="fragment">Personnummer och bostadsadress behövs inte för detta syfte.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv uppgiftsminimering</p><h2>Välj fält för ett kontaktformulär</h2><div class="minimize-demo" data-minimize-demo><form class="minimize-form"><label><input type="checkbox" value="E-postadress" data-needed checked> E-postadress</label><label><input type="checkbox" value="Meddelande" data-needed checked> Meddelande</label><label><input type="checkbox" value="Fullständigt namn"> Fullständigt namn</label><label><input type="checkbox" value="Bostadsadress"> Bostadsadress</label><label><input type="checkbox" value="Personnummer"> Personnummer</label><button type="button" data-evaluate>Bedöm formuläret</button></form><div class="minimize-result" aria-live="polite"><strong data-minimize-heading>Två nödvändiga fält</strong><p data-minimize-text>E-postadress och meddelande räcker för syftet.</p><ul data-minimize-list><li>Samla inte in mer än du behöver.</li></ul></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Grundprinciper</p><h2>Syfte och minimering först</h2><ul><li class="fragment">Bestäm ett tydligt ändamål.</li><li class="fragment">Samla bara in uppgifter för det ändamålet.</li><li class="fragment">Behandla inte fler uppgifter än vad som behövs.</li><li class="fragment">Berätta vad uppgifterna ska användas till.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Grundprinciper</p><h2>Under hela hanteringen</h2><ul><li class="fragment">Se till att sparade uppgifter är riktiga.</li><li class="fragment">Radera eller avidentifiera när uppgifterna inte behövs.</li><li class="fragment">Skydda uppgifterna från obehöriga.</li><li class="fragment">Kunna visa hur reglerna följs.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Rättslig grund</p><h2>Ett giltigt skäl krävs</h2><p class="fragment">Personuppgifter får inte behandlas utan stöd i någon av GDPR:s rättsliga grunder.</p><p class="fragment">Grunden ska väljas och dokumenteras <strong>innan</strong> uppgifterna samlas in.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Rättslig grund</p><h2>De sex rättsliga grunderna</h2><div class="basis-grid"><div class="basis-card fragment"><strong>Samtycke</strong>Personen har sagt ja.<span>Exempel: anmälan till ett nyhetsbrev.</span></div><div class="basis-card fragment"><strong>Avtal</strong>Uppgiften behövs för ett avtal.<span>Exempel: adress behövs för att leverera en beställning.</span></div><div class="basis-card fragment"><strong>Rättslig förpliktelse</strong>Lag eller regel kräver behandlingen.<span>Exempel: uppgifter måste sparas enligt bokföringsregler.</span></div><div class="basis-card fragment"><strong>Grundläggande intresse</strong>Skydda liv eller hälsa i en akut situation.<span>Exempel: vårdpersonal behöver uppgifter för att rädda liv.</span></div><div class="basis-card fragment"><strong>Allmänt intresse eller myndighetsutövning</strong>En offentlig eller samhällsviktig uppgift.<span>Exempel: en myndighet behandlar uppgifter för att handlägga ett ärende.</span></div><div class="basis-card fragment"><strong>Intresseavvägning</strong>Ett berättigat intresse vägs mot personens integritet.<span>Exempel: ett företag förebygger bedrägerier efter en sådan avvägning.</span></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Samtycke</p><h2>Inte en automatisk standardlösning</h2><ul><li class="fragment">Samtycke är bara en av sex rättsliga grunder.</li><li class="fragment">Personen ska kunna säga nej.</li><li class="fragment">Ett samtycke ska kunna tas tillbaka.</li><li class="fragment">Den rättsliga grunden måste passa det som faktiskt görs.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Var tydlig</p><h2>Användaren ska förstå behandlingen</h2><ul><li class="fragment">Varför samlas uppgiften in?</li><li class="fragment">Vad ska den användas till?</li><li class="fragment">Hur länge behöver den sparas?</li><li class="fragment">Vilken rättslig grund används?</li></ul><p class="fragment">Riktiga webbplatser kan även behöva integritetspolicy och cookieinformation.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Externa tjänster</p><h2>Data kan lämna din webbplats</h2><div class="service-flow"><span class="fragment">Användarens<br><strong>webbläsare</strong></span><b class="fragment">→</b><span class="fragment">Extern karta,<br>font eller statistik</span><b class="fragment">→</b><span class="fragment">En annan<br><strong>leverantör</strong></span></div><p class="fragment">Kontrollera vilken information tjänsten tar emot.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Externa typsnitt</p><h2>Även en font kan skapa en extern kontakt</h2><p class="fragment">Om Google Fonts hämtas direkt från Googles servrar kan webbläsaren skicka bland annat IP-adressen till en extern leverantör.</p><p class="fragment">Systemtypsnitt eller lokalt lagrade typsnitt kan minska externa anrop.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Praktiskt arbete</p><h2>Kontrollera dina resurser</h2><ul><li class="fragment">Lista kodspråken du använder.</li><li class="fragment">Lista verktyg och externa tjänster.</li><li class="fragment">Kontrollera om de skickar data till andra företag.</li><li class="fragment">Var försiktig med identifierbara bilder och ljud.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Testdata</p><h2>Använd inte riktiga personuppgifter i onödan</h2><div class="two-column"><div class="fragment"><h3>Undvik</h3><p>Riktigt namn, telefonnummer och personnummer i en övning.</p></div><div class="fragment"><h3>Använd hellre</h3><p>Påhittade testuppgifter som inte kan kopplas till en riktig person.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsgång</p><h2>Innan du samlar in en uppgift</h2><ol><li class="fragment">Bestäm syftet.</li><li class="fragment">Välj minsta möjliga mängd uppgifter.</li><li class="fragment">Identifiera rättslig grund.</li><li class="fragment">Informera användaren tydligt.</li><li class="fragment">Planera skydd, rättning och radering.</li><li class="fragment">Kontrollera externa tjänster.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Avgränsning</p><h2>En introduktion – inte juridisk rådgivning</h2><p class="fragment">På riktiga projekt behöver ansvarig person eller organisation kontrollera vilka regler som gäller för den konkreta behandlingen.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Personuppgifter kan direkt eller indirekt identifiera en levande person.</li><li class="fragment">Samla bara in det som behövs för ett tydligt syfte.</li><li class="fragment">Behandling kräver en passande rättslig grund.</li><li class="fragment">Samtycke är bara en av sex grunder.</li><li class="fragment">Informera, skydda och radera uppgifter ansvarsfullt.</li><li class="fragment">Kontrollera vad externa tjänster samlar in.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      document.querySelectorAll("[data-minimize-demo]").forEach(function(demo){
+        const button=demo.querySelector("[data-evaluate]");
+        const heading=demo.querySelector("[data-minimize-heading]");
+        const text=demo.querySelector("[data-minimize-text]");
+        const list=demo.querySelector("[data-minimize-list]");
+        button.addEventListener("click",function(){
+          const selected=Array.from(demo.querySelectorAll("input:checked"));
+          const extras=selected.filter(function(input){return !input.hasAttribute("data-needed");});
+          const missing=Array.from(demo.querySelectorAll("[data-needed]")).filter(function(input){return !input.checked;});
+          list.innerHTML="";
+          if(missing.length){heading.textContent="Formuläret saknar nödvändiga uppgifter";text.textContent="För syftet behövs både e-postadress och meddelande.";}
+          else if(extras.length){heading.textContent="Formuläret samlar in mer än det behöver";text.textContent="Ta bort fält som inte behövs för att ta emot och besvara meddelandet.";}
+          else{heading.textContent="Formuläret följer uppgiftsminimering";text.textContent="E-postadress och meddelande räcker för det angivna syftet.";}
+          selected.forEach(function(input){const item=document.createElement("li");item.textContent=input.value+(input.hasAttribute("data-needed")?" – behövs":" – behöver motiveras eller tas bort");list.append(item);});
+        });
+      });
+    });
+  </script>
+</body>
+</html>

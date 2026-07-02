@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till Övningsuppgift 3: Avancerad layout.">
+  <title>Övningsuppgift 3 – Avancerad layout</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .assignment-overview { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.8rem; margin-top:1.3rem; }
+    .assignment-step { padding:1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; font-size:clamp(1rem,1.5vw,1.3rem); font-weight:850; text-align:center; }
+    .file-tree { width:min(720px,100%); margin-top:1.4rem; padding:1rem; border:1px solid var(--slide-border); border-radius:9px; background:var(--slide-code-bg); font:clamp(1.05rem,1.8vw,1.55rem)/1.5 "SFMono-Regular",Consolas,monospace; white-space:pre-wrap; }
+    .layout-demo { display:grid; grid-template-columns:minmax(13rem,.4fr) minmax(0,1.6fr); gap:1rem; margin-top:1rem; }
+    .layout-controls { display:grid; gap:.65rem; align-content:start; padding:1rem; border:1px solid var(--slide-border); border-radius:9px; background:#fff; color:#172026; }
+    .layout-controls button { padding:.65rem .8rem; border:2px solid var(--slide-accent); border-radius:6px; background:#fff; color:var(--slide-accent); font:inherit; font-weight:900; cursor:pointer; }
+    .layout-controls button[aria-pressed="true"] { background:var(--slide-accent); color:#fff; }
+    .layout-controls p { margin:0; color:#172026; font-size:.95rem; }
+    .layout-stage { display:grid; place-items:center; min-height:23rem; padding:.6rem; border:1px solid var(--slide-border); border-radius:9px; background:#e2e8f0; overflow:hidden; }
+    .layout-stage img { display:block; max-width:100%; max-height:58vh; object-fit:contain; }
+    .requirement-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin-top:1.2rem; }
+    .requirement { padding:.8rem; border:2px solid #0f766e; border-radius:8px; background:#fff; font-size:clamp(.95rem,1.4vw,1.2rem); font-weight:750; }
+    .test-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:.75rem; margin-top:1.2rem; }
+    .test-card { padding:.85rem; border-left:6px solid var(--slide-accent); border-radius:7px; background:#fff; font-size:clamp(.95rem,1.4vw,1.2rem); font-weight:800; }
+    .link-boxes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.3rem; }
+    .link-box { padding:1.1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; }
+    .link-box strong { display:block; color:var(--slide-accent); font-size:1.4rem; }
+    .link-box p { margin:.45rem 0 0; font-size:1rem; }
+    @media(max-width:760px){.assignment-overview{grid-template-columns:repeat(2,1fr)}.layout-demo,.requirement-grid,.link-boxes{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Övningsuppgift 3</p><h1>Avancerad layout</h1><p class="fragment">Bygg en responsiv webbplats med startsida, kontaktsida och modern CSS-layout.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Översikt</p><h2>Fyra stora delar</h2><div class="assignment-overview"><div class="assignment-step fragment">1<br>Förbered filer</div><div class="assignment-step fragment">2<br>Bygg mobilt först</div><div class="assignment-step fragment">3<br>Testa och validera</div><div class="assignment-step fragment">4<br>Publicera och lämna in</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Instruktioner</p><h2>Följ hela filmserien</h2><p class="fragment">Uppgiften är omfattande och förklaras i flera filmer.</p><p class="fragment">Se filmerna och genomför samtliga delar – hoppa inte direkt till slutresultatet.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Startfiler</p><h2>Ladda ner bildpaketet</h2><div class="file-tree fragment">ovn3-images.zip
+└── bilder som ska användas på webbplatsen</div><ul><li class="fragment">Packa upp zip-filen.</li><li class="fragment">Konvertera bilderna som används till WebP.</li><li class="fragment">Öppna projektmappen i VS Code.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Layoutbilder</p><h2>Referenser – inte innehåll</h2><ul><li class="fragment">Fyra bilder visar hur sidorna ska se ut.</li><li class="fragment">Index finns för mobil och desktop.</li><li class="fragment">Contact finns för mobil och desktop.</li><li class="fragment"><strong>Lägg inte layoutbilderna i din egen webbplats.</strong></li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mobil först</p><h2>Bygg den smala layouten först</h2><div class="flow"><span class="fragment">Grund-CSS<br><strong>mobil</strong></span><span class="fragment">Media query<br><strong>minst 800px</strong></span><span class="fragment">Ändrad layout<br><strong>desktop</strong></span></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Media query</p><h2>Ändra layout från 800px</h2><pre class="code-block no-scroll-code fragment"><code>.page {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (width &gt;= 800px) {
+  .page {
+    grid-template-columns: 1fr 1fr;
+  }
+}</code></pre></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Indexsidan</p><h2>Jämför mobil och desktop</h2><div class="layout-demo" data-layout-demo data-page="index"><div class="layout-controls"><button type="button" data-layout="mobile" aria-pressed="true">Mobil</button><button type="button" data-layout="desktop" aria-pressed="false">Desktop</button><p data-layout-note>Mobilversionen byggs först.</p></div><div class="layout-stage"><img src="../assets/ovn3/ovn3-layout/index%20-%20mobile.png" alt="Layoutförslag för indexsidan i mobilvy" data-layout-image></div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Kontaktsidan</p><h2>Jämför mobil och desktop</h2><div class="layout-demo" data-layout-demo data-page="contact"><div class="layout-controls"><button type="button" data-layout="mobile" aria-pressed="true">Mobil</button><button type="button" data-layout="desktop" aria-pressed="false">Desktop</button><p data-layout-note>Formuläret ska fungera i smal vy först.</p></div><div class="layout-stage"><img src="../assets/ovn3/ovn3-layout/contakt%20-%20mobile.png" alt="Layoutförslag för kontaktsidan i mobilvy" data-layout-image></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Två HTML-sidor</p><h2>Filer som ska byggas</h2><div class="file-tree fragment">projektmapp/
+├── index.html
+├── contact.html
+├── styles.css
+└── images/
+    └── bilder.webp</div><p class="fragment">Båda HTML-filerna ska länka till samma CSS-fil.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Layoutkrav</p><h2>Centrerat innehåll på båda sidorna</h2><pre class="code-block no-scroll-code fragment"><code>.page {
+  width: min(100% - 2rem, 1200px);
+  margin-inline: auto;
+}</code></pre><p class="fragment">Exakt lösning kan variera, men innehållet ska vara centrerat.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Design</p><h2>Följ layouten – välj egna färger</h2><ul><li class="fragment">Utgå från layoutbildernas struktur.</li><li class="fragment">Slumpa fram ett eget färgschema i Coolors.</li><li class="fragment">Använd inte lärarens färgschema.</li><li class="fragment">Kontrollera att texten syns tydligt mot bakgrunden.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Navigation</p><h2>Två länkar med knappliknande design</h2><pre class="code-block no-scroll-code fragment"><code>nav a {
+  display: inline-block;
+  padding: .7rem 1rem;
+  border-radius: .4rem;
+  text-decoration: none;
+}</code></pre><p class="fragment">Länkarna ska fortfarande fungera och vara tydliga som navigation.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Meta description</p><h2>Behövs på båda sidorna</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;meta
+  name="description"
+  content="Kort beskrivning av sidans innehåll."&gt;</code></pre><p class="fragment">Skriv en beskrivning som passar respektive sida.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrast</p><h2>Texten måste vara läsbar</h2><div class="requirement-grid"><div class="requirement fragment">Bakgrund och text behöver tillräcklig kontrast.</div><div class="requirement fragment">Kontrollera både vanlig text och knappar.</div><div class="requirement fragment">Lita inte bara på att färgerna ”ser tydliga ut”.</div><div class="requirement fragment">Testa med kontrastverktyget i uppgiften.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Font</p><h2>Välj en sans-serif fontstack</h2><pre class="code-block no-scroll-code fragment"><code>body {
+  font-family: system-ui, sans-serif;
+}</code></pre><ul><li class="fragment">Välj från Modern Font Stacks.</li><li class="fragment">Systemfonter minskar externa fontanrop.</li><li class="fragment">Kontrollera att texten är lätt att läsa.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Lighthouse</p><h2>Testa båda sidorna</h2><ul><li class="fragment">Öppna Lighthouse i Chrome DevTools.</li><li class="fragment">Kör testet på <code>index.html</code>.</li><li class="fragment">Kör testet på <code>contact.html</code>.</li><li class="fragment">Rätta problemen enligt uppgiften.</li><li class="fragment">Bildtestet och Google Fonts är undantagna.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">HTML-validering</p><h2>Validera båda HTML-filerna</h2><ol><li class="fragment">Kontrollera <code>index.html</code>.</li><li class="fragment">Rätta första felet.</li><li class="fragment">Validera igen.</li><li class="fragment">Gör samma sak med <code>contact.html</code>.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-validering</p><h2>Kontrollera styles.css</h2><ol><li class="fragment">Öppna W3C CSS Validator.</li><li class="fragment">Ladda upp eller klistra in CSS-koden.</li><li class="fragment">Rätta syntaxfel.</li><li class="fragment">Kör kontrollen igen tills koden validerar.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Bilder</p><h2>Allt som används ska vara WebP</h2><div class="flow"><span class="fragment">Originalbild</span><span class="fragment">Squoosh eller<br>CloudConvert</span><span class="fragment"><strong>WebP</strong></span></div><ul><li class="fragment">Konvertera före publicering.</li><li class="fragment">Kontrollera filstorleken.</li><li class="fragment">Använd relevant alt-text.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS reset</p><h2>En kontrollerad startpunkt</h2><p class="fragment">En reset tar bland annat bort eller jämnar ut webbläsarens automatiska marginaler.</p><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;link rel="stylesheet"
+  href="https://unpkg.com/modern-css-reset/dist/reset.min.css"&gt;</code></pre><p class="fragment">Länka din egen CSS efter reset-filen.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CSS-stöd</p><h2>Verktyg när du fastnar</h2><div class="test-grid"><div class="test-card fragment">CSS Grid Cheatsheet</div><div class="test-card fragment">Viewport units</div><div class="test-card fragment"><code>place-items</code></div><div class="test-card fragment"><code>place-content</code></div><div class="test-card fragment">Modern CSS Reset</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Publicering</p><h2>GitHub och GitHub Pages</h2><div class="link-boxes"><div class="link-box fragment"><strong>GitHub</strong><p>Repositoryt innehåller koden och alla filer.</p></div><div class="link-box fragment"><strong>GitHub Pages</strong><p>Den publicerade webbplatsen som körs i webbläsaren.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Lämna in</p><h2>Två fungerande länkar</h2><ol><li class="fragment">Länk till repositoryt på GitHub.</li><li class="fragment">Länk till den publicerade sidan på GitHub Pages.</li><li class="fragment">Öppna båda länkarna i ett nytt fönster.</li><li class="fragment">Kontrollera att senaste versionen visas.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Slutkontroll 1</p><h2>Filer och layout</h2><div class="requirement-grid"><div class="requirement fragment"><code>index.html</code> och <code>contact.html</code></div><div class="requirement fragment">Mobilversionen byggdes först</div><div class="requirement fragment">Media query skapar desktoplayout</div><div class="requirement fragment">Centrerat innehåll på båda sidor</div><div class="requirement fragment">Knappliknande menylänkar</div><div class="requirement fragment">Eget färgschema och sans-serif fontstack</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Slutkontroll 2</p><h2>Kvalitet och publicering</h2><div class="requirement-grid"><div class="requirement fragment">Alla använda bilder är WebP</div><div class="requirement fragment">HTML och CSS validerar</div><div class="requirement fragment">Lighthouse-kraven är kontrollerade</div><div class="requirement fragment">Kontrasten är godkänd</div><div class="requirement fragment">Meta description finns på båda sidor</div><div class="requirement fragment">Båda inlämningslänkarna fungerar</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning</p><h2>Gör en del i taget</h2><ol><li class="fragment">Ladda ner, packa upp och konvertera bilder.</li><li class="fragment">Bygg index och contact mobilt först.</li><li class="fragment">Skapa desktoplayout med media query.</li><li class="fragment">Välj färger, font och knappliknande navigation.</li><li class="fragment">Validera, testa kontrast och kör Lighthouse.</li><li class="fragment">Publicera och testa båda länkarna.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Klart för inlämning</p><h2>Kontrollera en sista gång</h2><ul><li class="fragment">Jämför mot alla fyra layoutbilder.</li><li class="fragment">Testa mobil och desktop på den publicerade sidan.</li><li class="fragment">Klicka på båda menylänkarna.</li><li class="fragment">Skicka formuläret med testdata.</li><li class="fragment">Öppna GitHub- och GitHub Pages-länkarna.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      const sources={
+        index:{mobile:"../assets/ovn3/ovn3-layout/index%20-%20mobile.png",desktop:"../assets/ovn3/ovn3-layout/index%20-%20desktop.png",mobileAlt:"Layoutförslag för indexsidan i mobilvy",desktopAlt:"Layoutförslag för indexsidan i desktopvy"},
+        contact:{mobile:"../assets/ovn3/ovn3-layout/contakt%20-%20mobile.png",desktop:"../assets/ovn3/ovn3-layout/contact%20-%20desktop.png",mobileAlt:"Layoutförslag för kontaktsidan i mobilvy",desktopAlt:"Layoutförslag för kontaktsidan i desktopvy"}
+      };
+      document.querySelectorAll("[data-layout-demo]").forEach(function(demo){
+        const page=sources[demo.dataset.page],image=demo.querySelector("[data-layout-image]"),note=demo.querySelector("[data-layout-note]");
+        demo.querySelectorAll("[data-layout]").forEach(function(button){button.addEventListener("click",function(){demo.querySelectorAll("[data-layout]").forEach(function(item){item.setAttribute("aria-pressed","false");});button.setAttribute("aria-pressed","true");const mode=button.dataset.layout;image.src=page[mode];image.alt=page[mode+"Alt"];note.textContent=mode==="mobile"?"Mobilversionen byggs först.":"Desktopversionen skapas med en media query.";});});
+      });
+    });
+  </script>
+</body>
+</html>

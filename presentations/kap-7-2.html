@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.2: Färg, kontrast och navigering.">
+  <title>Kap 7.2 – Färg, kontrast och navigering</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .contrast-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+    .contrast-sample { min-height:9rem; display:grid; place-content:center; padding:1rem; border:2px solid #64748b; border-radius:10px; text-align:center; font-size:clamp(1.2rem,2.2vw,2rem); font-weight:800; }
+    .contrast-sample small { display:block; margin-top:.5rem; font:600 clamp(.85rem,1.2vw,1rem)/1.3 "SFMono-Regular",monospace; }
+    .color-combos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-top:1.25rem; }
+    .color-combo { padding:1rem; border:1px solid #172026; border-radius:8px; font-size:clamp(1rem,1.7vw,1.45rem); font-weight:800; text-align:center; }
+    .color-combo code { display:block; margin-top:.4rem; color:inherit; font-size:.72em; }
+    .red-green { color:#f00; background:#0f0; }
+    .green-red { color:#0f0; background:#f00; }
+    .red-blue { color:#f00; background:#00f; }
+    .blue-red { color:#00f; background:#f00; }
+    .green-blue { color:#0f0; background:#00f; }
+    .blue-green { color:#00f; background:#0f0; }
+    .focus-demo { margin-top:1.5rem; padding:1.2rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .focus-demo p { margin:0 0 .8rem; color:#172026; font-size:1.1rem; }
+    .focus-demo nav { display:flex; flex-wrap:wrap; gap:.75rem; }
+    .focus-demo a,.focus-demo button { padding:.65rem .9rem; border:2px solid #2457a6; border-radius:6px; background:#fff; color:#075aa8; font:inherit; font-weight:800; }
+    .focus-demo button { cursor:pointer; }
+    .focus-demo a:focus-visible,.focus-demo button:focus-visible { outline:5px solid #e67e00; outline-offset:4px; }
+    .link-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+    .link-card { padding:1.1rem; border:2px solid #94a3b8; border-radius:10px; background:#fff; font-size:clamp(1rem,1.6vw,1.35rem); }
+    .link-card.is-better { border-color:#177245; background:#e7f7ee; }
+    .contrast-demo { margin-top:.8rem; border:1px solid #cbd5e1; border-radius:8px; overflow:hidden; background:#fff; color:#172026; }
+    .contrast-demo * { color:inherit; }
+    .contrast-demo__bar { padding:.45rem .7rem; border-bottom:1px solid #e2e8f0; background:#f8fafc; font-size:.85rem; font-weight:800; }
+    .contrast-demo__body { display:grid; grid-template-columns:minmax(0,1fr) minmax(14rem,.8fr); gap:.75rem; padding:.75rem; }
+    .contrast-demo__controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; align-content:start; }
+    .contrast-demo__field { display:grid; grid-template-columns:1fr auto; gap:.3rem .55rem; align-items:center; }
+    .contrast-demo__field label { font-size:.85rem; font-weight:800; }
+    .contrast-demo__field input[type="color"] { width:2.8rem; height:2rem; padding:0; border:1px solid #94a3b8; border-radius:5px; }
+    .contrast-demo__field code,.contrast-demo__sliders { grid-column:1/-1; }
+    .contrast-demo__field code { font-size:.8rem; }
+    .contrast-demo__sliders { display:grid; gap:.22rem; }
+    .contrast-demo__slider { display:grid; grid-template-columns:2.6rem minmax(0,1fr) 2.2rem; gap:.35rem; align-items:center; font-size:.72rem; }
+    .contrast-demo__slider label { font-size:.72rem; }
+    .contrast-demo__slider input { width:100%; }
+    .contrast-demo__slider span { text-align:right; font-variant-numeric:tabular-nums; }
+    .contrast-demo__buttons { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:.35rem; }
+    .contrast-demo__buttons button { padding:.35rem .5rem; border:1px solid #94a3b8; border-radius:5px; background:#fff; color:#172026; font:700 .72rem/1.2 inherit; cursor:pointer; }
+    .contrast-demo__buttons button:focus-visible { outline:3px solid #0f766e; outline-offset:2px; }
+    .contrast-demo__result { grid-column:1/-1; display:grid; grid-template-columns:auto 1fr; gap:.2rem .7rem; align-items:center; padding:.55rem; border:1px solid #cbd5e1; border-radius:7px; background:#f8fafc; font-size:.75rem; }
+    .contrast-demo__ratio { grid-row:span 2; color:#172026; font-size:1.35rem; font-weight:900; }
+    .contrast-demo__status { color:#14532d; font-weight:900; }
+    .contrast-demo__status[data-pass="false"] { color:#991b1b; }
+    .contrast-demo__preview { display:grid; align-content:center; gap:.5rem; min-height:12rem; padding:1rem; border-radius:7px; background:#fff; color:#172026; }
+    .contrast-demo__preview h3,.contrast-demo__preview p { margin:0; color:inherit!important; }
+    .contrast-demo__preview h3 { font-size:1.25rem; }
+    .contrast-demo__preview p { font-size:.9rem; line-height:1.5; }
+    @media(max-width:760px){.contrast-pair,.color-combos,.link-pair{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.2</p><h1>Färg, kontrast och navigering</h1><p class="fragment">Text, länkar och menyer ska vara lätta att hitta, läsa och använda.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara varför kontrast påverkar läsbarhet</li><li class="fragment">undvika att färg är den enda informationsbäraren</li><li class="fragment">skapa tydliga länkar, fokuslägen och navigation</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrast</p><h2>Texten måste skilja sig från bakgrunden</h2><p class="fragment">Kontrast handlar om skillnaden i ljushet mellan text och bakgrund.</p><p class="fragment">Två olika färger ger inte automatiskt tillräcklig kontrast.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Jämför</p><h2>Synligt är inte alltid läsbart</h2><div class="contrast-pair"><div class="contrast-sample fragment" style="color:#c7c7c7;background:#fff">Ljusgrå text<small>#C7C7C7 på #FFFFFF</small></div><div class="contrast-sample fragment" style="color:#172026;background:#fff">Mörk text<small>#172026 på #FFFFFF</small></div></div><p class="fragment">Läsbarheten måste bedömas när färgerna används tillsammans.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Färgblindhet</p><h2>Alla skiljer inte färger på samma sätt</h2><p class="fragment">En vanlig form är röd–grön färgblindhet.</p><ul><li class="fragment">Var försiktig med rött och grönt tillsammans.</li><li class="fragment">Använd inte färg som enda ledtråd.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Färgkombinationer</p><h2>Färgblindhet och chromostereopsis</h2><div class="color-combos"><div class="color-combo red-green">The quick brown fox jumps over the lazy dog<code>text: #F00, bakgrund: #0F0</code></div><div class="color-combo green-red">The quick brown fox jumps over the lazy dog<code>text: #0F0, bakgrund: #F00</code></div><div class="color-combo red-blue">The quick brown fox jumps over the lazy dog<code>text: #F00, bakgrund: #00F</code></div><div class="color-combo blue-red">The quick brown fox jumps over the lazy dog<code>text: #00F, bakgrund: #F00</code></div><div class="color-combo green-blue">The quick brown fox jumps over the lazy dog<code>text: #0F0, bakgrund: #00F</code></div><div class="color-combo blue-green">The quick brown fox jumps over the lazy dog<code>text: #00F, bakgrund: #0F0</code></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Chromostereopsis</p><h2>När färger verkar vibrera eller ligga på olika djup</h2><p class="fragment"><strong>Chromostereopsis</strong> är ett synintryck där starka färger bredvid varandra kan upplevas ligga på olika djup.</p><p class="fragment">Det kan uppstå när färger med olika våglängder, exempelvis mättat rött och blått, placeras tätt tillsammans.</p><p class="fragment">Resultatet kan bli att bokstävernas kanter verkar vibrera. Då blir längre text obehaglig och svårare att läsa.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mättad röd</p><h2><code>#FF0000</code> kan aldrig nå 7:1</h2><table class="comparison"><thead><tr><th>Kombination</th><th>Kontrast</th><th>7:1?</th></tr></thead><tbody><tr class="fragment"><td>Röd på vit</td><td>4,00:1</td><td>Nej</td></tr><tr class="fragment"><td>Röd på svart</td><td>5,25:1</td><td>Nej</td></tr></tbody></table><p class="fragment">Svart ger den högsta möjliga kontrasten mot <code>#FF0000</code>, men når bara 5,25:1. Därför finns <strong>ingen bakgrundsfärg</strong> som kan få ren röd att klara 7:1.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv färg- och kontrastkontroll</p><h2>Samma kontroll som i kapitel 3.2</h2><div class="contrast-demo" aria-label="Interaktiv kontrastkontroll"><div class="contrast-demo__bar">Testa textfärg mot bakgrundsfärg</div><div class="contrast-demo__body"><div class="contrast-demo__controls"><div class="contrast-demo__field"><label for="contrast-text-color">Textfärg</label><input id="contrast-text-color" type="color" value="#172026"><code id="contrast-text-code">#172026</code><div class="contrast-demo__sliders" aria-label="RGB-reglage för textfärg"><div class="contrast-demo__slider"><label for="contrast-text-red">Röd</label><input id="contrast-text-red" type="range" min="0" max="255" value="23"><span id="contrast-text-red-value">23</span></div><div class="contrast-demo__slider"><label for="contrast-text-green">Grön</label><input id="contrast-text-green" type="range" min="0" max="255" value="32"><span id="contrast-text-green-value">32</span></div><div class="contrast-demo__slider"><label for="contrast-text-blue">Blå</label><input id="contrast-text-blue" type="range" min="0" max="255" value="38"><span id="contrast-text-blue-value">38</span></div></div></div><div class="contrast-demo__field"><label for="contrast-bg-color">Bakgrundsfärg</label><input id="contrast-bg-color" type="color" value="#ffffff"><code id="contrast-bg-code">#FFFFFF</code><div class="contrast-demo__sliders" aria-label="RGB-reglage för bakgrundsfärg"><div class="contrast-demo__slider"><label for="contrast-bg-red">Röd</label><input id="contrast-bg-red" type="range" min="0" max="255" value="255"><span id="contrast-bg-red-value">255</span></div><div class="contrast-demo__slider"><label for="contrast-bg-green">Grön</label><input id="contrast-bg-green" type="range" min="0" max="255" value="255"><span id="contrast-bg-green-value">255</span></div><div class="contrast-demo__slider"><label for="contrast-bg-blue">Blå</label><input id="contrast-bg-blue" type="range" min="0" max="255" value="255"><span id="contrast-bg-blue-value">255</span></div></div></div><div class="contrast-demo__buttons" aria-label="Förvalda färgkombinationer"><button type="button" data-text="#777777" data-bg="#ffffff">Ljusgrå på vit</button><button type="button" data-text="#ff0000" data-bg="#ffffff">Röd på vit</button><button type="button" data-text="#ffffff" data-bg="#cc0000">Vit på röd</button><button type="button" data-text="#172026" data-bg="#f6f8f7">Mörk på ljus</button></div><div class="contrast-demo__result" aria-live="polite"><span class="contrast-demo__ratio" id="contrast-ratio">15.98:1</span><span class="contrast-demo__status" id="contrast-status">Klarar kravet 7:1.</span><span id="contrast-note">Testa flera kombinationer. Ren röd klarar inte 7:1, men mörkare röd kan fungera.</span></div></div><div class="contrast-demo__preview" id="contrast-preview"><h3>Exempeltext på en webbsida</h3><p>Byt färger och kontrollera om texten fortfarande går att läsa utan ansträngning.</p></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prova själv</p><h2>Testa röd text i WebAIM</h2><ol><li class="fragment">Öppna WebAIM Contrast Checker.</li><li class="fragment">Sätt foreground till <code>#FF0000</code>.</li><li class="fragment">Ändra background.</li><li class="fragment">Jämför normal text, stor text och gränssnittskomponenter.</li><li class="fragment">Bedöm även om färgerna känns bra att läsa.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Contrast Checker</p><h2>Verktyget visar testresultatet</h2><figure class="slide-figure fragment"><img src="../assets/images/kap7.2-webaim.png" alt="WebAIM Contrast Checker med kontrastvärde och godkända kontrasttester"><figcaption>Verktyget visar kontrastvärdet och resultat för normal text, stor text och gränssnittskomponenter.</figcaption></figure></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Verktyg och bedömning</p><h2>Ett godkänt värde är inte hela svaret</h2><ul><li class="fragment">Kontrollera kontrastresultatet.</li><li class="fragment">Läs texten i sin riktiga storlek.</li><li class="fragment">Bedöm om färgkombinationen känns stabil och tydlig.</li><li class="fragment">Testa på sidan där färgerna ska användas.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Länktexter</p><h2>Säg vart länken leder</h2><div class="link-pair"><div class="link-card fragment"><strong>Otydligt:</strong><br><a href="#">Klicka här</a></div><div class="link-card is-better fragment"><strong>Tydligt:</strong><br><a href="#">Se schemat för kursen</a></div></div><p class="fragment">Länktexten ska gå att förstå utan att användaren behöver gissa.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Fokus</p><h2>Tangentbordsanvändaren måste se var den är</h2><pre class="code-block no-scroll-code fragment"><code>a:focus {
+  outline: 3px solid #e67e00;
+  outline-offset: 4px;
+}</code></pre><p class="fragment">Ta inte bort fokusmarkeringen utan att ersätta den med en tydlig egen stil.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktivt fokus</p><h2>Tryck Tab och följ markeringen</h2><div class="focus-demo"><p>Tryck <kbd>Tab</kbd> direkt. Fortsätt tabba genom länkarna och knappen.</p><nav aria-label="Exempelnavigation"><a href="#start">Startsida</a><a href="#schema">Schema</a><a href="#kontakt">Kontakt</a><button type="button">Logga in</button></nav></div><p class="fragment">Den orange konturen visar vilket element som har fokus.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Navigation</p><h2>Gör den förutsägbar</h2><ul><li class="fragment">Använd tydliga namn.</li><li class="fragment">Placera navigationen konsekvent.</li><li class="fragment">Låt länkar och knappar fungera med tangentbord.</li><li class="fragment">Visa fokus tydligt.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera sidan</p><h2>Fyra frågor</h2><ul><li class="fragment">Går texten att läsa mot bakgrunden?</li><li class="fragment">Förmedlas viktig information med mer än färg?</li><li class="fragment">Säger länktexterna vart länkarna leder?</li><li class="fragment">Syns fokus när du navigerar med Tab?</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Kontrast handlar om skillnad i ljushet.</li><li class="fragment">Starka färger är inte automatiskt lättlästa.</li><li class="fragment">Färg får inte vara den enda informationsbäraren.</li><li class="fragment">Länktexter ska vara tydliga.</li><li class="fragment">Tangentbordsfokus måste synas.</li><li class="fragment">Navigationen ska vara konsekvent och användbar.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      const textColor=document.getElementById("contrast-text-color");
+      const bgColor=document.getElementById("contrast-bg-color");
+      const textCode=document.getElementById("contrast-text-code");
+      const bgCode=document.getElementById("contrast-bg-code");
+      const ratio=document.getElementById("contrast-ratio");
+      const status=document.getElementById("contrast-status");
+      const note=document.getElementById("contrast-note");
+      const preview=document.getElementById("contrast-preview");
+      const presetButtons=document.querySelectorAll(".contrast-demo__buttons button");
+      const sliders={
+        text:{red:document.getElementById("contrast-text-red"),green:document.getElementById("contrast-text-green"),blue:document.getElementById("contrast-text-blue")},
+        bg:{red:document.getElementById("contrast-bg-red"),green:document.getElementById("contrast-bg-green"),blue:document.getElementById("contrast-bg-blue")}
+      };
+      const sliderValues={
+        text:{red:document.getElementById("contrast-text-red-value"),green:document.getElementById("contrast-text-green-value"),blue:document.getElementById("contrast-text-blue-value")},
+        bg:{red:document.getElementById("contrast-bg-red-value"),green:document.getElementById("contrast-bg-green-value"),blue:document.getElementById("contrast-bg-blue-value")}
+      };
+      function hexToRgb(hex){
+        const value=hex.replace("#","");
+        return [parseInt(value.slice(0,2),16),parseInt(value.slice(2,4),16),parseInt(value.slice(4,6),16)];
+      }
+      function rgbToHex(r,g,b){
+        return "#"+[r,g,b].map(function(value){return Number(value).toString(16).padStart(2,"0");}).join("");
+      }
+      function setSlidersFromHex(groupName,hex){
+        const rgb=hexToRgb(hex);
+        ["red","green","blue"].forEach(function(channel,index){sliders[groupName][channel].value=rgb[index];sliderValues[groupName][channel].textContent=rgb[index];});
+      }
+      function hexFromSliders(groupName){
+        const values=["red","green","blue"].map(function(channel){const value=sliders[groupName][channel].value;sliderValues[groupName][channel].textContent=value;return value;});
+        return rgbToHex(values[0],values[1],values[2]);
+      }
+      function relativeLuminance(hex){
+        const channels=hexToRgb(hex).map(function(channel){const value=channel/255;return value<=0.03928?value/12.92:Math.pow((value+0.055)/1.055,2.4);});
+        return channels[0]*0.2126+channels[1]*0.7152+channels[2]*0.0722;
+      }
+      function contrastRatio(firstHex,secondHex){
+        const first=relativeLuminance(firstHex),second=relativeLuminance(secondHex);
+        return (Math.max(first,second)+0.05)/(Math.min(first,second)+0.05);
+      }
+      function updateContrast(){
+        const textValue=textColor.value.toUpperCase(),bgValue=bgColor.value.toUpperCase();
+        const currentRatio=contrastRatio(textValue,bgValue);
+        const passesRequired=currentRatio>=7,passesLower=currentRatio>=4.5;
+        const usesPureRed=textValue==="#FF0000"||bgValue==="#FF0000";
+        textCode.textContent=textValue;
+        bgCode.textContent=bgValue;
+        ratio.textContent=currentRatio.toFixed(2)+":1";
+        preview.style.color=textValue;
+        preview.style.backgroundColor=bgValue;
+        status.dataset.pass=String(passesRequired);
+        if(passesRequired){status.textContent="Klarar kravet 7:1.";note.textContent="Den här kombinationen har mycket god kontrast och fungerar bra för brödtext i övningen.";}
+        else if(passesLower){status.textContent="För låg kontrast för den här övningen.";note.textContent="Kombinationen kan se okej ut, men den når inte 7:1. Gör texten mörkare eller bakgrunden ljusare.";}
+        else{status.textContent="För låg kontrast.";note.textContent=usesPureRed?"Ren röd #FF0000 kan inte nå 7:1 mot någon bakgrund. Välj en mörkare röd färg eller en annan färg.":"Byt till mörkare text, ljusare bakgrund eller större skillnad mellan färgerna tills värdet är minst 7:1.";}
+      }
+      [textColor,bgColor].forEach(function(control){
+        control.addEventListener("input",function(){setSlidersFromHex(control===textColor?"text":"bg",control.value);updateContrast();});
+        control.addEventListener("change",function(){setSlidersFromHex(control===textColor?"text":"bg",control.value);updateContrast();});
+      });
+      ["text","bg"].forEach(function(groupName){
+        Object.values(sliders[groupName]).forEach(function(slider){slider.addEventListener("input",function(){const hex=hexFromSliders(groupName);if(groupName==="text")textColor.value=hex;else bgColor.value=hex;updateContrast();});});
+      });
+      presetButtons.forEach(function(button){button.addEventListener("click",function(){textColor.value=button.dataset.text;bgColor.value=button.dataset.bg;setSlidersFromHex("text",textColor.value);setSlidersFromHex("bg",bgColor.value);updateContrast();});});
+      setSlidersFromHex("text",textColor.value);
+      setSlidersFromHex("bg",bgColor.value);
+      updateContrast();
+
+      document.addEventListener("keydown",function(event){
+        if(event.key!=="Tab")return;
+        const activeSlide=document.querySelector(".slide.is-active");
+        const demo=activeSlide&&activeSlide.querySelector(".focus-demo");
+        if(!demo||demo.contains(document.activeElement))return;
+        const targets=demo.querySelectorAll("a,button");
+        if(!targets.length)return;
+        event.preventDefault();
+        targets[event.shiftKey?targets.length-1:0].focus();
+      },true);
+    });
+  </script>
+</body>
+</html>

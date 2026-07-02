@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.5: Etiska designval.">
+  <title>Kap 7.5 – Etiska designval</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .attention-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.8rem; margin-top:1.3rem; }
+    .attention-card { min-height:7rem; display:grid; place-content:center; padding:.8rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; font-size:clamp(1rem,1.6vw,1.35rem); font-weight:900; text-align:center; }
+    .work-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.8rem; margin-top:1.2rem; }
+    .work-card { padding:.9rem; border:2px solid var(--slide-accent); border-radius:9px; background:#fff; font-size:clamp(1rem,1.5vw,1.3rem); font-weight:800; text-align:center; }
+    .rights-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.3rem; }
+    .right-card { padding:1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; }
+    .right-card strong { display:block; color:var(--slide-accent); font-size:clamp(1.2rem,2vw,1.7rem); }
+    .right-card p { margin:.45rem 0 0; font-size:clamp(1rem,1.5vw,1.3rem); }
+    .pattern-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-top:1.2rem; }
+    .pattern-card { padding:1rem; border-left:6px solid #b42318; border-radius:8px; background:#fff0ee; font-size:clamp(1rem,1.5vw,1.3rem); }
+    .choice-demo { display:grid; grid-template-columns:minmax(15rem,.65fr) minmax(0,1.35fr); gap:1rem; margin-top:1.2rem; }
+    .choice-controls,.choice-dialog { display:grid; gap:.65rem; padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .choice-controls button { padding:.65rem .8rem; border:2px solid var(--slide-accent); border-radius:6px; background:#fff; color:var(--slide-accent); font:inherit; font-weight:900; cursor:pointer; }
+    .choice-controls button[aria-pressed="true"] { background:var(--slide-accent); color:#fff; }
+    .choice-dialog h3,.choice-dialog p { margin:0; color:#172026; }
+    .choice-dialog p { font-size:1rem; }
+    .choice-actions { display:flex; flex-wrap:wrap; gap:.65rem; }
+    .choice-actions button { padding:.65rem .9rem; border:2px solid #2457a6; border-radius:6px; background:#fff; color:#075aa8; font:inherit; font-weight:800; }
+    .choice-dialog.is-dark .accept { padding:.9rem 1.2rem; border:0; background:#16a34a; color:#fff; font-size:1.2rem; }
+    .choice-dialog.is-dark .decline { border:0; color:#94a3b8; font-size:.72rem; text-decoration:underline; }
+    .choice-dialog.is-ethical .choice-actions button { min-width:10rem; }
+    .choice-note { padding:.65rem; border-radius:6px; background:#f8fafc; font-size:.9rem; font-weight:700; }
+    .support-demo { display:grid; grid-template-columns:minmax(16rem,.7fr) minmax(0,1.3fr); gap:1rem; margin-top:1.2rem; }
+    .support-controls,.support-result { display:grid; gap:.65rem; padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .support-controls label { display:flex; align-items:center; gap:.5rem; font-size:1rem; font-weight:800; }
+    .support-result strong { color:var(--slide-accent); font-size:1.4rem; }
+    .support-result code,.support-result p { margin:0; color:#172026; font-size:1rem; }
+    .ethics-question { padding:1.1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; font-size:clamp(1.15rem,2vw,1.75rem); font-weight:850; }
+    @media(max-width:760px){.attention-grid{grid-template-columns:repeat(2,1fr)}.pattern-grid,.choice-demo,.support-demo,.rights-pair{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.5</p><h1>Etiska designval</h1><p class="fragment">Design påverkar vad användaren ser, förstår och väljer att göra.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara hur design påverkar beslut</li><li class="fragment">känna igen mörka mönster</li><li class="fragment">skapa tydliga och ärliga val</li><li class="fragment">resonera om konsekvenser av tekniska val</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppmärksamhet</p><h2>Fyra designval styr blicken</h2><div class="attention-grid"><div class="attention-card fragment" style="font-size:2rem">Storlek</div><div class="attention-card fragment" style="background:#fde047;color:#172026">Färg</div><div class="attention-card fragment" style="align-content:start">Placering</div><div class="attention-card fragment">Texten på knappen</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Gränsen</p><h2>Att guida är normalt – att lura är problemet</h2><table class="comparison"><thead><tr><th>Guida</th><th>Manipulera</th></tr></thead><tbody><tr><td class="fragment">Göra nästa steg tydligt.</td><td class="fragment">Gömma ett viktigt alternativ.</td></tr><tr><td class="fragment">Förklara konsekvensen.</td><td class="fragment">Pressa fram ett val.</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mörka mönster</p><h2>Design på användarens bekostnad</h2><p class="fragment">Mörka mönster gynnar webbplatsen genom att lura, pressa eller försvåra för användaren.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exempel</p><h2>Känn igen mörka mönster</h2><div class="pattern-grid"><div class="pattern-card fragment">Lätt att skapa konto men svårt att avsluta det.</div><div class="pattern-card fragment">En prenumeration beskrivs otydligt.</div><div class="pattern-card fragment">Samtycken är förvalda.</div><div class="pattern-card fragment">Nej-knappen är liten eller nästan osynlig.</div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv jämförelse</p><h2>Samma val – två olika designer</h2><div class="choice-demo" data-choice-demo><div class="choice-controls"><button type="button" data-choice="dark" aria-pressed="true">Mörkt mönster</button><button type="button" data-choice="ethical" aria-pressed="false">Etiskt val</button></div><div class="choice-dialog is-dark" data-choice-dialog><h3>Vi använder cookies</h3><p data-choice-copy>Acceptera allt för den bästa upplevelsen.</p><div class="choice-actions"><button type="button" class="accept">Acceptera allt</button><button type="button" class="decline">Nej tack</button></div><div class="choice-note" data-choice-note>Nej-valet är medvetet svårt att upptäcka.</div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Ansvarsfull design</p><h2>Gör viktiga val begripliga</h2><ul><li class="fragment">Tydliga knappar</li><li class="fragment">Ärlig text</li><li class="fragment">Rimliga standardval</li><li class="fragment">Enkel väg tillbaka</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tumregel</p><h2>Sätt användaren först</h2><div class="ethics-question fragment">Fråga inte bara: ”Går det att bygga?”</div><div class="ethics-question fragment" style="margin-top:1rem">Fråga också: ”Är det rimligt, begripligt och schysst?”</div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Nya funktioner</p><h2>Alla har inte samma webbläsare</h2><p class="fragment">En ny HTML- eller CSS-funktion kan fungera i din webbläsare men saknas i en annan version eller webbläsare.</p><p class="fragment">Kontrollera stöd och planera ett fungerande alternativ.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Can I use</p><h2>Kontrollera webbläsarstöd</h2><ol><li class="fragment">Sök efter funktionen eller formatet.</li><li class="fragment">Jämför stöd i Chrome, Firefox, Safari och Edge.</li><li class="fragment">Bestäm om en reservlösning behövs.</li></ol><p class="fragment">Stödet förändras. Kontrollera aktuella uppgifter när du bygger.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Progressiv förbättring</p><h2>En grund som fungerar för alla</h2><div class="flow"><span class="fragment">Grundnivå<br><strong>fungerar</strong></span><span class="fragment">Stöd finns<br><strong>bättre format</strong></span><span class="fragment">Mer stöd<br><strong>extra funktion</strong></span></div><p class="fragment">Sidan ska inte bli oanvändbar när det modernaste alternativet saknas.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Bildformat</p><h2>Erbjud flera alternativ</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;picture&gt;
+  &lt;source srcset="bild.avif" type="image/avif"&gt;
+  &lt;source srcset="bild.webp" type="image/webp"&gt;
+  &lt;img src="bild.jpg" alt="Beskrivning av bilden"&gt;
+&lt;/picture&gt;</code></pre><p class="fragment">Webbläsaren använder den första bildtyp som den klarar.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv reservlösning</p><h2>Vilken bild väljs?</h2><div class="support-demo" data-support-demo><div class="support-controls"><label><input type="checkbox" data-avif checked> Webbläsaren stöder AVIF</label><label><input type="checkbox" data-webp checked> Webbläsaren stöder WebP</label></div><div class="support-result"><strong data-support-result>bild.avif</strong><code data-support-code>&lt;source type="image/avif"&gt;</code><p data-support-text>Det första formatet stöds och används.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tillgänglighet</p><h2>Kan alla använda webbplatsen?</h2><ul><li class="fragment">Fungerar tangentbordet?</li><li class="fragment">Syns fokusmarkeringen?</li><li class="fragment">Har viktiga bilder alt-text?</li><li class="fragment">Är kontrasten tillräcklig?</li></ul><p class="fragment">Etisk design stänger inte medvetet ute användare.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Responsiv design</p><h2>Din egen skärm är inte den enda</h2><div class="work-grid"><div class="work-card fragment">Mobil</div><div class="work-card fragment">Surfplatta</div><div class="work-card fragment">Laptop</div><div class="work-card fragment">Stor skärm</div></div><p class="fragment">Testa både smal och bred vy.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Språk</p><h2>Använd ord som målgruppen förstår</h2><div class="rights-pair"><div class="right-card fragment"><strong>Undvik onödig jargong</strong><p>Svåra termer kan stänga ute nybörjare.</p></div><div class="right-card fragment"><strong>Förklara nya begrepp</strong><p>Använd en kort förklaring eller ordlista.</p></div></div><p class="fragment">Tonen ska passa webbplatsens målgrupp och situation.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Integritet</p><h2>Fråga bara efter det som behövs</h2><ul><li class="fragment">Förklara varför formulärfältet behövs.</li><li class="fragment">Samla inte in extra personuppgifter.</li><li class="fragment">Kontrollera hur informationen hanteras.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Externa tjänster</p><h2>Tekniska val kan skicka data vidare</h2><div class="work-grid"><div class="work-card fragment">Statistik</div><div class="work-card fragment">Kartor</div><div class="work-card fragment">Inbäddad film</div><div class="work-card fragment">Externa typsnitt</div><div class="work-card fragment">Formulärtjänster</div></div><p class="fragment">Kontrollera vilka företag som tar emot data.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppkoppling</p><h2>En tung sida kan stänga ute</h2><div class="flow"><span class="fragment">Stora bilder<br>och filmer</span><span class="fragment">Långsam<br>laddning</span><span class="fragment">Mer data<br>och väntan</span></div><ul><li class="fragment">Optimera media.</li><li class="fragment">Ta bort onödiga filer.</li><li class="fragment">Kontrollera Network-panelen.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Bilder av människor</p><h2>Identifierbara personer kan finnas i bakgrunden</h2><p class="fragment">Även om publicering ibland kan vara juridiskt möjlig är den inte automatiskt det bästa etiska valet.</p><div class="work-grid"><div class="work-card fragment">Välj en annan bild</div><div class="work-card fragment">Beskär bilden</div><div class="work-card fragment">Gör personer oidentifierbara</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Etisk kontrollfråga</p><h2>”Får vi?” räcker inte</h2><div class="ethics-question fragment">Får vi publicera detta?</div><div class="ethics-question fragment" style="margin-top:1rem">Bör vi publicera detta?</div><p class="fragment">Juridik och etik är två olika bedömningar.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Automatiska funktioner</p><h2>En funktion kan få oväntade konsekvenser</h2><p class="fragment">Automatiska årsminnen kan vara roliga för en användare men lyfta fram sorgliga eller känsliga händelser för en annan.</p><p class="fragment">Systemet känner inte automatiskt till människans sammanhang.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Före lansering</p><h2>Fråga om konsekvenserna</h2><ul><li class="fragment">Vem gynnas av standardvalet?</li><li class="fragment">Kan användaren förstå och ångra valet?</li><li class="fragment">Vem riskerar att stängas ute?</li><li class="fragment">Vilken data eller uppkoppling krävs?</li><li class="fragment">Kan funktionen såra eller överraska?</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Fundera själv</p><h2>Fyra situationer</h2><ol><li class="fragment">Varför behövs reservformat till AVIF?</li><li class="fragment">Varför bör filstorleken hållas nere?</li><li class="fragment">Vad gör du med personer i bildens bakgrund?</li><li class="fragment">Vilken automatisk funktion kan bli olämplig?</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Design påverkar användarens beslut.</li><li class="fragment">Mörka mönster lurar, pressar eller gömmer val.</li><li class="fragment">Progressiv förbättring ger en fungerande grund.</li><li class="fragment">Tillgänglighet, responsivitet och prestanda är etiska frågor.</li><li class="fragment">Tänk på integritet och människor i bilder.</li><li class="fragment">Fråga både ”får vi?” och ”bör vi?”.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      document.querySelectorAll("[data-choice-demo]").forEach(function(demo){
+        const dialog=demo.querySelector("[data-choice-dialog]"),copy=demo.querySelector("[data-choice-copy]"),note=demo.querySelector("[data-choice-note]"),accept=dialog.querySelector(".accept"),decline=dialog.querySelector(".decline");
+        demo.querySelectorAll("[data-choice]").forEach(function(button){button.addEventListener("click",function(){demo.querySelectorAll("[data-choice]").forEach(function(item){item.setAttribute("aria-pressed","false");});button.setAttribute("aria-pressed","true");const dark=button.dataset.choice==="dark";dialog.classList.toggle("is-dark",dark);dialog.classList.toggle("is-ethical",!dark);copy.textContent=dark?"Acceptera allt för den bästa upplevelsen.":"Välj om webbplatsen får använda valfria cookies.";accept.textContent=dark?"Acceptera allt":"Acceptera valfria";decline.textContent=dark?"Nej tack":"Endast nödvändiga";note.textContent=dark?"Nej-valet är medvetet svårt att upptäcka.":"Båda valen är tydliga och visuellt likvärdiga.";});});
+      });
+      document.querySelectorAll("[data-support-demo]").forEach(function(demo){
+        const avif=demo.querySelector("[data-avif]"),webp=demo.querySelector("[data-webp]"),result=demo.querySelector("[data-support-result]"),code=demo.querySelector("[data-support-code]"),text=demo.querySelector("[data-support-text]");
+        function update(){if(avif.checked){result.textContent="bild.avif";code.textContent='<source type="image/avif">';text.textContent="Det första formatet stöds och används.";}else if(webp.checked){result.textContent="bild.webp";code.textContent='<source type="image/webp">';text.textContent="AVIF saknas, så webbläsaren går vidare till WebP.";}else{result.textContent="bild.jpg";code.textContent='<img src="bild.jpg">';text.textContent="Varken AVIF eller WebP stöds. JPG blir reservlösningen.";}}
+        [avif,webp].forEach(function(input){input.addEventListener("change",update);});update();
+      });
+    });
+  </script>
+</body>
+</html>

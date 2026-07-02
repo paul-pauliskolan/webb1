@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.4: Upphovsrätt och Creative Commons.">
+  <title>Kap 7.4 – Upphovsrätt och Creative Commons</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .work-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.8rem; margin-top:1.3rem; }
+    .work-card { padding:1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; font-size:clamp(1rem,1.6vw,1.4rem); font-weight:800; text-align:center; }
+    .rights-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.4rem; }
+    .right-card { padding:1.1rem; border:2px solid var(--slide-accent); border-radius:11px; background:#fff; }
+    .right-card strong { display:block; color:var(--slide-accent); font-size:clamp(1.3rem,2vw,1.8rem); }
+    .right-card p { margin:.5rem 0 0; font-size:clamp(1rem,1.5vw,1.3rem); }
+    .cc-symbol { display:inline-grid; place-items:center; min-width:4.2rem; min-height:4.2rem; padding:.45rem; border:4px solid #172026; border-radius:50%; background:#fff; color:#172026; font:900 clamp(1.35rem,2.5vw,2rem)/1 system-ui; }
+    .cc-condition-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-top:1.2rem; }
+    .cc-condition { display:grid; grid-template-columns:auto 1fr; gap:.7rem; align-items:center; padding:.8rem; border:1px solid var(--slide-border); border-radius:9px; background:#fff; }
+    .cc-condition strong { color:var(--slide-accent); font-size:1.25rem; }
+    .cc-condition span { font-size:1rem; }
+    .license-demo { display:grid; grid-template-columns:minmax(17rem,.8fr) minmax(0,1.2fr); gap:1rem; margin-top:1.2rem; }
+    .license-controls,.license-result { display:grid; gap:.65rem; padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .license-controls button { padding:.65rem .8rem; border:2px solid var(--slide-accent); border-radius:6px; background:#fff; color:var(--slide-accent); font:inherit; font-weight:900; cursor:pointer; }
+    .license-controls button[aria-pressed="true"] { background:var(--slide-accent); color:#fff; }
+    .license-result strong { color:var(--slide-accent); font-size:1.35rem; }
+    .license-result p,.license-result ul { margin:0; color:#172026; font-size:1rem; }
+    .license-result ul { display:grid; gap:.35rem; padding-left:1.2rem; }
+    .credit-demo { display:grid; grid-template-columns:minmax(16rem,.75fr) minmax(0,1.25fr); gap:1rem; margin-top:1.2rem; }
+    .credit-form,.credit-output { display:grid; gap:.55rem; padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .credit-form label { display:grid; gap:.2rem; font-size:.85rem; font-weight:800; }
+    .credit-form input,.credit-form select { width:100%; padding:.5rem; border:1px solid #94a3b8; border-radius:5px; font:inherit; }
+    .credit-form label:last-child { display:flex; align-items:center; }
+    .credit-form label:last-child input { width:auto; }
+    .credit-output strong { color:var(--slide-accent); }
+    .credit-output p { margin:0; padding:.8rem; border-left:5px solid var(--slide-accent); background:#f8fafc; color:#172026; font-size:1.05rem; }
+    @media(max-width:760px){.rights-pair,.cc-condition-grid,.license-demo,.credit-demo{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.4</p><h1>Upphovsrätt och Creative Commons</h1><p class="fragment">Allt som finns på webben är inte fritt att kopiera och använda.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förstå att olika verk kan skyddas av upphovsrätt</li><li class="fragment">förklara vad Creative Commons används till</li><li class="fragment">kontrollera licensvillkor</li><li class="fragment">ange källa och licens ansvarsfullt</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Skyddade verk</p><h2>Upphovsrätt kan gälla många uttryck</h2><div class="work-grid"><div class="work-card fragment">Fotografier</div><div class="work-card fragment">Illustrationer</div><div class="work-card fragment">Texter</div><div class="work-card fragment">Musik</div><div class="work-card fragment">Filmer</div><div class="work-card fragment">Källkod</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Webben</p><h2>Nedladdningsbart betyder inte fritt</h2><div class="flow"><span class="fragment">Bilden går att<br><strong>spara</strong></span><span class="fragment">≠</span><span class="fragment">Du har rätt att<br><strong>publicera</strong></span></div><p class="fragment">Du behöver tillstånd eller en licens som tillåter användningen.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Automatiskt skydd</p><h2>Upphovsrätten uppstår när verket skapas</h2><ul><li class="fragment">Du behöver normalt inte registrera upphovsrätt i Sverige.</li><li class="fragment">Verket behöver vara tillräckligt originellt.</li><li class="fragment">Du kan själv bli upphovsperson till text, foto, illustration eller musik.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Två delar</p><h2>Ekonomisk och ideell rätt</h2><div class="rights-pair"><div class="right-card fragment"><strong>Ekonomisk rätt</strong><p>Bestämma hur verket får kopieras, spridas, publiceras eller användas kommersiellt.</p></div><div class="right-card fragment"><strong>Ideell rätt</strong><p>Bli namngiven och kunna motsätta sig kränkande ändringar eller sammanhang.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Ekonomisk rätt</p><h2>Kan överlåtas eller licensieras</h2><p class="fragment">Upphovspersonen kan genom avtal ge någon annan rätt att använda verket på bestämda sätt.</p><p class="fragment">Licensen beskriver vad användaren får göra.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Äganderätt</p><h2>Att äga exemplaret är inte samma sak</h2><div class="rights-pair"><div class="right-card fragment"><strong>Du köper en tavla</strong><p>Du äger det fysiska exemplaret.</p></div><div class="right-card fragment"><strong>Upphovsrätten följer inte automatiskt med</strong><p>Du får inte automatiskt trycka motivet på tröjor eller i reklam.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Skyddstid</p><h2>Huvudregeln är livstid + 70 år</h2><div class="flow"><span class="fragment">Verket<br><strong>skapas</strong></span><span class="fragment">Upphovspersonens<br><strong>livstid</strong></span><span class="fragment">Ytterligare<br><strong>70 år</strong></span></div><p class="fragment">Kontrollera alltid vad som gäller för det enskilda materialet.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Creative Commons</p><h2>Tydliga tillstånd i förväg</h2><p class="fragment">Creative Commons-licenser låter skaparen beskriva hur andra får använda materialet utan att fråga varje gång.</p><p class="fragment">Licensen tar inte bort upphovsrätten – den ger tillstånd med bestämda villkor.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CC0</p><h2>Så fritt som lagen tillåter</h2><div class="rights-pair"><div><span class="cc-symbol">CC0</span></div><div><ul><li class="fragment">Rättighetshavaren försöker avstå från rättigheterna så långt lagen tillåter.</li><li class="fragment">Namnangivelse krävs normalt inte.</li><li class="fragment">Spara ändå gärna källan.</li></ul></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">CC BY</p><h2>Användning tillåts med namnangivelse</h2><div class="rights-pair"><div><span class="cc-symbol">BY</span></div><div><ul><li class="fragment">Du får använda materialet enligt licensens villkor.</li><li class="fragment">Du måste ange upphovspersonen.</li><li class="fragment">Du ska ange och länka licensen.</li></ul></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Public domain och CC0</p><h2>Skillnaden är vem som gör vad</h2><table class="comparison"><thead><tr><th>Public domain / PDM</th><th>CC0</th></tr></thead><tbody><tr><td class="fragment"><strong>Verket är redan fritt</strong> från kända upphovsrättsliga begränsningar.</td><td class="fragment"><strong>Rättighetshavaren gör verket fritt</strong> så långt lagen tillåter.</td></tr><tr><td class="fragment">Public Domain Mark är en <strong>märkning</strong> av verkets befintliga status.</td><td class="fragment">CC0 är ett <strong>juridiskt verktyg</strong> för att avstå från rättigheter.</td></tr><tr><td class="fragment">Märkningen förändrar inte rättigheterna.</td><td class="fragment">CC0 ger andra mycket långtgående tillstånd att återanvända verket.</td></tr></tbody></table><p class="fragment"><strong>Kursens råd:</strong> välj helst tydlig CC0 eller CC BY. Använd PDM först när källan och public domain-statusen känns pålitliga.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Vanliga villkor</p><h2>Fyra förkortningar att känna igen</h2><div class="cc-condition-grid"><div class="cc-condition fragment"><span class="cc-symbol">BY</span><div><strong>Namnge</strong><span>Ange upphovspersonen.</span></div></div><div class="cc-condition fragment"><span class="cc-symbol">SA</span><div><strong>Dela lika</strong><span>Bearbetningar använder samma licens.</span></div></div><div class="cc-condition fragment"><span class="cc-symbol">NC</span><div><strong>Icke-kommersiell</strong><span>Ingen kommersiell användning.</span></div></div><div class="cc-condition fragment"><span class="cc-symbol">ND</span><div><strong>Inga bearbetningar</strong><span>Ändrad version får inte spridas.</span></div></div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv licensläsare</p><h2>Vad betyder villkoret?</h2><div class="license-demo" data-license-demo><div class="license-controls"><button type="button" data-condition="BY" aria-pressed="true">BY</button><button type="button" data-condition="SA" aria-pressed="false">SA</button><button type="button" data-condition="NC" aria-pressed="false">NC</button><button type="button" data-condition="ND" aria-pressed="false">ND</button></div><div class="license-result" aria-live="polite"><strong data-license-title>BY – Namnge</strong><p data-license-description>Du måste ange upphovspersonen.</p><ul><li data-license-example>Exempel: Foto: Anna Andersson, CC BY 4.0.</li></ul></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Före användning</p><h2>Kontrollera villkoren</h2><ol><li class="fragment">Öppna originalkällan.</li><li class="fragment">Kontrollera vem som publicerat materialet.</li><li class="fragment">Läs den exakta licensen.</li><li class="fragment">Kontrollera om ändringar och din användning tillåts.</li><li class="fragment">Spara källan och licensen.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Openverse</p><h2>Sök efter öppet licensierat material</h2><ul><li class="fragment">Sök efter bilder och ljud.</li><li class="fragment">Filtrera på licens.</li><li class="fragment">Öppna resultatets ursprungliga källa.</li><li class="fragment">Kontrollera upphovsperson och licens där.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Google bildsök</p><h2>Ett filter är inte ett slutgiltigt bevis</h2><p class="fragment">Du kan filtrera på användningsrättigheter.</p><p class="fragment">Du måste ändå öppna källan och kontrollera att licensen verkligen gäller för den enskilda bilden.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Flickr Creative Commons</p><h2>Kontrollera varje bild</h2><p class="fragment">Flickr samlar bilder som användare publicerat med olika Creative Commons-licenser.</p><p class="fragment">Licensen kan skilja mellan bilder. Läs villkoren för just den bild du vill använda.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Källhänvisning</p><h2>Spara sex uppgifter</h2><ol><li class="fragment">Titel eller beskrivning</li><li class="fragment">Upphovsperson</li><li class="fragment">Länk till originalet</li><li class="fragment">Licensens namn</li><li class="fragment">Länk till licensen</li><li class="fragment">Vilka ändringar du gjort</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Exempel</p><h2>En enkel källhänvisning</h2><pre class="code-block no-scroll-code fragment"><code>Foto: Anna Andersson, CC BY 4.0, beskuret.</code></pre><p class="fragment">I ett riktigt projekt bör upphovspersonen, originalet och licensen vara länkade.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv källhänvisning</p><h2>Bygg hänvisningen</h2><div class="credit-demo" data-credit-demo><form class="credit-form"><label>Titel<input type="text" value="Dining room" data-credit-title></label><label>Upphovsperson<input type="text" value="Anna Andersson" data-credit-creator></label><label>Licens<select data-credit-license><option>CC BY 4.0</option><option>CC0</option><option>CC BY-SA 4.0</option><option>CC BY-NC 4.0</option></select></label><label><input type="checkbox" data-credit-edited> Bilden är beskuren</label></form><div class="credit-output" aria-live="polite"><strong>Förslag</strong><p data-credit-result>”Dining room” av Anna Andersson, CC BY 4.0.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Pröva själv</p><h2>Hitta material i Openverse</h2><ol><li class="fragment">Sök efter <strong>dining room</strong> eller <strong>hotel room</strong>.</li><li class="fragment">Filtrera på CC0 eller CC BY.</li><li class="fragment">Öppna ett resultat.</li><li class="fragment">Hitta upphovsperson, original och licens.</li><li class="fragment">Skriv en korrekt källhänvisning.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Säkert arbetssätt</p><h2>Välj material med tydliga rättigheter</h2><div class="rights-pair"><div class="right-card fragment"><strong>Eget material</strong><p>Du vet vem som skapade det.</p></div><div class="right-card fragment"><strong>Tydlig licens</strong><p>Du kan kontrollera vad som tillåts och hur källan ska anges.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Material på webben är inte automatiskt fritt.</li><li class="fragment">Upphovsrätt uppstår normalt automatiskt.</li><li class="fragment">Creative Commons beskriver tillåten användning.</li><li class="fragment">CC0 och CC BY är enklast i kursen.</li><li class="fragment">Läs varje licens och kontrollera originalkällan.</li><li class="fragment">Spara upphovsperson, källa, licens och ändringar.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      const meanings={
+        BY:["BY – Namnge","Du måste ange upphovspersonen.","Exempel: Foto: Anna Andersson, CC BY 4.0."],
+        SA:["SA – Dela lika","Om du sprider en bearbetning ska den använda samma licens.","Exempel: En ändrad CC BY-SA-bild delas med CC BY-SA."],
+        NC:["NC – Icke-kommersiell","Materialet får inte användas kommersiellt.","Exempel: Kontrollera om webbplatsens användning räknas som kommersiell."],
+        ND:["ND – Inga bearbetningar","En ändrad version får inte spridas.","Exempel: Beskär inte bilden och publicera den som en bearbetning."]
+      };
+      document.querySelectorAll("[data-license-demo]").forEach(function(demo){
+        const title=demo.querySelector("[data-license-title]"),description=demo.querySelector("[data-license-description]"),example=demo.querySelector("[data-license-example]");
+        demo.querySelectorAll("[data-condition]").forEach(function(button){button.addEventListener("click",function(){demo.querySelectorAll("[data-condition]").forEach(function(item){item.setAttribute("aria-pressed","false");});button.setAttribute("aria-pressed","true");const value=meanings[button.dataset.condition];title.textContent=value[0];description.textContent=value[1];example.textContent=value[2];});});
+      });
+      document.querySelectorAll("[data-credit-demo]").forEach(function(demo){
+        const title=demo.querySelector("[data-credit-title]"),creator=demo.querySelector("[data-credit-creator]"),license=demo.querySelector("[data-credit-license]"),edited=demo.querySelector("[data-credit-edited]"),result=demo.querySelector("[data-credit-result]");
+        function update(){const attribution=license.value==="CC0"?"”"+title.value+"”, CC0":"”"+title.value+"” av "+creator.value+", "+license.value;result.textContent=attribution+(edited.checked?", beskuren.":".");}
+        [title,creator,license,edited].forEach(function(control){control.addEventListener("input",update);control.addEventListener("change",update);});update();
+      });
+    });
+  </script>
+</body>
+</html>

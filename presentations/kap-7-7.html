@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.7: Testa i webbläsaren.">
+  <title>Kap 7.7 – Testa i webbläsaren</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .width-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.3rem; }
+    .width-card { min-height:8rem; display:grid; place-content:center; padding:.8rem; border:3px solid var(--slide-accent); border-radius:10px; background:#fff; text-align:center; }
+    .width-card strong { color:var(--slide-accent); font-size:clamp(1.3rem,2.3vw,2rem); }
+    .width-card span { font-size:1rem; }
+    .problem-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-top:1.2rem; }
+    .problem-card { padding:1rem; border-left:6px solid #b42318; border-radius:8px; background:#fff0ee; font-size:clamp(1rem,1.5vw,1.3rem); font-weight:800; }
+    .site-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:.75rem; margin-top:1.2rem; }
+    .site-card { padding:.85rem; border:2px solid var(--slide-accent); border-radius:8px; background:#fff; font-size:clamp(.95rem,1.4vw,1.2rem); font-weight:800; text-align:center; }
+    .devtools-tabs { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1.3rem; padding:.7rem; border:1px solid #94a3b8; background:#eef2f6; }
+    .devtools-tab { padding:.55rem .75rem; border-bottom:3px solid transparent; background:#fff; font-size:clamp(1rem,1.4vw,1.2rem); font-weight:800; }
+    .devtools-tab.is-active { color:#1557b0; border-color:#1557b0; }
+    .viewport-demo { display:grid; grid-template-columns:minmax(15rem,.65fr) minmax(0,1.35fr); gap:1rem; margin-top:1rem; }
+    .viewport-controls,.viewport-stage { padding:1rem; border:1px solid var(--slide-border); border-radius:10px; background:#fff; color:#172026; }
+    .viewport-controls { display:grid; gap:.65rem; align-content:start; }
+    .viewport-controls label { display:grid; gap:.3rem; font-size:.9rem; font-weight:800; }
+    .viewport-controls input { width:100%; }
+    .viewport-controls p { margin:0; color:#172026; font-size:1rem; }
+    .test-page { width:100%; max-width:100%; margin:auto; border:2px solid #172026; transition:width 150ms ease; }
+    .test-page-header,.test-page-footer { padding:.5rem; background:#0f3d3e; color:#fff; font-size:.8rem; font-weight:800; }
+    .test-page-nav { display:flex; gap:.35rem; padding:.45rem; background:#dbeafe; }
+    .test-page-nav span { padding:.25rem .4rem; background:#fff; color:#172026; font-size:.7rem; }
+    .test-page-main { display:grid; grid-template-columns:1.4fr .6fr; gap:.45rem; padding:.55rem; }
+    .test-page-copy,.test-page-image { min-height:6rem; padding:.5rem; border:1px solid #94a3b8; background:#f8fafc; color:#172026; font-size:.72rem; }
+    .test-page.is-narrow .test-page-nav { flex-direction:column; }
+    .test-page.is-narrow .test-page-main { grid-template-columns:1fr; }
+    .console-demo { margin-top:1.2rem; border:1px solid #64748b; border-radius:9px; overflow:hidden; background:#202124; color:#f8fafc; }
+    .console-toolbar { display:flex; gap:.6rem; align-items:center; padding:.6rem; border-bottom:1px solid #5f6368; }
+    .console-toolbar button { padding:.5rem .7rem; border:0; border-radius:5px; background:#8ab4f8; color:#172026; font:inherit; font-weight:800; cursor:pointer; }
+    .console-output { min-height:8rem; padding:.8rem; font:.9rem/1.5 "SFMono-Regular",Consolas,monospace; }
+    .console-output p { margin:.2rem 0; color:#f8fafc; font-size:.9rem; }
+    .console-output .error { color:#f28b82; }
+    .network-mini { width:100%; margin-top:1.3rem; border-collapse:collapse; background:#fff; color:#172026; }
+    .network-mini th,.network-mini td { padding:.65rem; border:1px solid #94a3b8; text-align:left; font-size:clamp(.9rem,1.35vw,1.15rem); }
+    .network-mini .missing { background:#fee2e2; color:#991b1b; }
+    .focus-test { margin-top:1.2rem; padding:1rem; border:1px solid var(--slide-border); border-radius:9px; background:#fff; color:#172026; }
+    .focus-test p { margin:0 0 .7rem; color:#172026; font-size:1rem; }
+    .focus-test nav { display:flex; flex-wrap:wrap; gap:.7rem; }
+    .focus-test a,.focus-test button { padding:.65rem .8rem; border:2px solid var(--slide-accent); border-radius:5px; background:#fff; color:#075aa8; font:inherit; font-weight:800; }
+    .focus-test a:focus-visible,.focus-test button:focus-visible { outline:5px solid #e67e00; outline-offset:4px; }
+    @media(max-width:760px){.width-grid,.problem-grid,.viewport-demo{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.7</p><h1>Testa i webbläsaren</h1><p class="fragment">Hitta problemen innan användaren gör det.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">testa layout i olika skärmbredder</li><li class="fragment">använda Console och Network</li><li class="fragment">kontrollera länkar och formulär</li><li class="fragment">testa tangentbordsnavigering och fokus</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Responsivt läge</p><h2>Testa minst tre bredder</h2><div class="width-grid"><div class="width-card fragment"><strong>Smal</strong><span>Mobil</span></div><div class="width-card fragment"><strong>Mellanbred</strong><span>Surfplatta eller mindre fönster</span></div><div class="width-card fragment"><strong>Bred</strong><span>Laptop eller stor skärm</span></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Leta aktivt</p><h2>Vanliga responsiva problem</h2><div class="problem-grid"><div class="problem-card fragment">Text överlappar annat innehåll.</div><div class="problem-card fragment">Bilder blir bredare än sidan.</div><div class="problem-card fragment">Menyer går inte att använda.</div><div class="problem-card fragment">Innehåll hamnar i fel ordning.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">DevTools</p><h2>Öppna Inspektera i Chrome</h2><ol><li class="fragment">Öppna sidan.</li><li class="fragment">Högerklicka.</li><li class="fragment">Välj <strong>Inspektera</strong>.</li></ol><p class="fragment">På Mac kan du även trycka <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>I</kbd>.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tre viktiga flikar</p><h2>Välj verktyg efter problemet</h2><div class="devtools-tabs"><span class="devtools-tab fragment">Elements</span><span class="devtools-tab is-active fragment">Console</span><span class="devtools-tab fragment">Network</span></div><ul><li class="fragment">Elements: undersök HTML och CSS.</li><li class="fragment">Console: läs fel och varningar.</li><li class="fragment">Network: kontrollera filer och laddning.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Responsivt läge</p><h2>Arbetsgång</h2><ol><li class="fragment">Öppna Inspektera.</li><li class="fragment">Klicka på mobil- och surfplatteikonen.</li><li class="fragment">Välj en enhet eller dra bredden.</li><li class="fragment">Testa smal, mellanbred och bred vy.</li><li class="fragment">Notera varje problem du hittar.</li></ol></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktiv viewport</p><h2>Dra sidans bredd</h2><div class="viewport-demo" data-viewport-demo><div class="viewport-controls"><label>Bredd: <span data-width-value>720px</span><input type="range" min="280" max="900" step="20" value="720" data-width-control></label><p data-width-note>Bred layout med två kolumner.</p></div><div class="viewport-stage"><div class="test-page" data-test-page><div class="test-page-header">Min webbplats</div><div class="test-page-nav"><span>Start</span><span>Projekt</span><span>Kontakt</span></div><div class="test-page-main"><div class="test-page-copy">Rubrik och brödtext ligger i huvudkolumnen.</div><div class="test-page-image">Bild</div></div><div class="test-page-footer">Footer</div></div></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Console</p><h2>Första platsen när JavaScript inte fungerar</h2><p class="fragment">Console visar felmeddelanden och varningar från sidan.</p><p class="fragment">Läs särskilt filnamn, radnummer och texten i det röda felet.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Öppna Console</p><h2>Arbetsgång</h2><ol><li class="fragment">Öppna Inspektera.</li><li class="fragment">Välj fliken Console.</li><li class="fragment">Ladda om sidan.</li><li class="fragment">Leta efter röda meddelanden.</li><li class="fragment">Läs filnamn och radnummer.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Vanliga JavaScript-fel</p><h2>Tre saker att kontrollera</h2><div class="problem-grid"><div class="problem-card fragment">JavaScript-filen saknas.</div><div class="problem-card fragment">Ett element hittas inte.</div><div class="problem-card fragment">En variabel har fel namn.</div></div></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Simulerad Console</p><h2>Ladda om och läs felet</h2><div class="console-demo" data-console-demo><div class="console-toolbar"><button type="button" data-console-reload>Ladda om sidan</button><span>Console</span></div><div class="console-output" data-console-output><p>Console är tom.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Network</p><h2>Se varje fil som sidan laddar</h2><div class="site-grid"><div class="site-card fragment">HTML</div><div class="site-card fragment">CSS</div><div class="site-card fragment">JavaScript</div><div class="site-card fragment">Bilder</div><div class="site-card fragment">Ljud och video</div><div class="site-card fragment">Externa resurser</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Öppna Network</p><h2>Arbetsgång</h2><ol><li class="fragment">Öppna Inspektera.</li><li class="fragment">Välj Network.</li><li class="fragment">Ladda om medan panelen är öppen.</li><li class="fragment">Kontrollera Status.</li><li class="fragment">Kontrollera Size.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Status 404</p><h2>Filen hittades inte</h2><table class="network-mini"><thead><tr><th>Name</th><th>Status</th><th>Type</th></tr></thead><tbody><tr><td>style.css</td><td>200</td><td>stylesheet</td></tr><tr class="missing"><td>hero.webp</td><td>404</td><td>webp</td></tr></tbody></table><p class="fragment">Kontrollera mapp, filnamn, stora och små bokstäver samt filändelse.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kolumnen Size</p><h2>Hitta onödigt stora filer</h2><table class="network-mini"><thead><tr><th>Name</th><th>Type</th><th>Size</th></tr></thead><tbody><tr class="fragment"><td>hero.webp</td><td>webp</td><td>4,8 MB</td></tr><tr class="fragment"><td>style.css</td><td>stylesheet</td><td>24 kB</td></tr><tr class="fragment"><td>main.js</td><td>script</td><td>18 kB</td></tr></tbody></table><p class="fragment">Stora bilder och videor behöver ofta optimeras.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Cache</p><h2>Testa med nyhämtade filer</h2><ol><li class="fragment">Öppna Network.</li><li class="fragment">Markera <strong>Disable cache</strong>.</li><li class="fragment">Låt Inspektera vara öppet.</li><li class="fragment">Ladda om sidan.</li></ol><p class="fragment">Då hämtas CSS och JavaScript på nytt under testet.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Testa användningen</p><h2>Gör det användaren gör</h2><ul><li class="fragment">Klicka igenom länkar.</li><li class="fragment">Skicka formulär med testdata.</li><li class="fragment">Navigera med tangentbord.</li><li class="fragment">Kontrollera synligt fokus.</li><li class="fragment">Läs felmeddelanden.</li></ul></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Interaktivt tangentbordstest</p><h2>Tryck Tab direkt</h2><div class="focus-test"><p>Fortsätt trycka <kbd>Tab</kbd>. Den orange markeringen ska följa fokus.</p><nav aria-label="Testnavigation"><a href="#start">Start</a><a href="#projekt">Projekt</a><a href="#kontakt">Kontakt</a><button type="button">Skicka</button></nav></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Formulär och länkar</p><h2>Testa både rätt och fel</h2><table class="comparison"><thead><tr><th>Test</th><th>Kontrollera</th></tr></thead><tbody><tr class="fragment"><td>Giltig formulärdata</td><td>Kan formuläret skickas?</td></tr><tr class="fragment"><td>Felaktig eller saknad data</td><td>Är återkopplingen begriplig?</td></tr><tr class="fragment"><td>Varje länk</td><td>Öppnas rätt sida utan 404?</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Snabb testchecklista</p><h2>Före publicering</h2><ul><li class="fragment">Smal, mellanbred och bred vy fungerar.</li><li class="fragment">Console saknar röda fel.</li><li class="fragment">Network saknar 404.</li><li class="fragment">Mediafiler har rimlig storlek.</li><li class="fragment">Alla länkar fungerar.</li><li class="fragment">Tangentbord och fokus fungerar.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>En enkel testordning</h2><ol><li class="fragment">Ändra viewportens bredd.</li><li class="fragment">Läs Console.</li><li class="fragment">Kontrollera Network.</li><li class="fragment">Testa utan cache.</li><li class="fragment">Klicka, tabba och skicka formulär.</li><li class="fragment">Rätta en sak i taget och testa igen.</li></ol></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      document.querySelectorAll("[data-viewport-demo]").forEach(function(demo){
+        const control=demo.querySelector("[data-width-control]"),value=demo.querySelector("[data-width-value]"),note=demo.querySelector("[data-width-note]"),page=demo.querySelector("[data-test-page]");
+        function update(){const width=Number(control.value);value.textContent=width+"px";page.style.width=Math.min(100,width/9)+"%";page.classList.toggle("is-narrow",width<520);note.textContent=width<520?"Smal layout: navigation och innehåll läggs i en kolumn.":width<760?"Mellanbred layout: kontrollera att två kolumner fortfarande ryms.":"Bred layout med två kolumner.";}
+        control.addEventListener("input",update);update();
+      });
+      document.querySelectorAll("[data-console-demo]").forEach(function(demo){
+        const button=demo.querySelector("[data-console-reload]"),output=demo.querySelector("[data-console-output]");
+        button.addEventListener("click",function(){output.innerHTML='<p>main.js:12 Scriptet laddades.</p><p class="error">Uncaught ReferenceError: menyKnapp is not defined</p><p class="error">at main.js:24:5</p>';});
+      });
+      document.addEventListener("keydown",function(event){
+        if(event.key!=="Tab")return;
+        const active=document.querySelector(".slide.is-active"),demo=active&&active.querySelector(".focus-test");
+        if(!demo||demo.contains(document.activeElement))return;
+        const targets=demo.querySelectorAll("a,button");
+        if(!targets.length)return;
+        event.preventDefault();
+        targets[event.shiftKey?targets.length-1:0].focus();
+      },true);
+    });
+  </script>
+</body>
+</html>
