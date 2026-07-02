@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 6.3: Ljud, video och inbäddat innehåll.">
+  <title>Kap 6.3 – Ljud, video och inbäddat innehåll</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .media-player { width:min(900px,100%); margin-top:1.5rem; padding:1.2rem; border:1px solid var(--slide-border); border-radius:12px; background:#fff; box-shadow:0 14px 34px var(--slide-shadow); }
+    .media-player audio,.media-player video,.media-player iframe { display:block; width:100%; }
+    .media-player video,.media-player iframe { max-height:52vh; aspect-ratio:16/9; border:1px solid var(--slide-border); border-radius:8px; background:#0f172a; }
+    .media-player p { margin:.7rem 0 0; color:var(--slide-muted); font-size:clamp(1rem,1.5vw,1.3rem); }
+    .attribute-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:1.5rem; }
+    .attribute-card { padding:1rem; border:2px solid var(--slide-accent); border-radius:10px; background:#fff; font-size:clamp(1rem,1.5vw,1.35rem); }
+    .attribute-card code { display:block; margin-bottom:.5rem; font-size:1.15em; font-weight:800; }
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 6 · Kapitel 6.3</p><h1>Ljud, video och inbäddat innehåll</h1><p class="fragment">Media ska vara användbart, tillgängligt och rimligt snabbt.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">använda <code>audio</code> och <code>video</code> med kontroller</li><li class="fragment">förklara varför textalternativ behövs</li><li class="fragment">bädda in innehåll med <code>iframe</code></li><li class="fragment">kontrollera filstorlek och mobilvisning</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Grundprincip</p><h2>Användaren ska ha kontroll</h2><ul><li class="fragment">Låt användaren starta och pausa.</li><li class="fragment">Starta inte video automatiskt med ljud.</li><li class="fragment">Ge samma information även när någon inte kan lyssna.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Ljud</p><h2><code>audio</code> skapar en ljudspelare</h2><pre class="code-block no-scroll-code fragment"><code>&lt;audio controls&gt;
+  &lt;source src="ljud.mp3" type="audio/mpeg"&gt;
+  Din webbläsare kan inte spela ljudfilen.
+&lt;/audio&gt;</code></pre></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Attributet controls</p><h2>Ger synliga knappar</h2><div class="attribute-row"><div class="attribute-card fragment"><code>Spela</code>Startar ljudet.</div><div class="attribute-card fragment"><code>Pausa</code>Stoppar tillfälligt.</div><div class="attribute-card fragment"><code>Volym</code>Låter användaren styra ljudnivån.</div></div><p class="fragment">Utan <code>controls</code> syns normalt ingen spelare.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Testa ljud</p><h2>Spela och pausa själv</h2><div class="media-player"><audio controls><source src="../assets/media/demo-audio.mp3" type="audio/mpeg"><source src="../assets/media/demo-audio.wav" type="audio/wav">Din webbläsare kan inte spela ljudfilen.</audio><p>En kort lokal testton. Klick på spelaren byter inte slide.</p></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Flera källor</p><h2>Webbläsaren provar uppifrån</h2><pre class="code-block no-scroll-code fragment"><code>&lt;source src="demo.mp3" type="audio/mpeg"&gt;
+&lt;source src="demo.wav" type="audio/wav"&gt;</code></pre><ol><li class="fragment">Webbläsaren provar MP3.</li><li class="fragment">Om det inte fungerar provas WAV.</li><li class="fragment">Den första källan som stöds används.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Ljudformat</p><h2>MP3 eller WAV?</h2><table class="comparison"><thead><tr><th>MP3</th><th>WAV</th></tr></thead><tbody><tr><td class="fragment">Komprimerat</td><td class="fragment">Ofta okomprimerat</td></tr><tr><td class="fragment">Mindre filer</td><td class="fragment">Mycket större filer</td></tr><tr><td class="fragment">Bra för tal och musik på webben</td><td class="fragment">Bra för att spara originaldata eller ett okomprimerat original</td></tr><tr><td class="fragment">Anpassat för publicering</td><td class="fragment">Kan också passa mycket korta effektljud</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Video</p><h2><code>video</code> visar en videofil</h2><pre class="code-block no-scroll-code fragment"><code>&lt;video controls preload="metadata"&gt;
+  &lt;source src="film.mp4" type="video/mp4"&gt;
+  Din webbläsare kan inte spela videofilen.
+&lt;/video&gt;</code></pre></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Testa video</p><h2>Spela den lokala videon</h2><div class="media-player"><video controls preload="metadata"><source src="../assets/media/demo-video.mp4" type="video/mp4"><source src="../assets/media/demo-video.webm" type="video/webm">Din webbläsare kan inte spela videofilen.</video><p><code>controls</code> ger kontroll. <code>preload="metadata"</code> behöver inte hämta hela filmen direkt.</p></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">preload</p><h2>Hämta bara information först</h2><pre class="code-block no-scroll-code fragment"><code>preload="metadata"</code></pre><ul><li class="fragment">Webbläsaren kan hämta längd och annan information.</li><li class="fragment">Den behöver inte ladda hela videon direkt.</li><li class="fragment">Det kan minska den första datamängden.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Videoformat</p><h2>MP4 och WebM</h2><table class="comparison"><thead><tr><th>MP4 med H.264</th><th>WebM</th></tr></thead><tbody><tr><td class="fragment">Vanligt och fungerar på många enheter.</td><td class="fragment">Öppet format för webben.</td></tr><tr><td class="fragment">Ett vanligt förstaval.</td><td class="fragment">Kan vara alternativ eller komplement.</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Prestanda</p><h2>Video kan vara tungt</h2><ol><li class="fragment">Håll videon så kort som uppgiften tillåter.</li><li class="fragment">Komprimera den.</li><li class="fragment">Kontrollera filstorleken i Network-panelen.</li><li class="fragment">Testa med en långsammare anslutning.</li></ol></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Tillgänglighet</p><h2>Tal behöver ett textalternativ</h2><div class="attribute-row"><div class="attribute-card fragment"><code>Textning</code>Text visas samtidigt som videon.</div><div class="attribute-card fragment"><code>Transkription</code>Det talade innehållet finns som löpande text.</div><div class="attribute-card fragment"><code>Beskrivning</code>Viktig visuell information förklaras i text.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Inbäddning</p><h2><code>iframe</code> visar en annan källa</h2><p class="fragment">En iframe kan bädda in exempelvis:</p><div class="attribute-row"><div class="attribute-card fragment">Karta</div><div class="attribute-card fragment">Film</div><div class="attribute-card fragment">Formulär</div><div class="attribute-card fragment">Interaktivt exempel</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Iframe-kod</p><h2>Tre viktiga attribut</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;iframe
+  src="https://exempel.se/karta"
+  title="Karta som visar skolan"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre><div class="attribute-row"><div class="attribute-card fragment"><code>src</code>Vad som bäddas in.</div><div class="attribute-card fragment"><code>title</code>Vad ramen innehåller.</div><div class="attribute-card fragment"><code>loading</code>Kan vänta med laddningen.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">title</p><h2>Beskriv innehållet tydligt</h2><table class="comparison"><thead><tr><th>Otydligt</th><th>Tydligt</th></tr></thead><tbody><tr><td class="fragment"><code>title="iframe"</code></td><td class="fragment"><code>title="Karta som visar Pauliskolan"</code></td></tr></tbody></table><p class="fragment">En tydlig titel hjälper användare av hjälpmedel att förstå ramen.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Riktigt exempel</p><h2>En inbäddad karta</h2><div class="media-player"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.10918479257!2d13.007752877895683!3d55.60011340374019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a15892ec60a7%3A0x7ce10f4d52a8394f!2sPauliskolan!5e0!3m2!1ssv!2sse!4v1780648648425!5m2!1ssv!2sse" title="Karta som visar Pauliskolan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><p>Testa att flytta och zooma kartan. Interaktionen byter inte slide.</p></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontroll</p><h2>Testa innan publicering</h2><ul><li class="fragment">Finns <code>controls</code> på ljud och video?</li><li class="fragment">Är filerna rimligt små?</li><li class="fragment">Fungerar spelaren på mobil?</li><li class="fragment">Finns textalternativ när det behövs?</li><li class="fragment">Har varje iframe en tydlig <code>title</code>?</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment"><code>audio</code> och <code>video</code> behöver normalt <code>controls</code>.</li><li class="fragment">Flera <code>source</code> ger formatalternativ.</li><li class="fragment">Tal och viktig bildinformation behöver textalternativ.</li><li class="fragment"><code>iframe</code> behöver en tydlig <code>title</code>.</li><li class="fragment">Kontrollera prestanda och mobilvisning.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+</body>
+</html>

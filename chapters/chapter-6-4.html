@@ -7,6 +7,24 @@
     <meta name="description" content="Kap 6.4: prestanda, Network, Lighthouse, cache, filstorlek och enkel felsökning.">
     <title>Kap 6.4 - Prestanda och enkel felsökning</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .network-figure {
+            margin: 1.5rem 0;
+        }
+
+        .network-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+        }
+
+        .network-figure figcaption {
+            margin-top: 0.6rem;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
 
 <body class="chapter-page">
@@ -30,6 +48,10 @@
 
                 <h2>Network-panelen</h2>
                 <p>Network-panelen visar vilka filer sidan laddar, hur stora de är och om någon fil saknas. En röd 404 betyder ofta fel sökväg eller fel filnamn.</p>
+                <figure class="network-figure">
+                    <img src="../assets/images/kap6-4-network.png" alt="Chrome DevTools med fliken Network öppen. Förfrågan test är röd och har status 404 samtidigt som sidan visar Page not found." loading="lazy">
+                    <figcaption>Network-fliken visar en röd förfrågan med status <code>404</code>. Till vänster syns resultatet: sidan kunde inte hittas.</figcaption>
+                </figure>
 
                 <h2>Öppna utvecklarverktygen</h2>
                 <p>Med <strong>utvecklarverktygen</strong> menas verktygen som öppnas när du väljer <strong>Inspektera</strong> i Chrome. De kallas också <strong>DevTools</strong>. Det är webbläsarens verktyg för att undersöka hur en sida är byggd, vilka filer som laddas och vilka fel som finns.</p>

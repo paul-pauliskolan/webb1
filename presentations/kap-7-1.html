@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Presentation till kapitel 7.1: Tillgänglighetens fyra principer.">
+  <title>Kap 7.1 – Tillgänglighetens fyra principer</title>
+  <link rel="stylesheet" href="presentation.css?v=21">
+  <style>
+    .principle-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+    .principle-card { padding:1.1rem; border:2px solid var(--slide-accent); border-radius:12px; background:#fff; }
+    .principle-card strong { display:block; color:var(--slide-accent); font-size:clamp(1.25rem,2vw,1.8rem); }
+    .principle-card span { display:block; margin-top:.35rem; font-size:clamp(1rem,1.5vw,1.3rem); }
+    .example-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+    .example-box { padding:1.2rem; border:2px solid #9aa4b2; border-radius:10px; background:#fff; font-size:clamp(1rem,1.6vw,1.4rem); }
+    .example-box.is-problem { border-color:#b42318; background:#fff0ee; }
+    .example-box.is-better { border-color:#177245; background:#e7f7ee; }
+    .example-box strong { display:block; margin-bottom:.5rem; }
+    .principle-demo { display:grid; grid-template-columns:minmax(0,1fr) minmax(18rem,.75fr); gap:1.25rem; margin-top:1.5rem; }
+    .principle-question,.principle-result { padding:1.2rem; border:1px solid var(--slide-border); border-radius:12px; background:#fff; }
+    .principle-question p,.principle-result p { margin:0; font-size:clamp(1rem,1.5vw,1.3rem); }
+    .principle-buttons { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem; margin-top:1rem; }
+    .principle-buttons button { padding:.75rem; border:0; border-radius:7px; background:var(--slide-accent); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
+    .principle-result strong { display:block; margin-bottom:.6rem; color:var(--slide-accent); font-size:1.35rem; }
+    .principle-result[data-state="correct"] { border:3px solid #177245; background:#e7f7ee; }
+    .principle-result[data-state="wrong"] { border:3px solid #b42318; background:#fff0ee; }
+    @media(max-width:760px){.principle-grid,.example-pair,.principle-demo{grid-template-columns:1fr}}
+  </style>
+</head>
+<body class="presentation-body">
+  <main class="presentation-shell">
+    <header class="presentation-topbar"><a href="index.html">Presentationer</a><span class="slide-counter">Slide <span data-current-slide>1</span>/<span data-total-slides>1</span></span></header>
+    <div class="deck" aria-live="polite">
+      <section class="slide is-active"><div class="slide-content"><p class="slide-kicker">Modul 7 · Kapitel 7.1</p><h1>Tillgänglighetens fyra principer</h1><p class="fragment">Fler människor ska kunna förstå och använda sidan.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Mål</p><h2>Efter kapitlet ska du kunna...</h2><ul><li class="fragment">förklara varför tillgänglighet är en del av bra webbutveckling</li><li class="fragment">känna igen WCAG:s fyra principer</li><li class="fragment">koppla principerna till HTML, CSS och innehåll</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Accessibility</p><h2>Vad betyder tillgänglighet?</h2><p class="fragment">Så många som möjligt ska kunna ta del av innehållet och använda sidan – oavsett funktionsnedsättning, hjälpmedel, enhet eller situation.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Det gäller fler än du tror</p><h2>Olika behov och situationer</h2><ul><li class="fragment">En användare kan behöva skärmläsare.</li><li class="fragment">Låg kontrast kan vara svår att se i starkt solljus.</li><li class="fragment">En skadad hand kan göra musen svår att använda.</li><li class="fragment">Tydliga instruktioner hjälper många.</li><li class="fragment">Långsam uppkoppling påverkar användningen.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Lag och riktlinjer</p><h2>DOS-lagen, EN 301 549 och WCAG</h2><div class="flow"><span class="fragment"><strong>DOS-lagen</strong><br>offentlig digital service</span><span class="fragment"><strong>EN 301 549</strong><br>europeisk standard</span><span class="fragment"><strong>WCAG 2.1</strong><br>riktlinjer för webbinnehåll</span></div><p class="fragment">Kapitlet fokuserar på viktiga grunder, inte varje enskilt krav.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">WCAG</p><h2>Fyra huvudprinciper</h2><div class="principle-grid"><div class="principle-card fragment"><strong>Uppfattbart</strong><span>Informationen måste gå att uppfatta.</span></div><div class="principle-card fragment"><strong>Hanterbart</strong><span>Sidan måste gå att använda.</span></div><div class="principle-card fragment"><strong>Begripligt</strong><span>Innehållet måste gå att förstå.</span></div><div class="principle-card fragment"><strong>Robust</strong><span>Tekniken måste kunna tolka sidan.</span></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">POUR</p><h2>Principerna på engelska</h2><table class="comparison"><thead><tr><th>Engelska</th><th>Svenska</th></tr></thead><tbody><tr class="fragment"><td>Perceivable</td><td>Uppfattbart</td></tr><tr class="fragment"><td>Operable</td><td>Hanterbart</td></tr><tr class="fragment"><td>Understandable</td><td>Begripligt</td></tr><tr class="fragment"><td>Robust</td><td>Robust</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Princip 1</p><h2>Uppfattbart</h2><p class="fragment">Användaren måste kunna uppfatta informationen på något sätt.</p><ul><li class="fragment">Viktiga bilder behöver en bra <code>alt</code>-text.</li><li class="fragment">Text behöver tillräcklig kontrast mot bakgrunden.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Uppfattbart</p><h2>Kontrasten påverkar läsningen</h2><div class="example-pair"><div class="example-box is-problem fragment" style="color:#c7c7c7;background:#fff"><strong>Svårt att uppfatta</strong>Ljusgrå text på vit bakgrund.</div><div class="example-box is-better fragment" style="color:#172026;background:#fff"><strong>Lättare att uppfatta</strong>Mörk text på vit bakgrund.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Princip 2</p><h2>Hanterbart</h2><p class="fragment">Användaren måste kunna använda sidan.</p><ul><li class="fragment">Länkar och knappar ska gå att nå med tangentbord.</li><li class="fragment">Menyer och formulär får inte kräva mus.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Hanterbart</p><h2>En meny får inte kräva hovring</h2><div class="example-pair"><div class="example-box is-problem fragment"><strong>Bara mus</strong>Menyn öppnas endast när muspekaren hovrar.</div><div class="example-box is-better fragment"><strong>Mus och tangentbord</strong>Menyn kan nås och öppnas utan mus.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Princip 3</p><h2>Begripligt</h2><p class="fragment">Användaren måste förstå innehållet och gränssnittet.</p><div class="example-pair"><div class="example-box is-problem fragment"><strong>Fel 113</strong>Vad ska användaren göra?</div><div class="example-box is-better fragment"><strong>E-postadressen måste innehålla @</strong>Felet och lösningen är tydliga.</div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Begripligt</p><h2>Beskriv både felet och lösningen</h2><div class="flow"><span class="fragment"><strong>Vad blev fel?</strong></span><span class="fragment"><strong>Var finns felet?</strong></span><span class="fragment"><strong>Hur rättar jag det?</strong></span></div><p class="fragment">Tekniska felkoder räcker sällan för användaren.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Princip 4</p><h2>Robust</h2><p class="fragment">Webbläsare, hjälpmedel och framtida teknik ska kunna tolka sidan.</p><ul><li class="fragment">Använd rätt HTML-element.</li><li class="fragment">Koppla formulärfält till rätt <code>label</code>.</li><li class="fragment">Skriv giltig och tydlig kod.</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Robust</p><h2>Använd ett riktigt button-element</h2><div class="example-pair"><div class="example-box is-problem fragment"><strong>Klickbar div</strong><pre class="code-block compact-code no-scroll-code"><code>&lt;div onclick="..."&gt;Spara&lt;/div&gt;</code></pre></div><div class="example-box is-better fragment"><strong>Rätt element</strong><pre class="code-block compact-code no-scroll-code"><code>&lt;button&gt;Spara&lt;/button&gt;</code></pre></div></div><p class="fragment"><code>button</code> beskriver vad elementet är och har inbyggt tangentbordsstöd.</p></div></section>
+
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">Kontrollfråga</p><h2>Vilken princip passar?</h2><div class="principle-demo" data-principle-demo><div class="principle-question"><p><strong>Scenario:</strong> En viktig bild har ingen alt-text. Vilken princip påverkas tydligast?</p><div class="principle-buttons"><button type="button" data-answer="uppfattbart">Uppfattbart</button><button type="button" data-answer="hanterbart">Hanterbart</button><button type="button" data-answer="begripligt">Begripligt</button><button type="button" data-answer="robust">Robust</button></div></div><div class="principle-result" data-principle-result aria-live="polite"><strong>Välj ett svar</strong><p>Försök koppla problemet till en av de fyra principerna.</p></div></div></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Från princip till val</p><h2>Konkreta delar av sidan</h2><table class="comparison"><thead><tr><th>Val</th><th>Hjälper till med</th></tr></thead><tbody><tr class="fragment"><td>Alt-text och kontrast</td><td>Uppfattbart</td></tr><tr class="fragment"><td>Tangentbordsnavigering</td><td>Hanterbart</td></tr><tr class="fragment"><td>Tydliga instruktioner</td><td>Begripligt</td></tr><tr class="fragment"><td>Semantisk HTML och labels</td><td>Robust</td></tr></tbody></table></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Grunden</p><h2>Tillgänglighet byggs in från början</h2><ul><li class="fragment">Semantisk HTML</li><li class="fragment">Tydliga rubriker</li><li class="fragment">Bra länktexter</li><li class="fragment">Korrekt kopplade labels</li><li class="fragment">Fungerande tangentbordsnavigering</li></ul></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Inte ett lager på slutet</p><h2>Strukturen påverkar allt</h2><div class="flow"><span class="fragment">Planera<br><strong>tydligt</strong></span><span class="fragment">Bygg<br><strong>semantiskt</strong></span><span class="fragment">Testa<br><strong>flera sätt</strong></span></div><p class="fragment">Det är lättare att bygga rätt från början än att reparera hela sidan efteråt.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Sammanfattning</p><h2>Kom ihåg</h2><ul><li class="fragment">Tillgänglighet gör sidan användbar för fler.</li><li class="fragment">Uppfattbart: informationen går att uppfatta.</li><li class="fragment">Hanterbart: sidan går att använda.</li><li class="fragment">Begripligt: innehållet går att förstå.</li><li class="fragment">Robust: tekniken kan tolka sidan.</li><li class="fragment">Tillgänglighet börjar med bra grundarbete.</li></ul></div></section>
+    </div>
+    <footer class="presentation-footer"></footer>
+  </main>
+  <script src="presentation.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      document.querySelectorAll("[data-principle-demo]").forEach(function(demo){
+        const result=demo.querySelector("[data-principle-result]");
+        demo.querySelectorAll("[data-answer]").forEach(function(button){
+          button.addEventListener("click",function(){
+            const correct=button.dataset.answer==="uppfattbart";
+            result.dataset.state=correct?"correct":"wrong";
+            result.querySelector("strong").textContent=correct?"Rätt: Uppfattbart":"Försök igen";
+            result.querySelector("p").textContent=correct?"Alt-text gör bildens information möjlig att uppfatta även när bilden inte kan ses.":"Fråga dig vilken princip som handlar om att kunna ta del av informationen.";
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

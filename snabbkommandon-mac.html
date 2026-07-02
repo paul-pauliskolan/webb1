@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Praktiska snabbkommandon för Mac, Finder, Chrome, utvecklarverktyg och VS Code.">
+    <title>Snabbkommandon för webbutveckling på Mac</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .shortcut-page { max-width: 1050px; }
+        .shortcut-intro { margin-bottom: 2rem; }
+        .shortcut-section { margin: 1.5rem 0; padding: 1.25rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--surface); }
+        .shortcut-table { width: 100%; border-collapse: collapse; }
+        .shortcut-table th, .shortcut-table td { padding: .8rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+        .shortcut-table th { color: var(--text-muted); }
+        .shortcut-table tr:last-child td { border-bottom: 0; }
+        .shortcut-table kbd { display: inline-block; white-space: nowrap; }
+        @media (max-width: 650px) {
+            .shortcut-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+            .shortcut-table tr, .shortcut-table td { display: block; }
+            .shortcut-table tr { padding: .7rem 0; border-bottom: 1px solid var(--border); }
+            .shortcut-table td { padding: .2rem 0; border: 0; }
+        }
+    </style>
+</head>
+
+<body class="chapter-page">
+    <nav class="navbar"><a href="index.html" class="logo">Webbutveckling 1</a></nav>
+    <main class="container shortcut-page">
+        <header class="chapter-hero shortcut-intro">
+            <p class="eyebrow">Lathund för Mac</p>
+            <h1>Snabbkommandon för webbutveckling</h1>
+            <p class="subtitle">Tangenten <kbd>⌘</kbd> heter Command, <kbd>⌥</kbd> Option och <kbd>⇧</kbd> Shift. Programmet där kommandot används står i varje rubrik.</p>
+        </header>
+
+        <section class="shortcut-section">
+            <h2>Mac – fungerar i de flesta program</h2>
+            <table class="shortcut-table"><thead><tr><th>Kommando</th><th>Gör detta</th></tr></thead><tbody>
+                <tr><td><kbd>⌘ C</kbd></td><td>Kopiera markerat innehåll.</td></tr>
+                <tr><td><kbd>⌘ X</kbd></td><td>Klipp ut markerat innehåll.</td></tr>
+                <tr><td><kbd>⌘ V</kbd></td><td>Klistra in.</td></tr>
+                <tr><td><kbd>⌘ Z</kbd></td><td>Ångra senaste ändringen.</td></tr>
+                <tr><td><kbd>⌘ ⇧ Z</kbd></td><td>Gör om det du ångrade.</td></tr>
+                <tr><td><kbd>⌘ A</kbd></td><td>Markera allt.</td></tr>
+                <tr><td><kbd>⌘ S</kbd></td><td>Spara.</td></tr>
+                <tr><td><kbd>⌘ Tab</kbd></td><td>Växla mellan öppna program.</td></tr>
+            </tbody></table>
+        </section>
+
+        <section class="shortcut-section">
+            <h2>Finder – filer och mappar</h2>
+            <table class="shortcut-table"><thead><tr><th>Kommando</th><th>Gör detta</th></tr></thead><tbody>
+                <tr><td><kbd>⌘ ⇧ N</kbd></td><td>Skapa en ny mapp.</td></tr>
+                <tr><td><kbd>⌘ N</kbd></td><td>Öppna ett nytt Finder-fönster.</td></tr>
+                <tr><td><kbd>⌘ Delete</kbd></td><td>Flytta markerad fil eller mapp till papperskorgen.</td></tr>
+                <tr><td><kbd>Space</kbd></td><td>Förhandsvisa markerad fil med Snabbvisning.</td></tr>
+                <tr><td><kbd>⌘ ⇧ .</kbd></td><td>Visa eller dölj dolda filer.</td></tr>
+            </tbody></table>
+        </section>
+
+        <section class="shortcut-section">
+            <h2>Visual Studio Code – redigera kod</h2>
+            <table class="shortcut-table"><thead><tr><th>Kommando</th><th>Gör detta</th></tr></thead><tbody>
+                <tr><td><kbd>⌘ P</kbd></td><td>Sök efter och öppna en fil i projektmappen.</td></tr>
+                <tr><td><kbd>⌘ ⇧ P</kbd></td><td>Öppna kommandopaletten.</td></tr>
+                <tr><td><kbd>⌘ F</kbd></td><td>Sök i den öppna filen.</td></tr>
+                <tr><td><kbd>⌘ ⌥ F</kbd></td><td>Sök och ersätt i den öppna filen.</td></tr>
+                <tr><td><kbd>⌘ ⇧ F</kbd></td><td>Sök i alla filer i projektmappen.</td></tr>
+                <tr><td><kbd>⌘ /</kbd></td><td>Kommentera eller avkommentera markerade rader.</td></tr>
+                <tr><td><kbd>⌥ ⇧ F</kbd></td><td>Formatera hela dokumentet.</td></tr>
+                <tr><td><kbd>⌥ ↑</kbd> / <kbd>⌥ ↓</kbd></td><td>Flytta aktuell rad upp eller ner.</td></tr>
+                <tr><td><kbd>⌥ ⇧ ↑</kbd> / <kbd>⌥ ⇧ ↓</kbd></td><td>Kopiera aktuell rad upp eller ner.</td></tr>
+                <tr><td><kbd>⌘ D</kbd></td><td>Markera nästa förekomst av det markerade ordet.</td></tr>
+                <tr><td><kbd>⌃ `</kbd></td><td>Visa eller dölj den inbyggda terminalen.</td></tr>
+            </tbody></table>
+        </section>
+
+        <section class="shortcut-section">
+            <h2>Google Chrome – webbläsaren</h2>
+            <table class="shortcut-table"><thead><tr><th>Kommando</th><th>Gör detta</th></tr></thead><tbody>
+                <tr><td><kbd>⌘ R</kbd></td><td>Ladda om sidan.</td></tr>
+                <tr><td><kbd>⌘ ⇧ R</kbd></td><td>Gör en hård omladdning utan de sparade filerna i cacheminnet.</td></tr>
+                <tr><td><kbd>⌘ L</kbd></td><td>Markera adressfältet.</td></tr>
+                <tr><td><kbd>⌘ T</kbd></td><td>Öppna en ny flik.</td></tr>
+                <tr><td><kbd>⌘ W</kbd></td><td>Stäng aktuell flik.</td></tr>
+                <tr><td><kbd>⌘ ⇧ T</kbd></td><td>Öppna den senast stängda fliken igen.</td></tr>
+                <tr><td><kbd>⌘ +</kbd> / <kbd>⌘ −</kbd></td><td>Zooma in eller ut på webbsidan.</td></tr>
+                <tr><td><kbd>⌘ 0</kbd></td><td>Återställ sidans zoom till 100 procent.</td></tr>
+            </tbody></table>
+        </section>
+
+        <section class="shortcut-section">
+            <h2>Chrome DevTools – utvecklarverktygen</h2>
+            <table class="shortcut-table"><thead><tr><th>Kommando</th><th>Gör detta</th></tr></thead><tbody>
+                <tr><td><kbd>⌘ ⌥ I</kbd></td><td>Öppna eller stäng utvecklarverktygen.</td></tr>
+                <tr><td><kbd>⌘ ⌥ C</kbd></td><td>Starta verktyget för att välja ett element på sidan.</td></tr>
+                <tr><td><kbd>⌘ ⌥ J</kbd></td><td>Öppna utvecklarverktygen direkt på Console.</td></tr>
+                <tr><td><kbd>⌘ ⇧ P</kbd></td><td>Öppna DevTools kommandomeny när DevTools är aktivt.</td></tr>
+                <tr><td><kbd>⌘ F</kbd></td><td>Sök i den panel som är aktiv.</td></tr>
+                <tr><td><kbd>Esc</kbd></td><td>Visa eller dölj nederpanelen, exempelvis Console.</td></tr>
+            </tbody></table>
+        </section>
+
+        <p><a href="index.html">Tillbaka till kursens startsida</a></p>
+    </main>
+    <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+</body>
+
+</html>
