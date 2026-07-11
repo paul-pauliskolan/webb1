@@ -1,6 +1,57 @@
 // Reusable quiz renderer for static chapter pages
 // Usage: window.renderQuiz(containerElement, quizData)
 (function () {
+  const QUIZ_STATISTICS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyAwZzSNGro2YnjFZABzDncLpcfstXGokZQwJFqM4tuZ8_qXw8vTbtEIjMlyBlVwXvm/exec";
+
+  function recordQuizStatistics({ quizId, chapter, answers }) {
+    if (!QUIZ_STATISTICS_ENDPOINT || !Array.isArray(answers) || !answers.length) {
+      return;
+    }
+
+    fetch(QUIZ_STATISTICS_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        quizId,
+        chapter,
+        pagePath: window.location.pathname,
+        answers,
+      }),
+    }).catch(() => {
+      // Rattningen ska fungera aven om statistik inte kan skickas.
+    });
+  }
+
+  function quizIdentifier(container, quizData) {
+    if (quizData.quizId) return quizData.quizId;
+    if (container.id) return container.id.replace(/^quiz-/, "kapitel-");
+    return window.location.pathname.split("/").pop().replace(/\.html$/, "") || "quiz";
+  }
+
+  function chapterTitle(quizData) {
+    if (quizData.chapter) return quizData.chapter;
+    if (quizData.title) return quizData.title.replace(/^Quiz:\s*/i, "");
+    const heading = document.querySelector("h1");
+    return heading ? heading.textContent.trim() : "";
+  }
+
+  function answerRows(form, quizData) {
+    return quizData.questions.map((question, questionIndex) => {
+      const name = `quiz${questionIndex}`;
+      const selected = form.querySelector(`input[name="${name}"]:checked`);
+      const selectedIndex = selected ? Number(selected.value) : -1;
+
+      return {
+        questionNumber: questionIndex + 1,
+        questionText: question.question,
+        selectedAnswer: selectedIndex >= 0 ? question.options[selectedIndex] : "",
+        correctAnswer: question.options[question.correct],
+        isCorrect: selectedIndex === question.correct,
+      };
+    });
+  }
+
   function createOption(name, qIndex, optIndex, text) {
     const id = `${name}-q${qIndex}-o${optIndex}`;
     const wrapper = document.createElement("div");
@@ -140,6 +191,13 @@
 
     quizData.questions.forEach((q, i) => renderQuestion(form, i, q));
 
+    if (QUIZ_STATISTICS_ENDPOINT) {
+      const note = document.createElement("p");
+      note.className = "quiz-statistics-note";
+      note.innerText = "Anonyma svar används för att förbättra quizet.";
+      form.appendChild(note);
+    }
+
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "quiz-check";
@@ -149,6 +207,7 @@
       const results = evaluate(form, quizData.questions);
       const correctCount = results.filter(Boolean).length;
       const total = results.length;
+      const allAnswered = answerRows(form, quizData).every((answer) => answer.selectedAnswer);
       // remove previous summary if any
       const prev = container.querySelector(".quiz-summary");
       if (prev) prev.remove();
@@ -162,6 +221,15 @@
         s.innerHTML = `<strong>${correctCount} av ${total} rätt.</strong> Korrigera de felaktiga svaren och prova igen.`;
       }
       container.appendChild(s);
+
+      if (allAnswered && !form.dataset.statisticsSent) {
+        recordQuizStatistics({
+          quizId: quizIdentifier(container, quizData),
+          chapter: chapterTitle(quizData),
+          answers: answerRows(form, quizData),
+        });
+        form.dataset.statisticsSent = "true";
+      }
     });
 
     form.appendChild(btn);

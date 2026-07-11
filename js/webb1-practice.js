@@ -1,4 +1,6 @@
 (function () {
+  const QUIZ_STATISTICS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyAwZzSNGro2YnjFZABzDncLpcfstXGokZQwJFqM4tuZ8_qXw8vTbtEIjMlyBlVwXvm/exec";
+
   const root = document.querySelector("#practice-root");
   if (!root || !window.webb1PracticeGroups) return;
 
@@ -17,6 +19,26 @@
   if (title) title.textContent = group.title;
   if (subtitle) subtitle.textContent = group.subtitle;
   if (total) total.textContent = String(pageQuestions.length);
+
+  function recordQuizStatistics({ quizId, chapter, answers }) {
+    if (!QUIZ_STATISTICS_ENDPOINT || !Array.isArray(answers) || !answers.length) {
+      return;
+    }
+
+    fetch(QUIZ_STATISTICS_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        quizId,
+        chapter,
+        pagePath: window.location.pathname,
+        answers,
+      }),
+    }).catch(() => {
+      // Rattningen ska fungera aven om statistik inte kan skickas.
+    });
+  }
 
   function escapeHtml(value) {
     return String(value)
@@ -141,6 +163,16 @@
     });
   }
 
+  function statisticsAnswers(rows) {
+    return rows.map((row) => ({
+      questionNumber: pageStart + row.index + 1,
+      questionText: row.question.question,
+      selectedAnswer: row.selected ? row.selected.querySelector(".option-text").textContent.trim() : "",
+      correctAnswer: row.correct.querySelector(".option-text").textContent.trim(),
+      isCorrect: Boolean(row.isCorrect)
+    }));
+  }
+
   function clearMarkedResults() {
     root.querySelectorAll(".option-button").forEach((button) => {
       button.classList.remove("is-correct", "is-wrong");
@@ -207,6 +239,16 @@
     `;
 
     root.querySelector(".practice-actions").after(resultSection);
+
+    if (!root.dataset.statisticsSent) {
+      recordQuizStatistics({
+        quizId: `ova-prov-${groupKey}-del-${pageNumber}`,
+        chapter: `${group.title} - Del ${pageNumber}`,
+        answers: statisticsAnswers(rows),
+      });
+      root.dataset.statisticsSent = "true";
+    }
+
     resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -214,6 +256,7 @@
     <section class="content-section practice-section">
       <h2>Frågor</h2>
       <p>Välj ett alternativ på varje fråga i den här delen. Rätt svar och återkoppling visas först när du har svarat på alla 10 frågor och klickar på <strong>Visa resultat</strong>.</p>
+      ${QUIZ_STATISTICS_ENDPOINT ? "<p>Anonyma svar används för att förbättra quizet.</p>" : ""}
       ${renderPageNav()}
       <p class="practice-status" aria-live="polite"></p>
       <div class="practice-list">
