@@ -209,7 +209,8 @@ ol {
   -webkit-tap-highlight-color: transparent;
 }
 
-.search-toggle {
+.search-toggle,
+.theme-toggle {
   display: none;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -219,6 +220,31 @@ ol {
   height: 2.75rem;
   font-size: 1.05rem;
   cursor: pointer;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-2);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--accent-strong);
+  outline-offset: 3px;
 }
 
 .search-toggle:hover {
@@ -1100,7 +1126,7 @@ a.chapter-link:hover {
 }
 
 /* Webbutveckling 1 - mörkt tema med tydlig kontrast */
-:root {
+html[data-theme="dark"] {
   --bg: #0f1417;
   --bg-alt: #172024;
   --surface: #1f2a2e;
@@ -1114,7 +1140,7 @@ a.chapter-link:hover {
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
 }
 
-body {
+html[data-theme="dark"] body {
   color: var(--text) !important;
   background:
     radial-gradient(circle at top left, rgba(45, 212, 191, 0.16), transparent 30%),
@@ -1122,104 +1148,104 @@ body {
     linear-gradient(180deg, #0f1417 0%, #141d20 100%) !important;
 }
 
-.navbar {
+html[data-theme="dark"] .navbar {
   background: rgba(15, 20, 23, 0.92) !important;
   border-bottom: 1px solid var(--border) !important;
 }
 
-.logo,
-.navbar a {
+html[data-theme="dark"] .logo,
+html[data-theme="dark"] .navbar a {
   color: var(--text) !important;
 }
 
-.hero,
-.hero-copy,
-.hero-card,
-.toc-section,
-.content-section,
-.aside-card,
-.chapter-group,
-.chapter-hero {
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .hero-copy,
+html[data-theme="dark"] .hero-card,
+html[data-theme="dark"] .toc-section,
+html[data-theme="dark"] .content-section,
+html[data-theme="dark"] .aside-card,
+html[data-theme="dark"] .chapter-group,
+html[data-theme="dark"] .chapter-hero {
   background: rgba(31, 42, 46, 0.96) !important;
   color: var(--text) !important;
   border-color: var(--border) !important;
   box-shadow: var(--shadow) !important;
 }
 
-.hero,
-.chapter-hero {
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .chapter-hero {
   background:
     linear-gradient(135deg, rgba(45, 212, 191, 0.12), rgba(31, 42, 46, 0.96)),
     var(--surface) !important;
 }
 
-.hero h1,
-.hero h2,
-.hero h3,
-.chapter-hero h1,
-.chapter-hero h2,
-.chapter-hero h3,
-.toc-section h1,
-.toc-section h2,
-.toc-section h3,
-.content-section h1,
-.content-section h2,
-.content-section h3,
-.chapter-group h1,
-.chapter-group h2,
-.chapter-group h3,
-.aside-card h1,
-.aside-card h2,
-.aside-card h3 {
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .hero h2,
+html[data-theme="dark"] .hero h3,
+html[data-theme="dark"] .chapter-hero h1,
+html[data-theme="dark"] .chapter-hero h2,
+html[data-theme="dark"] .chapter-hero h3,
+html[data-theme="dark"] .toc-section h1,
+html[data-theme="dark"] .toc-section h2,
+html[data-theme="dark"] .toc-section h3,
+html[data-theme="dark"] .content-section h1,
+html[data-theme="dark"] .content-section h2,
+html[data-theme="dark"] .content-section h3,
+html[data-theme="dark"] .chapter-group h1,
+html[data-theme="dark"] .chapter-group h2,
+html[data-theme="dark"] .chapter-group h3,
+html[data-theme="dark"] .aside-card h1,
+html[data-theme="dark"] .aside-card h2,
+html[data-theme="dark"] .aside-card h3 {
   color: var(--text) !important;
 }
 
-.hero p,
-.chapter-hero p,
-.subtitle,
-.section-note,
-.toc-section p,
-.content-section p,
-.chapter-group p,
-.aside-card p,
-.chapter-title,
-li {
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .chapter-hero p,
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .section-note,
+html[data-theme="dark"] .toc-section p,
+html[data-theme="dark"] .content-section p,
+html[data-theme="dark"] .chapter-group p,
+html[data-theme="dark"] .aside-card p,
+html[data-theme="dark"] .chapter-title,
+html[data-theme="dark"] li {
   color: var(--text-muted) !important;
 }
 
-.chapter-link,
-.chapter-menu .chapter-link,
-a.chapter-link {
+html[data-theme="dark"] .chapter-link,
+html[data-theme="dark"] .chapter-menu .chapter-link,
+html[data-theme="dark"] a.chapter-link {
   background: rgba(38, 52, 56, 0.96) !important;
   color: var(--text) !important;
   border: 1px solid rgba(94, 234, 212, 0.22) !important;
   box-shadow: none !important;
 }
 
-.chapter-link:hover,
-.chapter-menu .chapter-link:hover,
-a.chapter-link:hover {
+html[data-theme="dark"] .chapter-link:hover,
+html[data-theme="dark"] .chapter-menu .chapter-link:hover,
+html[data-theme="dark"] a.chapter-link:hover {
   background: rgba(45, 212, 191, 0.12) !important;
   border-color: var(--accent-strong) !important;
   text-decoration: none;
 }
 
-.chapter-number,
-.eyebrow,
-a {
+html[data-theme="dark"] .chapter-number,
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] a {
   color: var(--accent-strong) !important;
 }
 
-pre,
-code {
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code {
   background: #11181b !important;
   color: #e7f9f6 !important;
   border-color: rgba(94, 234, 212, 0.22) !important;
 }
 
-.quiz-submit,
-.quiz button,
-.quiz .quiz-check {
+html[data-theme="dark"] .quiz-submit,
+html[data-theme="dark"] .quiz button,
+html[data-theme="dark"] .quiz .quiz-check {
   background: var(--accent) !important;
   color: #081112 !important;
 }
@@ -1301,6 +1327,116 @@ code {
 .semantic-layout-simple {
   grid-template-columns: 1fr;
   grid-template-areas: "header" "nav" "main" "footer";
+}
+
+/* Komplett temastyrning för kursens gemensamma gränssnitt */
+html[data-theme="light"] .chapter-main,
+html[data-theme="light"] .chapter-aside,
+html[data-theme="light"] .chapter-header,
+html[data-theme="light"] .feature-card,
+html[data-theme="light"] .split-mode-panel,
+html[data-theme="light"] .site-footer,
+html[data-theme="light"] .nav-button,
+html[data-theme="light"] .video-card,
+html[data-theme="light"] .resource-item,
+html[data-theme="light"] .quiz-question,
+html[data-theme="light"] .semantic-layout {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+html[data-theme="dark"] .chapter-main,
+html[data-theme="dark"] .chapter-aside,
+html[data-theme="dark"] .chapter-header,
+html[data-theme="dark"] .feature-card,
+html[data-theme="dark"] .split-mode-panel,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .nav-button,
+html[data-theme="dark"] .video-card,
+html[data-theme="dark"] .resource-item,
+html[data-theme="dark"] .quiz-question,
+html[data-theme="dark"] .semantic-layout {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+html[data-theme="light"] pre {
+  background: #f1f5f4 !important;
+  color: #172026 !important;
+  border-color: rgba(15, 118, 110, 0.28) !important;
+}
+
+html[data-theme="light"] code {
+  background: #e7efed !important;
+  color: #153e3a !important;
+  border-color: rgba(15, 118, 110, 0.22) !important;
+}
+
+html[data-theme="light"] pre code,
+html[data-theme="dark"] pre code {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+html[data-theme="light"] th {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] th {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] td,
+html[data-theme="dark"] td {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] blockquote,
+html[data-theme="dark"] blockquote,
+html[data-theme="light"] .important-box,
+html[data-theme="dark"] .important-box {
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] .important-box h3 {
+  color: #854d0e !important;
+}
+
+html[data-theme="light"] .key-topics span {
+  background: #fff7ed !important;
+  color: #9a3412 !important;
+}
+
+html[data-theme="dark"] .key-topics span {
+  color: #fff1e8 !important;
+}
+
+html[data-theme="light"] input,
+html[data-theme="light"] textarea,
+html[data-theme="light"] select,
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html[data-theme="light"] .nav-button:hover,
+html[data-theme="light"] .resource-item:hover {
+  background: var(--surface-2) !important;
+}
+
+html[data-theme="dark"] .nav-button:hover,
+html[data-theme="dark"] .resource-item:hover {
+  background: var(--surface-2) !important;
 }
 
 @media (max-width: 600px) {

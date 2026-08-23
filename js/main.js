@@ -1,4 +1,61 @@
 const CURRENT_SCRIPT = document.currentScript;
+const THEME_STORAGE_KEY = "webb1-theme";
+
+function getPreferredTheme() {
+  try {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme === "light" || savedTheme === "dark") return savedTheme;
+  } catch (error) {
+    // Sidan fungerar fortfarande om lagring är blockerad i webbläsaren.
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+
+  const button = document.querySelector(".theme-toggle");
+  if (!button) return;
+
+  const isDark = theme === "dark";
+  button.textContent = isDark ? "☀️" : "🌙";
+  button.setAttribute(
+    "aria-label",
+    isDark ? "Byt till ljust tema" : "Byt till mörkt tema",
+  );
+  button.setAttribute("aria-pressed", String(isDark));
+  button.title = isDark ? "Ljust tema" : "Mörkt tema";
+}
+
+function initThemeToggle() {
+  const navbar = document.querySelector(".navbar");
+  if (!navbar) return;
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "theme-toggle";
+  navbar.appendChild(button);
+
+  applyTheme(document.documentElement.dataset.theme || getPreferredTheme());
+
+  button.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch (error) {
+      // Temat växlas ändå för den aktuella sidan.
+    }
+  });
+}
+
+applyTheme(getPreferredTheme());
+
 const CHAPTERS_URL = new URL(
   "../data/chapters.json",
   CURRENT_SCRIPT?.src || window.location.href,
@@ -153,6 +210,7 @@ async function loadChapters() {
 }
 
 function initPage() {
+  initThemeToggle();
   loadChapters().then(() => {
     const match = window.location.pathname.match(/chapter-(\d+)\.html$/);
     if (match) {
