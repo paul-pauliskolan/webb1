@@ -19,7 +19,7 @@
   padding: 0.9rem;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(38, 52, 56, 0.96);
+  background: var(--surface-2);
   color: var(--text) !important;
   text-decoration: none;
 }
@@ -61,9 +61,9 @@
   gap: 0.25rem;
   min-height: 4.2rem;
   padding: 0.75rem;
-  border: 1px solid rgba(94, 234, 212, 0.28);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(38, 52, 56, 0.96);
+  background: var(--surface-2);
   color: var(--text) !important;
   text-decoration: none;
 }
@@ -108,7 +108,7 @@
 
 .practice-status {
   margin: 0;
-  color: #fde68a;
+  color: #92400e;
   font-weight: 700;
 }
 
@@ -118,7 +118,7 @@
   padding: 1rem;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(31, 42, 46, 0.96);
+  background: var(--surface);
   color: var(--text);
 }
 
@@ -228,7 +228,7 @@
   padding: 1.25rem;
   border: 2px solid var(--accent-strong);
   border-radius: 8px;
-  background: rgba(31, 42, 46, 0.96);
+  background: var(--surface);
   color: var(--text);
 }
 
@@ -256,7 +256,7 @@
   padding: 1rem;
   border: 1px solid rgba(248, 113, 113, 0.5);
   border-radius: 8px;
-  background: rgba(127, 29, 29, 0.22);
+  background: #fff1f2;
 }
 
 .wrong-item h3 {
@@ -268,18 +268,45 @@
 }
 
 .wrong-text {
-  color: #fecaca;
+  color: #991b1b;
   font-weight: 800;
 }
 
 .correct-text {
-  color: #bbf7d0;
+  color: #166534;
   font-weight: 800;
 }
 
 .study-text {
-  color: #fde68a;
+  color: #92400e;
   font-weight: 800;
+}
+
+html[data-theme="dark"] .practice-summary a,
+html[data-theme="dark"] .practice-page-nav a {
+  background: var(--surface-2);
+}
+
+html[data-theme="dark"] .practice-card,
+html[data-theme="dark"] .practice-results {
+  background: var(--surface);
+}
+
+html[data-theme="dark"] .practice-status,
+html[data-theme="dark"] .study-text {
+  color: #fde68a;
+}
+
+html[data-theme="dark"] .wrong-item {
+  background: rgba(127, 29, 29, 0.22);
+}
+
+html[data-theme="dark"] .wrong-text {
+  color: #fecaca;
+}
+
+html[data-theme="dark"] .correct-text {
+  color: #bbf7d0;
 }
 
 @media (max-width: 820px) {
