@@ -50,17 +50,12 @@
         }
 
         .profile-preview-image {
-            display: grid;
-            place-items: center;
-            width: min(100%, 18rem);
-            aspect-ratio: 4 / 3;
+            display: block;
+            width: min(100%, 10rem);
+            height: auto;
             margin: 0 0 1rem;
             border: 2px solid #cbd5e1;
             border-radius: 6px;
-            background: #f8fafc;
-            color: #172026 !important;
-            font: 700 0.95rem/1.3 "Trebuchet MS", "Segoe UI", sans-serif;
-            text-align: center;
         }
 
         .profile-preview-page a {
@@ -109,23 +104,49 @@
 
                 <h2>Exempel på struktur</h2>
                 <pre><code>&lt;body&gt;
-    &lt;h1&gt;Min profilsida&lt;/h1&gt;
-    &lt;p&gt;Kort presentation.&lt;/p&gt;
-    &lt;img src="images/profilbild.jpg" alt="Beskrivning av bilden"&gt;
-    &lt;p&gt;Mer information om ämnet.&lt;/p&gt;
-    &lt;a href="https://example.com"&gt;En relevant länk&lt;/a&gt;
+    &lt;!-- En profilsida om Tim Berners-Lee --&gt;
+    &lt;h1&gt;Tim Berners-Lee&lt;/h1&gt;
+    &lt;img src="images/tim-berners-lee.jpg" alt="Porträtt av Tim Berners-Lee"&gt;
+    &lt;p&gt;Tim Berners-Lee är en brittisk datavetare som uppfann World Wide Web.&lt;/p&gt;
+
+    &lt;h2&gt;Tre delar av webben&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;HTML&lt;/li&gt;
+        &lt;li&gt;HTTP&lt;/li&gt;
+        &lt;li&gt;URL&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2&gt;Viktiga händelser&lt;/h2&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Han skrev sitt förslag till webben 1989.&lt;/li&gt;
+        &lt;li&gt;Han skapade den första webbplatsen 1990.&lt;/li&gt;
+        &lt;li&gt;Han grundade organisationen W3C 1994.&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;Hans idé gjorde det möjligt att länka samman och dela information på internet.&lt;/p&gt;
+    &lt;a href="https://www.w3.org/People/Berners-Lee/"&gt;Läs mer om Tim Berners-Lee&lt;/a&gt;
 &lt;/body&gt;</code></pre>
                 <div class="profile-preview" aria-label="Förhandsvisning av profilsidan i webbläsaren">
                     <div class="profile-preview-address">http://127.0.0.1:5500/index.html</div>
                     <div class="profile-preview-page">
-                        <h1>Min profilsida</h1>
-                        <p>Kort presentation.</p>
-                        <div class="profile-preview-image" role="img" aria-label="Beskrivning av bilden">
-                            profilbild.jpg<br>
-                            <small>alt: Beskrivning av bilden</small>
-                        </div>
-                        <p>Mer information om ämnet.</p>
-                        <a href="https://example.com" target="_blank" rel="noopener noreferrer">En relevant länk</a>
+                        <h1>Tim Berners-Lee</h1>
+                        <img class="profile-preview-image" src="../assets/images/tim-berners-lee.png"
+                            alt="Illustrerat porträtt av Tim Berners-Lee">
+                        <p>Tim Berners-Lee är en brittisk datavetare som uppfann World Wide Web.</p>
+                        <h2>Tre delar av webben</h2>
+                        <ul>
+                            <li>HTML</li>
+                            <li>HTTP</li>
+                            <li>URL</li>
+                        </ul>
+                        <h2>Viktiga händelser</h2>
+                        <ol>
+                            <li>Han skrev sitt förslag till webben 1989.</li>
+                            <li>Han skapade den första webbplatsen 1990.</li>
+                            <li>Han grundade organisationen W3C 1994.</li>
+                        </ol>
+                        <p>Hans idé gjorde det möjligt att länka samman och dela information på internet.</p>
+                        <a href="https://www.w3.org/People/Berners-Lee/" target="_blank" rel="noopener noreferrer">Läs mer om Tim Berners-Lee</a>
                     </div>
                 </div>
 

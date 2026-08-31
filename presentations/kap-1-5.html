@@ -66,51 +66,52 @@
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport"
         content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;Min profilsida&lt;/title&gt;
+  &lt;title&gt;Tim Berners-Lee&lt;/title&gt;
 &lt;/head&gt;</code></pre>
       </div></section>
 
       <section class="slide"><div class="slide-content">
-        <p class="slide-kicker">Hela exemplet · del 2 av 3</p><h2>Rubrik, text, bild och länk</h2>
+        <p class="slide-kicker">Hela exemplet · del 2 av 3</p><h2>Uppifrån och ner</h2>
         <pre class="code-block compact-code no-scroll-code fragment"><code>&lt;body&gt;
-  &lt;!-- Presentation av mitt hundintresse --&gt;
-  &lt;h1&gt;Mitt hundintresse&lt;/h1&gt;
-  &lt;p&gt;Jag tycker om att lära mig om hundar.&lt;/p&gt;
-  &lt;img src="images/dog.jpg"
-       alt="Brun hund mot mörk bakgrund"&gt;
-  &lt;p&gt;Här samlar jag fakta och tips.&lt;/p&gt;
-  &lt;a href="https://example.com"&gt;Läs mer&lt;/a&gt;</code></pre>
+  &lt;!-- En profilsida om Tim Berners-Lee --&gt;
+  &lt;h1&gt;Tim Berners-Lee&lt;/h1&gt;
+  &lt;img src="images/tim-berners-lee.jpg"
+       alt="Porträtt av Tim Berners-Lee"&gt;
+  &lt;p&gt;Tim Berners-Lee är en brittisk datavetare
+     som uppfann World Wide Web.&lt;/p&gt;</code></pre>
       </div></section>
 
       <section class="slide"><div class="slide-content">
         <p class="slide-kicker">Hela exemplet · del 3 av 3</p><h2>Två sorters listor</h2>
-        <pre class="code-block compact-code no-scroll-code fragment"><code>  &lt;h2&gt;Träning i rätt ordning&lt;/h2&gt;
-  &lt;ol&gt;
-    &lt;li&gt;Välj en övning&lt;/li&gt;
-    &lt;li&gt;Träna en kort stund&lt;/li&gt;
-    &lt;li&gt;Ta en paus&lt;/li&gt;
-  &lt;/ol&gt;
-  &lt;h2&gt;Bra saker att ha&lt;/h2&gt;
+        <pre class="code-block compact-code no-scroll-code fragment"><code>  &lt;h2&gt;Tre delar av webben&lt;/h2&gt;
   &lt;ul&gt;
-    &lt;li&gt;Godis&lt;/li&gt;
-    &lt;li&gt;Leksak&lt;/li&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;HTTP&lt;/li&gt;
+    &lt;li&gt;URL&lt;/li&gt;
   &lt;/ul&gt;
+  &lt;h2&gt;Viktiga händelser&lt;/h2&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Förslag till webben 1989&lt;/li&gt;
+    &lt;li&gt;Första webbplatsen 1990&lt;/li&gt;
+    &lt;li&gt;W3C grundades 1994&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;a href="https://www.w3.org/People/Berners-Lee/"&gt;
+    Läs mer om Tim Berners-Lee
+  &lt;/a&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
       </div></section>
 
       <section class="slide"><div class="slide-content">
         <p class="slide-kicker">Förhandsvisning</p><h2>Så kan sidan se ut</h2>
-        <div class="two-column diagram-emphasis">
-          <div>
-            <p class="fragment"><strong>Mitt hundintresse</strong></p>
-            <p class="fragment">Jag tycker om att lära mig om hundar.</p>
-            <p class="fragment"><a href="https://example.com">Läs mer</a></p>
-          </div>
-          <figure class="slide-figure fragment">
-            <img src="../assets/images/dog.jpg" alt="Brun hund mot mörk bakgrund">
-            <figcaption>Bildens alt-text: Brun hund mot mörk bakgrund.</figcaption>
-          </figure>
+        <div class="fragment" style="display:flex; flex-direction:column; align-items:flex-start; gap:.35rem">
+          <h3 style="margin:0">Tim Berners-Lee</h3>
+          <img src="../assets/images/tim-berners-lee.png" alt="Illustrerat porträtt av Tim Berners-Lee"
+               style="width:130px; height:130px; object-fit:cover; border-radius:8px">
+          <p style="margin:.2rem 0">Brittisk datavetare som uppfann World Wide Web.</p>
+          <p style="margin:.2rem 0"><strong>Tre delar av webben:</strong> HTML, HTTP och URL.</p>
+          <p style="margin:.2rem 0"><strong>Viktiga händelser:</strong> 1989, 1990 och 1994.</p>
+          <a href="https://www.w3.org/People/Berners-Lee/">Läs mer om Tim Berners-Lee</a>
         </div>
       </div></section>
 
@@ -119,7 +120,7 @@
         <pre class="code-block no-scroll-code fragment"><code>profil-sida/
   index.html
   images/
-    dog.jpg</code></pre>
+    tim-berners-lee.jpg</code></pre>
         <p class="fragment">Öppna hela mappen <code>profil-sida</code> i VS Code.</p>
         <p class="fragment">Arbeta med en projektmapp i taget.</p>
       </div></section>
@@ -128,16 +129,16 @@
         <p class="slide-kicker">Om bilden inte syns</p><h2>Kontrollera sökvägen steg för steg</h2>
         <ol>
           <li class="fragment">Finns bilden i mappen <code>images</code>?</li>
-          <li class="fragment">Är filnamnet exakt <code>dog.jpg</code>?</li>
+          <li class="fragment">Är filnamnet exakt <code>tim-berners-lee.jpg</code>?</li>
           <li class="fragment">Är filändelsen rätt?</li>
           <li class="fragment">Stämmer stora och små bokstäver?</li>
-          <li class="fragment">Är <code>src="images/dog.jpg"</code> korrekt?</li>
+          <li class="fragment">Är <code>src="images/tim-berners-lee.jpg"</code> korrekt?</li>
         </ol>
       </div></section>
 
       <section class="slide"><div class="slide-content">
         <p class="slide-kicker">Kontrollfråga</p><h2>Uppfyller bilden kravet?</h2>
-        <pre class="code-block no-scroll-code fragment"><code>&lt;img src="images/dog.jpg" alt="Bild"&gt;</code></pre>
+        <pre class="code-block no-scroll-code fragment"><code>&lt;img src="images/tim-berners-lee.jpg" alt="Bild"&gt;</code></pre>
         <p class="fragment">Tänk efter innan du går vidare.</p>
         <p class="fragment"><strong>Inte helt.</strong> Sökvägen kan fungera, men alt-texten ska beskriva bildens relevanta innehåll.</p>
       </div></section>
