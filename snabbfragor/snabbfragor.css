@@ -1,0 +1,28 @@
+:root { color-scheme:light; --bg:#fbfaf7; --surface:#fff; --text:#171717; --muted:#5d5d5d; --accent:#2457a6; --border:#dedbd2; --code:#f1efe9; }
+* { box-sizing:border-box; }
+body { min-height:100vh; margin:0; background:var(--bg); color:var(--text); font-family:"Segoe UI",system-ui,sans-serif; line-height:1.5; }
+.topbar { display:flex; justify-content:space-between; gap:1rem; padding:1rem clamp(1rem,4vw,3rem); border-bottom:1px solid var(--border); color:var(--muted); }
+a { color:var(--accent); font-weight:700; }
+.topbar a { text-decoration:none; }
+.overview { width:min(1050px,calc(100% - 2rem)); margin:auto; padding:clamp(3rem,7vw,6rem) 0; }
+.overview h1 { margin:0; font-size:clamp(3rem,7vw,5.5rem); line-height:1; }
+.intro { max-width:55ch; font-size:1.25rem; color:var(--muted); }
+.eyebrow { color:var(--accent); font-weight:800; }
+.chapter-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+.chapter-card { display:grid; gap:.55rem; padding:1.4rem; border:1px solid var(--border); border-radius:14px; background:var(--surface); color:var(--text); text-decoration:none; box-shadow:0 12px 30px rgba(0,0,0,.08); }
+.deck-shell { min-height:100vh; display:grid; grid-template-rows:auto 1fr auto; }
+.deck { min-height:0; }
+.slide { display:none; min-height:calc(100vh - 9rem); padding:clamp(2rem,6vw,5rem); place-items:center; }
+.slide.is-active { display:grid; }
+.slide>div { width:min(1050px,100%); }
+.slide h1 { max-width:20ch; margin:0; font-size:clamp(2.5rem,5.5vw,5.4rem); line-height:1.08; }
+.answer-slide h1 { font-size:clamp(2rem,4.3vw,4.3rem); }
+.slide p { max-width:65ch; font-size:clamp(1.15rem,2vw,1.7rem); }
+.prompt { margin-top:2.5rem; color:var(--muted); }
+pre { width:min(760px,100%); padding:1.2rem 1.4rem; overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--code); font-size:clamp(1.15rem,2vw,1.65rem); }
+footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem clamp(1rem,4vw,3rem); border-top:1px solid var(--border); }
+footer p { margin:0; color:var(--muted); }
+button { padding:.75rem 1rem; border:1px solid var(--border); border-radius:9px; background:var(--surface); color:var(--text); font-weight:700; cursor:pointer; }
+button:disabled { opacity:.4; }
+kbd { padding:.15rem .4rem; border:1px solid var(--border); border-radius:5px; background:var(--surface); }
+@media(max-width:650px) { footer p { display:none; } }
