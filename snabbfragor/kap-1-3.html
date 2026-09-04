@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Fem muntliga snabbfrågor med facit till kapitel 1.3 om en första HTML-sida.">
+    <title>Snabbfrågor 1.3 – Din första HTML-sida</title>
+    <script src="tema.js"></script>
+    <link rel="stylesheet" href="snabbfragor.css">
+</head>
+<body>
+<main class="deck-shell">
+    <header class="topbar"><a href="index.html">← Välj frågeläge</a><span><span data-card-type>Fråga</span> · <span data-question-number>1</span> av 5</span></header>
+    <div class="deck" aria-live="polite">
+        <section class="slide question-slide is-active" data-question="1"><div><p class="eyebrow">Kapitel 1.3 · Fråga 1</p><h1>Vad är HTML:s uppgift på en webbsida?</h1><p class="prompt">Tänk på svaret först. Tryck sedan på mellanslag för att visa facit.</p></div></section>
+        <section class="slide answer-slide" data-question="1"><div><p class="eyebrow">Kapitel 1.3 · Facit 1</p><h1>HTML beskriver sidans innehåll, struktur och betydelse.</h1><pre><code>&lt;h1&gt;Min profilsida&lt;/h1&gt;\n&lt;p&gt;En kort presentation.&lt;/p&gt;</code></pre></div></section>
+        <section class="slide question-slide" data-question="2"><div><p class="eyebrow">Kapitel 1.3 · Fråga 2</p><h1>Vad är skillnaden mellan head och body?</h1><p class="prompt">Tänk på svaret först. Tryck sedan på mellanslag för att visa facit.</p></div></section>
+        <section class="slide answer-slide" data-question="2"><div><p class="eyebrow">Kapitel 1.3 · Facit 2</p><h1>head innehåller information om sidan. body innehåller det som visas i webbläsarfönstret.</h1><pre><code>&lt;head&gt;&lt;title&gt;Min sida&lt;/title&gt;&lt;/head&gt;\n&lt;body&gt;&lt;h1&gt;Hej!&lt;/h1&gt;&lt;/body&gt;</code></pre></div></section>
+        <section class="slide question-slide" data-question="3"><div><p class="eyebrow">Kapitel 1.3 · Fråga 3</p><h1>Vad anger attributet lang="sv"?</h1><p class="prompt">Tänk på svaret först. Tryck sedan på mellanslag för att visa facit.</p></div></section>
+        <section class="slide answer-slide" data-question="3"><div><p class="eyebrow">Kapitel 1.3 · Facit 3</p><h1>Det anger att sidans huvudspråk är svenska.</h1><pre><code>&lt;html lang="sv"&gt;</code></pre></div></section>
+        <section class="slide question-slide" data-question="4"><div><p class="eyebrow">Kapitel 1.3 · Fråga 4</p><h1>Vad gör meta charset="UTF-8"?</h1><p class="prompt">Tänk på svaret först. Tryck sedan på mellanslag för att visa facit.</p></div></section>
+        <section class="slide answer-slide" data-question="4"><div><p class="eyebrow">Kapitel 1.3 · Facit 4</p><h1>Det anger teckenkodningen så att bland annat å, ä och ö visas rätt.</h1><pre><code>&lt;meta charset="UTF-8"&gt;</code></pre></div></section>
+        <section class="slide question-slide" data-question="5"><div><p class="eyebrow">Kapitel 1.3 · Fråga 5</p><h1>Varför ska HTML valideras även om sidan ser rätt ut?</h1><p class="prompt">Tänk på svaret först. Tryck sedan på mellanslag för att visa facit.</p></div></section>
+        <section class="slide answer-slide" data-question="5"><div><p class="eyebrow">Kapitel 1.3 · Facit 5</p><h1>Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig hitta dem.</h1><pre><code>&lt;!-- Testa, validera och rätta --&gt;</code></pre></div></section>
+    </div>
+    <footer><button data-previous>← Föregående</button><p><kbd>←</kbd> <kbd>→</kbd> byter bild · <kbd>Mellanslag</kbd> visar nästa</p><button data-next>Nästa →</button></footer>
+</main>
+<script src="snabbfragor.js"></script>
+</body>
+</html>

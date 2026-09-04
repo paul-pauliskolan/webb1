@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Träna på 25 slumpade muntliga frågor från kapitel 1.1–1.5 i Webbutveckling 1.">
+    <title>Slumpade snabbfrågor – Webbutveckling 1</title>
+    <script src="tema.js"></script>
+    <link rel="stylesheet" href="snabbfragor.css">
+</head>
+<body>
+<header class="topbar"><a href="index.html">← Välj frågeläge</a><span>Slumpade frågor</span></header>
+<main class="random-shell">
+    <p class="eyebrow" data-chapter>Kapitel</p>
+    <p data-progress aria-live="polite">Fråga 1 av 25</p>
+    <section class="random-card">
+        <h1 data-random-question></h1>
+        <div class="random-answer" data-random-answer hidden>
+            <h2>Facit</h2>
+            <p data-answer-text></p>
+            <pre data-code-wrap hidden><code data-answer-code></code></pre>
+        </div>
+        <div class="random-actions">
+            <button type="button" data-show-answer>Visa facit</button>
+            <button type="button" data-next-random hidden>Nästa slumpfråga</button>
+        </div>
+    </section>
+</main>
+<script src="slumpfragor.js"></script>
+</body>
+</html>

@@ -15,6 +15,7 @@
     function next() { if (index < slides.length - 1) { index += 1; render(); } else { location.href = "index.html"; } }
     function previous() { if (index > 0) { index -= 1; render(); } }
     document.addEventListener("keydown", event => {
+        if (event.target.matches("button, a, input, textarea, select")) return;
         if (event.key === " " || event.key === "ArrowRight") { event.preventDefault(); next(); }
         if (event.key === "ArrowLeft") { event.preventDefault(); previous(); }
     });
