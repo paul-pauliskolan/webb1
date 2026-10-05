@@ -15,7 +15,8 @@
             padding: 1rem;
             border: 1px solid var(--border);
             border-radius: 0.75rem;
-            background: rgba(13, 19, 22, 0.72);
+            background: var(--surface-2);
+            color: var(--text);
         }
 
         .homepage-simulation__controls {
@@ -217,6 +218,61 @@
         <li>Skriv media query för större skärm.</li>
         <li>Testa i smal, mellanbred och bred viewport.</li>
     </ol>
+
+    <h2>Planera sidans delar</h2>
+    <p>Innan du kodar kan du skriva en enkel lista över sidans struktur. Du behöver inte göra en avancerad ritning.</p>
+    <pre><code>Sidhuvud
+  Rubrik eller namn
+  Navigation
+
+Huvudinnehåll
+  Hero-sektion med introduktion och bild
+  Kortsektion med minst tre kort
+
+Sidfot
+  Kontakt eller avslutande information</code></pre>
+
+    <h2>Startförslag</h2>
+    <p>Skapa en egen projektmapp med följande struktur:</p>
+    <pre><code>responsiv-startsida/
+├── index.html
+├── styles.css
+└── images/</code></pre>
+    <p>Kontrollera att <code>index.html</code> innehåller viewport-raden och länken till CSS-filen. En enkel CSS-grund kan se ut så här:</p>
+    <pre><code>* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+
+    <h2>Två sätt att göra korten responsiva</h2>
+    <p>Grid kan anpassa antalet kolumner automatiskt:</p>
+    <pre><code>.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+}</code></pre>
+    <p>Du kan också börja med en kolumn och ändra antalet i en media query:</p>
+    <pre><code>.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 44rem) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}</code></pre>
+    <p>Du behöver inte använda media queryn på just korten. Den kan i stället ändra navigationen eller hero-sektionen.</p>
 
     <h2>Simulerat exempel</h2>
     <p>Exemplet nedan visar en möjlig startsida om en hundklubb. Ändra den simulerade viewportens bredd och brytpunkten. När viewporten når brytpunkten byter navigationen riktning, hero-sektionen får två kolumner och korten läggs i tre kolumner.</p>

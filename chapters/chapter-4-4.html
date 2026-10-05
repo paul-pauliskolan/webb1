@@ -110,6 +110,11 @@
         <li>Testa layouten med utvecklarverktyg.</li>
     </ul>
 
+    <h2>Kontrollera viewport-inställningen</h2>
+    <p>En responsiv sida behöver följande rad i dokumentets <code>head</code>:</p>
+    <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+    <p>Raden gör att sidans bredd följer enhetens skärm. Utan den kan en mobilwebbläsare använda en bredare virtuell layout, vilket gör media queries svårare att bedöma.</p>
+
     <h2>Mobile first</h2>
     <p>Mobile first betyder att grundreglerna fungerar på liten skärm. Sedan lägger du till regler för större ytor.</p>
     <pre><code>.layout {
@@ -135,8 +140,53 @@
         <li>Storlek på rubriker eller bilder, gärna med <code>clamp()</code> som grund.</li>
     </ul>
 
+    <h2>Exempel: responsiv navigation</h2>
+    <p>På en liten skärm kan länkarna ligga i en kolumn. När det finns mer plats kan samma navigation byta till en rad.</p>
+    <pre><code>&lt;nav class="site-nav"&gt;
+    &lt;a href="#start"&gt;Start&lt;/a&gt;
+    &lt;a href="#activities"&gt;Aktiviteter&lt;/a&gt;
+    &lt;a href="#contact"&gt;Kontakt&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+    <pre><code>.site-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (min-width: 44rem) {
+    .site-nav {
+        flex-direction: row;
+    }
+}</code></pre>
+    <p>Länkarna behöver riktiga <code>href</code>-mål och ska fortfarande ha en synlig fokusmarkering när användaren navigerar med Tab.</p>
+
+    <h2>Från HTML-struktur till layout</h2>
+    <p>HTML beskriver sidans delar. CSS väljer sedan vilka behållare som ska använda flexbox eller grid.</p>
+    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Hundklubben&lt;/h1&gt;
+    &lt;nav class="site-nav"&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;section class="hero"&gt;...&lt;/section&gt;
+    &lt;section class="cards"&gt;
+        &lt;article&gt;...&lt;/article&gt;
+        &lt;article&gt;...&lt;/article&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer id="contact"&gt;...&lt;/footer&gt;</code></pre>
+    <p>Här kan <code>.site-nav</code> använda flexbox och <code>.cards</code> använda grid. Varje layoutbehållare styr sina egna direkta barn.</p>
+
     <h2>Testa i webbläsaren</h2>
-    <p>Öppna utvecklarverktygen och dra viewporten smalare och bredare. Leta efter överlapp, för långa rader, bilder som spräcker layouten och menyer som inte går att använda.</p>
+    <p>Öppna utvecklarverktygen och dra viewporten smalare och bredare. Testa inte bara några färdiga enhetsmodeller.</p>
+    <ul>
+        <li>Testa en smal bredd omkring <code>320px</code>.</li>
+        <li>Dra långsamt över varje brytpunkt och kontrollera precis före och efter.</li>
+        <li>Leta efter horisontell scroll, överlapp och för långa textrader.</li>
+        <li>Kontrollera att bilder inte spräcker layouten eller ändrar proportioner.</li>
+        <li>Tabba genom navigationen och kontrollera att alla länkar går att använda.</li>
+    </ul>
 
     <h2>Interaktivt exempel</h2>
     <p>Ändra den simulerade viewport-bredden och brytpunkten. När bredden når brytpunkten aktiveras reglerna i media queryn.</p>

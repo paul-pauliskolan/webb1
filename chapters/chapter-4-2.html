@@ -243,7 +243,8 @@
             padding: 1rem;
             border: 1px solid var(--border);
             border-radius: 0.75rem;
-            background: rgba(13, 19, 22, 0.72);
+            background: var(--surface-2);
+            color: var(--text);
         }
 
         .auto-compare__controls {
@@ -366,6 +367,14 @@
 
     <h2>Tvådimensionell layout</h2>
     <p>Grid passar när du vill kontrollera både kolumner och rader. En grid-container innehåller grid-items. Mellan rader och kolumner finns grid lines. Ytan mellan linjerna bildar celler och större områden kan beskrivas som grid areas.</p>
+    <p>Flexbox och grid kan användas på olika delar av samma sida. En navigation kan vara en flex-container samtidigt som en kortsektion är en grid-container. Layoutreglerna påverkar i första hand containerns direkta barn.</p>
+    <pre><code>.site-nav {
+    display: flex;
+}
+
+.cards {
+    display: grid;
+}</code></pre>
     <p><a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/" target="_blank" rel="noopener noreferrer">An Interactive Guide to CSS Grid</a> visar CSS Grid med interaktiva exempel. Sidan låter dig se hur kolumner, rader, <code>fr</code>, <code>gap</code>, grid lines och placering förändras när värdena ändras. Den är bra som visuell förklaring när kodexempel känns abstrakta.</p>
 
     <h2>En enkel grid</h2>

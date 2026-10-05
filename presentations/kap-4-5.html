@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns:
     repeat(auto-fit, minmax(14rem, 1fr));
-}</code></pre><p class="fragment">Ett kortgalleri är ett tydligt användningsområde.</p></div></section>
+}</code></pre><p class="fragment">Detta anpassar kolumnerna automatiskt. Du kan i stället ändra antalet kolumner i en media query.</p><p class="fragment">Media queryn kan också ändra navigationen eller hero-sektionen.</p></div></section>
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Krav 6</p><h2>Responsiva bilder</h2><pre class="code-block no-scroll-code fragment"><code>img {
   max-width: 100%;
   height: auto;
@@ -39,6 +39,10 @@
   /* regler för större layout */
 }</code></pre><p class="fragment">Brytpunkten ska lösa ett problem i innehållet.</p></div></section>
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 1</p><h2>Skissa sektionerna</h2><div class="requirement-check"><div class="fragment"><strong>Header</strong>Namn eller logotyp</div><div class="fragment"><strong>Navigation</strong>Länkar till sidans delar</div><div class="fragment"><strong>Hero</strong>Rubrik, introduktion och bild</div><div class="fragment"><strong>Kortsektion</strong>Minst tre innehållskort</div><div class="fragment"><strong>Footer</strong>Avslutande information</div></div></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Projektstart</p><h2>Tre delar i projektmappen</h2><pre class="code-block no-scroll-code fragment"><code>responsiv-startsida/
+├── index.html
+├── styles.css
+└── images/</code></pre><p class="fragment"><code>index.html</code> behöver viewport-raden och en länk till <code>styles.css</code>.</p></div></section>
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 2</p><h2>Skriv HTML utan CSS</h2><ol><li class="fragment">Skapa alla semantiska delar.</li><li class="fragment">Lägg in rubriker och riktig text.</li><li class="fragment">Lägg in länkar och bilder.</li><li class="fragment">Kontrollera att ordningen är logisk.</li></ol></div></section>
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 3</p><h2>Lägg till grundstilen</h2><ul><li class="fragment">Font och läsbara textfärger</li><li class="fragment">Bakgrundsfärger</li><li class="fragment">Radlängd och line-height</li><li class="fragment">Avstånd med <code>rem</code></li></ul><p class="fragment">Gör inte layouten avancerad ännu.</p></div></section>
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Arbetsordning 4</p><h2>Bygg mobilversionen först</h2><ul><li class="fragment">En kolumn är grundläget.</li><li class="fragment">Menyn kan ligga i kolumn.</li><li class="fragment">Bilder får inte bli bredare än sidan.</li><li class="fragment">Ingen horisontell scroll ska behövas.</li></ul></div></section>
