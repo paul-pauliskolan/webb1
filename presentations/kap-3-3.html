@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Presentation till kapitel 3.3: Boxmodellen i praktiken.">
   <title>Kap 3.3 – Boxmodellen i praktiken</title>
-  <link rel="stylesheet" href="presentation.css?v=6">
+  <link rel="stylesheet" href="presentation.css?v=7">
 </head>
 <body class="presentation-body">
   <main class="presentation-shell">
@@ -25,9 +25,17 @@
       </div></section>
 
       <section class="slide"><div class="slide-content">
-        <p class="slide-kicker">Boxmodellen</p><h2>Fyra lager</h2>
-        <div class="box-demo-stage fragment"><div class="box-demo-margin" style="padding:24px;"><div class="box-demo-box" style="box-sizing:border-box;"><div class="box-demo-content">Content</div></div></div></div>
-        <div class="flow"><span class="fragment">Content<br>innehåll</span><span class="fragment">Padding<br>inre luft</span><span class="fragment">Border<br>kantlinje</span><span class="fragment">Margin<br>yttre avstånd</span></div>
+        <p class="slide-kicker">Boxmodellen</p><h2>Läs utifrån och in</h2>
+        <div class="box-model-slide fragment" role="img" aria-label="Boxmodellen med margin ytterst, sedan border, padding och content innerst">
+          <div class="box-model-slide-layer box-model-slide-margin"><span>Margin <small>yttre avstånd</small></span>
+            <div class="box-model-slide-layer box-model-slide-border"><span>Border <small>kantlinje</small></span>
+              <div class="box-model-slide-layer box-model-slide-padding"><span>Padding <small>inre luft</small></span>
+                <div class="box-model-slide-layer box-model-slide-content"><span>Content <small>text, bild eller element</small></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="box-model-slide-note fragment"><strong>Kom ihåg:</strong> padding är innanför kanten · margin är utanför kanten.</p>
       </div></section>
 
       <section class="slide"><div class="slide-content">

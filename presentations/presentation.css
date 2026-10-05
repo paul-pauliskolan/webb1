@@ -184,6 +184,15 @@ body.presentation-body {
 .box-demo-content { min-height: 4rem; display: grid; place-items: center; border-radius: 5px; background: #f8fafc; color: #172026; font-weight: 800; text-align: center; }
 .box-demo-readout { margin: 0; color: var(--slide-muted); font-size: .9rem !important; }
 .box-demo-code { margin: 0; padding: .65rem; border-radius: 7px; background: var(--slide-code-bg); white-space: pre-wrap; font: .78rem/1.25 "SFMono-Regular", Consolas, monospace; }
+.box-model-slide { width: min(62rem, 100%); margin: 1rem auto 0; color: #172026; text-align: center; }
+.box-model-slide-layer { position: relative; display: grid; width: 100%; place-items: center; padding: clamp(2.1rem,3.6vh,2.7rem) clamp(1.25rem,3vw,2.25rem) clamp(1.15rem,2.5vh,1.8rem); border-radius: 10px; }
+.box-model-slide-layer > span { position: absolute; top: .55rem; left: .7rem; padding: .15rem .55rem; border-radius: 999px; background: rgba(255,255,255,.9); font-size: clamp(.8rem,1.25vw,1.05rem); font-weight: 900; line-height: 1.25; }
+.box-model-slide-layer > span small { margin-left: .25rem; font-size: .78em; font-weight: 650; }
+.box-model-slide-margin { padding-top: clamp(2.6rem,4.5vh,3.2rem); padding-bottom: clamp(1.7rem,3.2vh,2.4rem); background: #f6c66b; }
+.box-model-slide-border { padding: clamp(1.75rem,2.7vh,2.1rem); background: #177f77; }
+.box-model-slide-padding { padding-top: clamp(2.6rem,4.5vh,3.2rem); padding-bottom: clamp(1.7rem,3.2vh,2.4rem); background: #9ddccf; }
+.box-model-slide-content { min-height: clamp(4.5rem,9vh,6rem); border: 2px solid #d9e0e6; background: #f8fafc; }
+.box-model-slide-note { margin: .8rem auto 0; color: var(--slide-muted); font-size: clamp(1rem,1.5vw,1.25rem) !important; text-align: center; }
 .display-demo { margin-top: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #fff; color: #172026; }
 .display-demo-bar { padding: .5rem .7rem; border-bottom: 1px solid #e2e8f0; background: #f8fafc; font-size: .9rem; font-weight: 800; }
 .display-demo-page { display: grid; gap: .8rem; padding: .9rem; background: #fff; font-family: Arial, Helvetica, sans-serif; }
