@@ -41,7 +41,7 @@
       <section class="slide"><div class="slide-content">
         <p class="slide-kicker">Content</p><h2>Själva innehållet</h2>
         <p class="fragment">Content kan vara text, en bild eller andra element.</p>
-        <pre class="code-block no-scroll-code fragment"><code>.card {
+        <pre class="code-block no-scroll-code fragment"><code>article {
   width: 220px;
 }</code></pre>
         <p class="fragment">Hur bredden räknas beror på elementets <code>box-sizing</code>.</p>
@@ -120,6 +120,16 @@
       </div></section>
 
       <section class="slide"><div class="slide-content">
+        <p class="slide-kicker">Maxbredd och centrering</p><h2>Begränsa bredden och fördela sidutrymmet</h2>
+        <pre class="code-block no-scroll-code fragment"><code>main {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 2rem;
+}</code></pre>
+        <ul><li class="fragment"><code>max-width</code> sätter en övre gräns.</li><li class="fragment"><code>margin: 0 auto</code> centrerar blocket i sidled.</li><li class="fragment"><code>padding: 2rem</code> ger lika mycket inre luft på alla sidor.</li></ul>
+      </div></section>
+
+      <section class="slide"><div class="slide-content">
         <p class="slide-kicker">Block och inline</p><h2>Två olika beteenden</h2>
         <table class="comparison"><thead><tr><th>Block</th><th>Inline</th></tr></thead><tbody><tr><td class="fragment">Börjar normalt på ny rad.</td><td class="fragment">Ligger kvar i textflödet.</td></tr><tr><td class="fragment"><code>p</code>, <code>h1</code>, <code>div</code></td><td class="fragment"><code>a</code>, <code>span</code>, <code>strong</code></td></tr></tbody></table>
       </div></section>
@@ -159,7 +169,7 @@ body {
   max-width: 100%;
   height: auto;
 }</code></pre>
-        <p class="fragment">Bilden kan skalas ned men behåller sina proportioner.</p>
+        <ul><li class="fragment"><code>display: block</code> tar bort bildens textbaslinjeutrymme.</li><li class="fragment"><code>max-width: 100%</code> begränsar bilden till behållaren.</li><li class="fragment"><code>height: auto</code> behåller proportionerna.</li></ul>
       </div></section>
 
       <section class="slide"><div class="slide-content">

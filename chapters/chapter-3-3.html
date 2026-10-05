@@ -423,6 +423,16 @@
 }</code></pre>
     </div>
 
+    <h2>Maxbredd och centrering</h2>
+    <p><code>width</code> anger en bredd, medan <code>max-width</code> sätter en övre gräns. Ett element med maxbredd kan fortfarande bli smalare när skärmen är smal.</p>
+    <pre><code>main {
+    max-width: 70ch;
+    margin: 0 auto;
+    padding: 2rem;
+}</code></pre>
+    <p>I kortformen <code>margin: 0 auto</code> gäller det första värdet uppåt och nedåt. Det andra gäller vänster och höger. <code>auto</code> fördelar det lediga utrymmet lika på båda sidor och centrerar ett blockelement som har en begränsad bredd.</p>
+    <p><code>padding: 2rem</code> använder ett värde för alla fyra sidor. Två värden betyder först uppåt och nedåt, sedan vänster och höger.</p>
+
     <h2>Block och inline</h2>
     <p>Blockelement börjar normalt på ny rad och tar tillgänglig bredd. Exempel: <code>p</code>, <code>h1</code>, <code>div</code>. Inline-element ligger i textflödet. Exempel: <code>a</code>, <code>span</code>, <code>strong</code>.</p>
     <div class="display-demo" aria-label="Exempel på blockelement och inline-element">
@@ -465,6 +475,11 @@ img {
     max-width: 100%;
     height: auto;
 }</code></pre>
+    <ul>
+        <li><code>display: block</code> gör bilden till ett blockelement och tar bort det lilla utrymme som en bild annars kan få vid textens baslinje.</li>
+        <li><code>max-width: 100%</code> hindrar bilden från att bli bredare än sin behållare.</li>
+        <li><code>height: auto</code> låter höjden följa bredden så att bildens proportioner behålls.</li>
+    </ul>
 </section>
 
             <div id="quiz-3-3" aria-label="Quiz Kap 3.3"></div>

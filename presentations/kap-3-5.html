@@ -52,7 +52,11 @@ body {
   height: auto;
 }</code></pre><p class="fragment">Bilden kan skalas ned till behållarens bredd och behåller sina proportioner.</p></div></section>
 
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">Meningsfulla klasser</p><h2>Beskriv roll – inte utseende</h2><table class="comparison"><thead><tr><th>Tydligare</th><th>Undvik</th></tr></thead><tbody><tr><td class="fragment"><code>.profile-image</code></td><td class="fragment"><code>.big-picture</code></td></tr><tr><td class="fragment"><code>.interest-list</code></td><td class="fragment"><code>.green-list</code></td></tr></tbody></table><p class="fragment">Namnet ska fortfarande passa om designen ändras.</p></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Klasser i HTML</p><h2>Minst två klasser ska användas</h2><pre class="code-block compact-code no-scroll-code fragment"><code>&lt;main class="profile"&gt;
+  &lt;p class="introduction"&gt;Kort presentation...&lt;/p&gt;
+&lt;/main&gt;</code></pre><p class="fragment">Klassen skrivs utan punkt i HTML och med punkt i CSS.</p><p class="fragment">Välj namn som beskriver elementets roll på din sida.</p></div></section>
+
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Meningsfulla klassnamn</p><h2>Beskriv roll – inte utseende</h2><table class="comparison"><thead><tr><th>Tydligare</th><th>Undvik</th></tr></thead><tbody><tr><td class="fragment"><code>.profile-image</code></td><td class="fragment"><code>.big-picture</code></td></tr><tr><td class="fragment"><code>.interest-list</code></td><td class="fragment"><code>.green-list</code></td></tr></tbody></table><p class="fragment">Namnet ska fortfarande passa om designen ändras.</p></div></section>
 
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Hover och focus</p><h2>Länken ska ge återkoppling</h2><pre class="code-block compact-code no-scroll-code fragment"><code>a:hover {
   text-decoration-thickness: 3px;
@@ -69,7 +73,7 @@ a:focus {
 
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera · läsbarhet</p><h2>Testa som användare</h2><ol><li class="fragment">Kan sidan läsas utan att texten känns trång?</li><li class="fragment">Syns länkar tydligt?</li><li class="fragment">Syns fokus när du använder Tab?</li><li class="fragment">Kan du förklara färg- och fontvalen?</li></ol></div></section>
 
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera · teknik</p><h2>Testa sidan</h2><ol><li class="fragment">Gör webbläsarfönstret smalt.</li><li class="fragment">Kontrollera att bilden inte spräcker layouten.</li><li class="fragment">Kontrollera att klassnamnen är begripliga.</li><li class="fragment">Validera HTML.</li><li class="fragment">Validera eller kontrollera CSS.</li></ol></div></section>
+      <section class="slide"><div class="slide-content"><p class="slide-kicker">Kontrollera · teknik</p><h2>Testa sidan</h2><ol><li class="fragment">Gör webbläsarfönstret smalt och kontrollera bilden.</li><li class="fragment">Kontrollera att klassnamnen är begripliga.</li><li class="fragment">Validera HTML med W3C eller tillägget i VS Code.</li><li class="fragment">Kontrollera CSS med en validator eller VS Codes felmarkeringar.</li><li class="fragment">Rätta felstavade egenskaper, saknade kolon och klammerparenteser.</li></ol></div></section>
 
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Exit ticket</p><h2>Vilken regel gjorde störst skillnad?</h2><p class="fragment">Välj en CSS-regel som förbättrade sidans läsbarhet.</p><p class="fragment">Skriv vad regeln gör och varför resultatet blev bättre.</p></div></section>
 

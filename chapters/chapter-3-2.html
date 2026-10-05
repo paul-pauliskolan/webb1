@@ -870,6 +870,13 @@ code {
     </div>
     <p>Vänsterställd text är oftast lättast att läsa på svenska webbsidor. Centrerad text passar bäst för korta rubriker eller mycket korta texter. Högerställd text bör användas sparsamt eftersom längre stycken blir svårare att följa.</p>
 
+    <h2>Begränsa radlängden med ch</h2>
+    <p>Mycket långa textrader är svårare att följa. Enheten <code>ch</code> motsvarar ungefär bredden på tecknet <code>0</code> i den aktuella fonten. Därför kan den användas för att ange en lämplig maxbredd för text.</p>
+    <pre><code>main {
+    max-width: 70ch;
+}</code></pre>
+    <p><code>max-width</code> sätter en övre gräns. Huvudinnehållet kan bli smalare på en liten skärm, men inte bredare än ungefär 70 tecken när det finns gott om plats.</p>
+
     <h2>Prova själv</h2>
     <ol>
         <li>Välj två färger till profilsidan: en bakgrundsfärg och en textfärg.</li>
