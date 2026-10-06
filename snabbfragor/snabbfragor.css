@@ -12,6 +12,8 @@ a { color:var(--accent); font-weight:700; }
 .chapter-card { display:grid; gap:.55rem; padding:1.4rem; border:1px solid var(--border); border-radius:14px; background:var(--surface); color:var(--text); text-decoration:none; box-shadow:0 12px 30px rgba(0,0,0,.08); }
 .chapter-card:hover { transform:translateY(-2px); border-color:var(--accent); }
 .featured-card { border:2px solid var(--accent); }
+.all-questions-card { margin:2rem 0; }
+.overview section + section { margin-top:2.5rem; }
 .deck-shell { min-height:100vh; display:grid; grid-template-rows:auto 1fr auto; }
 .deck { min-height:0; }
 .slide { display:none; min-height:calc(100vh - 9rem); padding:clamp(2rem,6vw,5rem); place-items:center; }
