@@ -1,8 +1,13 @@
 (function () {
     "use strict";
-    const questions = window.SNABBFRAGOR.flatMap(item => item.questions.map(question => ({
+    const selectedChapter = new URLSearchParams(location.search).get("kapitel");
+    const selectedSections = selectedChapter
+        ? window.SNABBFRAGOR.filter(item => item.id.startsWith(selectedChapter + "."))
+        : window.SNABBFRAGOR;
+    const questions = selectedSections.flatMap(item => item.questions.map(question => ({
         chapter: item.id, question: question[0], answer: question[1], code: question[2]
     })));
+    const modeTitle = document.querySelector("[data-mode-title]");
     const chapter = document.querySelector("[data-chapter]");
     const progress = document.querySelector("[data-progress]");
     const question = document.querySelector("[data-random-question]");
@@ -15,6 +20,11 @@
     let order = [];
     let index = 0;
     let answerVisible = false;
+
+    if (selectedChapter) {
+        modeTitle.textContent = "Alla frågor i kapitel " + selectedChapter;
+        document.title = `Alla frågor i kapitel ${selectedChapter} – Webbutveckling 1`;
+    }
 
     function shuffle() {
         order = questions.slice();
