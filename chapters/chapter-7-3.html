@@ -130,7 +130,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-3'), {"title":"Quiz: Kap 7.3","questions":[{"question":"Vilket kan INTE vara en personuppgift?","options":["En e-postadress som kan kopplas till en person","Ett telefonnummer till en privatperson","Antalet besökare på en sida","En bild där en person kan identifieras"],"correct":2,"feedback":"Antalet besökare på en sida är inte i sig en personuppgift.","explanation":"En uppgift blir en personuppgift när den kan kopplas till en identifierad eller identifierbar person."},{"question":"Vad är ett bra grundtänk i formulär?","options":["Samla in så lite information som behövs","Samla alltid in födelsedatum","Gör alla fält obligatoriska","Spara allt för säkerhets skull"],"correct":0,"feedback":"Minimera insamlingen.","explanation":"Mindre insamling minskar risk och ansvar."},{"question":"Varför behöver användaren få tydlig information?","options":["För att förstå varför uppgifter samlas in och används","För att HTML ska validera","För att bilder ska laddas snabbare","För att rubriker ska bli större"],"correct":0,"feedback":"Tydlighet är centralt.","explanation":"Användaren ska veta vad som händer med informationen."},{"question":"Vilket fält är ofta onödigt i ett enkelt kontaktformulär?","options":["Meddelande","E-post för svar","Personnummer","Namn om det behövs"],"correct":2,"feedback":"Personnummer är normalt inte relevant här.","explanation":"Fråga inte efter känsliga eller onödiga uppgifter."},{"question":"Vad bör du tänka på innan du använder externa statistik- eller spårningstjänster?","options":["Om de samlar in uppgifter och kräver information eller samtycke","Om de byter alla färger","Om de skapar bättre rubriker automatiskt","Om de tar bort CSS"],"correct":0,"feedback":"Externa tjänster kan samla in data.","explanation":"Cookies, spårning och statistik kan påverka integritet och krav på information."}]});
+            window.renderQuiz(document.getElementById('quiz-7-3'), {
+              "title": "Quiz: Kap 7.3",
+              "questions": [
+                {
+                  "question": "Vad är en personuppgift?",
+                  "options": [
+                    "Vilka uppgifter som samlas in, varför, hur länge och vem som ansvarar.",
+                    "Ett lagligt stöd som krävs för att behandla personuppgifter.",
+                    "Samla bara in de personuppgifter som verkligen behövs.",
+                    "Information som direkt eller indirekt kan kopplas till en levande person."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Information som direkt eller indirekt kan kopplas till en levande person."
+                },
+                {
+                  "question": "Vad innebär uppgiftsminimering?",
+                  "options": [
+                    "De kan själva samla in eller överföra personuppgifter.",
+                    "Ett lagligt stöd som krävs för att behandla personuppgifter.",
+                    "Samla bara in de personuppgifter som verkligen behövs.",
+                    "Vilka uppgifter som samlas in, varför, hur länge och vem som ansvarar."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Samla bara in de personuppgifter som verkligen behövs."
+                },
+                {
+                  "question": "Vad är en rättslig grund?",
+                  "options": [
+                    "Samla bara in de personuppgifter som verkligen behövs.",
+                    "Ett lagligt stöd som krävs för att behandla personuppgifter.",
+                    "De kan själva samla in eller överföra personuppgifter.",
+                    "Vilka uppgifter som samlas in, varför, hur länge och vem som ansvarar."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Ett lagligt stöd som krävs för att behandla personuppgifter."
+                },
+                {
+                  "question": "Vad måste användaren informeras om?",
+                  "options": [
+                    "Vilka uppgifter som samlas in, varför, hur länge och vem som ansvarar.",
+                    "Information som direkt eller indirekt kan kopplas till en levande person.",
+                    "Ett lagligt stöd som krävs för att behandla personuppgifter.",
+                    "Samla bara in de personuppgifter som verkligen behövs."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Vilka uppgifter som samlas in, varför, hur länge och vem som ansvarar."
+                },
+                {
+                  "question": "Varför måste externa tjänster granskas?",
+                  "options": [
+                    "Samla bara in de personuppgifter som verkligen behövs.",
+                    "Ett lagligt stöd som krävs för att behandla personuppgifter.",
+                    "Vilka uppgifter som samlas in, varför, hur länge och vem som ansvarar.",
+                    "De kan själva samla in eller överföra personuppgifter."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De kan själva samla in eller överföra personuppgifter."
+                }
+              ]
+            });
         });
     </script>
 </body>

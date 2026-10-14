@@ -81,7 +81,71 @@ button.addEventListener("click", function () {
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-5-5'), {"title": "Quiz: Kap 5.5", "questions": [{"question": "Du bygger en liten komponent som ska öppna och stänga ett panelinnehåll. Vilket JavaScript-mönster passar bäst?", "options": ["Gör panelen till en bildfil", "Hämta knapp och panel, lyssna på klick och växla en klass", "Skriv all CSS i alt-attribut", "Ta bort alla knappar från sidan"], "correct": 1, "feedback": "Det är ett vanligt komponentmönster.", "explanation": "Komponenten behöver hitta element, reagera på event och ändra ett synligt läge."}, {"question": "Varför är en extern JavaScript-fil bra i en interaktiv komponent?", "options": ["HTML-element byter namn automatiskt", "Bilder får automatiskt rätt format", "Koden hålls skild från HTML-strukturen", "CSS slutar behövas"], "correct": 2, "feedback": "Separata filer ger tydligare struktur.", "explanation": "HTML beskriver innehållet medan JavaScript beskriver beteendet."}, {"question": "Du klickar på komponenten men inget händer. Vad bör du kontrollera tidigt?", "options": ["Om sidans footer har rätt årtal", "Om bilden har exakt samma färg som texten", "Om filen är en PDF", "Om konsolen visar fel och om selektorn hittar rätt element"], "correct": 3, "feedback": "Konsolen och selektorn är bra första kontroller.", "explanation": "Ett vanligt fel är att JavaScript inte hittar elementet eller att skriptfilen inte laddas."}, {"question": "Vad är ett bra tecken på att en interaktiv komponent är begriplig?", "options": ["All text försvinner vid klick", "Användaren ser tydligt vilket läge komponenten är i", "Konsolen fylls med fel", "Knappen saknar synlig text"], "correct": 1, "feedback": "Tydligt läge är viktigt.", "explanation": "Användaren ska förstå om något är öppet, stängt, valt eller fel."}, {"question": "Varför ska du testa en knappbaserad komponent med tangentbord?", "options": ["För att ändra bildformat", "För att skapa fler HTML-filer", "För att kontrollera att den går att använda utan mus", "För att ta bort event listeners"], "correct": 2, "feedback": "Tangentbordstestning förbättrar tillgängligheten.", "explanation": "Många användare navigerar med tangentbord eller hjälpmedel."}]});
+            window.renderQuiz(document.getElementById('quiz-5-5'), {
+              "title": "Quiz: Kap 5.5",
+              "questions": [
+                {
+                  "question": "Vad kännetecknar en bra liten komponent?",
+                  "options": [
+                    "Välj element, lyssna på en händelse och uppdatera komponentens läge.",
+                    "Den gör en sak tydligt och har begripliga lägen och kontroller.",
+                    "Att kontroller kan nås, aktiveras och visar tydligt fokus.",
+                    "Det gör komponenten enklare att felsöka och bedöma."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den gör en sak tydligt och har begripliga lägen och kontroller."
+                },
+                {
+                  "question": "Vilka tre steg behövs i JavaScript-delen?",
+                  "options": [
+                    "Välj element, lyssna på en händelse och uppdatera komponentens läge.",
+                    "Den gör en sak tydligt och har begripliga lägen och kontroller.",
+                    "Att kontroller kan nås, aktiveras och visar tydligt fokus.",
+                    "Det gör komponenten enklare att felsöka och bedöma."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Välj element, lyssna på en händelse och uppdatera komponentens läge."
+                },
+                {
+                  "question": "Var bör utseendet för öppet eller aktivt läge ligga?",
+                  "options": [
+                    "Det gör komponenten enklare att felsöka och bedöma.",
+                    "Att kontroller kan nås, aktiveras och visar tydligt fokus.",
+                    "Den gör en sak tydligt och har begripliga lägen och kontroller.",
+                    "I en CSS-klass som JavaScript växlar."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "I en CSS-klass som JavaScript växlar."
+                },
+                {
+                  "question": "Vad ska tangentbordstestet kontrollera?",
+                  "options": [
+                    "Den gör en sak tydligt och har begripliga lägen och kontroller.",
+                    "Det gör komponenten enklare att felsöka och bedöma.",
+                    "Att kontroller kan nås, aktiveras och visar tydligt fokus.",
+                    "Välj element, lyssna på en händelse och uppdatera komponentens läge."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att kontroller kan nås, aktiveras och visar tydligt fokus."
+                },
+                {
+                  "question": "Varför ska grundläget fungera innan fler funktioner läggs till?",
+                  "options": [
+                    "Att kontroller kan nås, aktiveras och visar tydligt fokus.",
+                    "Det gör komponenten enklare att felsöka och bedöma.",
+                    "Den gör en sak tydligt och har begripliga lägen och kontroller.",
+                    "I en CSS-klass som JavaScript växlar."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det gör komponenten enklare att felsöka och bedöma."
+                }
+              ]
+            });
         });
     </script>
 </body>

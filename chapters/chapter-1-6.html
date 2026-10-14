@@ -98,14 +98,69 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-1-6'), {
-                title: 'Quiz: Kap 1.6 - Publicera med GitHub Pages',
-                questions: [
-                    { question: 'Vilken fil behöver normalt finnas för att sidan ska fungera som startsida?', options: ['index.html', 'start.docx', 'github.css', 'pages.txt'], correct: 0, feedback: 'Startsidan behöver rätt filnamn.', explanation: 'GitHub Pages kan visa index.html som startsida.' },
-                    { question: 'Vad är ofta enklast för nybörjare när filerna ska upp till GitHub?', options: ['Dra in filerna i uppladdningsytan', 'Skriva om allt i terminalen', 'Radera bilderna', 'Byta HTML till PDF'], correct: 0, feedback: 'Drag and drop är enklast i början.', explanation: 'GitHubs Upload files-sida låter dig dra in filerna direkt.' },
-                    { question: 'Vad måste följa med om din HTML använder en bild i images-mappen?', options: ['Bara index.html', 'Både bilden och mappen/sökvägen som HTML pekar på', 'Endast YouTube-länken', 'Inga filer alls'], correct: 1, feedback: 'Alla använda filer måste laddas upp.', explanation: 'Annars pekar HTML på en fil som inte finns på den publicerade sidan.' },
-                    { question: 'Var aktiverar du GitHub Pages?', options: ['I Settings och Pages', 'I bildfilens alt-text', 'I validatorn', 'I VS Code-temat'], correct: 0, feedback: 'Pages finns i repositoryts inställningar.', explanation: 'Där väljer du gren och mapp som ska publiceras.' },
-                    { question: 'Vad bör du göra efter att GitHub visar publiceringslänken?', options: ['Öppna länken och testa sidan', 'Stänga datorn utan kontroll', 'Byta alla filändelser', 'Ta bort index.html'], correct: 0, feedback: 'Publicerad kod behöver testas.', explanation: 'Kontrollera att text, bilder och länkar fungerar online.' }
-                ]
+              "title": "Quiz: Kap 1.6 - Publicera med GitHub Pages",
+              "questions": [
+                {
+                  "question": "Vilken typ av webbplats kan GitHub Pages publicera?",
+                  "options": [
+                    "Den ska heta index.html så att webbservern hittar den automatiskt.",
+                    "En statisk webbplats med exempelvis HTML, CSS, JavaScript och bilder.",
+                    "Nej. GitHub Pages publicerar statiska filer men kör inte egen serverkod.",
+                    "Välj grenen main och mappen / (root) under Settings och Pages."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En statisk webbplats med exempelvis HTML, CSS, JavaScript och bilder."
+                },
+                {
+                  "question": "Vad måste webbplatsens startsida heta inför publiceringen?",
+                  "options": [
+                    "Den ska heta index.html så att webbservern hittar den automatiskt.",
+                    "En statisk webbplats med exempelvis HTML, CSS, JavaScript och bilder.",
+                    "Välj grenen main och mappen / (root) under Settings och Pages.",
+                    "Nej. GitHub Pages publicerar statiska filer men kör inte egen serverkod."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den ska heta index.html så att webbservern hittar den automatiskt."
+                },
+                {
+                  "question": "Vilka Pages-inställningar används i kapitlets arbetsgång?",
+                  "options": [
+                    "Den ska heta index.html så att webbservern hittar den automatiskt.",
+                    "En statisk webbplats med exempelvis HTML, CSS, JavaScript och bilder.",
+                    "Nej. GitHub Pages publicerar statiska filer men kör inte egen serverkod.",
+                    "Välj grenen main och mappen / (root) under Settings och Pages."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Välj grenen main och mappen / (root) under Settings och Pages."
+                },
+                {
+                  "question": "Varför kan en bild fungera lokalt men saknas efter publicering?",
+                  "options": [
+                    "Nej. GitHub Pages publicerar statiska filer men kör inte egen serverkod.",
+                    "En statisk webbplats med exempelvis HTML, CSS, JavaScript och bilder.",
+                    "Bildmappen kan saknas, sökvägen kan vara fel eller filnamnets stora och små bokstäver kan skilja sig.",
+                    "Den ska heta index.html så att webbservern hittar den automatiskt."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Bildmappen kan saknas, sökvägen kan vara fel eller filnamnets stora och små bokstäver kan skilja sig."
+                },
+                {
+                  "question": "Kan GitHub Pages köra egen PHP-, Python- eller databaskod?",
+                  "options": [
+                    "En statisk webbplats med exempelvis HTML, CSS, JavaScript och bilder.",
+                    "Nej. GitHub Pages publicerar statiska filer men kör inte egen serverkod.",
+                    "Den ska heta index.html så att webbservern hittar den automatiskt.",
+                    "Välj grenen main och mappen / (root) under Settings och Pages."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Nej. GitHub Pages publicerar statiska filer men kör inte egen serverkod."
+                }
+              ]
             });
         });
     </script>

@@ -185,7 +185,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-6-4'), {"title":"Quiz: Kap 6.4","questions":[{"question":"Vad kan Network-panelen visa?","options":["Bara sidans rubriker","Vilka filer som laddas, filstorlek och statuskoder","Endast CSS-färger","Vilken elev som skrev sidan"],"correct":1,"feedback":"Network visar nätverksladdningar.","explanation":"Där kan du se om filer är stora, långsamma eller saknas."},{"question":"Vad betyder ofta en 404 för en bildfil?","options":["Bilden är för tillgänglig","CSS är för snabb","Sökvägen eller filnamnet är fel","HTML har för många section"],"correct":2,"feedback":"404 betyder att filen inte hittas.","explanation":"Kontrollera mapp, filnamn, stora/små bokstäver och filändelse."},{"question":"Vad är ett vanligt prestandaproblem på webbsidor?","options":["För stora bilder","För tydliga rubriker","För bra alt-text","För få färger"],"correct":0,"feedback":"Stora bilder påverkar laddningstid mycket.","explanation":"Mediafiler är ofta de största resurserna på en sida."},{"question":"Hur bör Lighthouse-resultat användas?","options":["Som ersättning för all testning","För att skriva HTML automatiskt","För att ta bort Network-panelen","Som stöd för felsökning, inte som enda facit"],"correct":3,"feedback":"Lighthouse är ett stödverktyg.","explanation":"Du behöver fortfarande kontrollera sidan och avgöra vilka tips som är relevanta."},{"question":"Vilket felsökningssätt är mest kontrollerat?","options":["Ändra allt samtidigt","Ändra en sak i taget och testa igen","Ta bort alla filer först","Ignorera konsolen"],"correct":1,"feedback":"Små ändringar gör orsaken tydligare.","explanation":"Om du ändrar en sak i taget vet du vad som förbättrade eller förstörde sidan."}]});
+            window.renderQuiz(document.getElementById('quiz-6-4'), {
+              "title": "Quiz: Kap 6.4",
+              "questions": [
+                {
+                  "question": "Vad visar Network-panelen?",
+                  "options": [
+                    "Leta efter ett misslyckat anrop och kontrollera sökväg och filnamn.",
+                    "För att säkerställa att aktuella filer verkligen hämtas från servern.",
+                    "Vilka resurser som begärs, deras status, storlek och laddningstid.",
+                    "En automatisk granskning av bland annat prestanda, tillgänglighet och god praxis."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Vilka resurser som begärs, deras status, storlek och laddningstid."
+                },
+                {
+                  "question": "Hur hittar du en saknad fil?",
+                  "options": [
+                    "Vilka resurser som begärs, deras status, storlek och laddningstid.",
+                    "Leta efter ett misslyckat anrop och kontrollera sökväg och filnamn.",
+                    "För att säkerställa att aktuella filer verkligen hämtas från servern.",
+                    "En automatisk granskning av bland annat prestanda, tillgänglighet och god praxis."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Leta efter ett misslyckat anrop och kontrollera sökväg och filnamn."
+                },
+                {
+                  "question": "Varför testar man ibland utan cache?",
+                  "options": [
+                    "För att säkerställa att aktuella filer verkligen hämtas från servern.",
+                    "Leta efter ett misslyckat anrop och kontrollera sökväg och filnamn.",
+                    "Vilka resurser som begärs, deras status, storlek och laddningstid.",
+                    "En automatisk granskning av bland annat prestanda, tillgänglighet och god praxis."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "För att säkerställa att aktuella filer verkligen hämtas från servern."
+                },
+                {
+                  "question": "Vad används Lighthouse till?",
+                  "options": [
+                    "Återskapa felet, läs Console och Network, kontrollera orsaken och testa en ändring i taget.",
+                    "För att säkerställa att aktuella filer verkligen hämtas från servern.",
+                    "Leta efter ett misslyckat anrop och kontrollera sökväg och filnamn.",
+                    "En automatisk granskning av bland annat prestanda, tillgänglighet och god praxis."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En automatisk granskning av bland annat prestanda, tillgänglighet och god praxis."
+                },
+                {
+                  "question": "I vilken ordning bör du felsöka?",
+                  "options": [
+                    "En automatisk granskning av bland annat prestanda, tillgänglighet och god praxis.",
+                    "För att säkerställa att aktuella filer verkligen hämtas från servern.",
+                    "Återskapa felet, läs Console och Network, kontrollera orsaken och testa en ändring i taget.",
+                    "Leta efter ett misslyckat anrop och kontrollera sökväg och filnamn."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Återskapa felet, läs Console och Network, kontrollera orsaken och testa en ändring i taget."
+                }
+              ]
+            });
         });
     </script>
 </body>

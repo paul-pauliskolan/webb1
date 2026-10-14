@@ -189,7 +189,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-2'), {"title":"Quiz: Kap 7.2","questions":[{"question":"Varför är kontrast viktig?","options":["Den gör HTML-filen kortare","Den påverkar om texten går att läsa mot bakgrunden","Den tar bort behovet av rubriker","Den gör alla bilder till SVG"],"correct":1,"feedback":"Kontrast påverkar läsbarhet.","explanation":"Text som syns dåligt blir svår att läsa för många användare."},{"question":"Vad är ett problem med att bara använda färg för att visa fel?","options":["Alla användare kanske inte uppfattar eller tolkar färgen","Sidan blir automatiskt långsammare","Formulär slutar fungera i HTML","Färgen skapar en ny CSS-fil"],"correct":0,"feedback":"Färg ensam räcker inte alltid.","explanation":"Använd text eller annan visuell markering tillsammans med färg."},{"question":"Vilken länktext är tydligast?","options":["Klicka här","Läs mer","Se schemat för kursen","Mer info"],"correct":2,"feedback":"Tydlig länktext beskriver målet.","explanation":"Användaren ska förstå vart länken leder utan att gissa."},{"question":"Varför behövs synlig fokusmarkering?","options":["För att tangentbordsanvändare ska se vilket element som är aktivt","För att bilder ska komprimeras","För att byta typsnitt automatiskt","För att göra rubriker mindre"],"correct":0,"feedback":"Fokus visar var användaren är.","explanation":"När man tabbar genom sidan måste aktiv länk eller knapp vara synlig."},{"question":"Vilket är bäst vid design av navigation?","options":["Gömma alla länkar tills användaren gissar","Använda tydliga namn och konsekvent placering","Ta bort fokus för att få renare design","Låta alla länkar heta samma sak"],"correct":1,"feedback":"Tydlighet och konsekvens hjälper navigationen.","explanation":"Navigation används ofta och behöver vara förutsägbar."}]});
+            window.renderQuiz(document.getElementById('quiz-7-2'), {
+              "title": "Quiz: Kap 7.2",
+              "questions": [
+                {
+                  "question": "Varför får färg inte vara den enda informationsbäraren?",
+                  "options": [
+                    "Stark färg och otillräcklig kontrast kan skapa visuella störningar.",
+                    "Användaren måste se vilken länk eller kontroll som är aktiv.",
+                    "Skillnaden i ljushet mellan exempelvis text och bakgrund.",
+                    "Alla uppfattar inte färg på samma sätt; komplettera med text, symbol eller form."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Alla uppfattar inte färg på samma sätt; komplettera med text, symbol eller form."
+                },
+                {
+                  "question": "Vad är färgkontrast?",
+                  "options": [
+                    "Användaren måste se vilken länk eller kontroll som är aktiv.",
+                    "Tydliga namn, logisk ordning och fungerande fokusläge.",
+                    "Skillnaden i ljushet mellan exempelvis text och bakgrund.",
+                    "Stark färg och otillräcklig kontrast kan skapa visuella störningar."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Skillnaden i ljushet mellan exempelvis text och bakgrund."
+                },
+                {
+                  "question": "Varför behövs synlig tangentbordsfokus?",
+                  "options": [
+                    "Skillnaden i ljushet mellan exempelvis text och bakgrund.",
+                    "Användaren måste se vilken länk eller kontroll som är aktiv.",
+                    "Tydliga namn, logisk ordning och fungerande fokusläge.",
+                    "Stark färg och otillräcklig kontrast kan skapa visuella störningar."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Användaren måste se vilken länk eller kontroll som är aktiv."
+                },
+                {
+                  "question": "Vad bör navigationens länkar ha?",
+                  "options": [
+                    "Tydliga namn, logisk ordning och fungerande fokusläge.",
+                    "Skillnaden i ljushet mellan exempelvis text och bakgrund.",
+                    "Användaren måste se vilken länk eller kontroll som är aktiv.",
+                    "Stark färg och otillräcklig kontrast kan skapa visuella störningar."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Tydliga namn, logisk ordning och fungerande fokusläge."
+                },
+                {
+                  "question": "Varför kan mättad röd text vara svårläst?",
+                  "options": [
+                    "Användaren måste se vilken länk eller kontroll som är aktiv.",
+                    "Skillnaden i ljushet mellan exempelvis text och bakgrund.",
+                    "Alla uppfattar inte färg på samma sätt; komplettera med text, symbol eller form.",
+                    "Stark färg och otillräcklig kontrast kan skapa visuella störningar."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Stark färg och otillräcklig kontrast kan skapa visuella störningar."
+                }
+              ]
+            });
         });
     </script>
 </body>

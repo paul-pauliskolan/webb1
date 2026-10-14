@@ -382,7 +382,71 @@ img {
         })
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-4-5'), {"title": "Quiz: Kap 4.5", "questions": [{"question": "Du bygger en responsiv startsida med flera tydliga delar. Vilken HTML-struktur passar bäst som grund?", "options": ["header, nav, main, section och footer", "bara div-element utan rubriker", "en enda img som visar hela sidan", "style, script, meta och title i body"], "correct": 0, "feedback": "Semantiska element gör sidans delar tydliga.", "explanation": "En startsida blir lättare att förstå, styla och testa när de stora delarna har semantiska element."}, {"question": "Du har en meny med flera länkar som ska fungera både smalt och brett. Vilken CSS-teknik passar ofta bra?", "options": ["CSS Grid med grid-template-areas för hela sidan", "Flexbox med gap och vid behov ändrad riktning", "En fast width i px på varje länk", "En bild av menyn i stället för riktiga länkar"], "correct": 1, "feedback": "Flexbox passar ofta bra för navigation.", "explanation": "Flexbox är användbart när länkar ska ligga i rad, kolumn eller byta riktning mellan skärmstorlekar."}, {"question": "Du ska visa flera kort på en startsida och vill att antalet kolumner ska anpassas efter bredden. Vilken grid-regel passar bäst?", "options": ["grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));", "grid-template-columns: 500px 500px 500px;", "flex-direction: column;", "line-height: 1.5;"], "correct": 0, "feedback": "auto-fit och minmax ger responsiva kortkolumner.", "explanation": "Regeln skapar så många kolumner som får plats och låter korten brytas om när ytan blir smalare."}, {"question": "En bild på startsidan blir bredare än sin container på mobil. Vilken CSS-regel hjälper bilden att krympa utan att förvrängas?", "options": ["max-width: 100%; height: auto;", "width: 5000px; height: 5000px;", "display: grid; grid-area: alt;", "position: fixed; overflow: hidden;"], "correct": 0, "feedback": "max-width och height auto hjälper bilden att behålla proportioner.", "explanation": "Regeln gör att bilden kan krympa med sin container utan att förvrängas."}, {"question": "Du testar startsidan i smal, mellanbred och bred viewport. Vilket problem visar tydligast att layouten behöver justeras?", "options": ["Sidan använder header och main", "CSS ligger i en extern fil", "Texten har rimlig line-height", "Innehåll skapar horisontell scroll på smal skärm"], "correct": 3, "feedback": "Horisontell scroll är ofta ett layoutproblem.", "explanation": "Sidscroll i sidled betyder ofta att något är för brett, har fast storlek eller inte anpassar sig till viewporten."}]});
+            window.renderQuiz(document.getElementById('quiz-4-5'), {
+              "title": "Quiz: Kap 4.5",
+              "questions": [
+                {
+                  "question": "Vad är målet med den responsiva startsidan?",
+                  "options": [
+                    "Att innehåll och layout ska fungera på mobil, surfplatta och dator.",
+                    "Olika bredder, bilder, länkar, fokus, läsbarhet och validering.",
+                    "Planera HTML-strukturen, bygg mobile first och lägg sedan till större layouter.",
+                    "Flexbox och/eller CSS Grid där de passar sidans delar."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att innehåll och layout ska fungera på mobil, surfplatta och dator."
+                },
+                {
+                  "question": "Vilka två layoutverktyg ska användas?",
+                  "options": [
+                    "Olika bredder, bilder, länkar, fokus, läsbarhet och validering.",
+                    "Att innehåll och layout ska fungera på mobil, surfplatta och dator.",
+                    "Använd en grid med auto-fit och minmax.",
+                    "Flexbox och/eller CSS Grid där de passar sidans delar."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Flexbox och/eller CSS Grid där de passar sidans delar."
+                },
+                {
+                  "question": "Hur görs kort responsiva utan många brytpunkter?",
+                  "options": [
+                    "Flexbox och/eller CSS Grid där de passar sidans delar.",
+                    "Olika bredder, bilder, länkar, fokus, läsbarhet och validering.",
+                    "Använd en grid med auto-fit och minmax.",
+                    "Att innehåll och layout ska fungera på mobil, surfplatta och dator."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Använd en grid med auto-fit och minmax."
+                },
+                {
+                  "question": "Vilken arbetsordning är lämplig?",
+                  "options": [
+                    "Att innehåll och layout ska fungera på mobil, surfplatta och dator.",
+                    "Planera HTML-strukturen, bygg mobile first och lägg sedan till större layouter.",
+                    "Olika bredder, bilder, länkar, fokus, läsbarhet och validering.",
+                    "Flexbox och/eller CSS Grid där de passar sidans delar."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Planera HTML-strukturen, bygg mobile first och lägg sedan till större layouter."
+                },
+                {
+                  "question": "Vad ska självkontrollen omfatta?",
+                  "options": [
+                    "Olika bredder, bilder, länkar, fokus, läsbarhet och validering.",
+                    "Att innehåll och layout ska fungera på mobil, surfplatta och dator.",
+                    "Flexbox och/eller CSS Grid där de passar sidans delar.",
+                    "Planera HTML-strukturen, bygg mobile first och lägg sedan till större layouter."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Olika bredder, bilder, länkar, fokus, läsbarhet och validering."
+                }
+              ]
+            });
         });
     </script>
 </body>

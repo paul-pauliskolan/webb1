@@ -123,11 +123,14 @@
       }
       const chosen = parseInt(selected.value, 10);
       if (chosen === q.correct) {
-        feedbackEl.innerHTML = `<span class="quiz-correct">Rätt! ${q.explanation || ""}</span>`;
+        const explanation = escapeHtml(q.explanation || "");
+        feedbackEl.innerHTML = `<span class="quiz-correct">Rätt! ${explanation}</span>`;
         results.push(true);
       } else {
         const correctText = escapeHtml(q.options[q.correct] || "rätt svar");
-        feedbackEl.innerHTML = `<span class="quiz-incorrect">Fel — ${q.feedback || "Det här svaret är inte korrekt."} Rätt svar: <strong>${correctText}</strong></span>`;
+        const feedback = escapeHtml(q.feedback || "Det här svaret är inte korrekt.");
+        const explanation = escapeHtml(q.explanation || "");
+        feedbackEl.innerHTML = `<span class="quiz-incorrect">Fel — ${feedback} Rätt svar: <strong>${correctText}</strong>${explanation && explanation !== correctText ? ` Förklaring: ${explanation}` : ""}</span>`;
         results.push(false);
       }
     });

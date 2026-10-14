@@ -192,7 +192,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-2-4'), {"title": "Quiz: Kap 2.4", "questions": [{"question": "Vad gör required?", "options": ["Gör fältet obligatoriskt", "Skapar en bild", "Tar bort label", "Publicerar sidan"], "correct": 0, "feedback": "required kräver att användaren fyller i fältet.", "explanation": "required kräver att användaren fyller i fältet."}, {"question": "Vilken inputtyp passar för e-post?", "options": ["text-only", "email", "date", "checkbox"], "correct": 1, "feedback": "type=email ger e-postanpassad kontroll.", "explanation": "type=email ger e-postanpassad kontroll."}, {"question": "Vad används fieldset till?", "options": ["Gruppera relaterade formulärfält", "Byta bakgrundsfärg", "Skapa en server", "Radera formulärdata"], "correct": 0, "feedback": "fieldset grupperar fält.", "explanation": "fieldset grupperar fält."}, {"question": "Vad är legend i ett formulär?", "options": ["Rubrik/beskrivning för en fieldset-grupp", "Ett bildformat", "En statuskod", "En CSS-fil"], "correct": 0, "feedback": "legend förklarar gruppen.", "explanation": "legend förklarar gruppen."}, {"question": "Varför räcker inte placeholder som enda instruktion?", "options": ["Den kan försvinna när användaren skriver", "Den gör alltid sidan långsam", "Den går inte att använda i HTML", "Den ersätter name"], "correct": 0, "feedback": "Placeholder är inte en stabil etikett.", "explanation": "Placeholder är inte en stabil etikett."}]});
+            window.renderQuiz(document.getElementById('quiz-2-4'), {
+              "title": "Quiz: Kap 2.4",
+              "questions": [
+                {
+                  "question": "Varför ska du välja rätt input-typ?",
+                  "options": [
+                    "Användaren behöver förstå vilket fält som är fel och hur felet kan rättas.",
+                    "Det gör att webbläsaren kräver ett värde innan formuläret kan skickas.",
+                    "Rätt typ ger bättre inmatning, validering och tangentbord, särskilt på mobiler.",
+                    "fieldset grupperar relaterade fält och legend ger gruppen en rubrik."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Rätt typ ger bättre inmatning, validering och tangentbord, särskilt på mobiler."
+                },
+                {
+                  "question": "Vad gör attributet required?",
+                  "options": [
+                    "fieldset grupperar relaterade fält och legend ger gruppen en rubrik.",
+                    "Det gör att webbläsaren kräver ett värde innan formuläret kan skickas.",
+                    "Användaren behöver förstå vilket fält som är fel och hur felet kan rättas.",
+                    "Rätt typ ger bättre inmatning, validering och tangentbord, särskilt på mobiler."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det gör att webbläsaren kräver ett värde innan formuläret kan skickas."
+                },
+                {
+                  "question": "Vad används minlength och maxlength till?",
+                  "options": [
+                    "De anger minsta respektive största tillåtna antal tecken.",
+                    "fieldset grupperar relaterade fält och legend ger gruppen en rubrik.",
+                    "Det gör att webbläsaren kräver ett värde innan formuläret kan skickas.",
+                    "Användaren behöver förstå vilket fält som är fel och hur felet kan rättas."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De anger minsta respektive största tillåtna antal tecken."
+                },
+                {
+                  "question": "Vad gör fieldset och legend?",
+                  "options": [
+                    "Det gör att webbläsaren kräver ett värde innan formuläret kan skickas.",
+                    "Användaren behöver förstå vilket fält som är fel och hur felet kan rättas.",
+                    "Rätt typ ger bättre inmatning, validering och tangentbord, särskilt på mobiler.",
+                    "fieldset grupperar relaterade fält och legend ger gruppen en rubrik."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "fieldset grupperar relaterade fält och legend ger gruppen en rubrik."
+                },
+                {
+                  "question": "Varför ska ett felmeddelande vara tydligt och konkret?",
+                  "options": [
+                    "Det gör att webbläsaren kräver ett värde innan formuläret kan skickas.",
+                    "Rätt typ ger bättre inmatning, validering och tangentbord, särskilt på mobiler.",
+                    "Användaren behöver förstå vilket fält som är fel och hur felet kan rättas.",
+                    "fieldset grupperar relaterade fält och legend ger gruppen en rubrik."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Användaren behöver förstå vilket fält som är fel och hur felet kan rättas."
+                }
+              ]
+            });
         });
     </script>
 </body>

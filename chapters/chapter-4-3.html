@@ -685,7 +685,71 @@ img {
         })
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-4-3'), {"title": "Quiz: Kap 4.3", "questions": [{"question": "Vilken enhet utgår från rotens textstorlek?", "options": ["vh", "rem", "px", "% alltid"], "correct": 1, "feedback": "rem bygger på root-font-size.", "explanation": "rem bygger på root-font-size."}, {"question": "Vad betyder vw?", "options": ["En bildbeskrivning", "En grid line", "En procentliknande del av viewportens bredd", "Ett formulärfält"], "correct": 2, "feedback": "vw baseras på viewportens bredd.", "explanation": "vw baseras på viewportens bredd."}, {"question": "Vad gör clamp(2rem, 5vw, 4rem)?", "options": ["Skapar tre kolumner", "Validerar CSS automatiskt", "Tar bort media queries", "Sätter minsta, flexibelt och största värde"], "correct": 3, "feedback": "clamp begränsar ett följsamt värde.", "explanation": "clamp begränsar ett följsamt värde."}, {"question": "Vilken regel hjälper bilder att krympa med sin container?", "options": ["img { width: 5000px; }", "img { max-width: 100%; height: auto; }", "img { display: none; }", "img { font-size: 2rem; }"], "correct": 1, "feedback": "max-width och height auto bevarar proportioner.", "explanation": "max-width och height auto bevarar proportioner."}, {"question": "Varför används max-width ofta på textinnehåll?", "options": ["För att skapa fler HTML-filer", "För att ändra HTTP-metod", "För att rader inte ska bli för långa", "För att ta bort kontrast"], "correct": 2, "feedback": "Lagom radlängd gör text lättare att läsa.", "explanation": "Lagom radlängd gör text lättare att läsa."}]});
+            window.renderQuiz(document.getElementById('quiz-4-3'), {
+              "title": "Quiz: Kap 4.3",
+              "questions": [
+                {
+                  "question": "Vad är skillnaden mellan px och rem?",
+                  "options": [
+                    "px är ett fast CSS-mått medan rem utgår från sidans grundtextstorlek.",
+                    "Den ger ett responsivt värde med minimi-, önskat och maximivärde.",
+                    "De kan anpassa sig till textstorlek, behållare eller viewport.",
+                    "Det begränsar radlängden utifrån ungefärlig teckenbredd och förbättrar läsbarheten."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "px är ett fast CSS-mått medan rem utgår från sidans grundtextstorlek."
+                },
+                {
+                  "question": "Varför används max-width i ch för brödtext?",
+                  "options": [
+                    "px är ett fast CSS-mått medan rem utgår från sidans grundtextstorlek.",
+                    "Den ger ett responsivt värde med minimi-, önskat och maximivärde.",
+                    "De kan anpassa sig till textstorlek, behållare eller viewport.",
+                    "Det begränsar radlängden utifrån ungefärlig teckenbredd och förbättrar läsbarheten."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det begränsar radlängden utifrån ungefärlig teckenbredd och förbättrar läsbarheten."
+                },
+                {
+                  "question": "Vad gör clamp()?",
+                  "options": [
+                    "De kan anpassa sig till textstorlek, behållare eller viewport.",
+                    "px är ett fast CSS-mått medan rem utgår från sidans grundtextstorlek.",
+                    "Den ger ett responsivt värde med minimi-, önskat och maximivärde.",
+                    "Sätt max-width till 100 procent och height till auto."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den ger ett responsivt värde med minimi-, önskat och maximivärde."
+                },
+                {
+                  "question": "Hur hindrar du en bild från att bli bredare än sin behållare?",
+                  "options": [
+                    "De kan anpassa sig till textstorlek, behållare eller viewport.",
+                    "Sätt max-width till 100 procent och height till auto.",
+                    "Den ger ett responsivt värde med minimi-, önskat och maximivärde.",
+                    "px är ett fast CSS-mått medan rem utgår från sidans grundtextstorlek."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Sätt max-width till 100 procent och height till auto."
+                },
+                {
+                  "question": "Varför är relativa mått användbara?",
+                  "options": [
+                    "De kan anpassa sig till textstorlek, behållare eller viewport.",
+                    "Den ger ett responsivt värde med minimi-, önskat och maximivärde.",
+                    "px är ett fast CSS-mått medan rem utgår från sidans grundtextstorlek.",
+                    "Sätt max-width till 100 procent och height till auto."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De kan anpassa sig till textstorlek, behållare eller viewport."
+                }
+              ]
+            });
         });
     </script>
 </body>

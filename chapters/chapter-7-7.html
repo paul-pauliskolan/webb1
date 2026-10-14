@@ -113,7 +113,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-7'), {"title":"Quiz: Kap 7.7","questions":[{"question":"Varför testar man sidan i flera bredder?","options":["För att byta domännamn","För att se att layouten fungerar på olika skärmar","För att skapa fler HTML-filer","För att ta bort alla media queries"],"correct":1,"feedback":"Responsiv layout måste testas.","explanation":"Problem syns ofta först när viewporten ändras."},{"question":"Vad visar konsolen ofta?","options":["Bara bildens motiv","Sidans målgrupp","JavaScript-fel och varningar","Alla licenser automatiskt"],"correct":2,"feedback":"Konsolen hjälper felsökning.","explanation":"Fel i JavaScript eller saknade variabler syns ofta där."},{"question":"Vad kan Network-panelen hjälpa dig hitta?","options":["Saknade filer och långsamma resurser","Vilken färg användaren gillar","Om rubriken är poetisk","Exakt vad användaren tänker"],"correct":0,"feedback":"Network visar laddade resurser.","explanation":"404, filstorlek och laddningstid går att kontrollera där."},{"question":"Varför testa med tangentbord?","options":["För att HTML ska bli kortare","För att bilder ska bli vektorbaserade","För att CSS ska stängas av","För att kontrollera att sidan går att använda utan mus"],"correct":3,"feedback":"Tangentbordstestning är viktigt för tillgänglighet.","explanation":"Användaren ska kunna navigera och använda interaktiva delar."},{"question":"Vad är ett bra test av ett formulär?","options":["Titta bara på bakgrundsfärgen","Skicka rimlig och felaktig testdata och läsa feedbacken","Ta bort alla labels före test","Publicera utan att klicka"],"correct":1,"feedback":"Formulär behöver testas praktiskt.","explanation":"Du behöver se vad som händer vid både rätt och fel inmatning."}]});
+            window.renderQuiz(document.getElementById('quiz-7-7'), {
+              "title": "Quiz: Kap 7.7",
+              "questions": [
+                {
+                  "question": "Vad används responsivt läge till?",
+                  "options": [
+                    "Att se misslyckade, långsamma eller onödigt stora resursanrop.",
+                    "Tabba genom sidan och kontrollera ordning, fokus och aktivering.",
+                    "Att hitta JavaScript-fel och egna diagnostiska utskrifter.",
+                    "Att simulera olika viewportbredder och upptäcka layoutproblem."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att simulera olika viewportbredder och upptäcka layoutproblem."
+                },
+                {
+                  "question": "Vad används Console till vid testning?",
+                  "options": [
+                    "Att simulera olika viewportbredder och upptäcka layoutproblem.",
+                    "Att se misslyckade, långsamma eller onödigt stora resursanrop.",
+                    "Att hitta JavaScript-fel och egna diagnostiska utskrifter.",
+                    "Tabba genom sidan och kontrollera ordning, fokus och aktivering."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att hitta JavaScript-fel och egna diagnostiska utskrifter."
+                },
+                {
+                  "question": "Vad används Network till vid testning?",
+                  "options": [
+                    "Att simulera olika viewportbredder och upptäcka layoutproblem.",
+                    "Att se misslyckade, långsamma eller onödigt stora resursanrop.",
+                    "Tabba genom sidan och kontrollera ordning, fokus och aktivering.",
+                    "Att hitta JavaScript-fel och egna diagnostiska utskrifter."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att se misslyckade, långsamma eller onödigt stora resursanrop."
+                },
+                {
+                  "question": "Hur testar du tangentbordsanvändning?",
+                  "options": [
+                    "Tabba genom sidan och kontrollera ordning, fokus och aktivering.",
+                    "Att simulera olika viewportbredder och upptäcka layoutproblem.",
+                    "Att se misslyckade, långsamma eller onödigt stora resursanrop.",
+                    "Att hitta JavaScript-fel och egna diagnostiska utskrifter."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Tabba genom sidan och kontrollera ordning, fokus och aktivering."
+                },
+                {
+                  "question": "Vad bör en snabb testchecklista omfatta?",
+                  "options": [
+                    "Tabba genom sidan och kontrollera ordning, fokus och aktivering.",
+                    "Att simulera olika viewportbredder och upptäcka layoutproblem.",
+                    "Att se misslyckade, långsamma eller onödigt stora resursanrop.",
+                    "Länkar, formulär, flera bredder, tangentbord, media, Console och Network."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Länkar, formulär, flera bredder, tangentbord, media, Console och Network."
+                }
+              ]
+            });
         });
     </script>
 </body>

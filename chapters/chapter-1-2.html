@@ -177,14 +177,69 @@ p {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-1-2'), {
-                title: 'Quiz: Kap 1.2 - VS Code och projektmappar',
-                questions: [
-                    { question: 'Vilket filnamn bör startsidan ofta ha?', options: ['start.docx', 'index.html', 'home.css', 'main.jpg'], correct: 1, feedback: 'Startsidor på webben har ofta ett standardnamn.', explanation: 'Många servrar letar automatiskt efter index.html.' },
-                    { question: 'Vilket filnamn är mest lämpligt på webben?', options: ['Min Bild Äntligen.JPG', 'min bild.jpg', 'min-bild.jpg', 'bild final!!.jpg'], correct: 2, feedback: 'Undvik mellanslag, åäö och specialtecken.', explanation: 'Små bokstäver och bindestreck minskar risken för filvägsfel.' },
-                    { question: 'Vad gör Live Server i VS Code?', options: ['Startar en lokal visning av sidan', 'Byter namn på alla filer', 'Publicerar automatiskt på GitHub', 'Skriver all HTML åt dig'], correct: 0, feedback: 'Live Server används under testning.', explanation: 'Live Server öppnar projektet i webbläsaren och laddar om när du ändrar.' },
-                    { question: 'Vilken sökväg passar om bilden ligger i undermappen images?', options: ['src="profilbild.jpg"', 'src="images/profilbild.jpg"', 'src="../styles.css"', 'src="https://css"'], correct: 1, feedback: 'Sökvägen behöver gå in i bildmappen.', explanation: 'images/profilbild.jpg betyder filen profilbild.jpg i mappen images.' },
-                    { question: 'Var installerar du tillägg i VS Code?', options: ['I Network-fliken', 'I Extensions i vänsterspalten', 'I filen index.html', 'I webbläsarens adressfält'], correct: 1, feedback: 'Extensions används för tillägg.', explanation: 'I Extensions kan du söka efter till exempel Live Server och W3C Web Validator.' }
-                ]
+              "title": "Quiz: Kap 1.2 - VS Code och projektmappar",
+              "questions": [
+                {
+                  "question": "Varför bör varje webbplats ha en egen projektmapp?",
+                  "options": [
+                    "Det öppnar projektet via en lokal webbserver och laddar om sidan när du sparar.",
+                    "Då hålls webbplatsens HTML-, CSS- och bildfiler samlade och lätta att hitta.",
+                    "Många webbservrar letar automatiskt efter en fil med namnet index.html.",
+                    "Använd små bokstäver, siffror och bindestreck. Undvik å, ä, ö, mellanslag och specialtecken."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Då hålls webbplatsens HTML-, CSS- och bildfiler samlade och lätta att hitta."
+                },
+                {
+                  "question": "Vilka regler bör du följa när du namnger filer och mappar?",
+                  "options": [
+                    "Använd små bokstäver, siffror och bindestreck. Undvik å, ä, ö, mellanslag och specialtecken.",
+                    "Det öppnar projektet via en lokal webbserver och laddar om sidan när du sparar.",
+                    "Då hålls webbplatsens HTML-, CSS- och bildfiler samlade och lätta att hitta.",
+                    "Många webbservrar letar automatiskt efter en fil med namnet index.html."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Använd små bokstäver, siffror och bindestreck. Undvik å, ä, ö, mellanslag och specialtecken."
+                },
+                {
+                  "question": "Vad är en relativ sökväg?",
+                  "options": [
+                    "Många webbservrar letar automatiskt efter en fil med namnet index.html.",
+                    "Då hålls webbplatsens HTML-, CSS- och bildfiler samlade och lätta att hitta.",
+                    "Det öppnar projektet via en lokal webbserver och laddar om sidan när du sparar.",
+                    "En sökväg som utgår från filen där sökvägen skrivs."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En sökväg som utgår från filen där sökvägen skrivs."
+                },
+                {
+                  "question": "Vad gör Live Server?",
+                  "options": [
+                    "Då hålls webbplatsens HTML-, CSS- och bildfiler samlade och lätta att hitta.",
+                    "Många webbservrar letar automatiskt efter en fil med namnet index.html.",
+                    "Det öppnar projektet via en lokal webbserver och laddar om sidan när du sparar.",
+                    "Använd små bokstäver, siffror och bindestreck. Undvik å, ä, ö, mellanslag och specialtecken."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det öppnar projektet via en lokal webbserver och laddar om sidan när du sparar."
+                },
+                {
+                  "question": "Varför heter en webbplats startsida ofta index.html?",
+                  "options": [
+                    "Då hålls webbplatsens HTML-, CSS- och bildfiler samlade och lätta att hitta.",
+                    "Många webbservrar letar automatiskt efter en fil med namnet index.html.",
+                    "Det öppnar projektet via en lokal webbserver och laddar om sidan när du sparar.",
+                    "En sökväg som utgår från filen där sökvägen skrivs."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Många webbservrar letar automatiskt efter en fil med namnet index.html."
+                }
+              ]
             });
         });
     </script>

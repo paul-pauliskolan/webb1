@@ -176,14 +176,69 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-1-5'), {
-                title: 'Quiz: Kap 1.5 - Miniuppgift profilsida',
-                questions: [
-                    { question: 'Vad ska startsidans fil heta i uppgiften?', options: ['profil.docx', 'index.html', 'start.py', 'bild.html'], correct: 1, feedback: 'Startsidan har ett standardnamn.', explanation: 'index.html är filen GitHub Pages och många servrar kan hitta som startsida.' },
-                    { question: 'Vad ska alt-attributet göra?', options: ['Beskriva bilden', 'Starta CSS', 'Byta filnamn', 'Skapa en lista'], correct: 0, feedback: 'Alt är textalternativ.', explanation: 'Alt-text hjälper användare och hjälpmedel förstå bildens innehåll.' },
-                    { question: 'Vad bör du göra om bilden inte syns?', options: ['Kontrollera sökväg och filnamn', 'Ta bort body', 'Byta till WordPress', 'Radera title'], correct: 0, feedback: 'Bildfel beror ofta på sökvägen.', explanation: 'Kontrollera mapp, filnamn, filändelse och stora/små bokstäver.' },
-                    { question: 'Vilket element används för en punktlista?', options: ['ol', 'ul', 'img', 'meta'], correct: 1, feedback: 'Punktlistor är oordnade listor.', explanation: 'ul används för oordnade listor.' },
-                    { question: 'Varför ska du validera sidan?', options: ['För att hitta HTML-fel', 'För att köpa domännamn', 'För att installera VS Code', 'För att skapa en video'], correct: 0, feedback: 'Validering kontrollerar koden.', explanation: 'En sida kan se okej ut i webbläsaren men ändå innehålla fel.' }
-                ]
+              "title": "Quiz: Kap 1.5 - Miniuppgift profilsida",
+              "questions": [
+                {
+                  "question": "Vilken grundstruktur måste profilsidan innehålla?",
+                  "options": [
+                    "Minst en h1-rubrik och två stycken med p.",
+                    "DOCTYPE, html med lang, head och body.",
+                    "En ordnad lista med ol och en oordnad lista med ul.",
+                    "Öppna den med Live Server, testa bild och länk, validera HTML och rätta felen."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "DOCTYPE, html med lang, head och body."
+                },
+                {
+                  "question": "Vilket textinnehåll måste profilsidan minst ha?",
+                  "options": [
+                    "Minst en h1-rubrik och två stycken med p.",
+                    "DOCTYPE, html med lang, head och body.",
+                    "En ordnad lista med ol och en oordnad lista med ul.",
+                    "Öppna den med Live Server, testa bild och länk, validera HTML och rätta felen."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Minst en h1-rubrik och två stycken med p."
+                },
+                {
+                  "question": "Vilka krav gäller för profilsidans bild och länk?",
+                  "options": [
+                    "Öppna den med Live Server, testa bild och länk, validera HTML och rätta felen.",
+                    "En ordnad lista med ol och en oordnad lista med ul.",
+                    "Minst en h1-rubrik och två stycken med p.",
+                    "Bilden ska ha fungerande src och beskrivande alt. Sidan ska ha minst en extern länk."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Bilden ska ha fungerande src och beskrivande alt. Sidan ska ha minst en extern länk."
+                },
+                {
+                  "question": "Vilka två typer av listor ska profilsidan innehålla?",
+                  "options": [
+                    "Minst en h1-rubrik och två stycken med p.",
+                    "DOCTYPE, html med lang, head och body.",
+                    "En ordnad lista med ol och en oordnad lista med ul.",
+                    "Öppna den med Live Server, testa bild och länk, validera HTML och rätta felen."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En ordnad lista med ol och en oordnad lista med ul."
+                },
+                {
+                  "question": "Hur ska du kontrollera profilsidan innan du går vidare?",
+                  "options": [
+                    "Bilden ska ha fungerande src och beskrivande alt. Sidan ska ha minst en extern länk.",
+                    "Öppna den med Live Server, testa bild och länk, validera HTML och rätta felen.",
+                    "En ordnad lista med ol och en oordnad lista med ul.",
+                    "Minst en h1-rubrik och två stycken med p."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Öppna den med Live Server, testa bild och länk, validera HTML och rätta felen."
+                }
+              ]
             });
         });
     </script>

@@ -163,7 +163,71 @@ const message = document.querySelector("#message");</code></pre>
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-5-2'), {"title": "Quiz: Kap 5.2", "questions": [{"question": "Vad gör `document.querySelector(\".menu\")`?", "options": ["Skapar en ny CSS-fil", "Tar bort alla menyer", "Hittar första elementet som matchar klassen menu", "Publicerar sidan"], "correct": 2, "feedback": "querySelector hittar ett matchande element.", "explanation": "Punkten betyder klass, precis som i CSS."}, {"question": "Vilken egenskap ändrar texten inuti ett element?", "options": ["src", "textContent", "href", "alt"], "correct": 1, "feedback": "textContent ändrar text.", "explanation": "textContent används när du vill läsa eller ändra textinnehåll."}, {"question": "Vad gör `addEventListener(\"click\", function () { ... })`?", "options": ["Kör CSS i en bildfil", "Byter HTML till PDF", "Tar bort webbläsarens konsol", "Kör funktionen när elementet klickas"], "correct": 3, "feedback": "addEventListener lyssnar på events.", "explanation": "click är ett event som sker när användaren klickar."}, {"question": "Vad gör `classList.toggle(\"open\")`?", "options": ["Byter elementets id till open", "Raderar alla klasser", "Växlar klassen open på eller av", "Skapar en ny HTML-fil"], "correct": 2, "feedback": "toggle växlar en klass.", "explanation": "Klassen läggs till om den saknas och tas bort om den finns."}, {"question": "Varför är det bra att spara ett hittat element i en variabel?", "options": ["Elementet blir automatiskt en bild", "Du kan använda samma element flera gånger i koden", "CSS slutar påverka elementet", "HTML-valideringen stängs av"], "correct": 1, "feedback": "Variabler gör koden tydligare.", "explanation": "En variabel som button eller message gör det tydligare vilket element koden arbetar med."}]});
+            window.renderQuiz(document.getElementById('quiz-5-2'), {
+              "title": "Quiz: Kap 5.2",
+              "questions": [
+                {
+                  "question": "Hur hittar querySelector ett element?",
+                  "options": [
+                    "Samma selektorer kan ofta användas för att hitta element i JavaScript.",
+                    "Den använder en CSS-selektor och returnerar det första matchande elementet.",
+                    "Den lägger till en klass om den saknas och tar bort den om den finns.",
+                    "Lägg till en click-lyssnare med addEventListener."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den använder en CSS-selektor och returnerar det första matchande elementet."
+                },
+                {
+                  "question": "Hur ändras ett elements text säkert?",
+                  "options": [
+                    "Sätt elementets textContent.",
+                    "Lägg till en click-lyssnare med addEventListener.",
+                    "Den lägger till en klass om den saknas och tar bort den om den finns.",
+                    "Samma selektorer kan ofta användas för att hitta element i JavaScript."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Sätt elementets textContent."
+                },
+                {
+                  "question": "Hur lyssnar du på ett knappklick?",
+                  "options": [
+                    "Den lägger till en klass om den saknas och tar bort den om den finns.",
+                    "Sätt elementets textContent.",
+                    "Samma selektorer kan ofta användas för att hitta element i JavaScript.",
+                    "Lägg till en click-lyssnare med addEventListener."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Lägg till en click-lyssnare med addEventListener."
+                },
+                {
+                  "question": "Vad gör classList.toggle?",
+                  "options": [
+                    "Samma selektorer kan ofta användas för att hitta element i JavaScript.",
+                    "Den använder en CSS-selektor och returnerar det första matchande elementet.",
+                    "Den lägger till en klass om den saknas och tar bort den om den finns.",
+                    "Lägg till en click-lyssnare med addEventListener."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den lägger till en klass om den saknas och tar bort den om den finns."
+                },
+                {
+                  "question": "Varför kan CSS-kunskaper hjälpa med DOM?",
+                  "options": [
+                    "Den lägger till en klass om den saknas och tar bort den om den finns.",
+                    "Samma selektorer kan ofta användas för att hitta element i JavaScript.",
+                    "Den använder en CSS-selektor och returnerar det första matchande elementet.",
+                    "Lägg till en click-lyssnare med addEventListener."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Samma selektorer kan ofta användas för att hitta element i JavaScript."
+                }
+              ]
+            });
         });
     </script>
 </body>

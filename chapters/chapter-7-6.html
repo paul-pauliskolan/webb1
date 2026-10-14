@@ -127,7 +127,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-6'), {"title":"Quiz: Kap 7.6","questions":[{"question":"Varför bör du bestämma målgrupp innan du börjar bygga?","options":["För att CSS annars inte laddas","För att målgruppen påverkar innehåll, språk och design","För att bilder automatiskt blir mindre","För att HTML kräver en målgruppstagg"],"correct":1,"feedback":"Målgruppen påverkar många val.","explanation":"Olika användare behöver olika information, nivå och struktur."},{"question":"Vad visar en enkel sitemap?","options":["Sidans färgpalett","Vilka sidor eller sektioner webbplatsen ska innehålla","Alla CSS-regler i projektet","Webbläsarens cache"],"correct":1,"feedback":"En sitemap visar struktur.","explanation":"Den hjälper dig att se hur innehållet hänger ihop."},{"question":"Vad är ett bra första steg i planeringen?","options":["Välja slumpmässiga animationer","Formulera syfte och viktigaste innehåll","Skriva all JavaScript först","Publicera innan sidan finns"],"correct":1,"feedback":"Syfte och innehåll behöver komma tidigt.","explanation":"Då bygger du utifrån vad sidan ska lösa."},{"question":"Varför är innehåll viktigt före detaljerad layout?","options":["Layouten behöver utgå från vad som faktiskt ska finnas på sidan","HTML får inte innehålla text","Rubriker fungerar bara efter publicering","Formulär skapas automatiskt av innehåll"],"correct":0,"feedback":"Innehåll styr layout.","explanation":"Det är svårt att designa bra om du inte vet vad sidan ska visa."},{"question":"Vilket är ett rimligt innehåll i en liten portfoliosida?","options":["Bara tomma boxar","Projekt, kort presentation och kontaktväg","Alla filer från datorn","Enbart en cookie-banner"],"correct":1,"feedback":"Portfolio behöver visa person, arbete och kontakt.","explanation":"Innehållet ska stödja sidans syfte."}]});
+            window.renderQuiz(document.getElementById('quiz-7-6'), {
+              "title": "Quiz: Kap 7.6",
+              "questions": [
+                {
+                  "question": "Varför börjar planeringen med syfte och målgrupp?",
+                  "options": [
+                    "Designen ska stödja verkligt innehåll och användarens mål.",
+                    "En översikt över webbplatsens sidor och hur de hänger ihop.",
+                    "En enkel skiss över sidans struktur och placering av innehåll.",
+                    "De styr innehåll, språk, funktioner och layout."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De styr innehåll, språk, funktioner och layout."
+                },
+                {
+                  "question": "Vad är en sitemap?",
+                  "options": [
+                    "Designen ska stödja verkligt innehåll och användarens mål.",
+                    "En enkel skiss över sidans struktur och placering av innehåll.",
+                    "En översikt över webbplatsens sidor och hur de hänger ihop.",
+                    "De kan upptäcka oklarheter som skaparen själv har vant sig vid."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En översikt över webbplatsens sidor och hur de hänger ihop."
+                },
+                {
+                  "question": "Vad är en wireframe?",
+                  "options": [
+                    "De kan upptäcka oklarheter som skaparen själv har vant sig vid.",
+                    "En enkel skiss över sidans struktur och placering av innehåll.",
+                    "En översikt över webbplatsens sidor och hur de hänger ihop.",
+                    "Designen ska stödja verkligt innehåll och användarens mål."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En enkel skiss över sidans struktur och placering av innehåll."
+                },
+                {
+                  "question": "Varför bör innehåll planeras före visuella detaljer?",
+                  "options": [
+                    "Designen ska stödja verkligt innehåll och användarens mål.",
+                    "En översikt över webbplatsens sidor och hur de hänger ihop.",
+                    "En enkel skiss över sidans struktur och placering av innehåll.",
+                    "De kan upptäcka oklarheter som skaparen själv har vant sig vid."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Designen ska stödja verkligt innehåll och användarens mål."
+                },
+                {
+                  "question": "Varför ska andra personer testa webbplatsen?",
+                  "options": [
+                    "En enkel skiss över sidans struktur och placering av innehåll.",
+                    "En översikt över webbplatsens sidor och hur de hänger ihop.",
+                    "Designen ska stödja verkligt innehåll och användarens mål.",
+                    "De kan upptäcka oklarheter som skaparen själv har vant sig vid."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De kan upptäcka oklarheter som skaparen själv har vant sig vid."
+                }
+              ]
+            });
         });
     </script>
 </body>

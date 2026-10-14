@@ -341,7 +341,71 @@
                 updateZoom()
             })
 
-            window.renderQuiz(document.getElementById('quiz-6-1'), {"title":"Quiz: Kap 6.1","questions":[{"question":"Vilket format passar ofta bra för fotografier?","options":["SVG","JPEG","HTML","CSS"],"correct":1,"feedback":"JPEG används ofta för fotografier.","explanation":"JPEG komprimerar fotografier effektivt, men stöder inte transparens."},{"question":"Vilket format är vektorbaserat och kan skalas utan att bli suddigt?","options":["PNG","WebP","SVG","JPEG"],"correct":2,"feedback":"SVG är vektorbaserat.","explanation":"SVG beskriver former med kod i stället för fasta pixlar."},{"question":"När är PNG ofta ett rimligt val?","options":["När bilden behöver transparens","När du skriver JavaScript","När sidan bara har text","När bilden måste vara en video"],"correct":0,"feedback":"PNG stöder transparens.","explanation":"PNG passar ofta för grafik med skarpa kanter eller transparent bakgrund."},{"question":"Vad är en fördel med WebP eller AVIF?","options":["De ersätter alt-text","De kan minska filstorleken med bra kvalitet","De gör HTML semantiskt automatiskt","De fungerar bara för ikoner"],"correct":1,"feedback":"Moderna format kan ge mindre filer.","explanation":"Mindre bildfiler kan göra sidan snabbare att ladda."},{"question":"Varför finns inget bildformat som alltid är bäst?","options":["Alla bilder måste vara SVG","Formatval beror på innehåll, kvalitet och användning","JPEG fungerar aldrig på webben","PNG får inte användas med CSS"],"correct":1,"feedback":"Formatval är situationsberoende.","explanation":"Fotografier, ikoner och transparent grafik har olika krav."}]});
+            window.renderQuiz(document.getElementById('quiz-6-1'), {
+              "title": "Quiz: Kap 6.1",
+              "questions": [
+                {
+                  "question": "Vad är skillnaden mellan pixel- och vektorbilder?",
+                  "options": [
+                    "För fotografier där liten filstorlek är viktig och transparens inte behövs.",
+                    "När förlustfri kvalitet eller transparens behövs, exempelvis enkel grafik.",
+                    "Pixelbilder består av bildpunkter; vektorbilder beskrivs med former och kan skalas utan pixlighet.",
+                    "De kan ge hög kvalitet med mindre filstorlek än äldre format."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Pixelbilder består av bildpunkter; vektorbilder beskrivs med former och kan skalas utan pixlighet."
+                },
+                {
+                  "question": "När passar JPEG?",
+                  "options": [
+                    "När förlustfri kvalitet eller transparens behövs, exempelvis enkel grafik.",
+                    "För fotografier där liten filstorlek är viktig och transparens inte behövs.",
+                    "De kan ge hög kvalitet med mindre filstorlek än äldre format.",
+                    "För logotyper, ikoner och annan skalbar vektorgrafik."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "För fotografier där liten filstorlek är viktig och transparens inte behövs."
+                },
+                {
+                  "question": "När passar PNG?",
+                  "options": [
+                    "När förlustfri kvalitet eller transparens behövs, exempelvis enkel grafik.",
+                    "För fotografier där liten filstorlek är viktig och transparens inte behövs.",
+                    "De kan ge hög kvalitet med mindre filstorlek än äldre format.",
+                    "För logotyper, ikoner och annan skalbar vektorgrafik."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "När förlustfri kvalitet eller transparens behövs, exempelvis enkel grafik."
+                },
+                {
+                  "question": "När passar SVG?",
+                  "options": [
+                    "De kan ge hög kvalitet med mindre filstorlek än äldre format.",
+                    "När förlustfri kvalitet eller transparens behövs, exempelvis enkel grafik.",
+                    "För fotografier där liten filstorlek är viktig och transparens inte behövs.",
+                    "För logotyper, ikoner och annan skalbar vektorgrafik."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "För logotyper, ikoner och annan skalbar vektorgrafik."
+                },
+                {
+                  "question": "Vad är en fördel med WebP eller AVIF?",
+                  "options": [
+                    "För logotyper, ikoner och annan skalbar vektorgrafik.",
+                    "När förlustfri kvalitet eller transparens behövs, exempelvis enkel grafik.",
+                    "De kan ge hög kvalitet med mindre filstorlek än äldre format.",
+                    "För fotografier där liten filstorlek är viktig och transparens inte behövs."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De kan ge hög kvalitet med mindre filstorlek än äldre format."
+                }
+              ]
+            });
         });
     </script>
 </body>

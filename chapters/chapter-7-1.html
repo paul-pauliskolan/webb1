@@ -71,7 +71,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-1'), {"title":"Quiz: Kap 7.1","questions":[{"question":"Vad betyder tillgänglighet på webben?","options":["Att sidan bara fungerar på stora skärmar","Att fler människor kan förstå och använda sidan","Att all text måste vara blå","Att JavaScript alltid är avstängt"],"correct":1,"feedback":"Tillgänglighet handlar om att fler kan använda sidan.","explanation":"En tillgänglig sida fungerar för olika användare, enheter och hjälpmedel."},{"question":"Vilket exempel hör ihop med principen uppfattbart?","options":["Textalternativ till en viktig bild","Slumpmässiga färger i varje stycke","En knapp utan text","En länk som bara heter klicka"],"correct":0,"feedback":"Textalternativ gör innehåll uppfattbart.","explanation":"Om en bild bär information behöver den kunna förstås även utan att bilden syns."},{"question":"Vad betyder hanterbart i tillgänglighet?","options":["Att sidan har många animationer","Att sidan kan användas, till exempel med tangentbord","Att alla filer ligger i samma mapp","Att rubriker väljs efter storlek"],"correct":1,"feedback":"Hanterbart handlar om användning.","explanation":"Användaren ska kunna navigera, klicka, fylla i och styra sidan."},{"question":"Varför hjälper semantisk HTML tillgänglighet?","options":["Den gör bilder mindre automatiskt","Den beskriver innehållets struktur för webbläsare och hjälpmedel","Den ersätter all CSS","Den gör formulär frivilliga"],"correct":1,"feedback":"Semantik gör struktur tydligare.","explanation":"Rätt element ger mening åt rubriker, navigation, formulär och innehåll."},{"question":"Vilket arbetssätt är bäst?","options":["Tänka på tillgänglighet från början","Lägga till tillgänglighet bara efter publicering","Ta bort alla labels","Testa bara med mus"],"correct":0,"feedback":"Tillgänglighet bör byggas in tidigt.","explanation":"Det är lättare att skapa bra struktur från början än att reparera allt i efterhand."}]});
+            window.renderQuiz(document.getElementById('quiz-7-1'), {
+              "title": "Quiz: Kap 7.1",
+              "questions": [
+                {
+                  "question": "Vilka är WCAG:s fyra principer?",
+                  "options": [
+                    "Innehåll och funktioner ska vara tydliga och förutsägbara.",
+                    "Innehållet ska fungera med olika webbläsare och hjälpmedel.",
+                    "Gränssnittet ska kunna användas, bland annat med tangentbord.",
+                    "Möjlig att uppfatta, hanterbar, begriplig och robust."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Möjlig att uppfatta, hanterbar, begriplig och robust."
+                },
+                {
+                  "question": "Vad betyder möjlig att uppfatta?",
+                  "options": [
+                    "Gränssnittet ska kunna användas, bland annat med tangentbord.",
+                    "Innehållet ska fungera med olika webbläsare och hjälpmedel.",
+                    "Information måste kunna uppfattas på fler sätt, exempelvis med textalternativ.",
+                    "Innehåll och funktioner ska vara tydliga och förutsägbara."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Information måste kunna uppfattas på fler sätt, exempelvis med textalternativ."
+                },
+                {
+                  "question": "Vad betyder hanterbar?",
+                  "options": [
+                    "Innehållet ska fungera med olika webbläsare och hjälpmedel.",
+                    "Gränssnittet ska kunna användas, bland annat med tangentbord.",
+                    "Innehåll och funktioner ska vara tydliga och förutsägbara.",
+                    "Möjlig att uppfatta, hanterbar, begriplig och robust."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Gränssnittet ska kunna användas, bland annat med tangentbord."
+                },
+                {
+                  "question": "Vad betyder begriplig?",
+                  "options": [
+                    "Innehåll och funktioner ska vara tydliga och förutsägbara.",
+                    "Innehållet ska fungera med olika webbläsare och hjälpmedel.",
+                    "Gränssnittet ska kunna användas, bland annat med tangentbord.",
+                    "Möjlig att uppfatta, hanterbar, begriplig och robust."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Innehåll och funktioner ska vara tydliga och förutsägbara."
+                },
+                {
+                  "question": "Vad betyder robust?",
+                  "options": [
+                    "Innehåll och funktioner ska vara tydliga och förutsägbara.",
+                    "Gränssnittet ska kunna användas, bland annat med tangentbord.",
+                    "Möjlig att uppfatta, hanterbar, begriplig och robust.",
+                    "Innehållet ska fungera med olika webbläsare och hjälpmedel."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Innehållet ska fungera med olika webbläsare och hjälpmedel."
+                }
+              ]
+            });
         });
     </script>
 </body>

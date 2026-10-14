@@ -188,14 +188,69 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-1-3'), {
-                title: 'Quiz: Kap 1.3 - Din första HTML-sida',
-                questions: [
-                    { question: 'Var placeras innehåll som ska synas i webbläsarfönstret?', options: ['I head', 'I body', 'I title', 'I doctype'], correct: 1, feedback: 'Synligt innehåll ligger i body.', explanation: 'body innehåller sidans synliga innehåll.' },
-                    { question: 'Vad gör meta charset="UTF-8"?', options: ['Gör sidan blå', 'Gör att tecken som å, ä och ö fungerar', 'Publicerar sidan', 'Skapar en rubrik'], correct: 1, feedback: 'charset handlar om teckenkodning.', explanation: 'UTF-8 stödjer många språk och tecken.' },
-                    { question: 'Varför behövs title-elementet?', options: ['Det visas i webbläsarens flik', 'Det skapar en bild', 'Det ersätter h1', 'Det startar Live Server'], correct: 0, feedback: 'title är metadata.', explanation: 'title hjälper användaren och sökmotorer förstå sidans titel.' },
-                    { question: 'Vilken rad är en HTML-kommentar?', options: ['// kommentar', '<!-- kommentar -->', '# kommentar', '/* kommentar */'], correct: 1, feedback: 'HTML har en särskild kommentarsyntax.', explanation: 'HTML-kommentarer skrivs mellan <!-- och -->.' },
-                    { question: 'Varför ska du validera HTML?', options: ['För att hitta kodfel', 'För att byta domännamn', 'För att skapa GIF-bilder', 'För att ta bort webbläsaren'], correct: 0, feedback: 'Validering kontrollerar kodens korrekthet.', explanation: 'Webbläsaren kan visa en sida trots att koden innehåller fel.' }
-                ]
+              "title": "Quiz: Kap 1.3 - Din första HTML-sida",
+              "questions": [
+                {
+                  "question": "Vad är HTML:s uppgift på en webbsida?",
+                  "options": [
+                    "Det anger att sidans huvudspråk är svenska.",
+                    "HTML beskriver sidans innehåll, struktur och betydelse.",
+                    "Det anger teckenkodningen så att bland annat å, ä och ö visas rätt.",
+                    "Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig att hitta dem."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "HTML beskriver sidans innehåll, struktur och betydelse."
+                },
+                {
+                  "question": "Vad är skillnaden mellan head och body?",
+                  "options": [
+                    "head innehåller information om sidan. body innehåller det som visas i webbläsarfönstret.",
+                    "Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig att hitta dem.",
+                    "Det anger teckenkodningen så att bland annat å, ä och ö visas rätt.",
+                    "HTML beskriver sidans innehåll, struktur och betydelse."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "head innehåller information om sidan. body innehåller det som visas i webbläsarfönstret."
+                },
+                {
+                  "question": "Vad anger attributet lang=\"sv\"?",
+                  "options": [
+                    "HTML beskriver sidans innehåll, struktur och betydelse.",
+                    "Det anger teckenkodningen så att bland annat å, ä och ö visas rätt.",
+                    "Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig att hitta dem.",
+                    "Det anger att sidans huvudspråk är svenska."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det anger att sidans huvudspråk är svenska."
+                },
+                {
+                  "question": "Vad gör meta charset=\"UTF-8\"?",
+                  "options": [
+                    "HTML beskriver sidans innehåll, struktur och betydelse.",
+                    "Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig att hitta dem.",
+                    "Det anger teckenkodningen så att bland annat å, ä och ö visas rätt.",
+                    "head innehåller information om sidan. body innehåller det som visas i webbläsarfönstret."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det anger teckenkodningen så att bland annat å, ä och ö visas rätt."
+                },
+                {
+                  "question": "Varför ska HTML valideras även om sidan ser rätt ut?",
+                  "options": [
+                    "head innehåller information om sidan. body innehåller det som visas i webbläsarfönstret.",
+                    "Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig att hitta dem.",
+                    "Det anger teckenkodningen så att bland annat å, ä och ö visas rätt.",
+                    "HTML beskriver sidans innehåll, struktur och betydelse."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Webbläsaren kan försöka dölja eller rätta fel. Validatorn hjälper dig att hitta dem."
+                }
+              ]
             });
         });
     </script>

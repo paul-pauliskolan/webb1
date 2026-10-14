@@ -584,7 +584,71 @@
         })
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-4-1'), {"title": "Quiz: Kap 4.1", "questions": [{"question": "Vad gör `display: flex`?", "options": ["Ändrar huvudaxeln till kolumn", "Gör elementets barn till flex-items", "Skapar avstånd mellan flex-items", "Låter flex-items brytas till ny rad"], "correct": 1, "feedback": "Barnen placeras enligt flexbox-regler.", "explanation": "Barnen placeras enligt flexbox-regler."}, {"question": "Vad styr `flex-direction`?", "options": ["Avståndet mellan flex-items", "Om flex-items får brytas till ny rad", "Om huvudaxeln går som rad eller kolumn", "Placering längs tväraxeln"], "correct": 2, "feedback": "Riktningen avgör huvudaxeln.", "explanation": "Riktningen avgör huvudaxeln."}, {"question": "Vad används `gap` till?", "options": ["Riktning på huvudaxeln", "Radbrytning av flex-items", "Placering längs tväraxeln", "Avstånd mellan flex-items"], "correct": 3, "feedback": "gap ger jämnt mellanrum.", "explanation": "gap ger jämnt mellanrum."}, {"question": "Vilken egenskap låter flex-items gå till ny rad?", "options": ["flex-direction", "flex-wrap", "align-items", "justify-content"], "correct": 1, "feedback": "flex-wrap tillåter radbrytning.", "explanation": "flex-wrap tillåter radbrytning."}, {"question": "Vad styr `justify-content` oftast i en radlayout?", "options": ["Placering längs tväraxeln", "Om flex-items får växa och krympa", "Avståndet inuti varje flex-item", "Placering längs huvudaxeln"], "correct": 3, "feedback": "justify-content arbetar längs huvudaxeln.", "explanation": "justify-content arbetar längs huvudaxeln."}]});
+            window.renderQuiz(document.getElementById('quiz-4-1'), {
+              "title": "Quiz: Kap 4.1",
+              "questions": [
+                {
+                  "question": "När passar flexbox bäst?",
+                  "options": [
+                    "För endimensionella layouter där innehåll ordnas i en rad eller kolumn.",
+                    "Den låter objekt brytas till nya rader när utrymmet inte räcker.",
+                    "Den anger huvudaxelns riktning, exempelvis row eller column.",
+                    "Den fördelar utrymme och placerar objekt längs huvudaxeln."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "För endimensionella layouter där innehåll ordnas i en rad eller kolumn."
+                },
+                {
+                  "question": "Vad gör flex-direction?",
+                  "options": [
+                    "Den fördelar utrymme och placerar objekt längs huvudaxeln.",
+                    "Den låter objekt brytas till nya rader när utrymmet inte räcker.",
+                    "För endimensionella layouter där innehåll ordnas i en rad eller kolumn.",
+                    "Den anger huvudaxelns riktning, exempelvis row eller column."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den anger huvudaxelns riktning, exempelvis row eller column."
+                },
+                {
+                  "question": "Vad gör justify-content?",
+                  "options": [
+                    "Den anger huvudaxelns riktning, exempelvis row eller column.",
+                    "Den låter objekt brytas till nya rader när utrymmet inte räcker.",
+                    "Den fördelar utrymme och placerar objekt längs huvudaxeln.",
+                    "För endimensionella layouter där innehåll ordnas i en rad eller kolumn."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den fördelar utrymme och placerar objekt längs huvudaxeln."
+                },
+                {
+                  "question": "Vad gör align-items?",
+                  "options": [
+                    "Den fördelar utrymme och placerar objekt längs huvudaxeln.",
+                    "Den placerar flexobjekt längs tväraxeln.",
+                    "Den anger huvudaxelns riktning, exempelvis row eller column.",
+                    "Den låter objekt brytas till nya rader när utrymmet inte räcker."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den placerar flexobjekt längs tväraxeln."
+                },
+                {
+                  "question": "Varför används flex-wrap?",
+                  "options": [
+                    "Den låter objekt brytas till nya rader när utrymmet inte räcker.",
+                    "Den anger huvudaxelns riktning, exempelvis row eller column.",
+                    "Den fördelar utrymme och placerar objekt längs huvudaxeln.",
+                    "För endimensionella layouter där innehåll ordnas i en rad eller kolumn."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den låter objekt brytas till nya rader när utrymmet inte räcker."
+                }
+              ]
+            });
         });
     </script>
 </body>

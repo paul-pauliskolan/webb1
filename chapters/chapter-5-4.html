@@ -186,7 +186,71 @@ menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-5-4'), {"title": "Quiz: Kap 5.4", "questions": [{"question": "Vilket mönster återkommer i många små JavaScript-interaktioner?", "options": ["Ta bort all HTML och börja om", "Spara CSS i bildfiler", "Hitta element, lyssna på event och ändra något", "Publicera sidan efter varje klick"], "correct": 2, "feedback": "Det är grundmönstret.", "explanation": "Många interaktioner börjar med att hitta ett element och reagera på en händelse."}, {"question": "Vad kan `classList.toggle(\"is-open\")` användas till?", "options": ["Byta domännamn", "Växla om en meny är öppen eller stängd", "Skapa en ny font", "Radera webbläsarens historik"], "correct": 1, "feedback": "toggle passar för öppet/stängt-lägen.", "explanation": "Klassen kan styra synlighet i CSS."}, {"question": "Varför bör `aria-expanded` uppdateras på en menyknapp?", "options": ["För att knappen ska få större font", "För att HTML-filen ska bli mindre", "För att bilden ska beskäras", "För att hjälpmedel ska kunna förstå om menyn är öppen"], "correct": 3, "feedback": "aria-expanded beskriver öppet/stängt-läge.", "explanation": "Det hjälper användare med hjälpmedel att förstå komponentens tillstånd."}, {"question": "När räcker vanlig JavaScript ofta bra?", "options": ["Bara när sidan saknar HTML", "Aldrig på webbsidor", "När interaktionen är liten och tydlig", "Endast när CSS inte finns"], "correct": 2, "feedback": "Små komponenter behöver ofta inget ramverk.", "explanation": "En meny, knapp eller enkel tab kan ofta byggas med få rader JavaScript."}, {"question": "Vad är en risk om JavaScript ändrar ett synligt läge men inte uppdaterar knappens text eller attribut?", "options": ["CSS slutar alltid fungera", "Användaren kan få otydlig feedback om vad som har hänt", "Alla länkar blir bilder", "Sidan publiceras automatiskt"], "correct": 1, "feedback": "Läget ska vara begripligt.", "explanation": "Synlig text och attribut bör stämma med komponentens faktiska tillstånd."}]});
+            window.renderQuiz(document.getElementById('quiz-5-4'), {
+              "title": "Quiz: Kap 5.4",
+              "questions": [
+                {
+                  "question": "Vilket grundmönster återkommer i små interaktioner?",
+                  "options": [
+                    "Om innehållet som en kontroll styr är öppet eller stängt.",
+                    "Hitta element, lyssna på event och ändra något synligt.",
+                    "Växla en CSS-klass när menyknappen aktiveras.",
+                    "När interaktionen är liten och kan byggas tydligt med DOM och events."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Hitta element, lyssna på event och ändra något synligt."
+                },
+                {
+                  "question": "Hur kan en meny visas och döljas?",
+                  "options": [
+                    "Växla en CSS-klass när menyknappen aktiveras.",
+                    "Hitta element, lyssna på event och ändra något synligt.",
+                    "Om innehållet som en kontroll styr är öppet eller stängt.",
+                    "När interaktionen är liten och kan byggas tydligt med DOM och events."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Växla en CSS-klass när menyknappen aktiveras."
+                },
+                {
+                  "question": "Vad är ARIA?",
+                  "options": [
+                    "När interaktionen är liten och kan byggas tydligt med DOM och events.",
+                    "Om innehållet som en kontroll styr är öppet eller stängt.",
+                    "Hitta element, lyssna på event och ändra något synligt.",
+                    "Attribut och roller som kan förmedla gränssnittets betydelse och tillstånd till hjälpmedel."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Attribut och roller som kan förmedla gränssnittets betydelse och tillstånd till hjälpmedel."
+                },
+                {
+                  "question": "Vad ska aria-expanded visa?",
+                  "options": [
+                    "Hitta element, lyssna på event och ändra något synligt.",
+                    "Växla en CSS-klass när menyknappen aktiveras.",
+                    "Om innehållet som en kontroll styr är öppet eller stängt.",
+                    "När interaktionen är liten och kan byggas tydligt med DOM och events."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Om innehållet som en kontroll styr är öppet eller stängt."
+                },
+                {
+                  "question": "När räcker vanlig JavaScript utan ramverk?",
+                  "options": [
+                    "Om innehållet som en kontroll styr är öppet eller stängt.",
+                    "När interaktionen är liten och kan byggas tydligt med DOM och events.",
+                    "Hitta element, lyssna på event och ändra något synligt.",
+                    "Attribut och roller som kan förmedla gränssnittets betydelse och tillstånd till hjälpmedel."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "När interaktionen är liten och kan byggas tydligt med DOM och events."
+                }
+              ]
+            });
         });
     </script>
 </body>

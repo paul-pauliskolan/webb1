@@ -561,7 +561,71 @@ img {
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-3-3'), {"title": "Quiz: Kap 3.3", "questions": [{"question": "Vilken del är luften mellan innehåll och border?", "options": ["Margin", "Padding", "Content", "Viewport"], "correct": 1, "feedback": "Padding ligger innanför border.", "explanation": "Padding ligger innanför border."}, {"question": "Vad gör margin?", "options": ["Skapar avstånd till andra element", "Ändrar filnamn", "Skickar formulär", "Gör bilden till SVG"], "correct": 0, "feedback": "Margin är yttre avstånd.", "explanation": "Margin är yttre avstånd."}, {"question": "Varför används ofta box-sizing: border-box?", "options": ["Bredden blir lättare att kontrollera", "HTML slutar behövas", "Alla länkar öppnas i ny flik", "Texten blir automatiskt översatt"], "correct": 0, "feedback": "Border-box gör totalbredd mer förutsägbar.", "explanation": "Border-box gör totalbredd mer förutsägbar."}, {"question": "Vilket element är normalt inline?", "options": ["p", "h1", "a", "div"], "correct": 2, "feedback": "a ligger normalt i textflödet.", "explanation": "a ligger normalt i textflödet."}, {"question": "Vad gör img { max-width: 100%; height: auto; }?", "options": ["Hjälper bilder skala ned proportionellt", "Tar bort alla bilder", "Gör texten större", "Skapar ett formulär"], "correct": 0, "feedback": "Regeln hjälper bilder att inte spräcka layouten.", "explanation": "Regeln hjälper bilder att inte spräcka layouten."}]});
+            window.renderQuiz(document.getElementById('quiz-3-3'), {
+              "title": "Quiz: Kap 3.3",
+              "questions": [
+                {
+                  "question": "Vilka fyra lager ingår i boxmodellen?",
+                  "options": [
+                    "Den gör att angiven bredd inkluderar padding och border.",
+                    "Margin skapar avstånd utanför elementet. Padding skapar luft mellan innehållet och kantlinjen.",
+                    "max-width hindrar bilden från att bli bredare än behållaren och height: auto bevarar proportionerna.",
+                    "Utifrån och in: margin, border, padding och content."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Utifrån och in: margin, border, padding och content."
+                },
+                {
+                  "question": "Vad är skillnaden mellan margin och padding?",
+                  "options": [
+                    "max-width hindrar bilden från att bli bredare än behållaren och height: auto bevarar proportionerna.",
+                    "Blockelement börjar normalt på ny rad och kan ta tillgänglig bredd. Inline-element följer textflödet.",
+                    "Margin skapar avstånd utanför elementet. Padding skapar luft mellan innehållet och kantlinjen.",
+                    "Den gör att angiven bredd inkluderar padding och border."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Margin skapar avstånd utanför elementet. Padding skapar luft mellan innehållet och kantlinjen."
+                },
+                {
+                  "question": "Vad gör box-sizing: border-box?",
+                  "options": [
+                    "Utifrån och in: margin, border, padding och content.",
+                    "Den gör att angiven bredd inkluderar padding och border.",
+                    "Margin skapar avstånd utanför elementet. Padding skapar luft mellan innehållet och kantlinjen.",
+                    "max-width hindrar bilden från att bli bredare än behållaren och height: auto bevarar proportionerna."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den gör att angiven bredd inkluderar padding och border."
+                },
+                {
+                  "question": "Vad är en viktig skillnad mellan block och inline?",
+                  "options": [
+                    "Blockelement börjar normalt på ny rad och kan ta tillgänglig bredd. Inline-element följer textflödet.",
+                    "max-width hindrar bilden från att bli bredare än behållaren och height: auto bevarar proportionerna.",
+                    "Margin skapar avstånd utanför elementet. Padding skapar luft mellan innehållet och kantlinjen.",
+                    "Den gör att angiven bredd inkluderar padding och border."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Blockelement börjar normalt på ny rad och kan ta tillgänglig bredd. Inline-element följer textflödet."
+                },
+                {
+                  "question": "Vilka grundregler gör en bild responsiv i sin behållare?",
+                  "options": [
+                    "Blockelement börjar normalt på ny rad och kan ta tillgänglig bredd. Inline-element följer textflödet.",
+                    "Margin skapar avstånd utanför elementet. Padding skapar luft mellan innehållet och kantlinjen.",
+                    "Den gör att angiven bredd inkluderar padding och border.",
+                    "max-width hindrar bilden från att bli bredare än behållaren och height: auto bevarar proportionerna."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "max-width hindrar bilden från att bli bredare än behållaren och height: auto bevarar proportionerna."
+                }
+              ]
+            });
         });
     </script>
 </body>

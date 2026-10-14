@@ -1339,7 +1339,71 @@ code {
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-3-2'), {"title": "Quiz: Kap 3.2", "questions": [{"question": "Vilket CSS-attribut ändrar textfärg?", "options": ["background-color", "color", "font-family", "line-height"], "correct": 1, "feedback": "color ändrar textfärg.", "explanation": "color ändrar textfärg."}, {"question": "Varför är kontrast viktigt?", "options": ["Texten ska gå att läsa", "HTML-filen ska bli mindre", "GitHub kräver det alltid", "Bilder blir automatiskt SVG"], "correct": 0, "feedback": "Kontrast påverkar läsbarheten.", "explanation": "Kontrast påverkar läsbarheten."}, {"question": "Vad är en font stack?", "options": ["Flera fontalternativ i samma font-family", "En lista med bilder", "Ett felmeddelande", "En typ av HTTP-metod"], "correct": 0, "feedback": "Font stack ger fallback-fonter.", "explanation": "Font stack ger fallback-fonter."}, {"question": "Vilket line-height-värde är ofta rimligt för brödtext?", "options": ["1", "1.5", "1.2", "2"], "correct": 1, "feedback": "1.5 ger ofta luftigare läsning.", "explanation": "1.5 ger ofta luftigare läsning."}, {"question": "När passar centrerad text bäst?", "options": ["För långa brödtexter", "För korta rubriker eller korta textblock", "För all kod", "Aldrig i HTML"], "correct": 1, "feedback": "Centrerad text blir snabbt svårläst i längre stycken.", "explanation": "Centrerad text blir snabbt svårläst i längre stycken."}]});
+            window.renderQuiz(document.getElementById('quiz-3-2'), {
+              "title": "Quiz: Kap 3.2",
+              "questions": [
+                {
+                  "question": "Vilka värden kan en RGB-kanal ha?",
+                  "options": [
+                    "Hue är färgvinkel, saturation är mättnad och lightness är ljushet.",
+                    "Ett rimligt radavstånd ger raderna luft och gör längre text lättare att följa.",
+                    "En prioriterad lista av typsnitt där webbläsaren provar nästa om ett typsnitt saknas.",
+                    "Varje kanal för rött, grönt och blått går från 0 till 255."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Varje kanal för rött, grönt och blått går från 0 till 255."
+                },
+                {
+                  "question": "Vad beskriver H, S och L i hsl()?",
+                  "options": [
+                    "Varje kanal för rött, grönt och blått går från 0 till 255.",
+                    "Ett rimligt radavstånd ger raderna luft och gör längre text lättare att följa.",
+                    "Hue är färgvinkel, saturation är mättnad och lightness är ljushet.",
+                    "En prioriterad lista av typsnitt där webbläsaren provar nästa om ett typsnitt saknas."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Hue är färgvinkel, saturation är mättnad och lightness är ljushet."
+                },
+                {
+                  "question": "Vad är en font stack?",
+                  "options": [
+                    "Text och viktiga komponenter måste gå att urskilja från bakgrunden för att vara läsbara.",
+                    "En prioriterad lista av typsnitt där webbläsaren provar nästa om ett typsnitt saknas.",
+                    "Ett rimligt radavstånd ger raderna luft och gör längre text lättare att följa.",
+                    "Hue är färgvinkel, saturation är mättnad och lightness är ljushet."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En prioriterad lista av typsnitt där webbläsaren provar nästa om ett typsnitt saknas."
+                },
+                {
+                  "question": "Varför är god kontrast viktig?",
+                  "options": [
+                    "Text och viktiga komponenter måste gå att urskilja från bakgrunden för att vara läsbara.",
+                    "En prioriterad lista av typsnitt där webbläsaren provar nästa om ett typsnitt saknas.",
+                    "Ett rimligt radavstånd ger raderna luft och gör längre text lättare att följa.",
+                    "Hue är färgvinkel, saturation är mättnad och lightness är ljushet."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Text och viktiga komponenter måste gå att urskilja från bakgrunden för att vara läsbara."
+                },
+                {
+                  "question": "Hur påverkar line-height läsbarheten?",
+                  "options": [
+                    "En prioriterad lista av typsnitt där webbläsaren provar nästa om ett typsnitt saknas.",
+                    "Text och viktiga komponenter måste gå att urskilja från bakgrunden för att vara läsbara.",
+                    "Hue är färgvinkel, saturation är mättnad och lightness är ljushet.",
+                    "Ett rimligt radavstånd ger raderna luft och gör längre text lättare att följa."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Ett rimligt radavstånd ger raderna luft och gör längre text lättare att följa."
+                }
+              ]
+            });
         });
     </script>
 </body>

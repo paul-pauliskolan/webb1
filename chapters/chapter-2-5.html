@@ -178,7 +178,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-2-5'), {"title": "Quiz: Kap 2.5", "questions": [{"question": "Vad är viktigt när du bygger ett formulär?", "options": ["Att fälten har tydliga labels och rätt inputtyper", "Att alla fält heter samma sak", "Att formuläret alltid saknar knapp", "Att formuläret bara består av bilder"], "correct": 0, "feedback": "Ett bra formulär är tydligt och använder rätt fälttyper.", "explanation": "Ett bra formulär är tydligt och använder rätt fälttyper."}, {"question": "Varför behövs `name` på formulärfält?", "options": ["För att mottagaren ska se vad värdet heter", "För att texten ska bli fet", "För att skapa en bild", "För att ta bort required"], "correct": 0, "feedback": "name skickas tillsammans med värdet.", "explanation": "name skickas tillsammans med värdet."}, {"question": "Varför används `type=\"email\"` på ett e-postfält?", "options": ["För att webbläsaren ska kunna kontrollera e-postformatet", "För att fältet ska bli en bild", "För att formuläret ska byta språk", "För att label inte ska behövas"], "correct": 0, "feedback": "type=email hjälper webbläsaren att validera e-postadresser.", "explanation": "type=email hjälper webbläsaren att validera e-postadresser."}, {"question": "Varför ska ett formulär testas med tomma eller felaktiga värden?", "options": ["För att se om valideringen hjälper användaren", "För att stänga av HTML", "För att byta domän", "För att skapa en footer"], "correct": 0, "feedback": "Test med tomma eller felaktiga värden visar om kraven fungerar.", "explanation": "Test med tomma eller felaktiga värden visar om kraven fungerar."}, {"question": "Vad bör du tänka på när ett formulär samlar in personuppgifter?", "options": ["Samla bara in uppgifter som behövs", "Samla alltid in så mycket som möjligt", "Gör alla fält osynliga", "Använd aldrig labels"], "correct": 0, "feedback": "Formulär ska samla in så lite relevant data som möjligt.", "explanation": "Formulär ska samla in så lite relevant data som möjligt."}]});
+            window.renderQuiz(document.getElementById('quiz-2-5'), {
+              "title": "Quiz: Kap 2.5",
+              "questions": [
+                {
+                  "question": "Vilka element utgör grunden i kontaktformuläret?",
+                  "options": [
+                    "Koppla en label till fältets id och använd type=\"email\".",
+                    "Då behandlar webbläsaren dem som en grupp där bara ett val kan vara aktivt.",
+                    "form, label, input, textarea och en knapp för att skicka.",
+                    "Skicka testformuläret till httpbin och granska svaret med fältnamnen och värdena."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "form, label, input, textarea och en knapp för att skicka."
+                },
+                {
+                  "question": "Hur görs e-postfältet både begripligt och validerbart?",
+                  "options": [
+                    "form, label, input, textarea och en knapp för att skicka.",
+                    "Koppla en label till fältets id och använd type=\"email\".",
+                    "Då behandlar webbläsaren dem som en grupp där bara ett val kan vara aktivt.",
+                    "Skicka testformuläret till httpbin och granska svaret med fältnamnen och värdena."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Koppla en label till fältets id och använd type=\"email\"."
+                },
+                {
+                  "question": "Varför ska radio-knappar med samma val höra till samma name?",
+                  "options": [
+                    "Då behandlar webbläsaren dem som en grupp där bara ett val kan vara aktivt.",
+                    "Skicka testformuläret till httpbin och granska svaret med fältnamnen och värdena.",
+                    "Fråga bara efter uppgifter som behövs och använd påhittade uppgifter vid testning.",
+                    "form, label, input, textarea och en knapp för att skicka."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Då behandlar webbläsaren dem som en grupp där bara ett val kan vara aktivt."
+                },
+                {
+                  "question": "Hur kontrollerar du vilka formulärvärden som skickades?",
+                  "options": [
+                    "Fråga bara efter uppgifter som behövs och använd påhittade uppgifter vid testning.",
+                    "Då behandlar webbläsaren dem som en grupp där bara ett val kan vara aktivt.",
+                    "form, label, input, textarea och en knapp för att skicka.",
+                    "Skicka testformuläret till httpbin och granska svaret med fältnamnen och värdena."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Skicka testformuläret till httpbin och granska svaret med fältnamnen och värdena."
+                },
+                {
+                  "question": "Vilken försiktighet behövs när formuläret samlar personuppgifter?",
+                  "options": [
+                    "Skicka testformuläret till httpbin och granska svaret med fältnamnen och värdena.",
+                    "Då behandlar webbläsaren dem som en grupp där bara ett val kan vara aktivt.",
+                    "Fråga bara efter uppgifter som behövs och använd påhittade uppgifter vid testning.",
+                    "form, label, input, textarea och en knapp för att skicka."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Fråga bara efter uppgifter som behövs och använd påhittade uppgifter vid testning."
+                }
+              ]
+            });
         });
     </script>
 </body>

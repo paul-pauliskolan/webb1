@@ -208,7 +208,71 @@ img {
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-3-5'), {"title": "Quiz: Kap 3.5", "questions": [{"question": "Varför används ofta en extern CSS-fil?", "options": ["För att skilja struktur från utseende", "För att HTML inte ska behövas", "För att bilder automatiskt blir mindre", "För att starta JavaScript"], "correct": 0, "feedback": "Extern CSS håller HTML och utseende åtskilda.", "explanation": "Extern CSS håller HTML och utseende åtskilda."}, {"question": "Varför kan `max-width` göra brödtext mer läsbar?", "options": ["För att textraderna inte blir för långa", "För att alla bokstäver blir versaler", "För att HTML-koden raderas", "För att bakgrunden alltid blir svart"], "correct": 0, "feedback": "Maxbredd kan hindra långa och svårlästa textrader.", "explanation": "Maxbredd kan hindra långa och svårlästa textrader."}, {"question": "Vilken CSS-regel hjälper bilder att anpassa sig till sin behållare?", "options": ["img { max-width: 100%; height: auto; }", "img { color: red; }", "body { display: none; }", "a { method: post; }"], "correct": 0, "feedback": "max-width hjälper responsiva bilder.", "explanation": "max-width hjälper responsiva bilder."}, {"question": "Varför är `:focus` viktigt för länkar och knappar?", "options": ["Det visar vilket element som är aktivt vid tangentbordsnavigering", "Det döljer länkar från användaren", "Det skapar fler HTML-filer", "Det validerar DNS"], "correct": 0, "feedback": "Focus visar var användaren befinner sig.", "explanation": "Focus visar var användaren befinner sig."}, {"question": "Vad kännetecknar ett bra klassnamn i CSS?", "options": ["Det beskriver elementets roll eller innehåll tydligt", "Det innehåller helst mellanslag", "Det består bara av utropstecken", "Det måste alltid heta red"], "correct": 0, "feedback": "Ett bra klassnamn är begripligt och går att återanvända.", "explanation": "Ett bra klassnamn är begripligt och går att återanvända."}]});
+            window.renderQuiz(document.getElementById('quiz-3-5'), {
+              "title": "Quiz: Kap 3.5",
+              "questions": [
+                {
+                  "question": "Var ska profilsidans CSS ligga?",
+                  "options": [
+                    "Så att återkopplingen fungerar för både mus- och tangentbordsanvändare.",
+                    "Ge det en rimlig maxbredd, centrera det och lägg till luft runt innehållet.",
+                    "En font stack, textfärg och bakgrundsfärg.",
+                    "I en extern CSS-fil som kopplas från HTML-dokumentets head."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "I en extern CSS-fil som kopplas från HTML-dokumentets head."
+                },
+                {
+                  "question": "Vilka tre grundval ska body ange enligt uppgiften?",
+                  "options": [
+                    "I en extern CSS-fil som kopplas från HTML-dokumentets head.",
+                    "Så att återkopplingen fungerar för både mus- och tangentbordsanvändare.",
+                    "En font stack, textfärg och bakgrundsfärg.",
+                    "Ge det en rimlig maxbredd, centrera det och lägg till luft runt innehållet."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En font stack, textfärg och bakgrundsfärg."
+                },
+                {
+                  "question": "Hur gör du huvudinnehållet lättläst på en bred skärm?",
+                  "options": [
+                    "Så att återkopplingen fungerar för både mus- och tangentbordsanvändare.",
+                    "Ge det en rimlig maxbredd, centrera det och lägg till luft runt innehållet.",
+                    "I en extern CSS-fil som kopplas från HTML-dokumentets head.",
+                    "Namnen beskriver innehållets eller komponentens roll i stället för ett tillfälligt utseende."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Ge det en rimlig maxbredd, centrera det och lägg till luft runt innehållet."
+                },
+                {
+                  "question": "Varför ska länkar ha både hover- och focus-läge?",
+                  "options": [
+                    "Så att återkopplingen fungerar för både mus- och tangentbordsanvändare.",
+                    "Ge det en rimlig maxbredd, centrera det och lägg till luft runt innehållet.",
+                    "I en extern CSS-fil som kopplas från HTML-dokumentets head.",
+                    "Namnen beskriver innehållets eller komponentens roll i stället för ett tillfälligt utseende."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Så att återkopplingen fungerar för både mus- och tangentbordsanvändare."
+                },
+                {
+                  "question": "Vad menas med meningsfulla klassnamn?",
+                  "options": [
+                    "Ge det en rimlig maxbredd, centrera det och lägg till luft runt innehållet.",
+                    "Så att återkopplingen fungerar för både mus- och tangentbordsanvändare.",
+                    "I en extern CSS-fil som kopplas från HTML-dokumentets head.",
+                    "Namnen beskriver innehållets eller komponentens roll i stället för ett tillfälligt utseende."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Namnen beskriver innehållets eller komponentens roll i stället för ett tillfälligt utseende."
+                }
+              ]
+            });
         });
     </script>
 </body>

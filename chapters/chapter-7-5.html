@@ -110,7 +110,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-5'), {"title":"Quiz: Kap 7.5","questions":[{"question":"Vad är ett mörkt mönster?","options":["En mörk bakgrundsfärg","En design som lurar eller pressar användaren till ett val","En CSS-regel med svart text","En bild som saknar skugga"],"correct":1,"feedback":"Mörka mönster handlar om vilseledande design.","explanation":"De kan göra det svårare att välja fritt och förstå vad som händer."},{"question":"Vilket exempel är mest problematiskt?","options":["En tydlig avbryt-knapp","Ett enkelt kontaktformulär","En prenumeration som är lätt att starta men svår att avsluta","En knapp med synlig fokusmarkering"],"correct":2,"feedback":"Det kan vara ett mörkt mönster.","explanation":"Användaren ska kunna ångra eller avsluta utan onödiga hinder."},{"question":"Vad är etisk design?","options":["Design som gör viktiga val tydliga och ärliga","Design som gömmer alla alternativ","Design som alltid använder små texter","Design som kräver flest klick"],"correct":0,"feedback":"Etisk design hjälper användaren.","explanation":"Den gör konsekvenser och val begripliga."},{"question":"Varför spelar knapptext roll?","options":["Texten påverkar vad användaren tror att knappen gör","Den ändrar bildformat","Den skapar automatiskt en databas","Den ersätter semantisk HTML"],"correct":0,"feedback":"Knapptext styr förståelsen.","explanation":"Otydlig eller manipulerande text kan leda användaren fel."},{"question":"Vilket standardval är mest ansvarsfullt?","options":["Förvalt samtycke till allt","Ett val där användaren själv aktivt tar ställning","Dold information bakom liten text","En nej-knapp som är nästan osynlig"],"correct":1,"feedback":"Aktivt val är tydligare.","explanation":"Användaren ska förstå och själv kunna välja, särskilt när uppgifter eller samtycke berörs."}]});
+            window.renderQuiz(document.getElementById('quiz-7-5'), {
+              "title": "Quiz: Kap 7.5",
+              "questions": [
+                {
+                  "question": "Vad är ett mörkt mönster?",
+                  "options": [
+                    "Tydliga val, ärlig information och respekt för användarens kontroll och integritet.",
+                    "Olika målgrupper behöver begripliga ord och en inkluderande ton.",
+                    "Tunga sidor kostar data, laddar långsamt och utestänger användare med svag uppkoppling.",
+                    "Design som manipulerar användaren till ett val som främst gynnar tjänsten."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Design som manipulerar användaren till ett val som främst gynnar tjänsten."
+                },
+                {
+                  "question": "Vad kännetecknar ansvarsfull design?",
+                  "options": [
+                    "Tunga sidor kostar data, laddar långsamt och utestänger användare med svag uppkoppling.",
+                    "De kan ge olämpliga resultat eller skada människor om sammanhang och konsekvenser missas.",
+                    "Tydliga val, ärlig information och respekt för användarens kontroll och integritet.",
+                    "Design som manipulerar användaren till ett val som främst gynnar tjänsten."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Tydliga val, ärlig information och respekt för användarens kontroll och integritet."
+                },
+                {
+                  "question": "Varför ska språk och ton anpassas?",
+                  "options": [
+                    "Design som manipulerar användaren till ett val som främst gynnar tjänsten.",
+                    "Olika målgrupper behöver begripliga ord och en inkluderande ton.",
+                    "Tydliga val, ärlig information och respekt för användarens kontroll och integritet.",
+                    "Tunga sidor kostar data, laddar långsamt och utestänger användare med svag uppkoppling."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Olika målgrupper behöver begripliga ord och en inkluderande ton."
+                },
+                {
+                  "question": "Hur påverkar filstorlek etik och tillgänglighet?",
+                  "options": [
+                    "Tunga sidor kostar data, laddar långsamt och utestänger användare med svag uppkoppling.",
+                    "De kan ge olämpliga resultat eller skada människor om sammanhang och konsekvenser missas.",
+                    "Tydliga val, ärlig information och respekt för användarens kontroll och integritet.",
+                    "Design som manipulerar användaren till ett val som främst gynnar tjänsten."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Tunga sidor kostar data, laddar långsamt och utestänger användare med svag uppkoppling."
+                },
+                {
+                  "question": "Varför bör automatiska funktioner granskas?",
+                  "options": [
+                    "Tunga sidor kostar data, laddar långsamt och utestänger användare med svag uppkoppling.",
+                    "Tydliga val, ärlig information och respekt för användarens kontroll och integritet.",
+                    "Design som manipulerar användaren till ett val som främst gynnar tjänsten.",
+                    "De kan ge olämpliga resultat eller skada människor om sammanhang och konsekvenser missas."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "De kan ge olämpliga resultat eller skada människor om sammanhang och konsekvenser missas."
+                }
+              ]
+            });
         });
     </script>
 </body>

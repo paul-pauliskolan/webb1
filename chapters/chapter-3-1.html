@@ -150,7 +150,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-3-1'), {"title": "Quiz: Kap 3.1", "questions": [{"question": "Vad används CSS främst till?", "options": ["Sidans presentation och utseende", "Att skapa IP-adresser", "Att ersätta HTML", "Att köpa domännamn"], "correct": 0, "feedback": "CSS styr presentationen.", "explanation": "CSS styr presentationen."}, {"question": "Vilken rad kopplar en extern CSS-fil?", "options": ["<script src=\"styles.css\">", "<link rel=\"stylesheet\" href=\"styles.css\">", "<meta css=\"styles.css\">", "<img src=\"styles.css\">"], "correct": 1, "feedback": "link rel=stylesheet kopplar CSS.", "explanation": "link rel=stylesheet kopplar CSS."}, {"question": "Vad är selektorn i regeln h1 { color: green; }?", "options": ["color", "green", "h1", "{}"], "correct": 2, "feedback": "h1 väljer elementen som påverkas.", "explanation": "h1 väljer elementen som påverkas."}, {"question": "Varför bör inline-CSS undvikas i vanliga projekt?", "options": ["Det blandar innehåll och utseende", "Det fungerar aldrig", "Det tar bort body", "Det gör HTML olagligt"], "correct": 0, "feedback": "Separata filer ger tydligare struktur.", "explanation": "Separata filer ger tydligare struktur."}, {"question": "Vad betyder arv i CSS?", "options": ["Vissa egenskaper kan föras vidare från förälder till barn", "Alla filer raderas automatiskt", "Endast bilder kan stylas", "CSS blir HTML"], "correct": 0, "feedback": "Vissa egenskaper ärvs i dokumentträdet.", "explanation": "Vissa egenskaper ärvs i dokumentträdet."}]});
+            window.renderQuiz(document.getElementById('quiz-3-1'), {
+              "title": "Quiz: Kap 3.1",
+              "questions": [
+                {
+                  "question": "Vad används CSS till?",
+                  "options": [
+                    "Den regel som kommer senare kan vinna om selektorerna har samma styrka.",
+                    "rem passar ofta för text och avstånd. ch kan begränsa textradernas längd.",
+                    "En selektor och ett deklarationsblock med egenskaper och värden.",
+                    "CSS styr presentationen, exempelvis färg, storlek, avstånd och layout."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "CSS styr presentationen, exempelvis färg, storlek, avstånd och layout."
+                },
+                {
+                  "question": "Vilka delar har en CSS-regel?",
+                  "options": [
+                    "CSS styr presentationen, exempelvis färg, storlek, avstånd och layout.",
+                    "Den regel som kommer senare kan vinna om selektorerna har samma styrka.",
+                    "En selektor och ett deklarationsblock med egenskaper och värden.",
+                    "rem passar ofta för text och avstånd. ch kan begränsa textradernas längd."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En selektor och ett deklarationsblock med egenskaper och värden."
+                },
+                {
+                  "question": "Hur kopplas en extern CSS-fil till HTML?",
+                  "options": [
+                    "En selektor och ett deklarationsblock med egenskaper och värden.",
+                    "Med ett link-element i dokumentets head.",
+                    "CSS styr presentationen, exempelvis färg, storlek, avstånd och layout.",
+                    "Den regel som kommer senare kan vinna om selektorerna har samma styrka."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Med ett link-element i dokumentets head."
+                },
+                {
+                  "question": "När passar enheterna rem och ch?",
+                  "options": [
+                    "rem passar ofta för text och avstånd. ch kan begränsa textradernas längd.",
+                    "Den regel som kommer senare kan vinna om selektorerna har samma styrka.",
+                    "CSS styr presentationen, exempelvis färg, storlek, avstånd och layout.",
+                    "En selektor och ett deklarationsblock med egenskaper och värden."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "rem passar ofta för text och avstånd. ch kan begränsa textradernas längd."
+                },
+                {
+                  "question": "Vad innebär kaskaden när två lika starka regler krockar?",
+                  "options": [
+                    "CSS styr presentationen, exempelvis färg, storlek, avstånd och layout.",
+                    "rem passar ofta för text och avstånd. ch kan begränsa textradernas längd.",
+                    "En selektor och ett deklarationsblock med egenskaper och värden.",
+                    "Den regel som kommer senare kan vinna om selektorerna har samma styrka."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den regel som kommer senare kan vinna om selektorerna har samma styrka."
+                }
+              ]
+            });
         });
     </script>
 </body>

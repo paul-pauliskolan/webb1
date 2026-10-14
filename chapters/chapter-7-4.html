@@ -115,7 +115,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-7-4'), {"title":"Quiz: Kap 7.4","questions":[{"question":"Vad betyder upphovsrätt i webbsammanhang?","options":["Att allt på webben är fritt","Att skaparen kan ha rättigheter till sitt verk","Att bilder inte kan laddas ner","Att HTML inte får användas"],"correct":1,"feedback":"Skaparen kan ha rättigheter.","explanation":"Du behöver veta om och hur materialet får användas."},{"question":"Vad används Creative Commons-licenser till?","options":["För att beskriva hur material får användas","För att komprimera bilder","För att skapa CSS-grid","För att kontrollera formulär"],"correct":0,"feedback":"Licensen beskriver användningsvillkor.","explanation":"Den kan till exempel kräva namnangivelse eller begränsa ändringar."},{"question":"Vad bör du spara när du använder en licensierad bild?","options":["Bara bildens färg","Källa, skapare och licens","Antalet pixlar i rubriken","Webbläsarens zoomnivå"],"correct":1,"feedback":"Källa och licens behövs för korrekt hänvisning.","explanation":"Då kan du visa var materialet kommer ifrån och vilka villkor som gäller."},{"question":"Vad betyder namnangivelse ofta i en licens?","options":["Att du behöver ange vem som skapat materialet","Att filen måste heta image.jpg","Att bilden alltid måste vara svartvit","Att sidan inte får ha länkar"],"correct":0,"feedback":"Namnangivelse handlar om skaparen.","explanation":"Många licenser kräver att skaparen anges."},{"question":"Vilket arbetssätt är säkrast?","options":["Kopiera första bästa bild från sökresultatet","Använda eget material eller material med tydlig licens","Ta bort källan efter publicering","Anta att allt är fritt om det saknar vattenstämpel"],"correct":1,"feedback":"Eget material eller tydlig licens är säkrare.","explanation":"En bild utan vattenstämpel är inte automatiskt fri att använda."}]});
+            window.renderQuiz(document.getElementById('quiz-7-4'), {
+              "title": "Quiz: Kap 7.4",
+              "questions": [
+                {
+                  "question": "Vad innebär upphovsrätt?",
+                  "options": [
+                    "Verkets titel, upphovsperson, källa och licens.",
+                    "Standardiserade licenser där skaparen anger hur ett verk får användas.",
+                    "Att upphovspersonen ska anges.",
+                    "Skaparen får automatiskt rättigheter till sitt verk."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Skaparen får automatiskt rättigheter till sitt verk."
+                },
+                {
+                  "question": "Vad är skillnaden mellan äganderätt och upphovsrätt?",
+                  "options": [
+                    "Standardiserade licenser där skaparen anger hur ett verk får användas.",
+                    "Skaparen får automatiskt rättigheter till sitt verk.",
+                    "Att äga ett exemplar betyder inte att du får kopiera eller publicera verket.",
+                    "Verkets titel, upphovsperson, källa och licens."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att äga ett exemplar betyder inte att du får kopiera eller publicera verket."
+                },
+                {
+                  "question": "Vad är Creative Commons?",
+                  "options": [
+                    "Att äga ett exemplar betyder inte att du får kopiera eller publicera verket.",
+                    "Standardiserade licenser där skaparen anger hur ett verk får användas.",
+                    "Skaparen får automatiskt rättigheter till sitt verk.",
+                    "Verkets titel, upphovsperson, källa och licens."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Standardiserade licenser där skaparen anger hur ett verk får användas."
+                },
+                {
+                  "question": "Vad betyder BY i en CC-licens?",
+                  "options": [
+                    "Att upphovspersonen ska anges.",
+                    "Verkets titel, upphovsperson, källa och licens.",
+                    "Skaparen får automatiskt rättigheter till sitt verk.",
+                    "Standardiserade licenser där skaparen anger hur ett verk får användas."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att upphovspersonen ska anges."
+                },
+                {
+                  "question": "Vad bör en källangivelse innehålla?",
+                  "options": [
+                    "Skaparen får automatiskt rättigheter till sitt verk.",
+                    "Att upphovspersonen ska anges.",
+                    "Standardiserade licenser där skaparen anger hur ett verk får användas.",
+                    "Verkets titel, upphovsperson, källa och licens."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Verkets titel, upphovsperson, källa och licens."
+                }
+              ]
+            });
         });
     </script>
 </body>

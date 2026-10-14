@@ -341,7 +341,71 @@
         })
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-4-4'), {"title": "Quiz: Kap 4.4", "questions": [{"question": "Vad gör en media query?", "options": ["Skapar en ny HTML-fil", "Skickar formulärdata", "Kör CSS bara när ett villkor stämmer", "Byter filformat på bilder"], "correct": 2, "feedback": "Media queries villkorar CSS-regler.", "explanation": "Media queries villkorar CSS-regler."}, {"question": "Vad betyder mobile first?", "options": ["Sidan får bara visas i mobil", "Grund-CSS fungerar på liten skärm först", "Alla bilder tas bort", "CSS skrivs i HTML"], "correct": 1, "feedback": "Sedan byggs större layouter på.", "explanation": "Sedan byggs större layouter på."}, {"question": "Vilken media query passar mobile first?", "options": ["@html (mobile)", "@image (small)", "@form (post)", "@media (min-width: 48rem)"], "correct": 3, "feedback": "min-width lägger till regler från en viss bredd och uppåt.", "explanation": "min-width lägger till regler från en viss bredd och uppåt."}, {"question": "När bör en breakpoint läggas?", "options": ["Alltid exakt vid 375px", "Efter varje rubrik", "När innehållet behöver en annan layout", "Bara när HTML inte validerar"], "correct": 2, "feedback": "Innehållets behov styr brytpunkten.", "explanation": "Innehållets behov styr brytpunkten."}, {"question": "Vad bör du leta efter när du testar responsiv design?", "options": ["Bara om filen heter style.css", "Överlapp, för långa rader och trasiga bilder", "Hur många statuskoder sidan har", "Om GitHub byter färg"], "correct": 1, "feedback": "Responsiv testning handlar om användbar layout.", "explanation": "Responsiv testning handlar om användbar layout."}]});
+            window.renderQuiz(document.getElementById('quiz-4-4'), {
+              "title": "Quiz: Kap 4.4",
+              "questions": [
+                {
+                  "question": "Vilken viewport-rad behövs för responsiv mobilvisning?",
+                  "options": [
+                    "En meta-tagg som gör viewportens bredd lika med enhetens bredd.",
+                    "Grundstilen skrivs för små skärmar och byggs ut för större skärmar.",
+                    "Den tillämpar CSS bara när ett angivet villkor är uppfyllt.",
+                    "Ändra viewportens bredd och kontrollera även tangentbord och fokus."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En meta-tagg som gör viewportens bredd lika med enhetens bredd."
+                },
+                {
+                  "question": "Vad betyder mobile first?",
+                  "options": [
+                    "Ändra viewportens bredd och kontrollera även tangentbord och fokus.",
+                    "En meta-tagg som gör viewportens bredd lika med enhetens bredd.",
+                    "Den tillämpar CSS bara när ett angivet villkor är uppfyllt.",
+                    "Grundstilen skrivs för små skärmar och byggs ut för större skärmar."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Grundstilen skrivs för små skärmar och byggs ut för större skärmar."
+                },
+                {
+                  "question": "När bör en brytpunkt läggas till?",
+                  "options": [
+                    "Grundstilen skrivs för små skärmar och byggs ut för större skärmar.",
+                    "Ändra viewportens bredd och kontrollera även tangentbord och fokus.",
+                    "När innehållet eller layouten behöver ändras, inte för en viss enhetsmodell.",
+                    "En meta-tagg som gör viewportens bredd lika med enhetens bredd."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "När innehållet eller layouten behöver ändras, inte för en viss enhetsmodell."
+                },
+                {
+                  "question": "Vad gör en media query?",
+                  "options": [
+                    "En meta-tagg som gör viewportens bredd lika med enhetens bredd.",
+                    "Den tillämpar CSS bara när ett angivet villkor är uppfyllt.",
+                    "Grundstilen skrivs för små skärmar och byggs ut för större skärmar.",
+                    "Ändra viewportens bredd och kontrollera även tangentbord och fokus."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den tillämpar CSS bara när ett angivet villkor är uppfyllt."
+                },
+                {
+                  "question": "Hur bör en responsiv navigation testas?",
+                  "options": [
+                    "Ändra viewportens bredd och kontrollera även tangentbord och fokus.",
+                    "Grundstilen skrivs för små skärmar och byggs ut för större skärmar.",
+                    "En meta-tagg som gör viewportens bredd lika med enhetens bredd.",
+                    "Den tillämpar CSS bara när ett angivet villkor är uppfyllt."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Ändra viewportens bredd och kontrollera även tangentbord och fokus."
+                }
+              ]
+            });
         });
     </script>
 </body>

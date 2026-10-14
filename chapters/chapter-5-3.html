@@ -202,7 +202,71 @@ if (email.value === "") {
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-5-3'), {"title": "Quiz: Kap 5.3", "questions": [{"question": "Varför lyssnar man ofta på formulärets `submit`-event?", "options": ["Det ändrar automatiskt CSS-färger", "Det fångar både knappklick och Enter i fält", "Det skapar ett nytt inputfält", "Det gör labels onödiga"], "correct": 1, "feedback": "Submit är formulärets skickningshändelse.", "explanation": "Det fungerar även när användaren skickar formuläret med tangentbordet."}, {"question": "Vad gör `event.preventDefault()` i ett formulär?", "options": ["Tar bort alla inputfält", "Byter formulärets id", "Gör sidan till en bild", "Stoppar webbläsarens vanliga formulärskickning"], "correct": 3, "feedback": "preventDefault stoppar standardbeteendet.", "explanation": "Då kan JavaScript kontrollera formuläret och visa feedback utan sidomladdning."}, {"question": "Vad innehåller `email.value` om `email` är ett inputfält?", "options": ["Fältets CSS-regler", "Sidans titel", "Det användaren har skrivit i fältet", "Alla formulär på sidan"], "correct": 2, "feedback": "value är fältets aktuella värde.", "explanation": "Du använder value när du vill läsa vad användaren har skrivit eller valt."}, {"question": "Vad är bäst feedback om ett meddelande är för kort?", "options": ["Fel.", "Meddelandet måste vara minst 10 tecken.", "Dåligt.", "HTML fungerar inte."], "correct": 1, "feedback": "Konkret feedback hjälper användaren.", "explanation": "Säg vad som behöver ändras, inte bara att något är fel."}, {"question": "Var bör feedback från JavaScript ofta visas?", "options": ["Endast i filnamnet", "Som bildens filändelse", "I nav-elementets href", "I ett synligt element nära formuläret"], "correct": 3, "feedback": "Synlig feedback är lättare att förstå.", "explanation": "Ett element nära formuläret gör det tydligt vad feedbacken gäller."}]});
+            window.renderQuiz(document.getElementById('quiz-5-3'), {
+              "title": "Quiz: Kap 5.3",
+              "questions": [
+                {
+                  "question": "Vilket event ska normalt fånga formulärinlämning?",
+                  "options": [
+                    "Via fältets value-egenskap.",
+                    "Formulärets submit-event.",
+                    "Submit fångar även inlämning med Enter i ett formulärfält.",
+                    "Det hindrar sidans vanliga omladdning så att JavaScript kan hantera flödet."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Formulärets submit-event."
+                },
+                {
+                  "question": "Varför används preventDefault i ett övningsformulär?",
+                  "options": [
+                    "Det hindrar sidans vanliga omladdning så att JavaScript kan hantera flödet.",
+                    "Den är tydlig, nära händelsen och berättar vad som hände eller behöver rättas.",
+                    "Submit fångar även inlämning med Enter i ett formulärfält.",
+                    "Via fältets value-egenskap."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det hindrar sidans vanliga omladdning så att JavaScript kan hantera flödet."
+                },
+                {
+                  "question": "Hur läses värdet från ett inputfält?",
+                  "options": [
+                    "Formulärets submit-event.",
+                    "Submit fångar även inlämning med Enter i ett formulärfält.",
+                    "Det hindrar sidans vanliga omladdning så att JavaScript kan hantera flödet.",
+                    "Via fältets value-egenskap."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Via fältets value-egenskap."
+                },
+                {
+                  "question": "Varför är submit bättre än bara knappens click?",
+                  "options": [
+                    "Det hindrar sidans vanliga omladdning så att JavaScript kan hantera flödet.",
+                    "Den är tydlig, nära händelsen och berättar vad som hände eller behöver rättas.",
+                    "Submit fångar även inlämning med Enter i ett formulärfält.",
+                    "Via fältets value-egenskap."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Submit fångar även inlämning med Enter i ett formulärfält."
+                },
+                {
+                  "question": "Vad kännetecknar bra feedback?",
+                  "options": [
+                    "Det hindrar sidans vanliga omladdning så att JavaScript kan hantera flödet.",
+                    "Den är tydlig, nära händelsen och berättar vad som hände eller behöver rättas.",
+                    "Submit fångar även inlämning med Enter i ett formulärfält.",
+                    "Via fältets value-egenskap."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Den är tydlig, nära händelsen och berättar vad som hände eller behöver rättas."
+                }
+              ]
+            });
         });
     </script>
 </body>

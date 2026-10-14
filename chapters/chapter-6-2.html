@@ -77,7 +77,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-6-2'), {"title":"Quiz: Kap 6.2","questions":[{"question":"Varför bör du inte ladda en 4000px bred bild om den visas mycket mindre?","options":["HTML slutar fungera","Användaren laddar onödigt mycket data","Bilden får ingen alt-text","CSS kan inte påverka bilden"],"correct":1,"feedback":"Stora filer kan göra sidan långsam.","explanation":"Visuell nedskalning minskar inte filen som användaren laddar."},{"question":"Vad gör `loading=\"lazy\"` på en bild?","options":["Gör bilden till SVG","Väntar med att ladda bilden tills den behövs","Tar bort bildens höjd","Skapar en ny CSS-fil"],"correct":1,"feedback":"Lazy loading skjuter upp laddning.","explanation":"Det passar ofta för bilder som ligger längre ner på sidan."},{"question":"Vad används `srcset` till?","options":["Låta webbläsaren välja mellan flera bildfiler","Skriva rubriker i bilder","Stoppa alla nätverksanrop","Ersätta `alt`"],"correct":0,"feedback":"srcset ger flera bildkällor.","explanation":"Webbläsaren kan välja en fil som passar skärm och layout."},{"question":"Vilket verktyg kan visa vilka bildfiler som laddas och hur stora de är?","options":["Elements-panelen endast","Network-panelen","Adressfältet","Sidans footer"],"correct":1,"feedback":"Network visar nätverksladdningar.","explanation":"Där kan du se filstorlek, laddningstid och vilka filer som hämtas."},{"question":"Vad betyder komprimering i bildsammanhang?","options":["Att filstorleken minskas, ibland med viss kvalitetsförlust","Att bilden alltid blir större","Att HTML blir CSS","Att bilden får en länk automatiskt"],"correct":0,"feedback":"Komprimering minskar filstorlek.","explanation":"Målet är ofta en bra balans mellan kvalitet och laddningstid."}]});
+            window.renderQuiz(document.getElementById('quiz-6-2'), {
+              "title": "Quiz: Kap 6.2",
+              "questions": [
+                {
+                  "question": "Varför ska en bild ha rätt pixelmått före publicering?",
+                  "options": [
+                    "Det skjuter upp laddning av bilder utanför den synliga delen av sidan.",
+                    "Det erbjuder flera bildfiler så webbläsaren kan välja lämplig storlek.",
+                    "En onödigt stor bild tar längre tid och mer data att ladda.",
+                    "Använd Network-panelen och granska storlek, format och när filerna hämtas."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En onödigt stor bild tar längre tid och mer data att ladda."
+                },
+                {
+                  "question": "Vad innebär bildkomprimering?",
+                  "options": [
+                    "Använd Network-panelen och granska storlek, format och när filerna hämtas.",
+                    "Att minska filstorleken, ibland genom att kasta information som ögat knappt märker.",
+                    "Det skjuter upp laddning av bilder utanför den synliga delen av sidan.",
+                    "Det erbjuder flera bildfiler så webbläsaren kan välja lämplig storlek."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att minska filstorleken, ibland genom att kasta information som ögat knappt märker."
+                },
+                {
+                  "question": "Vad gör loading=\"lazy\"?",
+                  "options": [
+                    "Det skjuter upp laddning av bilder utanför den synliga delen av sidan.",
+                    "Det erbjuder flera bildfiler så webbläsaren kan välja lämplig storlek.",
+                    "Använd Network-panelen och granska storlek, format och när filerna hämtas.",
+                    "En onödigt stor bild tar längre tid och mer data att ladda."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det skjuter upp laddning av bilder utanför den synliga delen av sidan."
+                },
+                {
+                  "question": "Vad gör srcset?",
+                  "options": [
+                    "Det skjuter upp laddning av bilder utanför den synliga delen av sidan.",
+                    "Använd Network-panelen och granska storlek, format och när filerna hämtas.",
+                    "En onödigt stor bild tar längre tid och mer data att ladda.",
+                    "Det erbjuder flera bildfiler så webbläsaren kan välja lämplig storlek."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det erbjuder flera bildfiler så webbläsaren kan välja lämplig storlek."
+                },
+                {
+                  "question": "Hur kontrollerar du bildladdningen?",
+                  "options": [
+                    "Det skjuter upp laddning av bilder utanför den synliga delen av sidan.",
+                    "Det erbjuder flera bildfiler så webbläsaren kan välja lämplig storlek.",
+                    "Använd Network-panelen och granska storlek, format och när filerna hämtas.",
+                    "Att minska filstorleken, ibland genom att kasta information som ögat knappt märker."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Använd Network-panelen och granska storlek, format och när filerna hämtas."
+                }
+              ]
+            });
         });
     </script>
 </body>

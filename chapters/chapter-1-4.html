@@ -369,14 +369,69 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             window.renderQuiz(document.getElementById('quiz-1-4'), {
-                title: 'Quiz: Kap 1.4 - Länkar, bilder och listor',
-                questions: [
-                    { question: 'Vilket attribut anger vart en länk går?', options: ['src', 'href', 'alt', 'lang'], correct: 1, feedback: 'Länkar använder href.', explanation: 'href står för hypertext reference.' },
-                    { question: 'Vilka två attribut behöver en vanlig img-tagg i kursen?', options: ['href och title', 'src och alt', 'id och class', 'post och get'], correct: 1, feedback: 'Bilder behöver sökväg och textalternativ.', explanation: 'src pekar på filen och alt beskriver bilden.' },
-                    { question: 'När passar en ordnad lista bäst?', options: ['När ordningen spelar roll', 'När allt ska bli blått', 'När en bild saknas', 'När du vill länka CSS'], correct: 0, feedback: 'Ordnade listor visar ordning.', explanation: 'ol används för steg, rangordningar och andra ordnade innehåll.' },
-                    { question: 'Vad betyder strong semantiskt?', options: ['Texten ska vara oviktig', 'Texten är viktig', 'Texten är en bild', 'Texten är en länk till CSS'], correct: 1, feedback: 'strong handlar om betydelse.', explanation: 'strong markerar viktig text, inte bara visuell fetstil.' },
-                    { question: 'Vad betyder sökvägen images/profilbild.jpg?', options: ['Filen ligger i mappen images', 'Filen ligger på Google', 'Filen är en CSS-regel', 'Filen är alltid fel'], correct: 0, feedback: 'Det är en relativ sökväg.', explanation: 'Webbläsaren letar i undermappen images efter profilbild.jpg.' }
-                ]
+              "title": "Quiz: Kap 1.4 - Länkar, bilder och listor",
+              "questions": [
+                {
+                  "question": "Vilket element skapar en länk, och vad gör href?",
+                  "options": [
+                    "Bildens relevanta innehåll eller funktion, inte bara ordet bild.",
+                    "Elementet a skapar länken. Attributet href anger vart länken går.",
+                    "strong markerar betydelsefullt innehåll. em markerar betoning.",
+                    "src pekar på bildfilen och alt ger bilden ett textalternativ."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Elementet a skapar länken. Attributet href anger vart länken går."
+                },
+                {
+                  "question": "Vilka två attribut behöver en bild minst?",
+                  "options": [
+                    "src pekar på bildfilen och alt ger bilden ett textalternativ.",
+                    "strong markerar betydelsefullt innehåll. em markerar betoning.",
+                    "Bildens relevanta innehåll eller funktion, inte bara ordet bild.",
+                    "Elementet a skapar länken. Attributet href anger vart länken går."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "src pekar på bildfilen och alt ger bilden ett textalternativ."
+                },
+                {
+                  "question": "Vad ska en bra alt-text beskriva?",
+                  "options": [
+                    "Elementet a skapar länken. Attributet href anger vart länken går.",
+                    "strong markerar betydelsefullt innehåll. em markerar betoning.",
+                    "src pekar på bildfilen och alt ger bilden ett textalternativ.",
+                    "Bildens relevanta innehåll eller funktion, inte bara ordet bild."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Bildens relevanta innehåll eller funktion, inte bara ordet bild."
+                },
+                {
+                  "question": "När använder du ol och när använder du ul?",
+                  "options": [
+                    "Elementet a skapar länken. Attributet href anger vart länken går.",
+                    "Bildens relevanta innehåll eller funktion, inte bara ordet bild.",
+                    "ol används när ordningen spelar roll. ul används när ordningen inte spelar roll.",
+                    "strong markerar betydelsefullt innehåll. em markerar betoning."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "ol används när ordningen spelar roll. ul används när ordningen inte spelar roll."
+                },
+                {
+                  "question": "Vad är den semantiska skillnaden mellan strong och em?",
+                  "options": [
+                    "src pekar på bildfilen och alt ger bilden ett textalternativ.",
+                    "strong markerar betydelsefullt innehåll. em markerar betoning.",
+                    "Bildens relevanta innehåll eller funktion, inte bara ordet bild.",
+                    "Elementet a skapar länken. Attributet href anger vart länken går."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "strong markerar betydelsefullt innehåll. em markerar betoning."
+                }
+              ]
             });
         });
     </script>

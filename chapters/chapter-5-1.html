@@ -214,7 +214,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-5-1'), {"title": "Quiz: Kap 5.1", "questions": [{"question": "Vad tillför JavaScript ofta till en webbsida?", "options": ["Endast sidans struktur", "Beteende och interaktion", "Endast bildformat", "Domännamnet"], "correct": 1, "feedback": "JavaScript kan ge sidan beteende.", "explanation": "HTML beskriver innehåll, CSS presentation och JavaScript beteende."}, {"question": "Varför kan `defer` vara bra på en script-tagg?", "options": ["CSS-filen tas bort", "Alla bilder komprimeras", "Skriptet väntar tills HTML har lästs in", "Formulär skickas automatiskt"], "correct": 2, "feedback": "defer gör att skriptet körs efter att dokumentet har lästs in.", "explanation": "Det minskar risken att JavaScript försöker hitta element som ännu inte finns."}, {"question": "Vad används `console.log()` ofta till?", "options": ["Skapa en HTML-rubrik", "Byta filnamn", "Styla en knapp", "Testa och skriva ut information i konsolen"], "correct": 3, "feedback": "console.log skriver till konsolen.", "explanation": "Det är användbart när du vill se om kod körs eller vilket värde en variabel har."}, {"question": "Var ska du ofta titta först om JavaScript inte fungerar?", "options": ["I bildens alt-text", "I webbläsarens konsol", "I CSS-färgen", "I sidans footer"], "correct": 1, "feedback": "Konsolen visar ofta felmeddelanden.", "explanation": "Felmeddelanden i konsolen kan visa vad som gick fel och ibland på vilken rad."}, {"question": "Vilket arbetssätt passar bäst när du börjar med JavaScript?", "options": ["Skriv hela skriptet utan att testa", "Börja med att ta bort HTML", "Testa små steg och kontrollera ofta", "Lägg all kod i filnamnet"], "correct": 2, "feedback": "Små steg gör fel lättare att hitta.", "explanation": "När du testar ofta vet du vilken ändring som orsakade ett problem."}]});
+            window.renderQuiz(document.getElementById('quiz-5-1'), {
+              "title": "Quiz: Kap 5.1",
+              "questions": [
+                {
+                  "question": "Vad tillför JavaScript till en webbsida?",
+                  "options": [
+                    "Det aktiverar striktare regler och hjälper till att upptäcka vissa kodfel.",
+                    "Beteende och interaktion som kan reagera på användaren och ändra sidan.",
+                    "Då märker du snabbt om skriptet körs och var ett fel uppstår.",
+                    "Att se fel, varningar och utskrifter från JavaScript."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Beteende och interaktion som kan reagera på användaren och ändra sidan."
+                },
+                {
+                  "question": "Hur kopplas en extern JavaScript-fil?",
+                  "options": [
+                    "Med ett script-element vars src pekar på filen.",
+                    "Att se fel, varningar och utskrifter från JavaScript.",
+                    "Då märker du snabbt om skriptet körs och var ett fel uppstår.",
+                    "Beteende och interaktion som kan reagera på användaren och ändra sidan."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Med ett script-element vars src pekar på filen."
+                },
+                {
+                  "question": "Vad används webbläsarens Console till?",
+                  "options": [
+                    "Med ett script-element vars src pekar på filen.",
+                    "Då märker du snabbt om skriptet körs och var ett fel uppstår.",
+                    "Beteende och interaktion som kan reagera på användaren och ändra sidan.",
+                    "Att se fel, varningar och utskrifter från JavaScript."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att se fel, varningar och utskrifter från JavaScript."
+                },
+                {
+                  "question": "Varför bör du börja med små synliga förändringar?",
+                  "options": [
+                    "Att se fel, varningar och utskrifter från JavaScript.",
+                    "Beteende och interaktion som kan reagera på användaren och ändra sidan.",
+                    "Då märker du snabbt om skriptet körs och var ett fel uppstår.",
+                    "Det aktiverar striktare regler och hjälper till att upptäcka vissa kodfel."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Då märker du snabbt om skriptet körs och var ett fel uppstår."
+                },
+                {
+                  "question": "Vad gör strict mode?",
+                  "options": [
+                    "Beteende och interaktion som kan reagera på användaren och ändra sidan.",
+                    "Det aktiverar striktare regler och hjälper till att upptäcka vissa kodfel.",
+                    "Då märker du snabbt om skriptet körs och var ett fel uppstår.",
+                    "Att se fel, varningar och utskrifter från JavaScript."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Det aktiverar striktare regler och hjälper till att upptäcka vissa kodfel."
+                }
+              ]
+            });
         });
     </script>
 </body>

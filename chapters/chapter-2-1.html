@@ -156,7 +156,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-2-1'), {"title": "Quiz: Kap 2.1", "questions": [{"question": "Vad består ett vanligt HTML-element ofta av?", "options": ["Endast en bildfil", "Starttagg, innehåll och sluttagg", "Bara en CSS-regel", "En server och en IP-adress"], "correct": 1, "feedback": "Ett vanligt element har starttagg, innehåll och sluttagg.", "explanation": "Ett vanligt element har starttagg, innehåll och sluttagg."}, {"question": "Vad är ett attribut?", "options": ["Extra information i starttaggen", "En typ av webbläsare", "En statuskod", "En färdig webbserver"], "correct": 0, "feedback": "Attribut skrivs i starttaggen och ger extra information.", "explanation": "Attribut skrivs i starttaggen och ger extra information."}, {"question": "Vad är DOM?", "options": ["En bildkomprimering", "Webbläsarens dokumentmodell av HTML-sidan", "Ett annat namn för CSS", "En licens för bilder"], "correct": 1, "feedback": "DOM är modellen webbläsaren skapar av dokumentet.", "explanation": "DOM är modellen webbläsaren skapar av dokumentet."}, {"question": "Vilket element är förälder i koden <article><p>Text</p></article>?", "options": ["p", "Text", "article", "body alltid"], "correct": 2, "feedback": "article omsluter p och är därför förälder.", "explanation": "article omsluter p och är därför förälder."}, {"question": "Var kan du se DOM-strukturen i webbläsaren?", "options": ["I Elements/Inspector", "I adressfältet", "I filnamnet", "I GitHub Pages-inställningen"], "correct": 0, "feedback": "Inspektorn visar den tolkade dokumentstrukturen.", "explanation": "Inspektorn visar den tolkade dokumentstrukturen."}]});
+            window.renderQuiz(document.getElementById('quiz-2-1'), {
+              "title": "Quiz: Kap 2.1",
+              "questions": [
+                {
+                  "question": "Vilka delar består ett vanligt HTML-element av?",
+                  "options": [
+                    "Document Object Model är webbläsarens trädmodell av HTML-dokumentets noder.",
+                    "Att ett element ligger inuti ett annat och bildar relationer mellan förälder och barn.",
+                    "En starttagg, innehåll och en sluttagg. Starttaggen kan även innehålla attribut.",
+                    "Attributet anger vilken extra information som ges och värdet anger informationens innehåll."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "En starttagg, innehåll och en sluttagg. Starttaggen kan även innehålla attribut."
+                },
+                {
+                  "question": "Vad är skillnaden mellan ett attribut och ett attributvärde?",
+                  "options": [
+                    "Att ett element ligger inuti ett annat och bildar relationer mellan förälder och barn.",
+                    "Attributet anger vilken extra information som ges och värdet anger informationens innehåll.",
+                    "En starttagg, innehåll och en sluttagg. Starttaggen kan även innehålla attribut.",
+                    "Document Object Model är webbläsarens trädmodell av HTML-dokumentets noder."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Attributet anger vilken extra information som ges och värdet anger informationens innehåll."
+                },
+                {
+                  "question": "Ge ett exempel på ett element utan sluttagg.",
+                  "options": [
+                    "img är ett vanligt exempel och har inget eget textinnehåll.",
+                    "Document Object Model är webbläsarens trädmodell av HTML-dokumentets noder.",
+                    "En starttagg, innehåll och en sluttagg. Starttaggen kan även innehålla attribut.",
+                    "Att ett element ligger inuti ett annat och bildar relationer mellan förälder och barn."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "img är ett vanligt exempel och har inget eget textinnehåll."
+                },
+                {
+                  "question": "Vad betyder det att element är nästlade?",
+                  "options": [
+                    "Attributet anger vilken extra information som ges och värdet anger informationens innehåll.",
+                    "En starttagg, innehåll och en sluttagg. Starttaggen kan även innehålla attribut.",
+                    "Document Object Model är webbläsarens trädmodell av HTML-dokumentets noder.",
+                    "Att ett element ligger inuti ett annat och bildar relationer mellan förälder och barn."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Att ett element ligger inuti ett annat och bildar relationer mellan förälder och barn."
+                },
+                {
+                  "question": "Vad är DOM?",
+                  "options": [
+                    "En starttagg, innehåll och en sluttagg. Starttaggen kan även innehålla attribut.",
+                    "Att ett element ligger inuti ett annat och bildar relationer mellan förälder och barn.",
+                    "Document Object Model är webbläsarens trädmodell av HTML-dokumentets noder.",
+                    "Attributet anger vilken extra information som ges och värdet anger informationens innehåll."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Document Object Model är webbläsarens trädmodell av HTML-dokumentets noder."
+                }
+              ]
+            });
         });
     </script>
 </body>

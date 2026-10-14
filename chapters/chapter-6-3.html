@@ -159,7 +159,71 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.renderQuiz(document.getElementById('quiz-6-3'), {"title":"Quiz: Kap 6.3","questions":[{"question":"Varför är `controls` viktigt på video och ljud?","options":["Filen byter format automatiskt","HTML-filen blir en bild","Användaren kan styra uppspelningen","CSS slutar gälla"],"correct":2,"feedback":"controls ger användaren kontroll.","explanation":"Användaren kan starta, pausa och justera uppspelningen."},{"question":"Vad kan talad video behöva för bättre tillgänglighet?","options":["En tom iframe","Textning eller transkription","En större border-radius","En dold title"],"correct":1,"feedback":"Textalternativ hjälper fler användare.","explanation":"Textning och transkription gör innehållet tillgängligt även utan ljud."},{"question":"Vad används `iframe` till?","options":["Att komprimera bilder automatiskt","Att skapa alt-text","Att ersätta alla länkar","Att bädda in innehåll från en annan källa"],"correct":3,"feedback":"iframe bäddar in externt innehåll.","explanation":"Det kan vara till exempel en karta, film eller ett formulär."},{"question":"Varför bör inbäddat innehåll testas på mobil?","options":["Det förvandlas alltid till SVG","Det tar bort media queries","Det kan bli för brett eller svårt att använda","Det fungerar bara i footer"],"correct":2,"feedback":"Inbäddat innehåll kan spräcka layouten.","explanation":"Iframes och video behöver fungera inom sidans responsiva layout."},{"question":"Varför kan `loading=\"lazy\"` vara relevant på en iframe?","options":["Den gör ljud högre","Den kan vänta med att ladda innehåll som inte syns direkt","Den skriver rubriker automatiskt","Den stänger av HTML"],"correct":1,"feedback":"Lazy loading kan minska tidig laddning.","explanation":"Det är särskilt användbart för tungt innehåll längre ner på sidan."}]});
+            window.renderQuiz(document.getElementById('quiz-6-3'), {
+              "title": "Quiz: Kap 6.3",
+              "questions": [
+                {
+                  "question": "Hur ger du användaren uppspelningskontroller?",
+                  "options": [
+                    "Webbläsaren kan välja ett mediaformat som den stöder.",
+                    "Textning med track och vid behov en textversion.",
+                    "Lägg till attributet controls på audio eller video.",
+                    "Ett element som bäddar in innehåll från en annan webbsida eller tjänst."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Lägg till attributet controls på audio eller video."
+                },
+                {
+                  "question": "Varför kan flera source-element användas?",
+                  "options": [
+                    "Lägg till attributet controls på audio eller video.",
+                    "Webbläsaren kan välja ett mediaformat som den stöder.",
+                    "Textning med track och vid behov en textversion.",
+                    "Ett element som bäddar in innehåll från en annan webbsida eller tjänst."
+                  ],
+                  "correct": 1,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Webbläsaren kan välja ett mediaformat som den stöder."
+                },
+                {
+                  "question": "Vad bör video erbjuda för användare som inte hör ljudet?",
+                  "options": [
+                    "Textning med track och vid behov en textversion.",
+                    "Lägg till attributet controls på audio eller video.",
+                    "Webbläsaren kan välja ett mediaformat som den stöder.",
+                    "Ett element som bäddar in innehåll från en annan webbsida eller tjänst."
+                  ],
+                  "correct": 0,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Textning med track och vid behov en textversion."
+                },
+                {
+                  "question": "Vad är ett iframe-element?",
+                  "options": [
+                    "Autouppspelning kan störa och användaren ska kunna styra uppspelningen.",
+                    "Webbläsaren kan välja ett mediaformat som den stöder.",
+                    "Lägg till attributet controls på audio eller video.",
+                    "Ett element som bäddar in innehåll från en annan webbsida eller tjänst."
+                  ],
+                  "correct": 3,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Ett element som bäddar in innehåll från en annan webbsida eller tjänst."
+                },
+                {
+                  "question": "Varför bör media inte starta oväntat?",
+                  "options": [
+                    "Ett element som bäddar in innehåll från en annan webbsida eller tjänst.",
+                    "Webbläsaren kan välja ett mediaformat som den stöder.",
+                    "Autouppspelning kan störa och användaren ska kunna styra uppspelningen.",
+                    "Lägg till attributet controls på audio eller video."
+                  ],
+                  "correct": 2,
+                  "feedback": "Det valda alternativet beskriver ett annat begrepp eller arbetssteg i kapitlet.",
+                  "explanation": "Autouppspelning kan störa och användaren ska kunna styra uppspelningen."
+                }
+              ]
+            });
         });
     </script>
 </body>
