@@ -254,6 +254,211 @@
             background: #ede9fe;
         }
 
+        .axes-explainer {
+            margin: 1rem 0 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            background: var(--surface);
+            color: var(--text);
+            box-shadow: 0 10px 28px rgba(15, 33, 36, 0.08);
+        }
+
+        .axes-explainer__controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .axes-explainer__buttons {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .axes-explainer__buttons button {
+            padding: 0.45rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 0.45rem;
+            background: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+        }
+
+        .axes-explainer__buttons button code {
+            color: inherit;
+        }
+
+        .axes-explainer__buttons button[aria-pressed="true"] {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .axes-explainer__stage {
+            position: relative;
+            min-height: 20rem;
+            padding: 3.5rem 4.5rem;
+            overflow: hidden;
+            border: 2px dashed var(--accent);
+            border-radius: 0.6rem;
+            background: var(--bg-alt);
+        }
+
+        .axes-explainer__items {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-height: 12rem;
+        }
+
+        .axes-explainer[data-direction="column"] .axes-explainer__items {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .axes-explainer__item {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            place-items: center;
+            width: 4rem;
+            min-height: 4rem;
+            border-radius: 0.5rem;
+            border: 2px solid var(--accent);
+            background: #ccfbf1;
+            color: var(--text);
+            font-weight: 800;
+        }
+
+        .axes-explainer__axis {
+            position: absolute;
+            z-index: 3;
+            color: #075aa8;
+            pointer-events: none;
+        }
+
+        .axes-explainer__axis--cross {
+            color: #c2410c;
+        }
+
+        .axes-explainer__line {
+            position: absolute;
+            background: currentColor;
+        }
+
+        .axes-explainer__line::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        .axes-explainer__label {
+            position: absolute;
+            width: max-content;
+            padding: 0.3rem 0.45rem;
+            border-radius: 0.4rem;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: var(--text);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .axes-explainer__label small {
+            display: block;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--main,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--cross {
+            left: 3.75rem;
+            right: 2rem;
+            top: 50%;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--main .axes-explainer__line,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--cross .axes-explainer__line {
+            left: 0;
+            right: 0;
+            height: 0.2rem;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--main .axes-explainer__line::after,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--cross .axes-explainer__line::after {
+            right: -0.1rem;
+            top: -0.35rem;
+            border-top: 0.45rem solid transparent;
+            border-bottom: 0.45rem solid transparent;
+            border-left: 0.7rem solid currentColor;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--main .axes-explainer__label,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--cross .axes-explainer__label {
+            right: 0;
+            top: 0.75rem;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--cross,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--main {
+            left: 50%;
+            top: 2rem;
+            bottom: 2rem;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--cross .axes-explainer__line,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--main .axes-explainer__line {
+            top: 0;
+            bottom: 0;
+            width: 0.2rem;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--cross .axes-explainer__line::after,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--main .axes-explainer__line::after {
+            left: -0.35rem;
+            bottom: -0.1rem;
+            border-left: 0.45rem solid transparent;
+            border-right: 0.45rem solid transparent;
+            border-top: 0.7rem solid currentColor;
+        }
+
+        .axes-explainer[data-direction="row"] .axes-explainer__axis--cross .axes-explainer__label,
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--main .axes-explainer__label {
+            left: 0.75rem;
+            bottom: 0;
+        }
+
+        .axes-explainer[data-direction="column"] .axes-explainer__axis--main .axes-explainer__label {
+            left: 3rem;
+        }
+
+        .axes-explainer__summary {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .axes-explainer__summary p {
+            margin: 0;
+            padding: 0.65rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d8e3e0;
+            background: var(--bg-alt);
+            color: var(--text);
+        }
+
+        .axes-explainer__summary code {
+            color: #075aa8;
+        }
+
         @media (max-width: 720px) {
             .flex-demo-stage {
                 padding: 0.75rem;
@@ -261,6 +466,14 @@
 
             .flex-demo-container {
                 min-height: 12rem;
+            }
+
+            .axes-explainer__stage {
+                padding: 3.5rem 2.5rem;
+            }
+
+            .axes-explainer__summary {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -307,6 +520,29 @@
     </div>
 
     <h2>Riktning och axlar</h2>
+    <p>Flexbox har två axlar. <strong>Huvudaxeln</strong> heter <em>main axis</em> på engelska och bestäms av <code>flex-direction</code>. <strong>Tväraxeln</strong> heter <em>cross axis</em> och går alltid vinkelrätt mot huvudaxeln. Läs mer i <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts#the_two_axes_of_flexbox" target="_blank" rel="noopener noreferrer">MDN:s förklaring av Flexboxens två axlar</a>.</p>
+    <div class="axes-explainer" data-axes-explainer data-direction="row">
+        <div class="axes-explainer__controls">
+            <strong>Byt <code>flex-direction</code></strong>
+            <div class="axes-explainer__buttons" aria-label="Välj flex-direction">
+                <button type="button" data-axis-direction="row" aria-pressed="true"><code>row</code></button>
+                <button type="button" data-axis-direction="column" aria-pressed="false"><code>column</code></button>
+            </div>
+        </div>
+        <div class="axes-explainer__stage">
+            <div class="axes-explainer__items" data-axis-items aria-label="Tre flex-items i rad">
+                <span class="axes-explainer__item">1</span>
+                <span class="axes-explainer__item">2</span>
+                <span class="axes-explainer__item">3</span>
+            </div>
+            <div class="axes-explainer__axis axes-explainer__axis--main" aria-hidden="true"><span class="axes-explainer__line"></span><span class="axes-explainer__label">Huvudaxel<small>Main axis</small></span></div>
+            <div class="axes-explainer__axis axes-explainer__axis--cross" aria-hidden="true"><span class="axes-explainer__line"></span><span class="axes-explainer__label">Tväraxel<small>Cross axis</small></span></div>
+        </div>
+        <div class="axes-explainer__summary" aria-live="polite">
+            <p><strong>Huvudaxel · Main axis</strong><br><code>justify-content</code> placerar längs denna axel. <span data-axis-main-text>Med row är den vågrät.</span></p>
+            <p><strong>Tväraxel · Cross axis</strong><br><code>align-items</code> placerar längs denna axel. <span data-axis-cross-text>Med row är den lodrät.</span></p>
+        </div>
+    </div>
     <pre><code>.cards {
     display: flex;
     flex-direction: row;
@@ -459,6 +695,22 @@
     <script src="../js/quiz.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('[data-axes-explainer]').forEach(function (explainer) {
+                const buttons = Array.from(explainer.querySelectorAll('[data-axis-direction]'))
+                const items = explainer.querySelector('[data-axis-items]')
+                const mainText = explainer.querySelector('[data-axis-main-text]')
+                const crossText = explainer.querySelector('[data-axis-cross-text]')
+                function setDirection(direction) {
+                    explainer.dataset.direction = direction
+                    buttons.forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.axisDirection === direction)) })
+                    if (items) items.setAttribute('aria-label', direction === 'row' ? 'Tre flex-items i rad' : 'Tre flex-items i kolumn')
+                    if (mainText) mainText.textContent = direction === 'row' ? 'Med row är den vågrät.' : 'Med column är den lodrät.'
+                    if (crossText) crossText.textContent = direction === 'row' ? 'Med row är den lodrät.' : 'Med column är den vågrät.'
+                }
+                buttons.forEach(function (button) { button.addEventListener('click', function () { setDirection(button.dataset.axisDirection) }) })
+                setDirection('row')
+            })
+
             const container = document.getElementById('demo-container')
             const direction = document.getElementById('direction')
             const justify = document.getElementById('justify')

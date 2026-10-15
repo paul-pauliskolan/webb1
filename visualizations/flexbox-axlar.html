@@ -1,0 +1,322 @@
+<div id="flexbox-axes-viz" class="axes-viz">
+  <style>
+    #flexbox-axes-viz {
+      color: var(--foreground);
+      display: grid;
+      gap: 1rem;
+      max-width: 50rem;
+      margin-inline: auto;
+    }
+
+    #flexbox-axes-viz .axes-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    #flexbox-axes-viz h2,
+    #flexbox-axes-viz p {
+      margin: 0;
+    }
+
+    #flexbox-axes-viz .axes-controls {
+      display: inline-flex;
+      gap: 0.35rem;
+      padding: 0.25rem;
+      border-radius: 0.65rem;
+      background: var(--muted);
+    }
+
+    #flexbox-axes-viz button {
+      border: 0;
+      border-radius: 0.45rem;
+      padding: 0.5rem 0.75rem;
+      color: var(--foreground);
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 500;
+    }
+
+    #flexbox-axes-viz button[aria-pressed="true"] {
+      color: var(--primary-foreground);
+      background: var(--primary);
+    }
+
+    #flexbox-axes-viz .stage {
+      position: relative;
+      min-height: 25rem;
+      padding: 4.5rem 5.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      background: color-mix(in srgb, var(--card) 92%, var(--viz-series-1) 8%);
+    }
+
+    #flexbox-axes-viz .flex-container {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.75rem;
+      min-height: 15rem;
+      padding: 1.25rem;
+      border: 2px dashed var(--border);
+      border-radius: 0.65rem;
+      background: var(--card);
+    }
+
+    #flexbox-axes-viz .flex-container[data-direction="column"] {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #flexbox-axes-viz .item {
+      position: relative;
+      z-index: 4;
+      display: grid;
+      place-items: center;
+      width: 4rem;
+      min-height: 4rem;
+      border-radius: 0.55rem;
+      color: var(--primary-foreground);
+      background: var(--primary);
+      font-weight: 500;
+    }
+
+    #flexbox-axes-viz .axis {
+      position: absolute;
+      z-index: 3;
+      color: var(--foreground);
+      pointer-events: none;
+    }
+
+    #flexbox-axes-viz .axis-line {
+      position: absolute;
+      background: currentColor;
+    }
+
+    #flexbox-axes-viz .axis-line::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    #flexbox-axes-viz .axis-label {
+      position: absolute;
+      width: max-content;
+      max-width: 14rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 0.4rem;
+      color: var(--foreground);
+      background: var(--background);
+      box-shadow: 0 0 0 1px var(--border);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    #flexbox-axes-viz .axis-label span {
+      display: block;
+      color: var(--muted-foreground);
+      font-weight: 400;
+    }
+
+    #flexbox-axes-viz .axis-main {
+      color: var(--viz-series-1);
+    }
+
+    #flexbox-axes-viz .axis-cross {
+      color: var(--viz-series-2);
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-main {
+      left: 6.25rem;
+      right: 2.5rem;
+      top: 50%;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-main .axis-line,
+    #flexbox-axes-viz[data-direction="column"] .axis-cross .axis-line {
+      left: 0;
+      right: 0;
+      height: 0.2rem;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-main .axis-line::after,
+    #flexbox-axes-viz[data-direction="column"] .axis-cross .axis-line::after {
+      right: -0.15rem;
+      top: -0.38rem;
+      border-top: 0.48rem solid transparent;
+      border-bottom: 0.48rem solid transparent;
+      border-left: 0.72rem solid currentColor;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-main .axis-label {
+      right: 0;
+      top: 0.85rem;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-cross {
+      left: 50%;
+      top: 2.5rem;
+      bottom: 2.5rem;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-cross .axis-line,
+    #flexbox-axes-viz[data-direction="column"] .axis-main .axis-line {
+      top: 0;
+      bottom: 0;
+      width: 0.2rem;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-cross .axis-line::after,
+    #flexbox-axes-viz[data-direction="column"] .axis-main .axis-line::after {
+      left: -0.38rem;
+      bottom: -0.15rem;
+      border-left: 0.48rem solid transparent;
+      border-right: 0.48rem solid transparent;
+      border-top: 0.72rem solid currentColor;
+    }
+
+    #flexbox-axes-viz[data-direction="row"] .axis-cross .axis-label {
+      left: 0.85rem;
+      bottom: 0;
+    }
+
+    #flexbox-axes-viz[data-direction="column"] .axis-main {
+      left: 50%;
+      top: 3rem;
+      bottom: 2.5rem;
+    }
+
+    #flexbox-axes-viz[data-direction="column"] .axis-main .axis-label {
+      left: 0.85rem;
+      bottom: 0;
+    }
+
+    #flexbox-axes-viz[data-direction="column"] .axis-cross {
+      left: 2.5rem;
+      right: 2.5rem;
+      top: 50%;
+    }
+
+    #flexbox-axes-viz[data-direction="column"] .axis-cross .axis-label {
+      right: 0;
+      top: 0.85rem;
+    }
+
+    #flexbox-axes-viz .mapping {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    #flexbox-axes-viz .mapping > div {
+      padding: 0.75rem;
+      border-radius: 0.65rem;
+      background: var(--muted);
+    }
+
+    #flexbox-axes-viz .mapping strong,
+    #flexbox-axes-viz .mapping code {
+      display: block;
+    }
+
+    #flexbox-axes-viz .mapping span {
+      color: var(--muted-foreground);
+    }
+
+    @media (max-width: 560px) {
+      #flexbox-axes-viz .stage {
+        min-height: 27rem;
+        padding: 5rem 3.5rem;
+      }
+
+      #flexbox-axes-viz .mapping {
+        grid-template-columns: 1fr;
+      }
+
+      #flexbox-axes-viz .axis-label {
+        max-width: 10rem;
+      }
+    }
+  </style>
+
+  <div class="axes-header">
+    <div>
+      <h2>Flexboxens två axlar</h2>
+      <p>Byt <code>flex-direction</code> och följ hur axlarna byter riktning.</p>
+    </div>
+    <div class="axes-controls" aria-label="Välj flex-direction">
+      <button type="button" data-direction="row" aria-pressed="true"><code>row</code></button>
+      <button type="button" data-direction="column" aria-pressed="false"><code>column</code></button>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="flex-container" data-flex-container data-direction="row" aria-label="Flex-container med tre flex-items i rad">
+      <span class="item">1</span>
+      <span class="item">2</span>
+      <span class="item">3</span>
+    </div>
+    <div class="axis axis-main" aria-hidden="true">
+      <span class="axis-line"></span>
+      <span class="axis-label">Huvudaxel<span>Main axis</span></span>
+    </div>
+    <div class="axis axis-cross" aria-hidden="true">
+      <span class="axis-line"></span>
+      <span class="axis-label">Tväraxel<span>Cross axis</span></span>
+    </div>
+  </div>
+
+  <div class="mapping" aria-live="polite">
+    <div>
+      <strong>Huvudaxel · Main axis</strong>
+      <code>justify-content</code>
+      <span data-main-readout>Vågrät när flex-direction är row.</span>
+    </div>
+    <div>
+      <strong>Tväraxel · Cross axis</strong>
+      <code>align-items</code>
+      <span data-cross-readout>Lodrät och vinkelrät mot huvudaxeln.</span>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.getElementById("flexbox-axes-viz");
+      const container = root.querySelector("[data-flex-container]");
+      const buttons = [...root.querySelectorAll("button[data-direction]")];
+      const mainReadout = root.querySelector("[data-main-readout]");
+      const crossReadout = root.querySelector("[data-cross-readout]");
+
+      function update(direction, save = true) {
+        root.dataset.direction = direction;
+        container.dataset.direction = direction;
+        container.setAttribute("aria-label", `Flex-container med tre flex-items i ${direction === "row" ? "rad" : "kolumn"}`);
+        buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.direction === direction)));
+        mainReadout.textContent = direction === "row"
+          ? "Vågrät när flex-direction är row."
+          : "Lodrät när flex-direction är column.";
+        crossReadout.textContent = direction === "row"
+          ? "Lodrät och vinkelrät mot huvudaxeln."
+          : "Vågrät och vinkelrät mot huvudaxeln.";
+        if (save && window.openai?.setWidgetState) {
+          window.openai.setWidgetState({ modelContent: { direction }, privateContent: null }).catch(() => {});
+        }
+      }
+
+      buttons.forEach((button) => button.addEventListener("click", () => update(button.dataset.direction)));
+      const savedDirection = window.openai?.widgetState?.modelContent?.direction;
+      update(savedDirection === "column" ? "column" : "row", false);
+      window.addEventListener("openai:set_globals", (event) => {
+        const direction = event.detail?.globals?.widgetState?.modelContent?.direction;
+        if (direction === "row" || direction === "column") update(direction, false);
+      });
+    })();
+  </script>
+</div>

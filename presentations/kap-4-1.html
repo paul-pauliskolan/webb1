@@ -32,7 +32,7 @@
   gap: 1rem;
 }</code></pre><div class="single-flex-demo fragment" data-single-flex><div class="single-flex-control"><label for="single-gap">gap: <span data-single-value>1rem</span><input id="single-gap" type="range" min="0" max="4" step="0.25" value="1" data-single-control data-property="gap" data-unit="rem"></label><code data-single-code>gap: 1rem;</code></div><div class="single-flex-stage" data-single-stage><span class="single-flex-item">1</span><span class="single-flex-item">2</span><span class="single-flex-item">3</span></div></div><p class="fragment"><code>gap</code> skapar mellanrum utan separata marginaler.</p></div></section>
 
-      <section class="slide"><div class="slide-content"><p class="slide-kicker">flex-direction</p><h2>Rad eller kolumn</h2><table class="comparison"><thead><tr><th><code>row</code></th><th><code>column</code></th></tr></thead><tbody><tr><td class="fragment">Huvudaxeln går horisontellt.</td><td class="fragment">Huvudaxeln går vertikalt.</td></tr><tr><td class="fragment">Items ligger sida vid sida.</td><td class="fragment">Items ligger under varandra.</td></tr></tbody></table></div></section>
+      <section class="slide" data-disable-click-navigation><div class="slide-content"><p class="slide-kicker">flex-direction</p><h2>Huvudaxel och tväraxel</h2><p>Huvudaxeln heter <em>main axis</em>. Tväraxeln heter <em>cross axis</em> och går vinkelrätt mot huvudaxeln.</p><div class="slide-axes-explainer" data-slide-axes data-direction="row"><div class="slide-axes-controls" aria-label="Välj flex-direction"><button type="button" data-slide-axis-direction="row" aria-pressed="true"><code>row</code></button><button type="button" data-slide-axis-direction="column" aria-pressed="false"><code>column</code></button></div><div class="slide-axes-stage"><div class="slide-axes-items" data-slide-axis-items aria-label="Tre flex-items i rad"><span>1</span><span>2</span><span>3</span></div><div class="slide-axis slide-axis-main" aria-hidden="true"><i></i><b>Huvudaxel<small>Main axis</small></b></div><div class="slide-axis slide-axis-cross" aria-hidden="true"><i></i><b>Tväraxel<small>Cross axis</small></b></div></div><div class="slide-axes-summary" aria-live="polite"><p><strong><code>justify-content</code></strong><br><span data-slide-main-text>Placerar vågrätt längs huvudaxeln.</span></p><p><strong><code>align-items</code></strong><br><span data-slide-cross-text>Placerar lodrätt längs tväraxeln.</span></p></div></div></div></section>
 
       <section class="slide"><div class="slide-content"><p class="slide-kicker">Interaktiv flex-direction</p><h2>Bestäm huvudaxeln</h2><div class="single-flex-demo fragment" data-single-flex><div class="single-flex-control"><label for="single-direction">flex-direction<select id="single-direction" data-single-control data-property="flexDirection"><option value="row">row</option><option value="column">column</option></select></label><code data-single-code>flex-direction: row;</code><p>Byt riktning och se hur huvudaxeln ändras.</p></div><div class="single-flex-stage" data-single-stage><span class="single-flex-item">1</span><span class="single-flex-item">2</span><span class="single-flex-item">3</span></div></div></div></section>
 
@@ -97,6 +97,22 @@
   <script src="presentation.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-slide-axes]").forEach(function (explainer) {
+        const buttons = Array.from(explainer.querySelectorAll("[data-slide-axis-direction]"));
+        const items = explainer.querySelector("[data-slide-axis-items]");
+        const mainText = explainer.querySelector("[data-slide-main-text]");
+        const crossText = explainer.querySelector("[data-slide-cross-text]");
+        function setAxisDirection(direction) {
+          explainer.dataset.direction = direction;
+          buttons.forEach(function (button) { button.setAttribute("aria-pressed", String(button.dataset.slideAxisDirection === direction)); });
+          if (items) items.setAttribute("aria-label", direction === "row" ? "Tre flex-items i rad" : "Tre flex-items i kolumn");
+          if (mainText) mainText.textContent = direction === "row" ? "Placerar vågrätt längs huvudaxeln." : "Placerar lodrätt längs huvudaxeln.";
+          if (crossText) crossText.textContent = direction === "row" ? "Placerar lodrätt längs tväraxeln." : "Placerar vågrätt längs tväraxeln.";
+        }
+        buttons.forEach(function (button) { button.addEventListener("click", function () { setAxisDirection(button.dataset.slideAxisDirection); }); });
+        setAxisDirection("row");
+      });
+
       const wrapSize = document.querySelector("[data-wrap-size]");
       const wrapStage = document.querySelector("[data-wrap-stage]");
       const wrapSizeValue = document.querySelector("[data-wrap-size-value]");
