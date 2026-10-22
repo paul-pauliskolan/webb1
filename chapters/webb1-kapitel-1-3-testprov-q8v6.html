@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Olistat testprov för kapitel 1–3 i Webbutveckling 1.">
+  <title>Testprov – Webbutveckling 1, kapitel 1–3</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    :root { --test-green:#137a4a; --test-dark:#12372a; --test-soft:#eaf6ef; --test-warn:#9a3412; }
+    .test-shell { max-width: 820px; margin: 0 auto; }
+    .test-card { background:#fff; border:1px solid #d7e4dc; border-radius:16px; padding:clamp(1rem,3vw,2rem); box-shadow:0 10px 30px rgba(18,55,42,.08); }
+    .test-meta,.progress-text { color:#466257; }
+    .name-row { display:grid; gap:.5rem; max-width:420px; margin:1.25rem 0; }
+    input[type="text"] { font:inherit; padding:.8rem; border:2px solid #9db7aa; border-radius:8px; }
+    input[type="text"]:focus, button:focus-visible, .option:focus-within { outline:3px solid #f4b942; outline-offset:3px; }
+    .primary,.secondary { font:inherit; font-weight:700; border-radius:9px; padding:.75rem 1rem; cursor:pointer; }
+    .primary { border:2px solid var(--test-green); background:var(--test-green); color:#fff; }
+    .secondary { border:2px solid var(--test-green); background:#fff; color:var(--test-green); }
+    button:disabled { opacity:.48; cursor:not-allowed; }
+    .progress-track { height:10px; background:#dce9e1; border-radius:999px; overflow:hidden; margin:.6rem 0 1.2rem; }
+    .progress-bar { height:100%; width:0; background:var(--test-green); transition:width .2s ease; }
+    .question-heading { font-size:clamp(1.25rem,3vw,1.65rem); }
+    .code { display:block; white-space:pre-wrap; overflow-wrap:anywhere; background:#f4f6f5; border-left:4px solid var(--test-green); padding:.8rem; margin:1rem 0; }
+    .options { display:grid; gap:.75rem; margin:1.25rem 0; }
+    .option { display:grid; grid-template-columns:auto 1fr; gap:.75rem; align-items:start; border:2px solid #d6e0da; border-radius:10px; padding:.85rem; cursor:pointer; }
+    .option:hover { border-color:#6e9b83; background:#f7fbf8; }
+    .option:has(input:checked) { border-color:var(--test-green); background:var(--test-soft); }
+    .question-nav,.result-actions { display:flex; flex-wrap:wrap; gap:.75rem; justify-content:space-between; margin-top:1.25rem; }
+    .status { min-height:1.5em; color:var(--test-warn); font-weight:700; }
+    .score { font-size:1.35rem; font-weight:800; color:var(--test-dark); }
+    .review { border-top:1px solid #d7e4dc; padding-top:1rem; margin-top:1rem; }
+    .review h3 { margin-bottom:.35rem; }
+    .review p { margin:.35rem 0; }
+    .hidden { display:none !important; }
+    .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (max-width:560px) { .question-nav button,.result-actions button { width:100%; } }
+  </style>
+</head>
+<body class="chapter-page">
+  <nav class="navbar" aria-label="Kurs"><span class="logo">Webbutveckling 1</span></nav>
+  <main class="container test-shell">
+    <header class="chapter-hero">
+      <p class="eyebrow">Olistat testprov</p>
+      <h1>Kapitel 1–3</h1>
+      <p class="subtitle">20 frågor om webben och arbetsflödet, HTML och semantik samt CSS och visuell design.</p>
+    </header>
+
+    <section id="start-view" class="test-card" aria-labelledby="start-title">
+      <h2 id="start-title">Innan du börjar</h2>
+      <p>Du får en fråga i taget. Alla frågor måste besvaras innan provet kan lämnas in. Rätt svar visas först efter inlämningen.</p>
+      <p class="test-meta">Resultatet är ett ögonblicksmått för repetition, inte en automatisk betygssättning.</p>
+      <div class="name-row">
+        <label for="student-name"><strong>Förnamn</strong></label>
+        <input id="student-name" type="text" maxlength="50" autocomplete="given-name" required>
+      </div>
+      <p id="start-error" class="status" role="alert"></p>
+      <button id="start-button" class="primary" type="button">Starta provet</button>
+    </section>
+
+    <section id="quiz-view" class="test-card hidden" aria-live="polite">
+      <p id="progress-text" class="progress-text"></p>
+      <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+      <div id="question-root"></div>
+      <p id="quiz-error" class="status" role="alert"></p>
+      <div class="question-nav">
+        <button id="previous-button" class="secondary" type="button">Föregående</button>
+        <button id="next-button" class="primary" type="button">Nästa</button>
+        <button id="submit-button" class="primary hidden" type="button">Lämna in provet</button>
+      </div>
+    </section>
+
+    <section id="result-view" class="test-card hidden" aria-labelledby="result-title">
+      <h2 id="result-title" tabindex="-1">Resultat</h2>
+      <div id="result-summary"></div>
+      <div id="recommendations"></div>
+      <div id="review-list"></div>
+      <p id="send-status" class="test-meta" role="status"></p>
+      <div class="result-actions">
+        <button id="download-button" class="primary" type="button">Ladda ner allt i MD-fil</button>
+        <button id="copy-button" class="secondary" type="button">Kopiera sammanfattning</button>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer site-footer-wide"><p>© Paul Belfrage. Webbutveckling 1.</p></footer>
+
+  <script>
+  (() => {
+    "use strict";
+    const ENDPOINT = "https://script.google.com/macros/s/AKfycby0tY5nuYFcNIMxYMRiykjicqQVScXIvWz_yA4XCb_jSivnfP6GhtLhJoKrDI8BOoNM/exec";
+    const TEST_ID = "webb1-kapitel-1-3-q8v6";
+    const STORAGE_KEY = "webb1-testprov-kapitel-1-3-q8v6-latest";
+    const questions = [
+      {chapter:"1.1",area:"Webben och HTTP",objective:"Förklara samspelet mellan DNS, klient och server.",stem:"En elev skriver in en domän i webbläsaren. Vilket steg behövs normalt innan webbläsaren kan skicka sin begäran till rätt server?",options:["DNS översätter domännamnet till en IP-adress.","HTTP skapar en lokal kopia av domänen.","TLS byter ut domännamnet mot en filändelse.","Webbläsaren gör domännamnet till en statuskod."],answer:0,explanation:"DNS kopplar domännamnet till den IP-adress som används för att nå rätt server."},
+      {chapter:"1.1",area:"Webben och HTTP",objective:"Tolka statuskoder i en felsökningssituation.",stem:"En sida öppnas, men filen /images/logo.svg ger statuskod 404 i Network-panelen. Vilken slutsats är mest rimlig?",options:["Servern hittar inte resursen på den begärda sökvägen.","Servern hittade filen men krypteringen misslyckades.","Webbläsaren väntar på att DNS ska skapa bildfilen.","Begäran lyckades och bilden har skickats korrekt."],answer:0,explanation:"404 betyder att den begärda resursen inte hittades; sökväg och filnamn bör kontrolleras."},
+      {chapter:"1.1",area:"Webben och HTTP",objective:"Välja HTTP-metod efter syfte.",stem:"Ett formulär ska skicka en ny kontaktförfrågan till en server. Vilken metod passar bäst av de två som behandlas i kapitlet?",options:["POST, eftersom formuläret skickar data till servern.","GET, eftersom metoden alltid skapar nya serverposter.","GET, eftersom formulärdata aldrig får skickas med POST.","POST, eftersom metoden bara kan hämta oförändrade filer."],answer:0,explanation:"POST används normalt när klienten skickar data, exempelvis innehållet i ett formulär."},
+      {chapter:"1.2",area:"Filer och sökvägar",objective:"Felsöka en relativ sökväg utifrån filstruktur.",stem:"index.html ligger i projektets rot och bilden ligger i mappen images. Vilken sökväg ska användas från index.html?",code:"projekt/\n├── index.html\n└── images/\n    └── profil.jpg",options:["images/profil.jpg","../images/profil.jpg","profil.jpg/images","/projekt/index.html/profil.jpg"],answer:0,explanation:"Från rotfilen går sökvägen in i undermappen images och därefter till profil.jpg."},
+      {chapter:"1.3",area:"HTML-grundstruktur",objective:"Skilja metadata från synligt sidinnehåll.",stem:"En elev vill att texten ”Min portfolio” både ska synas i webbläsarfliken och som sidans huvudrubrik. Vilken lösning är korrekt?",options:["Skriv texten i title i head och i h1 i body.","Skriv texten bara i title, eftersom title visas inne på sidan.","Skriv texten bara i h1, eftersom h1 bestämmer flikens namn.","Skriv texten i meta och i head, eftersom båda visas i sidan."],answer:0,explanation:"title anger bland annat flikens text, medan en h1 i body är en synlig huvudrubrik."},
+      {chapter:"1.4",area:"Länkar och bilder",objective:"Använda tillgänglig bildtext i rätt attribut.",stem:"En bild visar ett diagram som förklaras av sidans text. Vilken HTML ger bilden en relevant textbeskrivning?",options:["<img src=\"diagram.png\" alt=\"Stapeldiagram över besök per månad\">","<img href=\"diagram.png\" title=\"Bild\">","<image src=\"diagram.png\" text=\"Stapeldiagram\">","<img alt=\"diagram.png\" link=\"Besök per månad\">"],answer:0,explanation:"img använder src för filen och alt för bildens relevanta innehåll eller funktion."},
+      {chapter:"1.5–1.6",area:"Arbetsflöde och publicering",objective:"Felsöka skillnad mellan lokal och publicerad webbplats.",stem:"En bild fungerar lokalt men saknas på GitHub Pages. Filen heter Profil.JPG, medan HTML använder images/profil.jpg. Vad bör eleven kontrollera först?",options:["Att sökvägens stora och små bokstäver samt filändelse matchar exakt.","Att bilden har en CSS-klass med samma namn som repositoryt.","Att HTML-filen använder POST i stället för GET för bilden.","Att GitHub Pages har en separat DNS-post för varje bild."],answer:0,explanation:"Publiceringsmiljön kan skilja på stora och små bokstäver, så sökvägen måste matcha filnamnet exakt."},
+      {chapter:"2.1",area:"Element och DOM",objective:"Tolka HTML som ett nästlat DOM-träd.",stem:"Vilket påstående beskriver relationen i koden bäst?",code:"<article>\n  <h2>Nyhet</h2>\n  <p>Text</p>\n</article>",options:["h2 och p är syskonelement och båda är barn till article.","article och h2 är syskonelement och p är förälder.","h2 är förälder till article och p är barn till h2.","Alla tre element ligger på samma nivå i DOM-trädet."],answer:0,explanation:"Både h2 och p ligger direkt inuti article och är därför syskon med samma förälderelement."},
+      {chapter:"2.1",area:"Element och attribut",objective:"Skilja element, attribut och innehåll åt.",stem:"Vad är class i följande kod?",code:"<p class=\"intro\">Välkommen</p>",options:["Ett attribut som ger extra information om p-elementet.","Ett separat HTML-element som omsluter texten.","Elementets textinnehåll som visas på sidan.","En sluttagg som avslutar hela dokumentet."],answer:0,explanation:"class är ett attribut i starttaggen och kan bland annat användas av CSS och JavaScript."},
+      {chapter:"2.2",area:"Semantisk HTML",objective:"Välja sidregion efter innehållets betydelse.",stem:"En återkommande meny innehåller länkar till webbplatsens huvudsidor. Vilket element beskriver innehållets funktion bäst?",options:["nav","section","strong","span"],answer:0,explanation:"nav är avsett för grupper av navigationslänkar och gör strukturen tydligare för hjälpmedel."},
+      {chapter:"2.2",area:"Semantisk HTML",objective:"Skapa en logisk rubrikstruktur.",stem:"Sidan har h1 ”Recept” och därefter h2 ”Desserter”. Vilken rubrik passar bäst för ett recept på äppelpaj under Desserter?",options:["h3, eftersom receptet är en undernivå till Desserter.","h1, eftersom varje nytt recept alltid måste vara huvudrubrik.","h4, eftersom h3 bara får användas i navigation.","p, eftersom rubriknivåer inte ska användas inuti main."],answer:0,explanation:"En h3 uttrycker att receptet är en underdel till h2-sektionen Desserter."},
+      {chapter:"2.3",area:"Formulär",objective:"Koppla en synlig etikett till rätt formulärfält.",stem:"Vilken kod kopplar etiketten ”E-post” programmatiskt till fältet?",options:["<label for=\"email\">E-post</label><input id=\"email\" name=\"email\">","<label id=\"email\">E-post</label><input for=\"email\" name=\"email\">","<label name=\"email\">E-post</label><input label=\"email\">","<label>E-post</label><input id=\"namn\" title=\"email\">"],answer:0,explanation:"label-elementets for-värde ska matcha input-elementets id."},
+      {chapter:"2.3–2.4",area:"Formulär",objective:"Förstå vad name gör när formulärdata skickas.",stem:"Ett textfält har id men saknar name. Vad är den viktigaste följden när ett vanligt formulär skickas?",options:["Fältets värde saknar nyckel och följer normalt inte med i formulärdatan.","Fältet kan inte få tangentbordsfokus eller skrivas i.","Fältet blir automatiskt frivilligt även om required finns.","Fältets id ersätts automatiskt med etikettens text."],answer:0,explanation:"name används som nyckel för det värde som skickas från formuläret."},
+      {chapter:"2.4–2.5",area:"Tillgängliga formulär",objective:"Välja validering och återkoppling som hjälper användaren.",stem:"Ett obligatoriskt e-postfält innehåller ”anna@”. Vilken lösning ger bäst grund för begriplig validering?",options:["Använd type=\"email\" och required samt visa ett tydligt felmeddelande nära fältet.","Använd type=\"text\" och markera bara fältet med röd bakgrund.","Ta bort label och skriv formatkravet enbart som placeholder.","Använd type=\"password\" så att webbläsaren kontrollerar domänen."],answer:0,explanation:"Rätt inputtyp och required ger inbyggd kontroll; textnära återkoppling förklarar hur felet rättas."},
+      {chapter:"3.1",area:"CSS och kaskaden",objective:"Koppla en extern stilmall korrekt.",stem:"index.html och style.css ligger i samma mapp. Vilken rad ska ligga i head för att koppla stilmallen?",options:["<link rel=\"stylesheet\" href=\"style.css\">","<style src=\"style.css\"></style>","<script rel=\"css\" href=\"style.css\"><\/script>","<css link=\"style.css\" type=\"stylesheet\">"],answer:0,explanation:"Ett link-element med rel=stylesheet och rätt href kopplar en extern CSS-fil."},
+      {chapter:"3.1, 3.4",area:"Kaskad och specificitet",objective:"Avgöra vilken regel som vinner.",stem:"Vilken textfärg får stycket när båda reglerna gäller?",code:"p { color: navy; }\n.note { color: darkgreen; }\n\n<p class=\"note\">Information</p>",options:["Mörkgrön, eftersom klass-selektorn har högre specificitet.","Marinblå, eftersom typselektorn står först i CSS-filen.","Mörkgrön, eftersom arv alltid vinner över direkta regler.","Marinblå, eftersom p-element inte kan stylas med klasser."],answer:0,explanation:"En klass-selektor har högre specificitet än en typselektor när båda matchar samma element."},
+      {chapter:"3.2",area:"Läsbarhet och kontrast",objective:"Förbättra läsbar typografi utan att ändra innehållet.",stem:"En lång brödtext sträcker sig över hela en bred skärm och raderna blir svåra att följa. Vilken åtgärd är mest träffsäker?",options:["Begränsa textytan med max-width i ch och använd ett läsbart line-height.","Öka text-align till justify och ta bort allt radavstånd.","Sätt width till 100vw och minska font-size på stora skärmar.","Använd starkare CSS-specificitet på varje enskilt ord."],answer:0,explanation:"Begränsad radlängd och rimligt radavstånd gör längre text lättare att läsa."},
+      {chapter:"3.3",area:"Boxmodellen",objective:"Beräkna ett elements synliga bredd med content-box.",stem:"Ett element har standardvärdet content-box. Hur bred blir boxen inklusive padding och border, men utan margin?",code:"width: 240px;\npadding: 20px;\nborder: 5px solid;",options:["290px","265px","250px","240px"],answer:0,explanation:"240 + 20 + 20 i padding + 5 + 5 i border ger 290 px."},
+      {chapter:"3.3",area:"Boxmodellen",objective:"Förstå effekten av border-box.",stem:"Samma element får box-sizing: border-box och width: 240px. Vad innebär det?",options:["Padding och border räknas in i den angivna bredden 240px.","Margin räknas in men padding läggs utanför bredden.","Innehållet blir 240px och padding samt border läggs ovanpå.","Elementet blir alltid lika brett som webbläsarfönstret."],answer:0,explanation:"Med border-box omfattar width innehållsyta, padding och border, men inte margin."},
+      {chapter:"3.4–3.5",area:"Selektorer och användbar design",objective:"Välja återanvändbar CSS och synliga interaktionstillstånd.",stem:"Flera länkar ska ha samma knappstil och ett tydligt tangentbordsfokus. Vilken strategi är mest lämplig?",options:["Ge länkarna en gemensam klass och definiera både :hover och :focus-visible.","Ge varje länk ett unikt id och ta bort webbläsarens fokusmarkering.","Skriv samma inline-style på varje länk och använd bara :hover.","Styla alla a-element med !important och dölj outline utan ersättning."],answer:0,explanation:"En gemensam klass är återanvändbar, och focus-visible gör tangentbordsfokus tydligt utan att förlita sig på hover."}
+    ];
+
+    const state = {studentName:"",ordered:[],answers:[],index:0,result:null};
+    const $ = (id) => document.getElementById(id);
+    const shuffle = (items) => {
+      const copy = [...items];
+      for (let i=copy.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [copy[i],copy[j]]=[copy[j],copy[i]]; }
+      return copy;
+    };
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+    function prepareQuestions() {
+      const positions = shuffle([0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3]);
+      return shuffle(questions).map((question,index) => {
+        const correctText=question.options[question.answer];
+        const wrong=shuffle(question.options.filter((_,i)=>i!==question.answer));
+        const options=[...wrong]; options.splice(positions[index],0,correctText);
+        return {...question,options,correct:positions[index]};
+      });
+    }
+    function start() {
+      const name=$("student-name").value.trim();
+      if (!name) { $("start-error").textContent="Skriv ditt förnamn innan du startar."; $("student-name").focus(); return; }
+      state.studentName=name; state.ordered=prepareQuestions(); state.answers=Array(questions.length).fill(null);
+      $("start-view").classList.add("hidden"); $("quiz-view").classList.remove("hidden"); renderQuestion();
+    }
+    function renderQuestion() {
+      const q=state.ordered[state.index];
+      $("progress-text").textContent=`Fråga ${state.index+1} av ${state.ordered.length} · Kapitel ${q.chapter}`;
+      $("progress-bar").style.width=`${((state.index+1)/state.ordered.length)*100}%`;
+      const code=q.code?`<code class="code">${escapeHtml(q.code)}</code>`:"";
+      $("question-root").innerHTML=`<h2 class="question-heading" tabindex="-1">${escapeHtml(q.stem)}</h2>${code}<fieldset><legend class="visually-hidden">Välj ett svar</legend><div class="options">${q.options.map((option,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${state.answers[state.index]===i?"checked":""}><span><strong>${String.fromCharCode(65+i)}.</strong> ${escapeHtml(option)}</span></label>`).join("")}</div></fieldset>`;
+      $("question-root").querySelectorAll('input[name="answer"]').forEach(input=>input.addEventListener("change",()=>{state.answers[state.index]=Number(input.value); $("quiz-error").textContent="";}));
+      $("previous-button").disabled=state.index===0;
+      $("next-button").classList.toggle("hidden",state.index===state.ordered.length-1);
+      $("submit-button").classList.toggle("hidden",state.index!==state.ordered.length-1);
+      $("question-root").querySelector("h2").focus();
+    }
+    function move(delta) { state.index+=delta; renderQuestion(); }
+    function submit() {
+      const unanswered=state.answers.findIndex(answer=>answer===null);
+      if (unanswered!==-1) { state.index=unanswered; renderQuestion(); $("quiz-error").textContent=`Besvara fråga ${unanswered+1} innan du lämnar in.`; return; }
+      const details=state.ordered.map((q,i)=>({...q,number:i+1,selected:state.answers[i],isCorrect:state.answers[i]===q.correct}));
+      const score=details.filter(item=>item.isCorrect).length;
+      const percent=Math.round(score/details.length*100);
+      const areaMisses={}; details.filter(item=>!item.isCorrect).forEach(item=>{areaMisses[item.area]=(areaMisses[item.area]||0)+1;});
+      const priorities=Object.entries(areaMisses).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"sv")).slice(0,3).map(([area])=>area);
+      const recommendations=priorities.length?priorities.map(area=>recommendationFor(area)): ["Fortsätt befästa kunskaperna genom att bygga en liten sida från grunden och förklara dina val."];
+      state.result={details,score,percent,priorities,recommendations,date:new Date().toLocaleString("sv-SE")};
+      localStorage.setItem(STORAGE_KEY,JSON.stringify({studentName:state.studentName,score,percent,recommendations,date:state.result.date}));
+      showResult(); sendSummary();
+    }
+    function recommendationFor(area) {
+      const map={
+        "Webben och HTTP":"Repetera kapitel 1.1 och använd Network-panelen för att identifiera resurser, metoder och statuskoder.",
+        "Filer och sökvägar":"Repetera kapitel 1.2 och rita en mappstruktur innan du skriver tre relativa sökvägar.",
+        "HTML-grundstruktur":"Repetera kapitel 1.3 och bygg ett validerat dokument med korrekt head, title och body.",
+        "Länkar och bilder":"Repetera kapitel 1.4 och kontrollera href, src och relevanta alt-texter i en egen sida.",
+        "Arbetsflöde och publicering":"Repetera kapitel 1.5–1.6 och kontrollera filnamn, validering och sökvägar före publicering.",
+        "Element och DOM":"Repetera kapitel 2.1 och rita DOM-trädet för ett kort HTML-exempel.",
+        "Element och attribut":"Repetera kapitel 2.1 och markera starttagg, attribut, innehåll och sluttagg i fem element.",
+        "Semantisk HTML":"Repetera kapitel 2.2 och strukturera en sida med header, nav, main, section och footer.",
+        "Formulär":"Repetera kapitel 2.3 och bygg ett formulär där varje label, id och name har en tydlig funktion.",
+        "Tillgängliga formulär":"Repetera kapitel 2.4–2.5 och testa required, type=email samt begripliga felmeddelanden.",
+        "CSS och kaskaden":"Repetera kapitel 3.1 och koppla en extern CSS-fil samt testa två konkurrerande regler.",
+        "Kaskad och specificitet":"Repetera kapitel 3.1 och 3.4 genom att förutsäga vilken av typ-, klass- och id-regler som vinner.",
+        "Läsbarhet och kontrast":"Repetera kapitel 3.2 och testa kontrast, line-height och max-width i ch på en text.",
+        "Boxmodellen":"Repetera kapitel 3.3 och beräkna total bredd med både content-box och border-box.",
+        "Selektorer och användbar design":"Repetera kapitel 3.4–3.5 och skapa en återanvändbar klass med tydliga hover- och fokuslägen."
+      }; return map[area]||`Repetera ${area} med ett eget kodexempel och kontrollera det i webbläsaren.`;
+    }
+    function showResult() {
+      $("quiz-view").classList.add("hidden"); $("result-view").classList.remove("hidden");
+      const r=state.result; const wrong=r.details.filter(item=>!item.isCorrect);
+      $("result-summary").innerHTML=`<p class="score">${escapeHtml(state.studentName)}: ${r.score} av ${r.details.length} rätt (${r.percent} %)</p><p>${wrong.length?`Felaktiga frågenummer: ${wrong.map(item=>item.number).join(", ")}.`:"Alla frågor blev rätt."}</p>`;
+      $("recommendations").innerHTML=`<h3>Prioriterad repetition</h3><ol>${r.recommendations.map(text=>`<li>${escapeHtml(text)}</li>`).join("")}</ol>`;
+      $("review-list").innerHTML=wrong.length?`<h3>Genomgång av felaktiga svar</h3>${wrong.map(item=>`<article class="review"><h3>Fråga ${item.number} · Kapitel ${escapeHtml(item.chapter)}</h3><p><strong>Fråga:</strong> ${escapeHtml(item.stem)}</p><p><strong>Ditt svar:</strong> ${escapeHtml(item.options[item.selected])}</p><p><strong>Rätt svar:</strong> ${escapeHtml(item.options[item.correct])}</p><p><strong>Förklaring:</strong> ${escapeHtml(item.explanation)}</p></article>`).join("")}`:`<p>Fortsätt gärna med en egen liten sida där du kombinerar HTML och CSS.</p>`;
+      $("result-title").focus();
+    }
+    function summaryText() {
+      const r=state.result; return `${state.studentName}: ${r.score} av ${r.details.length} rätt (${r.percent} %). Rekommenderad repetition: ${r.recommendations.join(" ")}`;
+    }
+    function markdown() {
+      const r=state.result; const wrong=r.details.filter(item=>!item.isCorrect);
+      const review=wrong.length?wrong.map(item=>`## Fråga ${item.number} – Kapitel ${item.chapter}\n\n**Fråga:** ${item.stem}\n\n**Ditt svar:** ${item.options[item.selected]}\n\n**Rätt svar:** ${item.options[item.correct]}\n\n**Förklaring:** ${item.explanation}`).join("\n\n"):`## Felaktiga frågor\n\nInga – alla svar var rätt.`;
+      return `# Resultat – Webbutveckling 1, kapitel 1–3\n\n- **Förnamn:** ${state.studentName}\n- **Datum:** ${r.date}\n- **Resultat:** ${r.score} av ${r.details.length} rätt (${r.percent} %)\n\n## Sammanfattning\n\n${summaryText()} Resultatet är ett underlag för repetition och inte en automatisk betygssättning.\n\n## Prioriterade kapitel och aktiviteter\n\n${r.recommendations.map((x,i)=>`${i+1}. ${x}`).join("\n")}\n\n${review}\n\n## Rekommenderat nästa steg\n\nGenomför aktiviteterna ovan, bygg därefter ett eget litet exempel och kontrollera att du kan förklara varför lösningen fungerar.\n`;
+    }
+    function downloadMarkdown() {
+      const blob=new Blob([markdown()],{type:"text/markdown;charset=utf-8"}); const url=URL.createObjectURL(blob); const a=document.createElement("a");
+      const safe=state.studentName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"elev";
+      a.href=url; a.download=`resultat-${safe}-webbutveckling-1.md`; a.click(); URL.revokeObjectURL(url);
+    }
+    async function copySummary() { try { await navigator.clipboard.writeText(summaryText()); $("copy-button").textContent="Sammanfattningen är kopierad"; } catch { $("send-status").textContent="Kopiering misslyckades. Markera sammanfattningen och kopiera manuellt."; } }
+    function sendSummary() {
+      const r=state.result; const recommendations=r.recommendations.join(" ");
+      fetch(ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({type:"testSummary",testId:TEST_ID,studentName:state.studentName,score:r.score,total:r.details.length,percent:r.percent,recommendations,pagePath:window.location.pathname})})
+        .then(()=>{$("send-status").textContent="Lärarsammanfattningen har skickats. (Mottagningen behöver kontrolleras i kalkylarket.)";})
+        .catch(()=>{$("send-status").textContent="Resultatet sparades lokalt, men kunde inte skickas. Meddela läraren.";});
+    }
+    $("start-button").addEventListener("click",start);
+    $("student-name").addEventListener("keydown",event=>{if(event.key==="Enter")start();});
+    $("previous-button").addEventListener("click",()=>move(-1));
+    $("next-button").addEventListener("click",()=>move(1));
+    $("submit-button").addEventListener("click",submit);
+    $("download-button").addEventListener("click",downloadMarkdown);
+    $("copy-button").addEventListener("click",copySummary);
+  })();
+  </script>
+</body>
+</html>
