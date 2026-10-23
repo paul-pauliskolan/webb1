@@ -150,6 +150,14 @@
       $("question-root").querySelector("h2").focus();
     }
     function move(delta) { state.index+=delta; renderQuestion(); }
+    function moveForward() {
+      if (state.answers[state.index]===null) {
+        $("quiz-error").textContent="Välj ett svar innan du går vidare.";
+        $("question-root").querySelector('input[name="answer"]')?.focus();
+        return;
+      }
+      move(1);
+    }
     function submit() {
       const unanswered=state.answers.findIndex(answer=>answer===null);
       if (unanswered!==-1) { state.index=unanswered; renderQuestion(); $("quiz-error").textContent=`Besvara fråga ${unanswered+1} innan du lämnar in.`; return; }
@@ -213,7 +221,7 @@
     $("start-button").addEventListener("click",start);
     $("student-name").addEventListener("keydown",event=>{if(event.key==="Enter")start();});
     $("previous-button").addEventListener("click",()=>move(-1));
-    $("next-button").addEventListener("click",()=>move(1));
+    $("next-button").addEventListener("click",moveForward);
     $("submit-button").addEventListener("click",submit);
     $("download-button").addEventListener("click",downloadMarkdown);
     $("copy-button").addEventListener("click",copySummary);
