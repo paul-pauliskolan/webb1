@@ -201,6 +201,38 @@
                 <p><a href="../assets/solutions/kap-5-1-losningsforslag.zip" download>Ladda ner lösningsförslag för kapitel 5.1</a></p>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-5-1">
+                <h2 id="exercises-5-1">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 5-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 5-1</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn5-1.html</code>. Gör båda övningarna i denna fil. Skapa också undermappen <code>js</code> med filen <code>main.js</code> för din JavaScript-kod.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                    <li>Koppla JavaScript-filen i <code>head</code> med <code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code>. Spara filerna och öppna <code>ovn5-1.html</code> i webbläsaren. Testa efter varje ändring.</li>
+                </ol>
+                <h3>Övning 1: Koppla JavaScript och hitta utskriften</h3>
+                <p>Bygg en enkel informationssida för en skolklubb och kontrollera att webbläsaren kör din JavaScript-fil.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur med svenska som språk, sidtitel och viewport-inställning. Lägg till en huvudrubrik, en presentation och en lista med tre aktiviteter.</li>
+                    <li>Koppla <code>js/main.js</code> med ett <code>script</code>-element i <code>head</code>. Använd <code>src="js/main.js"</code> och <code>defer</code>.</li>
+                    <li>Skriv <code>console.log("Klubbens JavaScript har startat");</code> i JavaScript-filen. Spara båda filerna och öppna HTML-filen i webbläsaren.</li>
+                    <li>Öppna utvecklarverktygens <strong>Console</strong> och ladda om sidan. Leta upp utskriften och länken till filen och radnumret.</li>
+                    <li>Ändra meddelandet och ladda om igen. Skriv en HTML-kommentar om vilken fil som ger struktur, vilken kod som ger utseende och vilken fil som kan ge beteende.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Meddelandet ska synas i konsolen efter omladdning. Förklara varför console.log inte skriver ut text i själva webbsidan och vad defer gör.</p>
+                <h3>Övning 2: Felsök två avsiktliga fel</h3>
+                <p>Fortsätt i samma projekt och träna på att hitta orsaken när JavaScript inte fungerar.</p>
+                <ol>
+                    <li>Lägg två olika <code>console.log</code>-rader efter varandra i <code>js/main.js</code>. Kontrollera först att båda visas.</li>
+                    <li>Ändra tillfälligt sökvägen i HTML-filens <code>script</code>-element till <code>js/saknas.js</code>. Spara, töm konsolen och ladda om. Läs felmeddelandet och kontrollera vilken fil webbläsaren försöker hämta.</li>
+                    <li>Rätta sökvägen och kontrollera att båda utskrifterna kommer tillbaka.</li>
+                    <li>Ta tillfälligt bort det avslutande citattecknet i den andra utskriften. Ladda om och använd konsolens filnamn och radnummer för att hitta syntaxfelet. Ett syntaxfel kan hindra hela filen från att köras.</li>
+                    <li>Återställ citattecknet och testa igen. Skriv kommentarer i JavaScript-filen som beskriver de två felen och hur du rättade dem.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Båda meddelandena ska visas och inga fel ska finnas kvar. Förklara skillnaden mellan en felaktig sökväg och ett syntaxfel och varför du testar en ändring i taget.</p>
+            </section>
+
             <div id="quiz-5-1" aria-label="Quiz Kap 5.1"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="ovningsuppgift-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">Övningsuppgift 2: rätta HTML och skapa CSS-layout</span></span></a>

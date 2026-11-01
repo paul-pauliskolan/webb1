@@ -172,6 +172,38 @@
                 </ul>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-6-4">
+                <h2 id="exercises-6-4">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 6-4</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 6-4</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn6-4.html</code>. Gör båda övningarna i samma fil, i varsin del av sidan.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du i stället använda en extern CSS-fil, till exempel <code>style.css</code>, som du länkar från varje sida.</li>
+                    <li>Använd nedladdningslänkarna i övningarna. Om en fil öppnas i webbläsaren, välj <strong>Spara bild som</strong> eller spelarens nedladdningsalternativ. Behåll filnamnen och spara filerna i den undermapp som anges.</li>
+                </ol>
+                <h3>Övning 1: Hitta och rätta saknade filer</h3>
+                <p>Bygg en liten testsida och använd Network för att hitta två avsiktliga fel.</p>
+                <ol>
+                    <li>Ladda ner <a href="../assets/images/dog.jpg" download="dog.jpg">dog.jpg – brun hund mot mörk bakgrund</a> till <code>bilder</code>. Skapa också en undermapp <code>js</code> med <code>main.js</code> och skriv <code>console.log("Filerna fungerar");</code> där.</li>
+                    <li>Bygg en fullständig HTML-sida med rubrik och hundbild. Använd <code>src="bilder/dog.jpg"</code> och beskrivande alt-text. Koppla <code>js/main.js</code> med <code>defer</code>. Kontrollera först att sidan fungerar.</li>
+                    <li>Öppna sidan med Live Server, så att adressen börjar med <code>http://</code>. Ändra sedan tillfälligt bildsökvägen till <code>bilder/saknas.jpg</code> och skriptsökvägen till <code>js/saknas.js</code>.</li>
+                    <li>Öppna Network, välj <strong>Disable cache</strong> och ladda om med DevTools öppet. Leta upp förfrågningarna som misslyckas och läs deras status och fullständiga sökvägar. Kontrollera även Console.</li>
+                    <li>Rätta ett fel i taget i VS Code och ladda om efter varje ändring. Skriv på sidan vilka två fel du skapade, vad Network visade och hur du rättade dem.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Slutversionen ska visa bilden och konsolmeddelandet utan saknade filer. Förklara vad status 404 betyder och varför ändringar i Elements måste föras över till källfilen för att sparas.</p>
+                <h3>Övning 2: Mät en förbättring med Network och Lighthouse</h3>
+                <p>Fortsätt i samma HTML-fil och dokumentera hur en konkret ändring påverkar sidan.</p>
+                <ol>
+                    <li>Öppna hundbilden från övning 1 i ett bildverktyg och exportera en PNG med samma dimensioner, 400 × 267 pixlar. Spara som <code>bilder/hund-stor.png</code>. Exportera även en komprimerad WebP som <code>bilder/hund-optimerad.webp</code>. Jämför filstorlekarna; välj en WebP-inställning som ger en mindre fil med acceptabel kvalitet.</li>
+                    <li>Använd först PNG-filen som sidans bild. I Network: stäng av cache, ladda om och anteckna bildens överförda storlek. Kör en Lighthouse-rapport för mobil och anteckna ett konkret fynd eller en kontroll som sidan klarar.</li>
+                    <li>Byt bildens src till WebP-filen utan att ändra dess visningsstorlek. Ladda om under samma förhållanden och jämför överförd storlek. Skriv hur många kB du sparade.</li>
+                    <li>Kör Lighthouse igen med samma inställningar. Välj en relevant rekommendation om någon finns och kontrollera den mot din kod. Om rapporten inte ger något lämpligt förbättringsförslag, dokumentera det och förklara ändå bildbytet utifrån Network-mätningen.</li>
+                    <li>Testa sidan vid cirka 375 och 1200 pixlars bredd. Undersök bildens CSS i Elements och rätta eventuella breddproblem i VS Code. Lägg en före- och eftertabell på sidan med filnamn, storlek och din slutsats.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Inga filer ska saknas och sidan ska fungera i båda bredderna. Bedöm förbättringen utifrån den mindre överföringen och bibehållen bildkvalitet; en så liten sida behöver inte få ett högre Lighthouse-poängtal.</p>
+            </section>
+
             <div id="quiz-6-4" aria-label="Quiz Kap 6.4"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-6-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.3 Ljud, video och inbäddat innehåll</span></span></a>

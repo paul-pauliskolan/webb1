@@ -673,14 +673,38 @@
     display: flex;
 }</code></pre>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Skapa en meny med fyra länkar.</li>
-        <li>Gör menyn till flex-container.</li>
-        <li>Lägg till <code>gap</code> och testa olika <code>justify-content</code>.</li>
-        <li>Skapa tre kort och låt dem brytas till ny rad med <code>flex-wrap</code>.</li>
-    </ol>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-4-1">
+                <h2 id="exercises-4-1">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 4-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 4-1</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa HTML-filen <code>ovn4-1.html</code>. Gör båda övningarna i denna fil, i varsin del av sidan.</li>
+                    <li>Skriv din CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du i stället skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                </ol>
+                <h3>Övning 1: Bygg en meny med flexbox</h3>
+                <p>Skapa en navigation för en förening eller ett eget intresse. Menyn ska innehålla fyra länkar till avsnitt på samma sida.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur med svenska som språk, sidtitel och viewport-inställning. Lägg en huvudrubrik och en <code>nav</code> i sidans <code>header</code>. Skapa fyra avsnitt med rubriker och <code>id</code> som länkarna leder till.</li>
+                    <li>Gör navigationen till en flex-container. Placera länkarna på rad och använd <code>gap</code> för avståndet mellan dem.</li>
+                    <li>Testa <code>justify-content: flex-start</code>, <code>center</code> och <code>space-between</code>. Välj sedan det som passar din meny.</li>
+                    <li>Ge navigationen en <code>min-height</code> och använd <code>align-items</code> för att centrera länkarna längs tväraxeln.</li>
+                    <li>Byt tillfälligt <code>flex-direction</code> från <code>row</code> till <code>column</code>. Skriv en HTML-kommentar där du förklarar hur huvudaxeln ändras. Återställ sedan till <code>row</code>.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Klicka på alla fyra länkar och kontrollera att rätt avsnitt visas. Kan du peka ut huvudaxeln och tväraxeln och förklara vilken egenskap som styr placeringen längs varje axel?</p>
+                <h3>Övning 2: Skapa kort som byter rad</h3>
+                <p>Fortsätt i samma HTML-fil. Lägg till en sektion med fyra kort som presenterar aktiviteter, spel eller kurser.</p>
+                <ol>
+                    <li>Använd ett <code>article</code> per kort med en rubrik och en kort beskrivning. Låt ett kort innehålla mer text än de andra.</li>
+                    <li>Gör kortens gemensamma förälder till en flex-container med <code>gap</code> och <code>flex-wrap: wrap</code>.</li>
+                    <li>Ge korten <code>flex-basis: 14rem</code> och <code>flex-grow: 1</code>. Använd padding, bakgrund och kantlinje så att kortens ytor syns.</li>
+                    <li>Testa <code>align-items: stretch</code> och <code>flex-start</code> på containern. Välj lika höga kort inom varje rad.</li>
+                    <li>Ändra tillfälligt kortens <code>flex-grow</code> till <code>0</code> och jämför. Återställ till <code>1</code> och skriv en HTML-kommentar om hur det lediga utrymmet fördelas.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Minska fönstrets bredd tills korten ligger på flera rader. Kontrollera att mellanrummen finns kvar och att korten växer när det finns ledigt utrymme. Förklara varför wrap ska sättas på föräldern.</p>
+            </section>
 
             <div id="quiz-4-1" aria-label="Quiz Kap 4.1"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

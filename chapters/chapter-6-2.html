@@ -64,6 +64,38 @@
                 <p>Använd Network-panelen i utvecklarverktygen för att se vilka bildfiler som laddas och hur stora de är.</p>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-6-2">
+                <h2 id="exercises-6-2">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 6-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 6-2</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn6-2.html</code>. Gör båda övningarna i samma fil, i varsin del av sidan.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du i stället använda en extern CSS-fil, till exempel <code>style.css</code>, som du länkar från varje sida.</li>
+                    <li>Använd nedladdningslänkarna i övningarna. Om en fil öppnas i webbläsaren, välj <strong>Spara bild som</strong> eller spelarens nedladdningsalternativ. Behåll filnamnen och spara filerna i den undermapp som anges.</li>
+                </ol>
+                <h3>Övning 1: Optimera ett foto och mät resultatet</h3>
+                <p>Träna på att ändra både pixelstorlek och komprimering utan att göra bilden onödigt suddig.</p>
+                <ol>
+                    <li>Ladda ner <a href="../assets/ovn3/ovn3-images/retriever.webp" download="retriever.webp">retriever.webp – svart retriever utomhus</a> till <code>bilder</code>. Behåll originalfilen, som är 550 × 412 pixlar, för jämförelsen.</li>
+                    <li>Använd ett av kapitlets bildverktyg. Exportera från originalet två WebP-versioner med 400 pixlars bredd och bibehållna proportioner: <code>hund-400-hog.webp</code> med hög kvalitet och <code>hund-400-lag.webp</code> med tydligt lägre kvalitet. Skriv ner de kvalitetsvärden du använder.</li>
+                    <li>Bygg en fullständig HTML-sida och visa de två exporterna lika stora, högst 400 pixlar breda. Lägg till alt-texter och bildtexter med kvalitetsvärdena.</li>
+                    <li>Skapa en tabell med originalets och exporternas filnamn, dimensioner och filstorlekar. Titta särskilt på pälsen och bakgrunden och välj den minsta export som du tycker är tillräckligt tydlig.</li>
+                    <li>Skriv några meningar om skillnaden mellan att minska bildens dimensioner i ett bildverktyg och att bara visa en stor bild mindre med CSS.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Kontrollera att exporterna verkligen är 400 pixlar breda och att du inte har förstorat originalet. Motivera ditt val med både kvalitet och filstorlek.</p>
+                <h3>Övning 2: Testa srcset och lazy loading</h3>
+                <p>Fortsätt i samma HTML-fil med en bild som kan använda olika källfiler och en bild längre ner på sidan.</p>
+                <ol>
+                    <li>Utgå från retriever-originalet och skapa <code>hund-250.webp</code> och <code>hund-500.webp</code> med 250 respektive 500 pixlars bredd. Behåll proportionerna och spara filerna i <code>bilder</code>.</li>
+                    <li>Lägg en bild överst i en ny sektion. Sätt <code>src="bilder/hund-500.webp"</code>, <code>srcset="bilder/hund-250.webp 250w, bilder/hund-500.webp 500w"</code> och <code>sizes="(max-width: 500px) 50vw, 250px"</code>. Ge bilden CSS <code>width: 50vw; max-width: 250px; height: auto;</code> så att visningsbredden stämmer med sizes.</li>
+                    <li>Låt bilden överst laddas normalt. Lägg sedan flera textavsnitt och en andra bild minst några skärmhöjder längre ner. Använd <code>bilder/hund-500.webp</code> och <code>loading="lazy"</code> på den nedre bilden. Ge båda bilderna alt-text samt width och height som motsvarar respektive källbilds proportioner.</li>
+                    <li>Öppna sidan med Live Server. I Network: välj <strong>Disable cache</strong> och filtrera på bilder. Testa en smal och en bred vy med omladdning före varje försök. Kontrollera vilken srcset-fil som hämtas.</li>
+                    <li>Ladda om högst upp och scrolla sedan mot den nedre bilden. Anteckna när den hämtas. Webbläsaren kan förladda lazy-bilder innan de syns; avståndet varierar. Förklara också att hög pixeltäthet kan göra att den större srcset-filen väljs även på en smal skärm.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Kontrollera att ingen bildförfrågan misslyckas och att srcset-filerna har de bredder som anges med w. Skriv vilka källfiler som faktiskt valdes och vad du observerade vid scrollning.</p>
+            </section>
+
             <div id="quiz-6-2" aria-label="Quiz Kap 6.2"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-6-1.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.1 Bildformat på webben</span></span></a>

@@ -273,6 +273,38 @@
                 <p>Det finns inget format som alltid är bäst. En produktbild, en ikon och ett stort bakgrundsfoto har olika behov. Välj format efter kvalitet, filstorlek, transparens, webbläsarstöd och hur bilden ska användas.</p>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-6-1">
+                <h2 id="exercises-6-1">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 6-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 6-1</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn6-1.html</code>. Gör båda övningarna i samma fil, i varsin del av sidan.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du i stället använda en extern CSS-fil, till exempel <code>style.css</code>, som du länkar från varje sida.</li>
+                    <li>Använd nedladdningslänkarna i övningarna. Om en fil öppnas i webbläsaren, välj <strong>Spara bild som</strong> eller spelarens nedladdningsalternativ. Behåll filnamnen och spara filerna i den undermapp som anges.</li>
+                </ol>
+                <h3>Övning 1: Jämför ett foto i olika format</h3>
+                <p>Undersök hur filformatet påverkar en och samma bild.</p>
+                <ol>
+                    <li>Ladda ner kursens <a href="../assets/images/dog.jpg" download="dog.jpg">dog.jpg – brun hund mot mörk bakgrund</a>. Spara den i undermappen <code>bilder</code>. Originalet är 400 × 267 pixlar.</li>
+                    <li>Öppna bilden i bildverktyget som länkas i kapitlet. Exportera en PNG-version som <code>hund.png</code> och en WebP-version som <code>hund.webp</code>. Behåll 400 × 267 pixlar i båda versionerna. Att byta filändelse är inte en konvertering.</li>
+                    <li>Skapa en fullständig HTML-sida med språk, sidtitel och viewport-inställning. Visa de tre bilderna i varsin <code>figure</code> med beskrivande alt-text och bildtext. Använd sökvägarna <code>bilder/dog.jpg</code>, <code>bilder/hund.png</code> och <code>bilder/hund.webp</code>.</li>
+                    <li>Visa bilderna lika stora med CSS, högst 400 pixlar breda, och använd <code>max-width: 100%</code> och <code>height: auto</code>.</li>
+                    <li>Skapa en HTML-tabell med filnamn, format, dimensioner och faktisk filstorlek i kB. Jämför pälsens detaljer och bakgrunden och skriv vilket format du väljer för fotot och varför.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Alla tre filer ska visa samma motiv med samma dimensioner. Utgå från dina mätningar när du jämför filstorlek; ett byte till WebP garanterar inte att just din export blir mindre.</p>
+                <h3>Övning 2: Jämför pixelbild och vektorbild</h3>
+                <p>Fortsätt i samma HTML-fil och undersök vilka bilder som passar att förstora.</p>
+                <ol>
+                    <li>Ladda ner <a href="../assets/images/svg-zoom-demo.svg" download="svg-zoom-demo.svg">svg-zoom-demo.svg – geometriska former och text</a> till <code>bilder</code>. Visa den med <code>src="bilder/svg-zoom-demo.svg"</code> och en alt-text som beskriver innehållet.</li>
+                    <li>Lägg SVG-bilden och hundfotot från övning 1 i en ny jämförelsesektion. Ge dem tydliga bildtexter som anger vektorbild respektive pixelbild.</li>
+                    <li>Öppna båda bildfilerna i webbläsaren och förstora kraftigt. Jämför kanterna på SVG-bildens former med detaljerna i hundfotot.</li>
+                    <li>Skriv tre korta rekommendationer på sidan: ett format för ett fotografi, ett för en skalbar logotyp och ett för en pixelbild som behöver transparens. Motivera varje val med kapitlets jämförelse.</li>
+                    <li>Förklara varför du inte får en vektorbild genom att döpa om <code>dog.jpg</code> till <code>dog.svg</code>, och varför JPEG inte passar när bakgrunden måste vara genomskinlig.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Kontrollera att båda bildfilerna visas och att du kan förklara skillnaden mellan pixlar och former. Nämn även när AVIF kan vara ett alternativ till WebP.</p>
+            </section>
+
             <div id="quiz-6-1" aria-label="Quiz Kap 6.1"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-5-5.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">5.5 Miniuppgift: interaktiv komponent</span></span></a>

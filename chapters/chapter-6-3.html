@@ -146,6 +146,38 @@
                 </ul>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-6-3">
+                <h2 id="exercises-6-3">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 6-3</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 6-3</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn6-3.html</code>. Gör båda övningarna i samma fil, i varsin del av sidan.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du i stället använda en extern CSS-fil, till exempel <code>style.css</code>, som du länkar från varje sida.</li>
+                    <li>Använd nedladdningslänkarna i övningarna. Om en fil öppnas i webbläsaren, välj <strong>Spara bild som</strong> eller spelarens nedladdningsalternativ. Behåll filnamnen och spara filerna i den undermapp som anges.</li>
+                </ol>
+                <h3>Övning 1: Bygg ljud- och videospelare</h3>
+                <p>Använd kursens lokala mediefiler för att skapa spelare med tydliga kontroller.</p>
+                <ol>
+                    <li>Ladda ner <a href="../assets/media/demo-audio.mp3" download="demo-audio.mp3">demo-audio.mp3</a>, <a href="../assets/media/demo-audio.wav" download="demo-audio.wav">demo-audio.wav</a>, <a href="../assets/media/demo-video.mp4" download="demo-video.mp4">demo-video.mp4</a> och <a href="../assets/media/demo-video.webm" download="demo-video.webm">demo-video.webm</a>. Spara dem i undermappen <code>media</code>.</li>
+                    <li>Skriv en fullständig HTML-sida med rubriker för ljud och video. Skapa en <code>audio</code> med <code>controls</code> och två <code>source</code>-element: <code>media/demo-audio.mp3</code> med typen <code>audio/mpeg</code> först och WAV med typen <code>audio/wav</code> sedan.</li>
+                    <li>Skapa en <code>video</code> med <code>controls</code> och <code>preload="metadata"</code>. Ange <code>media/demo-video.mp4</code> med typen <code>video/mp4</code> och WebM med typen <code>video/webm</code>. Lägg fallback-text i båda spelarna och använd inte autoplay.</li>
+                    <li>Ge videon <code>max-width: 100%</code> och <code>height: auto</code>. Skriv intill ljudspelaren att ljudet är en kort testton. Titta på videon och skriv en kort beskrivning av det du ser och hör. Om du använder annat innehåll med tal ska du också ge talet ett textalternativ.</li>
+                    <li>Jämför MP3- och WAV-filernas storlek i en liten tabell. Testa att spela och pausa båda spelarna och ändra ljudnivån. Testa även tangentbord och smal mobilvy.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Filerna ska spelas efter att besökaren själv startat dem. Förklara varför det finns flera source-rader, varför WAV-filen kan bli större och vad preload="metadata" anger.</p>
+                <h3>Övning 2: Bädda in en karta med ett textalternativ</h3>
+                <p>Fortsätt i samma HTML-fil med en sektion som visar var Pauliskolan ligger.</p>
+                <ol>
+                    <li>Kopiera den fullständiga iframe-koden från kapitlets fungerande kartdemo. Använd dess riktiga <code>src</code>, inte den förkortade adressen med tre punkter i kodexemplet.</li>
+                    <li>Ge ramen en tydlig <code>title</code>, till exempel ”Karta som visar Pauliskolan”, och behåll <code>loading="lazy"</code> och <code>referrerpolicy</code>.</li>
+                    <li>Gör ramen responsiv med <code>width: 100%</code>, en rimlig <code>max-width</code> och <code>aspect-ratio: 4 / 3</code>. Anpassa höjden med CSS så att ramen behåller proportionerna.</li>
+                    <li>Skriv platsnamnet Pauliskolan, Malmö som vanlig text utanför ramen. Lägg också en vanlig länk till <code>https://www.google.com/maps/search/?api=1&amp;query=Pauliskolan%2C%20Malm%C3%B6</code> så att besökaren kan öppna kartan separat.</li>
+                    <li>Testa med Live Server i smal och bred vy. Använd Network för att se att kartan hämtar resurser från en extern tjänst och skriv en mening om hur en inbäddning kan påverka sidans laddning.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Kartan ska rymmas på sidan och ha en beskrivande title. Kontrollera att platsnamnet och den vanliga kartlänken är användbara även om inbäddningen inte laddas.</p>
+            </section>
+
             <div id="quiz-6-3" aria-label="Quiz Kap 6.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-6-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">6.2 Optimera bilder</span></span></a>

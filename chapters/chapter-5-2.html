@@ -112,6 +112,38 @@ const message = document.querySelector("#message");</code></pre>
                 <p><a href="../assets/solutions/kap-5-2-losningsforslag.zip" download>Ladda ner lösningsförslag för kapitel 5.2</a></p>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-5-2">
+                <h2 id="exercises-5-2">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 5-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 5-2</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn5-2.html</code>. Gör båda övningarna i denna fil. Skapa också undermappen <code>js</code> med filen <code>main.js</code> för din JavaScript-kod.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                    <li>Koppla JavaScript-filen i <code>head</code> med <code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code>. Spara filerna och öppna <code>ovn5-2.html</code> i webbläsaren. Testa efter varje ändring.</li>
+                </ol>
+                <h3>Övning 1: Låt knappar ändra ett meddelande</h3>
+                <p>Skapa en informationsruta för en skolklubb där besökaren kan välja vilken information som visas.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur och skapa en sektion med en rubrik, ett stycke med <code>id="club-message"</code> och två knappar med <code>type="button"</code>. Ge knapparna olika id och texterna ”Visa mötestid” och ”Visa mötesplats”.</li>
+                    <li>Hämta stycket och de två knapparna med <code>document.querySelector</code>. Spara referenserna i varsin <code>const</code>.</li>
+                    <li>Lägg till en egen klicklyssnare med <code>addEventListener</code> på varje knapp.</li>
+                    <li>Låt den ena knappen ändra styckets <code>textContent</code> till en mötestid och den andra till en mötesplats. Texten ska ändras först när besökaren trycker på knappen.</li>
+                    <li>Ge rutan tydliga avstånd och läsbara färger med CSS. Skriv en JavaScript-kommentar som förklarar skillnaden mellan att hitta ett element och att ändra dess text.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Tryck på knapparna växelvis flera gånger. Rätt meddelande ska visas utan omladdning och konsolen ska vara fri från fel. Testa även knapparna med Tab och Enter.</p>
+                <h3>Övning 2: Växla utseende med en CSS-klass</h3>
+                <p>Fortsätt i samma HTML-fil och skapa ett aktivitetskort som besökaren kan markera.</p>
+                <ol>
+                    <li>Lägg till ett kort med rubrik, beskrivning och en knapp med texten ”Växla markering”. Ge kortet och knappen egna id så att de inte blandas ihop med den första övningens element.</li>
+                    <li>Skriv grundstilen för kortet och en CSS-klass <code>.is-highlighted</code> som ändrar både bakgrund och kantlinje. Lägg även en synlig etikett i kortet som bara visas när klassen finns, så att markeringen inte enbart uttrycks med färg.</li>
+                    <li>Hämta kortet och knappen med <code>querySelector</code>. Lyssna på knappens klick.</li>
+                    <li>Använd <code>classList.toggle("is-highlighted")</code> för att växla klassen på kortet. Låt CSS sköta utseendet.</li>
+                    <li>Kontrollera i utvecklarverktygens <strong>Elements</strong> att klassen läggs till och tas bort när du trycker på knappen.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Första trycket ska markera kortet och nästa ska återställa det. Testa minst fyra tryck och kontrollera att knapparna från övning 1 fortfarande fungerar. Förklara varför klassnamnet saknar punkt i classList.toggle.</p>
+            </section>
+
             <div id="quiz-5-2" aria-label="Quiz Kap 5.2"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-5-1.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">5.1 Vad JavaScript tillför</span></span></a>

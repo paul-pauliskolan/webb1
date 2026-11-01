@@ -440,14 +440,43 @@
     height: auto;
 }</code></pre>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Sätt <code>max-width</code> på sidans huvudinnehåll.</li>
-        <li>Byt fasta marginaler i <code>px</code> mot <code>rem</code>.</li>
-        <li>Gör en bild responsiv med <code>max-width: 100%</code>.</li>
-        <li>Testa <code>clamp()</code> på en huvudrubrik.</li>
-    </ol>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-4-3">
+                <h2 id="exercises-4-3">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 4-3</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 4-3</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa HTML-filen <code>ovn4-3.html</code>. Gör båda övningarna i denna fil, i varsin del av sidan.</li>
+                    <li>Skriv din CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du i stället skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                </ol>
+                <h3>Övning 1: Gör en läsbar artikel med relativa mått</h3>
+                <p>Skapa en artikelsida om hundar, till exempel hundskötsel och aktiviteter med hund. I nästa övning får du två hundbilder från kursen att illustrera artikeln med.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur med språk, sidtitel och viewport-inställning. Använd <code>main</code> och <code>article</code> med en huvudrubrik, två underrubriker och minst tre stycken.</li>
+                    <li>Ge innehållet en relativ bredd, till exempel <code>width: 90%</code>, en <code>max-width</code> i <code>rem</code> och <code>margin-inline: auto</code>.</li>
+                    <li>Använd <code>rem</code> för padding och avstånd mellan avsnitten. Begränsa brödtextens radlängd till ungefär <code>65ch</code>.</li>
+                    <li>Låt huvudrubrikens storlek styras av <code>clamp()</code> med ett minsta värde i <code>rem</code>, ett flytande värde i <code>vw</code> och ett största värde i <code>rem</code>.</li>
+                    <li>Skriv en HTML-kommentar där du förklarar varför du valde procent för sidbredden och <code>ch</code> för textens radlängd.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Testa sidan i ett smalt och ett brett fönster och med 200 procent zoom. Kontrollera att innehållet går att läsa utan horisontell scroll och att rubriken växer mellan sina gränser.</p>
+                <h3>Övning 2: Lägg till bilder som behåller proportionerna</h3>
+                <p>Fortsätt i samma HTML-fil och använd dessa två bilder från kursen:</p>
+                <ul>
+                    <li><a href="../assets/images/dog.jpg" download="dog.jpg">Ladda ner dog.jpg</a> – en brun hund mot mörk bakgrund.</li>
+                    <li><a href="../assets/ovn3/ovn3-images/retriever.webp" download="retriever.webp">Ladda ner retriever.webp</a> – en svart retriever utomhus.</li>
+                </ul>
+                <p>Klicka på länkarna för att ladda ner bilderna. Om bilden öppnas i webbläsaren kan du högerklicka på den och välja <strong>Spara bild som</strong>. Behåll filnamnen.</p>
+                <ol>
+                    <li>Skapa en undermapp som heter <code>bilder</code> i <code>kap 4-3</code>. Spara <code>dog.jpg</code> och <code>retriever.webp</code> där. I din HTML-fil använder du sökvägarna <code>bilder/dog.jpg</code> och <code>bilder/retriever.webp</code>.</li>
+                    <li>Lägg till två <code>figure</code>-element med varsin <code>img</code> och <code>figcaption</code>. Skriv en relevant <code>alt</code>-text för varje bild, till exempel ”Brun hund med huvudet på sned mot mörk bakgrund”. Låt bildtexterna knyta bilderna till din artikel.</li>
+                    <li>Använd en gemensam CSS-regel med <code>max-width: 100%</code> och <code>height: auto</code> för bilderna.</li>
+                    <li>Placera den ena bilden i en smalare behållare än den andra. Kontrollera att bildens procentuella maxbredd utgår från dess förälder.</li>
+                    <li>Testa tillfälligt en fast bildbredd på <code>900px</code> utan <code>max-width</code> i ett smalt fönster. Återställ sedan den responsiva regeln och skriv en HTML-kommentar om vad den löste.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Testa vid cirka 375 och 1200 pixlars bredd. Båda bilderna ska rymmas i sina behållare utan att sträckas eller tryckas ihop. Förklara vad var och en av reglerna max-width och height bidrar med.</p>
+            </section>
 
             <div id="quiz-4-3" aria-label="Quiz Kap 4.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

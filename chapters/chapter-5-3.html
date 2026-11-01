@@ -133,6 +133,38 @@ if (email.value === "") {
                 <p><a href="../assets/solutions/kap-5-3-losningsforslag.zip" download>Ladda ner lösningsförslag för kapitel 5.3</a></p>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-5-3">
+                <h2 id="exercises-5-3">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 5-3</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 5-3</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn5-3.html</code>. Gör båda övningarna i denna fil. Skapa också undermappen <code>js</code> med filen <code>main.js</code> för din JavaScript-kod.</li>
+                    <li>Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                    <li>Koppla JavaScript-filen i <code>head</code> med <code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code>. Spara filerna och öppna <code>ovn5-3.html</code> i webbläsaren. Testa efter varje ändring.</li>
+                </ol>
+                <h3>Övning 1: Hälsa på besökaren med ett formulär</h3>
+                <p>Skapa ett formulär som visar en personlig hälsning direkt i sidan.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur. Skapa ett <code>form</code>-element med ett namnfält, en <code>label</code> kopplad med <code>for</code> och <code>id</code> samt en knapp med <code>type="submit"</code>.</li>
+                    <li>Lägg ett tomt stycke för feedback efter knappen och ge det ett eget id och <code>aria-live="polite"</code>, så att uppdateringen kan meddelas av hjälpmedel.</li>
+                    <li>Hämta formuläret, namnfältet och feedbackstycket med <code>querySelector</code>. Lyssna på formulärets <code>submit</code>-event och använd <code>event.preventDefault()</code>.</li>
+                    <li>Läs namnet med <code>value</code>. Använd <code>if</code> för att visa ”Skriv ditt namn först.” när värdet är en tom sträng. Annars ska feedbacken innehålla namnet, till exempel ”Hej Sam! Välkommen till klubben.”</li>
+                    <li>Visa feedback med <code>textContent</code>. Gör kontrollerna i JavaScript i denna övning så att även ett tomt fält når din submit-lyssnare.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Testa tomt fält, ett ifyllt namn och ett nytt namn. Prova både submit-knappen och Enter i namnfältet. Sidan ska stanna kvar utan omladdning och feedbacken ska ersättas vid varje försök.</p>
+                <h3>Övning 2: Visa en sammanfattning av ett val</h3>
+                <p>Fortsätt i samma HTML-fil med ett separat formulär för en prova-på-aktivitet. Det ska bara visa en sammanfattning i sidan.</p>
+                <ol>
+                    <li>Skapa ett nytt formulär med ett e-postfält av typen <code>email</code>, en <code>select</code> med två aktiviteter och en submit-knapp med texten ”Visa mitt val”. Ge alla fält tydliga etiketter och unika id.</li>
+                    <li>Ge e-postfältet <code>required</code> så att webbläsaren kontrollerar att en e-postadress är ifylld. Använd en påhittad adress när du testar, till exempel <code>elev@example.com</code>.</li>
+                    <li>Skapa ett eget feedbackstycke med <code>aria-live="polite"</code>. Koppla en submit-lyssnare till det nya formuläret och stoppa vanlig skickning med <code>preventDefault()</code>.</li>
+                    <li>Läs e-postfältets och listans <code>value</code>. Använd begripliga värden för aktiviteterna, till exempel ”Webbdesign” och ”Spelkväll”.</li>
+                    <li>Visa en sammanfattning med vald aktivitet och adress via <code>textContent</code>. Skriv också att detta är en övning: ingen anmälan sparas och inget mejl skickas.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Prova tom adress, en felaktig adress och elev@example.com. Webbläsaren ska stoppa de två första fallen. Byt aktivitet och skicka igen; sammanfattningen ska uppdateras utan omladdning. Kontrollera att formulären fungerar oberoende av varandra.</p>
+            </section>
+
             <div id="quiz-5-3" aria-label="Quiz Kap 5.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-5-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">5.2 Hämta och ändra element</span></span></a>

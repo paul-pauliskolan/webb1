@@ -552,14 +552,38 @@
     display: grid;
 }</code></pre>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Skapa sex artiklar med rubrik och text.</li>
-        <li>Lägg dem i en container med <code>display: grid</code>.</li>
-        <li>Testa först <code>repeat(3, 1fr)</code>.</li>
-        <li>Byt sedan till <code>repeat(auto-fit, minmax(14rem, 1fr))</code> och ändra fönsterbredden.</li>
-    </ol>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-4-2">
+                <h2 id="exercises-4-2">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 4-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 4-2</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa HTML-filen <code>ovn4-2.html</code>. Gör båda övningarna i denna fil, i varsin del av sidan.</li>
+                    <li>Skriv din CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du i stället skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                </ol>
+                <h3>Övning 1: Bygg en nyhetssida med två kolumner</h3>
+                <p>Skapa en enkel nyhetssida om ett ämne du är intresserad av.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur med språk, sidtitel och viewport-inställning. Lägg en huvudrubrik i <code>header</code>.</li>
+                    <li>Skapa en gemensam behållare med två direkta barn: en <code>main</code> med två nyhetsartiklar och en <code>aside</code> med tre korta notiser. Lägg en <code>footer</code> efter behållaren.</li>
+                    <li>Gör behållaren till en grid-container. Använd <code>grid-template-columns: 2fr 1fr</code> och <code>gap</code>.</li>
+                    <li>Ge huvudkolumnen och sidokolumnen olika bakgrunder och padding så att deras gränser blir tydliga.</li>
+                    <li>Prova <code>1fr 1fr</code> och sedan <code>3fr 1fr</code>. Återgå till <code>2fr 1fr</code> och skriv en HTML-kommentar om hur <code>fr</code> fördelar utrymmet.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Kontrollera på ett brett fönster att huvudkolumnen får dubbelt så stor del av det lediga utrymmet som sidokolumnen. Peka ut en grid-item, en kolumn och en grid line i din layout.</p>
+                <h3>Övning 2: Skapa ett rutnät som anpassar sig</h3>
+                <p>Fortsätt i samma HTML-fil med en separat sektion för sex boktips, spel eller utflyktsmål.</p>
+                <ol>
+                    <li>Skapa sex <code>article</code>-element med rubrik och beskrivning i en gemensam behållare.</li>
+                    <li>Använd <code>display: grid</code>, <code>repeat(3, 1fr)</code> för kolumnerna och <code>gap</code>. Kontrollera att du får två rader med tre kort på ett brett fönster.</li>
+                    <li>Byt kolumndefinitionen till <code>repeat(auto-fit, minmax(14rem, 1fr))</code>. Ändra fönstrets bredd och se när antalet kolumner ändras.</li>
+                    <li>Dölj tillfälligt fyra kort med HTML-kommentarer. Gör fönstret tillräckligt brett för minst fyra kolumner och jämför <code>auto-fit</code> med <code>auto-fill</code>.</li>
+                    <li>Återställ alla sex kort och välj <code>auto-fit</code>. Skriv en HTML-kommentar om skillnaden du såg och vad <code>minmax</code> gör.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Testa kortsektionen vid cirka 375, 768 och 1200 pixlars fönsterbredd. Kontrollera att korten byter antal kolumner och att texten ryms. Förklara varför rutnätet kan anpassa sig utan media queries.</p>
+            </section>
 
             <div id="quiz-4-2" aria-label="Quiz Kap 4.2"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

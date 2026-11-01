@@ -230,14 +230,38 @@
     gap: 1rem;
 }</code></pre>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Bygg en layout med en huvudkolumn och en sidokolumn.</li>
-        <li>Låt grundläget vara en kolumn.</li>
-        <li>Lägg till en media query som skapar två kolumner på större skärm.</li>
-        <li>Testa genom att ändra fönstrets bredd långsamt.</li>
-    </ol>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-4-4">
+                <h2 id="exercises-4-4">Övningar</h2>
+                <h3>Förbered arbetet</h3>
+                <ol>
+                    <li>Skapa en mapp som heter <code>kap 4-4</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 4-4</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa HTML-filen <code>ovn4-4.html</code>. Gör båda övningarna i denna fil, i varsin del av sidan.</li>
+                    <li>Skriv din CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du utökar arbetet till fler än en HTML-sida ska du i stället skapa en extern CSS-fil, till exempel <code>style.css</code>, och länka den från varje sida.</li>
+                </ol>
+                <h3>Övning 1: Bygg en sida från mobil till större skärm</h3>
+                <p>Skapa en informationssida för en skolklubb med en presentation och en ruta med mötestider.</p>
+                <ol>
+                    <li>Skriv en fullständig HTML-struktur med språk, sidtitel och <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>.</li>
+                    <li>Lägg presentationen och en <code>aside</code> med mötestider i en gemensam grid-container. Skriv grundstilen för mobil: en kolumn, läsbara avstånd och ingen fast sidbredd.</li>
+                    <li>Lägg till en media query med <code>min-width</code> som ger två kolumner med proportionerna <code>2fr 1fr</code>. Börja exempelvis vid <code>48rem</code>.</li>
+                    <li>Dra fönstret långsamt mellan smal och bred layout. Flytta brytpunkten om innehållet blir trångt eller om två kolumner får plats tidigare.</li>
+                    <li>Skriv en HTML-kommentar om varför din slutliga brytpunkt passar innehållet och vilka regler som gäller innan media queryn aktiveras.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Testa vid cirka 375, 768 och 1200 pixlars bredd samt strax under och över din brytpunkt. Kontrollera att sidokolumnen hamnar under presentationen på smal skärm och bredvid den på stor skärm.</p>
+                <h3>Övning 2: Anpassa menyn och korten med media queries</h3>
+                <p>Fortsätt på samma sida. Lägg till en meny och tre kort med klubbens aktiviteter.</p>
+                <ol>
+                    <li>Skapa en <code>nav</code> med tre länkar till avsnitt på sidan. Ge avsnitten matchande <code>id</code> så att länkarna fungerar.</li>
+                    <li>Använd flexbox för menyn. Låt grundstilen visa länkarna under varandra med tydliga klickytor och <code>gap</code>.</li>
+                    <li>Skapa tre aktivitetskort i en egen grid-container. Visa dem i en kolumn i grundstilen.</li>
+                    <li>Lägg till eller utöka en media query med <code>min-width</code> så att menyn går över till rad och korten visas i tre kolumner när innehållet får plats.</li>
+                    <li>Behåll synlig fokusmarkering på länkarna. Testa menyn med Tab och Enter och justera avstånd om den blir trång nära brytpunkten.</li>
+                </ol>
+                <p><strong>Kontrollera och förklara:</strong> Kontrollera att både menyn och korten ändrar layout, att alla länkar fungerar och att sidan saknar horisontell scroll på smal skärm. Skriv en HTML-kommentar som förklarar varför grundstilen är mobile first.</p>
+            </section>
 
             <div id="quiz-4-4" aria-label="Quiz Kap 4.4"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
