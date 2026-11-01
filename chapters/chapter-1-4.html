@@ -330,15 +330,50 @@
                 <p><em>Lorem ipsum</em> används ibland som tillfällig text när layout testas. Orden foo, bar och baz
                     används ofta som neutrala exempelnamn i kod. I riktiga projekt ska de ersättas med namn som
                     beskriver innehållet.</p>
-
-                <h2>Prova själv</h2>
-                <ol>
-                    <li>Lägg till en länk till en webbplats du använder för att lära dig.</li>
-                    <li>Ladda ner kursens <a href="../assets/images/dog.jpg" download="dog.jpg">hundbild dog.jpg</a> och spara den i mappen <code>images</code> i ditt projekt. Om bilden öppnas i webbläsaren: högerklicka och välj <strong>Spara bild som</strong>. Använd <code>src="images/dog.jpg"</code> och skriv en alt-text som beskriver bilden.</li>
-                    <li>Lägg till en ordnad lista och en oordnad lista.</li>
-                    <li>Markera ett viktigt ord med <code>strong</code>.</li>
-                </ol>
             </section>
+            <section class="exercise-section" aria-labelledby="exercises-1-4">
+                <h2 id="exercises-1-4">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Välj och förklara rätt HTML</h3>
+                <ol>
+                    <li>Vad gör a och href? Vad kan target="_blank" innebära för besökaren?</li>
+                    <li>Förklara skillnaden mellan bildens src och alt. Varför är ”bild” oftast en sämre alt-text än en beskrivning av motivet?</li>
+                    <li>När passar ol respektive ul? Vilket element används för varje punkt i båda typerna?</li>
+                    <li>Vad betyder strong och em? Varför ska de inte väljas enbart för fet eller kursiv stil?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>A skapar en länk och href anger målet. Target="_blank" kan öppna en ny flik eller ett nytt fönster.</li>
+                        <li>Src pekar på bildfilen, alt ger textalternativet. En motivbeskrivning ger information till den som inte ser bilden; ordet ”bild” säger inte vad den föreställer.</li>
+                        <li>Ol används när ordningen spelar roll; ul när den inte gör det. Varje listpunkt skrivs med li.</li>
+                        <li>Strong anger vikt och em betoning. Elementen ger betydelse; ren utseendestyrning görs senare med CSS.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 1-4</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn1-4.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Bygg en liten sida med länk, bild och listor</h3>
+                <ol>
+                    <li>Skriv en fullständig HTML-sida om hundar med en huvudrubrik och två korta stycken. Lägg en länk till <code>https://developer.mozilla.org/</code> med länktexten ”MDN Web Docs”.</li>
+                    <li>Ladda ner <a href="../assets/images/dog.jpg" download="dog.jpg">dog.jpg – brun hund med huvudet på sned</a>. Om bilden öppnas, högerklicka och välj Spara bild som. Spara i undermappen images i kapitelmappen. Lägg in bilden med <code>src="images/dog.jpg"</code> och en egen beskrivande alt-text.</li>
+                    <li>Lägg till en ol med tre steg för att förbereda en hundpromenad och en ul med tre saker att ta med. Förklara varför du valt olika listtyper.</li>
+                    <li>Markera något viktigt med strong och betona ett ord med em. Testa länken, kontrollera bilden och validera HTML. Förklara vilket innehåll varje element hjälper till att uttrycka.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Sidan ska ha grundstruktur och länken ska använda a och rätt href. Testa att den öppnar den angivna sidan.</li>
+                        <li>Kontrollera filnamn och sökväg. Alt-texten ska beskriva hundmotivet. Du behöver inte skriva CSS för denna HTML-övning.</li>
+                        <li>Båda listorna ska innehålla li. Stegen kan ha en meningsfull ordning; utrustningslistan behöver normalt ingen ordning.</li>
+                        <li>Strong och em ska ha en motiverad betydelse i texten. Länk, bild och listor ska fungera och valideringsfel ska rättas.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-1-4" aria-label="Quiz Kap 1.4"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-1-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">1.3 Din första HTML-sida</span></span></a>

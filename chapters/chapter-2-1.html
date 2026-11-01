@@ -126,14 +126,6 @@
     <h2>DOM-modellen</h2>
     <p>När webbläsaren läser HTML-koden skapas DOM, Document Object Model. Du kan tänka på DOM som ett träd där varje element blir en nod. CSS använder strukturen för att välja element. JavaScript kan senare ändra DOM så att sidan reagerar på användaren.</p>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Öppna din profilsida i webbläsaren.</li>
-        <li>Högerklicka på en rubrik och välj <strong>Inspect</strong>.</li>
-        <li>Leta upp samma element i Elements-panelen.</li>
-        <li>Fäll ut och ihop element så att du ser trädstrukturen.</li>
-    </ol>
-
     <h2>Sammanfattning</h2>
     <ul>
         <li>Element är byggblocken i HTML.</li>
@@ -142,6 +134,47 @@
         <li>DOM är webbläsarens modell av HTML-dokumentet.</li>
     </ul>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-2-1">
+                <h2 id="exercises-2-1">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Skilj på element, taggar och attribut</h3>
+                <ol>
+                    <li>I <code>&lt;p class="intro"&gt;Hej!&lt;/p&gt;</code>: peka ut hela elementet, starttaggen, sluttaggen, attributnamnet, attributvärdet och innehållet.</li>
+                    <li>Varför har img ingen sluttagg i kapitlets exempel? Vad ger src och alt för information?</li>
+                    <li>Vad står DOM för? Förklara vad det innebär att modellen är ett träd med föräldrar och barn.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Hela uttrycket är elementet. &lt;p class="intro"&gt; är starttaggen och &lt;/p&gt; sluttaggen. Class är attributnamn, intro attributvärde och Hej! innehåll.</li>
+                        <li>Img är ett element utan sluttagg och eget textinnehåll. Src anger bildfilen och alt dess textalternativ.</li>
+                        <li>DOM står för Document Object Model. Webbläsaren bygger en modell av dokumentet; nästlingen ger relationer som kan beskrivas som föräldrar och barn.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 2-1</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn2-1.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Rita och kontrollera ett DOM-träd</h3>
+                <ol>
+                    <li>Skriv följande innehåll i body i din HTML-fil: <code>&lt;article&gt;&lt;h2&gt;Mitt intresse&lt;/h2&gt;&lt;p&gt;Jag tycker om &lt;strong&gt;hundar&lt;/strong&gt;.&lt;/p&gt;&lt;/article&gt;</code>. Behåll en fullständig HTML-grundstruktur runt innehållet och lägg en <code>h1</code> före <code>article</code>, till exempel ”Mitt DOM-test”.</li>
+                    <li>Rita elementträdet på papper utan att öppna Elements. Markera direkt förälder till strong och direkta barn till article.</li>
+                    <li>Öppna sidan i webbläsaren och välj Inspektera. Fäll ut article och p i Elements. Jämför med din skiss och rätta den om det behövs.</li>
+                    <li>Flytta strong så att det omsluter ett annat ord i samma stycke. Förutsäg om föräldern ändras, spara och kontrollera. Förklara svaret med begreppen innehåll och nästling.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Sidans h1 ska ligga före article. Article ska innehålla h2 och p. Strong ligger inuti p; taggarna ska avslutas i rätt ordning.</li>
+                        <li>P är direkt förälder till strong. H2 och p är direkta barn till article. Strong ligger inuti article men är inte dess direkta barn.</li>
+                        <li>Elements ska visa samma elementrelationer. Beskriv eventuell skillnad mellan din första skiss och trädet du såg.</li>
+                        <li>Föräldern är fortfarande p om strong ligger kvar i stycket. Textinnehållet kan ändras utan att elementrelationen ändras.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
 
             <div id="quiz-2-1" aria-label="Quiz Kap 2.1"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

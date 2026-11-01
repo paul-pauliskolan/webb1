@@ -217,6 +217,47 @@
     </div>
 </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-2-3">
+                <h2 id="exercises-2-3">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Förklara formulärets delar</h3>
+                <ol>
+                    <li>Vad gör form, action och method? Vad är skillnaden mellan GET och POST enligt kapitlet?</li>
+                    <li>Vad har id, for och name för olika uppgifter? Varför ersätter placeholder inte en label?</li>
+                    <li>När passar textarea, select, radio och checkbox? Vad gör en submit-knapp?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Form samlar fälten, action anger mottagaradress och method hur data skickas. GET används för hämtning och POST för att skicka data.</li>
+                        <li>Id identifierar fältet, labelns for kopplar etiketten till det och name anger namnet i skickade data. Placeholder är ett exempel som försvinner vid inmatning, inte en bestående etikett.</li>
+                        <li>Textarea ger flera textrader, select en meny, radio ett val i en grupp och checkbox oberoende val. Submit försöker skicka formuläret.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 2-3</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn2-3.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Bygg och undersök ett HTML-formulär</h3>
+                <ol>
+                    <li>Skapa ett form-element i din HTML-fil med <code>action="https://httpbin.org/post"</code> och <code>method="post"</code>. Httpbin är kapitlets externa testtjänst och visar data du skickar. Använd bara påhittade uppgifter, till exempel Ada Test.</li>
+                    <li>Lägg ett textfält för förnamn, en textarea för ett påhittat meddelande och en select med HTML och CSS som ämnesval. Ge varje fält name och en label kopplad med for och ett unikt id.</li>
+                    <li>Lägg två radioknappar för Nybörjare och Van med samma name, olika value och tydliga etiketter. Lägg en separat checkbox för ”Jag vill öva mer” och en submit-knapp.</li>
+                    <li>Skriv före skickningen vilka fältnamn och värden från textfältet, ämneslistan och den valda radioknappen du tror kommer med. Skicka sedan med testdata och jämför med svaret. Prova checkboxen både markerad och omarkerad. Jämför vad testtjänsten visar i de två fallen; du behöver inte kunna resultatet i förväg. Återvänd till din sida mellan försöken.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Använd den angivna testadressen och post. Formuläret skickas till en extern tjänst; skriv inga riktiga personuppgifter eller hemligheter.</li>
+                        <li>Alla tre fält ska ha name så att deras värden kan skickas. For måste stämma med rätt id. Option-värdena kan exempelvis vara html och css.</li>
+                        <li>Samma name gör radioknapparna till en grupp där ett alternativ väljs. Olika value gör att mottagaren kan skilja valen. Checkboxen är oberoende.</li>
+                        <li>Jämför testtjänstens form-data med name och value. Bara den valda radioknappens värde skickas. En omarkerad checkbox skickas normalt inte; en markerad skickar sitt name och value. Ingen JavaScript-kod behövs.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-2-3" aria-label="Quiz Kap 2.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-2-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">2.2 Semantisk HTML</span></span></a>

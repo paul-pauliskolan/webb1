@@ -444,6 +444,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-4-3">
                 <h2 id="exercises-4-3">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 4-3</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -461,6 +462,16 @@
                     <li>Skriv en HTML-kommentar där du förklarar varför du valde procent för sidbredden och <code>ch</code> för textens radlängd.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Testa sidan i ett smalt och ett brett fönster och med 200 procent zoom. Kontrollera att innehållet går att läsa utan horisontell scroll och att rubriken växer mellan sina gränser.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Artikeln ska ha logiska rubriker och stycken. Main samlar huvudinnehållet. Inga layouttekniker från senare kapitel behövs.</li>
+                        <li>Procent gör bredden relativ till behållaren, max-width begränsar den och auto-marginaler kan centrera innehållet.</li>
+                        <li>Rem ger avstånd utifrån rotens textstorlek. Ch ger en ungefärlig gräns för textens radlängd.</li>
+                        <li>Clamp har tre delar: minsta värde, flexibelt önskat värde och största värde. Rubriken ska ändras inom sina gränser.</li>
+                        <li>Procent passar en följsam bredd, medan ch passar när du vill begränsa textrader. Testa också med zoom.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Lägg till bilder som behåller proportionerna</h3>
                 <p>Fortsätt i samma HTML-fil och använd dessa två bilder från kursen:</p>
                 <ul>
@@ -470,12 +481,23 @@
                 <p>Klicka på länkarna för att ladda ner bilderna. Om bilden öppnas i webbläsaren kan du högerklicka på den och välja <strong>Spara bild som</strong>. Behåll filnamnen.</p>
                 <ol>
                     <li>Skapa en undermapp som heter <code>bilder</code> i <code>kap 4-3</code>. Spara <code>dog.jpg</code> och <code>retriever.webp</code> där. I din HTML-fil använder du sökvägarna <code>bilder/dog.jpg</code> och <code>bilder/retriever.webp</code>.</li>
-                    <li>Lägg till två <code>figure</code>-element med varsin <code>img</code> och <code>figcaption</code>. Skriv en relevant <code>alt</code>-text för varje bild, till exempel ”Brun hund med huvudet på sned mot mörk bakgrund”. Låt bildtexterna knyta bilderna till din artikel.</li>
+                    <li>Lägg till två <code>img</code>-element. Skriv en relevant <code>alt</code>-text för varje bild, till exempel ”Brun hund med huvudet på sned mot mörk bakgrund”. Skriv en bildbeskrivning i ett vanligt <code>p</code>-element efter varje bild.</li>
                     <li>Använd en gemensam CSS-regel med <code>max-width: 100%</code> och <code>height: auto</code> för bilderna.</li>
                     <li>Placera den ena bilden i en smalare behållare än den andra. Kontrollera att bildens procentuella maxbredd utgår från dess förälder.</li>
-                    <li>Testa tillfälligt en fast bildbredd på <code>900px</code> utan <code>max-width</code> i ett smalt fönster. Återställ sedan den responsiva regeln och skriv en HTML-kommentar om vad den löste.</li>
+                    <li>Förutsäg vad som händer om du tar bort <code>max-width: 100%</code> och gör behållaren smalare än bildens ursprungliga bredd. Testa sedan utan att ange en fast bildbredd. Återställ regeln och skriv en HTML-kommentar om vad den löste.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Testa vid cirka 375 och 1200 pixlars bredd. Båda bilderna ska rymmas i sina behållare utan att sträckas eller tryckas ihop. Förklara vad var och en av reglerna max-width och height bidrar med.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Båda filerna ska ligga i kap 4-3/bilder och src ska vara relativ till HTML-filen. Kontrollera exakt stavning och filändelse.</li>
+                        <li>Img visar bilden, alt beskriver motivet och p ger den synliga bildbeskrivningen. Ingen ny HTML-elementtyp krävs.</li>
+                        <li>Max-width: 100% begränsar bilden till behållaren. Height: auto bevarar proportionerna.</li>
+                        <li>Maxbredd i procent utgår från bildens behållare. En smalare behållare kan därför ge en smalare bild.</li>
+                        <li>Utan max-width kan originalbilden bli bredare än sin behållare. Återställd regel ska låta den krympa utan förvrängning.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-4-3" aria-label="Quiz Kap 4.3"></div>

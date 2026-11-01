@@ -174,6 +174,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-6-4">
                 <h2 id="exercises-6-4">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 6-4</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -192,6 +193,16 @@
                     <li>Rätta ett fel i taget i VS Code och ladda om efter varje ändring. Skriv på sidan vilka två fel du skapade, vad Network visade och hur du rättade dem.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Slutversionen ska visa bilden och konsolmeddelandet utan saknade filer. Förklara vad status 404 betyder och varför ändringar i Elements måste föras över till källfilen för att sparas.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Bilden ska finnas i bilder och JavaScript-filen i js. Kontrollera grundutskriften innan du skapar fel.</li>
+                        <li>Använd rätt relativa sökvägar och defer. Bilden och konsolutskriften ska fungera i startläget.</li>
+                        <li>Live Server behövs för att undersöka HTTP-status. Med de ändrade sökvägarna begär sidan två filer som inte finns.</li>
+                        <li>Ladda om med Network och Disable cache aktiva. Kontrollera misslyckade förfrågningar och läs sökvägarna; jämför med Console.</li>
+                        <li>Återställ ett filnamn i taget och dokumentera resultatet. Efter båda rättningarna ska bilden och utskriften fungera igen.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Mät en förbättring med Network och Lighthouse</h3>
                 <p>Fortsätt i samma HTML-fil och dokumentera hur en konkret ändring påverkar sidan.</p>
                 <ol>
@@ -199,9 +210,20 @@
                     <li>Använd först PNG-filen som sidans bild. I Network: stäng av cache, ladda om och anteckna bildens överförda storlek. Kör en Lighthouse-rapport för mobil och anteckna ett konkret fynd eller en kontroll som sidan klarar.</li>
                     <li>Byt bildens src till WebP-filen utan att ändra dess visningsstorlek. Ladda om under samma förhållanden och jämför överförd storlek. Skriv hur många kB du sparade.</li>
                     <li>Kör Lighthouse igen med samma inställningar. Välj en relevant rekommendation om någon finns och kontrollera den mot din kod. Om rapporten inte ger något lämpligt förbättringsförslag, dokumentera det och förklara ändå bildbytet utifrån Network-mätningen.</li>
-                    <li>Testa sidan vid cirka 375 och 1200 pixlars bredd. Undersök bildens CSS i Elements och rätta eventuella breddproblem i VS Code. Lägg en före- och eftertabell på sidan med filnamn, storlek och din slutsats.</li>
+                    <li>Testa sidan vid cirka 375 och 1200 pixlars bredd. Undersök bildens CSS i Elements och rätta eventuella breddproblem i VS Code. Skriv en före- och efterlista på sidan med filnamn, storlek och din slutsats.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Inga filer ska saknas och sidan ska fungera i båda bredderna. Bedöm förbättringen utifrån den mindre överföringen och bibehållen bildkvalitet; en så liten sida behöver inte få ett högre Lighthouse-poängtal.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Båda exporterna ska ha samma dimensioner. Kontrollera den faktiska storleken och välj en mindre WebP med acceptabel kvalitet.</li>
+                        <li>Anteckna PNG-filens överföring och ett konkret resultat från Lighthouse. Håll inställningarna lika i jämförelsen.</li>
+                        <li>Byt bara bildkälla i jämförelsen, inte visningsstorlek. Jämför kB med cache avstängd.</li>
+                        <li>Utgå från ett faktiskt rapportfynd, inte ett krav på en viss poäng. Om inget lämpligt problem finns dokumenterar du det.</li>
+                        <li>Testa båda bredderna och rätta i källfilen. Före- och efterlistan ska visa filnamn, mätvärden och slutsats.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-6-4" aria-label="Quiz Kap 6.4"></div>

@@ -100,6 +100,44 @@
                 </ul>
             </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-1-1">
+                <h2 id="exercises-1-1">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Återkalla webbens grundbegrepp</h3>
+                <ol>
+                    <li>Vad gör klienten respektive servern när du öppnar en webbsida? Vilken av dem är webbläsaren?</li>
+                    <li>Förklara skillnaden mellan URL, domännamn, DNS och IP-adress.</li>
+                    <li>Vad skiljer HTTP från HTTPS? Vad betyder statuskoderna 200 och 404?</li>
+                    <li>Vad används GET och POST till enligt kapitlet? Hur många bitar är en byte?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Webbläsaren är klienten och begär resurser. Servern svarar med exempelvis HTML, CSS, bilder eller ett felmeddelande.</li>
+                        <li>URL pekar ut server och resurs. Domännamnet är ett namn, DNS översätter det till en IP-adress och IP-adressen används för att hitta rätt dator i nätverket.</li>
+                        <li>HTTPS skyddar kommunikationen med TLS. HTTP är protokollet för kommunikationen. 200 betyder normalt att begäran lyckades; 404 att resursen inte hittades.</li>
+                        <li>GET hämtar data och POST skickar data, exempelvis från ett formulär. Åtta bitar är en byte.</li>
+                    </ol>
+                </details>
+                <h3>Övning 2: Förklara förloppet och rätta missuppfattningar</h3>
+                <ol>
+                    <li>Beskriv i ordning vad som händer när du skriver en webbadress: använd begreppen klient, URL, DNS, IP-adress, server och svar.</li>
+                    <li>Rätta påståendet ”404 betyder alltid att hela internet har slutat fungera”. Förklara vad koden faktiskt berättar.</li>
+                    <li>Varför behövs gemensamma standarder om samma sida ska fungera på olika enheter och i olika webbläsare?</li>
+                    <li>En sida innehåller mycket stora bildfiler. Förklara hur det kan påverka laddningen och koppla till filstorlek i byte.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Klienten läser adressen. DNS kan översätta domännamnet till en IP-adress. Klienten begär resursen från servern och servern skickar ett svar. Det är en förenklad beskrivning utifrån kapitlet.</li>
+                        <li>404 gäller att den begärda resursen inte hittades. Exempelvis kan adressen eller filnamnet vara fel; det betyder inte att hela internet ligger nere.</li>
+                        <li>Standarder ger gemensamma sätt att tolka bland annat HTML och CSS. Webben ska inte vara beroende av ett enda företag, operativsystem eller en enda webbläsare.</li>
+                        <li>Större filer betyder mer data att överföra. Det kan ge längre laddningstid, särskilt med långsam uppkoppling. Filstorlekar anges exempelvis i kB och MB.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-1-1" aria-label="Quiz Kap 1.1"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="../index.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">Startsidan</span></span></a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Övningsuppgift 1: skapa en enkel webbsida om en film, serie eller bok med HTML, CSS och bild.">
+    <meta name="description" content="Övningsuppgift 1: skapa en enkel webbsida om en film, serie eller bok med HTML, bild, länk och listor.">
     <title>Övningsuppgift 1 - Film, serie eller bok</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -16,19 +16,18 @@
             <header class="chapter-hero">
                 <p class="eyebrow">Övningsuppgift 1</p>
                 <h1>Övningsuppgift 1 - Skapa en sida om en film, serie eller bok</h1>
-                <p class="subtitle">Bygg en enkel webbsida med en HTML-fil, en extern CSS-fil och en bild.</p>
+                <p class="subtitle">Öva på HTML, bild, länkar och listor och publicera din sida med GitHub Pages.</p>
             </header>
 
             <section class="content-section">
                 <h2>Filmgenomgång</h2>
-                <p>Börja med att titta på spellistan: <a href="https://www.youtube.com/watch?v=edUZPXQBbi8&amp;list=PLbGL0dDMtKNo" target="_blank" rel="noopener">Övningsuppgift 1 på YouTube</a>.</p>
+                <p>Filmerna visar även CSS. I denna uppgift efter modul 1 tränar du HTML och publicering; egen CSS tränar du i modul 3. Använd HTML-delarna som stöd. Spellista: <a href="https://www.youtube.com/watch?v=edUZPXQBbi8&amp;list=PLbGL0dDMtKNo" target="_blank" rel="noopener">Övningsuppgift 1 på YouTube</a>.</p>
 
                 <h2>Uppgift</h2>
                 <p>Du ska skapa en webbsida i HTML5 där du kortfattat skriver om en bra bok, film eller serie som du har sett eller läst.</p>
                 <p>Projektet ska bestå av:</p>
                 <ul>
                     <li>En HTML-fil, till exempel <code>index.html</code>.</li>
-                    <li>En extern CSS-fil, till exempel <code>style.css</code>.</li>
                     <li>En bildfil i formatet <code>jpg</code>, <code>webp</code> eller <code>png</code>.</li>
                 </ul>
 
@@ -37,26 +36,19 @@
                     <li>Sidan ska vara skriven i HTML5.</li>
                     <li>Du ska använda <code>&lt;h1&gt;</code> till sidans rubrik.</li>
                     <li>Du ska använda <code>&lt;p&gt;</code> till löptext.</li>
-                    <li>Du ska länka till en extern CSS-fil från HTML-filen.</li>
+                    <li>Sidan ska ha fullständig grundstruktur med språk, teckenkodning, viewport-inställning och title.</li>
                     <li>Du ska ha med en bild, till exempel en poster eller omslagsbild. Om du väljer filmen <em>Project Hail Mary</em> kan du använda <a href="../assets/images/project-hail-mary-poster.jpg" download="project-hail-mary-poster.jpg">kursens filmposter</a>. Spara den som <code>project-hail-mary-poster.jpg</code> i samma mapp som din HTML-fil och använd filnamnet som bildens <code>src</code>. Om bilden öppnas i webbläsaren: högerklicka och välj <strong>Spara bild som</strong>.</li>
-                    <li>Bilden ska vara liten och får vara max en halv skärmhöjd.</li>
+                    <li>Bilden ska ha en beskrivande alt-text och rätt sökväg.</li>
+                    <li>Sidan ska innehålla en extern länk, en ordnad lista och en oordnad lista med relevant innehåll.</li>
                 </ul>
 
-                <h2>Krav på CSS</h2>
-                <p>CSS-filen ska påverka rubriken, löptexten och sidans bakgrund.</p>
-                <ul>
-                    <li><code>h1</code> ska ha fonten Verdana, storlek <code>1.7rem</code> och valfri textfärg som inte är svart eller röd.</li>
-                    <li><code>p</code> ska ha fonten Verdana, storlek <code>1.2rem</code> och valfri textfärg som inte är svart eller röd.</li>
-                    <li>Texten ska vara vänsterställd, vilket är standardinställningen.</li>
-                    <li>Sidan ska ha en valfri bakgrundsfärg som inte är vit eller röd.</li>
-                    <li>Färgerna ska passa ihop och texten ska vara lätt att läsa.</li>
-                </ul>
+                <h2>Förklara dina HTML-val</h2>
+                <p>Skriv kort varför du har valt en ordnad respektive en oordnad lista och vad bildens alt-text hjälper läsaren med. Egen CSS krävs inte här; det kommer i modul 3.</p>
 
                 <h2>Validering</h2>
-                <p>Du ska validera både HTML5-koden och CSS-koden med W3C:s validatorer innan du lämnar in.</p>
+                <p>Validera HTML-koden med W3C:s validator innan du lämnar in.</p>
                 <ul>
                     <li>HTML: <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
-                    <li>CSS: <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validation Service</a></li>
                 </ul>
 
                 <h2>Publicering</h2>
@@ -70,14 +62,12 @@
                 <h2>Checklista för inlämning</h2>
                 <ul>
                     <li>Du har en HTML-fil.</li>
-                    <li>Du har en extern CSS-fil som är länkad från HTML-filen.</li>
                     <li>Du har en bildfil i <code>jpg</code>, <code>webp</code> eller <code>png</code>.</li>
                     <li>Sidan handlar om en film, serie eller bok.</li>
                     <li>Du har använt <code>&lt;h1&gt;</code> och <code>&lt;p&gt;</code>.</li>
-                    <li>CSS-kraven för <code>h1</code>, <code>p</code> och bakgrundsfärg är uppfyllda.</li>
-                    <li>Texten är vänsterställd.</li>
-                    <li>Du har inte använt svart eller röd text, vit bakgrund eller röd bakgrund.</li>
-                    <li>Du har validerat HTML och CSS.</li>
+                    <li>Bilden har beskrivande alt-text och länken fungerar.</li>
+                    <li>Du har en ordnad lista och en oordnad lista och kan förklara dina val.</li>
+                    <li>Du har validerat HTML.</li>
                     <li>Du har publicerat sidan med GitHub Pages.</li>
                     <li>Du lämnar in både GitHub-länken till koden och GitHub Pages-länken.</li>
                 </ul>

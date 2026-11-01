@@ -677,6 +677,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-4-1">
                 <h2 id="exercises-4-1">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 4-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -687,13 +688,23 @@
                 <h3>Övning 1: Bygg en meny med flexbox</h3>
                 <p>Skapa en navigation för en förening eller ett eget intresse. Menyn ska innehålla fyra länkar till avsnitt på samma sida.</p>
                 <ol>
-                    <li>Skriv en fullständig HTML-struktur med svenska som språk, sidtitel och viewport-inställning. Lägg en huvudrubrik och en <code>nav</code> i sidans <code>header</code>. Skapa fyra avsnitt med rubriker och <code>id</code> som länkarna leder till.</li>
+                    <li>Skriv en fullständig HTML-struktur med svenska som språk, sidtitel och viewport-inställning. Lägg en huvudrubrik och en <code>nav</code> i sidans <code>header</code>. Skapa fyra avsnitt med rubriker och unika <code>id</code>. Koppla exempelvis <code>&lt;a href="#aktiviteter"&gt;Aktiviteter&lt;/a&gt;</code> till <code>&lt;section id="aktiviteter"&gt;</code>. Använd samma mönster för övriga länkar.</li>
                     <li>Gör navigationen till en flex-container. Placera länkarna på rad och använd <code>gap</code> för avståndet mellan dem.</li>
                     <li>Testa <code>justify-content: flex-start</code>, <code>center</code> och <code>space-between</code>. Välj sedan det som passar din meny.</li>
-                    <li>Ge navigationen en <code>min-height</code> och använd <code>align-items</code> för att centrera länkarna längs tväraxeln.</li>
+                    <li>Testa <code>align-items: center</code> och <code>stretch</code>. Jämför också lägena i kapitlets interaktiva exempel, där containern har en höjd som gör skillnaden tydlig. Beskriv vad som ändras längs tväraxeln.</li>
                     <li>Byt tillfälligt <code>flex-direction</code> från <code>row</code> till <code>column</code>. Skriv en HTML-kommentar där du förklarar hur huvudaxeln ändras. Återställ sedan till <code>row</code>.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Klicka på alla fyra länkar och kontrollera att rätt avsnitt visas. Kan du peka ut huvudaxeln och tväraxeln och förklara vilken egenskap som styr placeringen längs varje axel?</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Sidan ska ha grundstruktur, header, nav och fyra mål med unika id. Kontrollera att href="#aktiviteter" hör ihop med id="aktiviteter" och använd samma mönster för övriga mål.</li>
+                        <li>Display: flex ska sitta på navigationen, som är länkarnas förälder. Gap ger mellanrum mellan länkarna.</li>
+                        <li>Flex-start placerar från början, center centrerar och space-between fördelar ledigt utrymme mellan elementen längs huvudaxeln.</li>
+                        <li>Align-items styr tväraxeln. Stretch kan sträcka barnen och center centrerar dem. Skillnaden blir tydligare när containern har extra utrymme på tvären.</li>
+                        <li>Med row är huvudaxeln vågrät i exemplet och med column lodrät. Justify-content följer huvudaxeln och align-items följer tväraxeln.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Skapa kort som byter rad</h3>
                 <p>Fortsätt i samma HTML-fil. Lägg till en sektion med fyra kort som presenterar aktiviteter, spel eller kurser.</p>
                 <ol>
@@ -704,6 +715,17 @@
                     <li>Ändra tillfälligt kortens <code>flex-grow</code> till <code>0</code> och jämför. Återställ till <code>1</code> och skriv en HTML-kommentar om hur det lediga utrymmet fördelas.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Minska fönstrets bredd tills korten ligger på flera rader. Kontrollera att mellanrummen finns kvar och att korten växer när det finns ledigt utrymme. Förklara varför wrap ska sättas på föräldern.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Korten ska vara syskon i samma behållare. Olika textlängd gör det lättare att se höjdskillnader.</li>
+                        <li>Flex-reglerna ska sitta på kortens förälder. Wrap låter korten hamna på nya rader när de inte ryms.</li>
+                        <li>Flex-basis anger startstorlek längs huvudaxeln och flex-grow låter korten dela på ledigt utrymme. Padding ger inre luft.</li>
+                        <li>Stretch ger normalt lika höga kort inom varje rad när ingen egen höjd hindrar det. Flex-start låter höjderna följa innehållet.</li>
+                        <li>Med grow 0 växer inte korten för att fylla ledigt utrymme. Med grow 1 delar de på det. Beskriv vad du faktiskt ser vid olika bredder.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-4-1" aria-label="Quiz Kap 4.1"></div>

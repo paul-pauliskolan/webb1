@@ -203,6 +203,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-5-1">
                 <h2 id="exercises-5-1">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 5-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -221,6 +222,16 @@
                     <li>Ändra meddelandet och ladda om igen. Skriv en HTML-kommentar om vilken fil som ger struktur, vilken kod som ger utseende och vilken fil som kan ge beteende.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Meddelandet ska synas i konsolen efter omladdning. Förklara varför console.log inte skriver ut text i själva webbsidan och vad defer gör.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Skriv grundstruktur, rubrik, presentation och lista. JavaScript behövs ännu inte för att visa innehållet.</li>
+                        <li>Script-elementet ska finnas i head med src="js/main.js" och defer. Sökvägen utgår från HTML-filen.</li>
+                        <li>Console.log-raden ska stå i main.js, utan script-taggar. Spara innan omladdning.</li>
+                        <li>Meddelandet ska visas i Console, inte som text i webbsidan. Fil- och radlänken visar var utskriften kommer ifrån.</li>
+                        <li>Ändrad utskrift ska visas efter sparning och omladdning. HTML ger struktur, CSS utseende och JavaScript beteende.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Felsök två avsiktliga fel</h3>
                 <p>Fortsätt i samma projekt och träna på att hitta orsaken när JavaScript inte fungerar.</p>
                 <ol>
@@ -228,9 +239,20 @@
                     <li>Ändra tillfälligt sökvägen i HTML-filens <code>script</code>-element till <code>js/saknas.js</code>. Spara, töm konsolen och ladda om. Läs felmeddelandet och kontrollera vilken fil webbläsaren försöker hämta.</li>
                     <li>Rätta sökvägen och kontrollera att båda utskrifterna kommer tillbaka.</li>
                     <li>Ta tillfälligt bort det avslutande citattecknet i den andra utskriften. Ladda om och använd konsolens filnamn och radnummer för att hitta syntaxfelet. Ett syntaxfel kan hindra hela filen från att köras.</li>
-                    <li>Återställ citattecknet och testa igen. Skriv kommentarer i JavaScript-filen som beskriver de två felen och hur du rättade dem.</li>
+                    <li>Återställ citattecknet och testa igen. Beskriv de två felen och hur du rättade dem i en HTML-kommentar i HTML-filen.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Båda meddelandena ska visas och inga fel ska finnas kvar. Förklara skillnaden mellan en felaktig sökväg och ett syntaxfel och varför du testar en ändring i taget.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Båda console.log-raderna ska fungera innan du skapar fel. Det ger ett resultat att jämföra med.</li>
+                        <li>Saknas.js finns inte. Läs meddelandet om den misslyckade hämtningen och jämför med din verkliga fil.</li>
+                        <li>Återställ js/main.js. Båda meddelandena ska då synas igen.</li>
+                        <li>Det saknade citattecknet ger ett syntaxfel. Ett fel i filens syntax kan hindra även andra rader från att köras. Använd fil och rad som stöd.</li>
+                        <li>Återställ citattecknet och kontrollera att båda utskrifterna återkommer. Dokumentera i en HTML-kommentar, vars syntax du lärde dig i 1.3.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-5-1" aria-label="Quiz Kap 5.1"></div>

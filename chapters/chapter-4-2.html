@@ -556,6 +556,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-4-2">
                 <h2 id="exercises-4-2">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 4-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -567,14 +568,24 @@
                 <p>Skapa en enkel nyhetssida om ett ämne du är intresserad av.</p>
                 <ol>
                     <li>Skriv en fullständig HTML-struktur med språk, sidtitel och viewport-inställning. Lägg en huvudrubrik i <code>header</code>.</li>
-                    <li>Skapa en gemensam behållare med två direkta barn: en <code>main</code> med två nyhetsartiklar och en <code>aside</code> med tre korta notiser. Lägg en <code>footer</code> efter behållaren.</li>
-                    <li>Gör behållaren till en grid-container. Använd <code>grid-template-columns: 2fr 1fr</code> och <code>gap</code>.</li>
+                    <li>Skapa en <code>main</code> med en <code>div</code> som layoutbehållare. Ge div två direkta barn: en <code>section</code> med rubrik och två nyhetsartiklar samt en <code>aside</code> med tre korta notiser. Lägg en <code>footer</code> efter main.</li>
+                    <li>Gör div-behållaren för section och aside till en grid-container. Använd <code>grid-template-columns: 2fr 1fr</code> och <code>gap</code>.</li>
                     <li>Ge huvudkolumnen och sidokolumnen olika bakgrunder och padding så att deras gränser blir tydliga.</li>
                     <li>Prova <code>1fr 1fr</code> och sedan <code>3fr 1fr</code>. Återgå till <code>2fr 1fr</code> och skriv en HTML-kommentar om hur <code>fr</code> fördelar utrymmet.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Kontrollera på ett brett fönster att huvudkolumnen får dubbelt så stor del av det lediga utrymmet som sidokolumnen. Peka ut en grid-item, en kolumn och en grid line i din layout.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Skapa en fullständig HTML-sida med huvudrubrik i header. Här används bara HTML och CSS från tidigare kapitel och detta kapitel.</li>
+                        <li>Main ska innehålla en grid-div med section och aside som direkta barn. Nästa övnings sektion läggs efter grid-diven, fortfarande i samma main.</li>
+                        <li>Grid ska ligga på div-behållaren. 2fr 1fr fördelar det lediga kolumnutrymmet i två delar respektive en del; gap tillkommer mellan kolumnerna.</li>
+                        <li>Olika bakgrunder och padding ska göra kolumnernas gränser synliga utan att ändra HTML-strukturen.</li>
+                        <li>1fr 1fr delar utrymmet lika. 3fr 1fr ger tre delar respektive en. Beskriv hur ditt resultat ändras och återställ 2fr 1fr.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Skapa ett rutnät som anpassar sig</h3>
-                <p>Fortsätt i samma HTML-fil med en separat sektion för sex boktips, spel eller utflyktsmål.</p>
+                <p>Fortsätt i samma HTML-fil. Lägg en separat sektion för sex boktips, spel eller utflyktsmål inuti main, efter div-behållaren från övning 1.</p>
                 <ol>
                     <li>Skapa sex <code>article</code>-element med rubrik och beskrivning i en gemensam behållare.</li>
                     <li>Använd <code>display: grid</code>, <code>repeat(3, 1fr)</code> för kolumnerna och <code>gap</code>. Kontrollera att du får två rader med tre kort på ett brett fönster.</li>
@@ -582,7 +593,18 @@
                     <li>Dölj tillfälligt fyra kort med HTML-kommentarer. Gör fönstret tillräckligt brett för minst fyra kolumner och jämför <code>auto-fit</code> med <code>auto-fill</code>.</li>
                     <li>Återställ alla sex kort och välj <code>auto-fit</code>. Skriv en HTML-kommentar om skillnaden du såg och vad <code>minmax</code> gör.</li>
                 </ol>
-                <p><strong>Kontrollera och förklara:</strong> Testa kortsektionen vid cirka 375, 768 och 1200 pixlars fönsterbredd. Kontrollera att korten byter antal kolumner och att texten ryms. Förklara varför rutnätet kan anpassa sig utan media queries.</p>
+                <p><strong>Kontrollera och förklara:</strong> Testa kortsektionen vid cirka 375, 768 och 1200 pixlars fönsterbredd. Kontrollera att korten byter antal kolumner och att texten ryms. Förklara hur auto-fit och minmax får rutnätet att byta antal kolumner när utrymmet ändras.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Sex article-element ska vara direkta barn till rutnätets behållare. Varje kort behöver en rubrik och kort text.</li>
+                        <li>Repeat(3, 1fr) skapar tre lika stora kolumnspår. Sex kort fyller normalt två rader i denna layout.</li>
+                        <li>Auto-fit anpassar antalet spår efter utrymmet. Minmax ger här varje spår minst 14rem och låter det växa.</li>
+                        <li>Med bara två kort och plats för fler kolumner syns skillnaden: auto-fit kollapsar tomma spår medan auto-fill behåller dem.</li>
+                        <li>Alla sex kort ska åter finnas. Förklara skillnaden mellan tomma spår och upptagna spår och kontrollera layouten vid olika fönsterbredder.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-4-2" aria-label="Quiz Kap 4.2"></div>

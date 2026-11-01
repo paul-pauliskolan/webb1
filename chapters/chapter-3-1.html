@@ -127,15 +127,53 @@
     <h2>Kaskad och arv</h2>
     <p>CSS läses med regler för vilken deklaration som vinner. En regel som kommer senare kan vinna över en tidigare regel om de har samma styrka. Vissa egenskaper, till exempel textfärg och font, kan ärvas från föräldraelement till barn.</p>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Skapa <code>styles.css</code> i samma mapp som <code>index.html</code>.</li>
-        <li>Koppla filen med <code>link</code> i <code>head</code>.</li>
-        <li>Skriv en regel som ändrar färgen på <code>h1</code>.</li>
-        <li>Testa att lägga samma regel längre ned med en annan färg. Vilken vinner?</li>
-    </ol>
-    <p>Kontrollera också CSS-koden med felmarkeringarna i VS Code eller en CSS-validator. Vanliga fel är saknat kolon, saknat semikolon, felstavad egenskap och saknad klammerparentes.</p>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-3-1">
+                <h2 id="exercises-3-1">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Gör först kunskapsfrågorna utan att titta i kapitlet. Skriv på papper eller i ett dokument och markera det du är osäker på. Jämför sedan med svarsstödet och kapitlet, rätta dina svar och förklara det du missade med egna ord. I kodövningen ska du förutsäga resultatet innan du testar.</p>
+                <h3>Övning 1: Förklara CSS innan du testar</h3>
+                <ol>
+                    <li>Förklara skillnaden mellan HTML och CSS. Varför får en rubrik ett utseende även om du inte har skrivit någon egen CSS?</li>
+                    <li>I regeln <code>h1 { color: green; font-size: 2rem; }</code>: peka ut selektorn, de två egenskaperna, deras värden och en hel deklaration.</li>
+                    <li>Beskriv de tre sätten att lägga till CSS. Vilket sätt gör det enkelt att låta flera HTML-sidor dela samma utseende?</li>
+                    <li>Vad betyder arv? Ge ett exempel på en egenskap som kan ärvas. Förklara också vad px, rem, procent och ch kan användas till enligt kapitlet.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>HTML ger struktur och innehåll; CSS styr utseendet. Webbläsarens standardregler ger element ett utseende även utan egen CSS.</li>
+                        <li>h1 är selektorn. color och font-size är egenskaper; green och 2rem är värden. color: green är en hel deklaration.</li>
+                        <li>CSS kan ligga i en extern fil, i style i head eller inline. En extern fil kan delas av flera HTML-sidor.</li>
+                        <li>Textfärg och font kan ärvas från föräldrar. px passar exempelvis till tunna kanter; rem till text och avstånd; procent anger en andel; ch kan begränsa radlängd.</li>
+                    </ol>
+                </details>
+                <h3>Förbered kodövningen</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 3-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 3-1</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn3-1.html</code>. Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du använda en extern CSS-fil som du länkar från varje sida.</li>
+                </ol>
+                <h3>Övning 2: Förutsäg, testa och felsök en CSS-regel</h3>
+                <ol>
+                    <li>Skapa en fullständig HTML-sida med svenska som språk, sidtitel och viewport-inställning. Skriv en huvudrubrik och två stycken om ett eget intresse. Använd inga bilder i denna övning.</li>
+                    <li>Skriv först <code>h1 { color: green; }</code> i style-elementet. Lägg sedan <code>h1 { color: blue; }</code> under den första regeln. Skriv vilken färg du tror rubriken får och varför innan du öppnar sidan.</li>
+                    <li>Öppna sidan och jämför med din förutsägelse. Byt ordning på reglerna och testa igen. Förklara varför resultatet ändras när reglerna har samma selektor och egenskap.</li>
+                    <li>Flytta sedan CSS-koden till en extern fil som heter <code>style.css</code>. Ta bort style-elementet och koppla filen i head med <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>. Detta moment tränar kapitlets mål att koppla en extern CSS-fil.</li>
+                    <li>Ändra en färg i CSS-filen och kontrollera att sidan ändras efter omladdning. Ta tillfälligt bort kolon i en color-deklaration, undersök felmarkeringen i VS Code och rätta felet. Skriv två meningar om vad du lärde dig om ordning och filkoppling.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter din förutsägelse och ditt test</summary>
+                    <ol>
+                        <li>Sidan ska ha HTML-grundstruktur, en huvudrubrik och två stycken. Här behövs varken bilder eller senare kapitels layouttekniker.</li>
+                        <li>Rubriken blir blå: den blå regeln kommer sist och har samma selektor och egenskap som den gröna.</li>
+                        <li>När reglerna byter ordning blir rubriken grön. Vid samma styrka vinner den senare deklarationen.</li>
+                        <li>CSS-filen ska innehålla reglerna utan style-taggar. Link-elementets href ska vara style.css och ligga i head. Utseendet ska finnas kvar efter flytten.</li>
+                        <li>En färgändring ska synas efter att du sparat och laddat om. Ett saknat kolon gör deklarationen ogiltig. Kontrollera filnamn och href om hela stilen saknas.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Välj två frågor du var osäker på och besvara dem igen utan att läsa dina tidigare svar. Förklara också en CSS-regel från kodövningen ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
 
             <div id="quiz-3-1" aria-label="Quiz Kap 3.1"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

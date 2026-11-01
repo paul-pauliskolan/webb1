@@ -175,6 +175,52 @@ a:focus {
     <p><code>!important</code> gör en enskild deklaration starkare än vanliga deklarationer. Exempel: <code>color: red !important;</code>. Det kan verka som en snabb lösning, men gör kaskaden svårare att förstå och tvingar ofta fram ännu fler starka regler senare. Lös i första hand problemet med tydliga selektorer, rätt ordning och rimlig specificitet.</p>
 </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-3-4">
+                <h2 id="exercises-3-4">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Gör först kunskapsfrågorna utan att titta i kapitlet. Skriv på papper eller i ett dokument och markera det du är osäker på. Jämför sedan med svarsstödet och kapitlet, rätta dina svar och förklara det du missade med egna ord. I kodövningen ska du förutsäga resultatet innan du testar.</p>
+                <h3>Övning 1: Förutsäg vilka element selektorerna väljer</h3>
+                <ol>
+                    <li>Förklara skillnaden mellan <code>p</code>, <code>.intro</code> och <code>#intro</code>. Vilken typ passar bäst för en stil som ska användas på flera element, och varför?</li>
+                    <li>Jämför <code>.card.highlight</code> och <code>.card .highlight</code>. Vad betyder punkterna och mellanslaget? Förklara även vad <code>article p</code> väljer.</li>
+                    <li>Vad betyder kommatecknet i <code>h1, h2, h3</code>? Hur skiljer det sig från mellanslaget i <code>article p</code>? Koppla till DRY.</li>
+                    <li>Förklara skillnaden mellan hover och focus. Om typ-, klass- och id-regler försöker ändra samma textfärg, vilken är starkast bland dessa vanliga regler? Vad avgör när reglerna har samma specificitet?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>p är typselektor, .intro klassselektor och #intro id-selektor. Klasser kan återanvändas; id ska vara unikt på sidan.</li>
+                        <li>.card.highlight kräver båda klasserna på samma element. .card .highlight väljer ett highlight-element inuti ett card-element. Article p väljer stycken inuti article.</li>
+                        <li>Komma grupperar alternativa selektorer som ska dela deklarationer. Mellanslag anger härstamning. Gruppering minskar upprepning enligt DRY.</li>
+                        <li>Hover gäller muspekaren och focus det fokuserade elementet. Bland dessa vanliga regler är id starkare än klass och klass starkare än typ. Vid lika specificitet vinner den senare.</li>
+                    </ol>
+                </details>
+                <h3>Förbered kodövningen</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 3-4</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 3-4</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn3-4.html</code>. Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du använda en extern CSS-fil som du länkar från varje sida.</li>
+                </ol>
+                <h3>Övning 2: Pröva selektorer och förklara vinnande regler</h3>
+                <ol>
+                    <li>Skapa en fullständig HTML-sida med ett article-element som har <code>class="card highlight"</code>. Lägg två stycken i det och ett tredje stycke utanför. Ge det första stycket både <code>class="intro"</code> och <code>id="lead"</code>. Lägg också en länk till <code>https://developer.mozilla.org/</code> med texten ”MDN Web Docs”.</li>
+                    <li>Skriv <code>p { color: navy; }</code>, <code>.intro { color: green; }</code> och <code>#lead { color: maroon; }</code>. Skriv vilka färger de tre styckena får innan du testar. Byt reglernas ordning och förklara varför id-regeln fortfarande styr det första styckets färg.</li>
+                    <li>Testa <code>.card.highlight { border: 2px solid teal; }</code> och <code>article p { background-color: #eeeeee; }</code>. Förutsäg vilka ytor som påverkas. Ta sedan bort highlight från artikelns class-attribut, testa igen och återställ klassen.</li>
+                    <li>Gruppera h1 och h2 med kommatecken för ett gemensamt line-height. Ge länken olika tydliga stilar med <code>a:hover</code> och <code>a:focus</code>. Testa muspekare, Tab och Enter.</li>
+                    <li>Ta bort id-regeln för textfärg och kontrollera vilken regel som då vinner. Skriv en kort förklaring till resultatet och varför tydliga klasser ofta är enklare att återanvända än starka id-regler. Använd inte inline-stil eller important i testet.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter din förutsägelse och ditt test</summary>
+                    <ol>
+                        <li>Artikeln ska ha båda klasserna. Första stycket ska ha klassen intro och det unika id:t lead. Det tredje stycket ska ligga utanför article.</li>
+                        <li>Första stycket blir maroon och de två andra navy. Id-regeln är starkare än klass- och typreglerna även om ordningen ändras.</li>
+                        <li>Artikeln får kantlinjen och båda artikelstyckena grå bakgrund. Stycket utanför påverkas inte av article p. Kantregeln slutar matcha när highlight tas bort.</li>
+                        <li>Rubrikregeln ska använda kommatecken. Länken ska ge synlig återkoppling både vid muspekare och tangentbordsfokus och öppna den angivna webbplatsen.</li>
+                        <li>Utan id-regeln blir första stycket green genom klassen intro. Klasser kan återanvändas och är mindre starka än id-regler, vilket ofta gör dem enklare att kombinera.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Välj två frågor du var osäker på och besvara dem igen utan att läsa dina tidigare svar. Förklara också en CSS-regel från kodövningen ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-3-4" aria-label="Quiz Kap 3.4"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-3-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">3.3 Boxmodellen i praktiken</span></span></a>

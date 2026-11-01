@@ -179,6 +179,47 @@
     <p>Markera obligatoriska fält tydligt och skriv felmeddelanden som förklarar vad användaren ska göra. Ett meddelande som “Fyll i e-postadress” är bättre än “Fel”.</p>
 </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-2-4">
+                <h2 id="exercises-2-4">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Förklara krav, fälttyper och gruppering</h3>
+                <ol>
+                    <li>Vad gör inputtyperna email, number, password och date? Bevisar ett godkänt email-fält att adressen verkligen finns?</li>
+                    <li>Förklara required, minlength, maxlength, min och max. Ge ett exempel på när du använder längdgränser respektive talgränser.</li>
+                    <li>Vad gör fieldset och legend? Varför behöver formulär både labels och tydlig information om obligatoriska fält?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Email kontrollerar adressliknande format, number används för tal, password döljer visade tecken och date för datum. Formatkontrollen bevisar inte att e-postadressen finns.</li>
+                        <li>Required gör fältet obligatoriskt; minlength och maxlength styr textlängd; min och max gränser för tal eller datum. Exempel: meddelandelängd respektive minsta och största antal.</li>
+                        <li>Fieldset grupperar relaterade fält och legend ger gruppen en rubrik. Labels beskriver fälten och tydliga krav hjälper användaren att förstå vad som behöver fyllas i.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 2-4</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn2-4.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Förutsäg och testa webbläsarens validering</h3>
+                <ol>
+                    <li>Bygg ett formulär med kapitlets testadress <code>https://httpbin.org/post</code> och method post. Lägg ett obligatoriskt email-fält, ett obligatoriskt number-fält med min 1 och max 5 samt en obligatorisk textarea med minlength 10 och maxlength 100. Ge alla fält name, unika id och korrekt kopplade labels.</li>
+                    <li>Skriv kraven i synlig text: e-post obligatorisk, antal 1–5 och meddelande 10–100 tecken. Gruppera två radioknappar med samma name i fieldset och ge gruppen en legend. Lägg en submit-knapp.</li>
+                    <li>Förutsäg och testa vad som händer när du lämnar ett obligatoriskt fält tomt, skriver en felaktig e-postadress, anger 0 eller 6 som antal eller själv skriver ett för kort meddelande. Testa ett fel i taget och anteckna webbläsarens återkoppling.</li>
+                    <li>Fyll i elev@example.com, ett giltigt antal och ett påhittat meddelande med rätt längd. Skicka och jämför name och value med testtjänstens svar. Prova även att nå fälten och knappen med Tab. Förklara skillnaden mellan ett begripligt krav och återkopplingen när kravet inte uppfylls.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Använd vanliga HTML-attribut, ingen JavaScript-validering. Testtjänsten tar emot data externt, så använd bara påhittade uppgifter. Label och for ska matcha rätt id.</li>
+                        <li>Kravtexten ska gå att läsa innan man skickar. Legend ska beskriva gruppens gemensamma fråga och radioknapparna ska ha olika value och begripliga etiketter.</li>
+                        <li>Webbläsaren ska hindra vanlig skickning när ett krav inte är uppfyllt. Prova textlängden genom att själv skriva texten. Meddelandenas exakta formulering kan variera mellan webbläsare.</li>
+                        <li>Giltiga testvärden ska kunna skickas. Kontrollera fältnamnen och värdena i svaret. Kravtext förbereder användaren; felmeddelandet hjälper när något behöver rättas. Fokus och labels ska göra formuläret möjligt att följa med tangentbord.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-2-4" aria-label="Quiz Kap 2.4"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-2-3.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">2.3 Formulär från grunden</span></span></a>

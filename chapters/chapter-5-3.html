@@ -135,6 +135,7 @@ if (email.value === "") {
 
             <section class="exercise-section" aria-labelledby="exercises-5-3">
                 <h2 id="exercises-5-3">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 5-3</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -147,22 +148,43 @@ if (email.value === "") {
                 <p>Skapa ett formulär som visar en personlig hälsning direkt i sidan.</p>
                 <ol>
                     <li>Skriv en fullständig HTML-struktur. Skapa ett <code>form</code>-element med ett namnfält, en <code>label</code> kopplad med <code>for</code> och <code>id</code> samt en knapp med <code>type="submit"</code>.</li>
-                    <li>Lägg ett tomt stycke för feedback efter knappen och ge det ett eget id och <code>aria-live="polite"</code>, så att uppdateringen kan meddelas av hjälpmedel.</li>
+                    <li>Lägg ett stycke för feedback efter knappen och ge det ett eget id. Skriv från början ”Här visas hälsningen.” i stycket.</li>
                     <li>Hämta formuläret, namnfältet och feedbackstycket med <code>querySelector</code>. Lyssna på formulärets <code>submit</code>-event och använd <code>event.preventDefault()</code>.</li>
-                    <li>Läs namnet med <code>value</code>. Använd <code>if</code> för att visa ”Skriv ditt namn först.” när värdet är en tom sträng. Annars ska feedbacken innehålla namnet, till exempel ”Hej Sam! Välkommen till klubben.”</li>
-                    <li>Visa feedback med <code>textContent</code>. Gör kontrollerna i JavaScript i denna övning så att även ett tomt fält når din submit-lyssnare.</li>
+                    <li>Ge namnfältet <code>required</code>, som du tränade i kapitel 2.4. Läs namnet med <code>value</code> och låt hälsningen innehålla det, till exempel ”Hej Sam! Välkommen till klubben.” Utgå från kapitlets kodexempel.</li>
+                    <li>Visa hälsningen med <code>textContent</code>. Förutsäg vad som händer när namnfältet är tomt respektive ifyllt innan du testar. Webbläsaren sköter kontrollen av required; JavaScript sköter hälsningen.</li>
                 </ol>
-                <p><strong>Kontrollera och förklara:</strong> Testa tomt fält, ett ifyllt namn och ett nytt namn. Prova både submit-knappen och Enter i namnfältet. Sidan ska stanna kvar utan omladdning och feedbacken ska ersättas vid varje försök.</p>
+                <p><strong>Kontrollera och förklara:</strong> Testa tomt fält, ett ifyllt namn och ett nytt namn. Prova både submit-knappen och Enter i namnfältet. Webbläsaren ska stoppa ett tomt obligatoriskt fält. För ett ifyllt namn ska hälsningen visas utan omladdning och ersättas när ett nytt namn skickas.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Labelns for ska stämma med namnfältets id. Knappen ska vara submit och ligga i formuläret.</li>
+                        <li>Feedbackstycket behöver ett eget id som JavaScript kan hitta. Börja med den angivna instruktionstexten.</li>
+                        <li>Lyssna på form-elementets submit. PreventDefault stoppar vanlig skickning när eventet hanteras; då kan sidan uppdateras utan omladdning.</li>
+                        <li>Required låter webbläsaren stoppa ett tomt fält. Value innehåller namnet och kan läggas ihop med hälsningens övriga text enligt kapitlets exempel.</li>
+                        <li>TextContent ersätter feedbacktexten. Testa tomt och ifyllt fält och sedan ett nytt namn, med både knapp och Enter.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Visa en sammanfattning av ett val</h3>
                 <p>Fortsätt i samma HTML-fil med ett separat formulär för en prova-på-aktivitet. Det ska bara visa en sammanfattning i sidan.</p>
                 <ol>
                     <li>Skapa ett nytt formulär med ett e-postfält av typen <code>email</code>, en <code>select</code> med två aktiviteter och en submit-knapp med texten ”Visa mitt val”. Ge alla fält tydliga etiketter och unika id.</li>
                     <li>Ge e-postfältet <code>required</code> så att webbläsaren kontrollerar att en e-postadress är ifylld. Använd en påhittad adress när du testar, till exempel <code>elev@example.com</code>.</li>
-                    <li>Skapa ett eget feedbackstycke med <code>aria-live="polite"</code>. Koppla en submit-lyssnare till det nya formuläret och stoppa vanlig skickning med <code>preventDefault()</code>.</li>
+                    <li>Skapa ett eget feedbackstycke med ett unikt id. Koppla en submit-lyssnare till det nya formuläret och stoppa vanlig skickning med <code>preventDefault()</code>.</li>
                     <li>Läs e-postfältets och listans <code>value</code>. Använd begripliga värden för aktiviteterna, till exempel ”Webbdesign” och ”Spelkväll”.</li>
                     <li>Visa en sammanfattning med vald aktivitet och adress via <code>textContent</code>. Skriv också att detta är en övning: ingen anmälan sparas och inget mejl skickas.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Prova tom adress, en felaktig adress och elev@example.com. Webbläsaren ska stoppa de två första fallen. Byt aktivitet och skicka igen; sammanfattningen ska uppdateras utan omladdning. Kontrollera att formulären fungerar oberoende av varandra.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Nya fält och feedback ska ha egna id. Select ska innehålla två option-element med tydliga värden.</li>
+                        <li>Required och type="email" kontrolleras av webbläsaren före vanlig submit-hantering. Använd testadressen, inte verkliga kontaktuppgifter.</li>
+                        <li>Den andra submit-lyssnaren ska vara kopplad till det andra formuläret och uppdatera dess eget feedbackstycke.</li>
+                        <li>Value ger e-postfältets text respektive den valda optionens värde. Använd de valda värdena i sammanfattningen.</li>
+                        <li>TextContent visar sammanfattningen lokalt. Tom eller felaktig adress stoppas av webbläsaren; ett giltigt testvärde ska ge feedback utan omladdning.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-5-3" aria-label="Quiz Kap 5.3"></div>

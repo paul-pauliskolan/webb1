@@ -33,9 +33,8 @@
                     <li>För <code>index</code> finns en desktopversion och en mobilversion.</li>
                     <li>För <code>contact</code> finns en desktopversion och en mobilversion.</li>
                     <li>Gör alltid mobildesignen först och ändra sedan till desktoplayout med media query.</li>
-                    <li>Tips: i stället för <code>min-width</code> och <code>max-width</code> kan du använda <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code> och <code>&gt;=</code> i media queries.</li>
                 </ul>
-                <p>Exempel på en media query med den nya syntaxen:</p>
+                <p>Exempel på en media query enligt mönstret i kapitel 4.4:</p>
                 <pre><code>/* Mobil först */
 .page {
     display: grid;
@@ -43,7 +42,7 @@
 }
 
 /* Desktop när skärmen är minst 800px bred */
-@media (width &gt;= 800px) {
+@media (min-width: 800px) {
     .page {
         grid-template-columns: 1fr 1fr;
     }
@@ -74,8 +73,7 @@
                     <li>Design och layout ska följa layoutbilderna, men du väljer färger själv.</li>
                     <li>Texten ska synas tydligt mot bakgrunden.</li>
                     <li>De två länkarna i menyn ska se ut som länkar, men de får inte ha standardutseende. De ska ha ett knappliknande utseende.</li>
-                    <li>Webbplatsen ska klara kraven i Lighthouse, utom bildtesten och Google Fonts.</li>
-                    <li>Du ska ha en meta description på båda sidorna.</li>
+                    <li>Kör Lighthouse enligt kapitel 6.4 och välj två relevanta kontroller att undersöka. Dokumentera vad rapporten visar och rätta konkreta problem som du förstår. Om rapporten inte visar något sådant problem, dokumentera kontroller som fungerar.</li>
                     <li>Bakgrunds- och textfärger ska ha tillräcklig kontrast.</li>
                 </ul>
 
@@ -88,7 +86,6 @@
                 <h2>Testning</h2>
                 <ul>
                     <li>Testa webbplatsen med Lighthouse i Chrome DevTools.</li>
-                    <li>Kontrollera särskilt felet <a href="https://developer.chrome.com/docs/lighthouse/seo/meta-description/" target="_blank" rel="noopener">Document does not have a meta description</a>.</li>
                     <li>Kontrollera kontrast med <a href="https://color.a11y.com/?wc3" target="_blank" rel="noopener">Color Contrast Accessibility Validator</a>.</li>
                     <li>Läs mer om kontrastproblemet här: <a href="https://themeisle.com/blog/background-and-foreground-colors-do-not-have-a-sufficient-contrast-ratio/" target="_blank" rel="noopener">Background and foreground colors have a sufficient contrast ratio</a>.</li>
                     <li>Validera HTML med <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a>.</li>
@@ -130,7 +127,7 @@
                     <li>Du har valt en sans-serif fontstack från Modern Font Stacks.</li>
                     <li>Alla bilder som används på webbplatsen är WebP.</li>
                     <li>HTML och CSS klarar validering.</li>
-                    <li>Sidorna klarar Lighthouse-kraven enligt uppgiften.</li>
+                    <li>Du har dokumenterat två Lighthouse-kontroller och eventuella rättningar, enligt uppgiften.</li>
                     <li>Kontrasten klarar Color Contrast Accessibility Validator.</li>
                     <li>Du lämnar in både GitHub-länken och GitHub Pages-länken.</li>
                 </ul>

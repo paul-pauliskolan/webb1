@@ -877,15 +877,53 @@ code {
 }</code></pre>
     <p><code>max-width</code> sätter en övre gräns. Huvudinnehållet kan bli smalare på en liten skärm, men inte bredare än ungefär 70 tecken när det finns gott om plats.</p>
 
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Välj två färger till profilsidan: en bakgrundsfärg och en textfärg.</li>
-        <li>Testa samma färg i färgväljaren med både <code>rgb()</code> och <code>hsl()</code>.</li>
-        <li>Testa kontrasten.</li>
-        <li>Lägg till en font stack på <code>body</code>.</li>
-        <li>Sätt <code>line-height: 1.5</code> på stycketext.</li>
-    </ol>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-3-2">
+                <h2 id="exercises-3-2">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Gör först kunskapsfrågorna utan att titta i kapitlet. Skriv på papper eller i ett dokument och markera det du är osäker på. Jämför sedan med svarsstödet och kapitlet, rätta dina svar och förklara det du missade med egna ord. I kodövningen ska du förutsäga resultatet innan du testar.</p>
+                <h3>Övning 1: Återkalla färg- och textbegreppen</h3>
+                <ol>
+                    <li>Vilka fyra sätt att ange färg tar kapitlet upp? Förklara hur RGB skiljer sig från HSL.</li>
+                    <li>Vad blir <code>rgb(0 0 0)</code>, <code>rgb(255 255 255)</code> och <code>rgb(255 0 0)</code>? Vad händer i HSL när saturation är 0 procent respektive lightness är 0 eller 100 procent?</li>
+                    <li>Förklara vad en font stack är och vad webbläsaren gör om den första fonten saknas. Varför kan en systemfont vara ett användbart val?</li>
+                    <li>Förklara hur line-height, text-align och en maxbredd i ch påverkar läsningen. Vad betyder kontrast, och vilket kontrastmål använder detta kapitel?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Färgnamn, hex, RGB och HSL. RGB anger rött, grönt och blått ljus; HSL anger färgvinkel, mättnad och ljushet.</li>
+                        <li>RGB-exemplen blir svart, vitt och rött. Noll procent mättnad ger gråskala; noll procent ljushet ger svart och hundra procent ger vitt.</li>
+                        <li>En font stack är alternativ i ordning. Om första fonten saknas används nästa. Systemfonter finns ofta redan på enheten och behöver inte hämtas separat.</li>
+                        <li>Line-height styr radavstånd, text-align textjustering och ch kan begränsa radlängd. Kontrast handlar om skillnaden i ljushet mellan text och bakgrund. Kapitlets mål är 7:1.</li>
+                    </ol>
+                </details>
+                <h3>Förbered kodövningen</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 3-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 3-2</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn3-2.html</code>. Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du använda en extern CSS-fil som du länkar från varje sida.</li>
+                </ol>
+                <h3>Övning 2: Förutsäg och förbättra läsbarheten</h3>
+                <ol>
+                    <li>Skapa en fullständig HTML-sida med huvudrubrik, två underrubriker och tre egna stycken om ett intresse. Skriv tillräckligt med text för att kunna jämföra flera textrader. Inga bilder behövs.</li>
+                    <li>Börja med grå text <code>#BBBBBB</code> på vit bakgrund, <code>line-height: 1</code> och centrerad stycketext. Skriv vilka läsproblem du tror att detta kan ge innan du tittar i webbläsaren.</li>
+                    <li>Välj en bättre text- och bakgrundsfärg. Testa färgerna med kapitlets kontrastdemo eller WebAIM-länken i kapitlet tills de når minst <code>7:1</code>. Anteckna färgkoder och uppmätt kontrast. Här följer du kapitlets eget mål.</li>
+                    <li>Sätt <code>font-family: system-ui, sans-serif;</code> på body. Prova sedan <code>line-height: 1.5</code> och <code>text-align: left</code> på p samt <code>max-width: 70ch</code> på main. Ändra en sak i taget och beskriv vad varje ändring gör.</li>
+                    <li>Jämför i smalt och brett fönster. Förklara vilka förbättringar som stämde med din förutsägelse och varför font stack och radlängd fortfarande spelar roll även när kontrasten är bra.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter din förutsägelse och ditt test</summary>
+                    <ol>
+                        <li>Tre egna stycken ska ge flera textrader så att du kan jämföra läsbarheten. Använd rubriker i logisk ordning.</li>
+                        <li>Låg kontrast kan göra texten svårläst; litet radavstånd kan göra raderna svåra att följa. Centrerad längre text får en ojämn startpunkt för varje rad.</li>
+                        <li>Anteckna de färger du faktiskt använder och verktygets kontrastvärde. De ska nå kapitlets mål 7:1.</li>
+                        <li>Font stack ger fontalternativ. Line-height 1.5 ger luftigare rader, vänsterjustering jämn startpunkt och max-width kortare rader på en bred skärm.</li>
+                        <li>Jämför förutsägelse och observation i båda bredderna. Bra kontrast ersätter inte lämplig font eller radlängd. 70ch betyder en ungefärlig bredd, inte exakt 70 bokstäver per rad.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Välj två frågor du var osäker på och besvara dem igen utan att läsa dina tidigare svar. Förklara också en CSS-regel från kodövningen ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
 
             <div id="quiz-3-2" aria-label="Quiz Kap 3.2"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

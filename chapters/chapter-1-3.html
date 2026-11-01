@@ -158,14 +158,6 @@
                     valideringstillägg i VS Code eller W3C:s validator. Röda fel ska rättas. Gula varningar behöver du
                     läsa och bedöma.</p>
 
-                <h2>Prova själv</h2>
-                <ol>
-                    <li>Byt texten i rubriken och stycket.</li>
-                    <li>Lägg till en HTML-kommentar.</li>
-                    <li>Ta bort en sluttagg med flit och se om validatorn hittar felet.</li>
-                    <li>Rätta felet igen.</li>
-                </ol>
-
                 <h2>Sammanfattning</h2>
                 <ul>
                     <li>HTML ger sidan struktur och betydelse.</li>
@@ -174,6 +166,49 @@
                     <li>Validering hjälper dig hitta fel som webbläsaren kan dölja.</li>
                 </ul>
             </section>
+            <section class="exercise-section" aria-labelledby="exercises-1-3">
+                <h2 id="exercises-1-3">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Återskapa HTML-dokumentets delar</h3>
+                <ol>
+                    <li>Skriv grundstrukturen för en HTML-sida ur minnet. Ta med DOCTYPE, html, head, title och body. Markera vilka delar som har sluttaggar och var de ska stå.</li>
+                    <li>Förklara skillnaden mellan title och h1 och mellan head och body.</li>
+                    <li>Vad gör lang="sv", charset="UTF-8" och viewport-inställningen?</li>
+                    <li>Vad är en HTML-kommentar och varför bör du validera även när sidan ser rätt ut?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>DOCTYPE står först och har ingen sluttagg. Html omsluter head och body. Title ligger i head. Avsluta title, head, body och html i rätt ordning; jämför med kapitlets grundstruktur.</li>
+                        <li>Title anger flikens titel och ligger i head. H1 är en synlig huvudrubrik i body. Head innehåller sidinformation medan body innehåller det synliga innehållet.</li>
+                        <li>Lang anger svenska som huvudspråk. UTF-8 anger teckenkodning så att bland annat å, ä och ö fungerar. Viewport-inställningen hjälper sidan att visas på mobilskärmar.</li>
+                        <li>Kommentaren syns i koden men inte på sidan och skrivs med &lt;!-- och --&gt;. Webbläsaren kan försöka rätta eller dölja fel som validatorn upptäcker.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 1-3</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn1-3.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Skriv, förutsäg och validera din första sida</h3>
+                <ol>
+                    <li>Skapa grundstrukturen i HTML-filen. Skriv ”Min första sida” i title och ”Mitt intresse” i h1. Lägg till två p-element i body med egen text.</li>
+                    <li>Skriv en kommentar före rubriken. Förutsäg var title, h1 och kommentaren kommer att synas. Öppna sedan med Live Server och jämför.</li>
+                    <li>Validera. Skapa sedan tillfälligt felet <code>&lt;h1&gt;Mitt intresse&lt;/h2&gt;</code>. Förutsäg vad validatorn reagerar på och kontrollera dess meddelande.</li>
+                    <li>Rätta sluttaggen till h1 och validera igen. Anteckna felet och förklara varför du använder både webbläsare och validator.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Title ska ligga i head och h1 och de två styckena i body. Använd svenska som språk, UTF-8 och kapitlets viewport-inställning.</li>
+                        <li>Title syns i fliken, h1 i sidan och kommentaren endast i källkoden. Att kommentaren inte syns på sidan är förväntat.</li>
+                        <li>Start- och sluttagg hör inte ihop. Validatorn ska visa fel; webbläsaren kan ändå visa en rubrik, vilket inte betyder att koden är korrekt.</li>
+                        <li>Den avsiktliga felmatchningen ska vara borta. Webbläsaren används för att se sidan och validatorn för att kontrollera strukturen och hitta kodfel.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-1-3" aria-label="Quiz Kap 1.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-1-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">1.2 Kom igång med VS Code och projektmappar</span></span></a>

@@ -114,6 +114,7 @@ const message = document.querySelector("#message");</code></pre>
 
             <section class="exercise-section" aria-labelledby="exercises-5-2">
                 <h2 id="exercises-5-2">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 5-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -129,19 +130,40 @@ const message = document.querySelector("#message");</code></pre>
                     <li>Hämta stycket och de två knapparna med <code>document.querySelector</code>. Spara referenserna i varsin <code>const</code>.</li>
                     <li>Lägg till en egen klicklyssnare med <code>addEventListener</code> på varje knapp.</li>
                     <li>Låt den ena knappen ändra styckets <code>textContent</code> till en mötestid och den andra till en mötesplats. Texten ska ändras först när besökaren trycker på knappen.</li>
-                    <li>Ge rutan tydliga avstånd och läsbara färger med CSS. Skriv en JavaScript-kommentar som förklarar skillnaden mellan att hitta ett element och att ändra dess text.</li>
+                    <li>Ge rutan tydliga avstånd och läsbara färger med CSS. Skriv en HTML-kommentar som förklarar skillnaden mellan att hitta ett element och att ändra dess text.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Tryck på knapparna växelvis flera gånger. Rätt meddelande ska visas utan omladdning och konsolen ska vara fri från fel. Testa även knapparna med Tab och Enter.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Knapparna ska ha olika id och type="button". Stycket ska ha id club-message. Kontrollera stavningen innan du kopplar JavaScript.</li>
+                        <li>QuerySelector ska använda rätt selektor, exempelvis #club-message för stycket. Const håller referensen till det hittade elementet.</li>
+                        <li>Varje knapp ska ha en egen click-lyssnare. Följ kapitlets mönster med addEventListener och function.</li>
+                        <li>TextContent ska ändras inuti respektive lyssnare. Ett tryck visar tid och ett annat plats utan sidomladdning.</li>
+                        <li>CSS ska ge läsbarhet. Kommentaren ska skilja mellan att hämta en elementreferens och att ändra elementets text.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Växla utseende med en CSS-klass</h3>
                 <p>Fortsätt i samma HTML-fil och skapa ett aktivitetskort som besökaren kan markera.</p>
                 <ol>
                     <li>Lägg till ett kort med rubrik, beskrivning och en knapp med texten ”Växla markering”. Ge kortet och knappen egna id så att de inte blandas ihop med den första övningens element.</li>
-                    <li>Skriv grundstilen för kortet och en CSS-klass <code>.is-highlighted</code> som ändrar både bakgrund och kantlinje. Lägg även en synlig etikett i kortet som bara visas när klassen finns, så att markeringen inte enbart uttrycks med färg.</li>
+                    <li>Skriv grundstilen för kortet och en CSS-klass <code>.is-highlighted</code> som ändrar både bakgrund och kantlinje. Låt kantlinjen bli tydligt tjockare när klassen finns så att förändringen syns även utan färgskillnaden. Du behöver inte visa eller dölja något innehåll.</li>
                     <li>Hämta kortet och knappen med <code>querySelector</code>. Lyssna på knappens klick.</li>
                     <li>Använd <code>classList.toggle("is-highlighted")</code> för att växla klassen på kortet. Låt CSS sköta utseendet.</li>
                     <li>Kontrollera i utvecklarverktygens <strong>Elements</strong> att klassen läggs till och tas bort när du trycker på knappen.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Första trycket ska markera kortet och nästa ska återställa det. Testa minst fyra tryck och kontrollera att knapparna från övning 1 fortfarande fungerar. Förklara varför klassnamnet saknar punkt i classList.toggle.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Använd nya id så att knapparna från övning 1 inte väljs av misstag. Kortets innehåll ska gå att förstå före markering.</li>
+                        <li>Is-highlighted ska beskriva det markerade utseendet, exempelvis annan bakgrund och tjockare kant. Ingen innehållsvisning eller villkorslogik behövs.</li>
+                        <li>Hämta just kortet och dess knapp och lyssna på knappens click-event.</li>
+                        <li>ClassList.toggle får klassnamnet utan punkt. Punkten används i CSS-selektorn, inte i klassnamnet som växlas.</li>
+                        <li>Elements ska visa att klassen läggs till och tas bort. Kontrollera minst fyra tryck och att den första övningen fortfarande fungerar.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-5-2" aria-label="Quiz Kap 5.2"></div>

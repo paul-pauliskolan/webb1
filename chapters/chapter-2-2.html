@@ -107,14 +107,48 @@
 
     <h2>Rubriknivåer</h2>
     <p>Rubriker skapar struktur. <code>h1</code> är sidans huvudrubrik. Under den kan du använda <code>h2</code> och sedan <code>h3</code>. Hoppa inte rubriknivåer bara för att få en viss storlek. Storlek styrs senare med CSS.</p>
-
-    <h2>Prova själv</h2>
-    <ol>
-        <li>Lägg till <code>header</code>, <code>main</code> och <code>footer</code> i din profilsida.</li>
-        <li>Lägg en länklista i ett <code>nav</code>-element.</li>
-        <li>Kontrollera att rubriknivåerna kommer i logisk ordning.</li>
-    </ol>
 </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-2-2">
+                <h2 id="exercises-2-2">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Återkalla betydelsen av sidans regioner</h3>
+                <ol>
+                    <li>Förklara semantisk HTML och skillnaden mellan nav och div.</li>
+                    <li>Beskriv vad header, main och footer används till. Hur många main använder man normalt på en sida?</li>
+                    <li>Jämför section, article och aside. Varför ska rubriknivåer inte väljas bara efter hur stora de ser ut?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Semantiska element beskriver innehållets roll. Nav anger navigation; div är en generell behållare utan den särskilda betydelsen.</li>
+                        <li>Header är sidhuvud eller introduktion, main huvudinnehåll och footer avslutande information. Normalt används ett main för sidan.</li>
+                        <li>Section grupperar relaterat innehåll, article kan stå mer självständigt och aside är kompletterande. Rubriknivåer ska beskriva innehållets struktur; storlek styrs senare med CSS.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 2-2</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn2-2.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Ge innehållet en meningsfull struktur</h3>
+                <ol>
+                    <li>Skriv först en plan på papper för en enkel sida om ett intresse: sidhuvud, navigationslänkar, huvudinnehåll med två avdelningar och avslutning. Ange vilka semantiska element du väljer och varför.</li>
+                    <li>Bygg planen i din HTML-fil med fullständig grundstruktur. Skriv en h1 för sidan och en h2 i varje avdelning. Lägg egen text i p-element. Du behöver ingen CSS eller bild.</li>
+                    <li>Lägg en fungerande extern länk i nav, till exempel till MDN Web Docs. Skapa inte en kontaktlänk till en HTML-fil som inte finns. Kontrollera sedan rubrikordning och nästling.</li>
+                    <li>Validera och förklara varför sidan kan vara semantiskt bättre än en sida med bara div-element även om utseendet är nästan likadant.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Ett rimligt val är header, nav, main med två section och footer. Motivera utifrån innehållets roll; inte alla sidor behöver alla element.</li>
+                        <li>H1 är huvudrubrik och h2 underavdelningarnas rubriker. Main ska omsluta huvudinnehållet. Innehållet ska ge avdelningarna en tydlig funktion.</li>
+                        <li>Nav ska innehålla en riktig navigationslänk. Kontrollera att länken har ett mål som finns och att rubriknivåerna följer innehållets ordning.</li>
+                        <li>Semantiken beskriver roller för bland annat hjälpmedel och webbläsare. Visuell likhet innebär inte samma betydelse i HTML. Rätta valideringsfel.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
 
             <div id="quiz-2-2" aria-label="Quiz Kap 2.2"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">

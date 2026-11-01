@@ -143,6 +143,7 @@ menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
 
             <section class="exercise-section" aria-labelledby="exercises-5-4">
                 <h2 id="exercises-5-4">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 5-4</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -155,22 +156,43 @@ menuButton.setAttribute("aria-expanded", String(isOpen));</code></pre>
                 <p>Skapa en sida för en skolklubb med en menyknapp och tre länkar till avsnitt på samma sida.</p>
                 <ol>
                     <li>Skriv en fullständig HTML-struktur. Lägg till tre innehållsavsnitt med unika id och en <code>nav</code> med länkar till dem.</li>
-                    <li>Ge navigationen ett id, till exempel <code>club-menu</code>. Skapa en riktig knapp med <code>type="button"</code>, <code>aria-controls="club-menu"</code>, <code>aria-expanded="false"</code> och texten ”Visa meny”.</li>
+                    <li>Ge navigationen ett id, till exempel <code>club-menu</code>. Skapa en riktig knapp med <code>type="button"</code>, <code>aria-controls="club-menu"</code>, <code>aria-expanded="false"</code> och texten ”Visa eller dölj meny”.</li>
                     <li>Dölj menyn i grundstilen med <code>display: none</code>. Skriv en regel för <code>.is-open</code> som visar den, till exempel med flexbox och gap. Låt menyn börja stängd i alla skärmbredder i denna övning.</li>
                     <li>Hämta knappen och menyn. Vid klick ska <code>classList.toggle</code> växla <code>is-open</code> på menyn. Spara returvärdet i <code>const isOpen</code>.</li>
-                    <li>Uppdatera knappens <code>aria-expanded</code> med <code>setAttribute("aria-expanded", String(isOpen))</code>. Använd <code>if</code> och <code>else</code> för att låta knapptexten växla mellan ”Dölj meny” och ”Visa meny”.</li>
+                    <li>Uppdatera knappens <code>aria-expanded</code> med <code>setAttribute("aria-expanded", String(isOpen))</code>. Behåll knapptexten ”Visa eller dölj meny” i båda lägena. Här tränar du kapitlets klassväxling och aria-expanded utan ytterligare villkorslogik.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Öppna och stäng menyn flera gånger med mus och med Tab följt av Enter eller mellanslag. Stängda menylänkar ska inte nås med Tab. Kontrollera i Elements att aria-expanded alltid motsvarar det synliga läget och att länkarna leder rätt.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Skapa tre avsnitt med id och länkar som matchar dem. Menyns funktion ska vara enkel att testa.</li>
+                        <li>Aria-controls ska matcha navigationens id. Aria-expanded börjar som false eftersom menyn börjar stängd.</li>
+                        <li>Display: none döljer menyn i grundläget. En matchande .is-open-regel ska visa den. Kontrollera att grundregeln inte är starkare än öppningsregeln.</li>
+                        <li>Toggle växlar klassen och ger true när klassen finns efter växlingen, annars false. Spara värdet i isOpen.</li>
+                        <li>SetAttribute ska uppdatera aria-expanded med String(isOpen), enligt kapitlets exempel. Den fasta knapptexten fungerar för båda handlingarna; ingen ytterligare villkorslogik behövs.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Skapa en utfällbar informationsruta</h3>
                 <p>Fortsätt i samma HTML-fil med en fristående knapp som visar eller döljer praktisk information om klubben.</p>
                 <ol>
-                    <li>Skapa en knapp med texten ”Visa praktisk information” och en panel med mötestider, plats och vad besökaren behöver ta med. Ge knappen och panelen egna id.</li>
+                    <li>Skapa en knapp med texten ”Visa eller dölj praktisk information” och en panel med mötestider, plats och vad besökaren behöver ta med. Ge knappen och panelen egna id.</li>
                     <li>Koppla knappen till panelen med <code>aria-controls</code> och sätt <code>aria-expanded="false"</code>. Dölj panelen med CSS från början och skapa en klass <code>.active</code> som visar den.</li>
                     <li>Skriv en separat klicklyssnare som växlar panelens <code>active</code>-klass. Uppdatera aria-expanded från returvärdet från <code>classList.toggle</code>.</li>
-                    <li>Låt knapptexten ange om nästa tryck visar eller döljer informationen. Ge panelen läsbara färger, padding och en tydlig kantlinje.</li>
-                    <li>Skriv en JavaScript-kommentar som beskriver det gemensamma mönstret i menyknappen och informationsknappen: hitta element, lyssna på klick och uppdatera innehåll eller läge.</li>
+                    <li>Behåll texten ”Visa eller dölj praktisk information” och låt aria-expanded beskriva det aktuella läget. Ge panelen läsbara färger, padding och en tydlig kantlinje.</li>
+                    <li>Skriv en HTML-kommentar som beskriver det gemensamma mönstret i menyknappen och informationsknappen: hitta element, lyssna på klick och uppdatera innehåll eller läge.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Testa att menyn och informationsrutan kan vara öppna samtidigt och kan stängas var för sig. Båda knapparna ska fungera med tangentbord och ha rätt aria-expanded. Ladda om sidan och kontrollera att båda börjar stängda.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Använd egna id och en riktig knapp med type="button". Panelen ska innehålla praktisk information.</li>
+                        <li>Aria-controls ska peka på panelen och aria-expanded börja som false. CSS ska dölja panelen tills active finns.</li>
+                        <li>Lyssnaren ska ändra just panelens klass och just denna knapps aria-expanded. Menyn ska inte påverkas.</li>
+                        <li>Behåll den angivna knapptexten. Klass, synlighet och aria-expanded ska beskriva samma aktuella läge.</li>
+                        <li>Kommentaren ska beskriva mönstret hitta, lyssna, ändra. Testa att båda komponenterna kan öppnas och stängas oberoende.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-5-4" aria-label="Quiz Kap 5.4"></div>

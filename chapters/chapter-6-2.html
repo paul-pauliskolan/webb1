@@ -66,6 +66,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-6-2">
                 <h2 id="exercises-6-2">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 6-2</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -80,20 +81,39 @@
                     <li>Ladda ner <a href="../assets/ovn3/ovn3-images/retriever.webp" download="retriever.webp">retriever.webp – svart retriever utomhus</a> till <code>bilder</code>. Behåll originalfilen, som är 550 × 412 pixlar, för jämförelsen.</li>
                     <li>Använd ett av kapitlets bildverktyg. Exportera från originalet två WebP-versioner med 400 pixlars bredd och bibehållna proportioner: <code>hund-400-hog.webp</code> med hög kvalitet och <code>hund-400-lag.webp</code> med tydligt lägre kvalitet. Skriv ner de kvalitetsvärden du använder.</li>
                     <li>Bygg en fullständig HTML-sida och visa de två exporterna lika stora, högst 400 pixlar breda. Lägg till alt-texter och bildtexter med kvalitetsvärdena.</li>
-                    <li>Skapa en tabell med originalets och exporternas filnamn, dimensioner och filstorlekar. Titta särskilt på pälsen och bakgrunden och välj den minsta export som du tycker är tillräckligt tydlig.</li>
+                    <li>Skriv originalets och exporternas filnamn, dimensioner och filstorlekar i en punktlista. Titta särskilt på pälsen och bakgrunden och välj den minsta export som du tycker är tillräckligt tydlig.</li>
                     <li>Skriv några meningar om skillnaden mellan att minska bildens dimensioner i ett bildverktyg och att bara visa en stor bild mindre med CSS.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Kontrollera att exporterna verkligen är 400 pixlar breda och att du inte har förstorat originalet. Motivera ditt val med både kvalitet och filstorlek.</p>
-                <h3>Övning 2: Testa srcset och lazy loading</h3>
-                <p>Fortsätt i samma HTML-fil med en bild som kan använda olika källfiler och en bild längre ner på sidan.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Retriever-originalet ska sparas för jämförelse. Det är 550 × 412 pixlar och ska inte förstoras i exporten.</li>
+                        <li>Båda exporterna ska vara 400 pixlar breda med bibehållna proportioner. Anteckna kvalitet och filnamn så att du kan skilja dem åt.</li>
+                        <li>Visa samma motiv vid samma storlek och använd alt-text samt en synlig beskrivning av exportinställningen.</li>
+                        <li>Dokumentera filstorlek och kvalitet tillsammans. En mindre fil kan ha tydliga kvalitetsförluster; välj utifrån din jämförelse.</li>
+                        <li>Att ändra dimensioner i ett bildverktyg kan minska filens datamängd. En CSS-bredd ändrar visningen men inte den ursprungliga filen.</li>
+                    </ol>
+                </details>
+                <h3>Övning 2: Förklara srcset och lazy loading med kapitlets demo</h3>
+                <p>Använd <a href="chapter-6-2-bilddemo.html" target="_blank" rel="noopener">bilddemot som kapitlet länkar till</a>. Du ska undersöka det, inte bygga en egen version. Skriv dina observationer under övning 1 i din HTML-fil eller i ett vanligt dokument.</p>
                 <ol>
-                    <li>Utgå från retriever-originalet och skapa <code>hund-250.webp</code> och <code>hund-500.webp</code> med 250 respektive 500 pixlars bredd. Behåll proportionerna och spara filerna i <code>bilder</code>.</li>
-                    <li>Lägg en bild överst i en ny sektion. Sätt <code>src="bilder/hund-500.webp"</code>, <code>srcset="bilder/hund-250.webp 250w, bilder/hund-500.webp 500w"</code> och <code>sizes="(max-width: 500px) 50vw, 250px"</code>. Ge bilden CSS <code>width: 50vw; max-width: 250px; height: auto;</code> så att visningsbredden stämmer med sizes.</li>
-                    <li>Låt bilden överst laddas normalt. Lägg sedan flera textavsnitt och en andra bild minst några skärmhöjder längre ner. Använd <code>bilder/hund-500.webp</code> och <code>loading="lazy"</code> på den nedre bilden. Ge båda bilderna alt-text samt width och height som motsvarar respektive källbilds proportioner.</li>
-                    <li>Öppna sidan med Live Server. I Network: välj <strong>Disable cache</strong> och filtrera på bilder. Testa en smal och en bred vy med omladdning före varje försök. Kontrollera vilken srcset-fil som hämtas.</li>
-                    <li>Ladda om högst upp och scrolla sedan mot den nedre bilden. Anteckna när den hämtas. Webbläsaren kan förladda lazy-bilder innan de syns; avståndet varierar. Förklara också att hög pixeltäthet kan göra att den större srcset-filen väljs även på en smal skärm.</li>
+                    <li>Förklara först ur minnet vad <code>srcset</code>, <code>sizes</code> och <code>loading="lazy"</code> används till. Markera vilket begrepp du är mest osäker på.</li>
+                    <li>Öppna demot och ändra reglaget för bildens visade bredd. Anteckna två bredder och vilken fil demot anger som vald bildkälla. Jämför din förutsägelse med resultatet; samma fil kan väljas vid flera bredder.</li>
+                    <li>Scrolla till lazy loading-delen. Följ demots instruktioner för Network: öppna panelen, välj Disable cache och ladda om med DevTools öppet. Scrolla sedan mot de första bilderna och anteckna när deras filer hämtas. Du behöver inte ladda eller undersöka alla tio bilderna.</li>
+                    <li>Förklara varför en bild högt upp på en sida normalt inte ska vänta på lazy loading. Förklara också varför en bildfil kan behöva rätt pixelstorlek även om CSS redan gör den liten på skärmen.</li>
                 </ol>
-                <p><strong>Kontrollera och förklara:</strong> Kontrollera att ingen bildförfrågan misslyckas och att srcset-filerna har de bredder som anges med w. Skriv vilka källfiler som faktiskt valdes och vad du observerade vid scrollning.</p>
+                <p><strong>Kontrollera och förklara:</strong> Jämför dina förklaringar med kapitlets avsnitt om bildkällor och lazy loading. Webbläsaren kan hämta en lazy-bild innan den syns. Beskriv vad du faktiskt såg, utan krav på att en särskild fil alltid måste väljas.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Srcset anger alternativa bildkällor, sizes hjälper webbläsaren uppskatta visningsbredd och lazy loading kan skjuta upp hämtning av bilder längre ner.</li>
+                        <li>Anteckna reglagets bredd och demots valda fil. Valet påverkas även av pixeltäthet och vad webbläsaren redan hämtat; det behöver inte bytas vid varje bredd.</li>
+                        <li>Följ Network-instruktionerna och anteckna när de första filerna hämtas. En lazy-bild kan hämtas innan den når den synliga ytan.</li>
+                        <li>En bild som behövs direkt bör inte avsiktligt skjutas upp. CSS ändrar visningsstorleken; dimensioner och komprimering påverkar själva filens storlek.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-6-2" aria-label="Quiz Kap 6.2"></div>

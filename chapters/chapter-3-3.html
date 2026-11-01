@@ -483,6 +483,52 @@ img {
     </ul>
 </section>
 
+            <section class="exercise-section" aria-labelledby="exercises-3-3">
+                <h2 id="exercises-3-3">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Gör först kunskapsfrågorna utan att titta i kapitlet. Skriv på papper eller i ett dokument och markera det du är osäker på. Jämför sedan med svarsstödet och kapitlet, rätta dina svar och förklara det du missade med egna ord. I kodövningen ska du förutsäga resultatet innan du testar.</p>
+                <h3>Övning 1: Räkna och förklara boxmodellen</h3>
+                <ol>
+                    <li>Skriv boxmodellens fyra lager i ordning från innehållet och utåt. Förklara skillnaden mellan padding och margin.</li>
+                    <li>En box har <code>width: 200px</code>, <code>padding: 20px</code>, <code>border: 5px solid</code> och <code>margin: 10px</code>. Beräkna den synliga boxens bredd med content-box respektive border-box. Ingår margin i den bredden?</li>
+                    <li>Förklara skillnaden mellan block och inline. Ge två exempel på varje och beskriv skillnaden mellan div och span.</li>
+                    <li>Förklara vad var och en av reglerna <code>max-width: 100%</code>, <code>height: auto</code> och <code>display: block</code> gör för en bild.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Content, padding, border och margin. Padding är luft innanför kanten; margin skapar avstånd utanför boxen.</li>
+                        <li>Med content-box: 200 + 40 + 10 = 250 px. Med border-box: 200 px, varav innehållet får 150 px. Margin ligger utanför och ingår inte i dessa bredder.</li>
+                        <li>Block börjar normalt på ny rad, exempelvis p och div. Inline ligger i textflödet, exempelvis a och span. Div är en generell blockbehållare, span en generell inline-behållare.</li>
+                        <li>Max-width: 100% begränsar bilden till behållarens bredd; height: auto bevarar proportionerna; display: block tar bort utrymmet vid textens baslinje.</li>
+                    </ol>
+                </details>
+                <h3>Förbered kodövningen</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 3-3</code> i din mapp <code>Webbutveckling 1</code>.</li>
+                    <li>Öppna bara mappen <code>kap 3-3</code> i Visual Studio Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn3-3.html</code>. Skriv CSS i ett <code>&lt;style&gt;</code>-element inuti <code>&lt;head&gt;</code>. Om du skapar fler än en HTML-sida ska du använda en extern CSS-fil som du länkar från varje sida.</li>
+                </ol>
+                <h3>Övning 2: Testa din förutsägelse med en box och en bild</h3>
+                <ol>
+                    <li>Skapa en fullständig HTML-sida med main, en rubrik och ett stycke. Lägg ett span runt några ord i stycket och ge span en bakgrundsfärg. Förklara varför orden ligger kvar i textflödet.</li>
+                    <li>Ge main <code>width: 200px</code>, <code>padding: 20px</code>, <code>border: 5px solid</code>, <code>margin: 10px</code> och <code>box-sizing: content-box</code>. Förutsäg bredden igen och kontrollera med kapitlets boxmodelldemo genom att ställa in samma värden. Jämför den synliga boxens bredd i demot. Byt sedan till border-box både i din kod och i demot och jämför.</li>
+                    <li>Gör därefter main lämplig för sidan: ta bort den fasta bredden, använd <code>max-width: 70ch</code>, <code>margin: 0 auto</code> och padding i rem. Sätt <code>box-sizing: border-box</code> som grundregel. Förklara varför den fasta bredden och testmarginalen behövde ersättas.</li>
+                    <li>Ladda ner <a href="../assets/images/dog.jpg" download="dog.jpg">dog.jpg – brun hund mot mörk bakgrund</a> till undermappen <code>bilder</code> i <code>kap 3-3</code>. Visa den med <code>src="bilder/dog.jpg"</code> och beskrivande alt-text. Använd kapitlets tre bildregler: display: block, max-width: 100% och height: auto.</li>
+                    <li>Gör fönstret smalare än bilden och kontrollera att bilden ryms med proportionerna kvar. Skriv vilka av dina förutsägelser som stämde och förklara skillnaden mellan inre luft och yttre avstånd med din egen box som exempel.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter din förutsägelse och ditt test</summary>
+                    <ol>
+                        <li>Span ska ligga kvar bland orden i stycket. Bakgrunden markerar ordens yta utan att skapa en egen blockrad.</li>
+                        <li>Den synliga boxen ska vara 250 px med content-box och 200 px med border-box. Margin tillkommer utanför boxen.</li>
+                        <li>En fast testbredd ersätts med en maxbredd så att huvudinnehållet kan anpassas. Auto-marginaler centrerar när det finns ledigt utrymme; padding ger inre luft.</li>
+                        <li>Bilden ska ligga i bilder/dog.jpg och src ska matcha. Alt-texten ska beskriva hunden. Kontrollera att alla tre bildreglerna finns.</li>
+                        <li>Bilden är 400 × 267 pixlar och ska krympa utan förvrängning. Koppla din förklaring till padding innanför kanten och margin utanför.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Välj två frågor du var osäker på och besvara dem igen utan att läsa dina tidigare svar. Förklara också en CSS-regel från kodövningen ur minnet. Kontrollera och rätta efteråt.</p>
+            </section>
+
             <div id="quiz-3-3" aria-label="Quiz Kap 3.3"></div>
             <nav class="chapter-nav" aria-label="Kapitel navigering">
                 <a href="chapter-3-2.html" class="nav-button"><span><span class="nav-label">Föregående</span><span class="nav-title">3.2 Färg, typografi och läsbarhet</span></span></a>

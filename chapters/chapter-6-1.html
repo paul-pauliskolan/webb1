@@ -275,6 +275,7 @@
 
             <section class="exercise-section" aria-labelledby="exercises-6-1">
                 <h2 id="exercises-6-1">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Läs först uppgiften och försök förklara de centrala begreppen ur minnet. Förutsäg vad en ändring kommer att göra innan du testar. Gör en ändring i taget, jämför resultatet med kapitlets exempel och förklara med egna ord. Svarsstödets nummer följer arbetsstegen.</p>
                 <h3>Förbered arbetet</h3>
                 <ol>
                     <li>Skapa en mapp som heter <code>kap 6-1</code> i din mapp <code>Webbutveckling 1</code>.</li>
@@ -288,21 +289,42 @@
                 <ol>
                     <li>Ladda ner kursens <a href="../assets/images/dog.jpg" download="dog.jpg">dog.jpg – brun hund mot mörk bakgrund</a>. Spara den i undermappen <code>bilder</code>. Originalet är 400 × 267 pixlar.</li>
                     <li>Öppna bilden i bildverktyget som länkas i kapitlet. Exportera en PNG-version som <code>hund.png</code> och en WebP-version som <code>hund.webp</code>. Behåll 400 × 267 pixlar i båda versionerna. Att byta filändelse är inte en konvertering.</li>
-                    <li>Skapa en fullständig HTML-sida med språk, sidtitel och viewport-inställning. Visa de tre bilderna i varsin <code>figure</code> med beskrivande alt-text och bildtext. Använd sökvägarna <code>bilder/dog.jpg</code>, <code>bilder/hund.png</code> och <code>bilder/hund.webp</code>.</li>
+                    <li>Skapa en fullständig HTML-sida med språk, sidtitel och viewport-inställning. Visa de tre bilderna med <code>img</code>, beskrivande alt-text och en bildbeskrivning i ett vanligt <code>p</code>-element efter varje bild. Använd sökvägarna <code>bilder/dog.jpg</code>, <code>bilder/hund.png</code> och <code>bilder/hund.webp</code>.</li>
                     <li>Visa bilderna lika stora med CSS, högst 400 pixlar breda, och använd <code>max-width: 100%</code> och <code>height: auto</code>.</li>
-                    <li>Skapa en HTML-tabell med filnamn, format, dimensioner och faktisk filstorlek i kB. Jämför pälsens detaljer och bakgrunden och skriv vilket format du väljer för fotot och varför.</li>
+                    <li>Dokumentera filnamn, format, dimensioner och faktisk filstorlek i kB i en vanlig punktlista på sidan. Jämför pälsens detaljer och bakgrunden och skriv vilket format du väljer för fotot och varför.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Alla tre filer ska visa samma motiv med samma dimensioner. Utgå från dina mätningar när du jämför filstorlek; ett byte till WebP garanterar inte att just din export blir mindre.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Dog.jpg ska ligga i bilder. Originalets dimensioner är 400 × 267 pixlar.</li>
+                        <li>Verktyget ska exportera riktiga PNG- och WebP-filer med samma dimensioner. Ett namnbyte ändrar inte format.</li>
+                        <li>Använd img, alt och ett vanligt p för beskrivningen. Alla tre src-sökvägar ska stämma med dina filer.</li>
+                        <li>Visa bilderna lika stora så att jämförelsen gäller format och kvalitet, inte olika visningsstorlekar. Bevara proportionerna.</li>
+                        <li>Punktlistan ska innehålla faktiska mätningar från dina filer. Minsta filen är inte automatiskt bäst om kvaliteten blir för låg.</li>
+                    </ol>
+                </details>
                 <h3>Övning 2: Jämför pixelbild och vektorbild</h3>
                 <p>Fortsätt i samma HTML-fil och undersök vilka bilder som passar att förstora.</p>
                 <ol>
                     <li>Ladda ner <a href="../assets/images/svg-zoom-demo.svg" download="svg-zoom-demo.svg">svg-zoom-demo.svg – geometriska former och text</a> till <code>bilder</code>. Visa den med <code>src="bilder/svg-zoom-demo.svg"</code> och en alt-text som beskriver innehållet.</li>
                     <li>Lägg SVG-bilden och hundfotot från övning 1 i en ny jämförelsesektion. Ge dem tydliga bildtexter som anger vektorbild respektive pixelbild.</li>
-                    <li>Öppna båda bildfilerna i webbläsaren och förstora kraftigt. Jämför kanterna på SVG-bildens former med detaljerna i hundfotot.</li>
+                    <li>Använd kapitlets två zoomdemon för jämförelsen. Förutsäg vad som händer när du förstorar pixelbilden respektive vektorbilden och jämför sedan deras kanter. Du behöver inte skriva någon egen zoomfunktion.</li>
                     <li>Skriv tre korta rekommendationer på sidan: ett format för ett fotografi, ett för en skalbar logotyp och ett för en pixelbild som behöver transparens. Motivera varje val med kapitlets jämförelse.</li>
                     <li>Förklara varför du inte får en vektorbild genom att döpa om <code>dog.jpg</code> till <code>dog.svg</code>, och varför JPEG inte passar när bakgrunden måste vara genomskinlig.</li>
                 </ol>
                 <p><strong>Kontrollera och förklara:</strong> Kontrollera att båda bildfilerna visas och att du kan förklara skillnaden mellan pixlar och former. Nämn även när AVIF kan vara ett alternativ till WebP.</p>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>SVG-filen ska finnas i bilder och sökvägen ska matcha. Skriv alt-text som beskriver former och text.</li>
+                        <li>Ange tydligt vilken bild som är vektor och vilken som är pixelbild.</li>
+                        <li>Zoomdemona visar pixlar i fotot medan SVG-formernas kanter fortsätter vara skarpa. Jämför din förutsägelse med observationen.</li>
+                        <li>Motivera exempelvis WebP för foto, SVG för skalbar enkel grafik och PNG eller WebP för rastergrafik med transparens. Kapitlet beskriver även AVIF som alternativ.</li>
+                        <li>En filändelse gör inte om pixlar till former. JPEG har inte stöd för genomskinliga bilddelar.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Förklara två begrepp eller regler du var osäker på utan att läsa dina gamla svar. Kontrollera därefter mot kapitlet och rätta det som behövs.</p>
             </section>
 
             <div id="quiz-6-1" aria-label="Quiz Kap 6.1"></div>

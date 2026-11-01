@@ -111,15 +111,14 @@ p {
 
                 <h2>Samla dina webbutvecklingsprojekt</h2>
                 <p>Det är viktigt att samla alla webbutvecklingsprojekt i en gemensam mapp som är lätt att hitta på datorn. Då vet du alltid var dina HTML-, CSS- och bildfiler ligger, och det blir enklare att öppna rätt projekt i VS Code.</p>
-                <p>På Mac rekommenderar jag att du skapar mappen <code>Dokument/webbutveckling</code>. I den mappen kan varje uppgift få en egen projektmapp, till exempel <code>profil-sida</code>, <code>kontaktformular</code> och <code>responsiv-startsida</code>.</p>
+                <p>Skapa kursmappen <code>Webbutveckling 1</code> på en plats där du lätt hittar den, till exempel i Dokument. I den samlar du uppgifternas projektmappar. Delkapitlens övningsmappar heter till exempel <code>kap 1-2</code> och <code>kap 1-3</code>; större uppgifter kan ha namn som <code>profil-sida</code> och <code>kontaktformular</code>.</p>
                 <figure>
                     <img src="../assets/images/kap1-folders.png" alt="Exempel på en webbutvecklingsmapp med flera projektmappar">
                     <figcaption>Exempel: samla kursens projekt i en gemensam webbutvecklingsmapp.</figcaption>
                 </figure>
 
                 <h2>Filnamn</h2>
-                <p>Använd små bokstäver, siffror och bindestreck. Undvik å, ä, ö, mellanslag och specialtecken i fil-
-                    och mappnamn. Namn som <code>min-profil.html</code> och <code>profilbild.jpg</code> är lättare att
+                <p>Använd små bokstäver, siffror och bindestreck i egna filnamn. Undvik å, ä, ö, mellanslag och specialtecken. I kursen använder du de angivna mappnamnen, till exempel <code>Webbutveckling 1</code> och <code>kap 1-2</code>. Namn som <code>min-profil.html</code> och <code>profilbild.jpg</code> är lättare att
                     hantera än <code>Min Profilbild 1.JPG</code>.</p>
                 <p>En startsida bör heta <code>index.html</code>. Många webbservrar letar automatiskt efter just det
                     filnamnet.</p>
@@ -139,17 +138,6 @@ p {
                     hur andra löst liknande problem. AI-verktyg kan ge förslag, men du behöver alltid testa, förstå och
                     kontrollera koden själv.</p>
 
-                <h2>Prova själv</h2>
-                <ol>
-                    <li>Installera VS Code om det inte redan finns på datorn.</li>
-                    <li>Installera minst Live Server och W3C Web Validator.</li>
-                    <li>Skapa mappen <code>profil-sida</code>.</li>
-                    <li>Öppna mappen i VS Code med <strong>File</strong> och <strong>Open Folder</strong>.</li>
-                    <li>Skapa <code>index.html</code>, <code>styles.css</code> och mappen <code>images</code>.</li>
-                    <li>Skriv <code>!</code> i <code>index.html</code> och tryck Tab för att skapa en HTML-mall.</li>
-                    <li>Starta Live Server och kontrollera att webbläsaren öppnar rätt fil.</li>
-                </ol>
-
                 <h2>Sammanfattning</h2>
                 <ul>
                     <li>VS Code installeras från <code>code.visualstudio.com</code>.</li>
@@ -161,6 +149,49 @@ p {
                     <li>Dokumentation och felmeddelanden är ofta på engelska.</li>
                     <li>AI kan hjälpa, men du ansvarar för att koden fungerar.</li>
                 </ul>
+            </section>
+
+            <section class="exercise-section" aria-labelledby="exercises-1-2">
+                <h2 id="exercises-1-2">Övningar</h2>
+                <p><strong>Så arbetar du:</strong> Besvara först kunskapsfrågorna utan att titta i kapitlet. Skriv med egna ord på papper eller i ett dokument och markera det du är osäker på. Öppna sedan svarsstödet, jämför med kapitlet och rätta. Svarsstödets nummer motsvarar frågans eller arbetsstegets nummer.</p>
+                <h3>Övning 1: Förklara verktygen och projektmappen</h3>
+                <ol>
+                    <li>Vad använder du VS Code respektive webbläsaren till? Vad hjälper Live Server till med?</li>
+                    <li>Varför ska varje webbplats ha en egen projektmapp? Vad är en filändelse och vilket standardnamn brukar en startsida ha?</li>
+                    <li>Om HTML-filen och styles.css ligger i samma mapp, vilken relativ sökväg används? Om profilbild.jpg ligger i images, vilken sökväg används då?</li>
+                    <li>Vad betyder 127.0.0.1 i Live Server-adressen? Varför behöver du kontrollera kod även när du fått den från AI eller ett forum?</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>VS Code används för att skriva och redigera kod. Webbläsaren visar och kör sidan. Live Server visar projektet via en lokal webbserver och kan ladda om efter sparning.</li>
+                        <li>Mappen samlar filer som hör ihop. Filändelsen anger filtypen, exempelvis .html. Startsidan brukar heta index.html, även om övningarnas filer har egna namn.</li>
+                        <li>Sökvägarna är styles.css respektive images/profilbild.jpg. En relativ sökväg utgår från filen där den skrivs.</li>
+                        <li>127.0.0.1 avser din egen dator. Kodförslag kan vara fel eller passa ett annat sammanhang; du behöver testa och förstå dem själv.</li>
+                    </ol>
+                </details>
+                <h3>Förbered arbetet i VS Code</h3>
+                <ol>
+                    <li>Skapa mappen <code>kap 1-2</code> i din mapp <code>Webbutveckling 1</code> och öppna bara denna kapitelmapp i VS Code via <strong>Arkiv → Öppna mapp</strong>.</li>
+                    <li>Skapa <code>ovn1-2.html</code>. Använd kapitlets HTML-grundstruktur eller Emmet-mallen. I dessa övningar behövs ingen CSS eller JavaScript.</li>
+                </ol>
+                <h3>Övning 2: Öppna rätt mapp och testa arbetsflödet</h3>
+                <ol>
+                    <li>Öppna bara kapitelmappen i VS Code och skapa HTML-filen enligt förberedelserna. Skriv <code>!</code> och tryck Tab för att skapa en mall med Emmet. Spara den skapade grundmallen. I denna övning tränar du verktygen; grundkodens delar går vi igenom i 1.3.</li>
+                    <li>Skriv <code>&lt;p&gt;Jag testar Live Server.&lt;/p&gt;</code> i body. Spara och öppna filen med Live Server. Använd installationstegen i kapitlet om verktyget saknas.</li>
+                    <li>Förutsäg vad som händer om du ändrar texten och sparar. Testa sedan och jämför. Anteckna vad adressens datoradress, port och filnamn betyder.</li>
+                    <li>Skapa undermappen images utan att lägga någon bild där ännu. Stäng projektmappen och öppna den igen. Kontrollera att filerna finns kvar och förklara hur du vet att du öppnat rätt projekt.</li>
+                </ol>
+                <details>
+                    <summary>Svarsstöd – öppna efter ditt eget försök</summary>
+                    <ol>
+                        <li>Utforskaren i VS Code ska visa kap 1-2 som projektmapp och ovn1-2.html inuti den. Emmet ska ge HTML-grundkod som du sparar innan du testar sidan.</li>
+                        <li>Texten ska synas i webbläsaren. Adressen ska visa en lokal server, exempelvis 127.0.0.1 eller localhost, och rätt HTML-fil.</li>
+                        <li>Den sparade textändringen ska visas; ladda om vid behov. Datoradressen pekar på din dator, porten på serverns port och filnamnet på den öppnade resursen.</li>
+                        <li>Samma HTML-fil och images-mapp ska finnas kvar. Kontrollera projektmappens namn och filnamnen i Utforskaren. Det är mappen du öppnar, inte bara en lös fil.</li>
+                    </ol>
+                </details>
+                <p><strong>Återblick vid nästa lektion:</strong> Besvara två frågor du var osäker på igen utan att läsa dina gamla svar. Förklara ett viktigt begrepp ur minnet. Kontrollera och rätta efteråt.</p>
             </section>
 
             <div id="quiz-1-2" aria-label="Quiz Kap 1.2"></div>
